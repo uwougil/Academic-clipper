@@ -4,7 +4,7 @@
 
 ## 架构与复用边界
 
-本目录旁边的 `../obsidian-web-clipper` 是从官方仓库克隆的源码快照（clone 时 HEAD 为 `9aa509b8f2801b08d974fb59f026df6f9a12e496`）。研究得到的调用链是：
+开发工作区旁边的 `../obsidian-web-clipper` 是从官方仓库克隆的源码快照（clone 时 HEAD 为 `9aa509b8f2801b08d974fb59f026df6f9a12e496`）。它用于源码研究，未重复 vendored 到本仓库；本项目运行时直接依赖 npm 的 `defuddle` 包。研究得到的调用链是：
 
 ```text
 browser page HTML
@@ -42,6 +42,8 @@ npm run dev
 ```
 
 默认配置把文件写入项目下的 `papers/`。可以把 `config.json` 改成任意本地知识库目录；相对路径相对于配置文件所在目录解析：
+
+`papers/`、`node_modules/`、`dist/` 和本地 `config.json` 默认不提交到 Git；目标论文的本地生成结果保留在开发工作区中，仓库只提交可复现的代码、fixture 和配置模板。
 
 ```json
 {
