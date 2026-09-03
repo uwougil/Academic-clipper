@@ -1,0 +1,6 @@
+{
+  "libraryPath": "./papers",
+  "port": 34123,
+  "downloadFigures": false,
+  "saveDebug": false
+}
