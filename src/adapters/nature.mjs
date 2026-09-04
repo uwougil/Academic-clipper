@@ -1,10 +1,12 @@
 import { JSDOM } from 'jsdom';
+import { semanticMarker } from '../normalizers/markers.mjs';
 
 const NATURE_HOSTS = new Set(['nature.com', 'www.nature.com']);
 const EXCLUDED_SECTIONS = new Set([
   'about this article',
   'author information',
   'extended data figures and tables',
+  'references',
   'rights and permissions',
   'supplementary information',
 ]);
@@ -68,11 +70,8 @@ function parseJsonLd(document) {
       const parsed = JSON.parse(script.textContent || '');
       const candidates = Array.isArray(parsed) ? parsed : [parsed];
       for (const candidate of candidates) {
-        if (candidate?.['@graph'] && Array.isArray(candidate['@graph'])) {
-          values.push(...candidate['@graph']);
-        } else {
-          values.push(candidate);
-        }
+        if (candidate?.['@graph'] && Array.isArray(candidate['@graph'])) values.push(...candidate['@graph']);
+        else values.push(candidate);
       }
     } catch {
       // Some pages contain analytics JSON in a JSON-LD script. Ignore it.
@@ -105,13 +104,12 @@ function extractMetadata(document, url) {
   const doi = firstMeta(document, ['citation_doi', 'dc.identifier']).replace(/^doi:/i, '');
   const date = firstMeta(document, ['citation_online_date', 'citation_publication_date', 'date'])
     || cleanText(jsonArticle.datePublished);
-  const normalizedDate = date.replace(/\//g, '-');
 
   return {
     title,
     authors,
     journal: firstMeta(document, ['citation_journal_title']) || cleanText(jsonArticle.isPartOf?.name) || 'Nature',
-    date: normalizedDate,
+    date: date.replace(/\//g, '-'),
     doi,
     url: normalizeUrl(canonical || url, url).split('#')[0],
     volume: firstMeta(document, ['citation_volume']),
@@ -129,56 +127,117 @@ function figureLabel(caption, fallback) {
   return `${match[1] ?? ''}Figure ${match[2]}`;
 }
 
+function figureNumber(label, fallback) {
+  return Number(label.match(/(\d+)$/)?.[1] || fallback);
+}
+
+function tableLabel(caption, fallback) {
+  const match = cleanText(caption).match(/^(Extended Data )?Table\s*([0-9]+)/i);
+  if (!match) return fallback;
+  return `${match[1] ?? ''}Table ${match[2]}`;
+}
+
+function srcsetCandidates(value, baseUrl) {
+  return String(value || '')
+    .split(',')
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part, index) => {
+      const [rawUrl, descriptor = ''] = part.split(/\s+/);
+      const width = Number(descriptor.match(/(\d+)w/i)?.[1] || 0);
+      const density = Number(descriptor.match(/([\d.]+)x/i)?.[1] || 0);
+      return { url: normalizeUrl(rawUrl, baseUrl), score: width || density * 1000 || 1, index };
+    })
+    .filter((candidate) => candidate.url);
+}
+
 function imageUrlFor(element, url) {
-  const image = element.querySelector('img');
-  const source = element.querySelector('source[srcset]');
-  const candidate = image?.getAttribute('src')
-    || image?.getAttribute('data-src')
-    || source?.getAttribute('srcset')?.split(',')[0]?.trim().split(' ')[0]
-    || element.querySelector('[data-supp-info-image]')?.getAttribute('data-supp-info-image');
-  return normalizeUrl(candidate, url);
+  const candidates = [];
+  for (const source of element.querySelectorAll('source[srcset], source[data-srcset]')) {
+    candidates.push(...srcsetCandidates(source.getAttribute('srcset') || source.getAttribute('data-srcset'), url));
+  }
+  for (const image of element.querySelectorAll('img')) {
+    for (const attribute of ['srcset', 'data-srcset']) {
+      candidates.push(...srcsetCandidates(image.getAttribute(attribute), url));
+    }
+    for (const attribute of ['data-src', 'data-original', 'data-lazy-src', 'src']) {
+      const value = image.getAttribute(attribute);
+      if (value) candidates.push({ url: normalizeUrl(value, url), score: 1, index: candidates.length });
+    }
+  }
+  const supplemental = element.querySelector('[data-supp-info-image]')?.getAttribute('data-supp-info-image');
+  if (supplemental) candidates.push({ url: normalizeUrl(supplemental, url), score: 1, index: candidates.length });
+  return candidates.sort((a, b) => b.score - a.score || a.index - b.index)[0]?.url || '';
+}
+
+function captionFor(figure) {
+  return cleanText(figure.querySelector(
+    '[data-test="figure-caption-text"], [data-test="table-caption"], .c-article-table__figcaption, figcaption',
+  )?.textContent);
 }
 
 function extractFigures(body, url) {
   const figures = [];
-
   for (const figure of body.querySelectorAll('figure')) {
-    const caption = cleanText(figure.querySelector('[data-test="figure-caption-text"], figcaption')?.textContent);
+    const caption = captionFor(figure);
+    const isTable = /^Table\b|^Extended Data Table\b/i.test(caption);
+    const inExcludedSection = Boolean(figure.closest('section[data-title="Extended data figures and tables"]'));
     const imageUrl = imageUrlFor(figure, url);
-    const id = figure.querySelector('[id^="Fig"]')?.id || '';
-    if (!imageUrl || !caption || /^Table\b/i.test(caption) || /^Extended Data Table\b/i.test(caption)) continue;
+    if (inExcludedSection || isTable || !imageUrl || !caption) continue;
+
+    const id = figure.id || figure.querySelector('[id^="Fig"]')?.id || '';
+    const number = figures.length + 1;
     figures.push({
       id,
-      label: figureLabel(caption, `Figure ${figures.length + 1}`),
+      natureId: id,
+      anchor: `figure-${number}`,
+      label: figureLabel(caption, `Figure ${number}`),
       caption,
+      alt: `Figure ${number}`,
       imageUrl,
       source: 'inline figure',
     });
   }
 
+  let extendedNumber = 0;
   for (const item of body.querySelectorAll('.js-c-reading-companion-figures-item[data-test="supp-item"]')) {
     const heading = item.querySelector('h3')?.textContent;
-    const imageUrl = imageUrlFor(item, url);
     const caption = cleanText(heading || item.querySelector('.c-article-supplementary__description')?.textContent);
+    const label = figureLabel(caption, `Extended Data Figure ${extendedNumber + 1}`);
+    const imageUrl = imageUrlFor(item, url);
     if (!imageUrl || !caption || !/Extended Data Fig/i.test(caption)) continue;
+    extendedNumber += 1;
+    const number = figureNumber(label, extendedNumber);
     figures.push({
-      id: item.id,
-      label: figureLabel(caption, `Figure ${figures.length + 1}`),
+      id: item.id || '',
+      natureId: item.id || '',
+      anchor: `extended-data-figure-${number}`,
+      label,
       caption,
+      alt: `Extended Data Figure ${number}`,
       imageUrl,
       source: 'supplementary figure',
     });
   }
-
   return figures;
 }
 
 function extractTables(body, url) {
+  let number = 0;
   return Array.from(body.querySelectorAll('figure')).flatMap((figure) => {
-    const caption = cleanText(figure.querySelector('[data-test="table-caption"], .c-article-table__figcaption')?.textContent);
-    if (!caption) return [];
-    const link = figure.querySelector('[data-test="table-link"]')?.getAttribute('href');
-    return [{ caption, url: normalizeUrl(link, url) }];
+    const caption = captionFor(figure);
+    if (!/^Table\b|^Extended Data Table\b/i.test(caption)) return [];
+    number += 1;
+    const link = figure.querySelector('[data-test="table-link"], a[href]')?.getAttribute('href');
+    const id = figure.id || figure.querySelector('[id^="Tab"]')?.id || '';
+    return [{
+      id,
+      natureId: id,
+      anchor: `table-${number}`,
+      label: tableLabel(caption, `Table ${number}`),
+      caption,
+      url: normalizeUrl(link, url),
+    }];
   });
 }
 
@@ -187,16 +246,174 @@ function extractReferences(body) {
     .map((item, index) => {
       const text = cleanText(item.querySelector('.c-article-references__text')?.textContent || item.textContent);
       const doi = item.querySelector('[data-doi]')?.getAttribute('data-doi') || '';
-      return { number: index + 1, text, doi };
+      return { number: index + 1, anchor: `ref-${index + 1}`, text, doi };
     })
     .filter((reference) => reference.text);
+}
+
+function slugify(value) {
+  return cleanText(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'section';
+}
+
+function extractMathSource(value) {
+  const text = String(value || '').trim();
+  const pairs = [['\\(', '\\)'], ['\\[', '\\]'], ['$$', '$$']];
+  for (const [left, right] of pairs) {
+    if (text.startsWith(left) && text.endsWith(right)) return text.slice(left.length, -right.length).trim();
+  }
+  return text;
+}
+
+function replaceDisplayMath(body) {
+  const values = [];
+  for (const element of Array.from(body.querySelectorAll('.c-article-equation .mathjax-tex'))) {
+    const tex = extractMathSource(element.textContent);
+    if (!tex) continue;
+    const marker = semanticMarker('DISPLAYMATH', values.length);
+    values.push({ marker, tex });
+    element.replaceWith(body.ownerDocument.createTextNode(marker));
+  }
+  return values;
+}
+
+function replaceInlineMath(body) {
+  const values = [];
+  for (const element of Array.from(body.querySelectorAll('.mathjax-tex'))) {
+    if (element.closest('.c-article-equation')) continue;
+    const tex = extractMathSource(element.textContent);
+    if (!tex) continue;
+    const marker = semanticMarker('INLINEMATH', values.length);
+    values.push({ marker, tex });
+    element.replaceWith(body.ownerDocument.createTextNode(marker));
+  }
+  return values;
+}
+
+function replaceScientificBracketText(body) {
+  const values = [];
+  const walker = body.ownerDocument.createTreeWalker(body, 4);
+  const pattern = /\[(\d+(?:[,\s−+\-]\d+)*)\](?=-[\p{L}])/gu;
+  for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+    if (node.parentElement?.closest('.mathjax-tex, .c-article-equation, ol.c-article-references, ol.c-article-references__list')) continue;
+    const next = node.textContent.replace(pattern, (match) => {
+      const marker = semanticMarker('LITERALTEXT', values.length);
+      values.push({ marker, text: match });
+      return marker;
+    });
+    if (next !== node.textContent) node.textContent = next;
+  }
+  return values;
+}
+
+function citationNumber(anchor) {
+  const text = cleanText(anchor.textContent).match(/\d+/)?.[0];
+  if (text) return Number(text);
+  const href = anchor.getAttribute('href') || '';
+  return Number(href.match(/#ref-CR(\d+)/i)?.[1] || 0);
+}
+
+function replaceCitations(body) {
+  const values = [];
+  for (const sup of Array.from(body.querySelectorAll('sup'))) {
+    const anchors = Array.from(sup.querySelectorAll('a[data-test="citation-ref"], a[href*="#ref-CR"]'));
+    const numbers = anchors.map(citationNumber).filter(Boolean);
+    if (!numbers.length) continue;
+    const marker = semanticMarker('CITATION', values.length);
+    values.push({ marker, numbers });
+    sup.replaceWith(body.ownerDocument.createTextNode(marker));
+  }
+
+  for (const anchor of Array.from(body.querySelectorAll('a[data-test="citation-ref"], a[href*="#ref-CR"]'))) {
+    if (anchor.closest('ol.c-article-references, ol.c-article-references__list')) continue;
+    const number = citationNumber(anchor);
+    if (!number) continue;
+    const marker = semanticMarker('CITATION', values.length);
+    values.push({ marker, numbers: [number] });
+    anchor.replaceWith(body.ownerDocument.createTextNode(marker));
+  }
+  return values;
+}
+
+function buildCrossReferences(body, figures, tables) {
+  const references = new Map();
+  for (const figure of figures) {
+    if (figure.natureId) references.set(figure.natureId, { type: 'figure', label: figure.label, anchor: figure.anchor });
+  }
+  for (const table of tables) {
+    if (table.natureId) references.set(table.natureId, { type: 'table', label: table.label, anchor: table.anchor });
+  }
+  for (const [index, equation] of Array.from(body.querySelectorAll('.c-article-equation')).entries()) {
+    const id = equation.id || `Equ${index + 1}`;
+    const number = Number(id.match(/(\d+)$/)?.[1] || index + 1);
+    references.set(id, { type: 'equation', label: `Equation ${number}`, anchor: `equation-${number}` });
+  }
+  for (const heading of body.querySelectorAll('[id]')) {
+    if (!/^H[2-6]$/.test(heading.tagName)) continue;
+    const section = heading.closest('section');
+    const sectionTitle = cleanText(
+      section?.getAttribute('data-title')
+      || section?.querySelector(':scope > .c-article-section > h2, :scope > h2')?.textContent,
+    ).toLowerCase();
+    if (EXCLUDED_SECTIONS.has(sectionTitle) || heading.closest(JUNK_SELECTORS.join(','))) continue;
+    references.set(heading.id, {
+      type: 'section',
+      label: cleanText(heading.textContent),
+      anchor: `section-${slugify(heading.textContent)}`,
+    });
+  }
+  return references;
+}
+
+function insertAnchorMarker(parent, marker) {
+  const paragraph = parent.ownerDocument.createElement('p');
+  paragraph.textContent = marker;
+  parent.before(paragraph);
+}
+
+function prepareSemanticNodes(body, url, figures, tables) {
+  const displayMath = replaceDisplayMath(body);
+  const inlineMath = replaceInlineMath(body);
+  const literalText = replaceScientificBracketText(body);
+  const citations = replaceCitations(body);
+  const crossReferences = buildCrossReferences(body, figures, tables);
+
+  for (const anchor of Array.from(body.querySelectorAll('a[href]'))) {
+    const href = anchor.getAttribute('href') || '';
+    let fragment = '';
+    try {
+      fragment = new URL(href, url).hash.slice(1);
+    } catch {
+      fragment = href.startsWith('#') ? href.slice(1) : '';
+    }
+    const target = crossReferences.get(fragment);
+    if (target) anchor.setAttribute('href', `#${target.anchor}`);
+  }
+
+  for (const heading of Array.from(body.querySelectorAll('[id]')).filter((node) => /^H[2-6]$/.test(node.tagName))) {
+    const target = crossReferences.get(heading.id);
+    if (target) insertAnchorMarker(heading, semanticMarker('SECTIONANCHOR', target.anchor));
+  }
+  for (const equation of Array.from(body.querySelectorAll('.c-article-equation'))) {
+    const target = crossReferences.get(equation.id);
+    if (target) insertAnchorMarker(equation, semanticMarker('EQUATIONANCHOR', target.anchor));
+  }
+
+  for (const figure of Array.from(body.querySelectorAll('figure'))) {
+    const id = figure.id || figure.querySelector('[id^="Fig"]')?.id || '';
+    const data = figures.find((candidate) => candidate.source === 'inline figure' && candidate.id === id);
+    if (!data) continue;
+    const placeholder = body.ownerDocument.createElement('p');
+    placeholder.textContent = semanticMarker('FIGURE', data.anchor);
+    figure.replaceWith(placeholder);
+  }
+
+  return { displayMath, inlineMath, literalText, citations, crossReferences };
 }
 
 function removeUnwantedContent(document, body) {
   let removedNodes = 0;
   for (const selector of JUNK_SELECTORS) {
-    const nodes = Array.from(body.querySelectorAll(selector));
-    for (const node of nodes) {
+    for (const node of Array.from(body.querySelectorAll(selector))) {
       node.remove();
       removedNodes += 1;
     }
@@ -213,20 +430,24 @@ function removeUnwantedContent(document, body) {
     }
   }
 
-  // Figures, references, and tables are rendered explicitly after Defuddle
-  // so their scholarly structure is stable and never hidden by reader logic.
+  for (const list of Array.from(body.querySelectorAll('ol.c-article-references, ol.c-article-references__list'))) {
+    const section = list.closest('section');
+    (section || list).remove();
+    removedNodes += 1;
+  }
+
+  // Main figures have already become stable placeholders. Remaining figures
+  // are tables or unrecognised Nature widgets and should not leak into body.
   for (const node of Array.from(body.querySelectorAll('figure'))) {
     node.remove();
     removedNodes += 1;
   }
 
-  // This catches generic Nature controls that vary slightly between releases.
   for (const node of Array.from(document.querySelectorAll('header, footer, nav, aside'))) {
     if (node.closest('.c-article-body')) continue;
     node.remove();
     removedNodes += 1;
   }
-
   return removedNodes;
 }
 
@@ -241,8 +462,7 @@ export function isNatureUrl(url) {
 
 export function articleIdFromUrl(url) {
   try {
-    const match = new URL(url).pathname.match(/\/articles\/([^/]+)/i);
-    return match?.[1] || '';
+    return new URL(url).pathname.match(/\/articles\/([^/]+)/i)?.[1] || '';
   } catch {
     return '';
   }
@@ -263,17 +483,11 @@ export function parseNaturePage(html, url) {
       figures: [],
       tables: [],
       references: [],
+      semantic: { displayMath: [], inlineMath: [], literalText: [], citations: [], crossReferences: new Map() },
       cleanedHtml: document.documentElement.outerHTML,
       debug: {
-        publisher: 'Nature',
-        articleRoot: 'not found',
-        metadataSource: 'unknown',
-        paragraphs: 0,
-        equations: 0,
-        figures: 0,
-        references: 0,
-        removedNodes: 0,
-        warnings,
+        publisher: 'Nature', articleRoot: 'not found', metadataSource: 'unknown',
+        paragraphs: 0, equations: 0, figures: 0, references: 0, removedNodes: 0, warnings,
       },
     };
   }
@@ -284,6 +498,7 @@ export function parseNaturePage(html, url) {
   const references = extractReferences(body);
   const equations = body.querySelectorAll('.c-article-equation, math, mjx-container').length;
   const paragraphs = body.querySelectorAll('p').length;
+  const semantic = prepareSemanticNodes(body, url, figures, tables);
   const removedNodes = removeUnwantedContent(document, body);
 
   if (figures.length === 0) warnings.push('No Nature figures were detected.');
@@ -297,6 +512,7 @@ export function parseNaturePage(html, url) {
     figures,
     tables,
     references,
+    semantic,
     cleanedHtml: document.documentElement.outerHTML,
     debug: {
       publisher: 'Nature',
@@ -307,6 +523,10 @@ export function parseNaturePage(html, url) {
       figures: figures.length,
       references: references.length,
       removedNodes,
+      inlineMath: semantic.inlineMath.length,
+      citations: semantic.citations.reduce((sum, item) => sum + item.numbers.length, 0),
+      crossReferences: semantic.crossReferences.size,
+      crossReferenceMap: Array.from(semantic.crossReferences, ([natureId, target]) => ({ natureId, ...target })),
       warnings,
     },
   };

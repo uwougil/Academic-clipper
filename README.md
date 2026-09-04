@@ -1,4 +1,4 @@
-# Academic Clipper — Nature prototype
+# Academic Clipper — Nature prototype v0.2
 
 这是一个面向科研论文的最小浏览器采集原型：当前页面的 Nature HTML 由浏览器扩展送到本机 bridge，bridge 使用 Obsidian Web Clipper 依赖的 Defuddle 解析并转换为 Markdown，最后写入本地 `papers/<Nature article id>/index.md`。VS Code 只需要打开同一个文件夹即可看到新增文件，不需要开发 VS Code Extension。
 
@@ -8,10 +8,10 @@
 
 ```text
 browser page HTML
-  -> NatureAdapter (DOM selectors + metadata/figure/reference extraction)
+  -> NatureAdapter (DOM selectors + semantic extraction/placeholder mapping)
   -> Defuddle.parse()
   -> defuddle/full.createMarkdownContent()
-  -> academic normalization (inline math/citations/spacing)
+  -> academic normalization (math/inline typography/citations/anchors)
   -> local bridge filesystem writer
 ```
 
@@ -26,7 +26,11 @@ Obsidian Web Clipper 关键位置：
 本原型新增边界：
 
 - `src/adapters/nature.mjs`：仅针对 Nature 当前 DOM；读取 `citation_*` metadata、`.c-article-body`、公式、figure、Extended Data figure、table link 和 `ol.c-article-references`。
-- `src/clip.mjs`：把 Nature 结构交给 Defuddle，追加稳定的 figure/reference Markdown，并生成 front matter。
+- `src/clip.mjs`：把 Nature 结构交给 Defuddle，恢复语义 placeholder、生成稳定的 figure/reference Markdown，并生成 front matter。
+- `src/normalizers/math.mjs`：恢复 DOM 已判定的 inline/display TeX；保留原始下标和矩阵行分隔。
+- `src/normalizers/academic-inline.mjs`：把学术 `<sub>/<sup>/<i>` 组合转成可读的 Markdown/Quarto 行内表达式。
+- `src/normalizers/citations.mjs`：统一本地引用链接和 section/equation 锚点。
+- `src/normalizers/figures.mjs`：渲染短 alt、单次 caption、主图/Extended Data 图和表格链接。
 - `src/bridge.mjs`：`127.0.0.1:34123` 的极小 HTTP bridge，接收 HTML、写入本地文件。
 - `extension/`：极简 Manifest V3 popup，只有 Save Paper 和 Preview Markdown。
 - `test/fixtures/nature-minimal.html`：小型 fixture，不把整篇 Nature HTML 永久塞进单元测试。
@@ -49,10 +53,12 @@ npm run dev
 {
   "libraryPath": "./papers",
   "port": 34123,
-  "downloadFigures": false,
+  "downloadFigures": true,
   "saveDebug": false
 }
 ```
+
+默认会把 figure 下载到 `papers/<article-id>/figures/`，并在 `index.md` 中使用相对路径。若确实需要远程图片，可在配置中设置 `downloadFigures: false`，或使用 CLI 的 `--no-download-figures`。
 
 也可以直接使用 CLI 验证目标论文：
 
@@ -64,6 +70,12 @@ npm run clip:live
 
 ```bash
 node src/cli.mjs --url https://www.nature.com/articles/s41586-026-10401-1 --output ./papers --debug
+```
+
+验收 live regression（包含本地图片下载）：
+
+```bash
+node src/cli.mjs --url https://www.nature.com/articles/s41586-026-10401-1 --output ./papers --debug --download-figures
 ```
 
 ## 浏览器扩展
@@ -93,12 +105,14 @@ npm run build
 
 ## 当前实测范围和已知问题
 
-目标论文目前由 Nature 页面提供：6 位作者、DOI `10.1038/s41586-026-10401-1`、正文 13 个公式节点、3 个主图、4 个 Extended Data 图和 50 条参考文献。默认保留 7 个图的远程 URL；加 `--download-figures` 或配置 `downloadFigures: true` 可下载到 `figures/`。
+目标论文目前由 Nature 页面提供：6 位作者、DOI `10.1038/s41586-026-10401-1`、正文 13 个公式节点、3 个主图、4 个 Extended Data 图和 50 条参考文献。v0.2 默认下载 7 张图到 `figures/`，主图通过稳定 placeholder 保留在正文附近，Extended Data 图单独放入 `## Extended Data`。
 
 已知边界：
 
 - 只支持 `www.nature.com/articles/<id>`，没有提前抽象其他出版社。
 - Nature 的两个在线表格只保留标题和 Full size table 链接；没有抓取表格详情。
 - Supplementary Information 只保留在正文中被引用的内容，不下载 PDF。
-- 公式优先使用页面 `.mathjax-tex` 的原始 TeX，Defuddle 负责 DOM 到 Markdown；少数异常页面若没有原始 TeX，会进入 warning，而不是伪造 Unicode 公式。
+- 公式优先使用页面 `.mathjax-tex` 的原始 TeX：Nature equation container 中的 TeX 先冻结为 display 语义，正文中的 TeX 先冻结为 inline 语义，再交给 Defuddle 做 HTML→Markdown；少数异常页面若没有原始 TeX，会进入 warning，而不是伪造 Unicode 公式。
+- 引用统一为 `[n](#ref-n)`，References 只由本原型生成一份，并为每条文献提供 `ref-n` anchor；figure/table/equation/section cross-reference 在目标存在时改为本地 anchor。
+- 下载器记录 figure label、source URL、HTTP/result、local path 和失败原因；同一 source URL 只下载一次。
 - 论文网站 DOM 变化时需要维护 `src/adapters/nature.mjs` 的 selector；`raw.html`/`cleaned.html` 用于对照定位问题。

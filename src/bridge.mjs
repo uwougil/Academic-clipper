@@ -40,7 +40,7 @@ async function loadConfig(configPath) {
     ...config,
     port: Number(config.port || process.env.ACADEMIC_CLIPPER_PORT || DEFAULT_PORT),
     libraryPath: path.resolve(path.dirname(configPath), configuredLibrary),
-    downloadFigures: Boolean(config.downloadFigures),
+    downloadFigures: config.downloadFigures === undefined ? true : Boolean(config.downloadFigures),
     saveDebug: Boolean(config.saveDebug),
   };
 }

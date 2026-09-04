@@ -1,9 +1,13 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { JSDOM } from 'jsdom';
 import { installDomGlobals } from './dom-runtime.mjs';
 import { htmlToMarkdown, defuddleToMarkdown } from './markdown.mjs';
 import { articleIdFromUrl, isNatureUrl, parseNaturePage } from './adapters/nature.mjs';
+import { semanticMarker } from './normalizers/markers.mjs';
+import { normalizeMath } from './normalizers/math.mjs';
+import { normalizeAcademicInline } from './normalizers/academic-inline.mjs';
+import { normalizeAnchorMarkers, normalizeCitations } from './normalizers/citations.mjs';
+import { renderFigure, renderFigures, renderTables } from './normalizers/figures.mjs';
 
 function yamlQuote(value) {
   return JSON.stringify(String(value ?? ''));
@@ -27,45 +31,13 @@ function frontmatter(metadata) {
   return `${lines.join('\n')}\n`;
 }
 
-function normalizeInlineMath(markdown) {
-  // Do not interpret TeX commands such as \[ ... \] inside an existing
-  // $$...$$ block as a second display-math delimiter. Nature equations use
-  // those commands for matrices and grouped terms.
-  const blocks = [];
-  const protectedMarkdown = markdown.replace(/\$\$[\s\S]*?\$\$/g, (block) => {
-    const token = `\uE000${blocks.length}\uE001`;
-    blocks.push(block);
-    return token;
-  });
-
-  const normalized = protectedMarkdown
-    // Defuddle escapes dollar delimiters when the source is a MathJax span.
-    .replaceAll('\\$', '$')
-    .replace(/\\+\(([^\n]*?)\\+\)/g, (_, expression) => {
-      const inner = expression.replace(/\\\\/g, '\\');
-      return `$${inner.trim()}$`;
-    })
-    .replace(/\\+\[([\s\S]*?)\\+\]/g, (_, expression) => `$$\n${expression.trim()}\n$$`)
-    .replace(/\[\^(\d+)\]/g, '[$1]');
-
-  return normalizeBlockMath(normalized.replace(/\uE000(\d+)\uE001/g, (_, index) => blocks[Number(index)]));
-}
-
-function normalizeBlockMath(markdown) {
-  return markdown.replace(/\$\$([\s\S]*?)\$\$/g, (_, expression) => {
-    // The Nature/Defuddle path can carry TeX through one extra escaping
-    // layer. Pairwise unescaping keeps TeX row breaks (four slashes become
-    // the intended two) while restoring commands such as \\begin and \\hat.
-    const tex = expression
-      .replace(/\\\\/g, '\\')
-      .replaceAll('\\[', '\\left[')
-      .replaceAll('\\]', '\\right]');
-    return `$$${tex}$$`;
-  });
-}
-
-function normalizeMarkdown(markdown) {
-  return normalizeInlineMath(markdown)
+function normalizeMarkdown(markdown, semantic) {
+  return normalizeCitations(
+      normalizeAcademicInline(
+      normalizeMath(markdown, semantic),
+    ),
+    semantic.citations,
+  )
     .replace(/\r\n/g, '\n')
     .replace(/[ \t]+\n/g, '\n')
     .replace(/\n{4,}/g, '\n\n\n')
@@ -73,57 +45,71 @@ function normalizeMarkdown(markdown) {
     .trim();
 }
 
-function figureMarkdown(figures) {
-  if (!figures.length) return '';
-  const blocks = [];
-  for (const figure of figures) {
-    blocks.push(`## ${figure.label}`, '', `![${figure.caption}](${figure.imageUrl})`, '', `**${figure.caption}**`, '');
+function applyFigurePlaceholders(markdown, figures, imagePathByAnchor) {
+  let result = markdown;
+  for (const figure of figures.filter((item) => item.source === 'inline figure')) {
+    result = result.replaceAll(
+      semanticMarker('FIGURE', figure.anchor),
+      renderFigure(figure, imagePathByAnchor.get(figure.anchor) || figure.imageUrl),
+    );
   }
-  return blocks.join('\n').trim();
+  return result;
 }
 
-function tableMarkdown(tables) {
-  if (!tables.length) return '';
-  const lines = ['## Tables', ''];
-  for (const table of tables) {
-    lines.push(`- **${table.caption}**${table.url ? ` ([Full size table](${table.url}))` : ''}`);
-  }
-  return lines.join('\n');
+function escapeHtml(value) {
+  return String(value).replace(/[&<>]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[character]));
 }
 
 async function referencesMarkdown(references, url) {
   if (!references.length) return '';
   const lines = ['## References', ''];
   for (const reference of references) {
-    // Defuddle is reused for inline emphasis/links; the visible reference
-    // text is kept as a single numbered Markdown item.
-    let converted = await htmlToMarkdown(`<p>${reference.text}</p>`, url);
-    converted = normalizeMarkdown(converted).replace(/^[-*]\s+/, '').replace(/\n+/g, ' ');
+    let converted = await htmlToMarkdown(`<p>${escapeHtml(reference.text)}</p>`, url);
+    converted = normalizeAcademicInline(normalizeMath(converted))
+      .replace(/^[-*]\s+/, '')
+      .replace(/\n+/g, ' ')
+      .trim();
     if (reference.doi && !converted.includes(reference.doi)) {
       converted += ` [doi:${reference.doi}](https://doi.org/${encodeURIComponent(reference.doi)})`;
     }
-    lines.push(`${reference.number}. ${converted}`);
+    lines.push(`<a id="${reference.anchor}"></a>`, `${reference.number}. ${converted}`);
   }
   return lines.join('\n');
 }
 
+export function renderClipMarkdown(result, imagePathByAnchor = new Map()) {
+  const semantic = result.semantic;
+  let body = normalizeMarkdown(result.bodyMarkdown, semantic);
+  body = normalizeAnchorMarkers(body, semantic.crossReferences.values());
+  body = applyFigurePlaceholders(body, result.figures, imagePathByAnchor);
+  const extendedFigures = renderFigures(
+    result.figures.filter((figure) => figure.source === 'supplementary figure'),
+    imagePathByAnchor,
+  );
+  const tables = renderTables(result.tables);
+  const sections = [body, extendedFigures, tables, result.referencesMarkdown].filter(Boolean);
+  const markdownBody = `# ${result.metadata.title}\n\n${sections.join('\n\n')}`.trim();
+  return `${frontmatter(result.metadata)}${markdownBody}\n`;
+}
+
 export async function clipNature({ html, url, rawHtml = html }) {
-  if (!isNatureUrl(url)) {
-    throw new Error('This prototype only supports Nature article URLs.');
-  }
+  if (!isNatureUrl(url)) throw new Error('This prototype only supports Nature article URLs.');
 
   const parsedPage = parseNaturePage(html, url);
   installDomGlobals(parsedPage.dom);
-
   const { parsed, markdown } = await defuddleToMarkdown(parsedPage.document, url);
-  const body = normalizeMarkdown(markdown);
-  const figures = figureMarkdown(parsedPage.figures);
-  const tables = tableMarkdown(parsedPage.tables);
-  const references = await referencesMarkdown(parsedPage.references, url);
-  const sections = [body, figures, tables, references].filter(Boolean);
-  const markdownBody = `# ${parsedPage.metadata.title}\n\n${sections.join('\n\n')}`.trim();
-  const fullMarkdown = `${frontmatter(parsedPage.metadata)}${markdownBody}\n`;
 
+  const intermediate = {
+    articleId: articleIdFromUrl(url),
+    metadata: parsedPage.metadata,
+    figures: parsedPage.figures,
+    tables: parsedPage.tables,
+    references: parsedPage.references,
+    semantic: parsedPage.semantic,
+    bodyMarkdown: markdown,
+    referencesMarkdown: await referencesMarkdown(parsedPage.references, url),
+  };
+  const fullMarkdown = renderClipMarkdown(intermediate);
   const debug = {
     ...parsedPage.debug,
     title: parsedPage.metadata.title,
@@ -135,11 +121,7 @@ export async function clipNature({ html, url, rawHtml = html }) {
   };
 
   return {
-    articleId: articleIdFromUrl(url),
-    metadata: parsedPage.metadata,
-    figures: parsedPage.figures,
-    tables: parsedPage.tables,
-    references: parsedPage.references,
+    ...intermediate,
     markdown: fullMarkdown,
     rawHtml,
     cleanedHtml: parsedPage.cleanedHtml,
@@ -158,7 +140,13 @@ function safeArticleDirectory(libraryPath, articleId) {
 
 function extensionFor(contentType, imageUrl) {
   const type = String(contentType || '').split(';')[0].toLowerCase();
-  const byType = { 'image/jpeg': '.jpg', 'image/png': '.png', 'image/webp': '.webp', 'image/gif': '.gif', 'image/svg+xml': '.svg' };
+  const byType = {
+    'image/jpeg': '.jpg',
+    'image/png': '.png',
+    'image/webp': '.webp',
+    'image/gif': '.gif',
+    'image/svg+xml': '.svg',
+  };
   if (byType[type]) return byType[type];
   try {
     const extension = path.extname(new URL(imageUrl).pathname).toLowerCase();
@@ -168,29 +156,60 @@ function extensionFor(contentType, imageUrl) {
   }
 }
 
-export async function writePaper(result, { libraryPath, downloadFigures = false, saveDebug = false }) {
+async function downloadFigureAssets(result, figuresDir) {
+  const imagePathByAnchor = new Map();
+  const downloads = [];
+  const byUrl = new Map();
+  let uniqueIndex = 0;
+
+  for (const figure of result.figures) {
+    const sourceUrl = figure.imageUrl;
+    if (!sourceUrl) continue;
+    if (byUrl.has(sourceUrl)) {
+      const existing = byUrl.get(sourceUrl);
+      imagePathByAnchor.set(figure.anchor, existing.localPath);
+      downloads.push({ label: figure.label, anchor: figure.anchor, sourceUrl, status: 'deduped', localPath: existing.localPath });
+      continue;
+    }
+
+    const entry = { label: figure.label, anchor: figure.anchor, sourceUrl, status: 'pending' };
+    try {
+      const response = await fetch(sourceUrl, { headers: { 'user-agent': 'academic-clipper/0.2' } });
+      entry.status = response.status;
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const extension = extensionFor(response.headers.get('content-type'), sourceUrl);
+      const filename = `fig${uniqueIndex + 1}${extension}`;
+      const localPath = path.join(figuresDir, filename);
+      await writeFile(localPath, Buffer.from(await response.arrayBuffer()));
+      entry.localPath = `figures/${filename}`;
+      byUrl.set(sourceUrl, entry);
+      imagePathByAnchor.set(figure.anchor, entry.localPath);
+      uniqueIndex += 1;
+    } catch (error) {
+      if (entry.status === 'pending') entry.status = 'error';
+      entry.error = error instanceof Error ? error.message : String(error);
+      result.debug.warnings.push(`Figure download failed for ${figure.label}: ${entry.error}`);
+    }
+    downloads.push(entry);
+  }
+  return { imagePathByAnchor, downloads };
+}
+
+export async function writePaper(result, { libraryPath, downloadFigures = true, saveDebug = false }) {
   const { destination } = safeArticleDirectory(libraryPath, result.articleId);
   await mkdir(destination, { recursive: true });
-  let markdown = result.markdown;
+  let imagePathByAnchor = new Map();
+  result.debug.figureDownloads = [];
 
   if (downloadFigures && result.figures.length) {
     const figuresDir = path.join(destination, 'figures');
     await mkdir(figuresDir, { recursive: true });
-    for (let index = 0; index < result.figures.length; index += 1) {
-      const figure = result.figures[index];
-      try {
-        const response = await fetch(figure.imageUrl, { headers: { 'user-agent': 'academic-clipper/0.1' } });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const extension = extensionFor(response.headers.get('content-type'), figure.imageUrl);
-        const filename = `fig${index + 1}${extension}`;
-        await writeFile(path.join(figuresDir, filename), Buffer.from(await response.arrayBuffer()));
-        markdown = markdown.replaceAll(`](${figure.imageUrl})`, `](figures/${filename})`);
-      } catch (error) {
-        result.debug.warnings.push(`Figure download failed for ${figure.label}: ${error.message}`);
-      }
-    }
+    const downloaded = await downloadFigureAssets(result, figuresDir);
+    imagePathByAnchor = downloaded.imagePathByAnchor;
+    result.debug.figureDownloads = downloaded.downloads;
   }
 
+  const markdown = renderClipMarkdown(result, imagePathByAnchor);
   await writeFile(path.join(destination, 'index.md'), markdown, 'utf8');
   if (saveDebug) {
     await writeFile(path.join(destination, 'raw.html'), result.rawHtml, 'utf8');

@@ -11,10 +11,10 @@ function argument(name, fallback = '') {
 const url = argument('--url');
 const output = argument('--output', './papers');
 const saveDebug = process.argv.includes('--debug');
-const downloadFigures = process.argv.includes('--download-figures');
+const downloadFigures = !process.argv.includes('--no-download-figures');
 
 if (!url) {
-  console.error('Usage: node src/cli.mjs --url <Nature article URL> [--output ./papers] [--debug] [--download-figures]');
+  console.error('Usage: node src/cli.mjs --url <Nature article URL> [--output ./papers] [--debug] [--download-figures|--no-download-figures]');
   process.exit(1);
 }
 

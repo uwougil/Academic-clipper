@@ -1,6 +1,6 @@
 {
   "name": "academic-clipper",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Nature-first academic web clipper using Obsidian Web Clipper's Defuddle converter.",
   "type": "module",
@@ -12,7 +12,7 @@
     "start": "node src/bridge.mjs",
     "build": "node src/build.mjs",
     "test": "node --test",
-    "clip:live": "node src/cli.mjs --url https://www.nature.com/articles/s41586-026-10401-1 --output ./papers --debug"
+    "clip:live": "node src/cli.mjs --url https://www.nature.com/articles/s41586-026-10401-1 --output ./papers --debug --download-figures"
   },
   "dependencies": {
     "defuddle": "^0.19.2",
