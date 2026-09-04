@@ -5,6 +5,7 @@ import path from 'node:path';
 import { test } from 'node:test';
 import { clipNature, writePaper } from '../src/clip.mjs';
 import { assertValidMathDelimiters, validateMathDelimiters } from '../src/validators/math-delimiters.mjs';
+import { validateMarkdownStructure } from '../src/validators/markdown-structure.mjs';
 
 const fixturePath = new URL('./fixtures/nature-minimal.html', import.meta.url);
 const fixtureHtml = await readFile(fixturePath, 'utf8');
@@ -13,6 +14,8 @@ const fixtureUrl = 'https://www.nature.com/articles/s41586-026-10401-1';
 function assertOutputQuality(markdown, { localFigures = false } = {}) {
   const mathValidation = validateMathDelimiters(markdown);
   assert.equal(mathValidation.valid, true, JSON.stringify(mathValidation.issues));
+  assert.equal(mathValidation.scientificFragments.valid, true, JSON.stringify(mathValidation.scientificFragments.issues));
+  assert.equal(validateMarkdownStructure(markdown).valid, true);
   assert.ok(mathValidation.inlineMathCount > 0);
   assert.ok(mathValidation.displayMathCount > 0);
   assert.doesNotMatch(markdown, /<sub\b|<sup\b|<i\b/);
@@ -20,6 +23,7 @@ function assertOutputQuality(markdown, { localFigures = false } = {}) {
   assert.doesNotMatch(markdown, /\*\*Figure \d+\.\*\*[^\n]+\*\*$/);
   assert.doesNotMatch(markdown, /\$\$\s*\n\s*111\s*\n\s*\$\$\s*-strained/);
   assert.equal((markdown.match(/^## References\s*$/gm) || []).length, 1);
+  assert.equal((markdown.match(/^\d+\. /gm) || []).length, 3);
   assert.equal((markdown.match(/<a id="ref-\d+"><\/a>/g) || []).length, 3);
   if (localFigures) {
     assert.match(markdown, /!\[Figure 1\]\(figures\/fig1\.png\)/);
@@ -49,6 +53,8 @@ test('math delimiter validator rejects malformed and leaked semantic markup', ()
     ['$$a$b$$', 'single-dollar-in-display'],
     ['\\(x\\)', 'legacy-math-delimiter'],
     ['ACADEMICCLIPPERINLINEMATH0X', 'semantic-marker-leak'],
+    ['**M**$_{s}$', 'scientific-boldThenSubscript'],
+    ['*λ*$^{2}$', 'scientific-italicThenSuperscript'],
   ];
   for (const [markdown, type] of cases) {
     const validation = validateMathDelimiters(markdown);
@@ -58,9 +64,27 @@ test('math delimiter validator rejects malformed and leaked semantic markup', ()
   }
 });
 
+test('Markdown structure validator keeps references and tables as real lists', () => {
+  const valid = '## Tables\n\n- Table one <a id="table-1"></a>\n\n## References\n\n1. First <a id="ref-1"></a>\n\n2. Second <a id="ref-2"></a>';
+  assert.equal(validateMarkdownStructure(valid).valid, true);
+  const broken = '## References\n\n<a id="ref-1"></a>\n1. First';
+  assert.equal(validateMarkdownStructure(broken).valid, false);
+});
+
 test('final fixture Markdown passes academic output quality assertions', async () => {
   const result = await clipNature({ html: fixtureHtml, url: fixtureUrl });
   assertOutputQuality(result.markdown);
+});
+
+test('quarto citation policy emits semantic keys and a reusable BibTeX source', async () => {
+  const result = await clipNature({ html: fixtureHtml, url: fixtureUrl, citationStyle: 'quarto' });
+  assert.match(result.markdown, /bibliography: "references\.bib"/);
+  assert.match(result.markdown, /\[@Lovelace; @Turing; @Noether\]/);
+  assert.match(result.referencesMarkdown, /^1\. Lovelace, A\./m);
+  const { referencesBib } = await import('../src/clip.mjs');
+  const bib = referencesBib(result.references);
+  assert.match(bib, /@misc\{Lovelace,/);
+  assert.match(bib, /@misc\{Turing,/);
 });
 
 test('writer downloads high-quality and duplicate figure URLs with diagnostics', async () => {

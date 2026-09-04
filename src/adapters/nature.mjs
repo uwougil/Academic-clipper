@@ -138,6 +138,22 @@ function tableLabel(caption, fallback) {
   return `${match[1] ?? ''}Table ${match[2]}`;
 }
 
+function citationKeyFor(text, index, usedKeys) {
+  const authorPart = cleanText(text).split(/\.\s+/u)[0] || '';
+  const surname = (authorPart.match(/[A-Za-zÀ-ÖØ-öø-ÿŠšŽžĆćČčĐđŁł]+/u)?.[0] || '')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/gu, '')
+    .replace(/[^A-Za-z0-9]/g, '')
+    .replace(/^./, (value) => value.toUpperCase()) || `Reference${index}`;
+  const year = cleanText(text).match(/\b(?:19|20)\d{2}\b/u)?.[0] || '';
+  const base = `${surname}${year}`;
+  let key = base || `Reference${index}`;
+  let suffix = 2;
+  while (usedKeys.has(key)) key = `${base || `Reference${index}`}${suffix++}`;
+  usedKeys.add(key);
+  return key;
+}
+
 function srcsetCandidates(value, baseUrl) {
   return String(value || '')
     .split(',')
@@ -182,6 +198,14 @@ function captionFor(figure) {
   };
 }
 
+function elementContentHtml(element) {
+  if (!element) return '';
+  return Array.from(element.childNodes).map((node) => {
+    if (node.nodeType === 1 && node.tagName === 'P') return node.innerHTML;
+    return node.nodeType === 1 ? node.outerHTML : node.textContent;
+  }).join(' ');
+}
+
 function extractFigures(body, url) {
   const figures = [];
   for (const figure of body.querySelectorAll('figure')) {
@@ -214,8 +238,8 @@ function extractFigures(body, url) {
   for (const item of body.querySelectorAll('.js-c-reading-companion-figures-item[data-test="supp-item"]')) {
     const heading = item.querySelector('h3');
     const description = item.querySelector('.c-article-supplementary__description');
-    const captionElement = heading || description;
-    const caption = cleanText(captionElement?.textContent);
+    const captionParts = [heading?.textContent, description?.textContent].map(cleanText).filter(Boolean);
+    const caption = cleanText(captionParts.join(' '));
     const label = figureLabel(caption, `Extended Data Figure ${extendedNumber + 1}`);
     const imageUrl = imageUrlFor(item, url);
     if (!imageUrl || !caption || !/Extended Data Fig/i.test(caption)) continue;
@@ -229,7 +253,7 @@ function extractFigures(body, url) {
       anchor: `extended-data-figure-${number}`,
       label,
       caption,
-      captionHtml: captionElement?.innerHTML || '',
+      captionHtml: [elementContentHtml(heading), elementContentHtml(description)].filter(Boolean).join(' '),
       alt: `Extended Data Figure ${number}`,
       imageUrl,
       source: 'supplementary figure',
@@ -258,11 +282,18 @@ function extractTables(body, url) {
 }
 
 function extractReferences(body) {
+  const usedKeys = new Set();
   return Array.from(body.querySelectorAll('ol.c-article-references > li, ol.c-article-references__list > li'))
     .map((item, index) => {
       const text = cleanText(item.querySelector('.c-article-references__text')?.textContent || item.textContent);
       const doi = item.querySelector('[data-doi]')?.getAttribute('data-doi') || '';
-      return { number: index + 1, anchor: `ref-${index + 1}`, text, doi };
+      return {
+        number: index + 1,
+        anchor: `ref-${index + 1}`,
+        citationKey: citationKeyFor(text, index + 1, usedKeys),
+        text,
+        doi,
+      };
     })
     .filter((reference) => reference.text);
 }
@@ -301,6 +332,270 @@ function replaceInlineMath(body) {
     const marker = semanticMarker('INLINEMATH', values.length);
     values.push({ marker, tex });
     element.replaceWith(body.ownerDocument.createTextNode(marker));
+  }
+  return values;
+}
+
+const SCIENTIFIC_TAGS = new Set(['I', 'B', 'SUB', 'SUP']);
+const SCIENTIFIC_BASE_TAGS = new Set(['I', 'B']);
+const SCIENTIFIC_ATTACHMENT_TAGS = new Set(['SUB', 'SUP']);
+const INLINE_MATH_MARKER = /^ACADEMICCLIPPERINLINEMATH\d+X$/;
+
+function isElement(node, tags = SCIENTIFIC_TAGS) {
+  return node?.nodeType === 1 && tags.has(node.tagName);
+}
+
+function inlineMathValue(text, inlineMathByMarker) {
+  return String(text || '').replace(/ACADEMICCLIPPERINLINEMATH\d+X/g, (marker) => (
+    inlineMathByMarker.get(marker)?.tex || marker
+  ));
+}
+
+function scientificTex(node, inlineMathByMarker) {
+  if (node.nodeType === 3) return inlineMathValue(node.textContent, inlineMathByMarker);
+  if (node.nodeType !== 1) return '';
+  const content = Array.from(node.childNodes)
+    .map((child) => scientificTex(child, inlineMathByMarker))
+    .join('');
+  if (node.tagName === 'I') return content;
+  if (node.tagName === 'B') return `\\mathbf{${content}}`;
+  if (node.tagName === 'SUB') {
+    const plain = content.replace(/\s+/gu, '');
+    const hasExplicitMathStyle = node.querySelector('i, b');
+    const value = !hasExplicitMathStyle && /^[A-Za-z]{2,}$/u.test(plain)
+      ? `\\mathrm{${plain}}`
+      : plain;
+    return `_{${value}}`;
+  }
+  if (node.tagName === 'SUP') return `^{${content.replace(/\s+/gu, '')}}`;
+  return content;
+}
+
+function allowedScientificText(text) {
+  const normalized = String(text || '').replace(/\u00a0/g, ' ');
+  if (!normalized || /^\s/u.test(normalized)) return null;
+  const match = normalized.match(/^[A-Za-z0-9∞−+\-_/|{}'=′″]+/u);
+  if (!match) return null;
+  return { length: match[0].length, text: match[0] };
+}
+
+function setRangeEnd(range, end) {
+  if (end.after) range.setEndAfter(end.node);
+  else range.setEnd(end.node, end.offset);
+}
+
+function replaceRangeWithScientificMarker(parent, start, end, values, inlineMathByMarker, provenance) {
+  const range = parent.ownerDocument.createRange();
+  range.setStart(start.node, start.offset);
+  setRangeEnd(range, end);
+  const fragment = range.extractContents();
+  const tex = Array.from(fragment.childNodes)
+    .map((node) => scientificTex(node, inlineMathByMarker))
+    .join('')
+    .replace(/[ \t\r\n\u00a0\u2009]+/gu, '');
+  if (!tex) return false;
+  const marker = semanticMarker('SCIENTIFICRUN', values.length);
+  values.push({ marker, tex, provenance });
+  range.insertNode(parent.ownerDocument.createTextNode(marker));
+  return true;
+}
+
+function collectStyledRun(parent, startIndex) {
+  const startNode = parent.childNodes[startIndex];
+  if (!isElement(startNode, SCIENTIFIC_BASE_TAGS)) return null;
+
+  let index = startIndex + 1;
+  let sawAttachment = false;
+  let lastEnd = { node: startNode, after: true };
+  let beforeFirstAttachment = true;
+  while (index < parent.childNodes.length) {
+    const node = parent.childNodes[index];
+    if (node.nodeType === 3 && /^[ \t\r\n\u00a0\u2009]*$/u.test(node.textContent)) {
+      const next = parent.childNodes[index + 1];
+      if (beforeFirstAttachment && isElement(next, SCIENTIFIC_ATTACHMENT_TAGS)) {
+        index += 1;
+        continue;
+      }
+      break;
+    }
+
+    if (isElement(node, SCIENTIFIC_ATTACHMENT_TAGS)) {
+      sawAttachment = true;
+      beforeFirstAttachment = false;
+      lastEnd = { node, after: true };
+      index += 1;
+      continue;
+    }
+
+    if (isElement(node, SCIENTIFIC_BASE_TAGS)) {
+      const next = parent.childNodes[index + 1];
+      if (!sawAttachment || !isElement(next, SCIENTIFIC_ATTACHMENT_TAGS)) break;
+      lastEnd = { node, after: true };
+      index += 1;
+      continue;
+    }
+
+    if (node.nodeType === 3 && sawAttachment) {
+      const part = allowedScientificText(node.textContent);
+      if (!part) break;
+      lastEnd = part.length === node.textContent.length
+        ? { node, after: true }
+        : { node, offset: part.length };
+      index += 1;
+      if (part.length !== node.textContent.length) break;
+      continue;
+    }
+    break;
+  }
+
+  if (!sawAttachment) return null;
+  return {
+    start: { node: startNode, offset: 0 },
+    end: lastEnd,
+  };
+}
+
+function collectMathMarkerRun(parent, startIndex, inlineMathByMarker) {
+  const startNode = parent.childNodes[startIndex];
+  if (startNode?.nodeType !== 3) return null;
+  const markerMatch = startNode.textContent.match(INLINE_MATH_MARKER);
+  if (!markerMatch) return null;
+  const markerStart = markerMatch.index;
+  let index = startIndex + 1;
+  let sawAttachment = false;
+  let lastEnd = null;
+
+  while (index < parent.childNodes.length) {
+    const node = parent.childNodes[index];
+    if (isElement(node, SCIENTIFIC_ATTACHMENT_TAGS)) {
+      sawAttachment = true;
+      lastEnd = { node, after: true };
+      index += 1;
+      continue;
+    }
+    if (isElement(node, SCIENTIFIC_BASE_TAGS)) {
+      lastEnd = { node, after: true };
+      index += 1;
+      continue;
+    }
+    if (node.nodeType === 3) {
+      const part = allowedScientificText(node.textContent);
+      if (!part) break;
+      lastEnd = part.length === node.textContent.length
+        ? { node, after: true }
+        : { node, offset: part.length };
+      index += 1;
+      if (part.length !== node.textContent.length) break;
+      continue;
+    }
+    break;
+  }
+
+  if (!sawAttachment || !lastEnd) return null;
+  return {
+    start: { node: startNode, offset: markerStart },
+    end: lastEnd,
+  };
+}
+
+function collectNumericAttachmentRun(parent, startIndex) {
+  const attachment = parent.childNodes[startIndex];
+  if (!isElement(attachment, SCIENTIFIC_ATTACHMENT_TAGS)) return null;
+  const previous = parent.childNodes[startIndex - 1];
+  if (previous?.nodeType !== 3) return null;
+  const text = previous.textContent;
+  const match = text.match(/(\d+)$/u);
+  if (!match) return null;
+  const prefix = text.slice(0, match.index).replace(/[ \t\r\n\u00a0\u2009]+/gu, '');
+  // Numeric attachments in Nature's symmetry-operation notation appear after
+  // an opening brace or a parallel-operation separator. Chemical formulas
+  // such as Mn<sub>3</sub> remain text-led because their prefix is Mn.
+  if (!/(?:\{|\|\|)$/u.test(prefix)) return null;
+  return {
+    start: { node: previous, offset: match.index },
+    end: { node: attachment, after: true },
+  };
+}
+
+function collectDetachedSuperscriptRun(parent, startIndex) {
+  const node = parent.childNodes[startIndex];
+  if (!isElement(node, new Set(['SUP'])) || node.querySelector('a[data-test="citation-ref"]')) return null;
+  if (!/[∞]|<i\b|<b\b/u.test(`${node.textContent}${node.innerHTML}`)) return null;
+  let end = { node, after: true };
+  const next = parent.childNodes[startIndex + 1];
+  if (next?.nodeType === 3) {
+    const part = allowedScientificText(next.textContent);
+    if (part) end = part.length === next.textContent.length
+      ? { node: next, after: true }
+      : { node: next, offset: part.length };
+  }
+  return { start: { node, offset: 0 }, end };
+}
+
+function collectNumericSuperscriptRun(parent, startIndex) {
+  const node = parent.childNodes[startIndex];
+  if (!isElement(node, new Set(['SUP'])) || node.querySelector('a[data-test="citation-ref"]')) return null;
+  if (!/^[−+\-]?\d+$/u.test(cleanText(node.textContent))) return null;
+  const previous = parent.childNodes[startIndex - 1];
+  if (previous?.nodeType !== 3) return null;
+  const match = previous.textContent.match(/10$/u);
+  if (!match) return null;
+  return {
+    start: { node: previous, offset: match.index },
+    end: { node, after: true },
+  };
+}
+
+function collectTextAndStyledSymbolRun(parent, startIndex) {
+  const node = parent.childNodes[startIndex];
+  if (!isElement(node, new Set(['I', 'B']))) return null;
+  const previous = parent.childNodes[startIndex - 1];
+  if (previous?.nodeType !== 3) return null;
+  const match = previous.textContent.match(/(?:∞|[−+\-]?\d+)(?:\/)?$/u);
+  if (!match || match.index === undefined) return null;
+  const token = previous.textContent.slice(match.index);
+  if (!/^(?:∞|[−+\-]?\d+)(?:\/)?$/u.test(token)) return null;
+  return {
+    start: { node: previous, offset: match.index },
+    end: { node, after: true },
+  };
+}
+
+function replaceScientificRuns(body, inlineMath) {
+  const values = [];
+  const inlineMathByMarker = new Map(inlineMath.map((item) => [item.marker, item]));
+  const parents = Array.from(body.querySelectorAll('p, li, h1, h2, h3, h4, h5, h6, figcaption'));
+  for (const parent of parents) {
+    let index = 0;
+    while (index < parent.childNodes.length) {
+      const node = parent.childNodes[index];
+      const range = node.nodeType === 3
+        ? collectMathMarkerRun(parent, index, inlineMathByMarker)
+        : collectStyledRun(parent, index)
+          || collectTextAndStyledSymbolRun(parent, index)
+          || collectNumericAttachmentRun(parent, index)
+          || collectNumericSuperscriptRun(parent, index)
+          || collectDetachedSuperscriptRun(parent, index);
+      if (!range) {
+        index += 1;
+        continue;
+      }
+      const replaced = replaceRangeWithScientificMarker(
+        parent,
+        range.start,
+        range.end,
+        values,
+        inlineMathByMarker,
+        node.nodeType === 3
+          ? 'Nature MathJax plus adjacent inline scientific nodes'
+          : 'Nature inline style nodes (<i>/<b>/<sub>/<sup>)',
+      );
+      if (!replaced) {
+        index += 1;
+        continue;
+      }
+      index += 1;
+    }
   }
   return values;
 }
@@ -393,6 +688,7 @@ function insertAnchorMarker(parent, marker) {
 function prepareSemanticNodes(body, url, figures, tables) {
   const displayMath = replaceDisplayMath(body);
   const inlineMath = replaceInlineMath(body);
+  const scientificRuns = replaceScientificRuns(body, inlineMath);
   const literalText = replaceScientificBracketText(body);
   const citations = replaceCitations(body);
   const crossReferences = buildCrossReferences(body, figures, tables);
@@ -427,7 +723,7 @@ function prepareSemanticNodes(body, url, figures, tables) {
     figure.replaceWith(placeholder);
   }
 
-  return { displayMath, inlineMath, literalText, citations, crossReferences };
+  return { displayMath, inlineMath, scientificRuns, literalText, citations, crossReferences };
 }
 
 function removeUnwantedContent(document, body) {
@@ -503,7 +799,7 @@ export function parseNaturePage(html, url) {
       figures: [],
       tables: [],
       references: [],
-      semantic: { displayMath: [], inlineMath: [], literalText: [], citations: [], crossReferences: new Map() },
+      semantic: { displayMath: [], inlineMath: [], scientificRuns: [], literalText: [], citations: [], crossReferences: new Map() },
       cleanedHtml: document.documentElement.outerHTML,
       debug: {
         publisher: 'Nature', articleRoot: 'not found', metadataSource: 'unknown',
@@ -544,6 +840,7 @@ export function parseNaturePage(html, url) {
       references: references.length,
       removedNodes,
       inlineMath: semantic.inlineMath.length,
+      scientificRuns: semantic.scientificRuns.length,
       citations: semantic.citations.reduce((sum, item) => sum + item.numbers.length, 0),
       crossReferences: semantic.crossReferences.size,
       crossReferenceMap: Array.from(semantic.crossReferences, ([natureId, target]) => ({ natureId, ...target })),

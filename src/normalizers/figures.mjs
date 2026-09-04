@@ -89,7 +89,11 @@ export function renderTables(tables) {
   if (!tables.length) return '';
   const lines = ['## Tables', ''];
   for (const table of tables) {
-    lines.push(`<a id="${table.anchor}"></a>`, `- **${table.caption}**${table.url ? ` ([Full size table](${table.url}))` : ''}`);
+    const body = String(table.caption || '')
+      .replace(/^(?:Extended Data )?Table\s*\d+\s*(?:[:|.-]\s*|\s+)/i, '')
+      .trim();
+    const caption = `**${table.label}.**${body ? ` ${body}` : ''}`;
+    lines.push(`- ${caption}${table.url ? ` ([Full size table](${table.url}))` : ''} <a id="${table.anchor}"></a>`, '');
   }
-  return lines.join('\n');
+  return lines.join('\n').trimEnd();
 }

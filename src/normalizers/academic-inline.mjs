@@ -69,18 +69,41 @@ function mathFragmentAt(value, start) {
   return null;
 }
 
+function styledBaseAt(value, start) {
+  if (value.startsWith('**', start)) {
+    const end = value.indexOf('**', start + 2);
+    if (end > start + 2) return { style: 'bold', content: value.slice(start + 2, end), end: end + 2 };
+  }
+  if (value[start] === '*') {
+    const end = value.indexOf('*', start + 1);
+    if (end > start + 1) return { style: 'italic', content: value.slice(start + 1, end), end: end + 1 };
+  }
+  return null;
+}
+
+function subscriptValue(content) {
+  const value = String(content || '').trim();
+  if (/^\\mathrm\{.*\}$/u.test(value)) return value;
+  // Short tensor/component indices stay math italic. Named semantic labels
+  // such as spin, orbital and SOC are textual and therefore roman.
+  if (/^[A-Za-z]{2,}$/u.test(value) && !/^(?:ij|ji|ik|ki|il|li|jk|kj|jl|lj|kl|lk|xyz|xy|xz|yz)$/u.test(value)) {
+    return `\\mathrm{${value}}`;
+  }
+  return value;
+}
+
 function combineScientificRuns(value) {
   let output = '';
   let cursor = 0;
   while (cursor < value.length) {
-    const base = value.slice(cursor).match(/^\*([^*\n]+)\*/);
+    const base = styledBaseAt(value, cursor);
     if (!base) {
       output += value[cursor];
       cursor += 1;
       continue;
     }
 
-    let fragmentCursor = cursor + base[0].length;
+    let fragmentCursor = base.end;
     const fragments = [];
     while (fragments.length < 2) {
       const whitespace = value.slice(fragmentCursor).match(/^[ \u2009]+/u)?.[0] || '';
@@ -91,14 +114,15 @@ function combineScientificRuns(value) {
       fragmentCursor = fragment.end;
     }
     if (!fragments.length) {
-      output += base[0];
+      output += value.slice(cursor, base.end);
       cursor = fragmentCursor;
       continue;
     }
 
-    output += `$${base[1]}${fragments.map(({ kind, content }) => {
-      const value = kind === '_' && /^[A-Za-z]{2,}$/.test(content) ? `\\mathrm{${content}}` : content;
-      return `${kind}{${value}}`;
+    const baseTex = base.style === 'bold' ? `\\mathbf{${base.content}}` : base.content;
+    output += `$${baseTex}${fragments.map(({ kind, content }) => {
+      const attachment = kind === '_' ? subscriptValue(content) : content;
+      return `${kind}{${attachment}}`;
     }).join('')}$`;
     cursor = fragmentCursor;
   }

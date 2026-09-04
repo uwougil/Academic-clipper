@@ -35,6 +35,25 @@ function normalizeLegacyDelimiters(markdown) {
   return restoreDisplayMath(result, blocks);
 }
 
+function normalizeScientificBracketText(markdown) {
+  // Numeric crystallographic directions are ordinary prose in Nature, not
+  // display-math delimiters. Keep the protection narrow so real TeX brackets
+  // such as \[\mathbf{M}\] are still handled by the legacy delimiter pass.
+  return markdown.replace(/\\+\[(\d+(?:[,:\s−+\-]\d+)*)\]\\+/gu, '[$1]');
+}
+
+function normalizeLegacyTexCommands(markdown) {
+  let result = markdown;
+  // Nature occasionally embeds old TeX font switches in a math fragment.
+  // Normalize only the unambiguous braced forms; do not rewrite prose.
+  for (let pass = 0; pass < 2; pass += 1) {
+    result = result
+      .replace(/\{\s*\\bf\s*\{([^{}]*)\}\s*\}/g, '\\mathbf{$1}')
+      .replace(/\{\s*\\rm\s*\{([^{}]*)\}\s*\}/g, '\\mathrm{$1}');
+  }
+  return result;
+}
+
 export function normalizeBlockMath(markdown) {
   return markdown.replace(/\$\$([\s\S]*?)\$\$/g, (_, expression) => {
     // Defuddle can carry TeX through one extra escaping layer. Pairwise
@@ -56,9 +75,12 @@ export function normalizeMath(markdown, semantic = {}) {
     result = result.replaceAll(marker, token);
   }
   for (const { marker, tex } of semantic.inlineMath || []) result = result.replaceAll(marker, `$${tex}$`);
+  for (const { marker, tex } of semantic.scientificRuns || []) result = result.replaceAll(marker, `$${tex}$`);
   for (const { marker, text } of semantic.literalText || []) result = result.replaceAll(marker, text);
+  result = normalizeScientificBracketText(result);
   result = normalizeLegacyDelimiters(result);
   result = result.replace(/\[\^(\d+)\]/g, '[$1]');
   result = normalizeBlockMath(result);
-  return result.replace(/ACADEMICCLIPPERSEMANTICDISPLAY(\d+)X/g, (_, index) => displayBlocks[Number(index)] || '');
+  result = result.replace(/ACADEMICCLIPPERSEMANTICDISPLAY(\d+)X/g, (_, index) => displayBlocks[Number(index)] || '');
+  return normalizeLegacyTexCommands(result);
 }

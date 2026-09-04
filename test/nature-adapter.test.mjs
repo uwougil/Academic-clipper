@@ -62,10 +62,18 @@ test('Nature clipping preserves headings, TeX, figures, citations, and reference
   assert.doesNotMatch(result.markdown, /Cookie banner|Nature navigation|Rights and permissions|\\\(/);
   assert.doesNotMatch(result.markdown, /<sub\b|<sup\b|<i\b/);
   assert.equal((result.markdown.match(/^## References\s*$/gm) || []).length, 1);
+  assert.equal((result.markdown.match(/Extended caption\./g) || []).length, 1);
   assert.ok(result.markdown.indexOf('Paragraph A') < result.markdown.indexOf('<a id="figure-1">'));
   assert.ok(result.markdown.indexOf('<a id="figure-1">') < result.markdown.indexOf('Paragraph B'));
   assert.doesNotMatch(result.markdown, /^## (?:Figure|Extended Data Figure)\b/gm);
   assert.doesNotMatch(result.markdown, /\*\*Figure 1\.\*\*[^\n]+\*\*$/);
+});
+
+test('Nature clipping fails closed when the page is not an article body', async () => {
+  await assert.rejects(
+    () => clipNature({ html: '<html><head><title>Consent wall</title></head><body><p>Not an article</p></body></html>', url: fixtureUrl }),
+    /article body was not found/,
+  );
 });
 
 test('Nature adapter maps id-less figures by unique DOM identity', async () => {

@@ -1,12 +1,20 @@
 import { semanticMarker } from './markers.mjs';
 
-export function normalizeCitations(markdown, citationMarkers = []) {
+export function normalizeCitations(markdown, citationMarkers = [], options = {}) {
   let result = String(markdown || '');
+  const style = options.style === 'quarto' ? 'quarto' : 'links';
+  const citationKeys = new Map((options.references || []).map((reference) => [reference.number, reference.citationKey]));
   for (const { marker, numbers } of citationMarkers) {
-    const links = numbers.map((number) => `[${number}](#ref-${number})`).join(', ');
-    result = result.replaceAll(marker, links);
+    const citation = style === 'quarto'
+      ? `[${numbers.map((number) => `@${citationKeys.get(number) || `ref${number}`}`).join('; ')}]`
+      : numbers.map((number) => `[${number}](#ref-${number})`).join(', ');
+    result = result.replaceAll(marker, citation);
   }
-  return result.replace(/\[\^(\d+)\]/g, (_, number) => `[${number}](#ref-${number})`);
+  return result.replace(/\[\^(\d+)\]/g, (_, number) => (
+    style === 'quarto'
+      ? `[@${citationKeys.get(Number(number)) || `ref${number}`}]`
+      : `[${number}](#ref-${number})`
+  ));
 }
 
 export function normalizeAnchorMarkers(markdown, crossReferences = []) {

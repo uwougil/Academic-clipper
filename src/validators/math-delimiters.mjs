@@ -80,6 +80,42 @@ function markerIndex(text) {
   return text.search(/ACADEMICCLIPPER[A-Z0-9-]+X/);
 }
 
+function maskCode(markdown) {
+  return String(markdown || '').replace(/(`{1,}|~{3,})[\s\S]*?\1/g, (match) => match.replace(/[^\n]/gu, ' '));
+}
+
+function validateScientificFragments(markdown) {
+  const text = maskCode(markdown);
+  const issues = [];
+  const counts = {
+    isolatedSubscript: 0,
+    isolatedSuperscript: 0,
+    boldThenSubscript: 0,
+    italicThenSuperscript: 0,
+  };
+  const add = (type, index, message) => {
+    counts[type] += 1;
+    issueAt(text, issues, `scientific-${type}`, index, '$', message);
+  };
+
+  for (const match of text.matchAll(/\*\*[^*\n]+\*\*\$_\{[^$\n]*\}\$/gu)) {
+    add('boldThenSubscript', match.index, 'A bold scientific base was left outside its subscript math expression.');
+  }
+  for (const match of text.matchAll(/\*[^*\n]+\*\$\^\{[^$\n]*\}\$/gu)) {
+    add('italicThenSuperscript', match.index, 'An italic scientific base was left outside its superscript math expression.');
+  }
+  for (const match of text.matchAll(/\$_\{([^$\n]*)\}\$/gu)) {
+    const before = text[match.index - 1] || '';
+    if (!/[A-Za-z0-9]/u.test(before)) {
+      add('isolatedSubscript', match.index, 'An isolated subscript fragment survived instead of being reconstructed as a scientific run.');
+    }
+  }
+  for (const match of text.matchAll(/\$\^\{([^$\n]*)\}\$/gu)) {
+    add('isolatedSuperscript', match.index, 'An isolated superscript fragment survived instead of being reconstructed as a scientific run.');
+  }
+  return { valid: issues.length === 0, counts, issues };
+}
+
 export function validateMathDelimiters(markdown) {
   const text = String(markdown ?? '');
   const issues = [];
@@ -203,11 +239,15 @@ export function validateMathDelimiters(markdown) {
   if (state === 'INLINE_MATH') issueAt(text, issues, 'unclosed-inline-math', inlineStart, '$', 'Inline math was not closed before EOF.');
   if (state === 'DISPLAY_MATH') issueAt(text, issues, 'unclosed-display-math', displayStart, '$$', 'Display math was not closed before EOF.');
 
+  const scientificFragments = validateScientificFragments(text);
+  issues.push(...scientificFragments.issues);
+
   return {
     valid: issues.length === 0,
     inlineMathCount,
     displayMathCount,
     issues,
+    scientificFragments,
     states,
   };
 }

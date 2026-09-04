@@ -67,6 +67,7 @@ async function loadConfig(configPath) {
     libraryPath: path.resolve(path.dirname(configPath), configuredLibrary),
     downloadFigures: config.downloadFigures === undefined ? true : Boolean(config.downloadFigures),
     saveDebug: Boolean(config.saveDebug),
+    citationStyle: config.citationStyle === 'quarto' ? 'quarto' : 'links',
     allowedOrigins: Array.isArray(config.allowedOrigins) ? config.allowedOrigins.map(String) : [],
     bridgeToken: String(config.bridgeToken || process.env.ACADEMIC_CLIPPER_BRIDGE_TOKEN || randomBytes(24).toString('hex')),
   };
@@ -113,7 +114,11 @@ export function createBridgeServer(config) {
       if (typeof payload.html !== 'string' || typeof payload.url !== 'string') {
         throw new Error('The request must include html and url.');
       }
-      const result = await clipNature({ html: payload.html, url: payload.url });
+      const result = await clipNature({
+        html: payload.html,
+        url: payload.url,
+        citationStyle: payload.citationStyle ?? config.citationStyle,
+      });
       if (request.url === '/preview') {
         jsonResponse(response, 200, { ok: true, articleId: result.articleId, markdown: result.markdown, debug: result.debug }, origin, config);
         return;

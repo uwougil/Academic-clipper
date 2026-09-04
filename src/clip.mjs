@@ -9,6 +9,7 @@ import { normalizeAcademicInline } from './normalizers/academic-inline.mjs';
 import { normalizeAnchorMarkers, normalizeCitations } from './normalizers/citations.mjs';
 import { normalizeFigureCaptions, renderFigure, renderFigures, renderTables } from './normalizers/figures.mjs';
 import { MathDelimiterValidationError, validateMathDelimiters } from './validators/math-delimiters.mjs';
+import { validateMarkdownStructure } from './validators/markdown-structure.mjs';
 import { safeExternalUrl } from './security.mjs';
 import { ACADEMIC_CLIPPER_USER_AGENT } from './version.mjs';
 
@@ -19,7 +20,7 @@ function yamlQuote(value) {
   return JSON.stringify(String(value ?? ''));
 }
 
-function frontmatter(metadata) {
+function frontmatter(metadata, citationStyle = 'links') {
   const lines = [
     '---',
     `title: ${yamlQuote(metadata.title)}`,
@@ -33,16 +34,18 @@ function frontmatter(metadata) {
   if (metadata.volume) lines.push(`volume: ${yamlQuote(metadata.volume)}`);
   if (metadata.issue) lines.push(`issue: ${yamlQuote(metadata.issue)}`);
   if (metadata.pages) lines.push(`pages: ${yamlQuote(metadata.pages)}`);
+  if (citationStyle === 'quarto') lines.push('bibliography: "references.bib"');
   lines.push('---', '');
   return `${lines.join('\n')}\n`;
 }
 
-function normalizeMarkdown(markdown, semantic) {
+function normalizeMarkdown(markdown, semantic, references, citationStyle) {
   return normalizeCitations(
       normalizeAcademicInline(
       normalizeMath(markdown, semantic),
     ),
     semantic.citations,
+    { style: citationStyle, references },
   )
     .replace(/\r\n/g, '\n')
     .replace(/[ \t]+\n/g, '\n')
@@ -78,14 +81,39 @@ async function referencesMarkdown(references, url) {
     if (reference.doi && !converted.includes(reference.doi)) {
       converted += ` [doi:${reference.doi}](https://doi.org/${encodeURIComponent(reference.doi)})`;
     }
-    lines.push(`<a id="${reference.anchor}"></a>`, `${reference.number}. ${converted}`);
+    lines.push(`${reference.number}. ${converted} <a id="${reference.anchor}"></a>`, '');
   }
-  return lines.join('\n');
+  return lines.join('\n').trimEnd();
+}
+
+function bibEscape(value) {
+  return String(value || '')
+    .replace(/[\r\n]+/gu, ' ')
+    .replace(/[{}]/gu, '')
+    .replace(/\\/gu, '\\\\')
+    .trim();
+}
+
+export function referencesBib(references) {
+  return references.map((reference) => {
+    const year = reference.text.match(/\b(?:19|20)\d{2}\b/u)?.[0] || '';
+    const author = reference.text.split(/\.\s+/u)[0] || `Reference ${reference.number}`;
+    const doi = reference.doi || reference.text.match(/10\.\d{4,9}\/[^\s)]+/u)?.[0] || '';
+    return [
+      `@misc{${reference.citationKey || `ref${reference.number}`},`,
+      `  author = {${bibEscape(author)}},`,
+      ...(year ? [`  year = {${year}},`] : []),
+      `  note = {${bibEscape(reference.text)}},`,
+      ...(doi ? [`  doi = {${bibEscape(doi)}},`] : []),
+      '}',
+      '',
+    ].join('\n');
+  }).join('\n').trimEnd() + '\n';
 }
 
 export function renderClipMarkdown(result, imagePathByAnchor = new Map()) {
   const semantic = result.semantic;
-  let body = normalizeMarkdown(result.bodyMarkdown, semantic);
+  let body = normalizeMarkdown(result.bodyMarkdown, semantic, result.references, result.citationStyle);
   body = normalizeAnchorMarkers(body, semantic.crossReferences.values());
   body = applyFigurePlaceholders(body, result.figures, imagePathByAnchor);
   const extendedFigures = renderFigures(
@@ -95,13 +123,17 @@ export function renderClipMarkdown(result, imagePathByAnchor = new Map()) {
   const tables = renderTables(result.tables);
   const sections = [body, extendedFigures, tables, result.referencesMarkdown].filter(Boolean);
   const markdownBody = `# ${result.metadata.title}\n\n${sections.join('\n\n')}`.trim();
-  return `${frontmatter(result.metadata)}${markdownBody}\n`;
+  return `${frontmatter(result.metadata, result.citationStyle)}${markdownBody}\n`;
 }
 
-export async function clipNature({ html, url, rawHtml = html }) {
+export async function clipNature({ html, url, rawHtml = html, citationStyle = 'links' }) {
   if (!isNatureUrl(url)) throw new Error('This prototype only supports Nature article URLs.');
+  if (!['links', 'quarto'].includes(citationStyle)) throw new Error('citationStyle must be links or quarto.');
 
   const parsedPage = parseNaturePage(html, url);
+  if (parsedPage.debug.articleRoot !== '.c-article-body') {
+    throw new Error('Nature article body was not found; refusing to write a non-article page.');
+  }
   installDomGlobals(parsedPage.dom);
   await normalizeFigureCaptions(parsedPage.figures, url);
   const { parsed, markdown } = await defuddleToMarkdown(parsedPage.document, url);
@@ -113,6 +145,7 @@ export async function clipNature({ html, url, rawHtml = html }) {
     tables: parsedPage.tables,
     references: parsedPage.references,
     semantic: parsedPage.semantic,
+    citationStyle,
     bodyMarkdown: markdown,
     referencesMarkdown: await referencesMarkdown(parsedPage.references, url),
   };
@@ -121,10 +154,12 @@ export async function clipNature({ html, url, rawHtml = html }) {
     ...parsedPage.debug,
     title: parsedPage.metadata.title,
     articleId: articleIdFromUrl(url),
+    citationStyle,
     defuddleTitle: parsed.title || '',
     defuddleWordCount: parsed.wordCount || 0,
     markdownCharacters: fullMarkdown.length,
     mathValidation: validateMathDelimiters(fullMarkdown),
+    markdownStructure: validateMarkdownStructure(fullMarkdown),
     warnings: [...parsedPage.debug.warnings],
   };
 
@@ -275,6 +310,8 @@ export async function writePaper(result, { libraryPath, downloadFigures = true, 
     result.debug.mathValidation = remoteValidation;
     throw new MathDelimiterValidationError(remoteValidation, path.join(destination, 'index.md'));
   }
+  const remoteStructure = validateMarkdownStructure(remoteMarkdown);
+  if (!remoteStructure.valid) throw new Error(`Markdown structure validation failed: ${JSON.stringify(remoteStructure.issues)}`);
 
   await mkdir(root, { recursive: true });
   const tempPrefix = `.academic-clipper-${String(result.articleId).replace(/[^a-z0-9-]/gi, '-')}-`;
@@ -305,12 +342,18 @@ export async function writePaper(result, { libraryPath, downloadFigures = true, 
     const mathValidation = validateMathDelimiters(markdown);
     result.debug.mathValidation = mathValidation;
     if (!mathValidation.valid) throw new MathDelimiterValidationError(mathValidation, path.join(destination, 'index.md'));
+    const markdownStructure = validateMarkdownStructure(markdown);
+    result.debug.markdownStructure = markdownStructure;
+    if (!markdownStructure.valid) throw new Error(`Markdown structure validation failed: ${JSON.stringify(markdownStructure.issues)}`);
 
     await writeFile(path.join(staging, 'index.md'), markdown, 'utf8');
     if (saveDebug) {
       await writeFile(path.join(staging, 'raw.html'), result.rawHtml, 'utf8');
       await writeFile(path.join(staging, 'cleaned.html'), result.cleanedHtml, 'utf8');
       await writeFile(path.join(staging, 'debug.json'), `${JSON.stringify(result.debug, null, 2)}\n`, 'utf8');
+    }
+    if (result.citationStyle === 'quarto') {
+      await writeFile(path.join(staging, 'references.bib'), referencesBib(result.references), 'utf8');
     }
 
     await mkdir(destination, { recursive: true });
@@ -324,6 +367,9 @@ export async function writePaper(result, { libraryPath, downloadFigures = true, 
       }
     }
     await copyFile(path.join(staging, 'index.md'), path.join(destination, 'index.md'));
+    if (result.citationStyle === 'quarto') {
+      await copyFile(path.join(staging, 'references.bib'), path.join(destination, 'references.bib'));
+    }
     if (saveDebug) {
       await copyFile(path.join(staging, 'raw.html'), path.join(destination, 'raw.html'));
       await copyFile(path.join(staging, 'cleaned.html'), path.join(destination, 'cleaned.html'));
