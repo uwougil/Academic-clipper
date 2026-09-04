@@ -2,5 +2,7 @@
   "libraryPath": "./papers",
   "port": 34123,
   "downloadFigures": true,
-  "saveDebug": false
+  "saveDebug": false,
+  "bridgeToken": "",
+  "allowedOrigins": []
 }

@@ -6,6 +6,8 @@ import { articleIdFromUrl, isNatureUrl, parseNaturePage } from '../src/adapters/
 
 const fixturePath = new URL('./fixtures/nature-minimal.html', import.meta.url);
 const fixtureHtml = await readFile(fixturePath, 'utf8');
+const noIdFixturePath = new URL('./fixtures/nature-no-id-figures.html', import.meta.url);
+const noIdFixtureHtml = await readFile(noIdFixturePath, 'utf8');
 const fixtureUrl = 'https://www.nature.com/articles/s41586-026-10401-1';
 
 test('Nature URL and article id detection are scoped to Nature articles', () => {
@@ -39,14 +41,17 @@ test('Nature clipping preserves headings, TeX, figures, citations, and reference
   assert.match(result.markdown, /\$\\mathbf\{k\}\$/);
   assert.match(result.markdown, /\$\{P\}\^\{-1\}\{6\}_\{3\}\/\{m\}\^\{1\}\$/);
   assert.match(result.markdown, /\$P\{?\_\{\\mathrm\{spin\}\}\}?\$/);
+  assert.match(result.markdown, /\$T_\{c\}\^\{0\}\$/);
+  assert.match(result.markdown, /\$P_\{\\mathrm\{spin\}\}\^\{-1\}\$/);
   assert.match(result.markdown, /Mn\$_\{3\}\$/);
+  assert.match(result.markdown, /\*\*Figure 1\.\*\* Magnetic response of Mn\$_\{3\}\$Ge with \$P_\{\\mathrm\{spin\}\}\^\{-1\}\$ and \$\\lambda_0\$\./);
   assert.match(result.markdown, /Directions \[100\], \[210\] and \[001\] are plain text/);
   assert.match(result.markdown, /\[111\]-strained/);
   assert.doesNotMatch(result.markdown, /\$\$\n(?:100|210|001)\n\$\$/);
   assert.match(result.markdown, /\$\$\nE=mc\^2\n\$\$/);
   assert.match(result.markdown, /\$\$\n\\begin\{array\}\{c\}a_i \\\\ b_j\\end\{array\}\n\$\$/);
-  assert.match(result.markdown, /## Figure 1/);
-  assert.match(result.markdown, /## Extended Data Figure 1/);
+  assert.match(result.markdown, /<a id="figure-1"><\/a>\n!\[Figure 1\]/);
+  assert.match(result.markdown, /## Extended Data\n\n<a id="extended-data-figure-1"><\/a>/);
   assert.match(result.markdown, /\[1\]\(#ref-1\), \[2\]\(#ref-2\), \[3\]\(#ref-3\)/);
   assert.match(result.markdown, /\[Figure 1\]\(#figure-1\)/);
   assert.match(result.markdown, /\[Extended Data Fig\. 3\]\(#extended-data-figure-3\)/);
@@ -57,7 +62,17 @@ test('Nature clipping preserves headings, TeX, figures, citations, and reference
   assert.doesNotMatch(result.markdown, /Cookie banner|Nature navigation|Rights and permissions|\\\(/);
   assert.doesNotMatch(result.markdown, /<sub\b|<sup\b|<i\b/);
   assert.equal((result.markdown.match(/^## References\s*$/gm) || []).length, 1);
-  assert.ok(result.markdown.indexOf('Paragraph A') < result.markdown.indexOf('## Figure 1'));
-  assert.ok(result.markdown.indexOf('## Figure 1') < result.markdown.indexOf('Paragraph B'));
-  assert.doesNotMatch(result.markdown, /## Figure 6/);
+  assert.ok(result.markdown.indexOf('Paragraph A') < result.markdown.indexOf('<a id="figure-1">'));
+  assert.ok(result.markdown.indexOf('<a id="figure-1">') < result.markdown.indexOf('Paragraph B'));
+  assert.doesNotMatch(result.markdown, /^## (?:Figure|Extended Data Figure)\b/gm);
+  assert.doesNotMatch(result.markdown, /\*\*Figure 1\.\*\*[^\n]+\*\*$/);
+});
+
+test('Nature adapter maps id-less figures by unique DOM identity', async () => {
+  const result = await clipNature({ html: noIdFixtureHtml, url: 'https://www.nature.com/articles/no-id-figures' });
+  assert.deepEqual(result.figures.map((figure) => figure.id), ['', '']);
+  assert.deepEqual(result.figures.map((figure) => figure.anchor), ['figure-1', 'figure-2']);
+  assert.ok(result.markdown.indexOf('no-id-one.png') < result.markdown.indexOf('no-id-two.png'));
+  assert.equal((result.markdown.match(/<a id="figure-[12]"><\/a>/g) || []).length, 2);
+  assert.equal((result.markdown.match(/!\[Figure [12]\]/g) || []).length, 2);
 });

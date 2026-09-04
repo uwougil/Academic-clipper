@@ -1,4 +1,4 @@
-# Academic Clipper — Nature prototype v0.2
+# Academic Clipper — Nature prototype v0.2.0
 
 这是一个面向科研论文的最小浏览器采集原型：当前页面的 Nature HTML 由浏览器扩展送到本机 bridge，bridge 使用 Obsidian Web Clipper 依赖的 Defuddle 解析并转换为 Markdown，最后写入本地 `papers/<Nature article id>/index.md`。VS Code 只需要打开同一个文件夹即可看到新增文件，不需要开发 VS Code Extension。
 
@@ -30,8 +30,9 @@ Obsidian Web Clipper 关键位置：
 - `src/normalizers/math.mjs`：恢复 DOM 已判定的 inline/display TeX；保留原始下标和矩阵行分隔。
 - `src/normalizers/academic-inline.mjs`：把学术 `<sub>/<sup>/<i>` 组合转成可读的 Markdown/Quarto 行内表达式。
 - `src/normalizers/citations.mjs`：统一本地引用链接和 section/equation 锚点。
-- `src/normalizers/figures.mjs`：渲染短 alt、单次 caption、主图/Extended Data 图和表格链接。
+- `src/normalizers/figures.mjs`：通过同一条 math/academic-inline 语义链渲染短 alt、单次 caption、主图/Extended Data 图和表格链接。
 - `src/bridge.mjs`：`127.0.0.1:34123` 的极小 HTTP bridge，接收 HTML、写入本地文件。
+- `src/security.mjs`：bridge 的 Origin/token 边界和 figure URL 的最小 SSRF 防护。
 - `extension/`：极简 Manifest V3 popup，只有 Save Paper 和 Preview Markdown。
 - `test/fixtures/nature-minimal.html`：小型 fixture，不把整篇 Nature HTML 永久塞进单元测试。
 
@@ -54,9 +55,13 @@ npm run dev
   "libraryPath": "./papers",
   "port": 34123,
   "downloadFigures": true,
-  "saveDebug": false
+  "saveDebug": false,
+  "bridgeToken": "",
+  "allowedOrigins": []
 }
 ```
+
+bridge 启动时若没有配置 `bridgeToken` 会生成随机 token 并打印在本机终端；把它粘贴到扩展 popup 的 Bridge token 输入框。默认 CORS 只接受 Chrome extension Origin；`allowedOrigins` 非空时可进一步限制为指定扩展 Origin。bridge 仍只监听 `127.0.0.1`，`/paper` 和 `/preview` 需要 Bearer token。
 
 默认会把 figure 下载到 `papers/<article-id>/figures/`，并在 `index.md` 中使用相对路径。若确实需要远程图片，可在配置中设置 `downloadFigures: false`，或使用 CLI 的 `--no-download-figures`。
 
@@ -102,13 +107,13 @@ npm run build
 npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md
 ```
 
-`--debug` 会在论文目录保存 `raw.html`、`cleaned.html`、`debug.json`，并在 CLI 输出：publisher、article root、metadata source、paragraph/equation/figure/reference 数量、移除节点数和 warnings。
+`--debug` 会在论文目录保存 `raw.html`、`cleaned.html`、`debug.json`，并在 CLI 输出：publisher、article root、metadata source、paragraph/equation/figure/reference 数量、移除节点数、figure local/remote-fallback/failed summary 和 warnings。
 
 `validate:paper` 会对最终 `index.md` 做 lexical math delimiter validation，检查 inline/display math 是否闭合、是否跨 Markdown block、是否出现非法 `$`/`$$` 邻接、legacy delimiter 或 semantic marker。验证失败时返回 non-zero，不会由 writer 静默写出该文件。Pandoc/Quarto 不是运行时依赖；如果本机已安装，可另行执行 `pandoc index.md -o /tmp/academic-clipper.html` 或 `quarto render` 做可选 parser smoke test。
 
 ## 当前实测范围和已知问题
 
-目标论文目前由 Nature 页面提供：6 位作者、DOI `10.1038/s41586-026-10401-1`、正文 13 个公式节点、3 个主图、4 个 Extended Data 图和 50 条参考文献。v0.2 默认下载 7 张图到 `figures/`，主图通过稳定 placeholder 保留在正文附近，Extended Data 图单独放入 `## Extended Data`。
+目标论文目前由 Nature 页面提供：6 位作者、DOI `10.1038/s41586-026-10401-1`、正文 13 个公式节点、3 个主图、4 个 Extended Data 图和 50 条参考文献。v0.2.0 默认下载 7 张图到 `figures/`，主图通过稳定 placeholder 保留在正文附近，Figure 自身不生成二级 heading，Extended Data 图单独放入 `## Extended Data`。图注中的 `<sub>`、`<sup>`、`<i>` 和 `.mathjax-tex` 会经过 academic inline/math 转换；图片下载失败时保留远程 URL，并在 debug 中记录 fallback。
 
 已知边界：
 
@@ -117,5 +122,6 @@ npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md
 - Supplementary Information 只保留在正文中被引用的内容，不下载 PDF。
 - 公式优先使用页面 `.mathjax-tex` 的原始 TeX：Nature equation container 中的 TeX 先冻结为 display 语义，正文中的 TeX 先冻结为 inline 语义，再交给 Defuddle 做 HTML→Markdown；少数异常页面若没有原始 TeX，会进入 warning，而不是伪造 Unicode 公式。
 - 引用统一为 `[n](#ref-n)`，References 只由本原型生成一份，并为每条文献提供 `ref-n` anchor；figure/table/equation/section cross-reference 在目标存在时改为本地 anchor。
-- 下载器记录 figure label、source URL、HTTP/result、local path 和失败原因；同一 source URL 只下载一次。
+- 下载器记录 figure label、source URL、HTTP/result、content type、local path、fallback 和失败原因；同一 source URL 无论成功或失败只下载一次，并有 20 秒 timeout、20 MiB 单图大小上限和 `image/*` 响应检查。
+- writer 会先对远程图片版本 Markdown 做数学验证，再在 staging 目录下载和二次验证，避免无效 Markdown 或失败下载留下新半成品；figure URL 只允许 HTTP(S)，并拒绝明显的 localhost、loopback、link-local 和私有 LAN 地址。
 - 论文网站 DOM 变化时需要维护 `src/adapters/nature.mjs` 的 selector；`raw.html`/`cleaned.html` 用于对照定位问题。

@@ -1,6 +1,7 @@
 const DEFAULT_ENDPOINT = 'http://127.0.0.1:34123';
 const saveButton = document.querySelector('#save');
 const previewButton = document.querySelector('#preview');
+const bridgeTokenInput = document.querySelector('#bridge-token');
 const status = document.querySelector('#status');
 const debug = document.querySelector('#debug');
 
@@ -19,6 +20,11 @@ async function endpoint() {
   return String(stored.bridgeEndpoint).replace(/\/$/, '');
 }
 
+async function bridgeToken() {
+  const stored = await chrome.storage.local.get({ bridgeToken: '' });
+  return String(stored.bridgeToken || '');
+}
+
 async function pageSnapshot() {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   if (!tab?.id) throw new Error('No active tab.');
@@ -32,15 +38,23 @@ async function pageSnapshot() {
 
 async function callBridge(route) {
   const snapshot = await pageSnapshot();
+  const token = await bridgeToken();
+  const headers = { 'content-type': 'application/json' };
+  if (token) headers.authorization = `Bearer ${token}`;
   const response = await fetch(`${await endpoint()}${route}`, {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers,
     body: JSON.stringify(snapshot),
   });
   const payload = await response.json();
   if (!response.ok || !payload.ok) throw new Error(payload.error || `Bridge returned HTTP ${response.status}`);
   return payload;
 }
+
+void (async () => {
+  bridgeTokenInput.value = await bridgeToken();
+})();
+bridgeTokenInput.addEventListener('change', () => chrome.storage.local.set({ bridgeToken: bridgeTokenInput.value.trim() }));
 
 saveButton.addEventListener('click', async () => {
   setBusy(true);

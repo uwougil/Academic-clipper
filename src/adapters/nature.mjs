@@ -2,6 +2,7 @@ import { JSDOM } from 'jsdom';
 import { semanticMarker } from '../normalizers/markers.mjs';
 
 const NATURE_HOSTS = new Set(['nature.com', 'www.nature.com']);
+const FIGURE_IDENTITY_ATTR = 'data-academic-clipper-figure';
 const EXCLUDED_SECTIONS = new Set([
   'about this article',
   'author information',
@@ -171,15 +172,21 @@ function imageUrlFor(element, url) {
 }
 
 function captionFor(figure) {
-  return cleanText(figure.querySelector(
-    '[data-test="figure-caption-text"], [data-test="table-caption"], .c-article-table__figcaption, figcaption',
-  )?.textContent);
+  const element = figure.querySelector('[data-test="figure-caption-text"]')
+    || figure.querySelector('[data-test="table-caption"]')
+    || figure.querySelector('.c-article-table__figcaption')
+    || figure.querySelector('figcaption');
+  return {
+    text: cleanText(element?.textContent),
+    html: element?.innerHTML || '',
+  };
 }
 
 function extractFigures(body, url) {
   const figures = [];
   for (const figure of body.querySelectorAll('figure')) {
-    const caption = captionFor(figure);
+    const captionData = captionFor(figure);
+    const caption = captionData.text;
     const isTable = /^Table\b|^Extended Data Table\b/i.test(caption);
     const inExcludedSection = Boolean(figure.closest('section[data-title="Extended data figures and tables"]'));
     const imageUrl = imageUrlFor(figure, url);
@@ -187,12 +194,16 @@ function extractFigures(body, url) {
 
     const id = figure.id || figure.querySelector('[id^="Fig"]')?.id || '';
     const number = figures.length + 1;
+    const identity = `inline-figure-${number}`;
+    figure.setAttribute(FIGURE_IDENTITY_ATTR, identity);
     figures.push({
+      identity,
       id,
       natureId: id,
       anchor: `figure-${number}`,
       label: figureLabel(caption, `Figure ${number}`),
       caption,
+      captionHtml: captionData.html,
       alt: `Figure ${number}`,
       imageUrl,
       source: 'inline figure',
@@ -201,19 +212,24 @@ function extractFigures(body, url) {
 
   let extendedNumber = 0;
   for (const item of body.querySelectorAll('.js-c-reading-companion-figures-item[data-test="supp-item"]')) {
-    const heading = item.querySelector('h3')?.textContent;
-    const caption = cleanText(heading || item.querySelector('.c-article-supplementary__description')?.textContent);
+    const heading = item.querySelector('h3');
+    const description = item.querySelector('.c-article-supplementary__description');
+    const captionElement = heading || description;
+    const caption = cleanText(captionElement?.textContent);
     const label = figureLabel(caption, `Extended Data Figure ${extendedNumber + 1}`);
     const imageUrl = imageUrlFor(item, url);
     if (!imageUrl || !caption || !/Extended Data Fig/i.test(caption)) continue;
     extendedNumber += 1;
     const number = figureNumber(label, extendedNumber);
+    const identity = item.id || `supplementary-figure-${extendedNumber}`;
     figures.push({
+      identity,
       id: item.id || '',
       natureId: item.id || '',
       anchor: `extended-data-figure-${number}`,
       label,
       caption,
+      captionHtml: captionElement?.innerHTML || '',
       alt: `Extended Data Figure ${number}`,
       imageUrl,
       source: 'supplementary figure',
@@ -225,7 +241,7 @@ function extractFigures(body, url) {
 function extractTables(body, url) {
   let number = 0;
   return Array.from(body.querySelectorAll('figure')).flatMap((figure) => {
-    const caption = captionFor(figure);
+    const caption = captionFor(figure).text;
     if (!/^Table\b|^Extended Data Table\b/i.test(caption)) return [];
     number += 1;
     const link = figure.querySelector('[data-test="table-link"], a[href]')?.getAttribute('href');
@@ -403,8 +419,8 @@ function prepareSemanticNodes(body, url, figures, tables) {
   }
 
   for (const figure of Array.from(body.querySelectorAll('figure'))) {
-    const id = figure.id || figure.querySelector('[id^="Fig"]')?.id || '';
-    const data = figures.find((candidate) => candidate.source === 'inline figure' && candidate.id === id);
+    const identity = figure.getAttribute(FIGURE_IDENTITY_ATTR) || '';
+    const data = figures.find((candidate) => candidate.source === 'inline figure' && candidate.identity === identity);
     if (!data) continue;
     const placeholder = body.ownerDocument.createElement('p');
     placeholder.textContent = semanticMarker('FIGURE', data.anchor);

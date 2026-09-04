@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { installDomGlobals } from './dom-runtime.mjs';
 import { htmlToMarkdown, defuddleToMarkdown } from './markdown.mjs';
@@ -7,8 +7,13 @@ import { semanticMarker } from './normalizers/markers.mjs';
 import { normalizeMath } from './normalizers/math.mjs';
 import { normalizeAcademicInline } from './normalizers/academic-inline.mjs';
 import { normalizeAnchorMarkers, normalizeCitations } from './normalizers/citations.mjs';
-import { renderFigure, renderFigures, renderTables } from './normalizers/figures.mjs';
+import { normalizeFigureCaptions, renderFigure, renderFigures, renderTables } from './normalizers/figures.mjs';
 import { MathDelimiterValidationError, validateMathDelimiters } from './validators/math-delimiters.mjs';
+import { safeExternalUrl } from './security.mjs';
+import { ACADEMIC_CLIPPER_USER_AGENT } from './version.mjs';
+
+const FIGURE_FETCH_TIMEOUT_MS = 20_000;
+const MAX_FIGURE_BYTES = 20 * 1024 * 1024;
 
 function yamlQuote(value) {
   return JSON.stringify(String(value ?? ''));
@@ -20,7 +25,7 @@ function frontmatter(metadata) {
     `title: ${yamlQuote(metadata.title)}`,
     'authors:',
     ...(metadata.authors.length ? metadata.authors.map((author) => `  - ${yamlQuote(author)}`) : ['  - ""']),
-    `journal: ${yamlQuote(metadata.journal || 'Nature')}`,
+    `journal: {name: ${yamlQuote(metadata.journal || 'Nature')}}`,
     `doi: ${yamlQuote(metadata.doi)}`,
     `url: ${yamlQuote(metadata.url)}`,
     `date: ${yamlQuote(metadata.date)}`,
@@ -98,6 +103,7 @@ export async function clipNature({ html, url, rawHtml = html }) {
 
   const parsedPage = parseNaturePage(html, url);
   installDomGlobals(parsedPage.dom);
+  await normalizeFigureCaptions(parsedPage.figures, url);
   const { parsed, markdown } = await defuddleToMarkdown(parsedPage.document, url);
 
   const intermediate = {
@@ -148,6 +154,7 @@ function extensionFor(contentType, imageUrl) {
     'image/webp': '.webp',
     'image/gif': '.gif',
     'image/svg+xml': '.svg',
+    'image/avif': '.avif',
   };
   if (byType[type]) return byType[type];
   try {
@@ -156,6 +163,50 @@ function extensionFor(contentType, imageUrl) {
   } catch {
     return '.bin';
   }
+}
+
+async function responseBytes(response) {
+  const declaredLength = Number.parseInt(response.headers.get('content-length') || '', 10);
+  if (Number.isFinite(declaredLength) && declaredLength > MAX_FIGURE_BYTES) {
+    throw new Error(`Image exceeds ${MAX_FIGURE_BYTES} byte limit.`);
+  }
+
+  if (!response.body?.getReader) {
+    const buffer = Buffer.from(await response.arrayBuffer());
+    if (buffer.byteLength > MAX_FIGURE_BYTES) throw new Error(`Image exceeds ${MAX_FIGURE_BYTES} byte limit.`);
+    return buffer;
+  }
+
+  const reader = response.body.getReader();
+  const chunks = [];
+  let total = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > MAX_FIGURE_BYTES) {
+        await reader.cancel();
+        throw new Error(`Image exceeds ${MAX_FIGURE_BYTES} byte limit.`);
+      }
+      chunks.push(Buffer.from(value));
+    }
+  } finally {
+    reader.releaseLock();
+  }
+  return Buffer.concat(chunks, total);
+}
+
+function figureSummary(figures, downloads, downloadFigures) {
+  const failedUrls = [...new Set(downloads.filter((entry) => entry.error).map((entry) => entry.sourceUrl))];
+  return {
+    totalFigures: figures.length,
+    localFigures: downloads.filter((entry) => entry.localPath).length,
+    remoteFallbackFigures: downloads.filter((entry) => entry.fallback).length,
+    failedResources: failedUrls.length,
+    failedResourceUrls: failedUrls,
+    downloadsEnabled: downloadFigures,
+  };
 }
 
 async function downloadFigureAssets(result, figuresDir) {
@@ -170,26 +221,45 @@ async function downloadFigureAssets(result, figuresDir) {
     if (byUrl.has(sourceUrl)) {
       const existing = byUrl.get(sourceUrl);
       imagePathByAnchor.set(figure.anchor, existing.localPath);
-      downloads.push({ label: figure.label, anchor: figure.anchor, sourceUrl, status: 'deduped', localPath: existing.localPath });
+      downloads.push({
+        label: figure.label,
+        anchor: figure.anchor,
+        sourceUrl,
+        status: 'deduped',
+        sourceStatus: existing.status,
+        localPath: existing.localPath,
+        error: existing.error,
+        fallback: existing.fallback,
+        fallbackPath: existing.fallbackPath,
+      });
       continue;
     }
 
     const entry = { label: figure.label, anchor: figure.anchor, sourceUrl, status: 'pending' };
+    byUrl.set(sourceUrl, entry);
     try {
-      const response = await fetch(sourceUrl, { headers: { 'user-agent': 'academic-clipper/0.2' } });
+      const safeUrl = safeExternalUrl(sourceUrl);
+      const response = await fetch(safeUrl, {
+        headers: { 'user-agent': ACADEMIC_CLIPPER_USER_AGENT },
+        signal: AbortSignal.timeout(FIGURE_FETCH_TIMEOUT_MS),
+      });
       entry.status = response.status;
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const extension = extensionFor(response.headers.get('content-type'), sourceUrl);
+      const contentType = String(response.headers.get('content-type') || '').split(';')[0].toLowerCase();
+      entry.contentType = contentType;
+      if (!contentType.startsWith('image/')) throw new Error(`Unexpected content-type: ${contentType || '(missing)'}`);
+      const extension = extensionFor(contentType, sourceUrl);
       const filename = `fig${uniqueIndex + 1}${extension}`;
       const localPath = path.join(figuresDir, filename);
-      await writeFile(localPath, Buffer.from(await response.arrayBuffer()));
+      await writeFile(localPath, await responseBytes(response));
       entry.localPath = `figures/${filename}`;
-      byUrl.set(sourceUrl, entry);
       imagePathByAnchor.set(figure.anchor, entry.localPath);
       uniqueIndex += 1;
     } catch (error) {
       if (entry.status === 'pending') entry.status = 'error';
       entry.error = error instanceof Error ? error.message : String(error);
+      entry.fallback = true;
+      entry.fallbackPath = sourceUrl;
       result.debug.warnings.push(`Figure download failed for ${figure.label}: ${entry.error}`);
     }
     downloads.push(entry);
@@ -198,41 +268,75 @@ async function downloadFigureAssets(result, figuresDir) {
 }
 
 export async function writePaper(result, { libraryPath, downloadFigures = true, saveDebug = false }) {
-  const { destination } = safeArticleDirectory(libraryPath, result.articleId);
-  await mkdir(destination, { recursive: true });
+  const { root, destination } = safeArticleDirectory(libraryPath, result.articleId);
+  const remoteMarkdown = renderClipMarkdown(result, new Map());
+  const remoteValidation = validateMathDelimiters(remoteMarkdown);
+  if (!remoteValidation.valid) {
+    result.debug.mathValidation = remoteValidation;
+    throw new MathDelimiterValidationError(remoteValidation, path.join(destination, 'index.md'));
+  }
+
+  await mkdir(root, { recursive: true });
+  const tempPrefix = `.academic-clipper-${String(result.articleId).replace(/[^a-z0-9-]/gi, '-')}-`;
+  const staging = await mkdtemp(path.join(root, tempPrefix));
   let imagePathByAnchor = new Map();
   result.debug.figureDownloads = [];
 
-  if (downloadFigures && result.figures.length) {
-    const figuresDir = path.join(destination, 'figures');
-    await mkdir(figuresDir, { recursive: true });
-    const downloaded = await downloadFigureAssets(result, figuresDir);
-    imagePathByAnchor = downloaded.imagePathByAnchor;
-    result.debug.figureDownloads = downloaded.downloads;
-  }
-
-  const markdown = renderClipMarkdown(result, imagePathByAnchor);
-  const mathValidation = validateMathDelimiters(markdown);
-  result.debug.mathValidation = mathValidation;
-  if (!mathValidation.valid) {
-    if (saveDebug) {
-      await writeFile(path.join(destination, 'raw.html'), result.rawHtml, 'utf8');
-      await writeFile(path.join(destination, 'cleaned.html'), result.cleanedHtml, 'utf8');
-      await writeFile(path.join(destination, 'debug.json'), `${JSON.stringify(result.debug, null, 2)}\n`, 'utf8');
+  try {
+    if (downloadFigures && result.figures.length) {
+      const figuresDir = path.join(staging, 'figures');
+      await mkdir(figuresDir, { recursive: true });
+      const downloaded = await downloadFigureAssets(result, figuresDir);
+      imagePathByAnchor = downloaded.imagePathByAnchor;
+      result.debug.figureDownloads = downloaded.downloads;
+    } else {
+      result.debug.figureDownloads = result.figures.map((figure) => ({
+        label: figure.label,
+        anchor: figure.anchor,
+        sourceUrl: figure.imageUrl,
+        status: 'disabled',
+        fallback: true,
+        fallbackPath: figure.imageUrl,
+      }));
     }
-    throw new MathDelimiterValidationError(mathValidation, path.join(destination, 'index.md'));
-  }
-  await writeFile(path.join(destination, 'index.md'), markdown, 'utf8');
-  if (saveDebug) {
-    await writeFile(path.join(destination, 'raw.html'), result.rawHtml, 'utf8');
-    await writeFile(path.join(destination, 'cleaned.html'), result.cleanedHtml, 'utf8');
-    await writeFile(path.join(destination, 'debug.json'), `${JSON.stringify(result.debug, null, 2)}\n`, 'utf8');
-  }
 
-  return {
-    directory: destination,
-    relativePath: `${result.articleId}/index.md`,
-    markdown,
-    debug: result.debug,
-  };
+    result.debug.figureSummary = figureSummary(result.figures, result.debug.figureDownloads, downloadFigures);
+    const markdown = renderClipMarkdown(result, imagePathByAnchor);
+    const mathValidation = validateMathDelimiters(markdown);
+    result.debug.mathValidation = mathValidation;
+    if (!mathValidation.valid) throw new MathDelimiterValidationError(mathValidation, path.join(destination, 'index.md'));
+
+    await writeFile(path.join(staging, 'index.md'), markdown, 'utf8');
+    if (saveDebug) {
+      await writeFile(path.join(staging, 'raw.html'), result.rawHtml, 'utf8');
+      await writeFile(path.join(staging, 'cleaned.html'), result.cleanedHtml, 'utf8');
+      await writeFile(path.join(staging, 'debug.json'), `${JSON.stringify(result.debug, null, 2)}\n`, 'utf8');
+    }
+
+    await mkdir(destination, { recursive: true });
+    if (downloadFigures && result.figures.length) {
+      await mkdir(path.join(destination, 'figures'), { recursive: true });
+      for (const figure of result.figures) {
+        const localPath = imagePathByAnchor.get(figure.anchor);
+        if (!localPath) continue;
+        const filename = path.basename(localPath);
+        await copyFile(path.join(staging, 'figures', filename), path.join(destination, 'figures', filename));
+      }
+    }
+    await copyFile(path.join(staging, 'index.md'), path.join(destination, 'index.md'));
+    if (saveDebug) {
+      await copyFile(path.join(staging, 'raw.html'), path.join(destination, 'raw.html'));
+      await copyFile(path.join(staging, 'cleaned.html'), path.join(destination, 'cleaned.html'));
+      await copyFile(path.join(staging, 'debug.json'), path.join(destination, 'debug.json'));
+    }
+
+    return {
+      directory: destination,
+      relativePath: `${result.articleId}/index.md`,
+      markdown,
+      debug: result.debug,
+    };
+  } finally {
+    await rm(staging, { recursive: true, force: true });
+  }
 }
