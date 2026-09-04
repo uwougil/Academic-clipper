@@ -29,6 +29,9 @@ test('Nature adapter extracts structured metadata and scholarly nodes', () => {
   assert.equal(result.references.length, 3);
   assert.equal(result.debug.equations, 2);
   assert.equal(result.tables[0].label, 'Extended Data Table 1');
+  assert.match(result.figures[0].caption, /Full panel description/);
+  assert.match(result.tables[0].tableHtml, /<th>Group<\/th>/);
+  assert.equal(result.metadata.authorInformation.correspondence.email, 'mailto:ada@example.org');
   assert.ok(!result.cleanedHtml.includes('Rights and permissions'));
 });
 
@@ -45,6 +48,18 @@ test('Nature clipping preserves headings, TeX, figures, citations, and reference
   assert.match(result.markdown, /\$P_\{\\mathrm\{spin\}\}\^\{-1\}\$/);
   assert.match(result.markdown, /Mn\$_\{3\}\$/);
   assert.match(result.markdown, /\*\*Figure 1\.\*\* Magnetic response of Mn\$_\{3\}\$Ge with \$P_\{\\mathrm\{spin\}\}\^\{-1\}\$ and \$\\lambda_0\$\./);
+  assert.match(result.markdown, /Full panel description with \$\\lambda_0\$ and a \[figure link\]\(https:\/\/www\.nature\.com\/articles\/s41586-026-10401-1\/figures\/1\)/);
+  assert.match(result.markdown, /\| Group \| Effect \|/);
+  assert.match(result.markdown, /\| \$P_\{\\mathrm\{spin\}\}\$ \| \$\\lambda\^0\$ \|/);
+  assert.match(result.markdown, /\[Test extension\.\]\(https:\/\/www\.nature\.com\/articles\/s41586-026-10401-1\/figures\/7\)/);
+  assert.match(result.markdown, /## Author contributions/);
+  assert.match(result.markdown, /\[ada@example\.org\]\(mailto:ada@example\.org\)/);
+  assert.match(result.markdown, /multi-\*q\*/);
+  assert.match(result.markdown, /\$\\\{g_\{s\}\\Vert g_\{l\}\\mid \\tau\\\}\$/);
+  assert.match(result.markdown, /\*p\*-wave/);
+  assert.match(result.markdown, /\*y\*-direction/);
+  assert.match(result.markdown, /\*k\*-points/);
+  assert.match(result.markdown, /\*i\*th/);
   assert.match(result.markdown, /Directions \[100\], \[210\] and \[001\] are plain text/);
   assert.match(result.markdown, /\[111\]-strained/);
   assert.doesNotMatch(result.markdown, /\$\$\n(?:100|210|001)\n\$\$/);

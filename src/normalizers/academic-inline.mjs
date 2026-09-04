@@ -129,6 +129,17 @@ function combineScientificRuns(value) {
   return output;
 }
 
+function normalizeAcademicAdjacency(value) {
+  return String(value || '')
+    // Nature separates an italic variable from a hyphenated academic term.
+    .replace(/(\*[A-Za-z]\*)\s+-(?=(?:wave|direction|points)\b)/gu, '$1-')
+    // Ordinal markers such as i th are part of the variable phrase.
+    .replace(/(\*[A-Za-z]\*)\s+(?=(?:st|nd|rd|th)\b)/gu, '$1')
+    // The multi-q label is one lexical unit, while ordinary prose spacing is
+    // intentionally left untouched.
+    .replace(/\bmulti-\s+(\*[A-Za-z]\*)/gu, 'multi-$1');
+}
+
 export function normalizeAcademicInline(markdown) {
   const converted = renderRange(String(markdown || '')).output;
   // Nature often represents a scientific variable as adjacent italic base and
@@ -136,7 +147,7 @@ export function normalizeAcademicInline(markdown) {
   // becomes one math expression, while chemical formulas such as Mn + sub(3)
   // stay text-led. The fragments are parsed rather than repaired with a
   // delimiter replacement, so sup/sub order and nested braces are preserved.
-  return combineScientificRuns(converted)
+  return normalizeAcademicAdjacency(combineScientificRuns(converted))
     // Defuddle may put a presentation space between adjacent chemical
     // symbols around a numeric subscript. Remove only that unambiguous
     // element-boundary space; keep ordinary scientific prose untouched.

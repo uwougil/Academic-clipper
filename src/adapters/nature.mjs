@@ -1,5 +1,6 @@
 import { JSDOM } from 'jsdom';
 import { semanticMarker } from '../normalizers/markers.mjs';
+import { ACADEMIC_CLIPPER_USER_AGENT } from '../version.mjs';
 
 const NATURE_HOSTS = new Set(['nature.com', 'www.nature.com']);
 const FIGURE_IDENTITY_ATTR = 'data-academic-clipper-figure';
@@ -88,6 +89,32 @@ function jsonLdArticle(document) {
   }) ?? {};
 }
 
+function extractAuthorInformation(document) {
+  const section = document.querySelector('section[data-title="Author information"]');
+  const notes = Array.from(section?.querySelectorAll('.c-article-author-information__item p') || [])
+    .map((node) => cleanText(node.textContent))
+    .filter(Boolean);
+  const affiliations = Array.from(section?.querySelectorAll('.c-article-author-affiliation__list > li') || [])
+    .map((item) => ({
+      address: cleanText(item.querySelector('.c-article-author-affiliation__address')?.textContent),
+      authors: cleanText(item.querySelector('.c-article-author-affiliation__authors-list')?.textContent),
+    }))
+    .filter((item) => item.address || item.authors);
+  const contributions = cleanText(section?.querySelector('#contributions + p')?.textContent);
+  const correspondenceNode = section?.querySelector('#corresponding-author-list');
+  const correspondence = correspondenceNode ? {
+    text: cleanText(correspondenceNode.textContent),
+    email: correspondenceNode.querySelector('a[href^="mailto:"]')?.getAttribute('href') || '',
+  } : null;
+  return { notes, affiliations, contributions, correspondence };
+}
+
+function extractPublisherNotes(document) {
+  return Array.from(document.querySelectorAll('section[data-title="Peer review"] p'))
+    .map((node) => cleanText(node.textContent))
+    .filter(Boolean);
+}
+
 function extractMetadata(document, url) {
   const jsonArticle = jsonLdArticle(document);
   const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href');
@@ -105,6 +132,7 @@ function extractMetadata(document, url) {
   const doi = firstMeta(document, ['citation_doi', 'dc.identifier']).replace(/^doi:/i, '');
   const date = firstMeta(document, ['citation_online_date', 'citation_publication_date', 'date'])
     || cleanText(jsonArticle.datePublished);
+  const authorInformation = extractAuthorInformation(document);
 
   return {
     title,
@@ -119,6 +147,8 @@ function extractMetadata(document, url) {
       ? `${firstMeta(document, ['citation_firstpage'])}-${firstMeta(document, ['citation_lastpage'])}`
       : '',
     metadataSource: 'Nature citation_* meta tags, with JSON-LD fallback',
+    authorInformation,
+    publisherNotes: extractPublisherNotes(document),
   };
 }
 
@@ -187,14 +217,18 @@ function imageUrlFor(element, url) {
   return candidates.sort((a, b) => b.score - a.score || a.index - b.index)[0]?.url || '';
 }
 
-function captionFor(figure) {
+function captionFor(figure, { includeFigureDescription = false } = {}) {
   const element = figure.querySelector('[data-test="figure-caption-text"]')
     || figure.querySelector('[data-test="table-caption"]')
     || figure.querySelector('.c-article-table__figcaption')
     || figure.querySelector('figcaption');
+  const description = includeFigureDescription
+    ? figure.parentElement?.querySelector('[data-test="bottom-caption"], .c-article-section__figure-description')
+    : null;
+  const html = [element?.innerHTML, description?.innerHTML].filter(Boolean).join(' ');
   return {
-    text: cleanText(element?.textContent),
-    html: element?.innerHTML || '',
+    text: cleanText([element?.textContent, description?.textContent].filter(Boolean).join(' ')),
+    html,
   };
 }
 
@@ -209,7 +243,7 @@ function elementContentHtml(element) {
 function extractFigures(body, url) {
   const figures = [];
   for (const figure of body.querySelectorAll('figure')) {
-    const captionData = captionFor(figure);
+    const captionData = captionFor(figure, { includeFigureDescription: true });
     const caption = captionData.text;
     const isTable = /^Table\b|^Extended Data Table\b/i.test(caption);
     const inExcludedSection = Boolean(figure.closest('section[data-title="Extended data figures and tables"]'));
@@ -270,6 +304,7 @@ function extractTables(body, url) {
     number += 1;
     const link = figure.querySelector('[data-test="table-link"], a[href]')?.getAttribute('href');
     const id = figure.id || figure.querySelector('[id^="Tab"]')?.id || '';
+    const tableElement = figure.querySelector('table');
     return [{
       id,
       natureId: id,
@@ -277,8 +312,66 @@ function extractTables(body, url) {
       label: tableLabel(caption, `Table ${number}`),
       caption,
       url: normalizeUrl(link, url),
+      tableHtml: tableElement?.outerHTML || '',
+      tableContentStatus: tableElement ? 'inline-html' : 'not-loaded',
     }];
   });
+}
+
+function sameNatureTableOrigin(tableUrl, articleUrl) {
+  try {
+    const table = new URL(tableUrl);
+    const article = new URL(articleUrl);
+    return table.origin === article.origin
+      && table.pathname.startsWith(`${article.pathname.replace(/\/$/u, '')}/tables/`);
+  } catch {
+    return false;
+  }
+}
+
+export async function hydrateNatureTables(tables, articleUrl) {
+  const warnings = [];
+  for (const table of tables) {
+    if (table.tableHtml) continue;
+    if (!table.url) {
+      table.tableContentStatus = 'fallback-no-url';
+      table.tableContentWarning = 'No full-size table URL was exposed by Nature.';
+      warnings.push(`${table.label}: ${table.tableContentWarning}`);
+      continue;
+    }
+    if (!sameNatureTableOrigin(table.url, articleUrl)) {
+      table.tableContentStatus = 'fallback-unsafe-url';
+      table.tableContentWarning = 'Full-size table URL was not a same-article Nature table URL.';
+      warnings.push(`${table.label}: ${table.tableContentWarning}`);
+      continue;
+    }
+    try {
+      const response = await fetch(table.url, {
+        headers: { 'user-agent': ACADEMIC_CLIPPER_USER_AGENT },
+        signal: AbortSignal.timeout(20_000),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const contentType = String(response.headers.get('content-type') || '').toLowerCase();
+      if (contentType && !contentType.includes('html')) throw new Error(`Unexpected content-type: ${contentType}`);
+      const html = await response.text();
+      const tableDocument = new JSDOM(html, { url: table.url }).window.document;
+      const tableElement = tableDocument.querySelector('table');
+      if (!tableElement) {
+        table.tableContentStatus = 'fallback-no-html-table';
+        table.tableContentWarning = 'The full-size Nature page did not expose HTML table cells; retained the absolute URL.';
+        warnings.push(`${table.label}: ${table.tableContentWarning}`);
+        continue;
+      }
+      table.tableHtml = tableElement.outerHTML;
+      table.tableContentStatus = 'full-size-html';
+      table.tableContentUrl = table.url;
+    } catch (error) {
+      table.tableContentStatus = 'fallback-fetch-failed';
+      table.tableContentWarning = `Unable to fetch or parse the full-size table: ${error instanceof Error ? error.message : String(error)}`;
+      warnings.push(`${table.label}: ${table.tableContentWarning}`);
+    }
+  }
+  return warnings;
 }
 
 function extractReferences(body) {
@@ -327,7 +420,8 @@ function replaceInlineMath(body) {
   const values = [];
   for (const element of Array.from(body.querySelectorAll('.mathjax-tex'))) {
     if (element.closest('.c-article-equation')) continue;
-    const tex = extractMathSource(element.textContent);
+    const source = extractMathSource(element.textContent);
+    const tex = source.includes('||') ? canonicalScientificTex(source) : source;
     if (!tex) continue;
     const marker = semanticMarker('INLINEMATH', values.length);
     values.push({ marker, tex });
@@ -371,12 +465,73 @@ function scientificTex(node, inlineMathByMarker) {
   return content;
 }
 
+const SCIENTIFIC_GREEK = new Map([
+  ['α', '\\alpha'], ['β', '\\beta'], ['γ', '\\gamma'], ['δ', '\\delta'],
+  ['Δ', '\\Delta'], ['ε', '\\epsilon'], ['λ', '\\lambda'], ['μ', '\\mu'],
+  ['ν', '\\nu'], ['ω', '\\omega'], ['Ω', '\\Omega'], ['σ', '\\sigma'],
+  ['τ', '\\tau'], ['χ', '\\chi'], ['φ', '\\phi'], ['ψ', '\\psi'],
+  ['∞', '\\infty'],
+]);
+
+function canonicalScientificTex(tex) {
+  let result = String(tex || '').replace(/[αβγδΔελμνωΩστυχφψ∞]/gu, (value) => SCIENTIFIC_GREEK.get(value) || value);
+  result = result.replace(/−/gu, '-').replace(/\|\|/gu, '\\Vert ').replace(/(?<!\\)\|/gu, '\\mid ');
+  // A delimited symmetry operation is a literal set-like expression. Escape
+  // only its outer braces; sub/superscript and \mathbf braces remain TeX groups.
+  if (result.startsWith('{')) result = `\\{${result.slice(1)}`;
+  if (result.endsWith('}')) result = `${result.slice(0, -1)}\\}`;
+  return result;
+}
+
 function allowedScientificText(text) {
   const normalized = String(text || '').replace(/\u00a0/g, ' ');
   if (!normalized || /^\s/u.test(normalized)) return null;
   const match = normalized.match(/^[A-Za-z0-9∞−+\-_/|{}'=′″]+/u);
   if (!match) return null;
   return { length: match[0].length, text: match[0] };
+}
+
+function collectDelimitedScientificRun(parent, startIndex) {
+  const startNode = parent.childNodes[startIndex];
+  if (startNode?.nodeType !== 3) return null;
+  const startOffset = startNode.textContent.lastIndexOf('{');
+  if (startOffset < 0) return null;
+
+  const initialTail = startNode.textContent.slice(startOffset);
+  const initialClose = initialTail.indexOf('}');
+  if (initialClose >= 0 && initialTail.slice(0, initialClose + 1).includes('||')) {
+    return {
+      start: { node: startNode, offset: startOffset },
+      end: { node: startNode, offset: startOffset + initialClose + 1 },
+    };
+  }
+
+  let index = startIndex + 1;
+  let sawParallelSeparator = initialTail.includes('||');
+  let end = null;
+  while (index < parent.childNodes.length) {
+    const node = parent.childNodes[index];
+    if (isElement(node, SCIENTIFIC_TAGS)) {
+      index += 1;
+      continue;
+    }
+    if (node.nodeType !== 3) break;
+    const text = node.textContent;
+    const closeIndex = text.indexOf('}');
+    const candidate = closeIndex >= 0 ? text.slice(0, closeIndex + 1) : text;
+    if (!/^[A-Za-z0-9∞α-ωΑ-ΩΔ−+\-_/|{}'=′″,.;:\s\u00a0\u2009]+$/u.test(candidate)) break;
+    if (candidate.includes('||')) sawParallelSeparator = true;
+    if (closeIndex >= 0) {
+      end = { node, offset: closeIndex + 1 };
+      break;
+    }
+    index += 1;
+  }
+  if (!end || !sawParallelSeparator) return null;
+  return {
+    start: { node: startNode, offset: startOffset },
+    end,
+  };
 }
 
 function setRangeEnd(range, end) {
@@ -389,10 +544,11 @@ function replaceRangeWithScientificMarker(parent, start, end, values, inlineMath
   range.setStart(start.node, start.offset);
   setRangeEnd(range, end);
   const fragment = range.extractContents();
-  const tex = Array.from(fragment.childNodes)
+  let tex = Array.from(fragment.childNodes)
     .map((node) => scientificTex(node, inlineMathByMarker))
     .join('')
     .replace(/[ \t\r\n\u00a0\u2009]+/gu, '');
+  if (tex.includes('||')) tex = canonicalScientificTex(tex);
   if (!tex) return false;
   const marker = semanticMarker('SCIENTIFICRUN', values.length);
   values.push({ marker, tex, provenance });
@@ -570,7 +726,8 @@ function replaceScientificRuns(body, inlineMath) {
     while (index < parent.childNodes.length) {
       const node = parent.childNodes[index];
       const range = node.nodeType === 3
-        ? collectMathMarkerRun(parent, index, inlineMathByMarker)
+        ? collectDelimitedScientificRun(parent, index)
+          || collectMathMarkerRun(parent, index, inlineMathByMarker)
         : collectStyledRun(parent, index)
           || collectTextAndStyledSymbolRun(parent, index)
           || collectNumericAttachmentRun(parent, index)

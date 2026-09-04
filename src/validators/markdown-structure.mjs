@@ -73,6 +73,32 @@ function inspectQuartoReferences(lines) {
   return { headingCount: 1, itemCount: 0, definitionCount: 0, anchorCount: 0, issues };
 }
 
+function inspectTables(lines) {
+  const range = sectionRange(lines, 'Tables');
+  if (!range) return { headingCount: 0, itemCount: 0, tableCount: 0, anchorCount: 0, issues: [] };
+  const content = lines.slice(range.heading + 1, range.end);
+  const listItems = content.filter((line) => /^\s*[-*+]\s+/u.test(line)).length;
+  let tableCount = 0;
+  for (let index = 0; index < content.length - 1; index += 1) {
+    if (/^\s*\|.*\|\s*$/u.test(content[index]) && /^\s*\|?\s*:?-{3,}/u.test(content[index + 1])) tableCount += 1;
+  }
+  const anchors = content
+    .map((line, index) => ({ line: index + range.heading + 1, match: line.match(/<a id="table-(\d+)"><\/a>/u) }))
+    .filter((entry) => entry.match)
+    .map((entry) => ({ line: entry.line, number: Number(entry.match[1]) }));
+  const issues = [];
+  for (const line of content) {
+    if (line.trim().startsWith('<a id=')) issues.push(issue(range.heading + 1, 'Tables contains an anchor-only line that can break table structure.'));
+  }
+  return {
+    headingCount: 1,
+    itemCount: listItems + tableCount,
+    tableCount,
+    anchorCount: anchors.length,
+    issues,
+  };
+}
+
 export function validateMarkdownStructure(markdown, options = {}) {
   const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
   const citationStyle = options.citationStyle || (options.dialect === 'quarto' ? 'quarto' : 'markdown');
@@ -81,7 +107,7 @@ export function validateMarkdownStructure(markdown, options = {}) {
     : citationStyle === 'links'
       ? inspectListSection(lines, 'References', /^(\d+)\.\s+/u, 'ref', true)
       : inspectFootnoteReferences(lines);
-  const tables = inspectListSection(lines, 'Tables', /^[-*+]\s+/u, 'table');
+  const tables = inspectTables(lines);
   const issues = [...references.issues, ...tables.issues];
   if (references.headingCount && citationStyle !== 'quarto' && references.itemCount === 0) {
     issues.push(issue(lines.findIndex((line) => /^##\s+References\s*$/u.test(line)),

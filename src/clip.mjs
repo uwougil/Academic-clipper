@@ -2,12 +2,12 @@ import { copyFile, mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { installDomGlobals } from './dom-runtime.mjs';
 import { htmlToMarkdown, defuddleToMarkdown } from './markdown.mjs';
-import { articleIdFromUrl, isNatureUrl, parseNaturePage } from './adapters/nature.mjs';
+import { articleIdFromUrl, hydrateNatureTables, isNatureUrl, parseNaturePage } from './adapters/nature.mjs';
 import { semanticMarker } from './normalizers/markers.mjs';
 import { normalizeMath } from './normalizers/math.mjs';
 import { normalizeAcademicInline } from './normalizers/academic-inline.mjs';
 import { normalizeAnchorMarkers, normalizeCitations } from './normalizers/citations.mjs';
-import { normalizeFigureCaptions, renderFigure, renderFigures, renderTables } from './normalizers/figures.mjs';
+import { normalizeFigureCaptions, normalizeTableContents, renderFigure, renderFigures, renderTables } from './normalizers/figures.mjs';
 import { MathDelimiterValidationError, validateMathDelimiters } from './validators/math-delimiters.mjs';
 import { validateMarkdownStructure } from './validators/markdown-structure.mjs';
 import { safeExternalUrl } from './security.mjs';
@@ -38,6 +38,37 @@ function frontmatter(metadata, citationStyle = 'markdown') {
   if (citationStyle === 'quarto') lines.push('bibliography: "references.bib"');
   lines.push('---', '');
   return `${lines.join('\n')}\n`;
+}
+
+function renderAuthorInformation(metadata) {
+  const info = metadata.authorInformation || {};
+  const sections = [];
+  if (info.notes?.length) {
+    sections.push(['## Author notes', '', ...info.notes.map((note) => `- ${note}`)].join('\n'));
+  }
+  if (info.affiliations?.length) {
+    sections.push([
+      '## Authors and affiliations', '',
+      ...info.affiliations.map((item) => `- ${item.authors || 'Authors'} — ${item.address || 'Affiliation not provided'}`),
+    ].join('\n'));
+  }
+  if (info.contributions) sections.push(`## Author contributions\n\n${info.contributions}`);
+  if (info.correspondence?.text) {
+    const email = info.correspondence.email?.replace(/^mailto:/iu, '');
+    const contact = email ? `${info.correspondence.text} [${email}](mailto:${email})` : info.correspondence.text;
+    sections.push(`## Correspondence\n\n${contact}`);
+  }
+  return sections.join('\n\n');
+}
+
+function metadataAudit(metadata) {
+  const info = metadata.authorInformation || {};
+  return {
+    authorInformation: info.notes?.length || info.affiliations?.length ? 'captured' : 'not-found',
+    authorContributions: info.contributions ? 'captured' : 'not-found',
+    correspondence: info.correspondence?.text ? 'captured' : 'not-found',
+    publisherNotes: metadata.publisherNotes?.length ? 'captured-in-peer-review-section' : 'not-found',
+  };
 }
 
 function normalizeMarkdown(markdown, semantic, references, policy) {
@@ -177,7 +208,8 @@ export function renderClipMarkdown(result, imagePathByAnchor = new Map()) {
     policy,
   );
   const tables = renderTables(result.tables, policy);
-  const sections = [body, extendedFigures, tables, result.referencesMarkdown].filter(Boolean);
+  const authorInformation = renderAuthorInformation(result.metadata);
+  const sections = [body, extendedFigures, tables, authorInformation, result.referencesMarkdown].filter(Boolean);
   const markdownBody = `# ${result.metadata.title}\n\n${sections.join('\n\n')}`.trim();
   return `${frontmatter(result.metadata, policy.dialect === 'quarto' ? 'quarto' : result.citationStyle)}${markdownBody}\n`;
 }
@@ -191,8 +223,10 @@ export async function clipNature({ html, url, rawHtml = html, citationStyle = 'm
   if (parsedPage.debug.articleRoot !== '.c-article-body') {
     throw new Error('Nature article body was not found; refusing to write a non-article page.');
   }
+  parsedPage.debug.warnings.push(...await hydrateNatureTables(parsedPage.tables, url));
   installDomGlobals(parsedPage.dom);
   await normalizeFigureCaptions(parsedPage.figures, url);
+  await normalizeTableContents(parsedPage.tables, url);
   const { parsed, markdown } = await defuddleToMarkdown(parsedPage.document, url);
 
   const intermediate = {
@@ -219,6 +253,17 @@ export async function clipNature({ html, url, rawHtml = html, citationStyle = 'm
     mathValidation: validateMathDelimiters(fullMarkdown),
     markdownStructure: validateMarkdownStructure(fullMarkdown, { dialect: policy.dialect, citationStyle }),
     warnings: [...parsedPage.debug.warnings],
+    metadataAudit: metadataAudit(parsedPage.metadata),
+    tableSummary: {
+      totalTables: parsedPage.tables.length,
+      capturedTables: parsedPage.tables.filter((table) => table.markdown).length,
+      fallbackTables: parsedPage.tables.filter((table) => !table.markdown).length,
+      statuses: parsedPage.tables.map((table) => ({
+        label: table.label,
+        status: table.tableContentStatus || 'unknown',
+        warning: table.tableContentWarning || '',
+      })),
+    },
   };
 
   return {

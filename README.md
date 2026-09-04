@@ -25,13 +25,13 @@ Obsidian Web Clipper 关键位置：
 
 本原型新增边界：
 
-- `src/adapters/nature.mjs`：仅针对 Nature 当前 DOM；读取 `citation_*` metadata、`.c-article-body`、公式、figure、Extended Data figure、table link 和 `ol.c-article-references`。在交给 Defuddle 前把 MathJax 与 `<i>/<b>/<sub>/<sup>` 组合成带 provenance 的 scientific run，避免在最终 Markdown 上不断叠加正则补丁。
+- `src/adapters/nature.mjs`：仅针对 Nature 当前 DOM；读取 `citation_*` metadata、`.c-article-body`、公式、figure、Extended Data figure、table link 和 `ol.c-article-references`。主图同时读取外层 `data-test="bottom-caption"` 的完整面板说明；对同文章的 `/tables/<n>` 页面做受限补取，并把表格内容状态写入 debug。在交给 Defuddle 前把 MathJax 与 `<i>/<b>/<sub>/<sup>` 组合成带 provenance 的 scientific run，避免在最终 Markdown 上不断叠加正则补丁。
 - `src/clip.mjs`：把 Nature 结构交给 Defuddle，恢复语义 placeholder、生成稳定的 figure/reference Markdown，并生成 front matter。
 - `src/normalizers/math.mjs`：恢复 DOM 已判定的 inline/display TeX；保留原始下标和矩阵行分隔。
 - `src/normalizers/academic-inline.mjs`：把学术 `<sub>/<sup>/<i>` 组合转成可读的 Markdown/Quarto 行内表达式。
 - `src/normalizers/citations.mjs`：统一本地引用链接和 section/equation 锚点。
-- `src/normalizers/figures.mjs`：通过同一条 math/academic-inline 语义链渲染短 alt、单次 caption、主图/Extended Data 图和表格链接。
-- `src/validators/markdown-structure.mjs`：对最终 Markdown 的 References/Tables section 做确定性的列表结构检查；math validator 另行报告 scientific fragment 诊断。
+- `src/normalizers/figures.mjs`：通过同一条 math/academic-inline 语义链渲染短 alt、完整 caption、主图/Extended Data 图和 Markdown 表格；无法得到 HTML 单元格时保留绝对链接和显式 warning。
+- `src/validators/markdown-structure.mjs`：对最终 Markdown 的 References/Tables section 做确定性的脚注、列表和 Markdown 表格结构检查；math validator 另行报告 scientific fragment 诊断。
 - `src/bridge.mjs`：`127.0.0.1:34123` 的极小 HTTP bridge，接收 HTML、写入本地文件。
 - `src/security.mjs`：bridge 的 Origin/token 边界和 figure URL 的最小 SSRF 防护。
 - `extension/`：极简 Manifest V3 popup，只有 Save Paper 和 Preview Markdown。
@@ -109,7 +109,7 @@ npm run build
 npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md
 ```
 
-`--debug` 会在论文目录保存 `raw.html`、`cleaned.html`、`debug.json`，并在 CLI 输出：publisher、article root、metadata source、paragraph/equation/figure/reference/scientific-run 数量、移除节点数、figure local/remote-fallback/failed summary、math fragment/structure validation 和 warnings。
+`--debug` 会在论文目录保存 `raw.html`、`cleaned.html`、`debug.json`，并在 CLI 输出：publisher、article root、metadata source、paragraph/equation/figure/reference/scientific-run 数量、移除节点数、figure local/remote-fallback/failed summary、table capture/fallback summary、author-information audit、math fragment/structure validation 和 warnings。
 
 `validate:paper` 会对最终 `index.md` 做 lexical math delimiter validation，检查 inline/display math 是否闭合、是否跨 Markdown block、是否出现非法 `$`/`$$` 邻接、legacy delimiter 或 semantic marker。验证失败时返回 non-zero，不会由 writer 静默写出该文件。普通 Markdown 默认使用原生脚注引用（`[^8]`，References 区只定义一次）；设置 `citationStyle` 为 `quarto`，或 CLI 使用 `--citation-style quarto`，正文会改用 `[@Jungwirth2016]` 形式，front matter 会声明 `references.bib`，并在论文目录生成可复用的 BibTeX 文件。旧项目若明确需要 `[n](#ref-n)`，仍可显式设置 `citationStyle` 为 `links`。Pandoc/Quarto 不是运行时依赖；如果本机已安装，可另行执行 `pandoc index.md -o /tmp/academic-clipper.html` 或 `quarto render` 做可选 parser smoke test。
 
@@ -120,7 +120,9 @@ npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md
 已知边界：
 
 - 只支持 `www.nature.com/articles/<id>`，没有提前抽象其他出版社。
-- Nature 的两个在线表格只保留标题和 Full size table 链接；没有抓取表格详情。
+- Nature 表格优先补取同文章的 Full size table HTML：当前目标论文的 Table 1 可生成 Markdown 表格；Extended Data Table 1 只有图片，因此保留标题、绝对 Full size table 链接和 debug warning，不把图片伪装成结构化表格。
+- 主图 1–3 的图注包含 `figcaption` 外的 `data-test="bottom-caption"` 面板说明；适配器会合并这两段，避免只留下标题。标题/表格链接中的 root-relative Nature URL 会按文章 URL 归一化，纯本地 `#anchor` 不改写。
+- Author information 中的作者备注、affiliation、贡献和 correspondence 会在存在时作为独立 Markdown section 输出；`debug.json.metadataAudit` 标记 author information、contributions、correspondence 与 publisher notes 是已捕获、未发现还是由正文段落承载。
 - Supplementary Information 只保留在正文中被引用的内容，不下载 PDF。
 - 公式优先使用页面 `.mathjax-tex` 的原始 TeX：Nature equation container 中的 TeX 先冻结为 display 语义，正文中的 TeX 先冻结为 inline 语义，再交给 Defuddle 做 HTML→Markdown；少数异常页面若没有原始 TeX，会进入 warning，而不是伪造 Unicode 公式。
 - 输出策略默认是 Markdown 原生脚注：语义 citation marker 只渲染为 `[^n]`，重复引用复用同一个 id，References 只生成一份 `[^n]: ...` 定义，不再依赖 `ref-n` HTML anchor；`links` 仅作为显式兼容模式保留。Quarto 使用稳定的作者-年份 key、`[@key]` 语义引用、同目录 `references.bib` 和 `::: {#refs}` citeproc 目标，不手工复制第二份 bibliography。章节目标使用自然 Markdown slug；Quarto 章节会附加 `sec-` identifier。figure/table/equation cross-reference 仍保留稳定本地目标。

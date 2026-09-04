@@ -8,7 +8,7 @@
   "references": 50,
   "removedNodes": 62,
   "inlineMath": 22,
-  "scientificRuns": 193,
+  "scientificRuns": 194,
   "citations": 77,
   "crossReferences": 41,
   "crossReferenceMap": [
@@ -259,16 +259,18 @@
       "anchor": "peer-review-information"
     }
   ],
-  "warnings": [],
+  "warnings": [
+    "Extended Data Table 1: The full-size Nature page did not expose HTML table cells; retained the absolute URL."
+  ],
   "title": "Symmetry classification of magnetic orders using oriented spin space groups",
   "articleId": "s41586-026-10401-1",
   "citationStyle": "markdown",
   "defuddleTitle": "Symmetry classification of magnetic orders using oriented spin space groups",
-  "defuddleWordCount": 5775,
-  "markdownCharacters": 60860,
+  "defuddleWordCount": 5763,
+  "markdownCharacters": 65919,
   "mathValidation": {
     "valid": true,
-    "inlineMathCount": 234,
+    "inlineMathCount": 250,
     "displayMathCount": 13,
     "issues": [],
     "scientificFragments": {
@@ -282,8 +284,8 @@
       "issues": []
     },
     "states": {
-      "TEXT": 52461,
-      "INLINE_MATH": 3521,
+      "TEXT": 56966,
+      "INLINE_MATH": 4075,
       "DISPLAY_MATH": 3982,
       "INLINE_CODE": 0,
       "FENCED_CODE": 0
@@ -303,11 +305,35 @@
       "tables": {
         "headingCount": 1,
         "itemCount": 2,
+        "tableCount": 1,
         "anchorCount": 2,
         "issues": []
       }
     },
     "issues": []
+  },
+  "metadataAudit": {
+    "authorInformation": "captured",
+    "authorContributions": "captured",
+    "correspondence": "captured",
+    "publisherNotes": "captured-in-peer-review-section"
+  },
+  "tableSummary": {
+    "totalTables": 2,
+    "capturedTables": 1,
+    "fallbackTables": 1,
+    "statuses": [
+      {
+        "label": "Table 1",
+        "status": "full-size-html",
+        "warning": ""
+      },
+      {
+        "label": "Extended Data Table 1",
+        "status": "fallback-no-html-table",
+        "warning": "The full-size Nature page did not expose HTML table cells; retained the absolute URL."
+      }
+    ]
   },
   "figureDownloads": [
     {
