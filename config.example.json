@@ -3,7 +3,7 @@
   "port": 34123,
   "downloadFigures": true,
   "saveDebug": false,
-  "citationStyle": "links",
+  "citationStyle": "markdown",
   "bridgeToken": "",
   "allowedOrigins": []
 }

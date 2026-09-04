@@ -651,16 +651,25 @@ function replaceCitations(body) {
 
 function buildCrossReferences(body, figures, tables) {
   const references = new Map();
+  const usedAnchors = new Set();
   for (const figure of figures) {
-    if (figure.natureId) references.set(figure.natureId, { type: 'figure', label: figure.label, anchor: figure.anchor });
+    if (figure.natureId) {
+      references.set(figure.natureId, { type: 'figure', label: figure.label, anchor: figure.anchor });
+      usedAnchors.add(figure.anchor);
+    }
   }
   for (const table of tables) {
-    if (table.natureId) references.set(table.natureId, { type: 'table', label: table.label, anchor: table.anchor });
+    if (table.natureId) {
+      references.set(table.natureId, { type: 'table', label: table.label, anchor: table.anchor });
+      usedAnchors.add(table.anchor);
+    }
   }
   for (const [index, equation] of Array.from(body.querySelectorAll('.c-article-equation')).entries()) {
     const id = equation.id || `Equ${index + 1}`;
     const number = Number(id.match(/(\d+)$/)?.[1] || index + 1);
-    references.set(id, { type: 'equation', label: `Equation ${number}`, anchor: `equation-${number}` });
+    const anchor = `equation-${number}`;
+    references.set(id, { type: 'equation', label: `Equation ${number}`, anchor });
+    usedAnchors.add(anchor);
   }
   for (const heading of body.querySelectorAll('[id]')) {
     if (!/^H[2-6]$/.test(heading.tagName)) continue;
@@ -670,10 +679,17 @@ function buildCrossReferences(body, figures, tables) {
       || section?.querySelector(':scope > .c-article-section > h2, :scope > h2')?.textContent,
     ).toLowerCase();
     if (EXCLUDED_SECTIONS.has(sectionTitle) || heading.closest(JUNK_SELECTORS.join(','))) continue;
+    const baseAnchor = slugify(heading.textContent);
+    let anchor = baseAnchor;
+    let suffix = 2;
+    while (usedAnchors.has(anchor)) anchor = `${baseAnchor}-${suffix++}`;
+    usedAnchors.add(anchor);
     references.set(heading.id, {
       type: 'section',
       label: cleanText(heading.textContent),
-      anchor: `section-${slugify(heading.textContent)}`,
+      // Use the heading's natural Markdown slug. The renderer may add a
+      // Quarto `sec-` identifier, but the semantic target stays dialect-free.
+      anchor,
     });
   }
   return references;

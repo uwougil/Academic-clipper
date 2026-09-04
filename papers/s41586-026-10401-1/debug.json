@@ -148,124 +148,124 @@
       "natureId": "Abs1",
       "type": "section",
       "label": "Abstract",
-      "anchor": "section-abstract"
+      "anchor": "abstract"
     },
     {
       "natureId": "Sec1",
       "type": "section",
       "label": "Main",
-      "anchor": "section-main"
+      "anchor": "main"
     },
     {
       "natureId": "Sec2",
       "type": "section",
       "label": "FM and AFM dichotomy",
-      "anchor": "section-fm-and-afm-dichotomy"
+      "anchor": "fm-and-afm-dichotomy"
     },
     {
       "natureId": "Sec3",
       "type": "section",
       "label": "Oriented spin space groups",
-      "anchor": "section-oriented-spin-space-groups"
+      "anchor": "oriented-spin-space-groups"
     },
     {
       "natureId": "Sec4",
       "type": "section",
       "label": "Spin–orbit magnetism",
-      "anchor": "section-spin-orbit-magnetism"
+      "anchor": "spin-orbit-magnetism"
     },
     {
       "natureId": "Sec5",
       "type": "section",
       "label": "Materials",
-      "anchor": "section-materials"
+      "anchor": "materials"
     },
     {
       "natureId": "Sec6",
       "type": "section",
       "label": "Methods",
-      "anchor": "section-methods"
+      "anchor": "methods"
     },
     {
       "natureId": "Sec7",
       "type": "section",
       "label": "Further classification of magnetic geometries based on the FM/AFM dichotomy",
-      "anchor": "section-further-classification-of-magnetic-geometries-based-on-the-fm-afm-dichotomy"
+      "anchor": "further-classification-of-magnetic-geometries-based-on-the-fm-afm-dichotomy"
     },
     {
       "natureId": "Sec8",
       "type": "section",
       "label": "SOC tensor",
-      "anchor": "section-soc-tensor"
+      "anchor": "soc-tensor"
     },
     {
       "natureId": "Sec9",
       "type": "section",
       "label": "Material example for orbital and spin magnetization: Mn3Sn",
-      "anchor": "section-material-example-for-orbital-and-spin-magnetization-mn3sn"
+      "anchor": "material-example-for-orbital-and-spin-magnetization-mn3sn"
     },
     {
       "natureId": "Sec10",
       "type": "section",
       "label": "Identification of SOM materials",
-      "anchor": "section-identification-of-som-materials"
+      "anchor": "identification-of-som-materials"
     },
     {
       "natureId": "Sec11",
       "type": "section",
       "label": "DFT calculations",
-      "anchor": "section-dft-calculations"
+      "anchor": "dft-calculations"
     },
     {
       "natureId": "data-availability",
       "type": "section",
       "label": "Data availability",
-      "anchor": "section-data-availability"
+      "anchor": "data-availability"
     },
     {
       "natureId": "code-availability",
       "type": "section",
       "label": "Code availability",
-      "anchor": "section-code-availability"
+      "anchor": "code-availability"
     },
     {
       "natureId": "Ack1",
       "type": "section",
       "label": "Acknowledgements",
-      "anchor": "section-acknowledgements"
+      "anchor": "acknowledgements"
     },
     {
       "natureId": "ethics",
       "type": "section",
       "label": "Ethics declarations",
-      "anchor": "section-ethics-declarations"
+      "anchor": "ethics-declarations"
     },
     {
       "natureId": "FPar2",
       "type": "section",
       "label": "Competing interests",
-      "anchor": "section-competing-interests"
+      "anchor": "competing-interests"
     },
     {
       "natureId": "peer-review",
       "type": "section",
       "label": "Peer review",
-      "anchor": "section-peer-review"
+      "anchor": "peer-review"
     },
     {
       "natureId": "FPar1",
       "type": "section",
       "label": "Peer review information",
-      "anchor": "section-peer-review-information"
+      "anchor": "peer-review-information"
     }
   ],
   "warnings": [],
   "title": "Symmetry classification of magnetic orders using oriented spin space groups",
   "articleId": "s41586-026-10401-1",
-  "citationStyle": "links",
+  "citationStyle": "markdown",
   "defuddleTitle": "Symmetry classification of magnetic orders using oriented spin space groups",
-  "defuddleWordCount": 5776,
-  "markdownCharacters": 63304,
+  "defuddleWordCount": 5775,
+  "markdownCharacters": 60860,
   "mathValidation": {
     "valid": true,
     "inlineMathCount": 234,
@@ -282,7 +282,7 @@
       "issues": []
     },
     "states": {
-      "TEXT": 54905,
+      "TEXT": 52461,
       "INLINE_MATH": 3521,
       "DISPLAY_MATH": 3982,
       "INLINE_CODE": 0,
@@ -291,11 +291,13 @@
   },
   "markdownStructure": {
     "valid": true,
+    "citationStyle": "markdown",
     "sections": {
       "references": {
         "headingCount": 1,
         "itemCount": 50,
-        "anchorCount": 50,
+        "definitionCount": 50,
+        "anchorCount": 0,
         "issues": []
       },
       "tables": {

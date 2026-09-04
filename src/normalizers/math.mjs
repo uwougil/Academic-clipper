@@ -79,7 +79,6 @@ export function normalizeMath(markdown, semantic = {}) {
   for (const { marker, text } of semantic.literalText || []) result = result.replaceAll(marker, text);
   result = normalizeScientificBracketText(result);
   result = normalizeLegacyDelimiters(result);
-  result = result.replace(/\[\^(\d+)\]/g, '[$1]');
   result = normalizeBlockMath(result);
   result = result.replace(/ACADEMICCLIPPERSEMANTICDISPLAY(\d+)X/g, (_, index) => displayBlocks[Number(index)] || '');
   return normalizeLegacyTexCommands(result);

@@ -31,27 +31,68 @@ function inspectListSection(lines, title, marker, anchorPrefix, ordered = false)
     const expected = index + 1;
     if (item.number !== expected) issues.push(issue(item.line, `${title} list numbering is not sequential at ${item.number}.`));
   });
+  return { headingCount: 1, itemCount: items.length, anchorCount: anchors.length, issues };
+}
+
+function inspectFootnoteReferences(lines) {
+  const range = sectionRange(lines, 'References');
+  if (!range) return { headingCount: 0, itemCount: 0, definitionCount: 0, anchorCount: 0, issues: [] };
+  const definitions = [];
+  const issues = [];
+  for (let index = range.heading + 1; index < range.end; index += 1) {
+    const line = lines[index];
+    if (line.trim() === '') continue;
+    if (line.trim().startsWith('<a id=')) {
+      issues.push(issue(index, 'References contains an HTML anchor; Markdown footnotes do not need reference anchors.'));
+      continue;
+    }
+    const match = line.match(/^\[\^(\d+)\]:\s+\S/u);
+    if (match) definitions.push({ line: index, number: Number(match[1]) });
+  }
+  definitions.forEach((definition, index) => {
+    const expected = index + 1;
+    if (definition.number !== expected) issues.push(issue(definition.line, `References footnote numbering is not sequential at ${definition.number}.`));
+  });
   return {
     headingCount: 1,
-    itemCount: items.length,
-    anchorCount: anchors.length,
+    itemCount: definitions.length,
+    definitionCount: definitions.length,
+    anchorCount: 0,
     issues,
   };
 }
 
-export function validateMarkdownStructure(markdown) {
+function inspectQuartoReferences(lines) {
+  const range = sectionRange(lines, 'References');
+  if (!range) return { headingCount: 0, itemCount: 0, definitionCount: 0, anchorCount: 0, issues: [] };
+  const content = lines.slice(range.heading + 1, range.end);
+  const opening = content.findIndex((line) => /^:::\s+\{#refs\}\s*$/u.test(line.trim()));
+  const closing = opening >= 0 ? content.findIndex((line, index) => index > opening && line.trim() === ':::') : -1;
+  const issues = [];
+  if (opening < 0 || closing < 0) issues.push(issue(range.heading, 'Quarto References must expose a ::: {#refs} citeproc target.'));
+  return { headingCount: 1, itemCount: 0, definitionCount: 0, anchorCount: 0, issues };
+}
+
+export function validateMarkdownStructure(markdown, options = {}) {
   const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
-  const references = inspectListSection(lines, 'References', /^(\d+)\.\s+/u, 'ref', true);
+  const citationStyle = options.citationStyle || (options.dialect === 'quarto' ? 'quarto' : 'markdown');
+  const references = citationStyle === 'quarto'
+    ? inspectQuartoReferences(lines)
+    : citationStyle === 'links'
+      ? inspectListSection(lines, 'References', /^(\d+)\.\s+/u, 'ref', true)
+      : inspectFootnoteReferences(lines);
   const tables = inspectListSection(lines, 'Tables', /^[-*+]\s+/u, 'table');
   const issues = [...references.issues, ...tables.issues];
-  if (references.headingCount && references.itemCount === 0) {
-    issues.push(issue(lines.findIndex((line) => /^##\s+References\s*$/u.test(line)), 'References heading has no ordered-list items.'));
+  if (references.headingCount && citationStyle !== 'quarto' && references.itemCount === 0) {
+    issues.push(issue(lines.findIndex((line) => /^##\s+References\s*$/u.test(line)),
+      citationStyle === 'links' ? 'References heading has no ordered-list items.' : 'References heading has no footnote definitions.'));
   }
   if (tables.headingCount && tables.itemCount === 0) {
     issues.push(issue(lines.findIndex((line) => /^##\s+Tables\s*$/u.test(line)), 'Tables heading has no list items.'));
   }
   return {
     valid: issues.length === 0,
+    citationStyle,
     sections: { references, tables },
     issues,
   };

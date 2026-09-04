@@ -57,7 +57,7 @@ npm run dev
   "port": 34123,
   "downloadFigures": true,
   "saveDebug": false,
-  "citationStyle": "links",
+  "citationStyle": "markdown",
   "bridgeToken": "",
   "allowedOrigins": []
 }
@@ -111,7 +111,7 @@ npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md
 
 `--debug` 会在论文目录保存 `raw.html`、`cleaned.html`、`debug.json`，并在 CLI 输出：publisher、article root、metadata source、paragraph/equation/figure/reference/scientific-run 数量、移除节点数、figure local/remote-fallback/failed summary、math fragment/structure validation 和 warnings。
 
-`validate:paper` 会对最终 `index.md` 做 lexical math delimiter validation，检查 inline/display math 是否闭合、是否跨 Markdown block、是否出现非法 `$`/`$$` 邻接、legacy delimiter 或 semantic marker。验证失败时返回 non-zero，不会由 writer 静默写出该文件。引用策略默认是兼容性更好的 `links`（`[8](#ref-8)`）；设置 `citationStyle` 为 `quarto`，或 CLI 使用 `--citation-style quarto`，正文会改用 `[@Jungwirth2016]` 形式，front matter 会声明 `references.bib`，并在论文目录生成可复用的 BibTeX 文件。Pandoc/Quarto 不是运行时依赖；如果本机已安装，可另行执行 `pandoc index.md -o /tmp/academic-clipper.html` 或 `quarto render` 做可选 parser smoke test。
+`validate:paper` 会对最终 `index.md` 做 lexical math delimiter validation，检查 inline/display math 是否闭合、是否跨 Markdown block、是否出现非法 `$`/`$$` 邻接、legacy delimiter 或 semantic marker。验证失败时返回 non-zero，不会由 writer 静默写出该文件。普通 Markdown 默认使用原生脚注引用（`[^8]`，References 区只定义一次）；设置 `citationStyle` 为 `quarto`，或 CLI 使用 `--citation-style quarto`，正文会改用 `[@Jungwirth2016]` 形式，front matter 会声明 `references.bib`，并在论文目录生成可复用的 BibTeX 文件。旧项目若明确需要 `[n](#ref-n)`，仍可显式设置 `citationStyle` 为 `links`。Pandoc/Quarto 不是运行时依赖；如果本机已安装，可另行执行 `pandoc index.md -o /tmp/academic-clipper.html` 或 `quarto render` 做可选 parser smoke test。
 
 ## 当前实测范围和已知问题
 
@@ -123,7 +123,7 @@ npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md
 - Nature 的两个在线表格只保留标题和 Full size table 链接；没有抓取表格详情。
 - Supplementary Information 只保留在正文中被引用的内容，不下载 PDF。
 - 公式优先使用页面 `.mathjax-tex` 的原始 TeX：Nature equation container 中的 TeX 先冻结为 display 语义，正文中的 TeX 先冻结为 inline 语义，再交给 Defuddle 做 HTML→Markdown；少数异常页面若没有原始 TeX，会进入 warning，而不是伪造 Unicode 公式。
-- 引用策略可选 `links` 或 `quarto`：前者保留 `[n](#ref-n)` 的零依赖兼容性，后者使用稳定的作者-年份 key、`[@key]` 语义引用和同目录 `references.bib`；两者都只生成一份有序 References 列表，并为每条文献提供 `ref-n` anchor。figure/table/equation/section cross-reference 在目标存在时改为本地 anchor。
+- 输出策略默认是 Markdown 原生脚注：语义 citation marker 只渲染为 `[^n]`，重复引用复用同一个 id，References 只生成一份 `[^n]: ...` 定义，不再依赖 `ref-n` HTML anchor；`links` 仅作为显式兼容模式保留。Quarto 使用稳定的作者-年份 key、`[@key]` 语义引用、同目录 `references.bib` 和 `::: {#refs}` citeproc 目标，不手工复制第二份 bibliography。章节目标使用自然 Markdown slug；Quarto 章节会附加 `sec-` identifier。figure/table/equation cross-reference 仍保留稳定本地目标。
 - 下载器记录 figure label、source URL、HTTP/result、content type、local path、fallback 和失败原因；同一 source URL 无论成功或失败只下载一次，并有 20 秒 timeout、20 MiB 单图大小上限和 `image/*` 响应检查。
 - writer 会先对远程图片版本 Markdown 做数学验证，再在 staging 目录下载和二次验证，避免无效 Markdown 或失败下载留下新半成品；figure URL 只允许 HTTP(S)，并拒绝明显的 localhost、loopback、link-local 和私有 LAN 地址。
 - 论文网站 DOM 变化时需要维护 `src/adapters/nature.mjs` 的 selector；`raw.html`/`cleaned.html` 用于对照定位问题。

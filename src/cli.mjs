@@ -13,10 +13,10 @@ const url = argument('--url');
 const output = argument('--output', './papers');
 const saveDebug = process.argv.includes('--debug');
 const downloadFigures = !process.argv.includes('--no-download-figures');
-const citationStyle = argument('--citation-style', 'links');
+const citationStyle = argument('--citation-style', 'markdown');
 
 if (!url) {
-  console.error('Usage: node src/cli.mjs --url <Nature article URL> [--output ./papers] [--debug] [--download-figures|--no-download-figures] [--citation-style links|quarto]');
+  console.error('Usage: node src/cli.mjs --url <Nature article URL> [--output ./papers] [--debug] [--download-figures|--no-download-figures] [--citation-style markdown|quarto]');
   process.exit(1);
 }
 

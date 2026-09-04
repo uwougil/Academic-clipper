@@ -67,7 +67,7 @@ async function loadConfig(configPath) {
     libraryPath: path.resolve(path.dirname(configPath), configuredLibrary),
     downloadFigures: config.downloadFigures === undefined ? true : Boolean(config.downloadFigures),
     saveDebug: Boolean(config.saveDebug),
-    citationStyle: config.citationStyle === 'quarto' ? 'quarto' : 'links',
+    citationStyle: ['markdown', 'links', 'quarto'].includes(config.citationStyle) ? config.citationStyle : 'markdown',
     allowedOrigins: Array.isArray(config.allowedOrigins) ? config.allowedOrigins.map(String) : [],
     bridgeToken: String(config.bridgeToken || process.env.ACADEMIC_CLIPPER_BRIDGE_TOKEN || randomBytes(24).toString('hex')),
   };

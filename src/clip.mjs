@@ -12,6 +12,7 @@ import { MathDelimiterValidationError, validateMathDelimiters } from './validato
 import { validateMarkdownStructure } from './validators/markdown-structure.mjs';
 import { safeExternalUrl } from './security.mjs';
 import { ACADEMIC_CLIPPER_USER_AGENT } from './version.mjs';
+import { outputPolicy } from './renderers/output-policy.mjs';
 
 const FIGURE_FETCH_TIMEOUT_MS = 20_000;
 const MAX_FIGURE_BYTES = 20 * 1024 * 1024;
@@ -20,7 +21,7 @@ function yamlQuote(value) {
   return JSON.stringify(String(value ?? ''));
 }
 
-function frontmatter(metadata, citationStyle = 'links') {
+function frontmatter(metadata, citationStyle = 'markdown') {
   const lines = [
     '---',
     `title: ${yamlQuote(metadata.title)}`,
@@ -39,13 +40,13 @@ function frontmatter(metadata, citationStyle = 'links') {
   return `${lines.join('\n')}\n`;
 }
 
-function normalizeMarkdown(markdown, semantic, references, citationStyle) {
+function normalizeMarkdown(markdown, semantic, references, policy) {
   return normalizeCitations(
       normalizeAcademicInline(
       normalizeMath(markdown, semantic),
     ),
     semantic.citations,
-    { style: citationStyle, references },
+    { policy, references },
   )
     .replace(/\r\n/g, '\n')
     .replace(/[ \t]+\n/g, '\n')
@@ -54,12 +55,12 @@ function normalizeMarkdown(markdown, semantic, references, citationStyle) {
     .trim();
 }
 
-function applyFigurePlaceholders(markdown, figures, imagePathByAnchor) {
+function applyFigurePlaceholders(markdown, figures, imagePathByAnchor, policy) {
   let result = markdown;
   for (const figure of figures.filter((item) => item.source === 'inline figure')) {
     result = result.replaceAll(
       semanticMarker('FIGURE', figure.anchor),
-      renderFigure(figure, imagePathByAnchor.get(figure.anchor) || figure.imageUrl),
+      renderFigure(figure, imagePathByAnchor.get(figure.anchor) || figure.imageUrl, policy),
     );
   }
   return result;
@@ -69,19 +70,36 @@ function escapeHtml(value) {
   return String(value).replace(/[&<>]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[character]));
 }
 
-async function referencesMarkdown(references, url) {
+function cleanDoi(value) {
+  return String(value || '')
+    .trim()
+    .replace(/^https?:\/\/(?:dx\.)?doi\.org\//iu, '')
+    .replace(/[.,;:)]+$/u, '');
+}
+
+function doiUrl(doi) {
+  return `https://doi.org/${cleanDoi(doi).replace(/\s+/gu, '')}`;
+}
+
+async function referenceText(reference, url) {
+  let converted = await htmlToMarkdown(`<p>${escapeHtml(reference.text)}</p>`, url);
+  converted = normalizeAcademicInline(normalizeMath(converted))
+    .replace(/^[-*]\s+/, '')
+    .replace(/\n+/g, ' ')
+    .trim();
+  const doi = cleanDoi(reference.doi);
+  if (doi && !converted.includes(doi)) converted += ` [doi:${doi}](${doiUrl(doi)})`;
+  return converted;
+}
+
+async function referencesMarkdown(references, url, policy = outputPolicy()) {
   if (!references.length) return '';
+  if (policy.references === 'refs') return ['## References', '', '::: {#refs}', ':::'].join('\n');
   const lines = ['## References', ''];
   for (const reference of references) {
-    let converted = await htmlToMarkdown(`<p>${escapeHtml(reference.text)}</p>`, url);
-    converted = normalizeAcademicInline(normalizeMath(converted))
-      .replace(/^[-*]\s+/, '')
-      .replace(/\n+/g, ' ')
-      .trim();
-    if (reference.doi && !converted.includes(reference.doi)) {
-      converted += ` [doi:${reference.doi}](https://doi.org/${encodeURIComponent(reference.doi)})`;
-    }
-    lines.push(`${reference.number}. ${converted} <a id="${reference.anchor}"></a>`, '');
+    const converted = await referenceText(reference, url);
+    if (policy.references === 'ordered-list') lines.push(`${reference.number}. ${converted} <a id="${reference.anchor}"></a>`, '');
+    else lines.push(`[^${reference.number}]: ${converted}`, '');
   }
   return lines.join('\n').trimEnd();
 }
@@ -94,14 +112,50 @@ function bibEscape(value) {
     .trim();
 }
 
+function bibAuthor(value) {
+  const source = bibEscape(value)
+    .replace(/\s*&\s*/gu, ', ')
+    .replace(/\s+and\s+/giu, ', ');
+  return source
+    .split(/,\s+(?=\p{Lu}\p{Ll}[\p{L}'’.-]*(?:\s+\p{Lu}\p{Ll}[\p{L}'’.-]*)*,\s*\p{Lu})/gu)
+    .map((author) => author.trim())
+    .filter(Boolean)
+    .join(' and ')
+    .replace(/\bet al\.?\b/giu, 'and others');
+}
+
+function parseReferenceFields(text, year) {
+  const source = String(text || '');
+  const authorEnd = source.search(/\.\s+(?!(?:&|and|et al)\b)(?![A-ZÀ-ÖØ-Þ]\.(?:\s|,))[A-Za-zÀ-ÖØ-öø-ÿ]/u);
+  if (authorEnd < 0) return null;
+  const author = source.slice(0, authorEnd);
+  const remainder = source.slice(authorEnd + 1).trim();
+  const match = remainder.match(/^(.*?)\.\s+(.+?)\s+(\d+),\s+([^()]+?)\s+\((\d{4})\)/u);
+  if (!match) return { author };
+  return {
+    author,
+    title: match[1].trim(),
+    journal: match[2].trim(),
+    volume: match[3],
+    pages: match[4].trim(),
+    year: match[5] || year,
+  };
+}
+
 export function referencesBib(references) {
   return references.map((reference) => {
     const year = reference.text.match(/\b(?:19|20)\d{2}\b/u)?.[0] || '';
     const author = reference.text.split(/\.\s+/u)[0] || `Reference ${reference.number}`;
+    const fields = parseReferenceFields(reference.text, year) || { author };
+    const entryType = fields.journal ? 'article' : 'misc';
     const doi = reference.doi || reference.text.match(/10\.\d{4,9}\/[^\s)]+/u)?.[0] || '';
     return [
-      `@misc{${reference.citationKey || `ref${reference.number}`},`,
-      `  author = {${bibEscape(author)}},`,
+      `@${entryType}{${reference.citationKey || `ref${reference.number}`},`,
+      `  author = {${bibAuthor(fields.author || author)}},`,
+      ...(fields.title ? [`  title = {${bibEscape(fields.title)}},`] : []),
+      ...(fields.journal ? [`  journal = {${bibEscape(fields.journal)}},`] : []),
+      ...(fields.volume ? [`  volume = {${bibEscape(fields.volume)}},`] : []),
+      ...(fields.pages ? [`  pages = {${bibEscape(fields.pages)}},`] : []),
       ...(year ? [`  year = {${year}},`] : []),
       `  note = {${bibEscape(reference.text)}},`,
       ...(doi ? [`  doi = {${bibEscape(doi)}},`] : []),
@@ -113,22 +167,25 @@ export function referencesBib(references) {
 
 export function renderClipMarkdown(result, imagePathByAnchor = new Map()) {
   const semantic = result.semantic;
-  let body = normalizeMarkdown(result.bodyMarkdown, semantic, result.references, result.citationStyle);
-  body = normalizeAnchorMarkers(body, semantic.crossReferences.values());
-  body = applyFigurePlaceholders(body, result.figures, imagePathByAnchor);
+  const policy = result.outputPolicy || outputPolicy(result.citationStyle);
+  let body = normalizeMarkdown(result.bodyMarkdown, semantic, result.references, policy);
+  body = normalizeAnchorMarkers(body, semantic.crossReferences.values(), { policy });
+  body = applyFigurePlaceholders(body, result.figures, imagePathByAnchor, policy);
   const extendedFigures = renderFigures(
     result.figures.filter((figure) => figure.source === 'supplementary figure'),
     imagePathByAnchor,
+    policy,
   );
-  const tables = renderTables(result.tables);
+  const tables = renderTables(result.tables, policy);
   const sections = [body, extendedFigures, tables, result.referencesMarkdown].filter(Boolean);
   const markdownBody = `# ${result.metadata.title}\n\n${sections.join('\n\n')}`.trim();
-  return `${frontmatter(result.metadata, result.citationStyle)}${markdownBody}\n`;
+  return `${frontmatter(result.metadata, policy.dialect === 'quarto' ? 'quarto' : result.citationStyle)}${markdownBody}\n`;
 }
 
-export async function clipNature({ html, url, rawHtml = html, citationStyle = 'links' }) {
+export async function clipNature({ html, url, rawHtml = html, citationStyle = 'markdown' }) {
   if (!isNatureUrl(url)) throw new Error('This prototype only supports Nature article URLs.');
-  if (!['links', 'quarto'].includes(citationStyle)) throw new Error('citationStyle must be links or quarto.');
+  if (!['markdown', 'links', 'quarto'].includes(citationStyle)) throw new Error('citationStyle must be markdown, links, or quarto.');
+  const policy = outputPolicy(citationStyle);
 
   const parsedPage = parseNaturePage(html, url);
   if (parsedPage.debug.articleRoot !== '.c-article-body') {
@@ -146,8 +203,9 @@ export async function clipNature({ html, url, rawHtml = html, citationStyle = 'l
     references: parsedPage.references,
     semantic: parsedPage.semantic,
     citationStyle,
+    outputPolicy: policy,
     bodyMarkdown: markdown,
-    referencesMarkdown: await referencesMarkdown(parsedPage.references, url),
+    referencesMarkdown: await referencesMarkdown(parsedPage.references, url, policy),
   };
   const fullMarkdown = renderClipMarkdown(intermediate);
   const debug = {
@@ -159,7 +217,7 @@ export async function clipNature({ html, url, rawHtml = html, citationStyle = 'l
     defuddleWordCount: parsed.wordCount || 0,
     markdownCharacters: fullMarkdown.length,
     mathValidation: validateMathDelimiters(fullMarkdown),
-    markdownStructure: validateMarkdownStructure(fullMarkdown),
+    markdownStructure: validateMarkdownStructure(fullMarkdown, { dialect: policy.dialect, citationStyle }),
     warnings: [...parsedPage.debug.warnings],
   };
 
@@ -310,7 +368,10 @@ export async function writePaper(result, { libraryPath, downloadFigures = true, 
     result.debug.mathValidation = remoteValidation;
     throw new MathDelimiterValidationError(remoteValidation, path.join(destination, 'index.md'));
   }
-  const remoteStructure = validateMarkdownStructure(remoteMarkdown);
+  const remoteStructure = validateMarkdownStructure(remoteMarkdown, {
+    dialect: result.outputPolicy?.dialect,
+    citationStyle: result.citationStyle,
+  });
   if (!remoteStructure.valid) throw new Error(`Markdown structure validation failed: ${JSON.stringify(remoteStructure.issues)}`);
 
   await mkdir(root, { recursive: true });
@@ -342,7 +403,10 @@ export async function writePaper(result, { libraryPath, downloadFigures = true, 
     const mathValidation = validateMathDelimiters(markdown);
     result.debug.mathValidation = mathValidation;
     if (!mathValidation.valid) throw new MathDelimiterValidationError(mathValidation, path.join(destination, 'index.md'));
-    const markdownStructure = validateMarkdownStructure(markdown);
+    const markdownStructure = validateMarkdownStructure(markdown, {
+      dialect: result.outputPolicy?.dialect,
+      citationStyle: result.citationStyle,
+    });
     result.debug.markdownStructure = markdownStructure;
     if (!markdownStructure.valid) throw new Error(`Markdown structure validation failed: ${JSON.stringify(markdownStructure.issues)}`);
 

@@ -63,29 +63,37 @@ function captionBody(figure) {
   return caption;
 }
 
-export function renderFigure(figure, imagePath = figure.imageUrl) {
+export function renderFigure(figure, imagePath = figure.imageUrl, policy = { dialect: 'markdown' }) {
   const body = captionBody(figure);
   const label = `**${figure.label}.**`;
+  const image = `![${figure.alt || figure.label}](${imagePath})`;
+  const imageWithIdentifier = policy.dialect === 'quarto'
+    ? `${image}{#fig-${figure.anchor}}`
+    : image;
   return [
-    `<a id="${figure.anchor}"></a>`,
-    `![${figure.alt || figure.label}](${imagePath})`,
+    ...(policy.dialect === 'quarto' ? [] : [`<a id="${figure.anchor}"></a>`]),
+    imageWithIdentifier,
     '',
     `${label}${body ? ` ${body}` : ''}`,
   ].join('\n');
 }
 
-export function renderFigures(figures, imagePathByAnchor = new Map()) {
+export function renderFigures(figures, imagePathByAnchor = new Map(), policy = { dialect: 'markdown' }) {
   if (!figures.length) return '';
   const main = figures.filter((figure) => figure.source === 'inline figure');
   const extended = figures.filter((figure) => figure.source === 'supplementary figure');
-  const render = (figure) => renderFigure(figure, imagePathByAnchor.get(figure.anchor) || figure.imageUrl);
+  const render = (figure) => renderFigure(
+    figure,
+    imagePathByAnchor.get(figure.anchor) || figure.imageUrl,
+    policy,
+  );
   const sections = [];
   if (main.length) sections.push(main.map(render).join('\n\n'));
   if (extended.length) sections.push(['## Extended Data', '', extended.map(render).join('\n\n')].join('\n'));
   return sections.join('\n\n');
 }
 
-export function renderTables(tables) {
+export function renderTables(tables, policy = { dialect: 'markdown' }) {
   if (!tables.length) return '';
   const lines = ['## Tables', ''];
   for (const table of tables) {
@@ -93,7 +101,8 @@ export function renderTables(tables) {
       .replace(/^(?:Extended Data )?Table\s*\d+\s*(?:[:|.-]\s*|\s+)/i, '')
       .trim();
     const caption = `**${table.label}.**${body ? ` ${body}` : ''}`;
-    lines.push(`- ${caption}${table.url ? ` ([Full size table](${table.url}))` : ''} <a id="${table.anchor}"></a>`, '');
+    const identifier = policy.dialect === 'quarto' ? ` {#tbl-${table.anchor}}` : ` <a id="${table.anchor}"></a>`;
+    lines.push(`- ${caption}${table.url ? ` ([Full size table](${table.url}))` : ''}${identifier}`, '');
   }
   return lines.join('\n').trimEnd();
 }

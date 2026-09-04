@@ -4,6 +4,9 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { test } from 'node:test';
 import { clipNature, writePaper } from '../src/clip.mjs';
+import { normalizeAnchorMarkers, normalizeCitations } from '../src/normalizers/citations.mjs';
+import { semanticMarker } from '../src/normalizers/markers.mjs';
+import { normalizeMath } from '../src/normalizers/math.mjs';
 import { assertValidMathDelimiters, validateMathDelimiters } from '../src/validators/math-delimiters.mjs';
 import { validateMarkdownStructure } from '../src/validators/markdown-structure.mjs';
 
@@ -23,8 +26,9 @@ function assertOutputQuality(markdown, { localFigures = false } = {}) {
   assert.doesNotMatch(markdown, /\*\*Figure \d+\.\*\*[^\n]+\*\*$/);
   assert.doesNotMatch(markdown, /\$\$\s*\n\s*111\s*\n\s*\$\$\s*-strained/);
   assert.equal((markdown.match(/^## References\s*$/gm) || []).length, 1);
-  assert.equal((markdown.match(/^\d+\. /gm) || []).length, 3);
-  assert.equal((markdown.match(/<a id="ref-\d+"><\/a>/g) || []).length, 3);
+  assert.equal((markdown.match(/^\[\^\d+\]:/gm) || []).length, 3);
+  assert.equal((markdown.match(/<a id="ref-\d+"><\/a>/g) || []).length, 0);
+  assert.equal((markdown.match(/\]\(#ref-\d+\)/g) || []).length, 0);
   if (localFigures) {
     assert.match(markdown, /!\[Figure 1\]\(figures\/fig1\.png\)/);
     assert.match(markdown, /!\[Extended Data Figure 3\]\(figures\/fig2\.png\)/);
@@ -64,11 +68,37 @@ test('math delimiter validator rejects malformed and leaked semantic markup', ()
   }
 });
 
-test('Markdown structure validator keeps references and tables as real lists', () => {
+test('Markdown structure validator accepts footnote references and legacy link references explicitly', () => {
+  const footnotes = '## References\n\n[^1]: First\n\n[^2]: Second';
+  assert.equal(validateMarkdownStructure(footnotes).valid, true);
   const valid = '## Tables\n\n- Table one <a id="table-1"></a>\n\n## References\n\n1. First <a id="ref-1"></a>\n\n2. Second <a id="ref-2"></a>';
-  assert.equal(validateMarkdownStructure(valid).valid, true);
+  assert.equal(validateMarkdownStructure(valid, { citationStyle: 'links' }).valid, true);
   const broken = '## References\n\n<a id="ref-1"></a>\n1. First';
-  assert.equal(validateMarkdownStructure(broken).valid, false);
+  assert.equal(validateMarkdownStructure(broken, { citationStyle: 'links' }).valid, false);
+});
+
+test('citation normalization leaves unrelated user footnotes untouched', async () => {
+  assert.equal(normalizeCitations('A note[^1].', [], { style: 'markdown' }), 'A note[^1].');
+  assert.equal(normalizeMath('A note[^1].'), 'A note[^1].');
+  const marker = semanticMarker('CITATION', 0);
+  const markdown = normalizeCitations(`${marker} and ${marker}`, [{ marker, numbers: [1, 2] }], {
+    style: 'markdown',
+  });
+  assert.equal(markdown, '[^1][^2] and [^1][^2]');
+  assert.equal((markdown.match(/\[\^1\]/g) || []).length, 2);
+});
+
+test('section cross-references use clean Markdown slugs and Quarto identifiers', () => {
+  const target = { type: 'section', anchor: 'materials' };
+  const marker = semanticMarker('SECTIONANCHOR', target.anchor);
+  const source = `${marker}\n\n## Materials\n\n[Materials](#materials)`;
+  const markdown = normalizeAnchorMarkers(source, [target], { style: 'markdown' });
+  assert.equal(markdown.includes('<a id="section-materials">'), false);
+  assert.match(markdown, /## Materials/);
+  assert.match(markdown, /\[Materials\]\(#materials\)/);
+  const quarto = normalizeAnchorMarkers(source, [target], { style: 'quarto' });
+  assert.match(quarto, /## Materials \{#sec-materials\}/);
+  assert.match(quarto, /\[Materials\]\(#sec-materials\)/);
 });
 
 test('final fixture Markdown passes academic output quality assertions', async () => {
@@ -80,11 +110,27 @@ test('quarto citation policy emits semantic keys and a reusable BibTeX source', 
   const result = await clipNature({ html: fixtureHtml, url: fixtureUrl, citationStyle: 'quarto' });
   assert.match(result.markdown, /bibliography: "references\.bib"/);
   assert.match(result.markdown, /\[@Lovelace; @Turing; @Noether\]/);
-  assert.match(result.referencesMarkdown, /^1\. Lovelace, A\./m);
+  assert.match(result.referencesMarkdown, /^## References\n\n::: \{#refs\}\n:::/);
+  assert.doesNotMatch(result.referencesMarkdown, /^\d+\. /m);
+  assert.doesNotMatch(result.markdown, /<a id="section-/);
+  assert.doesNotMatch(result.markdown, /<a id="ref-/);
+  assert.doesNotMatch(result.markdown, /<a id="(?:figure|table|equation)-/);
+  assert.match(result.markdown, /!\[Figure 1\]\([^\n]+\)\{#fig-figure-1\}/);
+  assert.match(result.markdown, /\{#eq-equation-2\}/);
+  assert.match(result.markdown, /\{#tbl-table-1\}/);
   const { referencesBib } = await import('../src/clip.mjs');
   const bib = referencesBib(result.references);
   assert.match(bib, /@misc\{Lovelace,/);
   assert.match(bib, /@misc\{Turing,/);
+  const richBib = referencesBib([{
+    number: 9,
+    citationKey: 'Jungwirth2016',
+    doi: '10.1038/nnano.2016.18',
+    text: 'Jungwirth, T., Marti, X., Wadley, P. & Wunderlich, J. Antiferromagnetic spintronics. Nat. Nanotechnol. 11, 231–241 (2016).',
+  }]);
+  assert.match(richBib, /@article\{Jungwirth2016,/);
+  assert.match(richBib, /author = \{Jungwirth, T\. and Marti, X\. and Wadley, P\. and Wunderlich, J\}/);
+  assert.match(richBib, /title = \{Antiferromagnetic spintronics\}/);
 });
 
 test('writer downloads high-quality and duplicate figure URLs with diagnostics', async () => {
