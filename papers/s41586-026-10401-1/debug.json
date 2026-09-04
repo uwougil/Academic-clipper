@@ -1,0 +1,376 @@
+{
+  "publisher": "Nature",
+  "articleRoot": ".c-article-body",
+  "metadataSource": "Nature citation_* meta tags, with JSON-LD fallback",
+  "paragraphs": 184,
+  "equations": 13,
+  "figures": 7,
+  "references": 50,
+  "removedNodes": 62,
+  "inlineMath": 22,
+  "scientificRuns": 193,
+  "citations": 77,
+  "crossReferences": 41,
+  "crossReferenceMap": [
+    {
+      "natureId": "Fig1",
+      "type": "figure",
+      "label": "Figure 1",
+      "anchor": "figure-1"
+    },
+    {
+      "natureId": "Fig2",
+      "type": "figure",
+      "label": "Figure 2",
+      "anchor": "figure-2"
+    },
+    {
+      "natureId": "Fig3",
+      "type": "figure",
+      "label": "Figure 3",
+      "anchor": "figure-3"
+    },
+    {
+      "natureId": "Fig4",
+      "type": "figure",
+      "label": "Extended Data Figure 1",
+      "anchor": "extended-data-figure-1"
+    },
+    {
+      "natureId": "Fig5",
+      "type": "figure",
+      "label": "Extended Data Figure 2",
+      "anchor": "extended-data-figure-2"
+    },
+    {
+      "natureId": "Fig6",
+      "type": "figure",
+      "label": "Extended Data Figure 3",
+      "anchor": "extended-data-figure-3"
+    },
+    {
+      "natureId": "Fig7",
+      "type": "figure",
+      "label": "Extended Data Figure 4",
+      "anchor": "extended-data-figure-4"
+    },
+    {
+      "natureId": "Tab1",
+      "type": "table",
+      "label": "Table 1",
+      "anchor": "table-1"
+    },
+    {
+      "natureId": "Tab2",
+      "type": "table",
+      "label": "Extended Data Table 1",
+      "anchor": "table-2"
+    },
+    {
+      "natureId": "Equ1",
+      "type": "equation",
+      "label": "Equation 1",
+      "anchor": "equation-1"
+    },
+    {
+      "natureId": "Equ2",
+      "type": "equation",
+      "label": "Equation 2",
+      "anchor": "equation-2"
+    },
+    {
+      "natureId": "Equ3",
+      "type": "equation",
+      "label": "Equation 3",
+      "anchor": "equation-3"
+    },
+    {
+      "natureId": "Equ4",
+      "type": "equation",
+      "label": "Equation 4",
+      "anchor": "equation-4"
+    },
+    {
+      "natureId": "Equ5",
+      "type": "equation",
+      "label": "Equation 5",
+      "anchor": "equation-5"
+    },
+    {
+      "natureId": "Equ6",
+      "type": "equation",
+      "label": "Equation 6",
+      "anchor": "equation-6"
+    },
+    {
+      "natureId": "Equ7",
+      "type": "equation",
+      "label": "Equation 7",
+      "anchor": "equation-7"
+    },
+    {
+      "natureId": "Equ8",
+      "type": "equation",
+      "label": "Equation 8",
+      "anchor": "equation-8"
+    },
+    {
+      "natureId": "Equ9",
+      "type": "equation",
+      "label": "Equation 9",
+      "anchor": "equation-9"
+    },
+    {
+      "natureId": "Equ10",
+      "type": "equation",
+      "label": "Equation 10",
+      "anchor": "equation-10"
+    },
+    {
+      "natureId": "Equ11",
+      "type": "equation",
+      "label": "Equation 11",
+      "anchor": "equation-11"
+    },
+    {
+      "natureId": "Equ12",
+      "type": "equation",
+      "label": "Equation 12",
+      "anchor": "equation-12"
+    },
+    {
+      "natureId": "Equ13",
+      "type": "equation",
+      "label": "Equation 13",
+      "anchor": "equation-13"
+    },
+    {
+      "natureId": "Abs1",
+      "type": "section",
+      "label": "Abstract",
+      "anchor": "section-abstract"
+    },
+    {
+      "natureId": "Sec1",
+      "type": "section",
+      "label": "Main",
+      "anchor": "section-main"
+    },
+    {
+      "natureId": "Sec2",
+      "type": "section",
+      "label": "FM and AFM dichotomy",
+      "anchor": "section-fm-and-afm-dichotomy"
+    },
+    {
+      "natureId": "Sec3",
+      "type": "section",
+      "label": "Oriented spin space groups",
+      "anchor": "section-oriented-spin-space-groups"
+    },
+    {
+      "natureId": "Sec4",
+      "type": "section",
+      "label": "Spin–orbit magnetism",
+      "anchor": "section-spin-orbit-magnetism"
+    },
+    {
+      "natureId": "Sec5",
+      "type": "section",
+      "label": "Materials",
+      "anchor": "section-materials"
+    },
+    {
+      "natureId": "Sec6",
+      "type": "section",
+      "label": "Methods",
+      "anchor": "section-methods"
+    },
+    {
+      "natureId": "Sec7",
+      "type": "section",
+      "label": "Further classification of magnetic geometries based on the FM/AFM dichotomy",
+      "anchor": "section-further-classification-of-magnetic-geometries-based-on-the-fm-afm-dichotomy"
+    },
+    {
+      "natureId": "Sec8",
+      "type": "section",
+      "label": "SOC tensor",
+      "anchor": "section-soc-tensor"
+    },
+    {
+      "natureId": "Sec9",
+      "type": "section",
+      "label": "Material example for orbital and spin magnetization: Mn3Sn",
+      "anchor": "section-material-example-for-orbital-and-spin-magnetization-mn3sn"
+    },
+    {
+      "natureId": "Sec10",
+      "type": "section",
+      "label": "Identification of SOM materials",
+      "anchor": "section-identification-of-som-materials"
+    },
+    {
+      "natureId": "Sec11",
+      "type": "section",
+      "label": "DFT calculations",
+      "anchor": "section-dft-calculations"
+    },
+    {
+      "natureId": "data-availability",
+      "type": "section",
+      "label": "Data availability",
+      "anchor": "section-data-availability"
+    },
+    {
+      "natureId": "code-availability",
+      "type": "section",
+      "label": "Code availability",
+      "anchor": "section-code-availability"
+    },
+    {
+      "natureId": "Ack1",
+      "type": "section",
+      "label": "Acknowledgements",
+      "anchor": "section-acknowledgements"
+    },
+    {
+      "natureId": "ethics",
+      "type": "section",
+      "label": "Ethics declarations",
+      "anchor": "section-ethics-declarations"
+    },
+    {
+      "natureId": "FPar2",
+      "type": "section",
+      "label": "Competing interests",
+      "anchor": "section-competing-interests"
+    },
+    {
+      "natureId": "peer-review",
+      "type": "section",
+      "label": "Peer review",
+      "anchor": "section-peer-review"
+    },
+    {
+      "natureId": "FPar1",
+      "type": "section",
+      "label": "Peer review information",
+      "anchor": "section-peer-review-information"
+    }
+  ],
+  "warnings": [],
+  "title": "Symmetry classification of magnetic orders using oriented spin space groups",
+  "articleId": "s41586-026-10401-1",
+  "citationStyle": "links",
+  "defuddleTitle": "Symmetry classification of magnetic orders using oriented spin space groups",
+  "defuddleWordCount": 5776,
+  "markdownCharacters": 63304,
+  "mathValidation": {
+    "valid": true,
+    "inlineMathCount": 234,
+    "displayMathCount": 13,
+    "issues": [],
+    "scientificFragments": {
+      "valid": true,
+      "counts": {
+        "isolatedSubscript": 0,
+        "isolatedSuperscript": 0,
+        "boldThenSubscript": 0,
+        "italicThenSuperscript": 0
+      },
+      "issues": []
+    },
+    "states": {
+      "TEXT": 54905,
+      "INLINE_MATH": 3521,
+      "DISPLAY_MATH": 3982,
+      "INLINE_CODE": 0,
+      "FENCED_CODE": 0
+    }
+  },
+  "markdownStructure": {
+    "valid": true,
+    "sections": {
+      "references": {
+        "headingCount": 1,
+        "itemCount": 50,
+        "anchorCount": 50,
+        "issues": []
+      },
+      "tables": {
+        "headingCount": 1,
+        "itemCount": 2,
+        "anchorCount": 2,
+        "issues": []
+      }
+    },
+    "issues": []
+  },
+  "figureDownloads": [
+    {
+      "label": "Figure 1",
+      "anchor": "figure-1",
+      "sourceUrl": "https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-026-10401-1/MediaObjects/41586_2026_10401_Fig1_HTML.png?as=webp",
+      "status": 200,
+      "contentType": "image/webp",
+      "localPath": "figures/fig1.webp"
+    },
+    {
+      "label": "Figure 2",
+      "anchor": "figure-2",
+      "sourceUrl": "https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-026-10401-1/MediaObjects/41586_2026_10401_Fig2_HTML.png?as=webp",
+      "status": 200,
+      "contentType": "image/webp",
+      "localPath": "figures/fig2.webp"
+    },
+    {
+      "label": "Figure 3",
+      "anchor": "figure-3",
+      "sourceUrl": "https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-026-10401-1/MediaObjects/41586_2026_10401_Fig3_HTML.png?as=webp",
+      "status": 200,
+      "contentType": "image/webp",
+      "localPath": "figures/fig3.webp"
+    },
+    {
+      "label": "Extended Data Figure 1",
+      "anchor": "extended-data-figure-1",
+      "sourceUrl": "https://media.springernature.com/lw685/springer-static/esm/art%3A10.1038%2Fs41586-026-10401-1/MediaObjects/41586_2026_10401_Fig4_ESM.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "localPath": "figures/fig4.jpg"
+    },
+    {
+      "label": "Extended Data Figure 2",
+      "anchor": "extended-data-figure-2",
+      "sourceUrl": "https://media.springernature.com/lw685/springer-static/esm/art%3A10.1038%2Fs41586-026-10401-1/MediaObjects/41586_2026_10401_Fig5_ESM.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "localPath": "figures/fig5.jpg"
+    },
+    {
+      "label": "Extended Data Figure 3",
+      "anchor": "extended-data-figure-3",
+      "sourceUrl": "https://media.springernature.com/lw685/springer-static/esm/art%3A10.1038%2Fs41586-026-10401-1/MediaObjects/41586_2026_10401_Fig6_ESM.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "localPath": "figures/fig6.jpg"
+    },
+    {
+      "label": "Extended Data Figure 4",
+      "anchor": "extended-data-figure-4",
+      "sourceUrl": "https://media.springernature.com/lw685/springer-static/esm/art%3A10.1038%2Fs41586-026-10401-1/MediaObjects/41586_2026_10401_Fig7_ESM.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "localPath": "figures/fig7.jpg"
+    }
+  ],
+  "figureSummary": {
+    "totalFigures": 7,
+    "localFigures": 7,
+    "remoteFallbackFigures": 0,
+    "failedResources": 0,
+    "failedResourceUrls": [],
+    "downloadsEnabled": true
+  }
+}
