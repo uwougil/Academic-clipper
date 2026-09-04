@@ -8,6 +8,7 @@ import { normalizeMath } from './normalizers/math.mjs';
 import { normalizeAcademicInline } from './normalizers/academic-inline.mjs';
 import { normalizeAnchorMarkers, normalizeCitations } from './normalizers/citations.mjs';
 import { renderFigure, renderFigures, renderTables } from './normalizers/figures.mjs';
+import { MathDelimiterValidationError, validateMathDelimiters } from './validators/math-delimiters.mjs';
 
 function yamlQuote(value) {
   return JSON.stringify(String(value ?? ''));
@@ -117,6 +118,7 @@ export async function clipNature({ html, url, rawHtml = html }) {
     defuddleTitle: parsed.title || '',
     defuddleWordCount: parsed.wordCount || 0,
     markdownCharacters: fullMarkdown.length,
+    mathValidation: validateMathDelimiters(fullMarkdown),
     warnings: [...parsedPage.debug.warnings],
   };
 
@@ -210,6 +212,16 @@ export async function writePaper(result, { libraryPath, downloadFigures = true, 
   }
 
   const markdown = renderClipMarkdown(result, imagePathByAnchor);
+  const mathValidation = validateMathDelimiters(markdown);
+  result.debug.mathValidation = mathValidation;
+  if (!mathValidation.valid) {
+    if (saveDebug) {
+      await writeFile(path.join(destination, 'raw.html'), result.rawHtml, 'utf8');
+      await writeFile(path.join(destination, 'cleaned.html'), result.cleanedHtml, 'utf8');
+      await writeFile(path.join(destination, 'debug.json'), `${JSON.stringify(result.debug, null, 2)}\n`, 'utf8');
+    }
+    throw new MathDelimiterValidationError(mathValidation, path.join(destination, 'index.md'));
+  }
   await writeFile(path.join(destination, 'index.md'), markdown, 'utf8');
   if (saveDebug) {
     await writeFile(path.join(destination, 'raw.html'), result.rawHtml, 'utf8');

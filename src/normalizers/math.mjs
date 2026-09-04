@@ -20,8 +20,10 @@ function inlineDelimiterContext(markdown, start, end) {
 
 function normalizeLegacyDelimiters(markdown) {
   const { protectedMarkdown, blocks } = protectDisplayMath(markdown);
+  // Semantic MathJax nodes are restored from their typed placeholders below;
+  // do not globally turn every escaped dollar into a delimiter because that
+  // would corrupt literal currency and Markdown escapes.
   let result = protectedMarkdown
-    .replaceAll('\\$', '$')
     .replace(/\\+\(([^\n]*?)\\+\)/g, (_, expression) => `$${expression.replace(/\\\\/g, '\\').trim()}$`);
 
   const bracketPattern = /\\+\[([\s\S]*?)\\+\]/g;

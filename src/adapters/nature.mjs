@@ -292,7 +292,11 @@ function replaceInlineMath(body) {
 function replaceScientificBracketText(body) {
   const values = [];
   const walker = body.ownerDocument.createTreeWalker(body, 4);
-  const pattern = /\[(\d+(?:[,\s−+\-]\d+)*)\](?=-[\p{L}])/gu;
+  // These are plain Nature text nodes, not MathJax. Protect every numeric
+  // bracket expression before Defuddle can serialize it as \\[...\\]. This
+  // covers crystallographic directions such as [100], [210] and [001], as
+  // well as the [111]-strained form, without hard-coding an article string.
+  const pattern = /\[(\d+(?:[,\s−+\-]\d+)*)\]/gu;
   for (let node = walker.nextNode(); node; node = walker.nextNode()) {
     if (node.parentElement?.closest('.mathjax-tex, .c-article-equation, ol.c-article-references, ol.c-article-references__list')) continue;
     const next = node.textContent.replace(pattern, (match) => {

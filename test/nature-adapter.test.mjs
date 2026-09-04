@@ -37,9 +37,12 @@ test('Nature clipping preserves headings, TeX, figures, citations, and reference
   assert.match(result.markdown, /## Abstract/);
   assert.match(result.markdown, /## Methods/);
   assert.match(result.markdown, /\$\\mathbf\{k\}\$/);
+  assert.match(result.markdown, /\$\{P\}\^\{-1\}\{6\}_\{3\}\/\{m\}\^\{1\}\$/);
   assert.match(result.markdown, /\$P\{?\_\{\\mathrm\{spin\}\}\}?\$/);
   assert.match(result.markdown, /Mn\$_\{3\}\$/);
+  assert.match(result.markdown, /Directions \[100\], \[210\] and \[001\] are plain text/);
   assert.match(result.markdown, /\[111\]-strained/);
+  assert.doesNotMatch(result.markdown, /\$\$\n(?:100|210|001)\n\$\$/);
   assert.match(result.markdown, /\$\$\nE=mc\^2\n\$\$/);
   assert.match(result.markdown, /\$\$\n\\begin\{array\}\{c\}a_i \\\\ b_j\\end\{array\}\n\$\$/);
   assert.match(result.markdown, /## Figure 1/);

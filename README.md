@@ -99,9 +99,12 @@ s41586-026-10401-1/index.md
 ```bash
 npm test
 npm run build
+npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md
 ```
 
 `--debug` 会在论文目录保存 `raw.html`、`cleaned.html`、`debug.json`，并在 CLI 输出：publisher、article root、metadata source、paragraph/equation/figure/reference 数量、移除节点数和 warnings。
+
+`validate:paper` 会对最终 `index.md` 做 lexical math delimiter validation，检查 inline/display math 是否闭合、是否跨 Markdown block、是否出现非法 `$`/`$$` 邻接、legacy delimiter 或 semantic marker。验证失败时返回 non-zero，不会由 writer 静默写出该文件。Pandoc/Quarto 不是运行时依赖；如果本机已安装，可另行执行 `pandoc index.md -o /tmp/academic-clipper.html` 或 `quarto render` 做可选 parser smoke test。
 
 ## 当前实测范围和已知问题
 
