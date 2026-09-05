@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { access, mkdtemp, mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
+import { access, mkdtemp, mkdir, readFile, readdir, rename, rm, stat, utimes, writeFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -16,6 +16,11 @@ const fixtureHtml = await readFile(new URL('./fixtures/nature-minimal.html', imp
 const fixtureUrl = 'https://www.nature.com/articles/s41586-026-10401-1';
 const articleId = 's41586-026-10401-1';
 const clipModuleUrl = pathToFileURL(path.join(repoRoot, 'src', 'clip.mjs')).href;
+
+function writerLockDir(root) {
+  const digest = createHash('sha256').update(articleId).digest('hex').slice(0, 32);
+  return path.join(root, '.academic-clipper-locks', `${digest}-${articleId}.lock`);
+}
 
 async function exists(file) {
   try {
@@ -281,18 +286,70 @@ test('independent writer processes serialize one article and leave no active loc
 
 test('stale writer lock is recovered after the recorded process is gone', async () => {
   const root = await mkdtemp(path.join(tmpdir(), 'academic-clipper-stale-lock-'));
-  const digest = createHash('sha256').update(articleId).digest('hex').slice(0, 32);
-  const lockDir = path.join(root, '.academic-clipper-locks', `${digest}-${articleId}.lock`);
+  const lockDir = writerLockDir(root);
   await mkdir(lockDir, { recursive: true });
   await writeFile(path.join(lockDir, 'owner.json'), JSON.stringify({
     pid: 2147483647,
-    createdAt: Date.now() - 60_000,
+    createdAt: Date.now() - 5_000,
     token: 'stale-test',
   }), 'utf8');
   const result = await clipNature({ html: fixtureHtml, url: fixtureUrl });
-  await writePaper(result, { libraryPath: root, downloadFigures: false, lockStaleMs: 10 });
+  await writePaper(result, { libraryPath: root, downloadFigures: false, lockStaleMs: 60_000, lockDeadGraceMs: 10 });
   assert.equal(await exists(path.join(root, articleId, 'index.md')), true);
   assert.deepEqual(await readdir(path.join(root, '.academic-clipper-locks')), []);
+});
+
+test('live owner PID is not reclaimed, while a missing owner needs the normal age threshold', async () => {
+  const liveRoot = await mkdtemp(path.join(tmpdir(), 'academic-clipper-live-lock-'));
+  const liveLock = writerLockDir(liveRoot);
+  await mkdir(liveLock, { recursive: true });
+  await writeFile(path.join(liveLock, 'owner.json'), JSON.stringify({
+    pid: process.pid,
+    createdAt: Date.now() - 60_000,
+    token: 'live-test',
+  }), 'utf8');
+  const result = await clipNature({ html: fixtureHtml, url: fixtureUrl });
+  await assert.rejects(
+    () => writePaper(result, {
+      libraryPath: liveRoot,
+      downloadFigures: false,
+      lockTimeoutMs: 60,
+      lockRetryMs: 10,
+      lockStaleMs: 10,
+      lockDeadGraceMs: 10,
+    }),
+    /already being written/,
+  );
+  await rm(liveLock, { recursive: true, force: true });
+
+  const missingRoot = await mkdtemp(path.join(tmpdir(), 'academic-clipper-missing-owner-'));
+  const missingLock = writerLockDir(missingRoot);
+  await mkdir(missingLock, { recursive: true });
+  const missingResult = await clipNature({ html: fixtureHtml, url: fixtureUrl });
+  await assert.rejects(
+    () => writePaper(missingResult, {
+      libraryPath: missingRoot,
+      downloadFigures: false,
+      lockTimeoutMs: 60,
+      lockRetryMs: 10,
+      lockStaleMs: 60_000,
+    }),
+    /already being written/,
+  );
+  assert.equal(await exists(missingLock), true);
+  await rm(missingLock, { recursive: true, force: true });
+});
+
+test('corrupt owner metadata uses age-based stale recovery', async () => {
+  const root = await mkdtemp(path.join(tmpdir(), 'academic-clipper-corrupt-owner-'));
+  const lockDir = writerLockDir(root);
+  await mkdir(lockDir, { recursive: true });
+  await writeFile(path.join(lockDir, 'owner.json'), '{not-json', 'utf8');
+  const old = new Date(Date.now() - 60_000);
+  await utimes(lockDir, old, old);
+  const result = await clipNature({ html: fixtureHtml, url: fixtureUrl });
+  await writePaper(result, { libraryPath: root, downloadFigures: false, lockStaleMs: 10_000 });
+  assert.equal(await exists(path.join(root, articleId, 'index.md')), true);
 });
 
 test('successful install remains successful when old backup cleanup fails', async () => {
@@ -314,6 +371,27 @@ test('successful install remains successful when old backup cleanup fails', asyn
   assert.equal((await readdir(root)).filter((name) => name.endsWith('-previous')).length, 1);
 });
 
+test('successful article save remains successful when lock cleanup fails and the next save reclaims it', async () => {
+  const root = await mkdtemp(path.join(tmpdir(), 'academic-clipper-lock-warning-'));
+  const first = await clipNature({ html: fixtureHtml, url: fixtureUrl });
+  const saved = await writePaper(first, {
+    libraryPath: root,
+    downloadFigures: false,
+    saveDebug: true,
+    removeLock: async () => { throw new Error('simulated lock cleanup failure'); },
+  });
+  assert.match(saved.debug.warnings.join('\n'), /Writer lock cleanup failed/);
+  assert.equal(await exists(path.join(root, articleId, 'index.md')), true);
+  assert.match(await readFile(path.join(root, articleId, 'debug.json'), 'utf8'), /Writer lock cleanup failed/);
+  assert.equal((await JSON.parse(await readFile(path.join(writerLockDir(root), 'owner.json'), 'utf8'))).releasedAt > 0, true);
+
+  const second = await clipNature({ html: fixtureHtml, url: fixtureUrl });
+  second.bodyMarkdown += '\nSecond save after released lock.';
+  await writePaper(second, { libraryPath: root, downloadFigures: false });
+  assert.match(await readFile(path.join(root, articleId, 'index.md'), 'utf8'), /Second save after released lock/);
+  assert.deepEqual(await readdir(path.join(root, '.academic-clipper-locks')), []);
+});
+
 async function createTransaction(root, { backup = false, index = 'recovered' } = {}) {
   const digest = createHash('sha256').update(articleId).digest('hex').slice(0, 32);
   const staging = await mkdtemp(path.join(root, `.academic-clipper-${digest}-`));
@@ -323,6 +401,26 @@ async function createTransaction(root, { backup = false, index = 'recovered' } =
   await rename(staging, backupPath);
   return backupPath;
 }
+
+test('recovery chooses the newest complete backup instead of lexical directory order', async () => {
+  const root = await mkdtemp(path.join(tmpdir(), 'academic-clipper-recovery-newest-'));
+  const older = await createTransaction(root, { backup: true, index: 'Older complete article.' });
+  await new Promise((resolve) => setTimeout(resolve, 30));
+  const newer = await createTransaction(root, { backup: true, index: 'Newer complete article.' });
+  assert.ok((await stat(newer)).mtimeMs > (await stat(older)).mtimeMs);
+  const result = await clipNature({ html: fixtureHtml, url: fixtureUrl });
+  await assert.rejects(
+    () => writePaper(result, {
+      libraryPath: root,
+      downloadFigures: false,
+      beforeInstall: async () => { throw new Error('stop after newest recovery'); },
+    }),
+    /stop after newest recovery/,
+  );
+  assert.equal(await readFile(path.join(root, articleId, 'index.md'), 'utf8'), 'Newer complete article.');
+  assert.equal(await exists(older), false);
+  assert.equal(await exists(newer), false);
+});
 
 test('next write restores a complete backup when destination is missing', async () => {
   const root = await mkdtemp(path.join(tmpdir(), 'academic-clipper-recovery-backup-'));

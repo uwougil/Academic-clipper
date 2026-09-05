@@ -11,17 +11,26 @@ permissions:
 
 jobs:
   test:
-    name: CI / test (Node ${{ matrix.node-version }})
-    runs-on: ubuntu-latest
+    name: CI / ${{ matrix.label }}
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        node-version: [20, 24]
+        include:
+          - os: ubuntu-latest
+            node-version: 20
+            label: Ubuntu / Node 20
+          - os: ubuntu-latest
+            node-version: 24
+            label: Ubuntu / Node 24
+          - os: windows-latest
+            node-version: 24
+            label: Windows / Node 24
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
@@ -32,6 +41,6 @@ jobs:
       - name: Build extension
         run: npm run build
       - name: Check extension build
-        run: test -f dist/extension/manifest.json
+        run: node -e "if (!require('node:fs').existsSync('dist/extension/manifest.json')) process.exit(1)"
       - name: Validate golden paper
         run: npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto

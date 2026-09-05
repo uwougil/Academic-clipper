@@ -20,6 +20,7 @@ const MAX_FIGURE_BYTES = 20 * 1024 * 1024;
 const WRITER_LOCK_TIMEOUT_MS = 30_000;
 const WRITER_LOCK_RETRY_MS = 100;
 const WRITER_LOCK_STALE_MS = 5 * 60_000;
+const WRITER_LOCK_DEAD_GRACE_MS = 2_000;
 const writerQueues = new Map();
 
 async function withWriterLock(key, task) {
@@ -329,7 +330,7 @@ function processIsAlive(pid) {
   }
 }
 
-async function staleLock(lockDir, staleMs) {
+async function staleLock(lockDir, staleMs, deadGraceMs = WRITER_LOCK_DEAD_GRACE_MS) {
   let lockStat;
   try {
     lockStat = await stat(lockDir);
@@ -347,7 +348,18 @@ async function staleLock(lockDir, staleMs) {
     ? owner.createdAt
     : Date.parse(String(owner.createdAt || ''));
   const age = Date.now() - (Number.isFinite(createdAt) ? createdAt : lockStat.mtimeMs);
-  return age >= staleMs && !processIsAlive(Number(owner.pid));
+  const releasedAt = typeof owner.releasedAt === 'number'
+    ? owner.releasedAt
+    : Date.parse(String(owner.releasedAt || ''));
+  if (Number.isFinite(releasedAt)) return true;
+  const pid = Number(owner.pid);
+  const validOwner = Number.isInteger(pid)
+    && pid > 0
+    && Number.isFinite(createdAt)
+    && typeof owner.token === 'string'
+    && owner.token.length > 0;
+  if (validOwner) return !processIsAlive(pid) && age >= deadGraceMs;
+  return age >= staleMs;
 }
 
 function wait(milliseconds) {
@@ -358,6 +370,8 @@ async function acquireWriterLock(root, articleId, {
   timeoutMs = WRITER_LOCK_TIMEOUT_MS,
   retryMs = WRITER_LOCK_RETRY_MS,
   staleMs = WRITER_LOCK_STALE_MS,
+  deadGraceMs = WRITER_LOCK_DEAD_GRACE_MS,
+  removeLock = rm,
 } = {}) {
   const lockRoot = path.join(root, '.academic-clipper-locks');
   const lockDir = lockDirectory(root, articleId);
@@ -369,7 +383,7 @@ async function acquireWriterLock(root, articleId, {
       await mkdir(lockDir);
     } catch (error) {
       if (error.code !== 'EEXIST') throw error;
-      if (await staleLock(lockDir, staleMs)) {
+      if (await staleLock(lockDir, staleMs, deadGraceMs)) {
         await rm(lockDir, { recursive: true, force: true });
         continue;
       }
@@ -388,15 +402,47 @@ async function acquireWriterLock(root, articleId, {
       throw error;
     }
     return {
-      async release() {
+      async release(onCleanupFailure) {
+        const releaseWarning = (error) => `Writer lock cleanup failed; released marker retained for recovery at ${lockDir}: ${error instanceof Error ? error.message : String(error)}`;
+        const markReleased = async (warning) => {
+          let owner = {};
+          try {
+            owner = JSON.parse(await readFile(path.join(lockDir, 'owner.json'), 'utf8'));
+          } catch {
+            // Preserve the local token even if owner metadata was damaged.
+          }
+          try {
+            await writeFile(path.join(lockDir, 'owner.json'), `${JSON.stringify({
+              ...owner,
+              pid: Number(owner.pid) || process.pid,
+              token,
+              createdAt: owner.createdAt || Date.now(),
+              releasedAt: Date.now(),
+              cleanupWarning: warning,
+            })}\n`, 'utf8');
+          } catch {
+            // The warning returned to the caller still exposes the retained lock path.
+          }
+        };
         try {
           const owner = JSON.parse(await readFile(path.join(lockDir, 'owner.json'), 'utf8'));
-          if (owner.token !== token) return;
+          if (owner.token !== token) return { warning: '' };
         } catch (error) {
-          if (error.code !== 'ENOENT') throw error;
-          return;
+          if (error.code === 'ENOENT') return { warning: '' };
+          const warning = releaseWarning(error);
+          await onCleanupFailure?.(warning);
+          await markReleased(warning);
+          return { warning };
         }
-        await rm(lockDir, { recursive: true, force: true });
+        try {
+          await removeLock(lockDir, { recursive: true, force: true });
+          return { warning: '' };
+        } catch (error) {
+          const warning = releaseWarning(error);
+          await onCleanupFailure?.(warning);
+          await markReleased(warning);
+          return { warning };
+        }
       },
       directory: lockDir,
     };
@@ -451,10 +497,12 @@ async function recoverArticleDirectory(root, destination, articleId) {
   const backups = transactions.filter((entry) => entry.backup);
   const validBackups = [];
   for (const backup of backups) {
-    if (await completeArticleDirectory(backup.path)) validBackups.push(backup);
+    if (await completeArticleDirectory(backup.path)) {
+      validBackups.push({ ...backup, modifiedAt: (await stat(backup.path)).mtimeMs });
+    }
   }
   if (validBackups.length) {
-    validBackups.sort((left, right) => left.name.localeCompare(right.name));
+    validBackups.sort((left, right) => right.modifiedAt - left.modifiedAt || right.name.localeCompare(left.name));
     await rename(validBackups[0].path, destination);
     await Promise.all(transactions
       .filter((entry) => entry.path !== validBackups[0].path)
@@ -642,6 +690,8 @@ export async function writePaper(result, {
   lockTimeoutMs = WRITER_LOCK_TIMEOUT_MS,
   lockRetryMs = WRITER_LOCK_RETRY_MS,
   lockStaleMs = WRITER_LOCK_STALE_MS,
+  lockDeadGraceMs = WRITER_LOCK_DEAD_GRACE_MS,
+  removeLock,
   fetchImpl = globalThis.fetch,
   resolveHostname,
 }) {
@@ -652,10 +702,14 @@ export async function writePaper(result, {
       timeoutMs: lockTimeoutMs,
       retryMs: lockRetryMs,
       staleMs: lockStaleMs,
+      deadGraceMs: lockDeadGraceMs,
+      removeLock,
     });
+    let saved;
+    let operationError;
     try {
       await recoverArticleDirectory(root, destination, result.articleId);
-      return await writePaperUnlocked(result, {
+      saved = await writePaperUnlocked(result, {
         root,
         destination,
         downloadFigures,
@@ -665,9 +719,32 @@ export async function writePaper(result, {
         fetchImpl,
         resolveHostname,
       });
-    } finally {
-      await lock.release();
+    } catch (error) {
+      operationError = error;
     }
+
+    let releaseError;
+    try {
+      await lock.release(async (warning) => {
+        if (!saved) return;
+        saved.debug.warnings.push(warning);
+        if (saveDebug) {
+          try {
+            await writeFile(path.join(destination, 'debug.json'), `${JSON.stringify(saved.debug, null, 2)}\n`, 'utf8');
+          } catch (debugError) {
+            saved.debug.warnings.push(`Unable to update debug.json with lock cleanup warning: ${debugError instanceof Error ? debugError.message : String(debugError)}`);
+          }
+        }
+      });
+    } catch (error) {
+      releaseError = error;
+    }
+    if (operationError) throw operationError;
+    if (releaseError) {
+      if (!saved) throw releaseError;
+      saved.debug.warnings.push(`Writer lock cleanup failed: ${releaseError instanceof Error ? releaseError.message : String(releaseError)}`);
+    }
+    return saved;
   });
 }
 
