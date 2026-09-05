@@ -26,7 +26,7 @@ Obsidian Web Clipper 关键位置：
 本原型新增边界：
 
 - `src/adapters/nature.mjs`：仅针对 Nature 当前 DOM；读取 `citation_*` metadata、`.c-article-body`、公式、figure、Extended Data figure、table link 和 `ol.c-article-references`。主图同时读取外层 `data-test="bottom-caption"` 的完整面板说明；对同文章的 `/tables/<n>` 页面做受限补取，并把表格内容状态写入 debug。在交给 Defuddle 前把 MathJax 与 `<i>/<b>/<sub>/<sup>` 组合成带 provenance 的 scientific run，避免在最终 Markdown 上不断叠加正则补丁。
-- `src/clip.mjs`：把 Nature 结构交给 Defuddle，恢复语义 placeholder、生成稳定的 figure/reference Markdown，并生成 front matter。
+- `src/clip.mjs`：把 Nature 结构交给 Defuddle，恢复语义 placeholder、生成稳定的 figure/reference Markdown，并生成 front matter；每篇论文先在临时兄弟目录中完整生成，再以目录级交换提交，避免旧的 bib/debug/figure 文件残留。
 - `src/normalizers/math.mjs`：恢复 DOM 已判定的 inline/display TeX；保留原始下标和矩阵行分隔。
 - `src/normalizers/academic-inline.mjs`：把学术 `<sub>/<sup>/<i>` 组合转成可读的 Markdown/Quarto 行内表达式。
 - `src/normalizers/citations.mjs`：统一本地引用链接和 section/equation 锚点。
@@ -128,4 +128,4 @@ npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md
 - 输出策略默认是 Markdown 原生脚注：语义 citation marker 只渲染为 `[^n]`，重复引用复用同一个 id，References 只生成一份 `[^n]: ...` 定义，不再依赖 `ref-n` HTML anchor；`links` 仅作为显式兼容模式保留。Quarto 使用稳定的作者-年份 key、`[@key]` 语义引用、同目录 `references.bib` 和 `::: {#refs}` citeproc 目标，不手工复制第二份 bibliography。章节目标使用自然 Markdown slug；Quarto 章节会附加 `sec-` identifier。figure/table/equation cross-reference 仍保留稳定本地目标。
 - 下载器记录 figure label、source URL、HTTP/result、content type、local path、fallback 和失败原因；同一 source URL 无论成功或失败只下载一次，并有 20 秒 timeout、20 MiB 单图大小上限和 `image/*` 响应检查。
 - writer 会先对远程图片版本 Markdown 做数学验证，再在 staging 目录下载和二次验证，避免无效 Markdown 或失败下载留下新半成品；figure URL 只允许 HTTP(S)，并拒绝明显的 localhost、loopback、link-local 和私有 LAN 地址。
-- 论文网站 DOM 变化时需要维护 `src/adapters/nature.mjs` 的 selector；`raw.html`/`cleaned.html` 用于对照定位问题。
+- 论文网站 DOM 变化时需要维护 `src/adapters/nature.mjs` 的 selector；同文章的 fragment cross-reference 会转为本地锚点，外部文章的 fragment URL 保持不变；`raw.html`/`cleaned.html` 用于对照定位问题。

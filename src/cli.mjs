@@ -6,7 +6,10 @@ import { ACADEMIC_CLIPPER_USER_AGENT } from './version.mjs';
 
 function argument(name, fallback = '') {
   const index = process.argv.indexOf(name);
-  return index >= 0 ? process.argv[index + 1] : fallback;
+  if (index < 0) return fallback;
+  const value = process.argv[index + 1];
+  if (!value || value.startsWith('--')) throw new Error(`Missing value for ${name}.`);
+  return value;
 }
 
 const url = argument('--url');

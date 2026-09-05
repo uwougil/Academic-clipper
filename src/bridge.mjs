@@ -144,7 +144,11 @@ export function createBridgeServer(config) {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const configArgIndex = process.argv.indexOf('--config');
-  const configPath = configArgIndex >= 0 ? path.resolve(process.argv[configArgIndex + 1]) : path.resolve('config.json');
+  const configValue = configArgIndex >= 0 ? process.argv[configArgIndex + 1] : '';
+  if (configArgIndex >= 0 && (!configValue || configValue.startsWith('--'))) {
+    throw new Error('Missing value for --config.');
+  }
+  const configPath = configArgIndex >= 0 ? path.resolve(configValue) : path.resolve('config.json');
   const config = await loadConfig(configPath);
   const server = createBridgeServer(config);
   server.listen(config.port, '127.0.0.1', () => {

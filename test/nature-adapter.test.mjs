@@ -26,6 +26,7 @@ test('Nature adapter extracts structured metadata and scholarly nodes', () => {
   assert.equal(result.figures[2].label, 'Extended Data Figure 3');
   assert.equal(result.figures[0].imageUrl, 'https://example.org/fig1-high.png');
   assert.equal(result.tables.length, 1);
+  assert.equal(result.tables[0].url, 'https://www.nature.com/articles/s41586-026-10401-1/tables/2');
   assert.equal(result.references.length, 3);
   assert.equal(result.debug.equations, 2);
   assert.equal(result.tables[0].label, 'Extended Data Table 1');

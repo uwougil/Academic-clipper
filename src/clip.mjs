@@ -1,6 +1,6 @@
-import { copyFile, mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { installDomGlobals } from './dom-runtime.mjs';
+import { withDomGlobals } from './dom-runtime.mjs';
 import { htmlToMarkdown, defuddleToMarkdown } from './markdown.mjs';
 import { articleIdFromUrl, hydrateNatureTables, isNatureUrl, parseNaturePage } from './adapters/nature.mjs';
 import { semanticMarker } from './normalizers/markers.mjs';
@@ -16,6 +16,21 @@ import { outputPolicy } from './renderers/output-policy.mjs';
 
 const FIGURE_FETCH_TIMEOUT_MS = 20_000;
 const MAX_FIGURE_BYTES = 20 * 1024 * 1024;
+const writerQueues = new Map();
+
+async function withWriterLock(key, task) {
+  const previous = writerQueues.get(key) || Promise.resolve();
+  let release;
+  const current = new Promise((resolve) => { release = resolve; });
+  writerQueues.set(key, current);
+  await previous;
+  try {
+    return await task();
+  } finally {
+    release();
+    if (writerQueues.get(key) === current) writerQueues.delete(key);
+  }
+}
 
 function yamlQuote(value) {
   return JSON.stringify(String(value ?? ''));
@@ -224,10 +239,16 @@ export async function clipNature({ html, url, rawHtml = html, citationStyle = 'm
     throw new Error('Nature article body was not found; refusing to write a non-article page.');
   }
   parsedPage.debug.warnings.push(...await hydrateNatureTables(parsedPage.tables, url));
-  installDomGlobals(parsedPage.dom);
-  await normalizeFigureCaptions(parsedPage.figures, url);
-  await normalizeTableContents(parsedPage.tables, url);
-  const { parsed, markdown } = await defuddleToMarkdown(parsedPage.document, url);
+  const converted = await withDomGlobals(parsedPage.dom, async () => {
+    await normalizeFigureCaptions(parsedPage.figures, url);
+    await normalizeTableContents(parsedPage.tables, url);
+    const { parsed, markdown } = await defuddleToMarkdown(parsedPage.document, url);
+    return {
+      parsed,
+      markdown,
+      referencesMarkdown: await referencesMarkdown(parsedPage.references, url, policy),
+    };
+  });
 
   const intermediate = {
     articleId: articleIdFromUrl(url),
@@ -238,8 +259,8 @@ export async function clipNature({ html, url, rawHtml = html, citationStyle = 'm
     semantic: parsedPage.semantic,
     citationStyle,
     outputPolicy: policy,
-    bodyMarkdown: markdown,
-    referencesMarkdown: await referencesMarkdown(parsedPage.references, url, policy),
+    bodyMarkdown: converted.markdown,
+    referencesMarkdown: converted.referencesMarkdown,
   };
   const fullMarkdown = renderClipMarkdown(intermediate);
   const debug = {
@@ -247,8 +268,8 @@ export async function clipNature({ html, url, rawHtml = html, citationStyle = 'm
     title: parsedPage.metadata.title,
     articleId: articleIdFromUrl(url),
     citationStyle,
-    defuddleTitle: parsed.title || '',
-    defuddleWordCount: parsed.wordCount || 0,
+    defuddleTitle: converted.parsed.title || '',
+    defuddleWordCount: converted.parsed.wordCount || 0,
     markdownCharacters: fullMarkdown.length,
     mathValidation: validateMathDelimiters(fullMarkdown),
     markdownStructure: validateMarkdownStructure(fullMarkdown, { dialect: policy.dialect, citationStyle }),
@@ -282,6 +303,39 @@ function safeArticleDirectory(libraryPath, articleId) {
     throw new Error('Unsafe article output path.');
   }
   return { root, destination };
+}
+
+async function replaceArticleDirectory(staging, destination, beforeInstall) {
+  const backup = `${staging}-previous`;
+  let previousMoved = false;
+  let installed = false;
+
+  try {
+    try {
+      await rename(destination, backup);
+      previousMoved = true;
+    } catch (error) {
+      if (error.code !== 'ENOENT') throw error;
+    }
+
+    await beforeInstall?.();
+    await rename(staging, destination);
+    installed = true;
+
+    if (previousMoved) await rm(backup, { recursive: true, force: true });
+  } catch (error) {
+    if (!installed && previousMoved) {
+      try {
+        await rename(backup, destination);
+      } catch (rollbackError) {
+        const combined = new Error(`Article directory commit failed and rollback failed: ${error.message}`);
+        combined.cause = error;
+        combined.rollbackError = rollbackError;
+        throw combined;
+      }
+    }
+    throw error;
+  }
 }
 
 function extensionFor(contentType, imageUrl) {
@@ -405,8 +459,29 @@ async function downloadFigureAssets(result, figuresDir) {
   return { imagePathByAnchor, downloads };
 }
 
-export async function writePaper(result, { libraryPath, downloadFigures = true, saveDebug = false }) {
+export async function writePaper(result, {
+  libraryPath,
+  downloadFigures = true,
+  saveDebug = false,
+  beforeInstall,
+}) {
   const { root, destination } = safeArticleDirectory(libraryPath, result.articleId);
+  return withWriterLock(destination, () => writePaperUnlocked(result, {
+    root,
+    destination,
+    downloadFigures,
+    saveDebug,
+    beforeInstall,
+  }));
+}
+
+async function writePaperUnlocked(result, {
+  root,
+  destination,
+  downloadFigures,
+  saveDebug,
+  beforeInstall,
+}) {
   const remoteMarkdown = renderClipMarkdown(result, new Map());
   const remoteValidation = validateMathDelimiters(remoteMarkdown);
   if (!remoteValidation.valid) {
@@ -465,25 +540,7 @@ export async function writePaper(result, { libraryPath, downloadFigures = true, 
       await writeFile(path.join(staging, 'references.bib'), referencesBib(result.references), 'utf8');
     }
 
-    await mkdir(destination, { recursive: true });
-    if (downloadFigures && result.figures.length) {
-      await mkdir(path.join(destination, 'figures'), { recursive: true });
-      for (const figure of result.figures) {
-        const localPath = imagePathByAnchor.get(figure.anchor);
-        if (!localPath) continue;
-        const filename = path.basename(localPath);
-        await copyFile(path.join(staging, 'figures', filename), path.join(destination, 'figures', filename));
-      }
-    }
-    await copyFile(path.join(staging, 'index.md'), path.join(destination, 'index.md'));
-    if (result.citationStyle === 'quarto') {
-      await copyFile(path.join(staging, 'references.bib'), path.join(destination, 'references.bib'));
-    }
-    if (saveDebug) {
-      await copyFile(path.join(staging, 'raw.html'), path.join(destination, 'raw.html'));
-      await copyFile(path.join(staging, 'cleaned.html'), path.join(destination, 'cleaned.html'));
-      await copyFile(path.join(staging, 'debug.json'), path.join(destination, 'debug.json'));
-    }
+    await replaceArticleDirectory(staging, destination, beforeInstall);
 
     return {
       directory: destination,

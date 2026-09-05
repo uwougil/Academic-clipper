@@ -5,7 +5,10 @@ import { validateMarkdownStructure } from './validators/markdown-structure.mjs';
 
 function argument(name, fallback = '') {
   const index = process.argv.indexOf(name);
-  return index >= 0 ? process.argv[index + 1] : fallback;
+  if (index < 0) return fallback;
+  const value = process.argv[index + 1];
+  if (!value || value.startsWith('--')) throw new Error(`Missing value for ${name}.`);
+  return value;
 }
 
 const file = argument('--file', './papers/s41586-026-10401-1/index.md');

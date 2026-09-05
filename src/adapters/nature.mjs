@@ -302,7 +302,8 @@ function extractTables(body, url) {
     const caption = captionFor(figure).text;
     if (!/^Table\b|^Extended Data Table\b/i.test(caption)) return [];
     number += 1;
-    const link = figure.querySelector('[data-test="table-link"], a[href]')?.getAttribute('href');
+    const link = figure.querySelector('[data-test="table-link"]')?.getAttribute('href')
+      || figure.querySelector('a[href]')?.getAttribute('href');
     const id = figure.id || figure.querySelector('[id^="Tab"]')?.id || '';
     const tableElement = figure.querySelector('table');
     return [{
@@ -823,6 +824,7 @@ function buildCrossReferences(body, figures, tables) {
   }
   for (const [index, equation] of Array.from(body.querySelectorAll('.c-article-equation')).entries()) {
     const id = equation.id || `Equ${index + 1}`;
+    if (!equation.id) equation.id = id;
     const number = Number(id.match(/(\d+)$/)?.[1] || index + 1);
     const anchor = `equation-${number}`;
     references.set(id, { type: 'equation', label: `Equation ${number}`, anchor });
@@ -870,7 +872,14 @@ function prepareSemanticNodes(body, url, figures, tables) {
     const href = anchor.getAttribute('href') || '';
     let fragment = '';
     try {
-      fragment = new URL(href, url).hash.slice(1);
+      if (href.startsWith('#')) {
+        fragment = href.slice(1);
+      } else {
+        const resolved = new URL(href, url);
+        const article = new URL(url);
+        if (resolved.origin !== article.origin || resolved.pathname !== article.pathname) continue;
+        fragment = resolved.hash.slice(1);
+      }
     } catch {
       fragment = href.startsWith('#') ? href.slice(1) : '';
     }
