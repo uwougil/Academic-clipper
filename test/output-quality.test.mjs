@@ -13,6 +13,7 @@ import { validateMarkdownStructure } from '../src/validators/markdown-structure.
 const fixturePath = new URL('./fixtures/nature-minimal.html', import.meta.url);
 const fixtureHtml = await readFile(fixturePath, 'utf8');
 const fixtureUrl = 'https://www.nature.com/articles/s41586-026-10401-1';
+const publicResolver = async () => [{ address: '93.184.216.34', family: 4 }];
 
 function assertOutputQuality(markdown, { localFigures = false } = {}) {
   const mathValidation = validateMathDelimiters(markdown);
@@ -142,7 +143,7 @@ test('writer downloads high-quality and duplicate figure URLs with diagnostics',
   });
   const root = await mkdtemp(path.join(tmpdir(), 'academic-clipper-'));
   try {
-    const saved = await writePaper(result, { libraryPath: root, downloadFigures: true, saveDebug: true });
+    const saved = await writePaper(result, { libraryPath: root, downloadFigures: true, saveDebug: true, resolveHostname: publicResolver });
     assertOutputQuality(saved.markdown, { localFigures: true });
     assert.deepEqual((await readdir(path.join(root, result.articleId, 'figures'))).sort(), ['fig1.png', 'fig2.png']);
     assert.equal(result.debug.figureDownloads.length, 3);
@@ -167,7 +168,7 @@ test('writer keeps clipping alive and records failed figure downloads', async ()
   };
   const root = await mkdtemp(path.join(tmpdir(), 'academic-clipper-failure-'));
   try {
-    const saved = await writePaper(result, { libraryPath: root, downloadFigures: true });
+    const saved = await writePaper(result, { libraryPath: root, downloadFigures: true, resolveHostname: publicResolver });
     const failed = result.debug.figureDownloads.filter((entry) => entry.status === 503);
     const dedupedFailure = result.debug.figureDownloads.find((entry) => entry.status === 'deduped');
     assert.equal(failed.length, 1);
@@ -198,7 +199,7 @@ test('writer rejects non-image and oversized responses with remote fallback', as
   const result = await clipNature({ html: fixtureHtml, url: fixtureUrl });
   const root = await mkdtemp(path.join(tmpdir(), 'academic-clipper-type-'));
   try {
-    const saved = await writePaper(result, { libraryPath: root, downloadFigures: true });
+    const saved = await writePaper(result, { libraryPath: root, downloadFigures: true, resolveHostname: publicResolver });
     assert.equal(calls, 2);
     assert.equal(result.debug.figureSummary.localFigures, 0);
     assert.equal(result.debug.figureSummary.remoteFallbackFigures, 3);
@@ -224,7 +225,7 @@ test('writer enforces image size limit and timeout signal', async () => {
   const result = await clipNature({ html: fixtureHtml, url: fixtureUrl });
   const root = await mkdtemp(path.join(tmpdir(), 'academic-clipper-size-'));
   try {
-    await writePaper(result, { libraryPath: root, downloadFigures: true });
+    await writePaper(result, { libraryPath: root, downloadFigures: true, resolveHostname: publicResolver });
     assert.equal(sawSignal, true);
     assert.match(result.debug.warnings.join('\n'), /exceeds 20971520 byte limit/);
     assert.equal(result.debug.figureSummary.failedResources, 2);

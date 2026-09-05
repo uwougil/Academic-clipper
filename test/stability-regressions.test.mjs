@@ -14,6 +14,7 @@ const fixturePath = new URL('./fixtures/nature-minimal.html', import.meta.url);
 const fixtureHtml = await readFile(fixturePath, 'utf8');
 const idlessEquationHtml = await readFile(new URL('./fixtures/nature-idless-equation.html', import.meta.url), 'utf8');
 const fixtureUrl = 'https://www.nature.com/articles/s41586-026-10401-1';
+const publicResolver = async () => [{ address: '93.184.216.34', family: 4 }];
 const idlessEquationUrl = 'https://www.nature.com/articles/idless-equation';
 
 async function exists(file) {
@@ -122,9 +123,9 @@ test('writer removes stale figures when the next complete article has fewer figu
   });
   try {
     const first = withFigureUrls(await clipNature({ html: fixtureHtml, url: fixtureUrl }), 3);
-    await writePaper(first, { libraryPath: root, downloadFigures: true });
+    await writePaper(first, { libraryPath: root, downloadFigures: true, resolveHostname: publicResolver });
     const second = withFigureUrls(await clipNature({ html: fixtureHtml, url: fixtureUrl }), 2);
-    await writePaper(second, { libraryPath: root, downloadFigures: true });
+    await writePaper(second, { libraryPath: root, downloadFigures: true, resolveHostname: publicResolver });
     assert.deepEqual(await readdir(path.join(root, first.articleId, 'figures')), ['fig1.png', 'fig2.png']);
   } finally {
     globalThis.fetch = originalFetch;

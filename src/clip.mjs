@@ -1,4 +1,5 @@
-import { mkdir, mkdtemp, rename, rm, writeFile } from 'node:fs/promises';
+import { createHash, randomBytes } from 'node:crypto';
+import { mkdir, mkdtemp, readdir, readFile, rename, rm, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { withDomGlobals } from './dom-runtime.mjs';
 import { htmlToMarkdown, defuddleToMarkdown } from './markdown.mjs';
@@ -10,12 +11,15 @@ import { normalizeAnchorMarkers, normalizeCitations } from './normalizers/citati
 import { normalizeFigureCaptions, normalizeTableContents, renderFigure, renderFigures, renderTables } from './normalizers/figures.mjs';
 import { MathDelimiterValidationError, validateMathDelimiters } from './validators/math-delimiters.mjs';
 import { validateMarkdownStructure } from './validators/markdown-structure.mjs';
-import { safeExternalUrl } from './security.mjs';
+import { safeFetchExternal } from './security.mjs';
 import { ACADEMIC_CLIPPER_USER_AGENT } from './version.mjs';
 import { outputPolicy } from './renderers/output-policy.mjs';
 
 const FIGURE_FETCH_TIMEOUT_MS = 20_000;
 const MAX_FIGURE_BYTES = 20 * 1024 * 1024;
+const WRITER_LOCK_TIMEOUT_MS = 30_000;
+const WRITER_LOCK_RETRY_MS = 100;
+const WRITER_LOCK_STALE_MS = 5 * 60_000;
 const writerQueues = new Map();
 
 async function withWriterLock(key, task) {
@@ -305,7 +309,167 @@ function safeArticleDirectory(libraryPath, articleId) {
   return { root, destination };
 }
 
-async function replaceArticleDirectory(staging, destination, beforeInstall) {
+function transactionPrefix(articleId) {
+  const digest = createHash('sha256').update(String(articleId)).digest('hex').slice(0, 32);
+  return `.academic-clipper-${digest}-`;
+}
+
+function lockDirectory(root, articleId) {
+  const digest = createHash('sha256').update(String(articleId)).digest('hex').slice(0, 32);
+  return path.join(root, '.academic-clipper-locks', `${digest}-${String(articleId).replace(/[^a-z0-9-]/gi, '-')}.lock`);
+}
+
+function processIsAlive(pid) {
+  if (!Number.isInteger(pid) || pid <= 0) return false;
+  try {
+    process.kill(pid, 0);
+    return true;
+  } catch (error) {
+    return error.code === 'EPERM';
+  }
+}
+
+async function staleLock(lockDir, staleMs) {
+  let lockStat;
+  try {
+    lockStat = await stat(lockDir);
+  } catch (error) {
+    if (error.code === 'ENOENT') return false;
+    throw error;
+  }
+  let owner = {};
+  try {
+    owner = JSON.parse(await readFile(path.join(lockDir, 'owner.json'), 'utf8'));
+  } catch {
+    // A crash between mkdir(lockDir) and owner.json is recoverable by age.
+  }
+  const createdAt = typeof owner.createdAt === 'number'
+    ? owner.createdAt
+    : Date.parse(String(owner.createdAt || ''));
+  const age = Date.now() - (Number.isFinite(createdAt) ? createdAt : lockStat.mtimeMs);
+  return age >= staleMs && !processIsAlive(Number(owner.pid));
+}
+
+function wait(milliseconds) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+async function acquireWriterLock(root, articleId, {
+  timeoutMs = WRITER_LOCK_TIMEOUT_MS,
+  retryMs = WRITER_LOCK_RETRY_MS,
+  staleMs = WRITER_LOCK_STALE_MS,
+} = {}) {
+  const lockRoot = path.join(root, '.academic-clipper-locks');
+  const lockDir = lockDirectory(root, articleId);
+  await mkdir(lockRoot, { recursive: true });
+  const deadline = Date.now() + timeoutMs;
+
+  while (true) {
+    try {
+      await mkdir(lockDir);
+    } catch (error) {
+      if (error.code !== 'EEXIST') throw error;
+      if (await staleLock(lockDir, staleMs)) {
+        await rm(lockDir, { recursive: true, force: true });
+        continue;
+      }
+      if (Date.now() >= deadline) {
+        throw new Error(`Article ${articleId} is already being written by another process.`);
+      }
+      await wait(Math.min(retryMs, Math.max(1, deadline - Date.now())));
+      continue;
+    }
+
+    const token = randomBytes(16).toString('hex');
+    try {
+      await writeFile(path.join(lockDir, 'owner.json'), `${JSON.stringify({ pid: process.pid, createdAt: Date.now(), token })}\n`, 'utf8');
+    } catch (error) {
+      await rm(lockDir, { recursive: true, force: true });
+      throw error;
+    }
+    return {
+      async release() {
+        try {
+          const owner = JSON.parse(await readFile(path.join(lockDir, 'owner.json'), 'utf8'));
+          if (owner.token !== token) return;
+        } catch (error) {
+          if (error.code !== 'ENOENT') throw error;
+          return;
+        }
+        await rm(lockDir, { recursive: true, force: true });
+      },
+      directory: lockDir,
+    };
+  }
+}
+
+async function pathExists(file) {
+  try {
+    await stat(file);
+    return true;
+  } catch (error) {
+    if (error.code === 'ENOENT') return false;
+    throw error;
+  }
+}
+
+async function completeArticleDirectory(directory) {
+  try {
+    const index = await stat(path.join(directory, 'index.md'));
+    return index.isFile() && index.size > 0;
+  } catch (error) {
+    if (error.code === 'ENOENT') return false;
+    throw error;
+  }
+}
+
+async function transactionDirectories(root, articleId) {
+  const prefix = transactionPrefix(articleId);
+  let entries;
+  try {
+    entries = await readdir(root, { withFileTypes: true });
+  } catch (error) {
+    if (error.code === 'ENOENT') return [];
+    throw error;
+  }
+  return entries
+    .filter((entry) => entry.isDirectory() && entry.name.startsWith(prefix))
+    .map((entry) => ({
+      name: entry.name,
+      path: path.join(root, entry.name),
+      backup: entry.name.endsWith('-previous'),
+    }));
+}
+
+async function recoverArticleDirectory(root, destination, articleId) {
+  const transactions = await transactionDirectories(root, articleId);
+  if (await pathExists(destination)) {
+    await Promise.all(transactions.map((entry) => rm(entry.path, { recursive: true, force: true })));
+    return;
+  }
+
+  const backups = transactions.filter((entry) => entry.backup);
+  const validBackups = [];
+  for (const backup of backups) {
+    if (await completeArticleDirectory(backup.path)) validBackups.push(backup);
+  }
+  if (validBackups.length) {
+    validBackups.sort((left, right) => left.name.localeCompare(right.name));
+    await rename(validBackups[0].path, destination);
+    await Promise.all(transactions
+      .filter((entry) => entry.path !== validBackups[0].path)
+      .map((entry) => rm(entry.path, { recursive: true, force: true })));
+    return;
+  }
+
+  // A prepared staging directory is not assumed complete after a crash.
+  await Promise.all(transactions.map((entry) => rm(entry.path, { recursive: true, force: true })));
+}
+
+async function replaceArticleDirectory(staging, destination, {
+  beforeInstall,
+  removeBackup = rm,
+} = {}) {
   const backup = `${staging}-previous`;
   let previousMoved = false;
   let installed = false;
@@ -322,7 +486,15 @@ async function replaceArticleDirectory(staging, destination, beforeInstall) {
     await rename(staging, destination);
     installed = true;
 
-    if (previousMoved) await rm(backup, { recursive: true, force: true });
+    let cleanupWarning = '';
+    if (previousMoved) {
+      try {
+        await removeBackup(backup, { recursive: true, force: true });
+      } catch (cleanupError) {
+        cleanupWarning = `Previous article backup cleanup failed; retained for recovery at ${backup}: ${cleanupError instanceof Error ? cleanupError.message : String(cleanupError)}`;
+      }
+    }
+    return { cleanupWarning };
   } catch (error) {
     if (!installed && previousMoved) {
       try {
@@ -401,7 +573,7 @@ function figureSummary(figures, downloads, downloadFigures) {
   };
 }
 
-async function downloadFigureAssets(result, figuresDir) {
+async function downloadFigureAssets(result, figuresDir, { fetchImpl, resolveHostname } = {}) {
   const imagePathByAnchor = new Map();
   const downloads = [];
   const byUrl = new Map();
@@ -430,12 +602,14 @@ async function downloadFigureAssets(result, figuresDir) {
     const entry = { label: figure.label, anchor: figure.anchor, sourceUrl, status: 'pending' };
     byUrl.set(sourceUrl, entry);
     try {
-      const safeUrl = safeExternalUrl(sourceUrl);
-      const response = await fetch(safeUrl, {
+      const { response, url: finalUrl } = await safeFetchExternal(sourceUrl, {
+        ...(fetchImpl ? { fetchImpl } : {}),
+        ...(resolveHostname ? { resolveHostname } : {}),
         headers: { 'user-agent': ACADEMIC_CLIPPER_USER_AGENT },
-        signal: AbortSignal.timeout(FIGURE_FETCH_TIMEOUT_MS),
+        timeoutMs: FIGURE_FETCH_TIMEOUT_MS,
       });
       entry.status = response.status;
+      entry.finalUrl = finalUrl;
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const contentType = String(response.headers.get('content-type') || '').split(';')[0].toLowerCase();
       entry.contentType = contentType;
@@ -464,15 +638,37 @@ export async function writePaper(result, {
   downloadFigures = true,
   saveDebug = false,
   beforeInstall,
+  removeBackup,
+  lockTimeoutMs = WRITER_LOCK_TIMEOUT_MS,
+  lockRetryMs = WRITER_LOCK_RETRY_MS,
+  lockStaleMs = WRITER_LOCK_STALE_MS,
+  fetchImpl = globalThis.fetch,
+  resolveHostname,
 }) {
   const { root, destination } = safeArticleDirectory(libraryPath, result.articleId);
-  return withWriterLock(destination, () => writePaperUnlocked(result, {
-    root,
-    destination,
-    downloadFigures,
-    saveDebug,
-    beforeInstall,
-  }));
+  await mkdir(root, { recursive: true });
+  return withWriterLock(destination, async () => {
+    const lock = await acquireWriterLock(root, result.articleId, {
+      timeoutMs: lockTimeoutMs,
+      retryMs: lockRetryMs,
+      staleMs: lockStaleMs,
+    });
+    try {
+      await recoverArticleDirectory(root, destination, result.articleId);
+      return await writePaperUnlocked(result, {
+        root,
+        destination,
+        downloadFigures,
+        saveDebug,
+        beforeInstall,
+        removeBackup,
+        fetchImpl,
+        resolveHostname,
+      });
+    } finally {
+      await lock.release();
+    }
+  });
 }
 
 async function writePaperUnlocked(result, {
@@ -481,6 +677,9 @@ async function writePaperUnlocked(result, {
   downloadFigures,
   saveDebug,
   beforeInstall,
+  removeBackup,
+  fetchImpl,
+  resolveHostname,
 }) {
   const remoteMarkdown = renderClipMarkdown(result, new Map());
   const remoteValidation = validateMathDelimiters(remoteMarkdown);
@@ -495,7 +694,7 @@ async function writePaperUnlocked(result, {
   if (!remoteStructure.valid) throw new Error(`Markdown structure validation failed: ${JSON.stringify(remoteStructure.issues)}`);
 
   await mkdir(root, { recursive: true });
-  const tempPrefix = `.academic-clipper-${String(result.articleId).replace(/[^a-z0-9-]/gi, '-')}-`;
+  const tempPrefix = transactionPrefix(result.articleId);
   const staging = await mkdtemp(path.join(root, tempPrefix));
   let imagePathByAnchor = new Map();
   result.debug.figureDownloads = [];
@@ -504,7 +703,7 @@ async function writePaperUnlocked(result, {
     if (downloadFigures && result.figures.length) {
       const figuresDir = path.join(staging, 'figures');
       await mkdir(figuresDir, { recursive: true });
-      const downloaded = await downloadFigureAssets(result, figuresDir);
+      const downloaded = await downloadFigureAssets(result, figuresDir, { fetchImpl, resolveHostname });
       imagePathByAnchor = downloaded.imagePathByAnchor;
       result.debug.figureDownloads = downloaded.downloads;
     } else {
@@ -540,7 +739,17 @@ async function writePaperUnlocked(result, {
       await writeFile(path.join(staging, 'references.bib'), referencesBib(result.references), 'utf8');
     }
 
-    await replaceArticleDirectory(staging, destination, beforeInstall);
+    const commit = await replaceArticleDirectory(staging, destination, { beforeInstall, removeBackup });
+    if (commit.cleanupWarning) {
+      result.debug.warnings.push(commit.cleanupWarning);
+      if (saveDebug) {
+        try {
+          await writeFile(path.join(destination, 'debug.json'), `${JSON.stringify(result.debug, null, 2)}\n`, 'utf8');
+        } catch (debugError) {
+          result.debug.warnings.push(`Unable to update debug.json with writer cleanup warning: ${debugError instanceof Error ? debugError.message : String(debugError)}`);
+        }
+      }
+    }
 
     return {
       directory: destination,

@@ -1,6 +1,7 @@
 import { JSDOM } from 'jsdom';
 import { semanticMarker } from '../normalizers/markers.mjs';
 import { ACADEMIC_CLIPPER_USER_AGENT } from '../version.mjs';
+import { safeFetchExternal } from '../security.mjs';
 
 const NATURE_HOSTS = new Set(['nature.com', 'www.nature.com']);
 const FIGURE_IDENTITY_ATTR = 'data-academic-clipper-figure';
@@ -330,7 +331,10 @@ function sameNatureTableOrigin(tableUrl, articleUrl) {
   }
 }
 
-export async function hydrateNatureTables(tables, articleUrl) {
+export async function hydrateNatureTables(tables, articleUrl, {
+  fetchImpl = globalThis.fetch,
+  resolveHostname,
+} = {}) {
   const warnings = [];
   for (const table of tables) {
     if (table.tableHtml) continue;
@@ -347,9 +351,16 @@ export async function hydrateNatureTables(tables, articleUrl) {
       continue;
     }
     try {
-      const response = await fetch(table.url, {
+      const { response, url: finalUrl } = await safeFetchExternal(table.url, {
+        fetchImpl,
+        ...(resolveHostname ? { resolveHostname } : {}),
+        validateUrl: (candidate) => {
+          if (!sameNatureTableOrigin(candidate, articleUrl)) {
+            throw new Error('Nature table redirect escaped the current article table scope.');
+          }
+        },
         headers: { 'user-agent': ACADEMIC_CLIPPER_USER_AGENT },
-        signal: AbortSignal.timeout(20_000),
+        timeoutMs: 20_000,
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const contentType = String(response.headers.get('content-type') || '').toLowerCase();
@@ -365,7 +376,7 @@ export async function hydrateNatureTables(tables, articleUrl) {
       }
       table.tableHtml = tableElement.outerHTML;
       table.tableContentStatus = 'full-size-html';
-      table.tableContentUrl = table.url;
+      table.tableContentUrl = finalUrl;
     } catch (error) {
       table.tableContentStatus = 'fallback-fetch-failed';
       table.tableContentWarning = `Unable to fetch or parse the full-size table: ${error instanceof Error ? error.message : String(error)}`;

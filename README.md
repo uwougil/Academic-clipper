@@ -90,7 +90,8 @@ node src/cli.mjs --url https://www.nature.com/articles/s41586-026-10401-1 --outp
 1. 先保持 `npm run dev` 运行。
 2. Chrome/Edge 打开 `chrome://extensions`，启用 Developer mode。
 3. 选择 Load unpacked，指向本目录的 `extension/`；执行 `npm run build` 后也可以指向 `dist/extension/`。
-4. 打开 Nature 论文，点击扩展图标，再点击 Save Paper。
+4. 在 popup 的 `Bridge endpoint` 中填写 bridge 地址（只接受 `http://localhost:<port>` 或 `http://127.0.0.1:<port>`），点击 Save settings。
+5. 打开 Nature 论文，点击扩展图标，再点击 Save Paper。
 
 成功状态类似：
 
@@ -106,12 +107,14 @@ s41586-026-10401-1/index.md
 ```bash
 npm test
 npm run build
-npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md
+npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto
 ```
 
 `--debug` 会在论文目录保存 `raw.html`、`cleaned.html`、`debug.json`，并在 CLI 输出：publisher、article root、metadata source、paragraph/equation/figure/reference/scientific-run 数量、移除节点数、figure local/remote-fallback/failed summary、table capture/fallback summary、author-information audit、math fragment/structure validation 和 warnings。
 
-`validate:paper` 会对最终 `index.md` 做 lexical math delimiter validation，检查 inline/display math 是否闭合、是否跨 Markdown block、是否出现非法 `$`/`$$` 邻接、legacy delimiter 或 semantic marker。验证失败时返回 non-zero，不会由 writer 静默写出该文件。普通 Markdown 默认使用原生脚注引用（`[^8]`，References 区只定义一次）；设置 `citationStyle` 为 `quarto`，或 CLI 使用 `--citation-style quarto`，正文会改用 `[@Jungwirth2016]` 形式，front matter 会声明 `references.bib`，并在论文目录生成可复用的 BibTeX 文件。旧项目若明确需要 `[n](#ref-n)`，仍可显式设置 `citationStyle` 为 `links`。Pandoc/Quarto 不是运行时依赖；如果本机已安装，可另行执行 `pandoc index.md -o /tmp/academic-clipper.html` 或 `quarto render` 做可选 parser smoke test。
+`validate:paper` 会对最终 `index.md` 做 lexical math delimiter validation，检查 inline/display math 是否闭合、是否跨 Markdown block、是否出现非法 `$`/`$$` 邻接、legacy delimiter 或 semantic marker。`--citation-style` 支持 `auto`、`markdown`、`links`、`quarto`；auto 会根据 References 结构识别，无法确定时明确报错。验证失败返回 non-zero，不会由 writer 静默写出该文件。普通 Markdown 默认使用原生脚注引用（`[^8]`，References 区只定义一次）；设置 `citationStyle` 为 `quarto`，或 CLI 使用 `--citation-style quarto`，正文会改用 `[@Jungwirth2016]` 形式，front matter 会声明 `references.bib`，并在论文目录生成可复用的 BibTeX 文件。旧项目若明确需要 `[n](#ref-n)`，仍可显式设置 `citationStyle` 为 `links`。Pandoc/Quarto 不是运行时依赖；如果本机已安装，可另行执行 `pandoc index.md -o /tmp/academic-clipper.html` 或 `quarto render` 做可选 parser smoke test。
+
+GitHub Actions 在 pull request 和 `main` push 上运行 Node 20/24 的 `npm ci`、完整测试、clean extension build 和 golden paper validation；普通 CI 只使用仓库 fixture/golden artifact，不重新访问 Nature。
 
 ## 当前实测范围和已知问题
 
@@ -121,11 +124,12 @@ npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md
 
 - 只支持 `www.nature.com/articles/<id>`，没有提前抽象其他出版社。
 - Nature 表格优先补取同文章的 Full size table HTML：当前目标论文的 Table 1 可生成 Markdown 表格；Extended Data Table 1 只有图片，因此保留标题、绝对 Full size table 链接和 debug warning，不把图片伪装成结构化表格。
-- 主图 1–3 的图注包含 `figcaption` 外的 `data-test="bottom-caption"` 面板说明；适配器会合并这两段，避免只留下标题。标题/表格链接中的 root-relative Nature URL 会按文章 URL 归一化，纯本地 `#anchor` 不改写。
+- 主图 1–3 的图注包含 `figcaption` 外的 `data-test="bottom-caption"` 面板说明；适配器会合并这两段，避免只留下标题。标题/表格链接中的 root-relative Nature URL 会按文章 URL 归一化，同文章 fragment 会改为稳定本地锚点，外部 fragment 不改写。
 - Author information 中的作者备注、affiliation、贡献和 correspondence 会在存在时作为独立 Markdown section 输出；`debug.json.metadataAudit` 标记 author information、contributions、correspondence 与 publisher notes 是已捕获、未发现还是由正文段落承载。
 - Supplementary Information 只保留在正文中被引用的内容，不下载 PDF。
 - 公式优先使用页面 `.mathjax-tex` 的原始 TeX：Nature equation container 中的 TeX 先冻结为 display 语义，正文中的 TeX 先冻结为 inline 语义，再交给 Defuddle 做 HTML→Markdown；少数异常页面若没有原始 TeX，会进入 warning，而不是伪造 Unicode 公式。
 - 输出策略默认是 Markdown 原生脚注：语义 citation marker 只渲染为 `[^n]`，重复引用复用同一个 id，References 只生成一份 `[^n]: ...` 定义，不再依赖 `ref-n` HTML anchor；`links` 仅作为显式兼容模式保留。Quarto 使用稳定的作者-年份 key、`[@key]` 语义引用、同目录 `references.bib` 和 `::: {#refs}` citeproc 目标，不手工复制第二份 bibliography。章节目标使用自然 Markdown slug；Quarto 章节会附加 `sec-` identifier。figure/table/equation cross-reference 仍保留稳定本地目标。
-- 下载器记录 figure label、source URL、HTTP/result、content type、local path、fallback 和失败原因；同一 source URL 无论成功或失败只下载一次，并有 20 秒 timeout、20 MiB 单图大小上限和 `image/*` 响应检查。
-- writer 会先对远程图片版本 Markdown 做数学验证，再在 staging 目录下载和二次验证，避免无效 Markdown 或失败下载留下新半成品；figure URL 只允许 HTTP(S)，并拒绝明显的 localhost、loopback、link-local 和私有 LAN 地址。
+- 下载器记录 figure label、source URL、最终 URL、HTTP/result、content type、local path、fallback 和失败原因；同一 source URL 无论成功或失败只下载一次，并有 20 秒 timeout、20 MiB 单图大小上限和 `image/*` 响应检查。
+- writer 会先对远程图片版本 Markdown 做数学验证，再在 staging 目录下载和二次验证；在 `.academic-clipper-locks/` 中用原子目录创建协调不同进程，并在下一次写入时恢复明显的 stale backup/transaction，避免无效 Markdown 或失败下载留下新半成品。最终文章使用目录级 replacement，旧 backup 清理失败只记录 warning，不把已成功安装报告为失败。
+- 所有外部 resource 使用统一 `safeFetchExternal()`：只允许 HTTP(S)，拒绝明显的 localhost、loopback、link-local、私有 LAN、CGNAT、metadata、multicast 和 IPv4-mapped IPv6 私有地址；请求前解析 DNS 的全部地址，redirect 手动逐跳检查并限制 5 跳。当前没有把已验证地址绑定到 undici 的实际 socket，因此 DNS rebinding 仍是 residual risk；Nature table 还要求每一跳保持在当前 article 的 `/tables/` scope。
 - 论文网站 DOM 变化时需要维护 `src/adapters/nature.mjs` 的 selector；同文章的 fragment cross-reference 会转为本地锚点，外部文章的 fragment URL 保持不变；`raw.html`/`cleaned.html` 用于对照定位问题。

@@ -31,6 +31,12 @@ function inspectListSection(lines, title, marker, anchorPrefix, ordered = false)
     const expected = index + 1;
     if (item.number !== expected) issues.push(issue(item.line, `${title} list numbering is not sequential at ${item.number}.`));
   });
+  if (ordered) {
+    if (anchors.length !== items.length) issues.push(issue(range.heading, `${title} ordered-list items must have matching ref anchors.`));
+    anchors.forEach((anchor, index) => {
+      if (anchor.number !== index + 1) issues.push(issue(anchor.line, `${title} anchors are not sequential at ${anchor.number}.`));
+    });
+  }
   return { headingCount: 1, itemCount: items.length, anchorCount: anchors.length, issues };
 }
 

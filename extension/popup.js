@@ -1,6 +1,10 @@
+import { normalizeBridgeEndpoint } from './endpoint.mjs';
+
 const DEFAULT_ENDPOINT = 'http://127.0.0.1:34123';
 const saveButton = document.querySelector('#save');
 const previewButton = document.querySelector('#preview');
+const settingsButton = document.querySelector('#save-settings');
+const bridgeEndpointInput = document.querySelector('#bridge-endpoint');
 const bridgeTokenInput = document.querySelector('#bridge-token');
 const status = document.querySelector('#status');
 const debug = document.querySelector('#debug');
@@ -17,7 +21,7 @@ function showDebug(value) {
 
 async function endpoint() {
   const stored = await chrome.storage.local.get({ bridgeEndpoint: DEFAULT_ENDPOINT });
-  return String(stored.bridgeEndpoint).replace(/\/$/, '');
+  return normalizeBridgeEndpoint(stored.bridgeEndpoint);
 }
 
 async function bridgeToken() {
@@ -52,8 +56,22 @@ async function callBridge(route) {
 }
 
 void (async () => {
-  bridgeTokenInput.value = await bridgeToken();
+  const stored = await chrome.storage.local.get({ bridgeEndpoint: DEFAULT_ENDPOINT, bridgeToken: '' });
+  bridgeEndpointInput.value = String(stored.bridgeEndpoint || DEFAULT_ENDPOINT);
+  bridgeTokenInput.value = String(stored.bridgeToken || '');
 })();
+
+settingsButton.addEventListener('click', async () => {
+  try {
+    const bridgeEndpoint = normalizeBridgeEndpoint(bridgeEndpointInput.value);
+    await chrome.storage.local.set({ bridgeEndpoint, bridgeToken: bridgeTokenInput.value.trim() });
+    bridgeEndpointInput.value = bridgeEndpoint;
+    status.textContent = 'Settings saved.';
+  } catch (error) {
+    status.textContent = `Failed:\n${error.message}`;
+  }
+});
+
 bridgeTokenInput.addEventListener('change', () => chrome.storage.local.set({ bridgeToken: bridgeTokenInput.value.trim() }));
 
 saveButton.addEventListener('click', async () => {
