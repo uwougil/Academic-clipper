@@ -53,7 +53,9 @@ export async function fetchNatureArticle(url, {
 } = {}) {
   if (!isNatureUrl(url)) throw new Error('Only https://www.nature.com/articles/<id> URLs are supported.');
   const articleId = articleIdFromUrl(url);
-  const signal = AbortSignal.timeout(timeoutMs);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(new Error('Article fetch timed out.')), timeoutMs);
+  const { signal } = controller;
   try {
     const { response, url: finalUrl } = await safeFetchExternal(url, {
       fetchImpl,
@@ -77,5 +79,7 @@ export async function fetchNatureArticle(url, {
       throw new Error(`Unable to fetch ${url}: timed out after ${timeoutMs} ms.`);
     }
     throw new Error(`Unable to fetch ${url}: ${error instanceof Error ? error.message : String(error)}`);
+  } finally {
+    clearTimeout(timeout);
   }
 }
