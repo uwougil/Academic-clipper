@@ -1,6 +1,6 @@
 # Milestone 002 — Code review hardening
 
-状态：本地验证完成，等待 CI（2026-09-07）
+状态：已完成（2026-09-07）
 
 ## 目标
 
@@ -21,8 +21,15 @@
 - [x] `npm test` 全部通过（58 个测试）。
 - [x] `npm run build` 成功。
 - [x] committed golden paper validator 通过，且已修正已知 doubled-backslash artifact。
-- [ ] GitHub Actions 的 Ubuntu Node 20/24 与 Windows Node 24 全部通过。
-- [ ] Issues #1–#6 由包含 `Closes` trailer 的主分支提交关闭。
+- [x] GitHub Actions 的 Ubuntu Node 20/24 与 Windows Node 24 全部通过。
+- [x] Issues #1–#6 由包含 `Closes` trailer 的主分支提交关闭。
+
+## 结果证据
+
+- 主修复提交：`06a876d Resolve code review hardening issues`
+- Node 20 timeout 兼容修复：`d0a8383 Keep article fetch timeout alive on Node 20`
+- GitHub Actions：run `34049829764`，Ubuntu/Node 20、Ubuntu/Node 24、Windows/Node 24 均为 `success`。
+- 远端仓库：`https://github.com/uwougil/Academic-clipper`
 
 ## 已知边界
 
