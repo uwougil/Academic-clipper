@@ -10,6 +10,14 @@ import { ACADEMIC_CLIPPER_VERSION } from './version.mjs';
 const DEFAULT_PORT = 34123;
 const MAX_BODY_BYTES = 25 * 1024 * 1024;
 
+export function resolveBridgePort(value = DEFAULT_PORT) {
+  const port = Number(value);
+  if (!Number.isInteger(port) || port < 1 || port > 65_535) {
+    throw new Error('Invalid bridge port: expected an integer from 1 to 65535.');
+  }
+  return port;
+}
+
 function allowedOrigin(origin, config) {
   if (!origin) return true;
   if (Array.isArray(config.allowedOrigins) && config.allowedOrigins.length > 0) return config.allowedOrigins.includes(origin);
@@ -53,7 +61,7 @@ async function readJson(request) {
   return JSON.parse(Buffer.concat(chunks).toString('utf8'));
 }
 
-async function loadConfig(configPath) {
+export async function loadConfig(configPath) {
   let config = {};
   try {
     config = JSON.parse(await readFile(configPath, 'utf8'));
@@ -63,7 +71,7 @@ async function loadConfig(configPath) {
   const configuredLibrary = config.libraryPath || process.env.ACADEMIC_CLIPPER_LIBRARY || './papers';
   return {
     ...config,
-    port: Number(config.port || process.env.ACADEMIC_CLIPPER_PORT || DEFAULT_PORT),
+    port: resolveBridgePort(config.port ?? process.env.ACADEMIC_CLIPPER_PORT ?? DEFAULT_PORT),
     libraryPath: path.resolve(path.dirname(configPath), configuredLibrary),
     downloadFigures: config.downloadFigures === undefined ? true : Boolean(config.downloadFigures),
     saveDebug: Boolean(config.saveDebug),
@@ -143,17 +151,22 @@ export function createBridgeServer(config) {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const configArgIndex = process.argv.indexOf('--config');
-  const configValue = configArgIndex >= 0 ? process.argv[configArgIndex + 1] : '';
-  if (configArgIndex >= 0 && (!configValue || configValue.startsWith('--'))) {
-    throw new Error('Missing value for --config.');
+  try {
+    const configArgIndex = process.argv.indexOf('--config');
+    const configValue = configArgIndex >= 0 ? process.argv[configArgIndex + 1] : '';
+    if (configArgIndex >= 0 && (!configValue || configValue.startsWith('--'))) {
+      throw new Error('Missing value for --config.');
+    }
+    const configPath = configArgIndex >= 0 ? path.resolve(configValue) : path.resolve('config.json');
+    const config = await loadConfig(configPath);
+    const server = createBridgeServer(config);
+    server.listen(config.port, '127.0.0.1', () => {
+      console.log(`academic-clipper-bridge listening on http://127.0.0.1:${config.port}`);
+      console.log(`libraryPath: ${config.libraryPath}`);
+      console.log(`bridgeToken: ${config.bridgeToken}`);
+    });
+  } catch (error) {
+    console.error(`Error: ${error instanceof Error ? error.message : String(error)}`);
+    process.exitCode = 1;
   }
-  const configPath = configArgIndex >= 0 ? path.resolve(configValue) : path.resolve('config.json');
-  const config = await loadConfig(configPath);
-  const server = createBridgeServer(config);
-  server.listen(config.port, '127.0.0.1', () => {
-    console.log(`academic-clipper-bridge listening on http://127.0.0.1:${config.port}`);
-    console.log(`libraryPath: ${config.libraryPath}`);
-    console.log(`bridgeToken: ${config.bridgeToken}`);
-  });
 }

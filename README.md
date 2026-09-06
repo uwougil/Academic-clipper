@@ -70,7 +70,7 @@ npm run dev
 }
 ```
 
-bridge 启动时若没有配置 `bridgeToken` 会生成随机 token 并打印在本机终端；把它粘贴到扩展 popup 的 Bridge token 输入框。默认 CORS 只接受 Chrome extension Origin；`allowedOrigins` 非空时可进一步限制为指定扩展 Origin。bridge 仍只监听 `127.0.0.1`，`/paper` 和 `/preview` 需要 Bearer token。
+bridge 启动时若没有配置 `bridgeToken` 会生成随机 token 并打印在本机终端；把它粘贴到扩展 popup 的 Bridge token 输入框。默认 CORS 只接受 Chrome extension Origin；`allowedOrigins` 非空时可进一步限制为指定扩展 Origin。bridge 仍只监听 `127.0.0.1`，端口必须是 `1..65535` 的整数，`/paper` 和 `/preview` 需要 Bearer token。
 
 默认会把 figure 下载到 `papers/<article-id>/figures/`，并在 `index.md` 中使用相对路径。若确实需要远程图片，可在配置中设置 `downloadFigures: false`，或使用 CLI 的 `--no-download-figures`。
 
@@ -85,6 +85,8 @@ npm run clip:live
 ```bash
 node src/cli.mjs --url https://www.nature.com/articles/s41586-026-10401-1 --output ./papers --debug
 ```
+
+CLI 只接受精确的 `https://www.nature.com/articles/<id>` 地址；文章请求及每次重定向都必须保持在同一文章 scope，默认 30 秒超时并限制 HTML 响应为 25 MiB。
 
 验收 live regression（包含本地图片下载）：
 
@@ -137,6 +139,6 @@ GitHub Actions 在 pull request 和 `main` push 上运行 Node 20/24 的 `npm ci
 - 公式优先使用页面 `.mathjax-tex` 的原始 TeX：Nature equation container 中的 TeX 先冻结为 display 语义，正文中的 TeX 先冻结为 inline 语义，再交给 Defuddle 做 HTML→Markdown；少数异常页面若没有原始 TeX，会进入 warning，而不是伪造 Unicode 公式。
 - 输出策略默认是 Markdown 原生脚注：语义 citation marker 只渲染为 `[^n]`，重复引用复用同一个 id，References 只生成一份 `[^n]: ...` 定义，不再依赖 `ref-n` HTML anchor；`links` 仅作为显式兼容模式保留。Quarto 使用稳定的作者-年份 key、`[@key]` 语义引用、同目录 `references.bib` 和 `::: {#refs}` citeproc 目标，不手工复制第二份 bibliography。章节目标使用自然 Markdown slug；Quarto 章节会附加 `sec-` identifier。figure/table/equation cross-reference 仍保留稳定本地目标。
 - 下载器记录 figure label、source URL、最终 URL、HTTP/result、content type、local path、fallback 和失败原因；同一 source URL 无论成功或失败只下载一次，并有 20 秒 timeout、20 MiB 单图大小上限和 `image/*` 响应检查。
-- writer 会先对远程图片版本 Markdown 做数学验证，再在 staging 目录下载和二次验证；在 `.academic-clipper-locks/` 中用原子目录创建协调不同进程，并在下一次写入时恢复明显的 stale backup/transaction，避免无效 Markdown 或失败下载留下新半成品。最终文章使用目录级 replacement，旧 backup 清理失败只记录 warning，不把已成功安装报告为失败。
+- writer 会先对远程图片版本 Markdown 做数学验证，再在 staging 目录下载和二次验证；在 `.academic-clipper-locks/` 中为每个竞争 writer 创建唯一 claim，并按 ticket 串行化同一文章。stale 清理只删除已复核的原 claim，因此不会误删刚接管的新 owner；下一次写入仍会恢复明显的 stale backup/transaction，避免无效 Markdown 或失败下载留下新半成品。最终文章使用目录级 replacement，旧 backup 清理失败只记录 warning，不把已成功安装报告为失败。
 - 所有外部 resource 使用统一 `safeFetchExternal()`：只允许 HTTP(S)，拒绝明显的 localhost、loopback、link-local、私有 LAN、CGNAT、metadata、multicast 和 IPv4-mapped IPv6 私有地址；请求前解析 DNS 的全部地址，redirect 手动逐跳检查并限制 5 跳。当前没有把已验证地址绑定到 undici 的实际 socket，因此 DNS rebinding 仍是 residual risk；Nature table 还要求每一跳保持在当前 article 的 `/tables/` scope。
 - 论文网站 DOM 变化时需要维护 `src/adapters/nature.mjs` 的 selector；同文章的 fragment cross-reference 会转为本地锚点，外部文章的 fragment URL 保持不变；`raw.html`/`cleaned.html` 用于对照定位问题。

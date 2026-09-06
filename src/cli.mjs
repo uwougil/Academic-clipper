@@ -3,7 +3,7 @@ import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { clipNature, writePaper } from './clip.mjs';
 import { isNatureUrl } from './adapters/nature.mjs';
-import { ACADEMIC_CLIPPER_USER_AGENT } from './version.mjs';
+import { fetchNatureArticle } from './article-fetch.mjs';
 
 const USAGE = 'Usage: node src/cli.mjs --url <Nature article URL> [--output ./papers] [--debug] [--download-figures|--no-download-figures] [--citation-style markdown|links|quarto]';
 
@@ -30,20 +30,13 @@ async function main() {
   } catch {
     throw new CliUsageError(`Invalid URL for --url: ${url}.\n${USAGE}`);
   }
-  if (!isNatureUrl(url)) throw new CliUsageError('Unsupported site: only Nature article URLs are supported.');
+  if (!isNatureUrl(url)) throw new CliUsageError('Unsupported site: only https://www.nature.com/articles/<id> URLs are supported.');
   if (!['markdown', 'links', 'quarto'].includes(citationStyle)) {
     throw new CliUsageError(`Invalid --citation-style ${citationStyle}; expected markdown, links, or quarto.`);
   }
 
-  let response;
-  try {
-    response = await fetch(url, { headers: { 'user-agent': ACADEMIC_CLIPPER_USER_AGENT } });
-  } catch (error) {
-    throw new Error(`Unable to fetch ${url}: ${error instanceof Error ? error.message : String(error)}`);
-  }
-  if (!response.ok) throw new Error(`Unable to fetch ${url}: HTTP ${response.status}`);
-  const html = await response.text();
-  const result = await clipNature({ html, url, citationStyle });
+  const article = await fetchNatureArticle(url);
+  const result = await clipNature({ html: article.html, url: article.url, citationStyle });
   const saved = await writePaper(result, { libraryPath: path.resolve(output), saveDebug, downloadFigures });
   await writeFile(path.resolve(output, 'last-run-debug.json'), `${JSON.stringify(saved.debug, null, 2)}\n`, 'utf8');
 

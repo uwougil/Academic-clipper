@@ -45,6 +45,7 @@ test('math delimiter validator accepts code, escapes, URLs, inline and display m
     '`const x = "$"`',
     '~~~\ncode with $ and $$\n~~~',
     '[price](https://example.org/$100)',
+    '$$\\begin{array}{c}a_i \\\\ b_j\\end{array}$$',
   ].join('\n');
   assertValidMathDelimiters(valid);
   assert.equal(validateMathDelimiters(valid).issues.length, 0);
@@ -60,6 +61,7 @@ test('math delimiter validator rejects malformed and leaked semantic markup', ()
     ['ACADEMICCLIPPERINLINEMATH0X', 'semantic-marker-leak'],
     ['**M**$_{s}$', 'scientific-boldThenSubscript'],
     ['*λ*$^{2}$', 'scientific-italicThenSuperscript'],
+    ['$\\{-{6}_{001}^{5}\\Vert {6}_{001}^{1}\\\\}$', 'malformed-tex-escape'],
   ];
   for (const [markdown, type] of cases) {
     const validation = validateMathDelimiters(markdown);

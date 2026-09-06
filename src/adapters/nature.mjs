@@ -3,7 +3,7 @@ import { semanticMarker } from '../normalizers/markers.mjs';
 import { ACADEMIC_CLIPPER_USER_AGENT } from '../version.mjs';
 import { safeFetchExternal } from '../security.mjs';
 
-const NATURE_HOSTS = new Set(['nature.com', 'www.nature.com']);
+const NATURE_HOST = 'www.nature.com';
 const FIGURE_IDENTITY_ATTR = 'data-academic-clipper-figure';
 const EXCLUDED_SECTIONS = new Set([
   'about this article',
@@ -336,6 +336,15 @@ export async function hydrateNatureTables(tables, articleUrl, {
   resolveHostname,
 } = {}) {
   const warnings = [];
+  if (!isNatureUrl(articleUrl)) {
+    for (const table of tables) {
+      if (table.tableHtml) continue;
+      table.tableContentStatus = 'fallback-unsupported-article-url';
+      table.tableContentWarning = 'Full-size table hydration requires a supported Nature article URL.';
+      warnings.push(`${table.label}: ${table.tableContentWarning}`);
+    }
+    return warnings;
+  }
   for (const table of tables) {
     if (table.tableHtml) continue;
     if (!table.url) {
@@ -491,7 +500,7 @@ function canonicalScientificTex(tex) {
   // A delimited symmetry operation is a literal set-like expression. Escape
   // only its outer braces; sub/superscript and \mathbf braces remain TeX groups.
   if (result.startsWith('{')) result = `\\{${result.slice(1)}`;
-  if (result.endsWith('}')) result = `${result.slice(0, -1)}\\}`;
+  if (result.endsWith('}') && !result.endsWith('\\}')) result = `${result.slice(0, -1)}\\}`;
   return result;
 }
 
@@ -789,18 +798,45 @@ function replaceScientificBracketText(body) {
   return values;
 }
 
-function citationNumber(anchor) {
-  const text = cleanText(anchor.textContent).match(/\d+/)?.[0];
-  if (text) return Number(text);
+const MAX_CITATION_RANGE = 100;
+
+function citationNumbers(anchor) {
+  const text = cleanText(anchor.textContent);
+  if (text) {
+    const hasOpeningBracket = text.startsWith('[');
+    const hasClosingBracket = text.endsWith(']');
+    if (hasOpeningBracket !== hasClosingBracket) return null;
+    const label = hasOpeningBracket ? text.slice(1, -1).trim() : text;
+    if (!/^\d+(?:\s*(?:[,;]|[-–—])\s*\d+)*$/u.test(label)) return null;
+    const numbers = [];
+    for (const part of label.split(/\s*[,;]\s*/u)) {
+      const range = part.match(/^(\d+)\s*[-–—]\s*(\d+)$/u);
+      if (!range) {
+        const number = Number(part);
+        if (!Number.isSafeInteger(number) || number < 1) return null;
+        numbers.push(number);
+        continue;
+      }
+      const start = Number(range[1]);
+      const end = Number(range[2]);
+      if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end)
+        || start < 1 || end < start || end - start + 1 > MAX_CITATION_RANGE) return null;
+      for (let number = start; number <= end; number += 1) numbers.push(number);
+    }
+    return [...new Set(numbers)];
+  }
   const href = anchor.getAttribute('href') || '';
-  return Number(href.match(/#ref-CR(\d+)/i)?.[1] || 0);
+  const number = Number(href.match(/#ref-CR(\d+)/i)?.[1] || 0);
+  return Number.isSafeInteger(number) && number > 0 ? [number] : null;
 }
 
 function replaceCitations(body) {
   const values = [];
   for (const sup of Array.from(body.querySelectorAll('sup'))) {
     const anchors = Array.from(sup.querySelectorAll('a[data-test="citation-ref"], a[href*="#ref-CR"]'));
-    const numbers = anchors.map(citationNumber).filter(Boolean);
+    const parsed = anchors.map(citationNumbers);
+    if (!anchors.length || parsed.some((numbers) => numbers === null)) continue;
+    const numbers = [...new Set(parsed.flat())];
     if (!numbers.length) continue;
     const marker = semanticMarker('CITATION', values.length);
     values.push({ marker, numbers });
@@ -809,10 +845,10 @@ function replaceCitations(body) {
 
   for (const anchor of Array.from(body.querySelectorAll('a[data-test="citation-ref"], a[href*="#ref-CR"]'))) {
     if (anchor.closest('ol.c-article-references, ol.c-article-references__list')) continue;
-    const number = citationNumber(anchor);
-    if (!number) continue;
+    const numbers = citationNumbers(anchor);
+    if (!numbers?.length) continue;
     const marker = semanticMarker('CITATION', values.length);
-    values.push({ marker, numbers: [number] });
+    values.push({ marker, numbers });
     anchor.replaceWith(body.ownerDocument.createTextNode(marker));
   }
   return values;
@@ -963,13 +999,16 @@ function removeUnwantedContent(document, body) {
 export function isNatureUrl(url) {
   try {
     const parsed = new URL(url);
-    return NATURE_HOSTS.has(parsed.hostname.toLowerCase()) && parsed.pathname.startsWith('/articles/');
+    return parsed.protocol === 'https:'
+      && parsed.hostname.toLowerCase() === NATURE_HOST
+      && parsed.pathname.startsWith('/articles/');
   } catch {
     return false;
   }
 }
 
 export function articleIdFromUrl(url) {
+  if (!isNatureUrl(url)) return '';
   try {
     return new URL(url).pathname.match(/\/articles\/([^/]+)/i)?.[1] || '';
   } catch {

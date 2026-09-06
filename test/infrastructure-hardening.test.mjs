@@ -17,9 +17,9 @@ const fixtureUrl = 'https://www.nature.com/articles/s41586-026-10401-1';
 const articleId = 's41586-026-10401-1';
 const clipModuleUrl = pathToFileURL(path.join(repoRoot, 'src', 'clip.mjs')).href;
 
-function writerLockDir(root) {
+function writerLockDir(root, token = 'manual') {
   const digest = createHash('sha256').update(articleId).digest('hex').slice(0, 32);
-  return path.join(root, '.academic-clipper-locks', `${digest}-${articleId}.lock`);
+  return path.join(root, '.academic-clipper-locks', `${digest}-${articleId}.claim-${token}`);
 }
 
 async function exists(file) {
@@ -133,6 +133,22 @@ test('Nature table redirect cannot escape the current article table scope', asyn
   assert.equal(table.tableContentStatus, 'fallback-fetch-failed');
   assert.match(table.tableContentWarning, /escaped the current article table scope/);
   assert.match(warnings.join('\n'), /escaped the current article table scope/);
+});
+
+test('unsupported bare Nature hostname cannot enter table hydration as a valid article', async () => {
+  const table = {
+    label: 'Table 1',
+    url: 'https://www.nature.com/articles/example/tables/1',
+    tableContentStatus: 'not-loaded',
+  };
+  let calls = 0;
+  await hydrateNatureTables([table], 'https://nature.com/articles/example', {
+    fetchImpl: async () => { calls += 1; return response(200, { 'content-type': 'text/html' }); },
+    resolveHostname: publicResolver,
+  });
+  assert.equal(calls, 0);
+  assert.equal(table.tableContentStatus, 'fallback-unsupported-article-url');
+  assert.match(table.tableContentWarning, /supported Nature article URL/);
 });
 
 test('custom bridge endpoint accepts only localhost HTTP origins', () => {
@@ -299,6 +315,51 @@ test('stale writer lock is recovered after the recorded process is gone', async 
   assert.deepEqual(await readdir(path.join(root, '.academic-clipper-locks')), []);
 });
 
+test('stale recovery does not delete a replacement lock after ownership changes', async () => {
+  const root = await mkdtemp(path.join(tmpdir(), 'academic-clipper-stale-race-'));
+  const staleClaim = writerLockDir(root, 'old-stale-lock');
+  const replacementClaim = writerLockDir(root, 'replacement-live-lock');
+  await mkdir(staleClaim, { recursive: true });
+  await writeFile(path.join(staleClaim, 'owner.json'), JSON.stringify({
+    pid: 2147483647,
+    createdAt: Date.now() - 5_000,
+    token: 'old-stale-lock',
+  }), 'utf8');
+
+  let observedResolve;
+  let resumeResolve;
+  const observed = new Promise((resolve) => { observedResolve = resolve; });
+  const resume = new Promise((resolve) => { resumeResolve = resolve; });
+  const result = await clipNature({ html: fixtureHtml, url: fixtureUrl });
+  const contender = writePaper(result, {
+    libraryPath: root,
+    downloadFigures: false,
+    lockTimeoutMs: 150,
+    lockRetryMs: 10,
+    lockDeadGraceMs: 10,
+    beforeStaleLockRemoval: async () => {
+      observedResolve();
+      await resume;
+    },
+  });
+
+  await observed;
+  await mkdir(replacementClaim);
+  await writeFile(path.join(replacementClaim, 'owner.json'), JSON.stringify({
+    pid: process.pid,
+    createdAt: Date.now(),
+    token: 'replacement-live-lock',
+  }), 'utf8');
+  await writeFile(path.join(replacementClaim, 'ticket-00000000000000000001'), '', 'utf8');
+  resumeResolve();
+
+  await assert.rejects(contender, /already being written/);
+  assert.equal(await exists(staleClaim), false);
+  const owner = JSON.parse(await readFile(path.join(replacementClaim, 'owner.json'), 'utf8'));
+  assert.equal(owner.token, 'replacement-live-lock');
+  await rm(replacementClaim, { recursive: true, force: true });
+});
+
 test('live owner PID is not reclaimed, while a missing owner needs the normal age threshold', async () => {
   const liveRoot = await mkdtemp(path.join(tmpdir(), 'academic-clipper-live-lock-'));
   const liveLock = writerLockDir(liveRoot);
@@ -383,7 +444,10 @@ test('successful article save remains successful when lock cleanup fails and the
   assert.match(saved.debug.warnings.join('\n'), /Writer lock cleanup failed/);
   assert.equal(await exists(path.join(root, articleId, 'index.md')), true);
   assert.match(await readFile(path.join(root, articleId, 'debug.json'), 'utf8'), /Writer lock cleanup failed/);
-  assert.equal((await JSON.parse(await readFile(path.join(writerLockDir(root), 'owner.json'), 'utf8'))).releasedAt > 0, true);
+  const retainedClaims = await readdir(path.join(root, '.academic-clipper-locks'));
+  assert.equal(retainedClaims.length, 1);
+  const retainedOwner = JSON.parse(await readFile(path.join(root, '.academic-clipper-locks', retainedClaims[0], 'owner.json'), 'utf8'));
+  assert.equal(retainedOwner.releasedAt > 0, true);
 
   const second = await clipNature({ html: fixtureHtml, url: fixtureUrl });
   second.bodyMarkdown += '\nSecond save after released lock.';

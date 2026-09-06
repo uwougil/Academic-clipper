@@ -198,6 +198,11 @@ export function validateMathDelimiters(markdown) {
     }
 
     if (state === 'INLINE_MATH') {
+      if (text.startsWith('\\\\}', index)) {
+        issueAt(text, issues, 'malformed-tex-escape', index, '\\\\}', 'A doubled backslash before a literal closing brace would change the TeX meaning.');
+        index += 3;
+        continue;
+      }
       if (text.startsWith('$$', index) && !isEscaped(text, index)) {
         issueAt(text, issues, 'inline-display-switch', index, '$$', 'Inline math encountered a display delimiter before it closed.');
         state = 'TEXT';

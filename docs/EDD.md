@@ -72,11 +72,12 @@ acquire same-process queue + cross-process lock
   → remove backup and release lock
 ```
 
-锁目录为 `.academic-clipper-locks/<hash>-<article-id>.lock`，owner metadata 至少包含 `pid`、`createdAt` 和随机 `token`：
+每个竞争 writer 使用独立的 `.academic-clipper-locks/<hash>-<article-id>.claim-<token>` claim 目录，owner metadata 至少包含 `pid`、`createdAt` 和随机 `token`；claim 通过单调 ticket 与目录名确定全序，同一文章始终只有排在最前的活跃 claim 进入写入区：
 
 - 有效 owner 且 PID 存活：不按年龄回收。
 - 有效 owner 且 PID 已死：经过短 dead-PID grace 后可回收。
 - owner 缺失或损坏：只有达到正常 stale age 才可回收。
+- stale 判定后只删除同一个唯一 claim 路径，并在删除前复核；新 owner 使用不同路径，不会被陈旧判定误删。
 - 锁释放清理失败：成功保存不能被改报为失败；保留 `releasedAt` marker、warning 和路径，下一次 writer 可恢复并最终清理。
 
 恢复时只接受包含非空 `index.md` 的完整 backup；存在多个完整 backup 时按目录修改时间选择最新者，再清理其他 transaction。staging 目录即使存在也不默认视为完整版本。
@@ -87,7 +88,9 @@ acquire same-process queue + cross-process lock
 - 请求 Origin 必须是允许的 extension origin 或显式 configured allow-list；配置 token 时 `/preview` 和 `/paper` 要求 Bearer token。
 - `src/security.mjs` 只允许 HTTP(S)，拒绝 localhost、loopback、link-local、私有网段、CGNAT、metadata、multicast 和 mapped-private IPv6。
 - DNS 在请求前解析全部地址；redirect 手动逐跳检查并限制跳数；图片检查 `image/*`、超时和 20 MiB 大小上限。
+- CLI 论文 HTML 只允许同一 `https://www.nature.com/articles/<id>` redirect scope，默认 30 秒超时、25 MiB 响应上限，并拒绝非 HTML content type。
 - Nature table 补取还必须保持在当前 article 的 `/tables/` scope。
+- bridge 配置端口必须是 `1..65535` 的整数，配置加载阶段即以简洁错误拒绝非法值。
 - 当前残余风险：已验证的 DNS 地址尚未绑定到实际 undici socket，因此仍存在 DNS rebinding 风险；这在本轮不扩大为架构重写。
 
 ## 5. 文件与生成物策略
@@ -103,7 +106,7 @@ acquire same-process queue + cross-process lock
 - parser fixture：验证 Nature metadata、标题、段落、inline/display math、figure、reference。
 - output-quality：验证公式、图、引用、表格、Quarto 和本地资源。
 - stability regressions：验证 DOM 隔离、并发写入、旧文件清理、失败提交回滚、CLI 参数边界。
-- infrastructure hardening：验证 SSRF 边界、bridge 安全、跨进程锁、PID/owner 恢复、release failure 和 newest backup。
+- infrastructure hardening：验证 SSRF 边界、bridge 安全与端口、CLI fetch 超时/响应上限、跨进程锁、PID/owner 恢复、stale takeover race、release failure 和 newest backup。
 - CI 不访问真实 Nature；golden artifact validator 检查已提交的最终 Markdown。
 
 ## 7. 变更约束

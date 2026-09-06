@@ -12,8 +12,10 @@ const fixtureUrl = 'https://www.nature.com/articles/s41586-026-10401-1';
 
 test('Nature URL and article id detection are scoped to Nature articles', () => {
   assert.equal(isNatureUrl(fixtureUrl), true);
+  assert.equal(isNatureUrl('https://nature.com/articles/test'), false);
   assert.equal(isNatureUrl('https://example.org/articles/test'), false);
   assert.equal(articleIdFromUrl(fixtureUrl), 's41586-026-10401-1');
+  assert.equal(articleIdFromUrl('https://nature.com/articles/test'), '');
 });
 
 test('Nature adapter extracts structured metadata and scholarly nodes', () => {
@@ -96,6 +98,46 @@ test('Nature clipping fails closed when the page is not an article body', async 
     () => clipNature({ html: '<html><head><title>Consent wall</title></head><body><p>Not an article</p></body></html>', url: fixtureUrl }),
     /article body was not found/,
   );
+});
+
+test('Nature scientific MathJax operations keep exactly one literal-brace escape', async () => {
+  const html = fixtureHtml.replace(
+    '{<i>g</i><sub>s</sub>||<i>g</i><sub>l</sub>|<i>τ</i>}',
+    '<span class="mathjax-tex">\\(\\{-{6}_{001}^{5}||{6}_{001}^{1}\\}\\)</span>',
+  );
+  const result = await clipNature({ html, url: fixtureUrl });
+  assert.match(result.markdown, /\$\\\{-\{6\}_\{001\}\^\{5\}\\Vert \{6\}_\{001\}\^\{1\}\\\}\$/u);
+  assert.doesNotMatch(result.markdown, /\\\\\}/u);
+  assert.equal(result.debug.mathValidation.valid, true);
+});
+
+test('single-anchor citation ranges preserve every reference in all citation modes', async () => {
+  const expected = {
+    markdown: '[^1][^2][^3]',
+    links: '[1](#ref-1), [2](#ref-2), [3](#ref-3)',
+    quarto: '[@Lovelace; @Turing; @Noether]',
+  };
+  for (const label of ['1–3', '1-3', '1,2–3', '1; 2-3']) {
+    const html = fixtureHtml.replace(
+      '<a data-test="citation-ref" href="#ref-CR1">1</a>,<a data-test="citation-ref" href="#ref-CR2">2</a>,<a data-test="citation-ref" href="#ref-CR3">3</a>',
+      `<a data-test="citation-ref" href="#ref-CR1">${label}</a>`,
+    );
+    for (const citationStyle of Object.keys(expected)) {
+      const result = await clipNature({ html, url: fixtureUrl, citationStyle });
+      assert.match(result.markdown, new RegExp(expected[citationStyle].replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+    }
+  }
+});
+
+test('malformed or excessive citation ranges remain visible instead of being partially converted', async () => {
+  const html = fixtureHtml.replace(
+    '<a data-test="citation-ref" href="#ref-CR1">1</a>,<a data-test="citation-ref" href="#ref-CR2">2</a>,<a data-test="citation-ref" href="#ref-CR3">3</a>',
+    '<a data-test="citation-ref" href="#ref-CR1">1–9999</a>',
+  );
+  const result = await clipNature({ html, url: fixtureUrl });
+  const body = result.markdown.split('\n## References\n')[0];
+  assert.match(body, /1–9999/u);
+  assert.doesNotMatch(body, /\[\^1\]/u);
 });
 
 test('Nature adapter maps id-less figures by unique DOM identity', async () => {

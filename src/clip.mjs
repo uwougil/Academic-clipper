@@ -235,7 +235,7 @@ export function renderClipMarkdown(result, imagePathByAnchor = new Map()) {
 }
 
 export async function clipNature({ html, url, rawHtml = html, citationStyle = 'markdown' }) {
-  if (!isNatureUrl(url)) throw new Error('This prototype only supports Nature article URLs.');
+  if (!isNatureUrl(url)) throw new Error('This prototype only supports https://www.nature.com/articles/<id> URLs.');
   if (!['markdown', 'links', 'quarto'].includes(citationStyle)) throw new Error('citationStyle must be markdown, links, or quarto.');
   const policy = outputPolicy(citationStyle);
 
@@ -315,9 +315,13 @@ function transactionPrefix(articleId) {
   return `.academic-clipper-${digest}-`;
 }
 
-function lockDirectory(root, articleId) {
+function lockClaimPrefix(articleId) {
   const digest = createHash('sha256').update(String(articleId)).digest('hex').slice(0, 32);
-  return path.join(root, '.academic-clipper-locks', `${digest}-${String(articleId).replace(/[^a-z0-9-]/gi, '-')}.lock`);
+  return `${digest}-${String(articleId).replace(/[^a-z0-9-]/gi, '-')}.claim-`;
+}
+
+function lockDirectory(root, articleId, token) {
+  return path.join(root, '.academic-clipper-locks', `${lockClaimPrefix(articleId)}${token}`);
 }
 
 function processIsAlive(pid) {
@@ -362,6 +366,49 @@ async function staleLock(lockDir, staleMs, deadGraceMs = WRITER_LOCK_DEAD_GRACE_
   return age >= staleMs;
 }
 
+async function writerLockClaims(lockRoot, articleId) {
+  const prefix = lockClaimPrefix(articleId);
+  let entries;
+  try {
+    entries = await readdir(lockRoot, { withFileTypes: true });
+  } catch (error) {
+    if (error.code === 'ENOENT') return [];
+    throw error;
+  }
+  return entries
+    .filter((entry) => entry.isDirectory() && entry.name.startsWith(prefix))
+    .map((entry) => ({ name: entry.name, path: path.join(lockRoot, entry.name) }))
+    .sort((left, right) => left.name.localeCompare(right.name));
+}
+
+async function writerClaimTicket(claimDir) {
+  let entries;
+  try {
+    entries = await readdir(claimDir, { withFileTypes: true });
+  } catch (error) {
+    if (error.code === 'ENOENT') return null;
+    throw error;
+  }
+  const tickets = entries
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name.match(/^ticket-(\d+)$/u)?.[1])
+    .filter(Boolean)
+    .map((value) => BigInt(value));
+  return tickets.length ? tickets.reduce((lowest, value) => value < lowest ? value : lowest) : null;
+}
+
+async function removeStaleWriterClaim(claim, {
+  staleMs,
+  deadGraceMs,
+  beforeStaleLockRemoval,
+}) {
+  if (!await staleLock(claim.path, staleMs, deadGraceMs)) return false;
+  await beforeStaleLockRemoval?.(claim.path);
+  if (!await staleLock(claim.path, staleMs, deadGraceMs)) return false;
+  await rm(claim.path, { recursive: true, force: true });
+  return true;
+}
+
 function wait(milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
@@ -372,35 +419,64 @@ async function acquireWriterLock(root, articleId, {
   staleMs = WRITER_LOCK_STALE_MS,
   deadGraceMs = WRITER_LOCK_DEAD_GRACE_MS,
   removeLock = rm,
+  beforeStaleLockRemoval,
 } = {}) {
   const lockRoot = path.join(root, '.academic-clipper-locks');
-  const lockDir = lockDirectory(root, articleId);
   await mkdir(lockRoot, { recursive: true });
   const deadline = Date.now() + timeoutMs;
+  const token = randomBytes(16).toString('hex');
+  const lockDir = lockDirectory(root, articleId, token);
 
-  while (true) {
-    try {
-      await mkdir(lockDir);
-    } catch (error) {
-      if (error.code !== 'EEXIST') throw error;
-      if (await staleLock(lockDir, staleMs, deadGraceMs)) {
-        await rm(lockDir, { recursive: true, force: true });
-        continue;
-      }
-      if (Date.now() >= deadline) {
-        throw new Error(`Article ${articleId} is already being written by another process.`);
-      }
-      await wait(Math.min(retryMs, Math.max(1, deadline - Date.now())));
-      continue;
-    }
-
-    const token = randomBytes(16).toString('hex');
+  await mkdir(lockDir);
+  try {
     try {
       await writeFile(path.join(lockDir, 'owner.json'), `${JSON.stringify({ pid: process.pid, createdAt: Date.now(), token })}\n`, 'utf8');
     } catch (error) {
       await rm(lockDir, { recursive: true, force: true });
       throw error;
     }
+
+    let ownTicket = null;
+    while (ownTicket === null) {
+      let maxTicket = 0n;
+      let removedStaleClaim = false;
+      for (const claim of await writerLockClaims(lockRoot, articleId)) {
+        if (claim.path === lockDir) continue;
+        if (await removeStaleWriterClaim(claim, { staleMs, deadGraceMs, beforeStaleLockRemoval })) {
+          removedStaleClaim = true;
+          continue;
+        }
+        const ticket = await writerClaimTicket(claim.path);
+        if (ticket !== null && ticket > maxTicket) maxTicket = ticket;
+      }
+      if (removedStaleClaim) continue;
+      ownTicket = maxTicket + 1n;
+      await writeFile(path.join(lockDir, `ticket-${ownTicket.toString().padStart(20, '0')}`), '', 'utf8');
+    }
+
+    while (true) {
+      let blocked = false;
+      let removedStaleClaim = false;
+      for (const claim of await writerLockClaims(lockRoot, articleId)) {
+        if (claim.path === lockDir) continue;
+        if (await removeStaleWriterClaim(claim, { staleMs, deadGraceMs, beforeStaleLockRemoval })) {
+          removedStaleClaim = true;
+          continue;
+        }
+        const ticket = await writerClaimTicket(claim.path);
+        if (ticket === null
+          || ticket < ownTicket
+          || ticket === ownTicket && claim.name.localeCompare(path.basename(lockDir)) < 0) {
+          blocked = true;
+        }
+      }
+      if (!blocked && !removedStaleClaim) break;
+      if (Date.now() >= deadline) {
+        throw new Error(`Article ${articleId} is already being written by another process.`);
+      }
+      await wait(Math.min(retryMs, Math.max(1, deadline - Date.now())));
+    }
+
     return {
       async release(onCleanupFailure) {
         const releaseWarning = (error) => `Writer lock cleanup failed; released marker retained for recovery at ${lockDir}: ${error instanceof Error ? error.message : String(error)}`;
@@ -446,6 +522,9 @@ async function acquireWriterLock(root, articleId, {
       },
       directory: lockDir,
     };
+  } catch (error) {
+    await rm(lockDir, { recursive: true, force: true });
+    throw error;
   }
 }
 
@@ -692,6 +771,7 @@ export async function writePaper(result, {
   lockStaleMs = WRITER_LOCK_STALE_MS,
   lockDeadGraceMs = WRITER_LOCK_DEAD_GRACE_MS,
   removeLock,
+  beforeStaleLockRemoval,
   fetchImpl = globalThis.fetch,
   resolveHostname,
 }) {
@@ -704,6 +784,7 @@ export async function writePaper(result, {
       staleMs: lockStaleMs,
       deadGraceMs: lockDeadGraceMs,
       removeLock,
+      beforeStaleLockRemoval,
     });
     let saved;
     let operationError;
