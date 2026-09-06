@@ -1,5 +1,12 @@
 # Academic Clipper — Nature prototype v0.2.0
 
+项目规范已按 bootstrap 结构整理：
+
+- [产品需求文档](docs/PRD.md)
+- [工程设计文档](docs/EDD.md)
+- [当前里程碑与验收记录](docs/milestones/001-nature-v0.2-stability.md)
+- [仓库协作与验证规则](AGENTS.md)
+
 这是一个面向科研论文的最小浏览器采集原型：当前页面的 Nature HTML 由浏览器扩展送到本机 bridge，bridge 使用 Obsidian Web Clipper 依赖的 Defuddle 解析并转换为 Markdown，最后写入本地 `papers/<Nature article id>/index.md`。VS Code 只需要打开同一个文件夹即可看到新增文件，不需要开发 VS Code Extension。
 
 ## 架构与复用边界
