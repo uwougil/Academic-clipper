@@ -4,6 +4,7 @@ papers/*
 # Keep one intentionally committed Nature review artifact; raw/cleaned page
 # snapshots remain ignored and ordinary captures under papers/ stay ignored.
 !papers/s41586-026-10401-1/
+papers/s41586-026-10401-1/*
 !papers/s41586-026-10401-1/index.md
 !papers/s41586-026-10401-1/debug.json
 !papers/s41586-026-10401-1/figures/

@@ -49,7 +49,7 @@ Obsidian Web Clipper 关键位置：
 需要 Node.js 20 或更高版本。
 
 ```bash
-npm install
+npm ci
 copy config.example.json config.json   # Windows PowerShell 可用 Copy-Item
 npm run dev
 ```
