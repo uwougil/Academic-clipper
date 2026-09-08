@@ -36,6 +36,14 @@ The CI workflow must continue to run the same checks on Ubuntu Node 20, Ubuntu N
 - Treat `dist/` as build output. Edit `extension/` and source files, then run `npm run build`.
 - A live clip can overwrite a paper artifact. Use fixture tests for routine development and run live clipping only when explicitly needed.
 
+## Collaboration and delivery
+
+- Issue-backed changes normally use an isolated `codex/` branch or worktree and are delivered through a pull request linked to the Issue.
+- A handoff must be reconstructible from PRD/EDD, the linked Issue, commits, the pull request description and diff, test output, and CI results; do not rely on private conversation state.
+- Required verification must pass before merge. Record the commands and relevant results in the pull request.
+- Product or engineering intent changes require explicit human resolution and corresponding updates to `docs/PRD.md`, `docs/EDD.md`, or the applicable milestone.
+- Repository-facing prose uses the resolved collaboration language; preserve technical strings such as commands, identifiers, paths, URLs, API names, and GitHub numbers verbatim.
+
 ## Completion checks
 
 Before handing off repository changes, inspect `git diff --check`, `git status --short`, tracked filenames, and the relevant test/build output. Update the appropriate PRD, EDD, or milestone when a change alters product behavior or an architectural boundary.
