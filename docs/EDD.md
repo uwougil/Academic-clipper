@@ -135,6 +135,7 @@ acquire same-process queue + cross-process lock
 - output-quality：验证公式、图、引用、表格、Quarto 和本地资源。
 - stability regressions：验证 DOM 隔离、并发写入、旧文件清理、失败提交回滚、CLI 参数边界。
 - infrastructure hardening：验证 SSRF 边界、bridge 安全与端口、CLI fetch 超时/响应上限、跨进程锁、PID/owner 恢复、stale takeover race、release failure 和 newest backup。
+- nature-corpus：基于 8 篇代表性 Nature 论文的离线结构化 fixture 与基线清单，验证端到端抽取、公式、图表、引用展开、联盟元数据、表格 fallback 诊断和 Markdown 结构。
 - CI 不访问真实 Nature；golden artifact validator 检查已提交的最终 Markdown。
 
 ## 7. 变更约束

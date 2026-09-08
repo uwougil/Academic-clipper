@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Highly accurate protein structure prediction with AlphaFold | Nature</title>
+    <link rel="canonical" href="https://www.nature.com/articles/s41586-021-03819-2">
+    <meta name="citation_title" content="Highly accurate protein structure prediction with AlphaFold">
+    <meta name="citation_author" content="John Jumper">
+    <meta name="citation_author" content="Richard Evans">
+    <meta name="citation_author" content="Alexander Pritzel">
+    <meta name="citation_author" content="Pushmeet Kohli">
+    <meta name="citation_author" content="Demis Hassabis">
+    <meta name="citation_journal_title" content="Nature">
+    <meta name="citation_online_date" content="2021/07/15">
+    <meta name="citation_doi" content="10.1038/s41586-021-03819-2">
+    <meta name="citation_volume" content="596">
+    <meta name="citation_issue" content="7873">
+    <meta name="citation_firstpage" content="583">
+    <meta name="citation_lastpage" content="589">
+  </head>
+  <body>
+    <main class="c-article-main-column">
+      <div class="c-article-body">
+        <section data-title="Abstract">
+          <div class="c-article-section">
+            <h2>Abstract</h2>
+            <div class="c-article-section__content">
+              <p>Proteins are essential to life. Here we provide the computational method AlphaFold, which predicts three-dimensional protein structures with atomic accuracy across the proteome even in cases where no homologous structure is known.</p>
+            </div>
+          </div>
+        </section>
+        <div class="main-content">
+          <section data-title="Main">
+            <div class="c-article-section">
+              <h2>Main</h2>
+              <div class="c-article-section__content">
+                <p>AlphaFold integrates evolutionary and physical constraints into an end-to-end differentiable neural network <sup><a data-test="citation-ref" href="#ref-CR1">1</a>,<a data-test="citation-ref" href="#ref-CR2">2</a></sup>. The architecture overview is shown in <a href="#Fig1">Figure 1</a>.</p>
+                <figure>
+                  <figcaption><b id="Fig1" data-test="figure-caption-text">Fig. 1: Overall architecture of the Evoformer and structure module.</b></figcaption>
+                  <div class="c-article-section__figure-content"><picture><source srcset="//example.org/alphafold-overview-2x.png 2x"><img src="//example.org/alphafold-overview.png" alt="Fig. 1: AlphaFold architecture."></picture></div>
+                  <div class="c-article-section__figure-description" data-test="bottom-caption"><p><b>a</b>, Schematic pipeline from multiple sequence alignments (MSAs) to residue pair representations. <b>b</b>, Recycling iterations and attention mechanism. <b>c</b>, 3D invariant point attention (IPA) module. <b>d</b>, Final frame prediction and side-chain torsion generation.</p></div>
+                </figure>
+                <p>Accuracy is benchmarked on CASP14 targets in <a href="#Fig2">Figure 2</a>. Predictions routinely achieve median <span class="mathjax-tex">\(\mathrm{C}_\alpha\)</span> backbone error with <span class="mathjax-tex">\(\mathrm{RMSD} &lt; 1.0\ \text{Å}\)</span>, high global distance test score <span class="mathjax-tex">\(\mathrm{GDT\_TS} \ge 90\)</span>, and residue confidence <span class="mathjax-tex">\(\mathrm{pLDDT} &gt; 70\)</span>, quantified via distance error metric:</p>
+                <div id="Equ1" class="c-article-equation">
+                  <div class="c-article-equation__content"><span class="mathjax-tex">$$\mathcal{L}_{\mathrm{FAPE}} = \frac{1}{N_{\mathrm{frames}}} \sum_{i,j} \min\left( d(T_i^{-1} \mathbf{x}_j, T_i^{*-1} \mathbf{x}_j^*), d_{\mathrm{clamp}} \right)$$</span></div>
+                  <div class="c-article-equation__number">(1)</div>
+                </div>
+                <figure>
+                  <figcaption><b id="Fig2" data-test="figure-caption-text">Fig. 2: CASP14 benchmark performance comparison across folds.</b></figcaption>
+                  <div class="c-article-section__figure-content"><picture><source srcset="//example.org/casp-eval-2x.png 2x"><img src="//example.org/casp-eval.png" alt="Fig. 2: Benchmark performance."></picture></div>
+                  <div class="c-article-section__figure-description" data-test="bottom-caption"><p><b>a</b>, GDT score distributions comparing AlphaFold to leading experimental methods. <b>b</b>, Stereochemical refinement quality across diverse protein domains.</p></div>
+                </figure>
+                <p>Validation across complex folds is shown in <a href="#Fig3">Figure 3</a> and <a href="#Fig4">Figure 4</a>, while extended validation experiments are documented across <a href="#Fig5">Extended Data Fig. 1</a> through <a href="#Fig14">Extended Data Fig. 10</a>.</p>
+                <figure>
+                  <figcaption><b id="Fig3" data-test="figure-caption-text">Fig. 3: Blind test assessment of difficult all-alpha and all-beta topologies.</b></figcaption>
+                  <div class="c-article-section__figure-content"><picture><source srcset="//example.org/fig3-2x.png 2x"><img src="//example.org/fig3.png" alt="Fig. 3: Topologies."></picture></div>
+                  <div class="c-article-section__figure-description" data-test="bottom-caption"><p>Detailed alignment overlays of predicted coordinates against experimental structures.</p></div>
+                </figure>
+                <figure>
+                  <figcaption><b id="Fig4" data-test="figure-caption-text">Fig. 4: Predicted aligned error and pLDDT confidence metrics.</b></figcaption>
+                  <div class="c-article-section__figure-content"><picture><source srcset="//example.org/fig4-2x.png 2x"><img src="//example.org/fig4.png" alt="Fig. 4: Confidence plots."></picture></div>
+                  <div class="c-article-section__figure-description" data-test="bottom-caption"><p>Pairwise distance uncertainty matrices alongside residue pLDDT profiles.</p></div>
+                </figure>
+                <p>Quantitative comparisons across CASP14 domains are summarized in <a href="#Tab1">Table 1</a>.</p>
+              </div>
+            </div>
+          </section>
+          <section data-title="Methods">
+            <div class="c-article-section">
+              <h2>Methods</h2>
+              <div class="c-article-section__content">
+                <p>The model was trained on 128 TPU v3 cores using sequences from UniRef90 and BFD databases.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <section data-title="Extended data figures and tables">
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig5">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/ext1.jpg" href="/articles/s41586-021-03819-2/figures/5">Extended Data Fig. 1 Invariant point attention mathematical formulations.</a></h3>
+            <div class="c-article-supplementary__description"><p>Step-by-step vector algebra for SE(3) transformation updates.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig6">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/ext2.jpg" href="/articles/s41586-021-03819-2/figures/6">Extended Data Fig. 2 Multiple sequence alignment depth analysis.</a></h3>
+            <div class="c-article-supplementary__description"><p>Prediction accuracy as a function of Neff.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig7">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/ext3.jpg" href="/articles/s41586-021-03819-2/figures/7">Extended Data Fig. 3 Torsion angle prediction geometry and Ramachandran plots.</a></h3>
+            <div class="c-article-supplementary__description"><p>Validation of phi-psi distributions.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig8">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/ext4.jpg" href="/articles/s41586-021-03819-2/figures/8">Extended Data Fig. 4 Recycling convergence dynamics across training.</a></h3>
+            <div class="c-article-supplementary__description"><p>Evolution of loss curves during progressive recycling rounds.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig9">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/ext5.jpg" href="/articles/s41586-021-03819-2/figures/9">Extended Data Fig. 5 Self-distillation dataset ablation results.</a></h3>
+            <div class="c-article-supplementary__description"><p>Impact of unlabelled sequence augmentations.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig10">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/ext6.jpg" href="/articles/s41586-021-03819-2/figures/10">Extended Data Fig. 6 Membrane protein and multimer case studies.</a></h3>
+            <div class="c-article-supplementary__description"><p>Transmembrane helix bundle predictions.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig11">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/ext7.jpg" href="/articles/s41586-021-03819-2/figures/11">Extended Data Fig. 7 Side-chain packing fidelity and chi-angle accuracy.</a></h3>
+            <div class="c-article-supplementary__description"><p>Analysis of buried core rotamers.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig12">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/ext8.jpg" href="/articles/s41586-021-03819-2/figures/12">Extended Data Fig. 8 Comparison of template usage impact.</a></h3>
+            <div class="c-article-supplementary__description"><p>Performance with and without homologous structural templates.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig13">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/ext9.jpg" href="/articles/s41586-021-03819-2/figures/13">Extended Data Fig. 9 Outlier analysis and model failure modes.</a></h3>
+            <div class="c-article-supplementary__description"><p>Disordered loops and repeat domain edge cases.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig14">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/ext10.jpg" href="/articles/s41586-021-03819-2/figures/14">Extended Data Fig. 10 Proteome-wide structural coverage statistics.</a></h3>
+            <div class="c-article-supplementary__description"><p>Distribution of high-confidence residues across reference organisms.</p></div>
+          </div>
+        </section>
+        <figure id="Tab1">
+          <figcaption><span data-test="table-caption">Table 1 Summary of CASP14 evaluation metrics across model categories.</span></figcaption>
+          <a data-test="table-link" href="/articles/s41586-021-03819-2/tables/1">Full table</a>
+          <table>
+            <thead>
+              <tr><th>Target Class</th><th>AlphaFold GDT_TS</th><th>Baseline GDT_TS</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Free Modeling (FM)</td><td>87.0</td><td>61.5</td></tr>
+              <tr><td>Template-based (TBM)</td><td>95.2</td><td>86.8</td></tr>
+            </tbody>
+          </table>
+        </figure>
+        <section data-title="Author information">
+          <div class="c-article-section__content">
+            <ol class="c-article-author-information__list">
+              <li class="c-article-author-information__item"><p>These authors contributed equally: John Jumper, Richard Evans</p></li>
+            </ol>
+            <ol class="c-article-author-affiliation__list">
+              <li>
+                <p class="c-article-author-affiliation__address">DeepMind, London, UK</p>
+                <p class="c-article-author-affiliation__authors-list">John Jumper, Richard Evans, Alexander Pritzel, Pushmeet Kohli &amp; Demis Hassabis</p>
+              </li>
+            </ol>
+            <h3 id="contributions">Contributions</h3>
+            <p>J.J. and D.H. conceived the project. J.J., R.E. and A.P. implemented and trained the models. P.K. and D.H. supervised the research.</p>
+            <h3 id="corresponding-author">Corresponding author</h3>
+            <p id="corresponding-author-list">Correspondence to <a href="mailto:dhcontact@deepmind.com">Demis Hassabis</a>.</p>
+          </div>
+        </section>
+        <section data-title="References">
+          <div class="c-article-section">
+            <h2>References</h2>
+            <ol class="c-article-references">
+              <li class="c-article-references__item"><p class="c-article-references__text">Senior, A. W. et al. Improved protein structure prediction using potentials from deep learning. <i>Nature</i> <b>577</b>, 706–710 (2020).</p><p class="c-article-references__links"><a data-doi="10.1038/s41586-019-1923-7">Article</a></p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Moult, J. et al. Critical assessment of methods of protein structure prediction (CASP)—Round XIII. <i>Proteins</i> <b>87</b>, 1011–1020 (2019).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Vaswani, A. et al. Attention is all you need. <i>Adv. Neural Inf. Process. Syst.</i> <b>30</b>, 5998–6008 (2017).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Berman, H. M. et al. The Protein Data Bank. <i>Nucleic Acids Res.</i> <b>28</b>, 235–242 (2000).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">UniProt Consortium. UniProt: the universal protein knowledgebase in 2021. <i>Nucleic Acids Res.</i> <b>49</b>, D480–D489 (2021).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">AlQuraishi, M. End-to-end differentiable learning of protein structure. <i>Cell Syst.</i> <b>8</b>, 292–301 (2019).</p></li>
+            </ol>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

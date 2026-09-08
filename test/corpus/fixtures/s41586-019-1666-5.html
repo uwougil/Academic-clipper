@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Quantum supremacy using a programmable superconducting processor | Nature</title>
+    <link rel="canonical" href="https://www.nature.com/articles/s41586-019-1666-5">
+    <meta name="citation_title" content="Quantum supremacy using a programmable superconducting processor">
+    <meta name="citation_author" content="Frank Arute">
+    <meta name="citation_author" content="Kunal Arya">
+    <meta name="citation_author" content="Rishi Babbush">
+    <meta name="citation_author" content="John M. Martinis">
+    <meta name="citation_journal_title" content="Nature">
+    <meta name="citation_online_date" content="2019/10/23">
+    <meta name="citation_doi" content="10.1038/s41586-019-1666-5">
+    <meta name="citation_volume" content="574">
+    <meta name="citation_issue" content="7779">
+    <meta name="citation_firstpage" content="505">
+    <meta name="citation_lastpage" content="510">
+  </head>
+  <body>
+    <main class="c-article-main-column">
+      <div class="c-article-body">
+        <section data-title="Abstract">
+          <div class="c-article-section">
+            <h2>Abstract</h2>
+            <div class="c-article-section__content">
+              <p>The promise of quantum computers is that certain computational tasks might be executed exponentially faster on a quantum processor than on a classical computer. We demonstrate computational supremacy with a 53-qubit programmable superconducting processor executing random quantum circuits.</p>
+            </div>
+          </div>
+        </section>
+        <div class="main-content">
+          <section data-title="Main">
+            <div class="c-article-section">
+              <h2>Main</h2>
+              <div class="c-article-section__content">
+                <p>Our Sycamore processor comprises 54 transmon qubits arranged in a two-dimensional grid <sup><a data-test="citation-ref" href="#ref-CR1">1</a>,<a data-test="citation-ref" href="#ref-CR2">2</a></sup>. The computational state space of dimension <span class="mathjax-tex">\(2^{53} \approx 9 \times 10^{15}\)</span> is explored via single-qubit gates <span class="mathjax-tex">\(U_i \in \mathrm{SU}(2)\)</span> with entangling phase <span class="mathjax-tex">\(\theta = \pi/2\)</span> and low average gate error <span class="mathjax-tex">\(e_g &lt; 10^{-3}\)</span> as outlined in <a href="#Fig1">Figure 1</a>.</p>
+                <div id="Equ1" class="c-article-equation">
+                  <div class="c-article-equation__content"><span class="mathjax-tex">$$\vert \psi_U \rangle = U \vert 0^{\otimes n} \rangle = U_m \dots U_1 \vert 0^{\otimes n} \rangle$$</span></div>
+                  <div class="c-article-equation__number">(1)</div>
+                </div>
+                <p>The ideal probability distribution of bitstrings <span class="mathjax-tex">\(x \in \{0, 1\}^n\)</span> satisfies <a href="#Equ1">Equation (1)</a> with probability <span class="mathjax-tex">\(P_U(x) = \vert \langle x \vert \psi_U \rangle \vert^2\)</span>. To benchmark circuit performance, the linear cross-entropy benchmarking fidelity <span class="mathjax-tex">\(F_{\mathrm{XEB}}\)</span> is formulated as:</p>
+                <div id="Equ2" class="c-article-equation">
+                  <div class="c-article-equation__content"><span class="mathjax-tex">$$F_{\mathrm{XEB}} = 2^n \sum_{x} P_U(x) q(x) - 1$$</span></div>
+                  <div class="c-article-equation__number">(2)</div>
+                </div>
+                <p>For an incoherent noise model represented in <a href="#Equ3">Equation (3)</a>, the density matrix <span class="mathjax-tex">\(\rho\)</span> decays exponentially:</p>
+                <div id="Equ3" class="c-article-equation">
+                  <div class="c-article-equation__content"><span class="mathjax-tex">$$\rho = F_{\mathrm{XEB}} \vert \psi_U \rangle \langle \psi_U \vert + (1 - F_{\mathrm{XEB}}) \frac{I}{2^n}$$</span></div>
+                  <div class="c-article-equation__number">(3)</div>
+                </div>
+                <p>Furthermore, error budget summation follows the array formulation in <a href="#Equ4">Equation (4)</a>:</p>
+                <div id="Equ4" class="c-article-equation">
+                  <div class="c-article-equation__content"><span class="mathjax-tex">$$\begin{array}{c} \epsilon_{\mathrm{tot}} = \prod_{j} (1 - e_j) \\ F_{\mathrm{pred}} \approx \exp\left( - \sum_j e_j \right) \end{array}$$</span></div>
+                  <div class="c-article-equation__number">(4)</div>
+                </div>
+                <figure>
+                  <figcaption><b id="Fig1" data-test="figure-caption-text">Fig. 1: Sycamore processor architecture and coupling layout.</b></figcaption>
+                  <div class="c-article-section__figure-content"><picture><source srcset="//example.org/sycamore-high.png 2x"><img src="//example.org/sycamore.png" alt="Fig. 1: Processor layout."></picture></div>
+                  <div class="c-article-section__figure-description" data-test="bottom-caption"><p><b>a</b>, Layout of 54 qubits with adjustable couplers. <b>b</b>, Qubit wiring and readout control lines.</p></div>
+                </figure>
+                <figure>
+                  <figcaption><b id="Fig2" data-test="figure-caption-text">Fig. 2: Sampling fidelity as a function of circuit depth.</b></figcaption>
+                  <div class="c-article-section__figure-content"><picture><source srcset="//example.org/fidelity-high.png 2x"><img src="//example.org/fidelity.png" alt="Fig. 2: Fidelity curves."></picture></div>
+                  <div class="c-article-section__figure-description" data-test="bottom-caption"><p>Linear cross-entropy fidelity plotted across depths up to 20 cycles.</p></div>
+                </figure>
+                <p>Gate operations and error rates are compiled into <a href="#Tab1">Table 1</a>, while calibration procedures are visualized in <a href="#Fig3">Extended Data Fig. 1</a> and <a href="#Fig4">Extended Data Fig. 2</a>.</p>
+              </div>
+            </div>
+          </section>
+          <section data-title="Methods">
+            <div class="c-article-section">
+              <h2>Methods</h2>
+              <div class="c-article-section__content">
+                <p>Qubit readout was calibrated using dispersive measurements at 15 mK base temperature.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <section data-title="Extended data figures and tables">
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig3">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/ext1.jpg" href="/articles/s41586-019-1666-5/figures/3">Extended Data Fig. 1 Control electronics and cryogenic wiring.</a></h3>
+            <div class="c-article-supplementary__description"><p>Schematic of coaxial line filtering and amplification chain.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig4">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/ext2.jpg" href="/articles/s41586-019-1666-5/figures/4">Extended Data Fig. 2 Pauli error tomography and two-qubit Pauli channels.</a></h3>
+            <div class="c-article-supplementary__description"><p>Reconstructed process matrices for iSWAP and CPHASE gates.</p></div>
+          </div>
+        </section>
+        <figure id="Tab1">
+          <figcaption><span data-test="table-caption">Table 1 Summary of average quantum gate error rates.</span></figcaption>
+          <a data-test="table-link" href="/articles/s41586-019-1666-5/tables/1">Full table</a>
+          <table>
+            <thead>
+              <tr><th>Gate Type</th><th>Pauli Error (%)</th><th>Readout Error (%)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Single-qubit</td><td>0.15</td><td>3.8</td></tr>
+              <tr><td>Two-qubit (isolated)</td><td>0.36</td><td>—</td></tr>
+              <tr><td>Two-qubit (simultaneous)</td><td>0.62</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </figure>
+        <section data-title="Author information">
+          <div class="c-article-section__content">
+            <ol class="c-article-author-information__list">
+              <li class="c-article-author-information__item"><p>These authors contributed equally: Frank Arute, Kunal Arya</p></li>
+            </ol>
+            <ol class="c-article-author-affiliation__list">
+              <li>
+                <p class="c-article-author-affiliation__address">Google Quantum AI, Mountain View, CA, USA</p>
+                <p class="c-article-author-affiliation__authors-list">Frank Arute, Kunal Arya, Rishi Babbush &amp; John M. Martinis</p>
+              </li>
+            </ol>
+            <h3 id="contributions">Contributions</h3>
+            <p>F.A. and K.A. developed device firmware and performed the experiments. R.B. designed the algorithm tests. J.M.M. supervised the project.</p>
+            <h3 id="corresponding-author">Corresponding author</h3>
+            <p id="corresponding-author-list">Correspondence to <a href="mailto:jmartinis@google.com">John M. Martinis</a>.</p>
+          </div>
+        </section>
+        <section data-title="References">
+          <div class="c-article-section">
+            <h2>References</h2>
+            <ol class="c-article-references">
+              <li class="c-article-references__item"><p class="c-article-references__text">Preskill, J. Quantum Computing in the NISQ era and beyond. <i>Quantum</i> <b>2</b>, 79 (2018).</p><p class="c-article-references__links"><a data-doi="10.22331/q-2018-08-06-79">Article</a></p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Boixo, S. et al. Characterizing quantum supremacy in near-term devices. <i>Nat. Phys.</i> <b>14</b>, 595–600 (2018).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Bremner, M. J., Montanaro, A. &amp; Shepherd, D. J. Average-case complexity versus quantum supremacy. <i>Phys. Rev. Lett.</i> <b>117</b>, 080501 (2016).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Aaronson, S. &amp; Chen, L. Complexity-theoretic foundations of quantum supremacy experiments. <i>arXiv:1612.05903</i> (2016).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Cross, A. W. et al. Validating quantum computers using randomized model circuits. <i>Phys. Rev. A</i> <b>100</b>, 032328 (2019).</p></li>
+            </ol>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
