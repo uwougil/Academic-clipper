@@ -54,7 +54,35 @@ papers/<article-id>/
 
 ### 2.4 Markdown 与 academic normalization
 
-`src/markdown.mjs` 在受控 DOM 环境中调用 Defuddle。`src/normalizers/` 处理语义 placeholder、原始 TeX、scientific inline、引用/锚点、figure caption 和表格；`src/validators/` 对最终候选 Markdown 做 lexical math 和结构校验。验证失败时 writer 不安装新版本。
+`src/markdown.mjs` 在受控 DOM 环境中调用 Defuddle。`src/normalizers/` 处理语义 placeholder、原始 TeX、scientific inline、引用/锚点、figure caption 和表格；`src/validators/` 对最终候选 Markdown 实施词法数学、raw HTML audit、文档结构与交叉引用校验。任一校验失败时 writer 均拒绝安装新版本。
+
+### 2.5 输出方言契约与校验管线
+
+系统提供三种明确的输出方言（dialect）契约：
+
+- `markdown`（默认模式）：
+  - 维持 zero raw HTML（正文中严禁出现任何原生 HTML 标签）。
+  - figure、table、equation 等无法以纯 CommonMark 可靠定位的内部引用，按契约降级为普通文本（例如 `Figure 1`、`Table 1`、`Equation (2)`），杜绝生成指向不存在内部 target 的 `](#...)` 死链；section 仅在存在对应 heading slug 时保留链接，否则降级为普通文本。
+- `quarto`（学术出版模式）：
+  - 使用 Quarto-native identifiers 与交叉引用前缀：
+    - `{#fig-*}`
+    - `{#tbl-*}`
+    - `{#eq-*}`
+    - `{#sec-*}`
+  - 保持正文 zero raw HTML。
+- `links`（legacy compatibility 模式）：
+  - 仅允许严格受控的 `<a id="..."></a>` 兼容锚点。
+  - 严禁任意其他 raw HTML 标签（如 `<a href="...">`、`<a onclick="...">`、`<div>`、`<span>` 等）。
+
+最终写入论文目录前的校验管线（Validation Pipeline）：
+
+```text
+rendered Markdown
+  → raw HTML audit (代码块与行内代码外严禁未授权 HTML；links 模式仅放行合法兼容锚点)
+  → Markdown structure validation (标题层级、脚注/参考文献连续性、表格结构)
+  → cross-reference validation (验证正文内部引用均存在合法 target，拦截未知悬空死链)
+  → write index.md
+```
 
 ## 3. 写入与恢复协议
 

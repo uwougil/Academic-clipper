@@ -93,11 +93,20 @@ test('concurrent Nature clips keep each DOM environment isolated and restore pri
 
 test('id-less equations receive deterministic cross-reference identities and external fragments stay external', async () => {
   const result = await clipNature({ html: idlessEquationHtml, url: idlessEquationUrl });
-  assert.match(result.markdown, /\[Equation 1\]\(#equation-1\)/);
-  assert.match(result.markdown, /<a id="equation-1"><\/a>/);
-  assert.match(result.markdown, /\[Same article equation\]\(#equation-1\)/);
+  assert.match(result.markdown, /See Equation 1\./);
+  assert.doesNotMatch(result.markdown, /<a id="equation-1"><\/a>/);
+  assert.match(result.markdown, /Same article equation and \[External article link\]\(https:\/\/external\.example\/articles\/other#Equ1\)\./);
   assert.match(result.markdown, /\[External article link\]\(https:\/\/external\.example\/articles\/other#Equ1\)/);
   assert.equal(validateMathDelimiters(result.markdown).valid, true);
+
+  const linksResult = await clipNature({ html: idlessEquationHtml, url: idlessEquationUrl, citationStyle: 'links' });
+  assert.match(linksResult.markdown, /\[Equation 1\]\(#equation-1\)/);
+  assert.match(linksResult.markdown, /<a id="equation-1"><\/a>/);
+  assert.match(linksResult.markdown, /\[Same article equation\]\(#equation-1\)/);
+
+  const quartoResult = await clipNature({ html: idlessEquationHtml, url: idlessEquationUrl, citationStyle: 'quarto' });
+  assert.match(quartoResult.markdown, /\[Equation 1\]\(#eq-equation-1\)/);
+  assert.match(quartoResult.markdown, /\{#eq-equation-1\}/);
 });
 
 test('writer removes stale bibliography and debug artifacts during directory replacement', async () => {

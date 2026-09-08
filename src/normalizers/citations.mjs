@@ -30,31 +30,56 @@ export function normalizeAnchorMarkers(markdown, crossReferences = [], options =
   for (const target of crossReferences) {
     const sectionMarker = semanticMarker('SECTIONANCHOR', target.anchor);
     if (target.type === 'section') {
+      const hasHeading = result.includes(sectionMarker)
+        || new RegExp(`^#{1,6}\\s+.*\\b${escapeRegExp(target.anchor.replace(/-/g, '[-\\s]'))}`, 'imu').test(result);
       if (policy.dialect === 'quarto') {
-        const markerPattern = new RegExp(
-          `${escapeRegExp(sectionMarker)}\\s*\\n\\s*(#{1,6}\\s+[^\\n]+)`,
-          'gu',
-        );
-        result = result.replace(markerPattern, (_match, heading) => (
-          `${heading.trim()} {#${policy.sectionIdentifier(target)}}`
-        ));
-      }
-      result = result.replaceAll(sectionMarker, '');
-      if (policy.dialect === 'quarto') {
-        result = result.replaceAll(
-          `](#${target.anchor})`,
-          `](${policy.sectionLink(target)})`,
-        );
+        if (hasHeading) {
+          const markerPattern = new RegExp(
+            `${escapeRegExp(sectionMarker)}\\s*\\n\\s*(#{1,6}\\s+[^\\n]+)`,
+            'gu',
+          );
+          result = result.replace(markerPattern, (_match, heading) => (
+            `${heading.trim()} {#${policy.sectionIdentifier(target)}}`
+          ));
+          result = result.replaceAll(sectionMarker, '');
+          result = result.replaceAll(
+            `](#${target.anchor})`,
+            `](${policy.sectionLink(target)})`,
+          );
+        } else {
+          result = result.replaceAll(sectionMarker, '');
+          result = result.replace(
+            new RegExp(`(?<!!)\\[([^\\]]+)\\]\\(#${escapeRegExp(target.anchor)}\\)`, 'gu'),
+            '$1',
+          );
+        }
+      } else {
+        result = result.replaceAll(sectionMarker, '');
+        if (!hasHeading) {
+          result = result.replace(
+            new RegExp(`(?<!!)\\[([^\\]]+)\\]\\(#${escapeRegExp(target.anchor)}\\)`, 'gu'),
+            '$1',
+          );
+        }
       }
       continue;
     }
+
     const identifierPrefix = { figure: 'fig', table: 'tbl', equation: 'eq' }[target.type];
     if (policy.dialect === 'quarto' && identifierPrefix) {
       result = result.replaceAll(
         `](#${target.anchor})`,
         `](#${identifierPrefix}-${target.anchor})`,
       );
+    } else if (!policy.allowHtmlAnchors) {
+      // In default markdown mode, figures, tables, and equations do not receive HTML anchors.
+      // Degrade their links to plain text to avoid dangling dead links.
+      result = result.replace(
+        new RegExp(`(?<!!)\\[([^\\]]+)\\]\\(#${escapeRegExp(target.anchor)}\\)`, 'gu'),
+        '$1',
+      );
     }
+
     const equationMarker = semanticMarker('EQUATIONANCHOR', target.anchor);
     if (target.type === 'equation' && policy.dialect === 'quarto') {
       const markerPattern = new RegExp(
@@ -66,7 +91,7 @@ export function normalizeAnchorMarkers(markdown, crossReferences = [], options =
       ));
       result = result.replaceAll(equationMarker, '');
     } else {
-      result = result.replaceAll(equationMarker, `<a id="${target.anchor}"></a>`);
+      result = result.replaceAll(equationMarker, policy.allowHtmlAnchors ? `<a id="${target.anchor}"></a>` : '');
     }
   }
   return result;

@@ -3,6 +3,8 @@ import { readFile } from 'node:fs/promises';
 import { detectCitationStyle } from './validators/citation-style.mjs';
 import { validateMathDelimiters } from './validators/math-delimiters.mjs';
 import { validateMarkdownStructure } from './validators/markdown-structure.mjs';
+import { validateRawHtml } from './validators/html-audit.mjs';
+import { validateCrossReferences } from './validators/cross-references.mjs';
 
 class UsageError extends Error {}
 
@@ -26,8 +28,10 @@ try {
   const validation = validateMathDelimiters(markdown);
   const citationStyle = requestedCitationStyle === 'auto' ? detectCitationStyle(markdown) : requestedCitationStyle;
   const structure = validateMarkdownStructure(markdown, { citationStyle });
-  console.log(JSON.stringify({ file, citationStyle, ...validation, markdownStructure: structure }, null, 2));
-  if (!validation.valid || !structure.valid) process.exitCode = 1;
+  const rawHtml = validateRawHtml(markdown, { allowHtmlAnchors: citationStyle === 'links' });
+  const crossReferences = validateCrossReferences(markdown, { citationStyle });
+  console.log(JSON.stringify({ file, citationStyle, ...validation, markdownStructure: structure, rawHtmlValidation: rawHtml, crossReferenceValidation: crossReferences }, null, 2));
+  if (!validation.valid || !structure.valid || !rawHtml.valid || !crossReferences.valid) process.exitCode = 1;
 } catch (error) {
   const prefix = error instanceof UsageError ? 'Usage error' : `Unable to validate ${file || 'paper'}`;
   console.error(`${prefix}: ${error instanceof Error ? error.message : String(error)}`);

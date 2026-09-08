@@ -11,6 +11,8 @@ import { normalizeAnchorMarkers, normalizeCitations } from './normalizers/citati
 import { normalizeFigureCaptions, normalizeTableContents, renderFigure, renderFigures, renderTables } from './normalizers/figures.mjs';
 import { MathDelimiterValidationError, validateMathDelimiters } from './validators/math-delimiters.mjs';
 import { validateMarkdownStructure } from './validators/markdown-structure.mjs';
+import { RawHtmlValidationError, maskCode, validateRawHtml } from './validators/html-audit.mjs';
+import { CrossReferenceValidationError, collectDocumentTargets, validateCrossReferences } from './validators/cross-references.mjs';
 import { safeFetchExternal } from './security.mjs';
 import { ACADEMIC_CLIPPER_USER_AGENT } from './version.mjs';
 import { outputPolicy } from './renderers/output-policy.mjs';
@@ -216,6 +218,29 @@ export function referencesBib(references) {
   }).join('\n').trimEnd() + '\n';
 }
 
+function isKnownScholarlyReference(target, label = '', knownSemanticAnchors = new Set()) {
+  if (knownSemanticAnchors.has(target)) return true;
+  if (/^(?:figure|fig|extended-data-figure|extended-data-fig|extended-data-table|table|tbl|equation|eq|sec)-/i.test(target)) {
+    return true;
+  }
+  if (/^(?:Figure|Table|Equation|Extended Data)\b/i.test(label)) {
+    return true;
+  }
+  return false;
+}
+
+function degradeDanglingInternalLinks(markdown, knownSemanticAnchors = new Set()) {
+  const masked = maskCode(markdown);
+  const targets = collectDocumentTargets(masked);
+  return markdown.replace(/(?<!!)\[([^\]]+)\]\(#([a-zA-Z0-9_.:-]+)\)/g, (fullMatch, label, target) => {
+    if (targets.has(target)) return fullMatch;
+    if (isKnownScholarlyReference(target, label, knownSemanticAnchors)) {
+      return label;
+    }
+    return fullMatch;
+  });
+}
+
 export function renderClipMarkdown(result, imagePathByAnchor = new Map()) {
   const semantic = result.semantic;
   const policy = result.outputPolicy || outputPolicy(result.citationStyle);
@@ -230,7 +255,13 @@ export function renderClipMarkdown(result, imagePathByAnchor = new Map()) {
   const tables = renderTables(result.tables, policy);
   const authorInformation = renderAuthorInformation(result.metadata);
   const sections = [body, extendedFigures, tables, authorInformation, result.referencesMarkdown].filter(Boolean);
-  const markdownBody = `# ${result.metadata.title}\n\n${sections.join('\n\n')}`.trim();
+  let markdownBody = `# ${result.metadata.title}\n\n${sections.join('\n\n')}`.trim();
+  if (!policy.allowHtmlAnchors && policy.dialect !== 'quarto') {
+    const knownSemanticAnchors = new Set(
+      Array.from(result.semantic?.crossReferences?.values() || []).map((t) => t.anchor),
+    );
+    markdownBody = degradeDanglingInternalLinks(markdownBody, knownSemanticAnchors);
+  }
   return `${frontmatter(result.metadata, policy.dialect === 'quarto' ? 'quarto' : result.citationStyle)}${markdownBody}\n`;
 }
 
@@ -278,6 +309,8 @@ export async function clipNature({ html, url, rawHtml = html, citationStyle = 'm
     markdownCharacters: fullMarkdown.length,
     mathValidation: validateMathDelimiters(fullMarkdown),
     markdownStructure: validateMarkdownStructure(fullMarkdown, { dialect: policy.dialect, citationStyle }),
+    rawHtmlValidation: validateRawHtml(fullMarkdown, { allowHtmlAnchors: policy.allowHtmlAnchors }),
+    crossReferenceValidation: validateCrossReferences(fullMarkdown, { dialect: policy.dialect, citationStyle }),
     warnings: [...parsedPage.debug.warnings],
     metadataAudit: metadataAudit(parsedPage.metadata),
     tableSummary: {
@@ -845,11 +878,24 @@ async function writePaperUnlocked(result, {
     result.debug.mathValidation = remoteValidation;
     throw new MathDelimiterValidationError(remoteValidation, path.join(destination, 'index.md'));
   }
+  const remoteRawHtmlValidation = validateRawHtml(remoteMarkdown, { allowHtmlAnchors: result.outputPolicy?.allowHtmlAnchors });
+  if (!remoteRawHtmlValidation.valid) {
+    result.debug.rawHtmlValidation = remoteRawHtmlValidation;
+    throw new RawHtmlValidationError(remoteRawHtmlValidation, path.join(destination, 'index.md'));
+  }
   const remoteStructure = validateMarkdownStructure(remoteMarkdown, {
     dialect: result.outputPolicy?.dialect,
     citationStyle: result.citationStyle,
   });
   if (!remoteStructure.valid) throw new Error(`Markdown structure validation failed: ${JSON.stringify(remoteStructure.issues)}`);
+  const remoteCrossReferences = validateCrossReferences(remoteMarkdown, {
+    dialect: result.outputPolicy?.dialect,
+    citationStyle: result.citationStyle,
+  });
+  if (!remoteCrossReferences.valid) {
+    result.debug.crossReferenceValidation = remoteCrossReferences;
+    throw new CrossReferenceValidationError(remoteCrossReferences, path.join(destination, 'index.md'));
+  }
 
   await mkdir(root, { recursive: true });
   const tempPrefix = transactionPrefix(result.articleId);
@@ -880,12 +926,21 @@ async function writePaperUnlocked(result, {
     const mathValidation = validateMathDelimiters(markdown);
     result.debug.mathValidation = mathValidation;
     if (!mathValidation.valid) throw new MathDelimiterValidationError(mathValidation, path.join(destination, 'index.md'));
+    const rawHtmlValidation = validateRawHtml(markdown, { allowHtmlAnchors: result.outputPolicy?.allowHtmlAnchors });
+    result.debug.rawHtmlValidation = rawHtmlValidation;
+    if (!rawHtmlValidation.valid) throw new RawHtmlValidationError(rawHtmlValidation, path.join(destination, 'index.md'));
     const markdownStructure = validateMarkdownStructure(markdown, {
       dialect: result.outputPolicy?.dialect,
       citationStyle: result.citationStyle,
     });
     result.debug.markdownStructure = markdownStructure;
     if (!markdownStructure.valid) throw new Error(`Markdown structure validation failed: ${JSON.stringify(markdownStructure.issues)}`);
+    const crossReferenceValidation = validateCrossReferences(markdown, {
+      dialect: result.outputPolicy?.dialect,
+      citationStyle: result.citationStyle,
+    });
+    result.debug.crossReferenceValidation = crossReferenceValidation;
+    if (!crossReferenceValidation.valid) throw new CrossReferenceValidationError(crossReferenceValidation, path.join(destination, 'index.md'));
 
     await writeFile(path.join(staging, 'index.md'), markdown, 'utf8');
     if (saveDebug) {
