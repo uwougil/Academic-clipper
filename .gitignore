@@ -14,3 +14,10 @@ papers/s41586-026-10401-1/cleaned.html
 papers/s41586-026-10401-1/.gitignore
 config.json
 *.log
+.bridge-run.json
+.bridge-startup.lock
+com.academic_clipper.bridge.json
+src/launcher.bat
+src/launcher.cmd
+src/launcher.exe
+src/.node-path.txt
