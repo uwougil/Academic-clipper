@@ -2,9 +2,11 @@
 
 ## Intent and ownership
 
-- `docs/PRD.md` is the product intent source.
-- `docs/EDD.md` is the engineering intent source.
-- `docs/milestones/*.md` is the execution and acceptance source.
+- `docs/PRD.md` is the human-maintained Product Intent source.
+- `docs/EDD.md` is the human-maintained Engineering Intent source. Product and engineering intent changes require explicit human resolution; never change PRD/EDD semantics without it.
+- `docs/milestones/*.md` are preserved as historical planning and execution evidence; routine agents are not required to maintain milestones in sync with PRD/EDD.
+- GitHub Issues serve as persistent Work Contracts. Each Issue is one independently deliverable outcome, normally completed by one final delivery Pull Request rather than responsibility shared across multiple ordinary PRs. If one final PR cannot reasonably deliver the outcome, re-boundary the Issue before implementation.
+- The default branch represents accepted implementation reality, not authority to silently override PRD/EDD.
 - `README.md` is the user-facing operating guide; keep it consistent with the intent sources, but do not use it as a replacement for them.
 - `papers/s41586-026-10401-1/` is the intentionally committed Nature golden artifact. Other captures under `papers/`, `dist/`, `node_modules/`, and `config.json` are local or generated and must remain ignored.
 
@@ -38,12 +40,15 @@ The CI workflow must continue to run the same checks on Ubuntu Node 20, Ubuntu N
 
 ## Collaboration and delivery
 
-- Issue-backed changes normally use an isolated `codex/` branch or worktree and are delivered through a pull request linked to the Issue.
-- A handoff must be reconstructible from PRD/EDD, the linked Issue, commits, the pull request description and diff, test output, and CI results; do not rely on private conversation state.
+- Issue-backed changes normally use an isolated branch or worktree (such as a `codex/` branch or task worktree) and are delivered through a pull request linked to the Issue.
+- Each Issue is normally completed by one final delivery Pull Request; multiple ordinary PRs must not share responsibility for completing the same Issue.
+- A final delivery Pull Request is the repository-visible Delivery / Handoff Contract. Another agent must be able to reconstruct the handoff from PRD/EDD, the linked Issue, commits, the pull request description and diff, test output, and CI results; do not rely on private conversation state.
+- Link Issue-backed PRs with an exact standalone `Refs #N` line; agents must not use `Closes #N`, `Fixes #N`, or `Resolves #N`. Merging code must not auto-close the Work Contract.
 - Required verification must pass before merge. Record the commands and relevant results in the pull request.
-- Product or engineering intent changes require explicit human resolution and corresponding updates to `docs/PRD.md`, `docs/EDD.md`, or the applicable milestone.
+- Merge only admits code to the default branch; merge does not complete the Work Contract. Only successful Main CI for the merged commit completes the Work Contract; independent automation comments on and closes the linked open Issue with the `completed` state reason on success, or comments and keeps the Issue open on any non-success conclusion.
+- Product or engineering intent changes require explicit human resolution and corresponding updates to `docs/PRD.md` and `docs/EDD.md`.
 - Repository-facing prose uses the resolved collaboration language; preserve technical strings such as commands, identifiers, paths, URLs, API names, and GitHub numbers verbatim.
 
 ## Completion checks
 
-Before handing off repository changes, inspect `git diff --check`, `git status --short`, tracked filenames, and the relevant test/build output. Update the appropriate PRD, EDD, or milestone when a change alters product behavior or an architectural boundary.
+Before handing off repository changes, inspect `git diff --check`, `git status --short`, tracked filenames, and the relevant test/build output. Update `docs/PRD.md` or `docs/EDD.md` only when an explicit human resolution authorizes a change in product behavior or an architectural boundary.
