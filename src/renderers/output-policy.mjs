@@ -5,6 +5,7 @@ const POLICIES = {
     sectionIdentifier: (target) => target.anchor,
     sectionLink: (target) => `#${target.anchor}`,
     references: 'footnotes',
+    allowHtmlAnchors: false,
   },
   quarto: {
     dialect: 'quarto',
@@ -12,6 +13,7 @@ const POLICIES = {
     sectionIdentifier: (target) => `sec-${target.anchor}`,
     sectionLink: (target) => `#sec-${target.anchor}`,
     references: 'refs',
+    allowHtmlAnchors: false,
   },
   // Kept as an explicit compatibility mode for existing local configurations.
   links: {
@@ -20,6 +22,7 @@ const POLICIES = {
     sectionIdentifier: (target) => target.anchor,
     sectionLink: (target) => `#${target.anchor}`,
     references: 'ordered-list',
+    allowHtmlAnchors: true,
   },
 };
 

@@ -110,7 +110,7 @@ export function renderFigure(figure, imagePath = figure.imageUrl, policy = { dia
     ? `${image}{#fig-${figure.anchor}}`
     : image;
   return [
-    ...(policy.dialect === 'quarto' ? [] : [`<a id="${figure.anchor}"></a>`]),
+    ...(policy.allowHtmlAnchors ? [`<a id="${figure.anchor}"></a>`] : []),
     imageWithIdentifier,
     '',
     `${label}${body ? ` ${body}` : ''}`,
@@ -140,7 +140,7 @@ export function renderTables(tables, policy = { dialect: 'markdown' }) {
       .replace(/^(?:Extended Data )?Table\s*\d+\s*(?:[:|.-]\s*|\s+)/i, '')
       .trim();
     const caption = `**${table.label}.**${body ? ` ${body}` : ''}`;
-    const identifier = policy.dialect === 'quarto' ? ` {#tbl-${table.anchor}}` : ` <a id="${table.anchor}"></a>`;
+    const identifier = policy.dialect === 'quarto' ? ` {#tbl-${table.anchor}}` : (policy.allowHtmlAnchors ? ` <a id="${table.anchor}"></a>` : '');
     if (table.markdown) {
       lines.push(`${caption}${identifier}`, '');
       lines.push(table.markdown, '');

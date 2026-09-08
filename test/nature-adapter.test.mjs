@@ -68,13 +68,14 @@ test('Nature clipping preserves headings, TeX, figures, citations, and reference
   assert.doesNotMatch(result.markdown, /\$\$\n(?:100|210|001)\n\$\$/);
   assert.match(result.markdown, /\$\$\nE=mc\^2\n\$\$/);
   assert.match(result.markdown, /\$\$\n\\begin\{array\}\{c\}a_i \\\\ b_j\\end\{array\}\n\$\$/);
-  assert.match(result.markdown, /<a id="figure-1"><\/a>\n!\[Figure 1\]/);
-  assert.match(result.markdown, /## Extended Data\n\n<a id="extended-data-figure-1"><\/a>/);
+  assert.match(result.markdown, /!\[Figure 1\]/);
+  assert.match(result.markdown, /## Extended Data\n\n!\[Extended Data Figure 1\]/);
   assert.match(result.markdown, /\[\^1\]\[\^2\]\[\^3\]/);
-  assert.match(result.markdown, /\[Figure 1\]\(#figure-1\)/);
-  assert.match(result.markdown, /\[Extended Data Fig\. 3\]\(#extended-data-figure-3\)/);
-  assert.match(result.markdown, /\[Table 1\]\(#table-1\)/);
-  assert.match(result.markdown, /\[Equation \(2\)\]\(#equation-2\)/);
+  assert.match(result.markdown, /Paragraph A contains Figure 1, Extended Data Fig\. 3, Table 1 and Equation \(2\)\./);
+  assert.doesNotMatch(result.markdown, /\[Figure 1\]\(#figure-1\)/);
+  assert.doesNotMatch(result.markdown, /\[Extended Data Fig\. 3\]\(#extended-data-figure-3\)/);
+  assert.doesNotMatch(result.markdown, /\[Table 1\]\(#table-1\)/);
+  assert.doesNotMatch(result.markdown, /\[Equation \(2\)\]\(#equation-2\)/);
   assert.match(result.markdown, /^\[\^1\]: Lovelace, A\./m);
   assert.match(result.markdown, /doi:10\.1000\/test/);
   assert.match(result.markdown, /https:\/\/doi\.org\/10\.1000\/test/);
@@ -87,8 +88,8 @@ test('Nature clipping preserves headings, TeX, figures, citations, and reference
   assert.equal((result.markdown.match(/^## References\s*$/gm) || []).length, 1);
   assert.equal((result.markdown.match(/^\[\^\d+\]:/gm) || []).length, 3);
   assert.equal((result.markdown.match(/Extended caption\./g) || []).length, 1);
-  assert.ok(result.markdown.indexOf('Paragraph A') < result.markdown.indexOf('<a id="figure-1">'));
-  assert.ok(result.markdown.indexOf('<a id="figure-1">') < result.markdown.indexOf('Paragraph B'));
+  assert.ok(result.markdown.indexOf('Paragraph A') < result.markdown.indexOf('![Figure 1]'));
+  assert.ok(result.markdown.indexOf('![Figure 1]') < result.markdown.indexOf('Paragraph B'));
   assert.doesNotMatch(result.markdown, /^## (?:Figure|Extended Data Figure)\b/gm);
   assert.doesNotMatch(result.markdown, /\*\*Figure 1\.\*\*[^\n]+\*\*$/);
 });
@@ -145,6 +146,5 @@ test('Nature adapter maps id-less figures by unique DOM identity', async () => {
   assert.deepEqual(result.figures.map((figure) => figure.id), ['', '']);
   assert.deepEqual(result.figures.map((figure) => figure.anchor), ['figure-1', 'figure-2']);
   assert.ok(result.markdown.indexOf('no-id-one.png') < result.markdown.indexOf('no-id-two.png'));
-  assert.equal((result.markdown.match(/<a id="figure-[12]"><\/a>/g) || []).length, 2);
   assert.equal((result.markdown.match(/!\[Figure [12]\]/g) || []).length, 2);
 });
