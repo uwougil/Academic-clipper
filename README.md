@@ -4,9 +4,11 @@
 
 - [产品需求文档](docs/PRD.md)
 - [工程设计文档](docs/EDD.md)
-- 历史里程碑与验收记录：
+- [Nature 代表性论文语料库规范](docs/nature-corpus.md)
+- 里程碑与验收记录：
   - [Milestone 001 — Nature v0.2 高保真与稳定性收敛](docs/milestones/001-nature-v0.2-stability.md)
   - [Milestone 002 — 架构加固与代码审查收敛](docs/milestones/002-code-review-hardening.md)
+  - [Milestone 003 — Nature 代表性语料验证集与回归机制](docs/milestones/003-nature-corpus-verification.md)
 - [仓库协作与验证规则](AGENTS.md)
 
 这是一个面向科研论文的最小浏览器采集原型：当前页面的 Nature HTML 由浏览器扩展送到本机 bridge，bridge 使用 Obsidian Web Clipper 依赖的 Defuddle 解析并转换为 Markdown，最后写入本地 `papers/<Nature article id>/index.md`。VS Code 只需要打开同一个文件夹即可看到新增文件，不需要开发 VS Code Extension。
@@ -117,6 +119,8 @@ s41586-026-10401-1/index.md
 
 ```bash
 npm test
+npm run test:corpus
+npm run test:corpus:live
 npm run build
 npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto
 ```

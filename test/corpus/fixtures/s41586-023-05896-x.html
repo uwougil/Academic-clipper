@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>A draft human pangenome reference | Nature</title>
+    <link rel="canonical" href="https://www.nature.com/articles/s41586-023-05896-x">
+    <meta name="citation_title" content="A draft human pangenome reference">
+    <meta name="citation_author" content="Wen-Wei Liao">
+    <meta name="citation_author" content="Mobin Asri">
+    <meta name="citation_author" content="Jana Ebler">
+    <meta name="citation_author" content="Daniel Doerr">
+    <meta name="citation_author" content="Marina Haukness">
+    <meta name="citation_author" content="Glenn Hickey">
+    <meta name="citation_author" content="Shilpa Garg">
+    <meta name="citation_author" content="Heng Li">
+    <meta name="citation_author" content="Tobias Marschall">
+    <meta name="citation_author" content="Karen H. Miga">
+    <meta name="citation_author" content="Evan E. Eichler">
+    <meta name="citation_author" content="Benedict Paten">
+    <meta name="citation_journal_title" content="Nature">
+    <meta name="citation_online_date" content="2023/05/10">
+    <meta name="citation_doi" content="10.1038/s41586-023-05896-x">
+    <meta name="citation_volume" content="617">
+    <meta name="citation_issue" content="7960">
+    <meta name="citation_firstpage" content="312">
+    <meta name="citation_lastpage" content="324">
+  </head>
+  <body>
+    <main class="c-article-main-column">
+      <div class="c-article-body">
+        <section data-title="Abstract">
+          <div class="c-article-section">
+            <h2>Abstract</h2>
+            <div class="c-article-section__content">
+              <p>The human reference genome has served as the backbone of modern genomics. Here the Human Pangenome Reference Consortium presents a draft human pangenome reference created from 47 phased, diploid assemblies from a genetically diverse cohort.</p>
+            </div>
+          </div>
+        </section>
+        <div class="main-content">
+          <section data-title="Main">
+            <div class="c-article-section">
+              <h2>Main</h2>
+              <div class="c-article-section__content">
+                <p>Standard linear reference genomes suffer from reference bias <sup><a data-test="citation-ref" href="#ref-CR1">1</a>,<a data-test="citation-ref" href="#ref-CR2">2</a></sup>. Our graph-based pangenome captures diverse structural variants with <span class="mathjax-tex">\(k\)</span>-mer size <span class="mathjax-tex">\(k = 31\)</span>, consensus quality <span class="mathjax-tex">\(\mathrm{QV} \ge 50\)</span>, and contig continuity <span class="mathjax-tex">\(N_{50} &gt; 50\ \mathrm{Mb}\)</span> as shown in <a href="#Fig1">Figure 1</a>.</p>
+                <figure>
+                  <figcaption><b id="Fig1" data-test="figure-caption-text">Fig. 1: Structure and topology of the draft human pangenome graph.</b></figcaption>
+                  <div class="c-article-section__figure-content"><picture><source srcset="//example.org/pangenome-graph-2x.png 2x"><img src="//example.org/pangenome-graph.png" alt="Fig. 1: Graph topology."></picture></div>
+                  <div class="c-article-section__figure-description" data-test="bottom-caption"><p><b>a</b>, Schematic representation of Minigraph-Cactus graph build. <b>b</b>, Phased haplotype bubbles representing complex loci.</p></div>
+                </figure>
+                <p>Haplotype phasing and error rates across ancestries are evaluated in <a href="#Fig2">Figure 2</a> and <a href="#Tab1">Table 1</a>.</p>
+                <figure>
+                  <figcaption><b id="Fig2" data-test="figure-caption-text">Fig. 2: Variant calling precision across diverse chromosomal regions.</b></figcaption>
+                  <div class="c-article-section__figure-content"><picture><source srcset="//example.org/var-call-2x.png 2x"><img src="//example.org/var-call.png" alt="Fig. 2: Precision."></picture></div>
+                  <div class="c-article-section__figure-description" data-test="bottom-caption"><p>Small variant and structural variant recall rates compared with GRCh38.</p></div>
+                </figure>
+                <p>Novel euchromatic sequence additions and satellite DNA resolution are shown in <a href="#Fig3">Figure 3</a>, <a href="#Fig4">Figure 4</a>, and <a href="#Tab2">Table 2</a>, with supplementary validation in <a href="#Fig5">Extended Data Fig. 1</a> through <a href="#Fig8">Extended Data Fig. 4</a>.</p>
+                <figure>
+                  <figcaption><b id="Fig3" data-test="figure-caption-text">Fig. 3: Novel sequence content discovered in non-reference haplotypes.</b></figcaption>
+                  <div class="c-article-section__figure-content"><picture><source srcset="//example.org/novel-seq-2x.png 2x"><img src="//example.org/novel-seq.png" alt="Fig. 3: Novel sequence."></picture></div>
+                  <div class="c-article-section__figure-description" data-test="bottom-caption"><p>Genomic distribution of previously unmapped 119 Mb non-reference sequences.</p></div>
+                </figure>
+                <figure>
+                  <figcaption><b id="Fig4" data-test="figure-caption-text">Fig. 4: Pangenome alignment benchmarking for RNA-seq and ChIP-seq.</b></figcaption>
+                  <div class="c-article-section__figure-content"><picture><source srcset="//example.org/align-bench-2x.png 2x"><img src="//example.org/align-bench.png" alt="Fig. 4: Alignment benchmark."></picture></div>
+                  <div class="c-article-section__figure-description" data-test="bottom-caption"><p>Reduction of mapping bias across highly polymorphic HLA regions.</p></div>
+                </figure>
+              </div>
+            </div>
+          </section>
+          <section data-title="Methods">
+            <div class="c-article-section">
+              <h2>Methods</h2>
+              <div class="c-article-section__content">
+                <p>Samples were selected in accordance with ethical standards from the 1000 Genomes Project cohort.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <section data-title="Extended data figures and tables">
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig5">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/pan-ext1.jpg" href="/articles/s41586-023-05896-x/figures/5">Extended Data Fig. 1 Geographic ancestry distribution of donor cohort.</a></h3>
+            <div class="c-article-supplementary__description"><p>Principal component analysis of biogeographic ancestry.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig6">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/pan-ext2.jpg" href="/articles/s41586-023-05896-x/figures/6">Extended Data Fig. 2 Assembly continuity metrics across Pacific Biosciences HiFi data.</a></h3>
+            <div class="c-article-supplementary__description"><p>Contig N50 and QV values across all 94 assemblies.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig7">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/pan-ext3.jpg" href="/articles/s41586-023-05896-x/figures/7">Extended Data Fig. 3 Structural variation breakpoint resolution in segmental duplications.</a></h3>
+            <div class="c-article-supplementary__description"><p>Optical mapping validation across complex duplications.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig8">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/pan-ext4.jpg" href="/articles/s41586-023-05896-x/figures/8">Extended Data Fig. 4 Computational scaling of pangenome alignment tools.</a></h3>
+            <div class="c-article-supplementary__description"><p>Memory and CPU usage profiles during short-read indexing.</p></div>
+          </div>
+        </section>
+        <figure id="Tab1">
+          <figcaption><span data-test="table-caption">Table 1 Assembly statistics across the 47 diverse diploid samples.</span></figcaption>
+          <a data-test="table-link" href="/articles/s41586-023-05896-x/tables/1">Full table</a>
+          <table>
+            <thead>
+              <tr><th>Metric</th><th>Mean</th><th>Median</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Contig N50 (Mb)</td><td>51.3</td><td>49.7</td></tr>
+              <tr><td>Phasing Accuracy (%)</td><td>99.98</td><td>99.99</td></tr>
+            </tbody>
+          </table>
+        </figure>
+        <figure id="Tab2">
+          <figcaption><span data-test="table-caption">Table 2 Structural variant discovery comparison against GRCh38.</span></figcaption>
+          <a data-test="table-link" href="/articles/s41586-023-05896-x/tables/2">Full table</a>
+          <table>
+            <thead>
+              <tr><th>Variant Category</th><th>Count</th><th>Total Bases (Mb)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Insertions</td><td>42,398</td><td>68.2</td></tr>
+              <tr><td>Deletions</td><td>31,105</td><td>43.1</td></tr>
+            </tbody>
+          </table>
+        </figure>
+        <section data-title="Author information">
+          <div class="c-article-section__content">
+            <ol class="c-article-author-information__list">
+              <li class="c-article-author-information__item"><p>These authors contributed equally: Wen-Wei Liao, Mobin Asri, Jana Ebler</p></li>
+            </ol>
+            <ol class="c-article-author-affiliation__list">
+              <li>
+                <p class="c-article-author-affiliation__address">UC Santa Cruz Genomics Institute, University of California Santa Cruz, Santa Cruz, CA, USA</p>
+                <p class="c-article-author-affiliation__authors-list">Wen-Wei Liao, Mobin Asri, Marina Haukness, Glenn Hickey &amp; Benedict Paten</p>
+              </li>
+              <li>
+                <p class="c-article-author-affiliation__address">Center for Bioinformatics, Saarland University, Saarbrücken, Germany</p>
+                <p class="c-article-author-affiliation__authors-list">Jana Ebler, Daniel Doerr &amp; Tobias Marschall</p>
+              </li>
+              <li>
+                <p class="c-article-author-affiliation__address">Department of Genome Sciences, University of Washington, Seattle, WA, USA</p>
+                <p class="c-article-author-affiliation__authors-list">Karen H. Miga &amp; Evan E. Eichler</p>
+              </li>
+            </ol>
+            <h3 id="contributions">Contributions</h3>
+            <p>W.-W.L., M.A. and J.E. generated the pangenome graphs. B.P., E.E.E. and T.M. conceived and supervised the study. All authors participated in data curation.</p>
+            <h3 id="corresponding-author">Corresponding author</h3>
+            <p id="corresponding-author-list">Correspondence to <a href="mailto:bpaten@ucsc.edu">Benedict Paten</a>.</p>
+          </div>
+        </section>
+        <section data-title="References">
+          <div class="c-article-section">
+            <h2>References</h2>
+            <ol class="c-article-references">
+              <li class="c-article-references__item"><p class="c-article-references__text">International Human Genome Sequencing Consortium. Initial sequencing and analysis of the human genome. <i>Nature</i> <b>409</b>, 860–921 (2001).</p><p class="c-article-references__links"><a data-doi="10.1038/35057062">Article</a></p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Nurk, S. et al. The complete sequence of a human genome. <i>Science</i> <b>376</b>, 44–53 (2022).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Garrison, E. et al. Variation graph toolkit improves read mapping by augmenting the reference genome. <i>Nat. Biotechnol.</i> <b>36</b>, 875–879 (2018).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Hickey, G. et al. GenMap: ultra-fast computation of genome mappability. <i>Bioinformatics</i> <b>36</b>, 3687–3692 (2020).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Ebler, J. et al. Pangenome-based genome inference. <i>Nat. Genet.</i> <b>54</b>, 518–525 (2022).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Li, H. New strategies to build and annotate pangenome graphs. <i>Genome Biol.</i> <b>21</b>, 288 (2020).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Wang, T. et al. The Human Pangenome Project: a global resource. <i>Nature</i> <b>604</b>, 437–446 (2022).</p></li>
+            </ol>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
