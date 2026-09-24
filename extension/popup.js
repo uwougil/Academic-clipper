@@ -1,4 +1,5 @@
 import { normalizeBridgeEndpoint } from './endpoint.mjs';
+import { ensureBridgeReady, executeBridgeRequest } from './lifecycle.mjs';
 
 const DEFAULT_ENDPOINT = 'http://127.0.0.1:34123';
 const saveButton = document.querySelector('#save');
@@ -40,19 +41,48 @@ async function pageSnapshot() {
   return result.result;
 }
 
+async function wakeBridge() {
+  return new Promise((resolve, reject) => {
+    chrome.runtime.sendNativeMessage('com.academic_clipper.bridge', { action: 'wake' }, (response) => {
+      if (chrome.runtime.lastError) {
+        reject(new Error(chrome.runtime.lastError.message));
+        return;
+      }
+      if (!response || !response.ok) {
+        reject(new Error(response?.error || 'Native host failed.'));
+        return;
+      }
+      resolve(response);
+    });
+  });
+}
+
+async function syncSessionState({ endpoint: newEp, token: newTok }) {
+  await chrome.storage.local.set({ bridgeEndpoint: newEp, bridgeToken: newTok });
+  bridgeEndpointInput.value = newEp;
+  bridgeTokenInput.value = newTok;
+}
+
 async function callBridge(route) {
+  const currentEndpoint = await endpoint();
+  status.textContent = 'Checking bridge...';
+  const ready = await ensureBridgeReady({
+    currentEndpoint,
+    wakeBridgeFn: wakeBridge,
+    onSessionUpdated: syncSessionState,
+  });
+
   const snapshot = await pageSnapshot();
   const token = await bridgeToken();
-  const headers = { 'content-type': 'application/json' };
-  if (token) headers.authorization = `Bearer ${token}`;
-  const response = await fetch(`${await endpoint()}${route}`, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify(snapshot),
+
+  return executeBridgeRequest({
+    endpoint: ready.endpoint,
+    route,
+    payload: snapshot,
+    token,
+    wakeBridgeFn: wakeBridge,
+    onSessionUpdated: syncSessionState,
   });
-  const payload = await response.json();
-  if (!response.ok || !payload.ok) throw new Error(payload.error || `Bridge returned HTTP ${response.status}`);
-  return payload;
 }
 
 void (async () => {

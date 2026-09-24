@@ -20,6 +20,8 @@ extension/popup.*
   → POST /preview 或 /paper
 src/bridge.mjs
   → loadConfig + Origin/token boundary
+src/launcher.mjs
+  → Windows Native Messaging host for lifecycle management (auto-wake)
 src/adapters/nature.mjs
   → Nature DOM/metadata/table capture
 src/markdown.mjs + Defuddle
@@ -36,7 +38,7 @@ papers/<article-id>/
 
 ### 2.1 浏览器扩展
 
-`extension/manifest.json` 声明最小 scripting/activeTab 能力。popup 只负责 endpoint/token/config、Save Paper 和 Preview Markdown；不承载 Nature 解析逻辑。
+`extension/manifest.json` 声明最小 scripting/activeTab 和 nativeMessaging 能力。popup 只负责 endpoint/token/config、Save Paper、Preview Markdown 以及通过 Native Messaging 唤醒本地 bridge；不承载 Nature 解析逻辑。
 
 ### 2.2 本地 bridge
 
@@ -119,6 +121,12 @@ acquire same-process queue + cross-process lock
 - CLI 论文 HTML 只允许同一 `https://www.nature.com/articles/<id>` redirect scope，默认 30 秒超时、25 MiB 响应上限，并拒绝非 HTML content type。
 - Nature table 补取还必须保持在当前 article 的 `/tables/` scope。
 - bridge 配置端口必须是 `1..65535` 的整数，配置加载阶段即以简洁错误拒绝非法值。
+- Native Messaging launcher 仅承担 control plane 的 lifecycle 责任（检查存活、进程拉起、readiness 等待与会话同步），不承载 Nature HTML、Markdown 或图片数据；论文采集与预览通过 loopback HTTP bridge 数据面处理。
+- launcher 与 bridge 采用确定性路径解析（基于项目根目录及显式 config 路径），不依赖宿主环境启动时的 working directory。
+- 存活验证结合操作系统 PID 状态与 `/health` 端点服务标识校验（包含 `service`、`version` 与随机 `instanceId`）；遇到死进程、端口占用或服务不匹配等 stale state 时自动清理并重启。
+- 并发唤醒采用原子 startup lock（`.bridge-startup.lock`）序列化启动，确保多个并发请求最多启动一个 bridge 实例；锁具备两级回收机制：owner PID 死亡立即回收，owner PID 存活时默认等待、仅超过更长的硬超时阈值（60s）才允许回收，未写完整或损坏的 fresh lock 同样不立即删除、仅超期后按 age-based stale recovery 安全回收，防止慢启动被二次 caller 误抢占。
+- 遇到 token 变更或失效时，扩展在捕获 401 后经 Native Messaging 重新获取当前有效会话并仅重试一次，严格杜绝无限重试循环；bridge 不在普通控制台输出 token 明文。
+- Windows 注册支持 Chrome 与 Edge 当前用户注册（HKCU），Native Messaging manifest 严格使用编译生成的无窗口原生宿主 `launcher.exe`（`.bat/.cmd` 仅作为开发与调试辅助脚本，生产配置不回退），记录确定性 Node 安装路径防范 PATH 缺失；`allowed_origins` 严格限定为单个 `chrome-extension://<extensionId>/`，路径与注册表命令均经安全引用以支持空格路径。
 - 当前残余风险：已验证的 DNS 地址尚未绑定到实际 undici socket，因此仍存在 DNS rebinding 风险；这在本轮不扩大为架构重写。
 
 ## 5. 文件与生成物策略

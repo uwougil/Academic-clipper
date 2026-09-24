@@ -27,7 +27,8 @@ Nature 论文页面
 
 主要场景：
 
-1. 在已加载完成的 Nature article 页面点击浏览器扩展的 `Save Paper`。
+0. （一次性前置准备）执行本地脚本注册 Windows Native Messaging。
+1. 在已加载完成的 Nature article 页面点击浏览器扩展的 `Save Paper`，扩展将自动唤醒本地 bridge 并完成授权。
 2. 在保存前通过 `Preview Markdown` 检查转换结果。
 3. 在本地科研知识库中得到 `papers/<article-id>/index.md`，可继续由 VS Code、Markdown 编辑器或 Quarto 使用。
 4. 发生页面结构变化、图片下载失败或公式异常时，通过 `debug.json` 和 warning 定位问题。
@@ -45,6 +46,7 @@ Nature 论文页面
 - 识别同文章表格链接并在安全范围内补取可用表格；无法结构化时保留链接并记录 warning。
 - 通过本地 bridge 写入可配置目录，并保证单篇论文写入具有确定的事务性和恢复行为。
 - 提供最小调试信息、fixture 回归测试、golden artifact 校验和跨平台 CI。
+- 借助 Native Messaging 实现本地 bridge 的自动唤醒与鉴权，日常无需手工启停控制台进程。
 
 ### 明确不做
 

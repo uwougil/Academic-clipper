@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 import http from 'node:http';
 import { randomBytes, timingSafeEqual } from 'node:crypto';
-import { readFile } from 'node:fs/promises';
+import { existsSync, readFileSync, unlinkSync } from 'node:fs';
+import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { clipNature, writePaper } from './clip.mjs';
@@ -78,11 +79,13 @@ export async function loadConfig(configPath) {
     citationStyle: ['markdown', 'links', 'quarto'].includes(config.citationStyle) ? config.citationStyle : 'markdown',
     allowedOrigins: Array.isArray(config.allowedOrigins) ? config.allowedOrigins.map(String) : [],
     bridgeToken: String(config.bridgeToken || process.env.ACADEMIC_CLIPPER_BRIDGE_TOKEN || randomBytes(24).toString('hex')),
+    instanceId: String(config.instanceId || process.env.ACADEMIC_CLIPPER_INSTANCE_ID || randomBytes(16).toString('hex')),
   };
 }
 
 export function createBridgeServer(config) {
-  return http.createServer(async (request, response) => {
+  let server;
+  server = http.createServer(async (request, response) => {
     const origin = String(request.headers.origin || '');
     if (!allowedOrigin(origin, config)) {
       jsonResponse(response, 403, { ok: false, error: 'Origin is not allowed.' });
@@ -99,7 +102,15 @@ export function createBridgeServer(config) {
     }
 
     if (request.method === 'GET' && request.url === '/health') {
-      jsonResponse(response, 200, { ok: true, service: 'academic-clipper-bridge', version: ACADEMIC_CLIPPER_VERSION, port: config.port }, origin, config);
+      const boundPort = server?.address?.() ? server.address().port : config.port;
+      jsonResponse(response, 200, {
+        ok: true,
+        service: 'academic-clipper-bridge',
+        version: ACADEMIC_CLIPPER_VERSION,
+        port: boundPort,
+        instanceId: config.instanceId,
+        pid: process.pid,
+      }, origin, config);
       return;
     }
 
@@ -148,6 +159,7 @@ export function createBridgeServer(config) {
       jsonResponse(response, 400, { ok: false, error: error instanceof Error ? error.message : String(error) }, origin, config);
     }
   });
+  return server;
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
@@ -160,10 +172,48 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     const configPath = configArgIndex >= 0 ? path.resolve(configValue) : path.resolve('config.json');
     const config = await loadConfig(configPath);
     const server = createBridgeServer(config);
-    server.listen(config.port, '127.0.0.1', () => {
-      console.log(`academic-clipper-bridge listening on http://127.0.0.1:${config.port}`);
+    const runFile = path.resolve(path.dirname(configPath), '.bridge-run.json');
+    server.listen(config.port, '127.0.0.1', async () => {
+      const boundPort = server.address().port;
+      console.log(`academic-clipper-bridge listening on http://127.0.0.1:${boundPort}`);
       console.log(`libraryPath: ${config.libraryPath}`);
-      console.log(`bridgeToken: ${config.bridgeToken}`);
+      try {
+        await writeFile(runFile, JSON.stringify({
+          service: 'academic-clipper-bridge',
+          version: ACADEMIC_CLIPPER_VERSION,
+          pid: process.pid,
+          port: boundPort,
+          instanceId: config.instanceId,
+          bridgeToken: config.bridgeToken,
+          createdAt: Date.now(),
+        }, null, 2), { mode: 0o600 });
+      } catch (e) {
+        console.error('Failed to write .bridge-run.json', e);
+      }
+    });
+
+    const cleanRunFile = () => {
+      try {
+        if (existsSync(runFile)) {
+          const raw = readFileSync(runFile, 'utf8');
+          const data = JSON.parse(raw);
+          if (data && data.instanceId === config.instanceId) {
+            unlinkSync(runFile);
+          }
+        }
+      } catch {}
+    };
+
+    process.once('SIGINT', () => {
+      cleanRunFile();
+      process.exit(0);
+    });
+    process.once('SIGTERM', () => {
+      cleanRunFile();
+      process.exit(0);
+    });
+    process.once('exit', () => {
+      cleanRunFile();
     });
   } catch (error) {
     console.error(`Error: ${error instanceof Error ? error.message : String(error)}`);
