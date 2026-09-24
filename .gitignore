@@ -14,3 +14,22 @@ papers/s41586-026-10401-1/cleaned.html
 papers/s41586-026-10401-1/.gitignore
 config.json
 *.log
+# Security: local secrets and credentials
+.env
+.env.*
+!.env.example
+.envrc
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+.npmrc
+.pypirc
+.netrc
+credentials.json
+credentials.*
+service-account*.json
+service_account*.json
+.claude/settings.local.json
