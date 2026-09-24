@@ -21,3 +21,22 @@ src/launcher.bat
 src/launcher.cmd
 src/launcher.exe
 src/.node-path.txt
+# Security: local secrets and credentials
+.env
+.env.*
+!.env.example
+.envrc
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+.npmrc
+.pypirc
+.netrc
+credentials.json
+credentials.*
+service-account*.json
+service_account*.json
+.claude/settings.local.json
