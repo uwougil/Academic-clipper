@@ -10,6 +10,20 @@
 - `README.md` is the user-facing operating guide; keep it consistent with the intent sources, but do not use it as a replacement for them.
 - `papers/s41586-026-10401-1/` is the intentionally committed Nature golden artifact. Other captures under `papers/`, `dist/`, `node_modules/`, and `config.json` are local or generated and must remain ignored.
 
+## Agent startup preflight
+
+Before modifying the repository, every new task must complete a short startup preflight. This applies to feature work, bug fixes, refactors, review, CI repair, release work, workflow-changing documentation, and tasks running in additional worktrees.
+
+- Read the applicable `AGENTS.md`, task instructions, and linked Issue / Pull Request completely; confirm the current scope, non-goals, and acceptance boundary.
+- Inspect the coding capabilities actually available in the current agent environment, including skills, tools, MCP/plugins, and repository scripts. Follow **inspect broadly, load narrowly**: inventory capabilities first, then load/use only repository-baseline and task-relevant capabilities rather than every available skill.
+- For every task, confirm that Git/repository workflow, implementation or editing, testing/regression, review, and CI/GitHub-state diagnosis are adequately covered. Enable task-specific capabilities such as browser automation, network-fixture validation, documentation maintenance, or packaging/release only when the task requires them.
+- Before editing, verify the current branch, expected base branch, worktree, dirty/uncommitted state, linked Issue / PR when applicable, and the task scope. Preserve unrelated work.
+- If a capability required to satisfy the task contract is missing, unavailable, or incompatible with the environment, stop before modifying code and report the blocker. Do not silently fall back to an implementation that clearly fails repository requirements.
+- Do not ask the user to reconfirm capabilities that are already available. The preflight should normally stay internal; surface it only when it finds a blocker or material ambiguity.
+- This root `AGENTS.md` is the canonical repository agent policy. If a specific agent platform needs its own instruction entrypoint, keep that file as a thin pointer to this policy rather than duplicating a second copy that can drift.
+
+**Do not begin implementation until the startup preflight is complete.**
+
 ## Setup and verification
 
 Use Node.js 20 or newer and the committed lockfile:
