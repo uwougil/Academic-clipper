@@ -77,6 +77,7 @@ papers/
 - Abstract、正文标题层级、Methods/相关区块和 References 可读，网页导航、Cookie、广告、推荐内容不进入正文。
 - inline/display math 保留为 TeX/Markdown math，不出现明显 MathML/XML 垃圾。
 - 目标论文当前基准包括 6 位作者、13 个正文公式节点、3 个主图、4 个 Extended Data 图和 50 条参考文献；当前可用的 Table 1 应保持结构化表格。
+- 代表性 Nature 语料库（涵盖公式密集、图与 Extended Data 密集、表格多样、引用密集、大型联盟作者等 8 篇代表性论文）保持离线确定性端到端校验通过，结构及 warning 诊断符合基线预期。
 - 图片下载失败时文章仍可保存，Markdown 保留远程 fallback，debug 中有可诊断记录。
 - 重复保存不会残留旧的 bibliography、debug 文件或过期图片；失败写入不会把目标目录变成新旧版本混合状态。
 

@@ -12,6 +12,8 @@
     "start": "node src/bridge.mjs",
     "build": "node src/build.mjs",
     "test": "node --test",
+    "test:corpus": "node --test test/nature-corpus.test.mjs",
+    "test:corpus:live": "node src/verify-corpus-live.mjs",
     "validate:paper": "node src/validate-paper.mjs",
     "clip:live": "node src/cli.mjs --url https://www.nature.com/articles/s41586-026-10401-1 --output ./papers --debug --download-figures"
   },

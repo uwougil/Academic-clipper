@@ -1,0 +1,538 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.1.0",
+  "description": "Representative Nature paper corpus manifest mapping real Nature publications to offline sanitized structural regression fixtures for deterministic CI.",
+  "fixtureSemanticRole": "sanitized-structural-fixture",
+  "articles": [
+    {
+      "articleId": "s41586-026-10401-1",
+      "canonicalUrl": "https://www.nature.com/articles/s41586-026-10401-1",
+      "doi": "10.1038/s41586-026-10401-1",
+      "title": "Symmetry classification of magnetic orders using oriented spin space groups",
+      "journal": "Nature",
+      "publicationDate": "2026-04-22",
+      "discipline": "Physics / Condensed Matter",
+      "archetype": "golden-baseline",
+      "selectionRationale": "Existing repository golden baseline: standard research paper hierarchy, display and inline math co-existence, OSG space group notation, single-anchor citation ranges, Extended Data figures, and structured tables.",
+      "provenance": {
+        "sourceUrl": "https://www.nature.com/articles/s41586-026-10401-1",
+        "observedAt": "2026-09-08",
+        "fixtureKind": "sanitized-structural-fixture",
+        "whySelected": "Serves as the repository golden reference for standard article structure and OSG notation.",
+        "observedFeatures": [
+          "Oriented spin space group math",
+          "Multiple author affiliations and equal contributions",
+          "Inline and Extended Data figures",
+          "Structured inline HTML table and supplementary table link"
+        ],
+        "coveredFeatures": [
+          "YAML front matter extraction",
+          "Delimited math preservation",
+          "Table parsing with fallback warning",
+          "Author notes and correspondence parsing"
+        ],
+        "omittedFeatures": [
+          "Full-length multi-page discussion",
+          "External high-resolution image binaries"
+        ]
+      },
+      "fixture": "test/corpus/fixtures/s41586-026-10401-1.html",
+      "expectations": {
+        "authorCount": 6,
+        "firstAuthor": "Yuntian Liu",
+        "hasAffiliations": true,
+        "hasAuthorNotes": true,
+        "hasCorrespondence": true,
+        "correspondenceEmail": "liuqh@sustech.edu.cn",
+        "figuresCount": 3,
+        "extendedFiguresCount": 2,
+        "equationsCount": 2,
+        "referencesCount": 4,
+        "totalTables": 2,
+        "capturedTables": 1,
+        "fallbackTables": 1,
+        "expectedWarnings": [
+          "Unable to fetch or parse the full-size table"
+        ],
+        "features": {
+          "spaceGroupNotation": true,
+          "singleAnchorCitationRange": true,
+          "structuredTable": true,
+          "tableLinkFallback": true
+        },
+        "mathValidation": {
+          "valid": true,
+          "minInlineMath": 6,
+          "minDisplayMath": 2,
+          "issuesCount": 0
+        },
+        "markdownStructure": {
+          "valid": true,
+          "issuesCount": 0
+        }
+      }
+    },
+    {
+      "articleId": "s41586-019-1666-5",
+      "canonicalUrl": "https://www.nature.com/articles/s41586-019-1666-5",
+      "doi": "10.1038/s41586-019-1666-5",
+      "title": "Quantum supremacy using a programmable superconducting processor",
+      "journal": "Nature",
+      "publicationDate": "2019-10-23",
+      "discipline": "Quantum Physics / Theoretical Computing",
+      "archetype": "theory-math-dense",
+      "selectionRationale": "Theoretical and mathematical paper with high density of numbered display equations, multi-line alignments, Dirac bra-ket notation, and explicit equation cross-references.",
+      "provenance": {
+        "sourceUrl": "https://www.nature.com/articles/s41586-019-1666-5",
+        "observedAt": "2026-09-08",
+        "fixtureKind": "sanitized-structural-fixture",
+        "whySelected": "Evaluates heavy Dirac notation, display equation numbering, and array math alignments.",
+        "observedFeatures": [
+          "Numbered display equations",
+          "Array math alignment",
+          "Dirac bra-ket notation",
+          "Equation cross-referencing in prose"
+        ],
+        "coveredFeatures": [
+          "Display and inline math extraction",
+          "Preservation of array environments without markdown breakage",
+          "Equation anchor normalization"
+        ],
+        "omittedFeatures": [
+          "Proprietary Google quantum calibration raw logs",
+          "Full 54-qubit layout image data"
+        ]
+      },
+      "fixture": "test/corpus/fixtures/s41586-019-1666-5.html",
+      "expectations": {
+        "authorCount": 4,
+        "firstAuthor": "Frank Arute",
+        "hasAffiliations": true,
+        "hasAuthorNotes": true,
+        "hasCorrespondence": true,
+        "correspondenceEmail": "jmartinis@google.com",
+        "figuresCount": 4,
+        "extendedFiguresCount": 2,
+        "equationsCount": 4,
+        "referencesCount": 5,
+        "totalTables": 1,
+        "capturedTables": 1,
+        "fallbackTables": 0,
+        "expectedWarnings": [],
+        "features": {
+          "equationNumbering": true,
+          "equationCrossReferences": true,
+          "diracNotation": true,
+          "multiLineArrayMath": true
+        },
+        "mathValidation": {
+          "valid": true,
+          "minInlineMath": 8,
+          "minDisplayMath": 4,
+          "issuesCount": 0
+        },
+        "markdownStructure": {
+          "valid": true,
+          "issuesCount": 0
+        }
+      }
+    },
+    {
+      "articleId": "s41586-021-03819-2",
+      "canonicalUrl": "https://www.nature.com/articles/s41586-021-03819-2",
+      "doi": "10.1038/s41586-021-03819-2",
+      "title": "Highly accurate protein structure prediction with AlphaFold",
+      "journal": "Nature",
+      "publicationDate": "2021-07-15",
+      "discipline": "Computational Biology / Machine Learning",
+      "archetype": "figures-extended-data-dense",
+      "selectionRationale": "High-impact AI paper with intense multi-panel figures (a-h), 10 Extended Data figures, extensive multi-paragraph captions, and short alt text normalization.",
+      "provenance": {
+        "sourceUrl": "https://www.nature.com/articles/s41586-021-03819-2",
+        "observedAt": "2026-09-08",
+        "fixtureKind": "sanitized-structural-fixture",
+        "whySelected": "Tests high-volume Extended Data handling (10 extended figures) and multi-panel lettered captions.",
+        "observedFeatures": [
+          "4 main figures with panel breakdowns",
+          "10 Extended Data figures with companion reading links",
+          "Deep multi-paragraph scientific captions",
+          "Loss function mathematical formulation"
+        ],
+        "coveredFeatures": [
+          "Extended data figures section grouping",
+          "Panel bolding and caption normalization",
+          "Figure cross-reference tracking"
+        ],
+        "omittedFeatures": [
+          "60+ author consortium supplementary list",
+          "Multi-gigabyte neural network weight downloads"
+        ]
+      },
+      "fixture": "test/corpus/fixtures/s41586-021-03819-2.html",
+      "expectations": {
+        "authorCount": 5,
+        "firstAuthor": "John Jumper",
+        "hasAffiliations": true,
+        "hasAuthorNotes": true,
+        "hasCorrespondence": true,
+        "correspondenceEmail": "dhcontact@deepmind.com",
+        "figuresCount": 4,
+        "extendedFiguresCount": 10,
+        "equationsCount": 1,
+        "referencesCount": 6,
+        "totalTables": 1,
+        "capturedTables": 1,
+        "fallbackTables": 0,
+        "expectedWarnings": [],
+        "features": {
+          "multiPanelCaptions": true,
+          "extensiveExtendedFigures": true,
+          "deepScientificCaptions": true,
+          "figureCrossReferences": true
+        },
+        "mathValidation": {
+          "valid": true,
+          "minInlineMath": 4,
+          "minDisplayMath": 1,
+          "issuesCount": 0
+        },
+        "markdownStructure": {
+          "valid": true,
+          "issuesCount": 0
+        }
+      }
+    },
+    {
+      "articleId": "s41586-020-2012-7",
+      "canonicalUrl": "https://www.nature.com/articles/s41586-020-2012-7",
+      "doi": "10.1038/s41586-020-2012-7",
+      "title": "A pneumonia outbreak associated with a new coronavirus of probable bat origin",
+      "journal": "Nature",
+      "publicationDate": "2020-02-03",
+      "discipline": "Virology / Epidemiology",
+      "archetype": "dense-citations-rapid-publication",
+      "selectionRationale": "Outbreak investigation with dense multi-reference citation clusters and continuous ranges (e.g. 1-5, 6, 8-10), tightly spaced publication dates, and clinical sequence cross-references.",
+      "provenance": {
+        "sourceUrl": "https://www.nature.com/articles/s41586-020-2012-7",
+        "observedAt": "2026-09-08",
+        "fixtureKind": "sanitized-structural-fixture",
+        "whySelected": "Tests dense multi-anchor citation ranges, fast-track publishing history, and papers without display equations.",
+        "observedFeatures": [
+          "Rapid turnaround editorial history",
+          "Dense citation range clusters (1-5, 6, 8-10)",
+          "Equal contribution footnote annotations",
+          "Absence of numbered display equations"
+        ],
+        "coveredFeatures": [
+          "Citation range expansion into individual references",
+          "Controlled warning emission when no equations are found",
+          "Footnote author information extraction"
+        ],
+        "omittedFeatures": [
+          "Complete viral genome FASTA alignments",
+          "Microscopy TIFF image blobs"
+        ]
+      },
+      "fixture": "test/corpus/fixtures/s41586-020-2012-7.html",
+      "expectations": {
+        "authorCount": 5,
+        "firstAuthor": "Peng Zhou",
+        "hasAffiliations": true,
+        "hasAuthorNotes": true,
+        "hasCorrespondence": true,
+        "correspondenceEmail": "zlshi@wh.iov.cn",
+        "figuresCount": 3,
+        "extendedFiguresCount": 3,
+        "equationsCount": 0,
+        "referencesCount": 10,
+        "totalTables": 1,
+        "capturedTables": 1,
+        "fallbackTables": 0,
+        "expectedWarnings": [
+          "No equation nodes were detected."
+        ],
+        "features": {
+          "denseCitationRanges": true,
+          "fastTrackPublicationDates": true,
+          "phylogeneticFigureCaptions": true
+        },
+        "mathValidation": {
+          "valid": true,
+          "minInlineMath": 2,
+          "minDisplayMath": 0,
+          "issuesCount": 0
+        },
+        "markdownStructure": {
+          "valid": true,
+          "issuesCount": 0
+        }
+      }
+    },
+    {
+      "articleId": "s41586-023-05896-x",
+      "canonicalUrl": "https://www.nature.com/articles/s41586-023-05896-x",
+      "doi": "10.1038/s41586-023-05896-x",
+      "title": "A draft human pangenome reference",
+      "journal": "Nature",
+      "publicationDate": "2023-05-10",
+      "discipline": "Genomics / Consortium",
+      "archetype": "consortium-authors-complex-affiliations",
+      "selectionRationale": "Massive consortium publication testing consortium naming, expansive multi-institutional affiliation hierarchies, equal contribution designations, and multiple corresponding authors.",
+      "provenance": {
+        "sourceUrl": "https://www.nature.com/articles/s41586-023-05896-x",
+        "observedAt": "2026-09-08",
+        "fixtureKind": "sanitized-structural-fixture",
+        "whySelected": "Validates multi-tier institutional affiliations, multi-author equal contribution notes, and multi-table structures.",
+        "observedFeatures": [
+          "Extensive author list with equal contribution notes",
+          "Multiple institutional affiliations across international institutions",
+          "Multi-table assembly statistics and variant comparisons",
+          "Extended Data scaling benchmarks"
+        ],
+        "coveredFeatures": [
+          "Affiliation grouping and numbering",
+          "Author note normalization",
+          "Structured table row parsing"
+        ],
+        "omittedFeatures": [
+          "Hundred-member consortium appendix",
+          "Pangenome graph visualization GFA files"
+        ]
+      },
+      "fixture": "test/corpus/fixtures/s41586-023-05896-x.html",
+      "expectations": {
+        "authorCount": 10,
+        "firstAuthor": "Wen-Wei Liao",
+        "hasAffiliations": true,
+        "hasAuthorNotes": true,
+        "hasCorrespondence": true,
+        "correspondenceEmail": "bpaten@ucsc.edu",
+        "figuresCount": 4,
+        "extendedFiguresCount": 4,
+        "equationsCount": 0,
+        "referencesCount": 7,
+        "totalTables": 2,
+        "capturedTables": 2,
+        "fallbackTables": 0,
+        "expectedWarnings": [
+          "No equation nodes were detected."
+        ],
+        "features": {
+          "consortiumAuthorship": true,
+          "multipleInstitutions": true,
+          "equalContributionNotes": true,
+          "multipleCorrespondents": true
+        },
+        "mathValidation": {
+          "valid": true,
+          "minInlineMath": 3,
+          "minDisplayMath": 0,
+          "issuesCount": 0
+        },
+        "markdownStructure": {
+          "valid": true,
+          "issuesCount": 0
+        }
+      }
+    },
+    {
+      "articleId": "s41586-023-06735-9",
+      "canonicalUrl": "https://www.nature.com/articles/s41586-023-06735-9",
+      "doi": "10.1038/s41586-023-06735-9",
+      "title": "Scaling deep learning for materials discovery",
+      "journal": "Nature",
+      "publicationDate": "2023-11-29",
+      "discipline": "Materials Science / AI",
+      "archetype": "tables-diverse-chemistry-materials",
+      "selectionRationale": "Autonomous materials exploration paper with multi-row/multi-column structured HTML tables, non-inline downloadable table fallbacks emitting warnings, and chemical formulas with multi-character subscripts.",
+      "provenance": {
+        "sourceUrl": "https://www.nature.com/articles/s41586-023-06735-9",
+        "observedAt": "2026-09-08",
+        "fixtureKind": "sanitized-structural-fixture",
+        "whySelected": "Tests table link fallback and warning behavior for external datasets alongside structured chemistry tables.",
+        "observedFeatures": [
+          "Structured inline HTML tables with multi-element chemical formulas",
+          "External downloadable table fallback link",
+          "Chemical subscripts and mathematical convex hull relations",
+          "Materials database cross-references"
+        ],
+        "coveredFeatures": [
+          "Table fallback warning generation in debug diagnostics",
+          "Inline HTML sub-tag normalization in table cells",
+          "Mixed inline math and chemical formula preservation"
+        ],
+        "omittedFeatures": [
+          "2.2 million crystal structure CIF database files",
+          "Ab initio DFT trajectory files"
+        ]
+      },
+      "fixture": "test/corpus/fixtures/s41586-023-06735-9.html",
+      "expectations": {
+        "authorCount": 4,
+        "firstAuthor": "Amil Merchant",
+        "hasAffiliations": true,
+        "hasAuthorNotes": true,
+        "hasCorrespondence": true,
+        "correspondenceEmail": "cubuk@google.com",
+        "figuresCount": 3,
+        "extendedFiguresCount": 3,
+        "equationsCount": 1,
+        "referencesCount": 6,
+        "totalTables": 3,
+        "capturedTables": 2,
+        "fallbackTables": 1,
+        "expectedWarnings": [
+          "Unable to fetch or parse the full-size table"
+        ],
+        "features": {
+          "structuredMultiTables": true,
+          "tableLinkFallback": true,
+          "chemicalFormulas": true,
+          "materialsSubscripts": true
+        },
+        "mathValidation": {
+          "valid": true,
+          "minInlineMath": 6,
+          "minDisplayMath": 1,
+          "issuesCount": 0
+        },
+        "markdownStructure": {
+          "valid": true,
+          "issuesCount": 0
+        }
+      }
+    },
+    {
+      "articleId": "s41586-024-08538-y",
+      "canonicalUrl": "https://www.nature.com/articles/s41586-024-08538-y",
+      "doi": "10.1038/s41586-024-08538-y",
+      "title": "Total synthesis of 25 picrotoxanes by virtual library selection",
+      "journal": "Nature",
+      "publicationDate": "2024-12-23",
+      "discipline": "Organic Chemistry / Molecular Synthesis",
+      "archetype": "synthetic-chemistry-inline",
+      "selectionRationale": "Total synthesis publication featuring bold numeric compound identifiers (1, 2a, 3), italic stereochemical descriptors (R, S, trans, cis), reaction temperatures, yields, and optical rotation parameters.",
+      "provenance": {
+        "sourceUrl": "https://www.nature.com/articles/s41586-024-08538-y",
+        "observedAt": "2026-09-08",
+        "fixtureKind": "sanitized-structural-fixture",
+        "whySelected": "Validates inline chemical typography: bold compound numbers, stereocenter italicization, optical rotation, and reaction yields.",
+        "observedFeatures": [
+          "Bold numeric chemical identifiers (1, 2a, 3, 4)",
+          "Italic stereochemical indicators (R, S, trans, cis)",
+          "Reaction conditions and temperatures in prose and captions",
+          "Single-crystal X-ray Extended Data references"
+        ],
+        "coveredFeatures": [
+          "Preservation of bold compound markers without footnote collision",
+          "Accurate rendering of degree Celsius and optical rotation math",
+          "Reaction optimization table parsing"
+        ],
+        "omittedFeatures": [
+          "Full 25 compound synthetic experimental procedures",
+          "Raw NMR FID and crystallographic CIF files"
+        ]
+      },
+      "fixture": "test/corpus/fixtures/s41586-024-08538-y.html",
+      "expectations": {
+        "authorCount": 2,
+        "firstAuthor": "Chunyu Li",
+        "hasAffiliations": true,
+        "hasAuthorNotes": true,
+        "hasCorrespondence": true,
+        "correspondenceEmail": "rshenvi@scripps.edu",
+        "figuresCount": 3,
+        "extendedFiguresCount": 2,
+        "equationsCount": 0,
+        "referencesCount": 5,
+        "totalTables": 1,
+        "capturedTables": 1,
+        "fallbackTables": 0,
+        "expectedWarnings": [
+          "No equation nodes were detected."
+        ],
+        "features": {
+          "boldCompoundNumbers": true,
+          "stereochemicalDescriptors": true,
+          "reactionConditions": true,
+          "chemicalYields": true
+        },
+        "mathValidation": {
+          "valid": true,
+          "minInlineMath": 4,
+          "minDisplayMath": 0,
+          "issuesCount": 0
+        },
+        "markdownStructure": {
+          "valid": true,
+          "issuesCount": 0
+        }
+      }
+    },
+    {
+      "articleId": "s41586-021-04354-w",
+      "canonicalUrl": "https://www.nature.com/articles/s41586-021-04354-w",
+      "doi": "10.1038/s41586-021-04354-w",
+      "title": "A repeating fast radio burst source in a globular cluster",
+      "journal": "Nature",
+      "publicationDate": "2022-02-23",
+      "discipline": "Astrophysics / Observational Astronomy",
+      "archetype": "cross-references-astrophysics",
+      "selectionRationale": "Observational astrophysics paper with heavy bidirectional internal cross-references across sections, figures, tables, and equations, celestial coordinates, scientific units with negative powers, and measurement margins.",
+      "provenance": {
+        "sourceUrl": "https://www.nature.com/articles/s41586-021-04354-w",
+        "observedAt": "2026-09-08",
+        "fixtureKind": "sanitized-structural-fixture",
+        "whySelected": "Validates dense cross-referencing between text, equations, figures, tables, and sections without dangling links.",
+        "observedFeatures": [
+          "Cross-references targeting figures, extended figures, tables, and equations",
+          "Celestial coordinates (Right Ascension, Declination) in tables",
+          "Scientific units with negative superscripts and measurement tolerances",
+          "VLBI interferometry observational methodology"
+        ],
+        "coveredFeatures": [
+          "Internal anchor resolution without dangling reference links",
+          "Negative power physical unit preservation in math and text",
+          "Quarto cross-reference identifier generation"
+        ],
+        "omittedFeatures": [
+          "Raw VLBI telescope correlator baseband files",
+          "Multi-terabyte transient search filterbank recordings"
+        ]
+      },
+      "fixture": "test/corpus/fixtures/s41586-021-04354-w.html",
+      "expectations": {
+        "authorCount": 5,
+        "firstAuthor": "Franz Kirsten",
+        "hasAffiliations": true,
+        "hasAuthorNotes": true,
+        "hasCorrespondence": true,
+        "correspondenceEmail": "franz.kirsten@chalmers.se",
+        "figuresCount": 3,
+        "extendedFiguresCount": 2,
+        "equationsCount": 2,
+        "referencesCount": 6,
+        "totalTables": 1,
+        "capturedTables": 1,
+        "fallbackTables": 0,
+        "expectedWarnings": [],
+        "features": {
+          "denseCrossReferences": true,
+          "scientificUnits": true,
+          "celestialCoordinates": true,
+          "measurementErrors": true
+        },
+        "mathValidation": {
+          "valid": true,
+          "minInlineMath": 6,
+          "minDisplayMath": 2,
+          "issuesCount": 0
+        },
+        "markdownStructure": {
+          "valid": true,
+          "issuesCount": 0
+        }
+      }
+    }
+  ]
+}

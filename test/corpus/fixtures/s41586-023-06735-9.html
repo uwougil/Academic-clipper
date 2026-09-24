@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Scaling deep learning for materials discovery | Nature</title>
+    <link rel="canonical" href="https://www.nature.com/articles/s41586-023-06735-9">
+    <meta name="citation_title" content="Scaling deep learning for materials discovery">
+    <meta name="citation_author" content="Amil Merchant">
+    <meta name="citation_author" content="Simon Batzner">
+    <meta name="citation_author" content="Samuel S. Schoenholz">
+    <meta name="citation_author" content="Ekin Dogus Cubuk">
+    <meta name="citation_journal_title" content="Nature">
+    <meta name="citation_online_date" content="2023/11/29">
+    <meta name="citation_doi" content="10.1038/s41586-023-06735-9">
+    <meta name="citation_volume" content="624">
+    <meta name="citation_issue" content="7990">
+    <meta name="citation_firstpage" content="80">
+    <meta name="citation_lastpage" content="85">
+  </head>
+  <body>
+    <main class="c-article-main-column">
+      <div class="c-article-body">
+        <section data-title="Abstract">
+          <div class="c-article-section">
+            <h2>Abstract</h2>
+            <div class="c-article-section__content">
+              <p>Novel functional materials enable clean-energy transitions. Using Graph Networks for Materials Exploration (GNoME), we expand the number of known stable materials by an order of magnitude, predicting 2.2 million crystal structures.</p>
+            </div>
+          </div>
+        </section>
+        <div class="main-content">
+          <section data-title="Main">
+            <div class="c-article-section">
+              <h2>Main</h2>
+              <div class="c-article-section__content">
+                <p>Computational discovery operates via active learning on convex hull energy calculations <sup><a data-test="citation-ref" href="#ref-CR1">1</a>,<a data-test="citation-ref" href="#ref-CR2">2</a></sup>. The discovery loop is schematized in <a href="#Fig1">Figure 1</a>.</p>
+                <figure>
+                  <figcaption><b id="Fig1" data-test="figure-caption-text">Fig. 1: Active learning workflow of GNoME for stable crystal discovery.</b></figcaption>
+                  <div class="c-article-section__figure-content"><picture><source srcset="//example.org/gnome-loop-2x.png 2x"><img src="//example.org/gnome-loop.png" alt="Fig. 1: Discovery loop."></picture></div>
+                  <div class="c-article-section__figure-description" data-test="bottom-caption"><p><b>a</b>, Generation of candidate structures via symmetry-aware message passing. <b>b</b>, Density functional theory (DFT) validation pipeline.</p></div>
+                </figure>
+                <p>Thermodynamic stability is evaluated relative to competing phases via energy distance to the convex hull:</p>
+                <div id="Equ1" class="c-article-equation">
+                  <div class="c-article-equation__content"><span class="mathjax-tex">$$\Delta E_{\mathrm{hull}}(\mathbf{x}) = E(\mathbf{x}) - \sum_i c_i \mu_i$$</span></div>
+                  <div class="c-article-equation__number">(1)</div>
+                </div>
+                <p>We discover thousands of layered oxides including derivatives of <span class="mathjax-tex">\(\mathrm{Li}_x\mathrm{FePO}_4\)</span>, perovskites like <span class="mathjax-tex">\(\mathrm{BaTiO}_3\)</span>, and ternary chalcogenides as evaluated in <a href="#Tab1">Table 1</a> and <a href="#Fig2">Figure 2</a>.</p>
+                <figure>
+                  <figcaption><b id="Fig2" data-test="figure-caption-text">Fig. 2: Distribution of newly discovered stable crystal structures across chemical families.</b></figcaption>
+                  <div class="c-article-section__figure-content"><picture><source srcset="//example.org/materials-dist-2x.png 2x"><img src="//example.org/materials-dist.png" alt="Fig. 2: Chemical families."></picture></div>
+                  <div class="c-article-section__figure-description" data-test="bottom-caption"><p>Breakdown across binary, ternary, and quaternary stoichiometric compounds.</p></div>
+                </figure>
+                <p>Electrochemical properties are summarized in <a href="#Tab2">Table 2</a>, while full crystal coordinate tables are provided in external supplementary data <a href="#Tab3">Table 3</a>. Experimental synthesis validations are depicted in <a href="#Fig3">Figure 3</a> and <a href="#Fig4">Extended Data Fig. 1</a> through <a href="#Fig6">Extended Data Fig. 3</a>.</p>
+                <figure>
+                  <figcaption><b id="Fig3" data-test="figure-caption-text">Fig. 3: Autonomous robotic synthesis validation of predicted candidate compounds.</b></figcaption>
+                  <div class="c-article-section__figure-content"><picture><source srcset="//example.org/robot-synth-2x.png 2x"><img src="//example.org/robot-synth.png" alt="Fig. 3: Robotic synthesis."></picture></div>
+                  <div class="c-article-section__figure-description" data-test="bottom-caption"><p>Powder X-ray diffraction comparison between synthesized pellets and predicted structures.</p></div>
+                </figure>
+              </div>
+            </div>
+          </section>
+          <section data-title="Methods">
+            <div class="c-article-section">
+              <h2>Methods</h2>
+              <div class="c-article-section__content">
+                <p>DFT relaxations were conducted using the VASP package with PAW pseudopotentials and PBEsol functional.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <section data-title="Extended data figures and tables">
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig4">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/gnome-ext1.jpg" href="/articles/s41586-023-06735-9/figures/4">Extended Data Fig. 1 Model architecture scaling and equivariant edge features.</a></h3>
+            <div class="c-article-supplementary__description"><p>Loss curves across graph depth and spherical harmonic representations.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig5">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/gnome-ext2.jpg" href="/articles/s41586-023-06735-9/figures/5">Extended Data Fig. 2 Convex hull sensitivity analysis with chemical potential variations.</a></h3>
+            <div class="c-article-supplementary__description"><p>Robustness of phase stability under finite temperature corrections.</p></div>
+          </div>
+          <div class="js-c-reading-companion-figures-item" data-test="supp-item" id="Fig6">
+            <h3><a data-test="supp-info-link" data-supp-info-image="//example.org/gnome-ext3.jpg" href="/articles/s41586-023-06735-9/figures/6">Extended Data Fig. 3 Structural diversity and space group distribution of candidates.</a></h3>
+            <div class="c-article-supplementary__description"><p>Histogram of crystallographic space groups among stable predictions.</p></div>
+          </div>
+        </section>
+        <figure id="Tab1">
+          <figcaption><span data-test="table-caption">Table 1 Summary of stable materials predicted by composition complexity.</span></figcaption>
+          <a data-test="table-link" href="/articles/s41586-023-06735-9/tables/1">Full table</a>
+          <table>
+            <thead>
+              <tr><th>Order</th><th>Total Predicted</th><th>On Convex Hull</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Binary</td><td>3,540</td><td>2,810</td></tr>
+              <tr><td>Ternary</td><td>142,000</td><td>52,300</td></tr>
+              <tr><td>Quaternary</td><td>380,000</td><td>118,000</td></tr>
+            </tbody>
+          </table>
+        </figure>
+        <figure id="Tab2">
+          <figcaption><span data-test="table-caption">Table 2 Calculated ionic conductivities for candidate solid-state battery electrolytes.</span></figcaption>
+          <a data-test="table-link" href="/articles/s41586-023-06735-9/tables/2">Full table</a>
+          <table>
+            <thead>
+              <tr><th>Formula</th><th>Bandgap (eV)</th><th>Migration Barrier (meV)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Li<sub>3</sub>YCl<sub>6</sub></td><td>4.2</td><td>240</td></tr>
+              <tr><td>Na<sub>3</sub>Zr<sub>2</sub>Si<sub>2</sub>PO<sub>12</sub></td><td>3.8</td><td>295</td></tr>
+            </tbody>
+          </table>
+        </figure>
+        <figure id="Tab3">
+          <figcaption><span data-test="table-caption">Table 3 Complete crystal coordinates and formation energy database.</span></figcaption>
+          <a data-test="table-link" href="/articles/s41586-023-06735-9/tables/3">Supplementary dataset table 3</a>
+        </figure>
+        <section data-title="Author information">
+          <div class="c-article-section__content">
+            <ol class="c-article-author-information__list">
+              <li class="c-article-author-information__item"><p>These authors contributed equally: Amil Merchant, Simon Batzner</p></li>
+            </ol>
+            <ol class="c-article-author-affiliation__list">
+              <li>
+                <p class="c-article-author-affiliation__address">Google DeepMind, Mountain View, CA, USA</p>
+                <p class="c-article-author-affiliation__authors-list">Amil Merchant, Simon Batzner, Samuel S. Schoenholz &amp; Ekin Dogus Cubuk</p>
+              </li>
+            </ol>
+            <h3 id="contributions">Contributions</h3>
+            <p>A.M., S.B. and E.D.C. conceived and led the project. S.S.S. developed mathematical tools. All authors wrote the paper.</p>
+            <h3 id="corresponding-author">Corresponding author</h3>
+            <p id="corresponding-author-list">Correspondence to <a href="mailto:cubuk@google.com">Ekin Dogus Cubuk</a>.</p>
+          </div>
+        </section>
+        <section data-title="References">
+          <div class="c-article-section">
+            <h2>References</h2>
+            <ol class="c-article-references">
+              <li class="c-article-references__item"><p class="c-article-references__text">Jain, A. et al. Commentary: The Materials Project: A materials genome approach. <i>APL Mater.</i> <b>1</b>, 011002 (2013).</p><p class="c-article-references__links"><a data-doi="10.1063/1.4812323">Article</a></p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Xie, T. &amp; Grossman, J. C. Crystal graph convolutional neural networks for an accurate and interpretable prediction of material properties. <i>Phys. Rev. Lett.</i> <b>120</b>, 145301 (2018).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Batzner, S. et al. E(3)-equivariant graph neural networks for data-efficient and accurate interatomic potentials. <i>Nat. Commun.</i> <b>13</b>, 2453 (2022).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Szymanski, N. J. et al. An autonomous laboratory for the accelerated synthesis of novel materials. <i>Nature</i> <b>624</b>, 86–91 (2023).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Kresse, G. &amp; Furthmüller, J. Efficient iterative schemes for ab initio total-energy calculations using a plane-wave basis set. <i>Phys. Rev. B</i> <b>54</b>, 11169–11186 (1996).</p></li>
+              <li class="c-article-references__item"><p class="c-article-references__text">Perdew, J. P. et al. Restoring the density-gradient expansion for exchange in solids and surfaces. <i>Phys. Rev. Lett.</i> <b>100</b>, 136406 (2008).</p></li>
+            </ol>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
