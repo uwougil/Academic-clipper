@@ -130,6 +130,21 @@ Windows 环境下支持点击 Save Paper / Preview Markdown 时通过 Native Mes
 node scripts/uninstall-windows.mjs
 ```
 
+### Windows 发行包 (v0.3.0+，无需 Node.js / 仓库)
+
+从 GitHub Releases 下载 `Academic-clipper-v<version>-windows.zip`，解压后按其中的 `QUICKSTART.md` 操作：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install.ps1                       # 安装到 %LOCALAPPDATA%\Academic-clipper
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -ExtensionId <id>     # 加载扩展后注册 Native Messaging
+powershell -ExecutionPolicy Bypass -File .\uninstall.ps1                     # 卸载（不会删除论文库；-RemoveConfig 同时删除 config.json）
+```
+
+- 安装包自带 Node 运行时，不修改 PATH，不需要管理员权限；重复运行 `install.ps1` 是安全的（保留 `config.json`，不重复注册）。
+- 安装状态记录在 `%LOCALAPPDATA%\Academic-clipper\install-state.json`。
+- 浏览器不允许静默安装扩展，仍需在 `edge://extensions` 中 **Load unpacked** 选择安装目录下的 `extension`。
+- 维护者构建发行包：`npm ci && npm run package:release`（输出 `dist/release/`，Release 工作流在 `v*` 标签上自动发布）。
+
 ### 手动调试模式（可选）
 
 如需进行独立本地调试，亦可手动运行 bridge：
