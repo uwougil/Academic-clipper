@@ -98,11 +98,44 @@ node src/cli.mjs --url https://www.nature.com/articles/s41586-026-10401-1 --outp
 
 ## 浏览器扩展
 
-1. 先保持 `npm run dev` 运行。
-2. Chrome/Edge 打开 `chrome://extensions`，启用 Developer mode。
-3. 选择 Load unpacked，指向本目录的 `extension/`；执行 `npm run build` 后也可以指向 `dist/extension/`。
-4. 在 popup 的 `Bridge endpoint` 中填写 bridge 地址（只接受 `http://localhost:<port>` 或 `http://127.0.0.1:<port>`），点击 Save settings。
-5. 打开 Nature 论文，点击扩展图标，再点击 Save Paper。
+### Windows 自动唤醒与原生安装 (Native Messaging)
+
+Windows 环境下支持点击 Save Paper / Preview Markdown 时通过 Native Messaging 自动唤醒本地 bridge。日常使用**无需**手动执行 `npm start`、`npm run dev` 或 `node src/bridge.mjs`，也无需手工复制 token。
+
+#### 一次性安装步骤
+
+1. 安装依赖并构建扩展：
+   ```bash
+   npm ci
+   npm run build
+   ```
+2. 打开 Chrome 或 Edge，访问 `chrome://extensions` 或 `edge://extensions`，开启 **Developer mode**（开发者模式）。
+3. 点击 **Load unpacked**（加载已解压的扩展程序），选择本项目的 `dist/extension/` 目录。
+4. 复制该扩展生成的 32 位 Extension ID（格式为 32 位小写字母 `a-p`）。
+5. 在项目根目录执行 Windows 原生注册脚本（需要系统 .NET Framework `csc.exe` 编译生成 `src/launcher.exe`）：
+   ```bash
+   node scripts/install-windows.mjs <extension-id>
+   ```
+
+#### 日常使用
+
+1. 打开 Nature 论文页面（`https://www.nature.com/articles/<id>`）。
+2. 点击扩展图标，直接点击 **Preview Markdown** 或 **Save Paper**。
+3. 扩展会自动通过 Native Messaging 唤醒本地 bridge 并完成鉴权与采集，生成的文件位于本地 `papers/<article-id>/index.md`。
+
+#### 卸载与清理
+
+若需移除 Native Messaging 注册表项与生成的文件：
+```bash
+node scripts/uninstall-windows.mjs
+```
+
+### 手动调试模式（可选）
+
+如需进行独立本地调试，亦可手动运行 bridge：
+1. 保持 `npm run dev` 运行。
+2. 在扩展 popup 的 `Bridge endpoint` 中填写 bridge 地址（例如 `http://127.0.0.1:34123`），点击 Save settings。
+3. 打开 Nature 论文，点击扩展图标，再点击 Save Paper。
 
 成功状态类似：
 

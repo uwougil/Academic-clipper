@@ -3,7 +3,7 @@
   "name": "Academic Clipper — Nature",
   "version": "0.2.0",
   "description": "Save a Nature article as structured Markdown through the local Academic Clipper bridge.",
-  "permissions": ["activeTab", "scripting", "storage"],
+  "permissions": ["activeTab", "scripting", "storage", "nativeMessaging"],
   "host_permissions": ["http://127.0.0.1/*", "http://localhost/*"],
   "action": {
     "default_title": "Save Nature paper",
