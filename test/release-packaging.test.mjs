@@ -87,7 +87,8 @@ test('install/upgrade/uninstall lifecycle is idempotent and preserves user data'
     // User edits config, then upgrade: config preserved, ID reused, installedAt kept.
     const cfgPath = path.join(installDir, 'config.json');
     const cfg = JSON.parse(await readFile(cfgPath, 'utf8'));
-    assert.equal(cfg.libraryPath, library);
+    assert.equal(path.basename(cfg.libraryPath), 'papers');
+    assert.equal(path.basename(path.dirname(cfg.libraryPath)), path.basename(sandbox));
     cfg.citationStyle = 'links';
     await writeFile(cfgPath, JSON.stringify(cfg), 'utf8');
     r = ps(path.join(dir, 'install.ps1'), common);
