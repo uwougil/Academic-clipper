@@ -5,7 +5,7 @@ Academic-clipper saves a Nature article as Markdown into a local folder. Nothing
 ## Install
 
 1. Extract this zip anywhere (for example your Downloads folder).
-2. Open PowerShell in the extracted folder and run:
+2. Double-click **Install.cmd** in the extracted folder. (Do not double-click `install.ps1`: Windows opens it in Notepad instead of running it.) Advanced users can run the PowerShell installer directly:
 
    ```powershell
    powershell -ExecutionPolicy Bypass -File .\install.ps1
@@ -16,7 +16,13 @@ Academic-clipper saves a Nature article as Markdown into a local folder. Nothing
    - open `edge://extensions` and turn on **Developer mode**
    - click **Load unpacked** and choose `%LOCALAPPDATA%\Academic-clipper\extension`
    - copy the 32-letter **ID** shown on the extension card
-4. Register the extension with the local host by running the installer again with that ID:
+4. Register the extension with the local host by running the installer again with that ID. From a terminal in the extracted folder (Install.cmd passes arguments through):
+
+   ```
+   Install.cmd -ExtensionId <paste-the-id-here>
+   ```
+
+   or, equivalently:
 
    ```powershell
    powershell -ExecutionPolicy Bypass -File .\install.ps1 -ExtensionId <paste-the-id-here>

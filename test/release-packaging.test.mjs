@@ -5,7 +5,7 @@ import { existsSync } from 'node:fs';
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { REQUIRED_RELEASE_FILES, releaseName, stageRelease, verifyReleaseDir } from '../scripts/package-release.mjs';
+import { REQUIRED_RELEASE_FILES, releaseName, stageRelease, verifyReleaseDir, zipRelease } from '../scripts/package-release.mjs';
 
 const isWindows = process.platform === 'win32';
 
@@ -21,6 +21,10 @@ test('stageRelease produces the expected release layout and manifest', async () 
     assert.equal(path.basename(dir), releaseName(version));
     assert.equal(releaseName('0.3.0'), 'Academic-clipper-v0.3.0-windows');
     await verifyReleaseDir(dir);
+    assert.ok(existsSync(path.join(dir, 'Install.cmd')));
+    const cmd = await readFile(path.join(dir, 'Install.cmd'), 'utf8');
+    assert.match(cmd, /-File "%~dp0install\.ps1"/);
+    assert.match(cmd, /pause/);
     for (const f of REQUIRED_RELEASE_FILES) assert.ok(existsSync(path.join(dir, f)), f);
     const manifest = JSON.parse(await readFile(path.join(dir, 'release-manifest.json'), 'utf8'));
     assert.equal(manifest.version, version);
@@ -28,6 +32,21 @@ test('stageRelease produces the expected release layout and manifest', async () 
     assert.ok(manifest.files.includes('install.ps1'));
     const template = JSON.parse(await readFile(path.join(dir, 'config.template.json'), 'utf8'));
     assert.equal(template.bridgeToken, '');
+  } finally {
+    await rm(outDir, { recursive: true, force: true });
+  }
+});
+
+test('release zip contains Install.cmd and the other entry points', { skip: !isWindows, timeout: 120000 }, async () => {
+  const { outDir, ...res } = await stage();
+  try {
+    const zipPath = zipRelease({ ...res, outDir });
+    const r = spawnSync(path.join(process.env.SystemRoot || 'C:\\Windows', 'System32', 'tar.exe'), ['-tf', zipPath], { encoding: 'utf8' });
+    assert.equal(r.status, 0, r.stderr);
+    const names = r.stdout.split(String.fromCharCode(10)).map((n) => n.trim());
+    for (const f of ['Install.cmd', 'install.ps1', 'uninstall.ps1', 'QUICKSTART.md']) {
+      assert.ok(names.includes(res.name + '/' + f), f);
+    }
   } finally {
     await rm(outDir, { recursive: true, force: true });
   }

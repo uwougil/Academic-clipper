@@ -18,6 +18,7 @@ import { buildExtension } from '../src/build.mjs';
 const root = fileURLToPath(new URL('..', import.meta.url));
 
 export const REQUIRED_RELEASE_FILES = [
+  'Install.cmd',
   'install.ps1',
   'uninstall.ps1',
   'QUICKSTART.md',
@@ -72,6 +73,7 @@ export async function stageRelease(options = {}) {
   await copyFile(path.join(root, 'package.json'), path.join(stage, 'package.json'));
   await copyFile(path.join(root, 'package-lock.json'), path.join(stage, 'package-lock.json'));
   await copyFile(path.join(root, 'config.example.json'), path.join(stage, 'config.template.json'));
+  await copyFile(path.join(root, 'release', 'Install.cmd'), path.join(stage, 'Install.cmd'));
   await copyFile(path.join(root, 'release', 'install.ps1'), path.join(stage, 'install.ps1'));
   await copyFile(path.join(root, 'release', 'uninstall.ps1'), path.join(stage, 'uninstall.ps1'));
   await copyFile(path.join(root, 'release', 'QUICKSTART.md'), path.join(stage, 'QUICKSTART.md'));

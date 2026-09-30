@@ -132,7 +132,7 @@ node scripts/uninstall-windows.mjs
 
 ### Windows 发行包 (v0.3.0+，无需 Node.js / 仓库)
 
-从 GitHub Releases 下载 `Academic-clipper-v<version>-windows.zip`，解压后按其中的 `QUICKSTART.md` 操作：
+从 GitHub Releases 下载 `Academic-clipper-v<version>-windows.zip`，解压后按其中的 `QUICKSTART.md` 操作。推荐流程：1) 解压；2) 双击 `Install.cmd`；3) 在 Edge 中 Load unpacked 加载扩展；4) 带 `-ExtensionId` 再次运行安装（`Install.cmd -ExtensionId <id>`）。高级用户可直接使用 PowerShell：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\install.ps1                       # 安装到 %LOCALAPPDATA%\Academic-clipper
