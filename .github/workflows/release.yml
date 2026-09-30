@@ -42,7 +42,7 @@ jobs:
           $zip = "dist/release/Academic-clipper-v$version-windows.zip"
           if (-not (Test-Path $zip)) { throw "Missing $zip" }
           $names = tar -tf $zip
-          foreach ($f in 'install.ps1','uninstall.ps1','QUICKSTART.md','release-manifest.json','runtime/node.exe','extension/manifest.json','src/launcher.mjs','node_modules/defuddle/package.json') {
+          foreach ($f in 'Install.cmd','install.ps1','uninstall.ps1','QUICKSTART.md','release-manifest.json','runtime/node.exe','extension/manifest.json','src/launcher.mjs','node_modules/defuddle/package.json') {
             if (-not ($names | Where-Object { $_ -like "*/$f" })) { throw "Artifact is missing $f" }
           }
           foreach ($s in 'install.ps1','uninstall.ps1') {
