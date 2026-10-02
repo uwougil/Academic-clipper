@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { test } from 'node:test';
 import { ACADEMIC_CLIPPER_VERSION, ACADEMIC_CLIPPER_USER_AGENT } from '../src/version.mjs';
 
-test('package, extension and runtime user-agent share v0.3.1', async () => {
+test('package, extension and runtime user-agent share v0.3.2', async () => {
   const packageJson = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
   const manifest = JSON.parse(await readFile(new URL('../extension/manifest.json', import.meta.url), 'utf8'));
   assert.equal(packageJson.version, ACADEMIC_CLIPPER_VERSION);
