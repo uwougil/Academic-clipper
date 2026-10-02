@@ -1,0 +1,2 @@
+# Corpus fixture hashes cover committed AND checked-out UTF-8 LF bytes.
+fixtures/**/*.html text eol=lf
