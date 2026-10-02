@@ -148,3 +148,7 @@ acquire same-process queue + cross-process lock
 ## 7. 变更约束
 
 任何新增 publisher、输出格式、外部服务、持久化系统或浏览器权限都必须先更新 PRD/EDD/milestone，并补充对应的安全与回归测试。普通修复应在现有边界内做最小增量修改。
+
+## 授权的隔离实验边界
+
+2026-10-02 用户授权 `src/adapters/sciencedirect.mjs` 作为隔离实验。上文 Nature 唯一 publisher-specific 边界指正式运行链路。实验仅解析 supplied HTML，目标仅为 Computational Materials Science；不执行脚本、网络、API 或 modal hydration，不接入 router/bridge/CLI/writer。结果是实验提取模型而非 shared adapter contract；`body-present` 不证明全文完整，`fullTextVerified` 始终为 false。article selectors 和 synthetic tests 未经真实 CMS DOM 核验。真实 access-response fixture 不计入学术正文覆盖。共享整合需求见 [实验提案](sciencedirect-experiment.md)。

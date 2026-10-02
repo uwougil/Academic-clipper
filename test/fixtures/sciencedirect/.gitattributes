@@ -1,0 +1,3 @@
+# Fixture byte digests must survive Windows autocrlf checkouts.
+*.html text eol=lf
+*.json text eol=lf
