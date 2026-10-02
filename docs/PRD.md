@@ -88,3 +88,7 @@ papers/
 - 可维护性：Nature selector、转换器、归一化器、验证器、bridge 和 writer 分层，避免用全局正则修补 HTML。
 - 安全性：bridge 只监听 loopback；Origin/token、外部 URL、DNS 解析、redirect、响应类型和大小都必须经过边界检查。
 - 可审计性：debug 记录来源、计数、fallback、warning、metadata audit 和验证结果。
+
+## 授权的隔离实验：ScienceDirect
+
+2026-10-02 用户明确授权 Elsevier / ScienceDirect 实验 adapter，初始验证目标仅为 Computational Materials Science。此授权是上述 Nature-only 非目标的隔离实验例外；Nature 仍为唯一正式运行支持。不承诺正式 clipping、全文可用或跨期刊泛化。公开内容不足时报告限制，不绕过访问控制、不编造 source-backed fixtures。shared router、corpus schema、live verifier 与通用架构变更须另行提案。见 [实验记录](sciencedirect-experiment.md)。

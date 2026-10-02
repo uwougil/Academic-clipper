@@ -1,0 +1,27 @@
+{
+  "kind": "source-backed-access-response-excerpt",
+  "observedAt": "2026-10-02",
+  "captureMode": "ordinary in-app browser; read-only DOM inspection",
+  "sourceLocator": "h1.u-h2",
+  "retainedSourceHtml": "<h1 class=\"u-h2\">Are you a robot?</h1>",
+  "sourceSha256": null,
+  "sourceHashLimitation": "HTTP body bytes were not available through browser observation; no source body digest claimed.",
+  "fixtureSha256": "f7841a3db946b4b99d209413a2aa6c276360efd6412d5378db77e2a6e09fc86a",
+  "articleUrls": [
+    "https://www.sciencedirect.com/science/article/pii/S0927025619301296",
+    "https://www.sciencedirect.com/science/article/pii/S0927025622004803",
+    "https://www.sciencedirect.com/science/article/pii/S0927025620300355"
+  ],
+  "transformations": [
+    "Retain only observed challenge heading",
+    "Wrap in fixed HTML scaffold",
+    "Remove challenge tokens, IP, reference numbers, scripts and account/footer UI"
+  ],
+  "omittedContent": [
+    "All access challenge content except heading; no scholarly article DOM was available"
+  ],
+  "coverage": [
+    "access-blocked rejection only"
+  ],
+  "syntheticFixture": "contract.synthetic.html is invented contract input, not captured scholarly DOM"
+}
