@@ -192,3 +192,21 @@ Agent A 现已完成 H1，原始有序 commits：`20b48328114f195974e92827583b6b
 2026-10-02T17:21:04.512Z 对上述文章再次运行同一 guarded/pinned acquisition probe，仍返回 HTTP 303 / `text/html` / `https://idp.nature.com/authorize`，被 production scope guard 拒绝。不能把浏览器成功显示或截图 hash 冒充 `sourceSha256`。No-Cookie 要求仍未改变，不能复用浏览器 Cookie/登录状态来使采集通过。
 
 当前 unblocking 状态：A H1 已满足；usable source bytes/DOM 前置条件仍未满足。0 admitted articles、0 fixtures/resources、无 frozen manifest/oracle；Agent B 与 Issue #10 未完成。源码/规范/golden 均未由 B 修改。当前恢复运行的第一次核验取得 H1 新证据，第二次核验完成 dependency 接入；source blocker 仍在，尚未宣称完成。
+
+## 侧边浏览器：可读 DOM 研究进展
+
+用户明确打开并授权检查 Codex 侧边浏览器中 `https://www.nature.com/articles/s41534-024-00877-y`。通过已绑定 tab 的只读 DOM API 确认 canonical 为同 URL、citation DOI 为 `10.1038/s41534-024-00877-y`，citation title 为 `Hamiltonian dynamics on digital quantum computers without discretization error`，journal 为 `npj Quantum Information`，citation authors 按序为 `Granet, Etienne`、`Dreyer, Henrik`，citation_online_date 为 `2024/09/07`。这些是来源观察，不是 parser-output oracle，也尚未通过 acquisition provenance gate。
+
+当前 rendered DOM `.c-article-body` textContent 长 78014（JS string length），52 个 `.c-article-equation`，IDs 连续 `Equ1`–`Equ52`；257 个 `.mathjax-tex`；74 条 reference list items。包含 Introduction、Results（多个 H3）、DISCUSSION。四个 figure 的外层 id 均为空；table-link 暴露 `/articles/s41534-024-00877-y/tables/1`，尚未取得 table response。未把这些 full-page observations 当 reduced excerpt exact counts。
+
+来源定位 `#Equ9`：`.c-article-equation__number` 为 `(9)`；`.mathjax-tex` 在浏览器 MathJax 执行后包含 SVG/assistive MathML 及非执行 `script[type="math/tex; mode=display"]#MathJax-Element-63`。其原 TeX textContent 为：
+
+```tex
+{p}_{n}=\frac{{\tau }^{{\prime} }{c}_{n}}{\sin {\tau }_{n}}+{\mathcal{O}}({({\tau }^{{\prime} })}^{2}),
+```
+
+这是该 replacement 的真实 Eq. (9)，不是 canonical 原候选 `s41534-023-00746-0` 的 Eq. (9)；不能混用身份或宣称已经覆盖原候选角色。Rendered DOM 不能未经审核直接套用 initial-HTTP recipe：sanitizer 删除非 JSON-LD scripts，当前 production math extraction 读取 `.mathjax-tex.textContent`；完整 assistive MathML 与 TeX 可能一起进入 extraction。尚未运行 truthful reduced reproducer，因此这里只记录结构风险，不宣称 parser defect。
+
+通过 tab 的 `cdp` capability 执行 `Page.getResourceTree` 取得当前 main frame identity，再对 exact article URL 调用 `Page.getResourceContent`。返回 `base64Encoded: false`、decoded content 长 449217，包含 article body。没有将其重新 UTF-8 编码 hash 冒充 pre-decoding body hash；未提交全文。`pageAssets.bundle()` 仅支持 image/font/stylesheet/video，不提供 article response byte export。未读取 Cookie、credentials、账号、private session 或执行网络认证。
+
+后续依然需要能提供实际原始 body bytes 的合规 capture 接口，或人工明确修订 byte-provenance 要求；不自行改 canonical spec。可继续以已打开页面做只读 source research，但不能用它虚报 5–10 admitted fixtures。A H1 接口已可用，当前瓶颈缩小为 raw-byte acquisition/provenance 与真实 table resources。
