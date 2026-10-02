@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom';
 
-// Experimental preflight only. No IOPscience article DOM has been admitted yet.
-// Do not route production clipping here until source-backed full-text tests exist.
+// Experimental preflight; source acquisition and full-text implementation are ongoing.
+// Do not route production clipping here until complete source-backed tests exist.
 const ORIGIN = 'https://iopscience.iop.org';
 const ARTICLE_PATH = /^\/article\/(10\.1088\/2053-1583\/(?:[a-z0-9]+|\d+\/\d+\/\d+))(?:\/(?:meta|fulltext))?\/?$/i;
 
@@ -47,8 +47,8 @@ function single(document, name) {
 
 /**
  * Inspect conventional citation_* head metadata without claiming full text.
- * This convention is a candidate tested with synthetic input, NOT observed IOP
- * DOM evidence. Never use metadata presence as proof of access or completeness.
+ * citation_* has been observed in aeaa68 and the subscription 025001 browser DOM.
+ * Never use metadata presence as proof of access or completeness.
  */
 export function inspectIopPage(html, url) {
   const identity = iopArticleIdentity(url);
@@ -74,7 +74,7 @@ export function inspectIopPage(html, url) {
     const authors = values(document, 'citation_author');
     const metadata = doi && journal && title ? {
       ...identity, title, authors,
-      date: single(document, 'citation_publication_date'),
+      date: single(document, 'citation_online_date') || single(document, 'citation_publication_date'),
       volume: single(document, 'citation_volume'),
       issue: single(document, 'citation_issue'),
       // Author/affiliation relationships and correspondence need observed DOM.
@@ -88,7 +88,7 @@ export function inspectIopPage(html, url) {
       fullTextVerified: false,
       warnings: [{
         code: 'IOP_DOM_UNVERIFIED',
-        message: 'No source-backed IOPscience article DOM has been admitted. Full-text conversion is disabled.',
+        message: 'IOPscience full-text extraction is not implemented yet. Full-text conversion is disabled.',
       }],
     };
   } finally {
@@ -100,4 +100,31 @@ export function inspectIopPage(html, url) {
 export function parseIopPage(html, url) {
   const diagnostics = inspectIopPage(html, url);
   throw new IopAdapterError('IOP_DOM_UNVERIFIED', diagnostics.warnings[0].message, diagnostics);
+}
+
+/** Extract source TeX only; rendered MathJax and image fallbacks are duplicates. */
+export function extractIopMath(html, url) {
+  inspectIopPage(html, url);
+  const dom = new JSDOM(html);
+  try {
+    const root = dom.window.document.querySelector('.wd-jnl-art-full-text[itemprop="articleBody"]');
+    if (!root) throw new IopAdapterError('IOP_BODY_UNAVAILABLE', 'IOPscience full-text root was not found.');
+    const equations = [];
+    const warnings = [];
+    for (const node of root.querySelectorAll('.inline-eqn, .display-eqn')) {
+      if (node.parentElement?.closest('.inline-eqn, .display-eqn')) continue;
+      const script = Array.from(node.querySelectorAll('script[type]'))
+        .find((item) => /^math\/tex(?:\s*;\s*mode=display)?$/i.test(item.type));
+      const tex = script?.textContent.trim();
+      const display = node.classList.contains('display-eqn');
+      if (!tex) {
+        warnings.push({ code: 'IOP_MATH_SOURCE_MISSING', id: node.id, display });
+        continue;
+      }
+      equations.push({ id: node.id, display, tex, source: 'script-math-tex' });
+    }
+    return { equations, warnings };
+  } finally {
+    dom.window.close();
+  }
 }

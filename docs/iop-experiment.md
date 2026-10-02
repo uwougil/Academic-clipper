@@ -1,10 +1,31 @@
 # IOPscience / 2D Materials 实验
 
-状态：未完成，来源访问阻塞；不得集成或宣称支持。Work Contract：[Issue #29](https://github.com/uwougil/Academic-clipper/issues/29)。
+状态：未完成，浏览器 DOM 采集已恢复；全文适配器与代表性 coverage 正在实现，不得集成或宣称支持。Work Contract：[Issue #29](https://github.com/uwougil/Academic-clipper/issues/29)。
+
+## 浏览器来源更新（2026-10-02）
+
+用户指出侧边浏览器可用后，重新读取现有 tab：`https://iopscience.iop.org/article/10.1088/2053-1583/1/2/025001` 已成功显示真实页面，含 citation metadata、13 位 authors 与相邻 `citation_author_institution`、摘要和公开 references 控件。`.wd-jnl-art-turn-away-panel` 明确说明当前机构未订阅，正文未提供。浏览器渠道可读取 DOM；下文早先 web/terminal 失败不代表 browser 当前状态。
+
+从该页真实 journal link 进入 `https://iopscience.iop.org/journal/2053-1583`，点击标记 Open Access 的 `https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68`，成功获得全文。其标题为 Tuning magnitude and direction of lattice thermal conductivity in transition metal dichalcogenide heterobilayers，authors 为 Elliot Perviz / Antonio Cammarata，`citation_online_date=2026/10/01`。已确认：
+
+- `.wd-jnl-art-full-text[itemprop=articleBody]` 包含正文；`h2/h3.header-anchor` 使用文章前缀 section IDs。
+- `.inline-eqn` 与 `.display-eqn` 保留 `script[type="math/tex"]` / `script[type="math/tex; mode=display"]` 的原 TeX，另有 image fallback 与渲染后 MathJax。不能同时转换这些重复表示。
+- `figure[data-toolbar-type=figure]` 包含嵌套 figure、caption 和 lazy image `data-src`，standard/high-resolution 链接指向 `content.cld.iop.org`。
+- `#tdmaeaa68t1` 是正文实际 HTML table，cells 中亦有 inline TeX；并非只提供外部 table link。
+- 正文 `a.cite` 指向 `bib*`，range 可用两端 links 与 intervening dash 表示。References 点击后显示 loading，再生成 `li[data-reference][id]` 与 `cite`、DOI/Crossref/backlink；故 references 至少在所观察 UI 中按需加载。
+- 页面显示 Supplementary data 和 Data availability statement，后者链接 `https://doi.org/10.5281/zenodo.19881818`。
+
+以上来自 rendered DOM。server-side response 完整性尚未确定，不能从已加载 DOM 推断。OA 与 subscription 差异已观察到 full-text root vs turn-away panel，但更多文章仍需调研。
+
+第二篇开放全文 `https://iopscience.iop.org/article/10.1088/2053-1583/aeaa6b`（Optomechanical method for characterizing thermal transport across suspended van der Waals interfaces）也从期刊页的 Open Access link 发现。其 full-text root 可用，4 个 display equations，两个 HTML tables 分别为 3 rows × 8 columns / 4 rows × 4 columns（包含 header row）。补充链接为 `/article/10.1088/2053-1583/aeaa6b/data`，data availability 表示数据包含在 article/supplementary files，区别于 aeaa68 的外部 Zenodo link。全文包含 2 个原生 sup、未见原生 sub，其他上下标通过 TeX 表示；这些是 full-page observations，尚非 excerpt tests。
+
+新增 `aeaa68-math.excerpt.html` / `aeaa68.provenance.json`：保留真实 head metadata 与首个 display equation 的来源种子；明确 scaffold、删除项、non-original adjacency、rendered DOM capture 与无 HTTP-byte hash 的限制。首个真实 identity test 通过；此 reduced excerpt 尚未承担完整结构 coverage。`citation_online_date` 已据来源加入 date precedence。后续需要更多实际 blocks、独立 source oracle、equation/figure/table/reference/crossref rendering tests，不能把 7/7 focused preflight tests 宣称为 full-text 验收。
+
+已加入 `extractIopMath()`，只提取实际 `.inline-eqn/.display-eqn` 内 script TeX，忽略 duplicate image/rendered MathJax；没有源 TeX 的 node 返回明确 warning，image-only reference equations 尚不转换。真实首个 equation 的 exact source TeX（含内部 whitespace 与 tag 1）断言通过；当前 focused tests 为 8/8。`parseIopPage()` 仍拒绝全文输出，待剩余 extraction/rendering/validation 完成。
 
 基线为 accepted main `5971ebfbe288e0efed4abef21469f41e2cabb05f`，对应 [成功 Main CI](https://github.com/uwougil/Academic-clipper/actions/runs/37037473932)。隔离 branch 为 `codex/iop-2d-materials`。已读取 AGENTS.md、README、PRD/EDD、Issue #26、Issue #10 canonical spec/execution plan 及 Nature adapter、Defuddle、normalizers、validators、writer 与安全边界。
 
-## 实际访问记录（2026-10-02）
+## 早期访问失败记录（2026-10-02，browser 更新前）
 
 下表记录访问尝试，不等于已检查文章全文 DOM。
 

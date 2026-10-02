@@ -1,10 +1,32 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
-import { inspectIopPage, iopArticleIdentity, parseIopPage } from '../src/adapters/iop.mjs';
+import { extractIopMath, inspectIopPage, iopArticleIdentity, parseIopPage } from '../src/adapters/iop.mjs';
 
 const synthetic = await readFile(new URL('./fixtures/iop/synthetic-head.html', import.meta.url), 'utf8');
 const url = 'https://iopscience.iop.org/article/10.1088/2053-1583/synthetic';
+
+test('browser-source aeaa68 excerpt preserves real identity and publication date', async () => {
+  const html = await readFile(new URL('./fixtures/iop/aeaa68-math.excerpt.html', import.meta.url), 'utf8');
+  const result = inspectIopPage(html, 'https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68');
+  assert.equal(result.metadata.title, 'Tuning magnitude and direction of lattice thermal conductivity in transition metal dichalcogenide heterobilayers');
+  assert.deepEqual(result.metadata.authors, ['Elliot Perviz', 'Antonio Cammarata']);
+  assert.equal(result.metadata.date, '2026/10/01');
+  assert.equal(result.metadata.doi, '10.1088/2053-1583/aeaa68');
+  assert.equal(result.metadata.journal, '2D Materials');
+  assert.equal(result.fullTextVerified, false);
+});
+
+test('browser-source equation keeps original TeX and number, not image or rendered MathJax text', async () => {
+  const html = await readFile(new URL('./fixtures/iop/aeaa68-math.excerpt.html', import.meta.url), 'utf8');
+  const { equations, warnings } = extractIopMath(html, 'https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68');
+  assert.deepEqual(warnings, []);
+  assert.equal(equations.length, 1);
+  assert.deepEqual(equations[0], {
+    id: 'tdmaeaa68eqn1', display: true, source: 'script-math-tex',
+    tex: '\\begin{align} \\kappa^{ij} & = \\frac{1}{\\mathcal{V}} \\sum_\\lambda \\kappa_\\lambda^{ij} = \\frac{1}{\\mathcal{V}} \\sum_\\lambda C_\\lambda v_\\lambda^i \\Lambda_\\lambda^{j},\\end{align}\n\t\t\t\t\\tag{\n\t\t\t\t1\n\t\t\t\t}',
+  });
+});
 
 test('IOP identity recognizes modern and legacy 2D Materials paths only', () => {
   for (const doi of ['10.1088/2053-1583/ae2b82', '10.1088/2053-1583/3/3/031012']) {

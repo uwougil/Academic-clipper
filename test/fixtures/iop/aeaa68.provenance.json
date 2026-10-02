@@ -1,0 +1,30 @@
+{
+  "url": "https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68",
+  "doi": "10.1088/2053-1583/aeaa68",
+  "journal": "2D Materials",
+  "observedAt": "2026-10-02",
+  "captureMode": "in-app-browser-rendered-dom",
+  "fixture": "aeaa68-math.excerpt.html",
+  "fixtureSha256": "39e563f7ad07492cfffd590c705c572a7ab8a0c357dc7ec4226313e8d45be371",
+  "sourceSha256": null,
+  "sourceHashLimitation": "Original HTTP response bytes were not captured; a rendered DOM is not equivalent to response bytes.",
+  "retainedBlocks": [
+    "head meta[name^=citation_] excluding citation_reference",
+    ".wd-jnl-art-full-text root attributes",
+    "#tdmaeaa68s1 heading",
+    "#tdmaeaa68eqn1 complete equation subtree"
+  ],
+  "transformations": [
+    "Added fixed html/head/body scaffold; head metadata transcribed from outerHTML returned by read-only browser evaluation",
+    "Removed SVG decoration from heading",
+    "Removed embedded one-pixel data URL from equation image src; retained data-src, alt, role and equation script",
+    "Preserved equation TeX, newlines and tabs; UTF-8/LF serialization",
+    "Only selected blocks retained; heading/equation adjacency in excerpt is not original article adjacency"
+  ],
+  "omittedContent": [
+    "Abstract and article prose",
+    "Other equations, figures, tables, references, author panel, supplementary/data links",
+    "Navigation, ads, consent/session state, executable scripts and rendered MathJax duplicates"
+  ],
+  "scope": "Identity and equation-source acquisition seed, not representative full-text coverage or complete article"
+}
