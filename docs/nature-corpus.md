@@ -210,3 +210,25 @@ Agent A 现已完成 H1，原始有序 commits：`20b48328114f195974e92827583b6b
 通过 tab 的 `cdp` capability 执行 `Page.getResourceTree` 取得当前 main frame identity，再对 exact article URL 调用 `Page.getResourceContent`。返回 `base64Encoded: false`、decoded content 长 449217，包含 article body。没有将其重新 UTF-8 编码 hash 冒充 pre-decoding body hash；未提交全文。`pageAssets.bundle()` 仅支持 image/font/stylesheet/video，不提供 article response byte export。未读取 Cookie、credentials、账号、private session 或执行网络认证。
 
 后续依然需要能提供实际原始 body bytes 的合规 capture 接口，或人工明确修订 byte-provenance 要求；不自行改 canonical spec。可继续以已打开页面做只读 source research，但不能用它虚报 5–10 admitted fixtures。A H1 接口已可用，当前瓶颈缩小为 raw-byte acquisition/provenance 与真实 table resources。
+
+## 初始源码与真实表格形状的对照
+
+在上述 article 的 `Page.getResourceContent` decoded string 中，`id="Equ9"` 起始位置为 158984（zero-based JS UTF-16 code units，不是 byte offset）。初始 `.mathjax-tex` 为直接含 `$$…$$` 的 span，内部没有 rendered SVG、assistive MathML 或 math/tex script；其 TeX 与上一节来源一致。初始 HTTP 源码应优先作为该候选的 excerpt 输入，不能把 rendered DOM 节点改写成自造 initial DOM。
+
+通过 article 唯一 `a[data-test="table-link"]` 的可见 “Full size table” 进入公开来源 [Table 1](https://www.nature.com/articles/s41534-024-00877-y/tables/1)。页面 H1 为 `Table 1 Algorithms’ gate counts`，返回 article 链接指向同一 article 的 `#Tab1`。实际 `table.data.last-table` 有 `thead.c-article-table-head`、1 header row（4 th）及 1 body row（4 td），无 `rowspan`/`colspan`。按序 headers 为 `Trotter K-th order`、`qDRIFT`、`LCU`、`our algorithm`；首 header 的 K 保留 `<i>`。Body 的前两列及末列保留 `<i>`/`<sup>`；第三列为单个 `.mathjax-tex` inline span。该表可研究为 simple-table-with-inline-math success 候选，不能承担 merged-cell coverage。
+
+同一 table URL 的 `Page.getResourceContent` 返回 `base64Encoded: false`、decoded string 长 162813。初始 `<table…>` 的 `[71483, 72221)` 为 JS UTF-16 offsets；其中第三个 td 的原始 TeX 为：
+
+```tex
+N\mu t\frac{\log (\mu t/\epsilon )}{\log \log \mu t/\epsilon }
+```
+
+此 span 初始 delimiters 为 `\(` / `\)`，浏览器 MathJax 后变为 SVG/assistive MathML/math/tex script。上述形状与定位均来自实际源页面，不由 parser 输出推导。它们是 research evidence，尚非 frozen oracle；table raw-byte hash、observedAt capture ledger、sanitized resource 和 replay contracts 仍缺失，不能虚报 table resource admission。
+
+2026-10-02T17:32:31.331Z，外部临时 helper `acquire-header-probe.mjs` 对同一 article 做 cookie-free 请求头对照：复用 production `fetchNatureArticle()` / `safeFetchExternal()`，fresh public DNS 与 pinned socket、scope/timeout/size/content-type guards 均保持；仅 wrapper 的请求头改为常规 Chrome UA、HTML Accept 与 `en-US` Accept-Language，仍 `credentials: omit`，无 Cookie/auth header。结果仍 HTTP 303 / `text/html` / `https://idp.nature.com/authorize`，未跟随该 redirect，未取得 raw article body。该结果排除了本次普通请求头组合即可解除阻塞的假设；不能据此断言 Cloudflare 或认证根因。
+
+```powershell
+node (Join-Path $env:TEMP 'academic-clipper-issue10-agent-b/acquire-header-probe.mjs') s41534-024-00877-y
+```
+
+exit 0 仅为 rejection ledger 写入成功。Helper 与 ledger 在 repo 外 TEMP；未修改 production transport、A interface、canonical spec 或测试。当前 0 admitted entries。C 仍需可验证 raw-byte article/table capture、A-generated excerpts/hashes 及 coverage-to-assertion map 才能开始正式独立验收。
