@@ -172,3 +172,11 @@ node (Join-Path $env:TEMP 'academic-clipper-issue10-agent-b/acquire.mjs') s41534
 fresh public DNS → pinned socket → production `fetchNatureArticle()` 仍收到 HTTP 303 / `text/html` / `https://idp.nature.com/authorize`，被相同 article-scope guard 拒绝。脚本 exit 0 是 ledger 收集成功，不是 capture 成功。用户尚在调查访问；没有新 admissible DOM。
 
 本轮修正上表 `observedAt` 的展示：PowerShell 自动 date formatting 曾丢失毫秒/ISO 格式，现恢复原始 ledger 的 UTC ISO 8601 字符串。`s41534-024-00907-9` 上表保持首轮时间；重试时间单列于本节。没有修改科学来源、schema 或期望值。Agent B 与 Issue #10 仍未完成。
+
+## 第三次 goal turn：blocked audit
+
+2026-10-02T17:07:21.364Z，用上面的同一 guarded acquisition 命令改为 `s41534-024-00877-y` 再核验；仍为 HTTP 303 / `text/html` / `https://idp.nature.com/authorize`，production article-scope guard 拒绝，0 admitted DOM。A thread 当前仍 active/inProgress，branch 尚无 H1 commit。本页以外没有 tracked changes，`git diff --check` 通过。
+
+同一 source-access 前置条件已在原始执行与两次 automatic continuation 中连续成立。上一轮属于证据精度修正的进展；本轮是重验证后确认无进一步 acquisition 进展。没有新的人工授权、公开 cookie-free source 或替代环境；用户已选择自行调查访问。因此 Agent B goal 应标记 blocked，不标记 complete，也不声称 Issue #10 完成。恢复需要 source-access 条件变化；H1 交付本身仍不足以替代真实来源。
+
+截至本节前的 ordered commits：`9620ad7774c461ddf31499496e201517ba4e1d74` → `ea9d4b2949a092c264f9b923a6cf33828ab0c41e`。本节 commit SHA 可由本页 branch history 获取，亦在最终 handoff 报告；三次提交均仅修改 `docs/nature-corpus.md`。
