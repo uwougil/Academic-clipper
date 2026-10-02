@@ -1,0 +1,559 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nature corpus manifest v1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "articles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/article"
+      },
+      "minItems": 0,
+      "maxItems": 10
+    },
+    "sizeException": {
+      "$ref": "#/$defs/sizeException"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "articles"
+  ],
+  "$defs": {
+    "article": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "articleId": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "doi": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "journal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observedAt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "captureMode": {
+          "enum": [
+            "guarded-http",
+            "browser-dom"
+          ]
+        },
+        "sourceSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "fixturePath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fixtureSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "sanitizerVersion": {
+          "const": "nature-corpus-sanitizer/1.0.0"
+        },
+        "serializerVersion": {
+          "const": "nature-corpus-subtree/1.0.0"
+        },
+        "recipe": {
+          "$ref": "#/$defs/recipe"
+        },
+        "retainedBlocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/retainedBlock"
+          },
+          "minItems": 1
+        },
+        "transformations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/transformation"
+          },
+          "minItems": 0
+        },
+        "omittedContent": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/resource"
+          },
+          "minItems": 0
+        },
+        "coverage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/coverage"
+          },
+          "minItems": 1
+        },
+        "expectations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/expectation"
+          },
+          "minItems": 1
+        },
+        "liveObservations": {
+          "$ref": "#/$defs/liveObservations"
+        },
+        "sizeException": {
+          "$ref": "#/$defs/sizeException"
+        }
+      },
+      "required": [
+        "articleId",
+        "url",
+        "doi",
+        "title",
+        "journal",
+        "observedAt",
+        "captureMode",
+        "sourceSha256",
+        "fixturePath",
+        "fixtureSha256",
+        "sanitizerVersion",
+        "serializerVersion",
+        "recipe",
+        "retainedBlocks",
+        "transformations",
+        "omittedContent",
+        "resources",
+        "coverage",
+        "expectations"
+      ]
+    },
+    "recipe": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+        },
+        "articleUrl": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^https://www\\.nature\\.com/articles/[a-zA-Z0-9._-]+$"
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/block"
+          },
+          "minItems": 1
+        },
+        "removeSelectors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "version",
+        "id",
+        "articleUrl",
+        "blocks",
+        "removeSelectors"
+      ]
+    },
+    "block": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+        },
+        "selector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "selector",
+        "role"
+      ]
+    },
+    "retainedBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+        },
+        "selector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceSubtreeSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "id",
+        "selector",
+        "role",
+        "sourceSubtreeSha256"
+      ]
+    },
+    "transformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "operation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "operation",
+        "count"
+      ]
+    },
+    "resource": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+        },
+        "kind": {
+          "const": "table"
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method": {
+          "const": "GET"
+        },
+        "redirect": {
+          "const": "manual"
+        },
+        "status": {
+          "type": "integer",
+          "minimum": 200,
+          "maximum": 599
+        },
+        "responseMocked": {
+          "type": "boolean"
+        },
+        "contentType": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "body": {
+          "type": "string"
+        },
+        "fixturePath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "fixtureSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "sanitizerVersion": {
+          "const": "nature-corpus-sanitizer/1.0.0"
+        },
+        "serializerVersion": {
+          "const": "nature-corpus-subtree/1.0.0"
+        },
+        "recipe": {
+          "$ref": "#/$defs/recipe"
+        },
+        "retainedBlocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/retainedBlock"
+          },
+          "minItems": 1
+        },
+        "transformations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/transformation"
+          },
+          "minItems": 0
+        },
+        "omittedContent": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "sizeException": {
+          "$ref": "#/$defs/sizeException"
+        },
+        "observedAt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "captureMode": {
+          "enum": [
+            "guarded-http",
+            "browser-dom"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "url",
+        "method",
+        "redirect",
+        "status",
+        "responseMocked"
+      ],
+      "if": {
+        "properties": {
+          "responseMocked": {
+            "const": false
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "fixturePath",
+          "fixtureSha256",
+          "sourceSha256",
+          "sanitizerVersion",
+          "serializerVersion",
+          "recipe",
+          "retainedBlocks",
+          "transformations",
+          "omittedContent",
+          "observedAt",
+          "captureMode"
+        ]
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "feature": {
+          "type": "string",
+          "minLength": 1
+        },
+        "blockId": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+        },
+        "expectationId": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+        }
+      },
+      "required": [
+        "feature",
+        "blockId",
+        "expectationId"
+      ]
+    },
+    "expectation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+        },
+        "assertionId": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+        },
+        "blockIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "value": {}
+      },
+      "required": [
+        "id",
+        "assertionId",
+        "blockIds",
+        "value"
+      ]
+    },
+    "signatures": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "projectionVersion": {
+          "const": "nature-corpus-projection/1.0.0"
+        },
+        "serializerVersion": {
+          "const": "nature-corpus-subtree/1.0.0"
+        },
+        "recipeSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "structureSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "payloadSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "projectionVersion",
+        "serializerVersion",
+        "recipeSha256",
+        "structureSha256",
+        "payloadSha256"
+      ]
+    },
+    "liveObservations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "observedAt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fullPageObservations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "retainedProjection": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "projectionVersion": {
+              "const": "nature-corpus-projection/1.0.0"
+            },
+            "serializerVersion": {
+              "const": "nature-corpus-subtree/1.0.0"
+            },
+            "recipeSha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "structureSha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "payloadSha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "projectionVersion",
+            "serializerVersion",
+            "recipeSha256",
+            "structureSha256",
+            "payloadSha256"
+          ]
+        }
+      },
+      "required": [
+        "observedAt",
+        "fullPageObservations",
+        "retainedProjection"
+      ]
+    },
+    "sizeException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewedBy": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "reason",
+        "reviewedBy"
+      ]
+    }
+  }
+}
