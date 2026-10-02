@@ -9,7 +9,7 @@
 - Branch：`codex/issue-10-agent-b`；worktree：`C:\Users\guoli\.codex\worktrees\3417\academic-clipper`。
 - 本次 owned changed file：`docs/nature-corpus.md` 的 source/coverage 预检部分。没有更改 parser、tests、A infrastructure、manifest、golden、canonical spec 或 PRD/EDD。
 - Ordered commit SHAs 由 `git log --reverse --format="%H %s" 5971ebfbe288e0efed4abef21469f41e2cabb05f..codex/issue-10-agent-b` 重建；最终 handoff 提供实际 SHA。没有建立普通 delivery PR。
-- Agent A H1 interface：尚未消费，版本/SHA 未确定。未冻结 manifest、recipe、assertion registry 或 source oracle。基础设施由 A 所有；本文的 acquisition probe 不提供 sanitizer/hash/replay 替代实现。
+- Agent A H1 interface：现已原样消费，schema/recipe `1.0.0`、sanitizer `nature-corpus-sanitizer/1.0.0`、serializer `nature-corpus-subtree/1.0.0`、projection `nature-corpus-projection/1.0.0`。实际 source SHA 和本地 dependency commits 见下方更新。未冻结 manifest、recipe、assertion registry 或 source oracle；基础设施由 A 所有，B 未自行修改。
 
 ## 实际来源证据与 admission
 
@@ -180,3 +180,15 @@ fresh public DNS → pinned socket → production `fetchNatureArticle()` 仍收�
 同一 source-access 前置条件已在原始执行与两次 automatic continuation 中连续成立。上一轮属于证据精度修正的进展；本轮是重验证后确认无进一步 acquisition 进展。没有新的人工授权、公开 cookie-free source 或替代环境；用户已选择自行调查访问。因此 Agent B goal 应标记 blocked，不标记 complete，也不声称 Issue #10 完成。恢复需要 source-access 条件变化；H1 交付本身仍不足以替代真实来源。
 
 截至本节前的 ordered commits：`9620ad7774c461ddf31499496e201517ba4e1d74` → `ea9d4b2949a092c264f9b923a6cf33828ab0c41e`。本节 commit SHA 可由本页 branch history 获取，亦在最终 handoff 报告；三次提交均仅修改 `docs/nature-corpus.md`。
+
+## H1 接入与浏览器观察更新
+
+Agent A 现已完成 H1，原始有序 commits：`20b48328114f195974e92827583b6bf5875beb27` → `4e0aec64f996a0090a7c74c14edd8ab5051d9639`。B 通过 `git cherry-pick` 原样选择，local commits 为 `3728ae3` → `9c9da86`；这些是 A-owned dependency，不是 B 修改生产代码/tests 或新编写 infrastructure。Integrator 若已选择 A 原始 commits，不应重复 cherry-pick B 的这两个 dependency commits；仅选 B-owned docs commits。完整 interface 见 [A handoff](goals/issue-10/agent-a-handoff.md)。
+
+执行 `node scripts/sanitize-nature-corpus.mjs --help` exit 0；`node --test test/nature-corpus-infrastructure.test.mjs` exit 0，28 pass、0 fail/skip。H1 的 synthetic helper checks 不算真实 source admission。恢复采集后将直接使用该版本，仍需 C 登记严格 assertion IDs/value validators；不创建独立 incompatible manifest schema。
+
+用户提供的 Edge 截图显示 `https://www.nature.com/articles/s41534-024-00877-y` 的真实 article 页面：标题、两名作者、Open access、摘要及章节导航可见，没有可见 CAPTCHA/CF challenge。截图只证明当时浏览器呈现该页面，不证明完整正文、无 Cookie、HTTP byte provenance 或可供 sanitizer 使用的 DOM。Computer Use 多次被工具自身的 URL 识别安全检查停止，未取得 DOM、未执行页面输入；不绕过该检查。
+
+2026-10-02T17:21:04.512Z 对上述文章再次运行同一 guarded/pinned acquisition probe，仍返回 HTTP 303 / `text/html` / `https://idp.nature.com/authorize`，被 production scope guard 拒绝。不能把浏览器成功显示或截图 hash 冒充 `sourceSha256`。No-Cookie 要求仍未改变，不能复用浏览器 Cookie/登录状态来使采集通过。
+
+当前 unblocking 状态：A H1 已满足；usable source bytes/DOM 前置条件仍未满足。0 admitted articles、0 fixtures/resources、无 frozen manifest/oracle；Agent B 与 Issue #10 未完成。源码/规范/golden 均未由 B 修改。当前恢复运行的第一次核验取得 H1 新证据，第二次核验完成 dependency 接入；source blocker 仍在，尚未宣称完成。
