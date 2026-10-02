@@ -192,3 +192,10 @@ GitHub Actions 在 pull request 和 `main` push 上运行 Node 20/24 的 `npm ci
 - writer 会先对远程图片版本 Markdown 做数学验证，再在 staging 目录下载和二次验证；在 `.academic-clipper-locks/` 中为每个竞争 writer 创建唯一 claim，并按 ticket 串行化同一文章。stale 清理只删除已复核的原 claim，因此不会误删刚接管的新 owner；下一次写入仍会恢复明显的 stale backup/transaction，避免无效 Markdown 或失败下载留下新半成品。最终文章使用目录级 replacement，旧 backup 清理失败只记录 warning，不把已成功安装报告为失败。
 - 所有外部 resource 使用统一 `safeFetchExternal()`：只允许 HTTP(S)，拒绝明显的 localhost、loopback、link-local、私有 LAN、CGNAT、metadata、multicast 和 IPv4-mapped IPv6 私有地址；请求前解析 DNS 的全部地址，redirect 手动逐跳检查并限制 5 跳。当前没有把已验证地址绑定到 undici 的实际 socket，因此 DNS rebinding 仍是 residual risk；Nature table 还要求每一跳保持在当前 article 的 `/tables/` scope。
 - 论文网站 DOM 变化时需要维护 `src/adapters/nature.mjs` 的 selector；同文章的 fragment cross-reference 会转为本地锚点，外部文章的 fragment URL 保持不变；`raw.html`/`cleaned.html` 用于对照定位问题。
+
+
+## 实验性 APL 支持
+
+Issue #35 的实验入口只接受 Applied Physics Letters 的 `pubs.aip.org/aip/apl/article/...` 页面。加载可公开访问的完整正文后，使用现有扩展的 Preview Markdown / Save Paper；生成目录为 `papers/aip-apl-<platform-id>/`。扩展 UI 仍沿用 Nature 名称，权限保持不变。CLI live fetch 仍仅支持 Nature；APL adapter 不主动补取正文或 supplementary files。abstract-only、challenge 和缺少已观察 DOM 的页面会明确拒绝。
+
+平台来源、覆盖和 merge blockers 见 [APL evidence](docs/aip-apl-evidence.md)。离线 focused tests：`node --test test/aip-adapter.test.mjs`。此实验不支持其他 AIP journals。

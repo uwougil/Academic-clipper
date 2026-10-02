@@ -1,0 +1,126 @@
+[
+  {
+    "id": "3297874",
+    "url": "https://pubs.aip.org/aip/apl/article/124/24/243101/3297874/Tailoring-MoS2-domains-size-doping-and-light",
+    "sourceUrl": "https://aipp.silverchair-cdn.com/article-minimal/3297874",
+    "observedAt": "2026-10-02T17:40:30.588Z",
+    "sourceSha256": "3fd8047040de69abca2ea80ecca0b4b321aa0a38b9dfb59c175b0804f8328e1c",
+    "fixtureSha256": "96e73c70757962149cb4d7b7f39e93c5645422f18ddfa32d9d1b5c9126ee57b2",
+    "file": "3297874.excerpt.html",
+    "retainedBlocks": [
+      "89169191-content",
+      "89169193-content",
+      "89169197-content",
+      "89169205-content",
+      "89169210-content"
+    ],
+    "retainedBlockDigests": [
+      {
+        "id": "89169191-content",
+        "sha256": "94c1aef7cc36367555414bd6f05ba58266e8fb79549e0a37a5e579cd718bd656"
+      },
+      {
+        "id": "89169193-content",
+        "sha256": "16d02fd3ea46f55d49819011f62bc3dfe9f37d38959894046da14f9309722dc6"
+      },
+      {
+        "id": "89169197-content",
+        "sha256": "62283887656803c89aaa4e7a7242faebefa4a0356f969090f1099eac42b0e8cb"
+      },
+      {
+        "id": "89169205-content",
+        "sha256": "184d4e6ecffa3340b5315da4760068a40729c2f7b015c74f238d19564f7b6a90"
+      },
+      {
+        "id": "89169210-content",
+        "sha256": "6eaa33bf15fab7da7f57b265b1c6f0e9c7d0319c7f10a50708accf327f10518c"
+      }
+    ],
+    "serializer": "jsdom outerHTML UTF-8 v1",
+    "sanitizerVersion": "apl-excerpts-v1",
+    "transformations": [
+      "Select original header, semantic blocks and all references; retain modal duplicates to test removal",
+      "Remove executable scripts, UI/account scaffolding, citation service links and ORCID images",
+      "Remove signed CDN query parameters; resource download is not verified"
+    ],
+    "captureMode": "public HTTP response via configured proxy; guarded URL/DNS/redirect/type/size checks",
+    "fullText": true
+  },
+  {
+    "id": "3404114",
+    "url": "https://pubs.aip.org/aip/apl/article/129/10/101106/3404114/Differentiable-computation-based-single-shot",
+    "sourceUrl": "https://aipp.silverchair-cdn.com/article-minimal/3404114",
+    "observedAt": "2026-10-02T17:40:30.730Z",
+    "sourceSha256": "ee5fc11444b35859b3b5b3fc19ed782a47a06d6289973ae02907b4b3ecdb3955",
+    "fixtureSha256": "01960180ea29b287841cbcf722195f632fac06d173e41ea810ff03f10a21b8b2",
+    "file": "3404114.excerpt.html",
+    "retainedBlocks": [
+      "94248671-content",
+      "94248676-content",
+      "94248677-content",
+      "94248680-content",
+      "94248686-content",
+      "94248688-content",
+      "94248701-content"
+    ],
+    "retainedBlockDigests": [
+      {
+        "id": "94248671-content",
+        "sha256": "8063b8b689c2eb4e3b58c012f73c2bca5f27e5824830d09c210a69c6922cdf12"
+      },
+      {
+        "id": "94248676-content",
+        "sha256": "1b191daa6968546f1009907f13c4d71e6b80f6ae659767ede12df9e8ea90aaa1"
+      },
+      {
+        "id": "94248677-content",
+        "sha256": "e60e0524b053d3faa19d3602651165060aad5a9f927838a5ec5d2d495a8e1206"
+      },
+      {
+        "id": "94248680-content",
+        "sha256": "33f6e60e0466982c1cbe5e3c42edb74f8d67f127af42e6957159a3489e06d17e"
+      },
+      {
+        "id": "94248686-content",
+        "sha256": "ce3f582ed2af763e703bed14e4994d836f4a517c5acee0c70668a9297c2cb162"
+      },
+      {
+        "id": "94248688-content",
+        "sha256": "abbc56010782c4844cd3e7e2923087f50c6ed2c20804f24e2897ca5972956d13"
+      },
+      {
+        "id": "94248701-content",
+        "sha256": "3425e4259228ed89a58552f58fca1abaa0a55fcded2f908fd3898e4a03d0505e"
+      }
+    ],
+    "serializer": "jsdom outerHTML UTF-8 v1",
+    "sanitizerVersion": "apl-excerpts-v1",
+    "transformations": [
+      "Select original header, semantic blocks and all references; retain modal duplicates to test removal",
+      "Remove executable scripts, UI/account scaffolding, citation service links and ORCID images",
+      "Remove signed CDN query parameters; resource download is not verified"
+    ],
+    "captureMode": "public HTTP response via configured proxy; guarded URL/DNS/redirect/type/size checks",
+    "fullText": true
+  },
+  {
+    "id": "3371786",
+    "url": "https://pubs.aip.org/aip/apl/article/127/19/192101/3371786/Regulation-of-optical-properties-in-quasi-2D",
+    "sourceUrl": "https://aipp.silverchair-cdn.com/article-minimal/3371786",
+    "observedAt": "2026-10-02T17:40:30.803Z",
+    "sourceSha256": "79b9d18dddbb22a545c0ba876d8500cdc3f1c22e4d9bb43865060429d47671f0",
+    "fixtureSha256": "8f6b518dee60b86d04cfe026f937f9b43e87862dc431064e86fb563f610e281d",
+    "file": "3371786.excerpt.html",
+    "retainedBlocks": [],
+    "retainedBlockDigests": [],
+    "serializer": "jsdom outerHTML UTF-8 v1",
+    "sanitizerVersion": "apl-excerpts-v1",
+    "transformations": [
+      "Select original header, semantic blocks and all references; retain modal duplicates to test removal",
+      "Remove executable scripts, UI/account scaffolding, citation service links and ORCID images",
+      "Remove signed CDN query parameters; resource download is not verified"
+    ],
+    "captureMode": "public HTTP response via configured proxy; guarded URL/DNS/redirect/type/size checks",
+    "fullText": false
+  }
+]

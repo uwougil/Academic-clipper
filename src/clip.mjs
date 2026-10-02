@@ -4,6 +4,7 @@ import path from 'node:path';
 import { withDomGlobals } from './dom-runtime.mjs';
 import { htmlToMarkdown, defuddleToMarkdown } from './markdown.mjs';
 import { articleIdFromUrl, hydrateNatureTables, isNatureUrl, parseNaturePage } from './adapters/nature.mjs';
+import { aplArticleId, isAplUrl, parseAipPage } from './adapters/aip.mjs';
 import { semanticMarker } from './normalizers/markers.mjs';
 import { normalizeMath } from './normalizers/math.mjs';
 import { normalizeAcademicInline } from './normalizers/academic-inline.mjs';
@@ -275,19 +276,35 @@ export async function clipNature({ html, url, rawHtml = html, citationStyle = 'm
     throw new Error('Nature article body was not found; refusing to write a non-article page.');
   }
   parsedPage.debug.warnings.push(...await hydrateNatureTables(parsedPage.tables, url));
+  return finishClip(parsedPage, { url, rawHtml, citationStyle, policy, articleId: articleIdFromUrl(url) });
+}
+
+export async function clipAip({ html, url, rawHtml = html, citationStyle = 'markdown' }) {
+  if (!['markdown', 'links', 'quarto'].includes(citationStyle)) throw new Error('citationStyle must be markdown, links, or quarto.');
+  const policy = outputPolicy(citationStyle);
+  const parsedPage = await parseAipPage(html, url);
+  return finishClip(parsedPage, { url, rawHtml, citationStyle, policy, articleId: aplArticleId(url) });
+}
+
+export async function clipArticle(options) {
+  return isAplUrl(options.url) ? clipAip(options) : clipNature(options);
+}
+
+async function finishClip(parsedPage, { url, rawHtml, citationStyle, policy, articleId }) {
   const converted = await withDomGlobals(parsedPage.dom, async () => {
     await normalizeFigureCaptions(parsedPage.figures, url);
     await normalizeTableContents(parsedPage.tables, url);
+
     const { parsed, markdown } = await defuddleToMarkdown(parsedPage.document, url);
     return {
       parsed,
-      markdown,
+      markdown: parsedPage.bodyHtml === undefined ? markdown : await htmlToMarkdown(parsedPage.bodyHtml, url),
       referencesMarkdown: await referencesMarkdown(parsedPage.references, url, policy),
     };
   });
 
   const intermediate = {
-    articleId: articleIdFromUrl(url),
+    articleId,
     metadata: parsedPage.metadata,
     figures: parsedPage.figures,
     tables: parsedPage.tables,
@@ -302,7 +319,7 @@ export async function clipNature({ html, url, rawHtml = html, citationStyle = 'm
   const debug = {
     ...parsedPage.debug,
     title: parsedPage.metadata.title,
-    articleId: articleIdFromUrl(url),
+    articleId,
     citationStyle,
     defuddleTitle: converted.parsed.title || '',
     defuddleWordCount: converted.parsed.wordCount || 0,
