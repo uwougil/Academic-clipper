@@ -1,0 +1,40 @@
+{
+  "url": "https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adfm.202411631",
+  "title": "Chitin Exfoliation Nanoengineering for Enhanced Salinity Gradient Power Conversion - Huang - 2024 - Advanced Functional Materials - Wiley Online Library",
+  "observedAt": "2026-10-02",
+  "captureMode": "public-browser-selected-DOM-blocks",
+  "accessLabel": "Research Article",
+  "fullWrapperObserved": false,
+  "sourceResponseSha256": null,
+  "sourceDigestMeaning": "Hashes below identify selected serialized DOM subtrees before sanitization; no raw HTTP response was obtained.",
+  "fixtureSha256": "979d9e4ddb7caea7b5d9b26f83d1ece5ab92b8d6f3bf8fe07230db39fe69b58d",
+  "sanitizerVersion": "wiley-selected-blocks-v1",
+  "retainedBlocks": [
+    {
+      "role": "abstract",
+      "id": "section-1-en",
+      "tag": "SECTION",
+      "class": "article-section article-section__abstract",
+      "sourceDomSha256": "ddd190a47280be376b30cd3bdbea4e3a2feabab65a7b7eef633fab8cd223ffe2"
+    },
+    {
+      "role": "support",
+      "id": "",
+      "tag": "SECTION",
+      "class": "article-section article-section__supporting",
+      "sourceDomSha256": "97730cc88b25410ec2d9df8a9fbee74da9ca2df462927cd010f6e0a169bad0ff"
+    }
+  ],
+  "transformations": [
+    "Minimal document scaffold; source-order projection retains selected semantic blocks and their original ancestor opening/closing tags, drops unselected siblings",
+    "Preserved each selected scholarly block internally; removed executable scripts/forms/iframes/style/events and reference linkout UI",
+    "UTF-8 LF serialization; removed trailing line indentation while retaining newlines",
+    "Retained citation numbering and reference prefix through highest selected citation",
+    "No inserted scholarly prose, captions, cells or equations"
+  ],
+  "omittedContent": [
+    "Unselected paragraphs/sections/figures/equations/tables/references",
+    "Header, account UI, sidebars, ads, consent, analytics and full raw page",
+    "Source HTTP bytes and headers"
+  ]
+}

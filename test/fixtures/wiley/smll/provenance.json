@@ -1,0 +1,152 @@
+{
+  "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/smll.202402938",
+  "title": "Hydrophobic Multilayered PEG@PAN/MXene/PVDF@SiO2 Composite Film with Excellent Thermal Management and Electromagnetic Interference Shielding for Electronic Devices - Lin - 2024 - Small - Wiley Online Library",
+  "observedAt": "2026-10-02",
+  "captureMode": "public-browser-selected-DOM-blocks",
+  "accessLabel": "Research ArticleOpen Access",
+  "fullWrapperObserved": true,
+  "sourceResponseSha256": null,
+  "sourceDigestMeaning": "Hashes below identify selected serialized DOM subtrees before sanitization; no raw HTTP response was obtained.",
+  "fixtureSha256": "f68fb92d593a4b965de1d9eea4d7cf4e1d1043112135cce5f39f0a530b90a858",
+  "sanitizerVersion": "wiley-selected-blocks-v1",
+  "retainedBlocks": [
+    {
+      "role": "abstract",
+      "id": "section-1-en",
+      "tag": "SECTION",
+      "class": "article-section article-section__abstract",
+      "sourceDomSha256": "e7535b88b4f07f8a3acbecb684738c93f85eeb7069d3920d61f5a1260dc98130"
+    },
+    {
+      "role": "full",
+      "id": "smll202402938-sec-0010-title",
+      "tag": "H2",
+      "class": "article-section__title section__title section1",
+      "sourceDomSha256": "db63af86268cc0ff4c583dab3a6d3ce160011c285a83d8766a37dd558e61e498"
+    },
+    {
+      "role": "full",
+      "id": "smll202402938-sec-0020-title",
+      "tag": "H2",
+      "class": "article-section__title section__title section1",
+      "sourceDomSha256": "b81f610c8e5a52f83c5ed328584bbe902cd7cc47cba3e774ebed4cff92bc6b86"
+    },
+    {
+      "role": "full",
+      "id": "smll202402938-sec-0030-title",
+      "tag": "H3",
+      "class": "article-section__sub-title section2",
+      "sourceDomSha256": "dab07053b53093ab50b3a055daed8641e38d5e1e79e66564a5c0a3866b0ed16f"
+    },
+    {
+      "role": "full",
+      "id": "",
+      "tag": "P",
+      "class": "",
+      "sourceDomSha256": "4e4a5cd5d1cb4011e667339f6d704dfab72bc1df932bcbbe89a4e232fc979c59"
+    },
+    {
+      "role": "full",
+      "id": "smll202402938-fig-0001",
+      "tag": "FIGURE",
+      "class": "figure",
+      "sourceDomSha256": "0a716635ba96dc927ea7375878f8d942a0707cccd46fe6e39df898d3a1c33816"
+    },
+    {
+      "role": "full",
+      "id": "smll202402938-disp-0001",
+      "tag": "DIV",
+      "class": "inline-equation",
+      "sourceDomSha256": "e6c63be96ba4c1497df0471fcb49956221bb46c38709082ff90fb69a75ae71da"
+    },
+    {
+      "role": "full",
+      "id": "smll202402938-tbl-0001",
+      "tag": "DIV",
+      "class": "article-table-content",
+      "sourceDomSha256": "9a63756e7d08f259d93ad813cc66f476283441156fa4ce3aa359e16c7396a30b"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "df85df47b8e7b9c662b3d830982fce4aba7ce43f811596c99832acdd8815ff1f"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "7bbf6d46c8c8e39534dfe06282796f63034192a625e83a40d1653c76618ddbf4"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "afe346a92b01fbc7caa8d482a44e7ac1a25cc55fc4b65980ce17a424daeee965"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "3b4518ae55c1b6166550bf3e47e46a2f68f661fc88242abe2d6ca2f4b7ef050e"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "2eb09cbaca868656d69d34199679cb2e39e949322af534345f90147651bbb491"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "c2ab0fc63b9687fcdd84427a3bce6eb5155832a713d1f0ab8b19d97a867d8dbe"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "fdc0c63972e3ed2756aa21b2e0091bd97be89070eff8b327cdeed5df32927e42"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "2a7985e946863361bb694a49dc6821b7ca995b47f128e5be0f25e30bb4bb984f"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "adaa9bca2da7e74497649536447825740147b65244cf053a758f240463b83c93"
+    },
+    {
+      "role": "support",
+      "id": "",
+      "tag": "SECTION",
+      "class": "article-section article-section__supporting",
+      "sourceDomSha256": "8b7c38411cff3deafed12eb61ecaef1f29c7f7b127d978acd4396abe3c0f470b"
+    }
+  ],
+  "transformations": [
+    "Minimal document scaffold; source-order projection retains selected semantic blocks and their original ancestor opening/closing tags, drops unselected siblings",
+    "Preserved each selected scholarly block internally; removed executable scripts/forms/iframes/style/events and reference linkout UI",
+    "UTF-8 LF serialization; removed trailing line indentation while retaining newlines",
+    "Retained citation numbering and reference prefix through highest selected citation",
+    "No inserted scholarly prose, captions, cells or equations"
+  ],
+  "omittedContent": [
+    "Unselected paragraphs/sections/figures/equations/tables/references",
+    "Header, account UI, sidebars, ads, consent, analytics and full raw page",
+    "Source HTTP bytes and headers"
+  ]
+}

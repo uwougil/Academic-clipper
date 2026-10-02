@@ -1,0 +1,117 @@
+{
+  "url": "https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.202404860",
+  "title": "Loading of Extracellular Vesicles with Nucleic Acids via Hybridization with Non‐Lamellar Liquid Crystalline Lipid Nanoparticles - Bader - 2025 - Advanced Science - Wiley Online Library",
+  "observedAt": "2026-10-02",
+  "captureMode": "public-browser-selected-DOM-blocks",
+  "accessLabel": "Research ArticleOpen Access",
+  "fullWrapperObserved": true,
+  "sourceResponseSha256": null,
+  "sourceDigestMeaning": "Hashes below identify selected serialized DOM subtrees before sanitization; no raw HTTP response was obtained.",
+  "fixtureSha256": "a7d99533c6be8903e73b7fa752ab566fbfb95ef32f30de513629a567ca17daed",
+  "sanitizerVersion": "wiley-selected-blocks-v1",
+  "retainedBlocks": [
+    {
+      "role": "abstract",
+      "id": "section-1-en",
+      "tag": "SECTION",
+      "class": "article-section article-section__abstract",
+      "sourceDomSha256": "557ba8f9519d78042c65e59c39b6d375dd9686ef2b3ff21b9b2517ef87c2a6d0"
+    },
+    {
+      "role": "full",
+      "id": "advs10387-sec-0010-title",
+      "tag": "H2",
+      "class": "article-section__title section__title section1",
+      "sourceDomSha256": "d5b106920b08bebd05afde559617dd0001aae79468f6cd927db0410e8999aa90"
+    },
+    {
+      "role": "full",
+      "id": "advs10387-sec-0020-title",
+      "tag": "H2",
+      "class": "article-section__title section__title section1",
+      "sourceDomSha256": "8e72585f0973c7bd34ff55a2ff24d6f4e16a0109f027b02b8813c73cb78a3022"
+    },
+    {
+      "role": "full",
+      "id": "advs10387-sec-0030-title",
+      "tag": "H3",
+      "class": "article-section__sub-title section2",
+      "sourceDomSha256": "8755e4bf996fb2f3dedf28aaa4cf8bc525ea7c84a432d9f7605f94f81149b4e0"
+    },
+    {
+      "role": "full",
+      "id": "",
+      "tag": "P",
+      "class": "",
+      "sourceDomSha256": "90902a2258997e3f20134003d2c570a03d80bc1801ca4cf460a7b3e5c0799487"
+    },
+    {
+      "role": "full",
+      "id": "advs10387-fig-0001",
+      "tag": "FIGURE",
+      "class": "figure",
+      "sourceDomSha256": "6b55e064e94cf169274f8d5ef0ca28cc39885ee91a87c9da55d4e281c7093a91"
+    },
+    {
+      "role": "full",
+      "id": "advs10387-disp-0001",
+      "tag": "DIV",
+      "class": "inline-equation",
+      "sourceDomSha256": "9be5a1eecd8bb4efab138ba1353383034e48d41994e5aa056ff652b8d83b9463"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "6f63539229080de609738e082b70255de3ba20fa452246d4b3d0476123f23fd2"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "ad5f51c4ed077f66091ba295628c252313806ac1d4d07ddd7e442ae70ec96fc4"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "bcaa0a7fd9c5dc400bc9d5e122b7724c17b7b7e39f9bebdccbcedc5274e9414a"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "112bcb8b4ff7f57c084657912e5dbe871a768c6dc27fd68a01f4c0c469393e59"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "8e4beeac023ef9f1e86c87b4d030006755099519a2a53a5cad1e3ea3d6af8d5f"
+    },
+    {
+      "role": "support",
+      "id": "",
+      "tag": "SECTION",
+      "class": "article-section article-section__supporting",
+      "sourceDomSha256": "57d3e6cb501d0f5e59532e1a79804b8a12c7f624cac20488dcedfd70a7a5d619"
+    }
+  ],
+  "transformations": [
+    "Minimal document scaffold; source-order projection retains selected semantic blocks and their original ancestor opening/closing tags, drops unselected siblings",
+    "Preserved each selected scholarly block internally; removed executable scripts/forms/iframes/style/events and reference linkout UI",
+    "UTF-8 LF serialization; removed trailing line indentation while retaining newlines",
+    "Retained citation numbering and reference prefix through highest selected citation",
+    "No inserted scholarly prose, captions, cells or equations"
+  ],
+  "omittedContent": [
+    "Unselected paragraphs/sections/figures/equations/tables/references",
+    "Header, account UI, sidebars, ads, consent, analytics and full raw page",
+    "Source HTTP bytes and headers"
+  ]
+}

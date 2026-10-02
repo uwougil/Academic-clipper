@@ -1,0 +1,250 @@
+{
+  "url": "https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/aelm.202300874",
+  "title": "New Recipe for Enhancing the Thermoelectric Performance in Topological Materials Carrying Single‐Pair Weyl Points Fermions and Phonons - Ding - 2024 - Advanced Electronic Materials - Wiley Online Library",
+  "observedAt": "2026-10-02",
+  "captureMode": "public-browser-selected-DOM-blocks",
+  "accessLabel": "Research ArticleOpen Access",
+  "fullWrapperObserved": true,
+  "sourceResponseSha256": null,
+  "sourceDigestMeaning": "Hashes below identify selected serialized DOM subtrees before sanitization; no raw HTTP response was obtained.",
+  "fixtureSha256": "c16c1664db0c2ac5cf4e4570ff8f193fbccb643b1a1a406a93323f3ce93bafd2",
+  "sanitizerVersion": "wiley-selected-blocks-v1",
+  "retainedBlocks": [
+    {
+      "role": "abstract",
+      "id": "section-1-en",
+      "tag": "SECTION",
+      "class": "article-section article-section__abstract",
+      "sourceDomSha256": "7006d3ed8a7e9c02ed422848f9ddadd6ee4b22211686c1ea15b75dc381281969"
+    },
+    {
+      "role": "full",
+      "id": "aelm670-sec-0010-title",
+      "tag": "H2",
+      "class": "article-section__title section__title section1",
+      "sourceDomSha256": "ff5cd7d21fb1727b5dc64960b1452a23add25ea745f0792a15d0477a80870efa"
+    },
+    {
+      "role": "full",
+      "id": "aelm670-sec-0020-title",
+      "tag": "H2",
+      "class": "article-section__title section__title section1",
+      "sourceDomSha256": "7471aa6c883fbcc2bd68cc06b8f1c424b8b325ad0f73a52f0074f59197871961"
+    },
+    {
+      "role": "full",
+      "id": "aelm670-sec-0030-title",
+      "tag": "H2",
+      "class": "article-section__title section__title section1",
+      "sourceDomSha256": "8ed8dc875fe619384501ed03ba8e7beaf3d2c712da8e990943497e54f080afcc"
+    },
+    {
+      "role": "full",
+      "id": "",
+      "tag": "P",
+      "class": "",
+      "sourceDomSha256": "1062f9293f4cc134e01e63592d890b784bd05b2bcce5934f0734c9d2ea411495"
+    },
+    {
+      "role": "full",
+      "id": "aelm670-fig-0001",
+      "tag": "FIGURE",
+      "class": "figure",
+      "sourceDomSha256": "810921f0bfa6c49b347eb0845827b3c72e29c7ca73d87c61481573eb66c85da8"
+    },
+    {
+      "role": "full",
+      "id": "aelm670-disp-0001",
+      "tag": "DIV",
+      "class": "inline-equation",
+      "sourceDomSha256": "415ef22e66c73e469f8e1d2e44aebd61e1baca1e7f0cbb276169fc91d58566f2"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "afcf4a445666924b93c2911781de1be9bb1f84da0aa7b8268a67f87b75cf5cf2"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "a7b1aba291141c5c6249ae2f8846ca29dfc72c1990c8d22f45a7f4a0088c73ba"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "d7327af34a9ce73d62ca46dc2bbebaf1fe62209390e92ead38e01a87e42c88db"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "f32a8f03c83537ef0d14b20635801b51a6a4b1594f368781f063f17550e230a5"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "b8645b44f4ed1049722cce2389ff82a5bed45868f263e42aea2a88ccedeb7b7c"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "0b15efdae9052ac512e60682b8871d8eac4e6506ee056a840bbfd53296379159"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "e4cc5787c34b1f3e5eeb67d9a648d58013443c7906c0d7c76bfa2f21cb5ba79e"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "a42d8affafa42a1bacfa1ad80d13ab5abf87e50e1c122d85d2583cfdee521b97"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "46783a17c28a079903cb3b5c446fff8b382c18c0f30af31dc97ca06f385a26cf"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "e31912c5c47e889066195870fcfe4809c58ec933ed024e93e7101fdf710f03e4"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "dd77b5bbac5b01a90f4ec4764184a97e7dd4775fb522767931b97bc4fb8f6707"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "8e1424e49b243ff7cde680243f51adf5202c5c529340294718658a64c7b421ae"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "6584c00de3f7dd9d37ead39f61de7cfabdafa2162637240b13533975689e2869"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "d6a22ebb14b8c88892d602b0209657ba6d11c80ad1b89fe1aa8c091815f90e50"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "7bfb10635e9f3d884a2246999b51dc502171771527eadb9acf4e63f99300815c"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "b1962118132f583450d004facfca4e1bff11ce8b7351beed3e92214fea400643"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "2ccffa2f7bd8a6fbed70e75ffc72140f00c605e9e9f6ca750da45e4df90065b2"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "f87341a85bb4c0910d57154595d9a9dbd989cb6e44fcf22fde2384ee2628fa82"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "f06f235b4489140f1283ad2365849ea0c7980e022839c53a31525aef79c96dc1"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "3d88a7c8dec20e95c0f97aa81a58d9ffdcf22643e5b62bc91e5d60204bd142a7"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "0c3a920ad5416c4f97bba8113832788eae4dc08110ce2732ba72109a469c0627"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "2624eb7cf131b6205c468e44aa195d1b07c30f1435aede28cfbaec4c87d9a647"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "36c2a94b2f868ae4d163cb86ce8cb9347d9082dbf1a072be5851aad5d8afa4b4"
+    },
+    {
+      "role": "references",
+      "id": "",
+      "tag": "LI",
+      "class": "",
+      "sourceDomSha256": "d36dfbd5f6e70d6bc392c243dd19e58cbf25c00d482988348c32e33ae828bd2b"
+    },
+    {
+      "role": "support",
+      "id": "",
+      "tag": "SECTION",
+      "class": "article-section article-section__supporting",
+      "sourceDomSha256": "fa18e05936474813b6fe84ed8e721170095e736c2a1e4b8bf2a9915bd3931395"
+    }
+  ],
+  "transformations": [
+    "Minimal document scaffold; source-order projection retains selected semantic blocks and their original ancestor opening/closing tags, drops unselected siblings",
+    "Preserved each selected scholarly block internally; removed executable scripts/forms/iframes/style/events and reference linkout UI",
+    "UTF-8 LF serialization; removed trailing line indentation while retaining newlines",
+    "Retained citation numbering and reference prefix through highest selected citation",
+    "No inserted scholarly prose, captions, cells or equations"
+  ],
+  "omittedContent": [
+    "Unselected paragraphs/sections/figures/equations/tables/references",
+    "Header, account UI, sidebars, ads, consent, analytics and full raw page",
+    "Source HTTP bytes and headers"
+  ]
+}
