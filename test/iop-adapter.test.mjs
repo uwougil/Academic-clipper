@@ -1,16 +1,40 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
-import { extractIopMath, inspectIopPage, iopArticleIdentity, parseIopPage } from '../src/adapters/iop.mjs';
+import { extractIopFigures, extractIopMath, inspectIopPage, iopArticleIdentity, parseIopPage } from '../src/adapters/iop.mjs';
 
 const synthetic = await readFile(new URL('./fixtures/iop/synthetic-head.html', import.meta.url), 'utf8');
 const url = 'https://iopscience.iop.org/article/10.1088/2053-1583/synthetic';
+
+test('source-backed Figure 3 retains complete caption TeX, units and both image variants', async () => {
+  const html = await readFile(new URL('./fixtures/iop/aeaa68-figure.excerpt.html', import.meta.url), 'utf8');
+  const articleUrl = 'https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68';
+  const result = await extractIopFigures(html, articleUrl);
+  assert.deepEqual(result.warnings, []);
+  assert.equal(result.figures.length, 1);
+  const figure = result.figures[0];
+  assert.equal(figure.id, 'tdmaeaa68f3');
+  assert.equal(figure.captionMarkdown, '**Figure 3.** Lattice thermal conductivity $\\kappa$ at 300 K calculated via phoebe as a function of the average mass $\\left \\lt M\\right \\gt$ of each pristine heterobilayer.');
+  assert.match(figure.standardUrl, /tdmaeaa68f3_lr\.jpg$/);
+  assert.match(figure.highResolutionUrl, /tdmaeaa68f3_hr\.jpg$/);
+  const hostile = html.replaceAll('https://content.cld.iop.org/', 'https://content.cld.iop.org.example.com/');
+  const rejected = await extractIopFigures(hostile, articleUrl);
+  assert.equal(rejected.figures[0].standardUrl, null);
+  assert.equal(rejected.figures[0].highResolutionUrl, null);
+  assert.deepEqual(rejected.warnings.map(w => w.code), ['IOP_FIGURE_IMAGE_MISSING']);
+});
 
 test('browser-source aeaa68 excerpt preserves real identity and publication date', async () => {
   const html = await readFile(new URL('./fixtures/iop/aeaa68-math.excerpt.html', import.meta.url), 'utf8');
   const result = inspectIopPage(html, 'https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68');
   assert.equal(result.metadata.title, 'Tuning magnitude and direction of lattice thermal conductivity in transition metal dichalcogenide heterobilayers');
   assert.deepEqual(result.metadata.authors, ['Elliot Perviz', 'Antonio Cammarata']);
+  assert.deepEqual(result.metadata.authorInformation.map(author => author.orcid), [
+    'https://orcid.org/0000-0002-0348-8369', 'https://orcid.org/0000-0002-5691-0682',
+  ]);
+  for (const author of result.metadata.authorInformation) {
+    assert.deepEqual(author.institutions, ['Department of Control Engineering, Faculty of Electrical Engineering, Czech Technical University in Prague, Technicka 2, 16627 Prague 6, Czech Republic']);
+  }
   assert.equal(result.metadata.date, '2026/10/01');
   assert.equal(result.metadata.doi, '10.1088/2053-1583/aeaa68');
   assert.equal(result.metadata.journal, '2D Materials');

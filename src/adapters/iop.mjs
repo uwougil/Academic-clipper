@@ -1,4 +1,10 @@
 import { JSDOM } from 'jsdom';
+import { htmlToMarkdown } from '../markdown.mjs';
+import { withDomGlobals } from '../dom-runtime.mjs';
+
+// Defuddle caches a DOMParser bound to its first window. Keep one empty,
+// publisher-local conversion window alive; article DOMs are still closed.
+let conversionDom;
 
 // Experimental preflight; source acquisition and full-text implementation are ongoing.
 // Do not route production clipping here until complete source-backed tests exist.
@@ -45,6 +51,25 @@ function single(document, name) {
   return found[0] || '';
 }
 
+function authorInformation(document) {
+  const authors = [];
+  let author;
+  for (const node of document.querySelectorAll('meta[name]')) {
+    const name = node.getAttribute('name').toLowerCase();
+    const content = (node.getAttribute('content') || '').trim();
+    if (name === 'citation_author' && content) {
+      author = { name: content, institutions: [], orcid: null };
+      authors.push(author);
+    } else if (author && name === 'citation_author_institution' && content) {
+      author.institutions.push(content);
+    } else if (author && name === 'citation_author_orcid' && content) {
+      const match = content.match(/^https?:\/\/orcid\.org\/(\d{4}-\d{4}-\d{4}-\d{3}[\dX])$/);
+      if (match) author.orcid = `https://orcid.org/${match[1]}`;
+    }
+  }
+  return authors.some(item => item.institutions.length || item.orcid) ? authors : null;
+}
+
 /**
  * Inspect conventional citation_* head metadata without claiming full text.
  * citation_* has been observed in aeaa68 and the subscription 025001 browser DOM.
@@ -77,8 +102,9 @@ export function inspectIopPage(html, url) {
       date: single(document, 'citation_online_date') || single(document, 'citation_publication_date'),
       volume: single(document, 'citation_volume'),
       issue: single(document, 'citation_issue'),
-      // Author/affiliation relationships and correspondence need observed DOM.
-      authorInformation: null,
+      // In the observed 2D Materials head, institution/ORCID entries follow
+      // their author. Correspondence is not inferred from this metadata.
+      authorInformation: authorInformation(document),
       metadataSource: 'candidate-citation-meta',
     } : null;
     return {
@@ -127,4 +153,55 @@ export function extractIopMath(html, url) {
   } finally {
     dom.window.close();
   }
+}
+
+/** Inspect publisher figure captions without downloading external resources. */
+export async function extractIopFigures(html, url) {
+  const { identity } = inspectIopPage(html, url);
+  const dom = new JSDOM(html, { url: identity.url });
+  try {
+    const root = dom.window.document.querySelector('.wd-jnl-art-full-text[itemprop="articleBody"]');
+    if (!root) throw new IopAdapterError('IOP_BODY_UNAVAILABLE', 'IOPscience full-text root was not found.');
+    const figures = [];
+    const warnings = [];
+    for (const figure of root.querySelectorAll('figure[data-toolbar-type="figure"]')) {
+      const caption = figure.querySelector('.figure-caption')?.cloneNode(true);
+      if (!caption) {
+        warnings.push({ code: 'IOP_FIGURE_CAPTION_MISSING', id: figure.id });
+        continue;
+      }
+      // Defuddle escapes backslashes in ordinary text. Restore source TeX after
+      // conversion using tokens guaranteed absent from the original caption.
+      const mathSources = [];
+      let prefix = 'IOPFIGUREMATHTOKEN';
+      while (caption.textContent.includes(prefix)) prefix += 'X';
+      for (const math of caption.querySelectorAll('.inline-eqn')) {
+        const source = math.querySelector('script[type="math/tex"]')?.textContent.trim();
+        if (!source) throw new IopAdapterError('IOP_MATH_SOURCE_MISSING', 'Figure caption lacks source TeX.');
+        const token = `${prefix}${mathSources.length}END`;
+        mathSources.push({ token, source });
+        math.replaceWith(dom.window.document.createTextNode(token));
+      }
+      caption.querySelectorAll('script,svg,mjx-container,button').forEach((node) => node.remove());
+      const imageUrl = (selector) => {
+        const href = figure.querySelector(selector)?.getAttribute('href');
+        if (!href) return null;
+        try {
+          const candidate = new URL(href, identity.url);
+          if (candidate.protocol !== 'https:' || candidate.hostname !== 'content.cld.iop.org'
+            || candidate.port || candidate.username || candidate.password) return null;
+          return candidate.href;
+        } catch { return null; }
+      };
+      const standardUrl = imageUrl('a.fig-dwnld-std-img');
+      const highResolutionUrl = imageUrl('a.fig-dwnld-hi-img');
+      if (!standardUrl && !highResolutionUrl) warnings.push({ code: 'IOP_FIGURE_IMAGE_MISSING', id: figure.id });
+      conversionDom ??= new JSDOM('<!doctype html><html><body></body></html>');
+      let captionMarkdown = await withDomGlobals(conversionDom, () => htmlToMarkdown(caption.outerHTML, identity.url));
+      for (const { token, source } of mathSources) captionMarkdown = captionMarkdown.replaceAll(token, () => `$${source}$`);
+      captionMarkdown = captionMarkdown.replaceAll('\u00a0', ' ');
+      figures.push({ id: figure.id, captionMarkdown: captionMarkdown.trim(), standardUrl, highResolutionUrl });
+    }
+    return { figures, warnings };
+  } finally { dom.window.close(); }
 }
