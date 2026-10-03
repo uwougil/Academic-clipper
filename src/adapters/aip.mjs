@@ -196,6 +196,12 @@ export async function parseAipPage(html, url) {
     semantic.citations.push({ marker, numbers });
     n.replaceWith(document.createTextNode(marker));
   }
+  let displayFallbackCounter = 0;
+  const equationLabels = new Set(
+    [...root.querySelectorAll(".formula-wrap > .label.title-label")]
+      .map((node) => text(node).match(/^\((\d+)\)$/u)?.[1])
+      .filter(Boolean),
+  );
   await withDomGlobals(dom, async () => {
     for (const n of [...root.querySelectorAll("math")]) {
       const inline = Boolean(n.closest(".inline-formula"));
@@ -215,7 +221,17 @@ export async function parseAipPage(html, url) {
       const target = wrapper || n;
       if (!inline && wrapper) {
         const id = wrapper.getAttribute("content-id");
-        const anchor = `equation-${values.length}`;
+        const sourceLabel = text(
+          wrapper.querySelector(":scope > .label.title-label"),
+        ).match(/^\((\d+)\)$/u)?.[1];
+        let equationNumber = sourceLabel;
+        if (!equationNumber) {
+          do {
+            displayFallbackCounter += 1;
+          } while (equationLabels.has(String(displayFallbackCounter)));
+          equationNumber = String(displayFallbackCounter);
+        }
+        const anchor = `equation-${equationNumber}`;
         semantic.crossReferences.set(id, { type: "equation", anchor });
         const p = document.createElement("p");
         p.textContent = semanticMarker("EQUATIONANCHOR", anchor);

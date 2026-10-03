@@ -182,3 +182,59 @@ test("source journal and article identity must match the APL URL", async () => {
     /source identity/,
   );
 });
+
+// Synthetic topology mutation: preceding unnumbered math must not renumber source labels.
+for (const citationStyle of ["links", "quarto"]) {
+  test(`source Equation (7) survives preceding unnumbered display in ${citationStyle}`, async () => {
+    const original = await readFile(new URL(cases[1].file, base), "utf8");
+    const unnumbered =
+      '<div class="formula-wrap" content-id="unnumbered"><div class="disp-formula"><math><mi>x</mi></math></div></div>';
+    const synthetic = original
+      .replace(
+        '<div class="formula-wrap" content-id="d1">',
+        unnumbered +
+          '<a href="javascript:;" reveal-id="d1">Equation (7)</a><div class="formula-wrap" content-id="d1">',
+      )
+      .replace(
+        '<span class="label title-label">(1)</span>',
+        '<span class="label title-label">(7)</span>',
+      );
+    const result = await clipAip({
+      html: synthetic,
+      url: cases[1].url,
+      citationStyle,
+    });
+    assert.equal(
+      result.semantic.crossReferences.get("d1").anchor,
+      "equation-7",
+    );
+    assert.equal(
+      result.semantic.crossReferences.get("unnumbered").anchor,
+      "equation-1",
+    );
+    assert.match(
+      result.markdown,
+      citationStyle === "links"
+        ? /\[Equation \(7\)\]\(#equation-7\)/
+        : /\[Equation \(7\)\]\(#eq-equation-7\)/,
+    );
+    assert.match(
+      result.markdown,
+      citationStyle === "links"
+        ? /<a id="equation-7"><\/a>/
+        : /\{#eq-equation-7\}/,
+    );
+    assert.equal(result.debug.crossReferenceValidation.valid, true);
+    const real = await clipAip({
+      html: original,
+      url: cases[1].url,
+      citationStyle,
+    });
+    assert.deepEqual(
+      ["d1", "d2", "d3", "d4", "d5"].map(
+        (id) => real.semantic.crossReferences.get(id).anchor,
+      ),
+      ["equation-1", "equation-2", "equation-3", "equation-4", "equation-5"],
+    );
+  });
+}
