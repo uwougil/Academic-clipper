@@ -4,11 +4,11 @@
 
 ## 基线、所有权与接口
 
-- 当前 accepted main / rebased base SHA：`0ee52b585afb1ac2bed11e9a56278feae2da1949`，保留 [PR #27](https://github.com/uwougil/Academic-clipper/pull/27) planning contract。main 之后合入 PR #37、#38、#40、#41；B 无关的 publisher 实验不改变本 task 的 Nature corpus 范围。
-- [Latest Main CI 37133130849](https://github.com/uwougil/Academic-clipper/actions/runs/37133130849)：head `0ee52b585afb1ac2bed11e9a56278feae2da1949`，Ubuntu Node 20、Ubuntu Node 24、Windows Node 24 全部成功（2026-10-03）。此前 base CI 37037241055 也已成功。
+- 当前 accepted main / rebased base SHA：`ef3975c6a0eb1ec1e5a010a2df5b4f57309cebbe`，保留 [PR #27](https://github.com/uwougil/Academic-clipper/pull/27) planning contract。其后包括 PR #37、#38、#40、#41、#43；B 无关的 publisher 实验不改变本 task 的 Nature corpus 范围。
+- [Latest Main CI 37135219340](https://github.com/uwougil/Academic-clipper/actions/runs/37135219340)：head `ef3975c6a0eb1ec1e5a010a2df5b4f57309cebbe`，Ubuntu Node 20、Ubuntu Node 24、Windows Node 24 全部成功（2026-10-03）。此前 base CI 37037241055、37133130849 也已成功。
 - Branch：`codex/issue-10-agent-b`；worktree：`C:\Users\guoli\.codex\worktrees\3417\academic-clipper`。
 - 本次 owned changed file：`docs/nature-corpus.md` 的 source/coverage 预检部分。没有更改 parser、tests、A infrastructure、manifest、golden、canonical spec 或 PRD/EDD。
-- 分支已 rebase 到当前 accepted main；ordered commits 由 `git log --reverse --format="%H %s" 0ee52b585afb1ac2bed11e9a56278feae2da1949..codex/issue-10-agent-b` 重建，最终 handoff 记录本次重放后的 SHA。没有建立普通 delivery PR。
+- 分支已 rebase 到当前 accepted main；ordered commits 由 `git log --reverse --format="%H %s" ef3975c6a0eb1ec1e5a010a2df5b4f57309cebbe..codex/issue-10-agent-b` 重建，最终 handoff 记录本次重放后的 SHA。没有建立普通 delivery PR。
 - Agent A H1 interface：现已原样消费，schema/recipe `1.0.0`、sanitizer `nature-corpus-sanitizer/1.0.0`、serializer `nature-corpus-subtree/1.0.0`、projection `nature-corpus-projection/1.0.0`。实际 source SHA 和本地 dependency commits 见下方更新。未冻结 manifest、recipe、assertion registry 或 source oracle；基础设施由 A 所有，B 未自行修改。
 
 ## 实际来源证据与 admission
@@ -248,3 +248,44 @@ exit 0 仅为 rejection ledger 写入成功。Helper 与 ledger 在 repo 外 TEM
 出版社官方 [Site License Access Issue Help](https://support.springernature.com/en/support/solutions/articles/6000210847-site-license-access-issue-help) 将 `idp.nature.com/debug` 列为 Nature content access troubleshooting 页面，并说明缓存/Cookie 可能影响访问。该文档描述站点许可故障排查，不足以识别本次为何跳转，也不表示此 Open Access article 要求订阅。我们没有访问 debug 页面（不需要把任何本机身份状态传给出版社），因此根因仍未知；可确认的只是 cookie-free Fetch 没拿到 body。
 
 后续 exact probe：在 `Network.enable` 后记录 event cursor，使用以上 `Runtime.evaluate` expression（将 result 限制为 status/url/type/content-type/byte count/SHA，绝不回显 body、Cookie 或 redirect code）；成功必须同时确认 200、canonical article body identity、声明长度/hash、`credentials: omit`，并通过 guarded policy/规范来源 review。当前这一步仍失败，不能改用已显示页面所携带的站点状态。
+
+## 2026-10-03：多路径诊断，保持无 Cookie
+
+本轮实际测试不同请求模式及网络路线，没有重复全部候选，也没有跟随身份 redirect。仅使用已核验的 article URL `https://www.nature.com/articles/s41534-024-00877-y`。页面的真实 links 只提供 canonical、journal RSS、PDF、supplementary PDF 和 citation/reference downloads，没有 alternate HTML/XML/AMP article link；PDF 不能替代本规范要求的真实 article DOM。实际侧边浏览器 UA 为 Chrome/154 Windows。
+
+临时 `navigation-transport-probes.mjs` 复用 production `fetchNatureArticle()` / `safeFetchExternal()`，fresh public DoH、明确 socket IP binding、原 hostname/TLS verification、article redirect scope、15 秒 article/body timeout、25 MiB body bound、HTML type checks 和 `credentials: omit`。DNS reader 增量检查 64 KiB 并使用 10 秒 abort。注入浏览器 UA、Accept、Accept-Language、`Sec-Fetch-Dest: document`、`Sec-Fetch-Mode: navigate`、`Sec-Fetch-Site: none`、`Sec-Fetch-User: ?1` 和 `Upgrade-Insecure-Requests: 1`。四个 CDN addresses 来自同一次当前 public DNS answer，不是猜测的 origin。HTTP/2 case 使用 Undici `allowH2: true`；未记录 ALPN，不能宣称已经证明某个 negotiated protocol。
+
+| Case | UTC observedAt | Transport address | Result |
+| --- | --- | --- | --- |
+| navigation-cdn-1 | 2026-10-03T16:27:19.134Z | 151.101.64.95 | 303 / text/html → idp authorize；scope rejection |
+| navigation-cdn-2 | 2026-10-03T16:27:20.208Z | 151.101.128.95 | 同上 |
+| navigation-cdn-3 | 2026-10-03T16:27:21.198Z | 151.101.192.95 | 同上 |
+| navigation-cdn-4 | 2026-10-03T16:27:22.213Z | 151.101.0.95 | 同上 |
+| navigation-http2 | 2026-10-03T16:27:23.272Z | 151.101.64.95；allowH2 | 同上 |
+| proxy-navigation-http1 | 2026-10-03T16:29:42.002Z | verified 151.101.192.95 via local proxy | 同上 |
+| proxy-navigation-http2 | 2026-10-03T16:29:43.084Z | verified 151.101.192.95 via local proxy；allowH2 | 同上 |
+
+系统设置只读核查得到启用的本地 HTTP proxy `127.0.0.1:7897`，与先前浏览器 Network 观察一致；没有修改系统代理/DNS，未输出其他代理地址或 credentials。`proxy-transport-probes.mjs` 使用该无认证 ProxyAgent，但 CONNECT endpoint 显式替换为 fresh 验证的 public IP:443，拒绝其他目标 hostname；TLS servername 仍为 `www.nature.com` 并保持 certificate verification。这样比较同一本地代理入口而不将 target DNS 交给代理重新解析。无法证明 CDN 或代理后续选用的出口位置；不声称已遍历所有网络环境。
+
+同一侧边浏览器的 JS Fetch 在 2026-10-03T16:28:23.406Z 使用 `credentials: omit`、`redirect: manual`、`cache: no-store` 和 12 秒 abort。结果 `AbortError`；Network ledger 仅观察到 exact article request，无 Cookie header key，没有收到 response 事件。此结果是 timeout/证据不足，不能写成新的 303 或证明浏览器必须使用 Cookie。浏览器请求不是 production guarded transport，故只计入诊断，不作为 acquisition admission。当前 tab 仍为原 article/title，DOM 未修改。先前 follow 探测超出 article scope；本轮明确禁止 follow，未再请求 idp。
+
+Exact commands（external TEMP scripts/ledgers；两者 exit 0 仅表示失败 ledger 保存成功）：
+
+```powershell
+node $env:TEMP/academic-clipper-issue10-agent-b/navigation-transport-probes.mjs
+node $env:TEMP/academic-clipper-issue10-agent-b/proxy-transport-probes.mjs
+gh run list --repo uwougil/Academic-clipper --branch main --workflow CI --limit 1 --json databaseId,headSha,status,conclusion,url
+gh run view 37135219340 --repo uwougil/Academic-clipper --json headSha,conclusion,jobs,url
+git rebase origin/main
+```
+
+最新 main `ef3975c6a0eb1ec1e5a010a2df5b4f57309cebbe` 含 PR #43；CI run 37135219340 三个平台均 success，随后仅重放本 B branch 的 13 个 commits，无冲突。当前 SHA map 见 durable handoff。
+
+| Temporary file | bytes | SHA-256（诊断文件；不是 source/fixture hash） |
+| --- | --- | --- |
+| navigation-transport-probes.mjs | 4315 | 648a6a8972f0b3fd05c5fce1fa9f1677ff196ed1f5349745523d45a18692f59d |
+| navigation-transport-probes.json | 3607 | 9123c5bc6e9ef09da0208e5617aa00d65eb7ff24837ba136054c5e82e4227228 |
+| proxy-transport-probes.mjs | 4551 | 77fc580b5dfdf2c9578b900da8c1b3faf45c5a05a5525f9a626ab010a9871851 |
+| proxy-transport-probes.json | 1637 | 052eb8742860d28d726439756909870fc1b9065bc55f0c5cb9775d7eb42fb79d |
+
+没有成功的 raw body、source hash、fixture、manifest 或新增 coverage。新证据排除了以上组合可直接恢复访问的假设；没有证明 Cloudflare 或 headless 检测为根因。有限下一步提案见 B handoff：独立批准受限的临时匿名 Cookie acquisition，或者在保持严格 no-Cookie 的另一出口继续。本轮没有执行提案、读取 Cookie 或修改 canonical。

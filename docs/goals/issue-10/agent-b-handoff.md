@@ -4,9 +4,9 @@
 
 ## Base、依赖与 commits
 
-- Accepted base：`0ee52b585afb1ac2bed11e9a56278feae2da1949`，含 PR #27 与随后主线提交。2026-10-03 最新 remote main 对应 [CI run 37133130849](https://github.com/uwougil/Academic-clipper/actions/runs/37133130849) completed/success，三个 CI jobs（Ubuntu Node 20/24、Windows Node 24）均成功。Workflow 实际名称为 `CI`。
+- Accepted base：`ef3975c6a0eb1ec1e5a010a2df5b4f57309cebbe`，含 PR #27 与随后主线提交。2026-10-03 最新 remote main 对应 [CI run 37135219340](https://github.com/uwougil/Academic-clipper/actions/runs/37135219340) completed/success，三个 CI jobs（Ubuntu Node 20/24、Windows Node 24）均成功。Workflow 实际名称为 `CI`。
 - Branch：`codex/issue-10-agent-b`；worktree：`C:/Users/guoli/.codex/worktrees/3417/academic-clipper`。不选择或修改其他 agent worktree。
-- A H1 consumed：原 `20b48328114f195974e92827583b6bf5875beb27` → `4e0aec64f996a0090a7c74c14edd8ab5051d9639`，B 原样 cherry-pick 并 rebase 到最新 main 后为 `6e3b5e6c6dbc44dcf57f9454a8816caf6383ae8c` → `09877adb6710b88a8aac5a014108a15c6e874600`。Schema/recipe `1.0.0`；sanitizer `nature-corpus-sanitizer/1.0.0`；serializer `nature-corpus-subtree/1.0.0`；projection `nature-corpus-projection/1.0.0`。见 [A handoff](agent-a-handoff.md)。Integrator 若已选 A originals，不要重复选择 B dependency copies。
+- A H1 consumed：原 `20b48328114f195974e92827583b6bf5875beb27` → `4e0aec64f996a0090a7c74c14edd8ab5051d9639`，B 原样 cherry-pick 并 rebase 到最新 main 后为 `330e8d1a63bca29b2f0bc9236609b8bd5d814113` → `6d7389e4ed16d7a98416a47a7499c7871780bfe0`。Schema/recipe `1.0.0`；sanitizer `nature-corpus-sanitizer/1.0.0`；serializer `nature-corpus-subtree/1.0.0`；projection `nature-corpus-projection/1.0.0`。见 [A handoff](agent-a-handoff.md)。Integrator 若已选 A originals，不要重复选择 B dependency copies。
 
 基于已成功的 latest main 做 `git rebase origin/main` 无冲突完成；本次 rebase 仅重写此 task branch 自身 commit identities。
 
@@ -14,20 +14,21 @@
 
 | SHA | 文件/归属 |
 | --- | --- |
-| `baa6f428ab4316ffd003a537fd0d0fc04202159c` | B：docs/nature-corpus.md |
-| `07fd5f0b23e18fc2bdd302403ec866c99751d332` | B：docs/nature-corpus.md |
-| `071d1d6a9b1fb530728fe88b706bb1c00252f62b` | B：docs/nature-corpus.md |
-| `6e3b5e6c6dbc44dcf57f9454a8816caf6383ae8c` | A dependency：test/corpus/.gitattributes、scripts/lib/nature-corpus-infrastructure.mjs、scripts/sanitize-nature-corpus.mjs、test/corpus/corpus-schema.json、test/nature-corpus-infrastructure.test.mjs |
-| `09877adb6710b88a8aac5a014108a15c6e874600` | A dependency：docs/goals/issue-10/agent-a-handoff.md |
-| `1bb0ff680355ff147ab0ac604c44786c1b55f1fb` | B：docs/nature-corpus.md |
-| `99cb087df662b8f033de31ef6ee2f6e061b0fb99` | B：docs/nature-corpus.md |
-| `0504b0b4e40eb4f06e2937056066736e7df52264` | B：docs/nature-corpus.md |
-| `2e9d36284fc34c1cd48e7d72a992ba8fda44e2e7` | B：docs/goals/issue-10/agent-b-handoff.md |
-| `4dda3962f60210cba774ac36f1948516677abc45` | B：docs/goals/issue-10/agent-b-handoff.md、docs/nature-corpus.md |
-| `f8d1e24522b2b814d1f7bffe99b12d81c07f272b` | B：docs/goals/issue-10/agent-b-handoff.md、docs/nature-corpus.md |
-| `75f95816bac5dac2518aba6e80fe06075f169310` | B：docs/nature-corpus.md；刷新基线与 CI 记录 |
+| `052a7c381047a5afea8d621c03c77e890eb91419` | B：docs/nature-corpus.md |
+| `8158be383c370c11020f36ddd4735844159f1fa9` | B：docs/nature-corpus.md |
+| `36daaf422c74da2d55b241603e21572bd54c9809` | B：docs/nature-corpus.md |
+| `330e8d1a63bca29b2f0bc9236609b8bd5d814113` | A dependency：test/corpus/.gitattributes、scripts/lib/nature-corpus-infrastructure.mjs、scripts/sanitize-nature-corpus.mjs、test/corpus/corpus-schema.json、test/nature-corpus-infrastructure.test.mjs |
+| `6d7389e4ed16d7a98416a47a7499c7871780bfe0` | A dependency：docs/goals/issue-10/agent-a-handoff.md |
+| `52ef6380724b536e88c9f61797d7fac274bb7f9b` | B：docs/nature-corpus.md |
+| `6730e7446e84e8d982abdaea9825f118c3576f2a` | B：docs/nature-corpus.md |
+| `462443eb9290fed668f50579c746841fee3ad8ef` | B：docs/nature-corpus.md |
+| `9094b1f51a3e66e045a18baf152506e5df0feaaa` | B：docs/goals/issue-10/agent-b-handoff.md |
+| `13fdc0b3d3178eff77c2dd08ef336af568186595` | B：docs/goals/issue-10/agent-b-handoff.md、docs/nature-corpus.md |
+| `b11f6ed852c336cb11bc78b777cfc439f5bd9f3e` | B：docs/goals/issue-10/agent-b-handoff.md、docs/nature-corpus.md |
+| `64639633fd43863cc97ee2784b59e035294eb456` | B：docs/nature-corpus.md；刷新基线与 CI 记录 |
+| `92c3a6a0c595703cd564fc727ae78af634d686a6` | B：docs/goals/issue-10/agent-b-handoff.md；前次基线与 commit map |
 
-上表是本次交接刷新前的有序历史；本 handoff 刷新 commit 自身 SHA 由 `git log --format=%H -- docs/goals/issue-10/agent-b-handoff.md` 获取，避免在同一 commit 内自引用 SHA。相对最新 base 的完整列表也可由 `git log --reverse --format="%H %s" 0ee52b585afb1ac2bed11e9a56278feae2da1949..HEAD` 重建。
+上表是本次交接刷新前的有序历史；本 handoff 刷新 commit 自身 SHA 由 `git log --format=%H -- docs/goals/issue-10/agent-b-handoff.md` 获取，避免在同一 commit 内自引用 SHA。相对最新 base 的完整列表也可由 `git log --reverse --format="%H %s" ef3975c6a0eb1ec1e5a010a2df5b4f57309cebbe..HEAD` 重建。
 
 ## 当前 admission、source oracle 与资源状态
 
@@ -60,9 +61,25 @@ Article/table 的 CDP `Page.getResourceContent` 均返回 decoded string，`base
 
 以上只是供人工审议的 proposal；B 没有修改 canonical、采用该模式或宣称它满足现有规范。单独允许 decoded hash 仍不能解除 Cookie/guarded acquisition 前置条件，必须完整解决来源访问契约。
 
+### 本轮实际多路径结果与较小的恢复提案（未批准、未执行）
+
+2026-10-03 已实际比较：文章公开 alternate links、真实 Chrome/154 UA 与 navigation headers、4 个 fresh-DNS public CDN addresses、Undici allowH2、系统现有 local proxy 的 public-IP-pinned CONNECT 路线。7 个 guarded HTTP cases 均为 303/text/html → `https://idp.nature.com/authorize`，未跟随；同一侧边浏览器的 cookie-omitting/manual-redirect Fetch 则 12 秒 timeout，没有新的 HTTP response evidence。完整配置、UTC、exact commands、external diagnostic file hashes 见 [ledger](../../nature-corpus.md)。未证实 Cloudflare/headless 归因，不能保证换出口一定成功。
+
+当前最小待审议选项是仅改变 acquisition 的匿名站点 Cookie 限制，而保持 raw-byte provenance 定义：
+
+1. 新建可证明独立的临时匿名浏览器 context；不能复用当前用户 profile/Cookie、账号、机构权限或 credentials。当前 CUA 已列出的能力没有专门的 isolated-context API，不能把普通新 tab 宣称匿名隔离；具体可用接口/环境仍需证明。
+2. 仅在人工明确批准并修订 canonical acquisition 契约后，允许 Nature 在该 context 设置临时站点 Cookie。认证路径仅限定 HTTPS `www.nature.com` 和 `idp.nature.com`，严格 redirect count/time/body bounds；最终 article/table 必须返回所声明 article 的 canonical/structured DOI 与实质全文。拒绝任何账号登录、机构权限、付费授权或其他 host。不得导出 Cookie、token/authorization code 或写入 repository。
+3. 从 cookie exchange 后的实际 HTTP 解压 body bytes 在 decoding 前捕获 sourceSha256；不得以 decoded string/DOM 重新编码替代。Source hash 语义、5–10 篇、真实 topology、table resources、independent oracle、全部 coverage/validators 均保持原要求。若可用接口仍只返回 decoded string，此选项尚不能满足来源条件，不能悄悄改成另一种 hash。
+4. 这是 source acquisition 例外提案，不修改 production `safeFetchExternal()` / article/table redirect scope 或 D 默认 live verifier。无 Cookie live verifier仍如实报告 access blocked，不将 acquisition 特例算作默认传输成功。批准后也须由相应 owner 定义明确的 versioned captureMode/schema 接口再冻结 manifest；B 不自行修改 A infrastructure。
+5. 若继续严格 no-Cookie，则保留本轮全部拒绝证据，在可用另一出口作有限探测；当前没有已验证的新出口。不能通过反复改 UA、允许越界 redirect、复制 Cookie 或关闭 guards 来宣称解阻。
+
+这份具体提案是为解决用户当前困境的审议材料，不是已测试的成功方案。人工可以批准这段有限的来源规则变更，或继续严格 no-Cookie；没有决议前，B 不执行依赖 Cookie 的步骤，也不改 canonical spec。它比上述 decoded-source 模式更小，但仍需要显式解除原始用户指令与 Agent B precondition 中的 Cookie 禁令以及 canonical guarded-acquisition 范围假设。
+
 ## Commands、验证与 Agent C 条件
 
 Exact acquisition/header-probe commands、时间及结果见来源 ledger；脚本 exit 0 表示 rejection ledger 保存成功，不是取得正文。B 实际已执行 `npm ci`（65 packages，0 vulnerabilities）、接入 H1 前 `npm test`（110 pass）、`npm run build`、golden `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto`（valid，13 display equations/50 references）、接入 H1 后 `node scripts/sanitize-nature-corpus.mjs --help`（exit 0）及 `node --test test/nature-corpus-infrastructure.test.mjs`（28 pass）。这些不证明 corpus 验收。A 自己的 138-test/full-build 结果见 A handoff，不冒充 B 已执行结果。
+
+本轮 rebase 到 `ef3975c6a0eb1ec1e5a010a2df5b4f57309cebbe` 后重新执行 `node --test test/nature-corpus-infrastructure.test.mjs`：exit 0，28 pass，0 fail/skip。`git diff --check` exit 0；本轮 tracked diff 只含 B 的来源文档和 handoff；相对 accepted base 的其他文件仍是原样 A dependencies。没有 full capture、Cookie、credentials 或新 fixture。未因仅来源文档变更重复整套 parser/build checks；新 accepted main 的三平台 CI 结果单独记录，不冒充 B 本地全套重跑。
 
 C 可基于已交 H1 做 assertion framework，但 source-specific verification 的明确 unblocking 条件是：合规获取 article/table 原 bytes 或已批准的新来源接口；B 用实际 A 版本生成 deterministic excerpts/provenance 并核对 transformations/omissions；为每条 coverage 交付 retained block、source position 和 source-derived assertion value；C 登记 strict registry 并独立确认。完整 clip table replay 还依赖 D 的 transport seam。当前这些 source-specific 条件均未满足。
 
