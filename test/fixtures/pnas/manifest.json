@@ -1,0 +1,172 @@
+[
+  {
+    "file": "2400689121.html",
+    "url": "https://www.pnas.org/doi/10.1073/pnas.2400689121",
+    "captureMode": "browser-loaded-dom-blocks",
+    "capturedOn": "2026-10-03",
+    "fixtureSha256": "baf311d3a8ced13cba279da803fb04c1f69ccd50cef396e9129a83b09438b5c4",
+    "bytes": 133599,
+    "blocks": [
+      {
+        "filename": "pnas-2400689121-block0.html",
+        "capturedAtUTC": "2026-10-03T09:12:43.015Z",
+        "sha256": "4b9622c3ed01401634fcc31d654cff84b4d50bc436a05e551dc9f9d528fdf551",
+        "characters": 75288
+      },
+      {
+        "filename": "pnas-2400689121-block1.html",
+        "capturedAtUTC": "2026-10-03T09:12:43.031Z",
+        "sha256": "4214723721bafe7f8fe4ac031493bbe71e780da9d91e0c93fdeb26836a93c0ed",
+        "characters": 3364
+      },
+      {
+        "filename": "pnas-2400689121-body-complete.html",
+        "capturedAtUTC": "2026-10-03T09:15:39.987Z",
+        "sha256": "c354a0234e460745e9a902e9883209f30ef58afc47fa711d7095765d20c4ed3f",
+        "characters": 587545
+      },
+      {
+        "filename": "pnas-2400689121-block3.html",
+        "capturedAtUTC": "2026-10-03T09:12:43.092Z",
+        "sha256": "4fad3fc9d6445b79fb82335a16abef83ba26607860628292a440c08cf4a2cdbc",
+        "characters": 105736
+      },
+      {
+        "filename": "pnas-2400689121-block6.html",
+        "capturedAtUTC": "2026-10-03T09:12:43.189Z",
+        "sha256": "f51b216f6786cb02ff6204f9a8856b2770146f42969e83ed02d5b14f95af8da9",
+        "characters": 4610
+      },
+      {
+        "filename": "pnas-2400689121-block7.html",
+        "capturedAtUTC": "2026-10-03T09:12:43.205Z",
+        "sha256": "6e1ebc1b9b54e5298b855b35f76435e5b5229574508fbbc72808922d2e8482ca",
+        "characters": 5502
+      }
+    ],
+    "omissions": [
+      "sec-2 except fig02 with ancestor path/headings; body sec-3, sec-4; figures/equations therein"
+    ],
+    "sanitation": [
+      "citation_* head metadata only",
+      "scripts/styles/frames/noscript removed",
+      "reference return menus, Scholar/PubMed UI removed; DOI links retained",
+      "redundant visual mjx-math removed; original assistive MathML retained",
+      "event handlers/style/nonce/integrity attributes removed",
+      "trailing horizontal whitespace removed; fixtures stored with LF"
+    ],
+    "coverage": "Public loaded DOM excerpt; not raw HTTP, not complete page, not a subscription access oracle"
+  },
+  {
+    "file": "2318124121.html",
+    "url": "https://www.pnas.org/doi/10.1073/pnas.2318124121",
+    "captureMode": "browser-loaded-dom-blocks",
+    "capturedOn": "2026-10-03",
+    "fixtureSha256": "ce129c28783920430eafd6c47e3cce93c670137c3e9431e3edf71969f656519e",
+    "bytes": 154793,
+    "blocks": [
+      {
+        "filename": "pnas-2318124121-block0.html",
+        "capturedAtUTC": "2026-10-03T09:12:43.638Z",
+        "sha256": "47d59f7df11d92599dcf3c3b6081d97d6b39d50ea70ad409588ba350d1664e98",
+        "characters": 71109
+      },
+      {
+        "filename": "pnas-2318124121-block1.html",
+        "capturedAtUTC": "2026-10-03T09:12:43.677Z",
+        "sha256": "b88ac0aa8af5f0ac6749fe30698a9a600d55616d78465efdf5c970ef283c4ffb",
+        "characters": 3183
+      },
+      {
+        "filename": "pnas-2318124121-block2.html",
+        "capturedAtUTC": "2026-10-03T09:12:43.703Z",
+        "sha256": "404cccc58773abc4b72f0b209a43a50a274a59d435f4dd4965f78c871d4ff146",
+        "characters": 116880
+      },
+      {
+        "filename": "pnas-2318124121-block3.html",
+        "capturedAtUTC": "2026-10-03T09:12:43.726Z",
+        "sha256": "d51182dee35f2733e9b4805d3babe9c667ae8b3504db5462ceb9029a87fcd8d8",
+        "characters": 82449
+      },
+      {
+        "filename": "pnas-2318124121-block6.html",
+        "capturedAtUTC": "2026-10-03T09:12:43.795Z",
+        "sha256": "56b6783f8f075c316519c66fa5051c48fdb9231bf9e9aca00ee37e00f8fe3cb9",
+        "characters": 12978
+      },
+      {
+        "filename": "pnas-2318124121-block7.html",
+        "capturedAtUTC": "2026-10-03T09:12:43.812Z",
+        "sha256": "e420193070903eff00cd30511a43ba29700c9b2059069aeaef4bc56a35474d2b",
+        "characters": 9830
+      }
+    ],
+    "omissions": [],
+    "sanitation": [
+      "citation_* head metadata only",
+      "scripts/styles/frames/noscript removed",
+      "reference return menus, Scholar/PubMed UI removed; DOI links retained",
+      "redundant visual mjx-math removed; original assistive MathML retained",
+      "event handlers/style/nonce/integrity attributes removed",
+      "trailing horizontal whitespace removed; fixtures stored with LF"
+    ],
+    "coverage": "Public loaded DOM excerpt; not raw HTTP, not complete page, not a subscription access oracle"
+  },
+  {
+    "file": "1319030111.html",
+    "url": "https://www.pnas.org/doi/10.1073/pnas.1319030111",
+    "captureMode": "browser-loaded-dom-blocks",
+    "capturedOn": "2026-10-03",
+    "fixtureSha256": "698702e6dfee29e2205badf9ff8417dd6b276178ed76044657ad16c228d418bc",
+    "bytes": 87030,
+    "blocks": [
+      {
+        "filename": "pnas-1319030111-block0.html",
+        "capturedAtUTC": "2026-10-03T09:15:13.743Z",
+        "sha256": "bc652b3ba791696603c7ce88b74b530fa16d32db1fc0f317bd8b0a6398a5d8e6",
+        "characters": 44974
+      },
+      {
+        "filename": "pnas-1319030111-block1.html",
+        "capturedAtUTC": "2026-10-03T09:15:13.757Z",
+        "sha256": "050c1ba01d0ee60338c6f227508b9e43ed866c525b30fd7eb5f156e8dc828125",
+        "characters": 3498
+      },
+      {
+        "filename": "pnas-1319030111-block2.html",
+        "capturedAtUTC": "2026-10-03T09:15:13.773Z",
+        "sha256": "90bdb9536f826038230fb5aecbe0c031c24539466457e63ae9b73bc216982cdb",
+        "characters": 44758
+      },
+      {
+        "filename": "pnas-1319030111-block3.html",
+        "capturedAtUTC": "2026-10-03T09:15:13.792Z",
+        "sha256": "fa5b29eb32dd9ec2324ca34abf298d42d61a28956ed071107e7501dc1677d6e8",
+        "characters": 57606
+      },
+      {
+        "filename": "pnas-1319030111-block6.html",
+        "capturedAtUTC": "2026-10-03T09:15:13.838Z",
+        "sha256": "f49526cc2d934a6707124c71d4010a58eb0759422133c75113ab97da2ffa557b",
+        "characters": 6308
+      },
+      {
+        "filename": "pnas-1319030111-block7.html",
+        "capturedAtUTC": "2026-10-03T09:15:13.854Z",
+        "sha256": "03f2e4db36f004965429ddc3f344ad0093def3735772cdc8b3206091096ddda3",
+        "characters": 3931
+      }
+    ],
+    "omissions": [],
+    "sanitation": [
+      "citation_* head metadata only",
+      "scripts/styles/frames/noscript removed",
+      "reference return menus, Scholar/PubMed UI removed; DOI links retained",
+      "redundant visual mjx-math removed; original assistive MathML retained",
+      "event handlers/style/nonce/integrity attributes removed",
+      "trailing horizontal whitespace removed; fixtures stored with LF"
+    ],
+    "coverage": "Public loaded DOM excerpt; not raw HTTP, not complete page, not a subscription access oracle"
+  }
+]

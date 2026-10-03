@@ -177,6 +177,8 @@ GitHub Actions 在 pull request 和 `main` push 上运行 Node 20/24 的 `npm ci
 
 ## 当前实测范围和已知问题
 
+PNAS 有独立的[实验适配器及来源记录](docs/pnas-experiment.md)，仅供显式调用 `src/pnas-clip.mjs`；浏览器扩展、bridge 和 CLI 的正式支持范围仍为 Nature。公开 loaded DOM fixtures、访问和公式来源限制见该记录。
+
 目标论文目前由 Nature 页面提供：6 位作者、DOI `10.1038/s41586-026-10401-1`、正文 13 个公式节点、3 个主图、4 个 Extended Data 图和 50 条参考文献。v0.2.0 默认下载 7 张图到 `figures/`，主图通过稳定 placeholder 保留在正文附近，Figure 自身不生成二级 heading，Extended Data 图单独放入 `## Extended Data`。图注中的 `<sub>`、`<sup>`、`<i>` 和 `.mathjax-tex` 会经过 academic inline/math 转换；图片下载失败时保留远程 URL，并在 debug 中记录 fallback。
 
 已知边界：

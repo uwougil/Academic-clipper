@@ -146,7 +146,7 @@ async function referenceText(reference, url) {
   return converted;
 }
 
-async function referencesMarkdown(references, url, policy = outputPolicy()) {
+export async function referencesMarkdown(references, url, policy = outputPolicy()) {
   if (!references.length) return '';
   if (policy.references === 'refs') return ['## References', '', '::: {#refs}', ':::'].join('\n');
   const lines = ['## References', ''];
