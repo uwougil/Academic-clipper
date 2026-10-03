@@ -4,24 +4,30 @@
 
 ## Base、依赖与 commits
 
-- Accepted base：`5971ebfbe288e0efed4abef21469f41e2cabb05f`，含 PR #27。2026-10-02 最新复核 remote main 仍为该 SHA；[CI run 37037241055](https://github.com/uwougil/Academic-clipper/actions/runs/37037241055) 为 completed/success。Workflow 实际名称为 `CI`，不是 `Main CI`；随后 finalize workflow 的 skipped runs 不改变该 CI 结论。
+- Accepted base：`0ee52b585afb1ac2bed11e9a56278feae2da1949`，含 PR #27 与随后主线提交。2026-10-03 最新 remote main 对应 [CI run 37133130849](https://github.com/uwougil/Academic-clipper/actions/runs/37133130849) completed/success，三个 CI jobs（Ubuntu Node 20/24、Windows Node 24）均成功。Workflow 实际名称为 `CI`。
 - Branch：`codex/issue-10-agent-b`；worktree：`C:/Users/guoli/.codex/worktrees/3417/academic-clipper`。不选择或修改其他 agent worktree。
-- A H1 consumed：原 `20b48328114f195974e92827583b6bf5875beb27` → `4e0aec64f996a0090a7c74c14edd8ab5051d9639`，B 原样 cherry-pick 为 `3728ae3f48bece284d1599b92fe054f82a13d0cc` → `9c9da862dc62b9206a7dcb04c1794e9c92ba4449`。Schema/recipe `1.0.0`；sanitizer `nature-corpus-sanitizer/1.0.0`；serializer `nature-corpus-subtree/1.0.0`；projection `nature-corpus-projection/1.0.0`。见 [A handoff](agent-a-handoff.md)。Integrator 已选 A originals 时不要再选 B dependency copies。
+- A H1 consumed：原 `20b48328114f195974e92827583b6bf5875beb27` → `4e0aec64f996a0090a7c74c14edd8ab5051d9639`，B 原样 cherry-pick 并 rebase 到最新 main 后为 `6e3b5e6c6dbc44dcf57f9454a8816caf6383ae8c` → `09877adb6710b88a8aac5a014108a15c6e874600`。Schema/recipe `1.0.0`；sanitizer `nature-corpus-sanitizer/1.0.0`；serializer `nature-corpus-subtree/1.0.0`；projection `nature-corpus-projection/1.0.0`。见 [A handoff](agent-a-handoff.md)。Integrator 若已选 A originals，不要重复选择 B dependency copies。
+
+基于已成功的 latest main 做 `git rebase origin/main` 无冲突完成；本次 rebase 仅重写此 task branch 自身 commit identities。
 
 当前完整顺序：
 
 | SHA | 文件/归属 |
 | --- | --- |
-| `9620ad7774c461ddf31499496e201517ba4e1d74` | B：docs/nature-corpus.md |
-| `ea9d4b2949a092c264f9b923a6cf33828ab0c41e` | B：docs/nature-corpus.md |
-| `9374472e7d152af0844bd37cb29daff32dca096c` | B：docs/nature-corpus.md |
-| `3728ae3f48bece284d1599b92fe054f82a13d0cc` | A dependency：test/corpus/.gitattributes、scripts/lib/nature-corpus-infrastructure.mjs、scripts/sanitize-nature-corpus.mjs、test/corpus/corpus-schema.json、test/nature-corpus-infrastructure.test.mjs |
-| `9c9da862dc62b9206a7dcb04c1794e9c92ba4449` | A dependency：docs/goals/issue-10/agent-a-handoff.md |
-| `01cd81c046ac834abdfa678f7c1330f06d68abb2` | B：docs/nature-corpus.md |
-| `ba0eb0d9c8bd2e94a52d11ffd1e231a95ce630f6` | B：docs/nature-corpus.md |
-| `1d082bf824b7dc837277843b775b776a32779309` | B：docs/nature-corpus.md |
+| `baa6f428ab4316ffd003a537fd0d0fc04202159c` | B：docs/nature-corpus.md |
+| `07fd5f0b23e18fc2bdd302403ec866c99751d332` | B：docs/nature-corpus.md |
+| `071d1d6a9b1fb530728fe88b706bb1c00252f62b` | B：docs/nature-corpus.md |
+| `6e3b5e6c6dbc44dcf57f9454a8816caf6383ae8c` | A dependency：test/corpus/.gitattributes、scripts/lib/nature-corpus-infrastructure.mjs、scripts/sanitize-nature-corpus.mjs、test/corpus/corpus-schema.json、test/nature-corpus-infrastructure.test.mjs |
+| `09877adb6710b88a8aac5a014108a15c6e874600` | A dependency：docs/goals/issue-10/agent-a-handoff.md |
+| `1bb0ff680355ff147ab0ac604c44786c1b55f1fb` | B：docs/nature-corpus.md |
+| `99cb087df662b8f033de31ef6ee2f6e061b0fb99` | B：docs/nature-corpus.md |
+| `0504b0b4e40eb4f06e2937056066736e7df52264` | B：docs/nature-corpus.md |
+| `2e9d36284fc34c1cd48e7d72a992ba8fda44e2e7` | B：docs/goals/issue-10/agent-b-handoff.md |
+| `4dda3962f60210cba774ac36f1948516677abc45` | B：docs/goals/issue-10/agent-b-handoff.md、docs/nature-corpus.md |
+| `f8d1e24522b2b814d1f7bffe99b12d81c07f272b` | B：docs/goals/issue-10/agent-b-handoff.md、docs/nature-corpus.md |
+| `75f95816bac5dac2518aba6e80fe06075f169310` | B：docs/nature-corpus.md；刷新基线与 CI 记录 |
 
-本文所在 commit 的 SHA 由 `git log --format=%H -- docs/goals/issue-10/agent-b-handoff.md` 获取，避免在同一 commit 内自引用 SHA。
+上表是本次交接刷新前的有序历史；本 handoff 刷新 commit 自身 SHA 由 `git log --format=%H -- docs/goals/issue-10/agent-b-handoff.md` 获取，避免在同一 commit 内自引用 SHA。相对最新 base 的完整列表也可由 `git log --reverse --format="%H %s" 0ee52b585afb1ac2bed11e9a56278feae2da1949..HEAD` 重建。
 
 ## 当前 admission、source oracle 与资源状态
 
