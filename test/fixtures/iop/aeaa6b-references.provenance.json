@@ -1,0 +1,9 @@
+{
+  "sourceUrl": "https://iopscience.iop.org/article/10.1088/2053-1583/aeaa6b",
+  "observedAt": "2026-10-03",
+  "captureMode": "in-app-browser-rendered-dom-after-Show-References",
+  "sourceSha256": null,
+  "retained": ["complete cite elements for references 11, 40 and 41", "original reference IDs, indices and DOI attributes"],
+  "transformations": ["removed namespace declarations on subscript", "removed navigation and entitlement attributes", "retained selected li records inside minimal wrapper/list"],
+  "scope": "selected references cited by Table 2; all 41 references were visible after button activation"
+}

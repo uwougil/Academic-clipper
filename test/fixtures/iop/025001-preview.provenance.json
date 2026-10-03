@@ -1,0 +1,9 @@
+{
+  "sourceUrl": "https://iopscience.iop.org/article/10.1088/2053-1583/1/2/025001",
+  "observedAt": "2026-10-03",
+  "captureMode": "in-app-browser-rendered-dom",
+  "sourceSha256": null,
+  "retained": ["citation title, journal, DOI, fulltext URL", "actual turn-away panel ID, heading and complete introductory paragraph"],
+  "transformations": ["minimal document scaffold", "excluded purchase/login options, embeds, metrics, ads and public abstract"],
+  "scope": "subscription preview rejection; fulltext metadata exists without article body"
+}

@@ -1,0 +1,9 @@
+{
+  "sourceUrl": "https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68",
+  "observedAt": "2026-10-03",
+  "captureMode": "in-app-browser-rendered-dom",
+  "sourceSha256": null,
+  "retained": ["complete Figure 2 caption text and ordered original TeX scripts, including inverse metre and kelvin"],
+  "transformations": ["reconstructed semantic caption from DOM textContent and ordered scripts", "minimal inline wrappers; image/rendered fallback and presentation attributes omitted"],
+  "scope": "scientific units and superscripts; not original outerHTML or a complete article"
+}

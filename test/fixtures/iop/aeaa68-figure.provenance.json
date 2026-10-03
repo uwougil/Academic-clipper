@@ -1,0 +1,10 @@
+{
+  "sourceUrl": "https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68",
+  "observedAt": "2026-10-03",
+  "captureMode": "in-app-browser-rendered-dom",
+  "sourceSha256": null,
+  "retained": ["complete Figure 3 caption", "original inline TeX scripts", "standard and high-resolution image URLs"],
+  "transformations": ["minimal HTML/head/body scaffold", "figure wrapper retains observed id and toolbar type", "removed image fallback wrappers and binary placeholders", "removed image viewer, SVG and toolbar decorations", "download link labels trimmed to their meaningful text"],
+  "omitted": ["all other article content"],
+  "scope": "representative figure extraction; not a complete article or original HTTP response"
+}
