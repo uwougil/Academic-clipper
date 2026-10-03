@@ -1,0 +1,10 @@
+{
+  "sourceUrl": "https://iopscience.iop.org/article/10.1088/2053-1583/aeaa6b",
+  "observedAt": "2026-10-03",
+  "captureMode": "in-app-browser-rendered-dom",
+  "sourceSha256": null,
+  "retained": ["complete Table 2 caption and four rows", "source TeX and citation targets", "section 4 heading", "supplementary data URL"],
+  "transformations": ["minimal document and citation metadata scaffold", "removed binary image fallbacks, decorative attributes and redundant unit spans", "preserved cell order and semantic content", "selected blocks are not adjacent in the original document"],
+  "omitted": ["remaining article and unloaded references"],
+  "scope": "representative table conversion; not a complete article"
+}

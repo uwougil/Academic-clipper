@@ -1,10 +1,41 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
-import { extractIopFigures, extractIopMath, inspectIopPage, iopArticleIdentity, parseIopPage } from '../src/adapters/iop.mjs';
+import { convertIopPage, extractIopFigures, extractIopMath, inspectIopPage, iopArticleIdentity, parseIopPage } from '../src/adapters/iop.mjs';
 
 const synthetic = await readFile(new URL('./fixtures/iop/synthetic-head.html', import.meta.url), 'utf8');
 const url = 'https://iopscience.iop.org/article/10.1088/2053-1583/synthetic';
+
+test('loaded publisher references resolve table citations and preserve source indices and scientific subscript', async () => {
+  const table = await readFile(new URL('./fixtures/iop/aeaa6b-table.excerpt.html', import.meta.url), 'utf8');
+  const references = await readFile(new URL('./fixtures/iop/aeaa6b-references.excerpt.html', import.meta.url), 'utf8');
+  const result = await convertIopPage(table.replace('</body>', `${references}</body>`), 'https://iopscience.iop.org/article/10.1088/2053-1583/aeaa6b');
+  assert.deepEqual(result.warnings, []);
+  assert.deepEqual(result.references.map(r => r.number), [11, 40, 41]);
+  assert.ok(result.markdown.includes('\\[[^40], [^41]\\]'));
+  assert.match(result.markdown, /\[\^11\]: Li X/);
+  assert.match(result.markdown, /SiO\$_\{2\}\$/);
+  assert.match(result.markdown, /https:\/\/doi.org\/10\.1038\/srep43886/);
+  assert.doesNotMatch(result.markdown, /IOPSEMANTICTOKEN|<sub|fnref-/);
+});
+
+test('source-backed Table 2 converts native rows, source units and unresolved citations honestly', async () => {
+  const html = await readFile(new URL('./fixtures/iop/aeaa6b-table.excerpt.html', import.meta.url), 'utf8');
+  const result = await convertIopPage(html, 'https://iopscience.iop.org/article/10.1088/2053-1583/aeaa6b');
+  assert.match(result.markdown, /## 4\. Discussion and conclusions/);
+  assert.match(result.markdown, /\|.*Raman thermometry.*Electrical thermometry.*Optomechanics.*\|/);
+  assert.match(result.markdown, /50\$-\$100 K/);
+  assert.match(result.markdown, /\$\\lt 10\$ K/);
+  assert.match(result.markdown, /Sample preparation \| Easy \| Difficult \| Easy/);
+  assert.equal(result.warnings.filter(w => w.code === 'IOP_REFERENCE_UNAVAILABLE').length, 3);
+  assert.match(result.markdown, /aeaa6b#tdmaeaa6bbib40/);
+  assert.match(result.markdown, /\[Supplementary data\]\(https:\/\/iopscience\.iop\.org\/article\/10\.1088\/2053-1583\/aeaa6b\/data\)/);
+  assert.equal(result.fullTextVerified, false);
+  assert.equal(result.sections[0].id, 'tdmaeaa6bs4');
+  assert.deepEqual(await convertIopPage(html, result.metadata.url), result);
+  const gated = html.replace('</body>', '<div class="wd-jnl-art-turn-away-panel">Subscription required</div></body>');
+  assert.throws(() => parseIopPage(gated, result.metadata.url), { code: 'IOP_DOM_UNVERIFIED' });
+});
 
 test('source-backed Figure 3 retains complete caption TeX, units and both image variants', async () => {
   const html = await readFile(new URL('./fixtures/iop/aeaa68-figure.excerpt.html', import.meta.url), 'utf8');

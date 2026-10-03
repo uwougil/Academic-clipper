@@ -6,7 +6,7 @@ import { withDomGlobals } from '../dom-runtime.mjs';
 // publisher-local conversion window alive; article DOMs are still closed.
 let conversionDom;
 
-// Experimental preflight; source acquisition and full-text implementation are ongoing.
+// Experimental DOM adapter; acquisition and completeness validation are ongoing.
 // Do not route production clipping here until complete source-backed tests exist.
 const ORIGIN = 'https://iopscience.iop.org';
 const ARTICLE_PATH = /^\/article\/(10\.1088\/2053-1583\/(?:[a-z0-9]+|\d+\/\d+\/\d+))(?:\/(?:meta|fulltext))?\/?$/i;
@@ -114,7 +114,7 @@ export function inspectIopPage(html, url) {
       fullTextVerified: false,
       warnings: [{
         code: 'IOP_DOM_UNVERIFIED',
-        message: 'IOPscience full-text extraction is not implemented yet. Full-text conversion is disabled.',
+        message: 'Metadata inspection alone does not verify an accessible or complete article body.',
       }],
     };
   } finally {
@@ -125,7 +125,109 @@ export function inspectIopPage(html, url) {
 /** Fail closed rather than output a preview/challenge page as a complete paper. */
 export function parseIopPage(html, url) {
   const diagnostics = inspectIopPage(html, url);
-  throw new IopAdapterError('IOP_DOM_UNVERIFIED', diagnostics.warnings[0].message, diagnostics);
+  const dom = new JSDOM(html, { url: diagnostics.identity.url });
+  try {
+    const document = dom.window.document;
+    const body = document.querySelector('.wd-jnl-art-full-text[itemprop="articleBody"]');
+    if (!diagnostics.metadata || !body || !body.querySelector('p')
+      || document.querySelector('.wd-jnl-art-turn-away-panel')) {
+      throw new IopAdapterError('IOP_DOM_UNVERIFIED', 'An accessible publisher article body and identity are required.', diagnostics);
+    }
+    const warnings = [];
+    const references = [...document.querySelectorAll('#references-wrapper li[data-reference]')].map(node => ({
+      id: node.id, number: Number(node.querySelector('.indices-id')?.textContent.match(/\d+/)?.[0]),
+      html: node.querySelector('cite')?.innerHTML || '', doi: node.getAttribute('doi') || null,
+    }));
+    const referenceIds = new Set(references.map(item => item.id));
+    const citations = [...body.querySelectorAll('a.cite')].map(node => ({ target: node.getAttribute('href'), text: node.textContent }));
+    for (const citation of citations) if (!referenceIds.has(citation.target?.slice(1))) {
+      warnings.push({ code: 'IOP_REFERENCE_UNAVAILABLE', target: citation.target });
+    }
+    return {
+      metadata: diagnostics.metadata, bodyHtml: body.outerHTML, references, citations,
+      sections: [...body.querySelectorAll('h2,h3,h4')].map(node => ({ id: node.id, level: Number(node.tagName.slice(1)), title: node.textContent.trim() })),
+      supplementary: [...document.querySelectorAll('a#supplDataLink')].map(node => ({ title: node.textContent.trim(), url: new URL(node.getAttribute('href'), diagnostics.identity.url).href }))
+        .filter(item => item.url === `${diagnostics.identity.url}/data`),
+      warnings, fullTextVerified: false, status: 'experimental-body-extracted',
+    };
+  } finally { dom.window.close(); }
+}
+
+/** Convert the supplied accessible DOM; never fetch or claim HTTP completeness. */
+export async function convertIopPage(html, url) {
+  const parsed = parseIopPage(html, url);
+  const dom = new JSDOM(parsed.bodyHtml, { url: parsed.metadata.url });
+  try {
+    const document = dom.window.document;
+    const root = document.querySelector('[itemprop="articleBody"]');
+    const tokens = [];
+    let prefix = 'IOPSEMANTICTOKEN';
+    while (html.includes(prefix)) prefix += 'X';
+    const protect = (node, markdown) => {
+      const token = `${prefix}${tokens.length}END`;
+      tokens.push({ token, markdown });
+      node.replaceWith(document.createTextNode(token));
+    };
+    const prepareMath = (scope) => {
+      for (const node of [...scope.querySelectorAll('.inline-eqn,.display-eqn')]) {
+        if (node.parentElement?.closest('.inline-eqn,.display-eqn')) continue;
+        const script = [...node.querySelectorAll('script[type]')].find(n => /^math\/tex(?:\s*;\s*mode=display)?$/i.test(n.type));
+        const alt = node.querySelector('img[role="math"]')?.getAttribute('alt') || '';
+        const tex = script?.textContent.trim() || (alt.startsWith('$') && alt.endsWith('$') ? alt.slice(1, -1).trim() : '');
+        if (!tex) throw new IopAdapterError('IOP_MATH_SOURCE_MISSING', `Missing original TeX at ${node.id || 'inline equation'}.`);
+        protect(node, node.classList.contains('display-eqn') ? `\n\n$$\n${tex}\n$$\n\n` : `$${tex}$`);
+      }
+    };
+    prepareMath(root);
+    // Preserve actual sub/superscript semantics without guessing chemical runs.
+    for (const node of root.querySelectorAll('sub,sup')) protect(node, node.tagName === 'SUB' ? `$_{${node.textContent}}$` : `$^{${node.textContent}}$`);
+    const referenceMap = new Map(parsed.references.map(item => [item.id, item]));
+    for (const anchor of root.querySelectorAll('a.cite')) {
+      const href = anchor.getAttribute('href');
+      const reference = referenceMap.get(href?.slice(1));
+      if (reference?.number) protect(anchor, `[^${reference.number}]`);
+      else anchor.setAttribute('href', `${parsed.metadata.url}${href}`);
+    }
+    for (const figure of root.querySelectorAll('figure[data-toolbar-type="figure"]')) {
+      const caption = figure.querySelector('.figure-caption');
+      const image = figure.querySelector('a.fig-dwnld-hi-img,a.fig-dwnld-std-img');
+      const candidate = image && new URL(image.getAttribute('href'), parsed.metadata.url);
+      const replacement = document.createElement('div');
+      if (candidate?.protocol === 'https:' && candidate.hostname === 'content.cld.iop.org' && !candidate.username && !candidate.password && !candidate.port) {
+        const label = caption?.querySelector('strong')?.textContent || 'Figure';
+        protect(image, `\n\n![${label}](${candidate.href})\n\n`);
+        replacement.append(figure.querySelector('figcaption') || caption || document.createElement('div'));
+        replacement.querySelectorAll('a,button,.print-hide').forEach(n => n.remove());
+      } else if (caption) replacement.append(caption);
+      figure.replaceWith(replacement);
+    }
+    // Publisher numeric crossrefs remain readable; no dangling local targets.
+    for (const anchor of root.querySelectorAll('a[href^="#"]')) anchor.replaceWith(document.createTextNode(anchor.textContent));
+    root.querySelectorAll('script,svg,mjx-container,button,.print-hide,.texImage,iframe').forEach(node => node.remove());
+    const referenceHtml = document.createElement('div');
+    for (const reference of parsed.references) {
+      if (!Number.isInteger(reference.number) || !reference.number || !reference.html) throw new IopAdapterError('IOP_REFERENCE_INVALID', 'Reference identity or content is missing.');
+      const row = document.createElement('p'); row.innerHTML = reference.html;
+      prepareMath(row);
+      for (const node of row.querySelectorAll('sub,sup')) protect(node, node.tagName === 'SUB' ? `$_{${node.textContent}}$` : `$^{${node.textContent}}$`);
+      referenceHtml.append(row);
+    }
+    conversionDom ??= new JSDOM('<!doctype html><html><body></body></html>');
+    const convert = content => withDomGlobals(conversionDom, () => htmlToMarkdown(content, parsed.metadata.url));
+    let markdown = await convert(root.outerHTML);
+    if (parsed.references.length) {
+      markdown += '\n\n## References\n\n';
+      for (let i = 0; i < parsed.references.length; i++) {
+        const reference = parsed.references[i];
+        const text = (await convert(referenceHtml.children[i].outerHTML)).trim().replace(/\n/g, ' ');
+        markdown += `[^${reference.number}]: ${text}${reference.doi ? ` [Crossref](https://doi.org/${encodeURI(reference.doi)})` : ''}\n`;
+      }
+    }
+    for (const { token, markdown: value } of tokens) markdown = markdown.replaceAll(token, () => value);
+    markdown = markdown.replaceAll('\u00a0', ' ').trim() + '\n';
+    for (const item of parsed.supplementary) markdown += `\n[${item.title}](${item.url})\n`;
+    return { ...parsed, markdown };
+  } finally { dom.window.close(); }
 }
 
 /** Extract source TeX only; rendered MathJax and image fallbacks are duplicates. */

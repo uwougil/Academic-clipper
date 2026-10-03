@@ -91,3 +91,9 @@
 侧边浏览器中已加载的 `https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68` 提供 Figure 3 的完整图注、原始行内 TeX、300 K 单位文本，以及 `content.cld.iop.org` 的 `_lr.jpg` / `_hr.jpg` 下载链接。新增代表性片段与独立 provenance 文件，明确它不是完整文章或原始 HTTP 响应。实验性 `extractIopFigures()` 使用 Defuddle 转换图注，保护 TeX 避免反斜线被普通文本转义；只返回观察到的 HTTPS CDN 链接，不下载图片。作者机构和 ORCID 按观察到的 citation 元数据顺序关联，不推断通信作者。
 
 本次 Windows Node 24 验证：`npm test` 119/119；`npm run build` 成功；Nature golden 的 `validate:paper` 全部通过。全文 `parseIopPage()` 仍未开放；表格、引用、交叉引用及服务器初始响应完整性仍待完成，不能据此宣称 IOP 全文支持完成。
+
+## 2026-10-03：正文与原生表格、引用增量
+
+新增 `convertIopPage()`，对提供的可访问正文 DOM 使用 Defuddle 转换。订阅提示、缺少正文或身份不符仍拒绝；实验结果不宣称完整 HTTP 捕获。真实 aeaa6b Table 2 四行、完整图注、TeX 温度范围、补充数据入口已加入片段。通过公开 Show References 按钮观察到 41 条参考文献，保留表格引用的 11/40/41 完整 cite、原始索引及 DOI；加载后转成脚注，未加载时保留出版商链接并报告 IOP_REFERENCE_UNAVAILABLE。片段选取及清理均写入各自 provenance，未提交原始整页捕获。数字交叉引用暂降级为可读文本；精确章节链接和引用区间展开仍待完善。初始服务器响应的 CDP 观察事件出现 truncated，不能将渲染 DOM 当作服务器完整性证据。
+
+本次 focused 11 项测试通过；全套测试、build、Nature golden validate 已运行。仍需整页转换验证、科学符号与交叉引用覆盖，以及初始 HTML 完整性证据。
