@@ -41,6 +41,8 @@ Article/table 的 CDP `Page.getResourceContent` 均返回 decoded string，`base
 
 当前 `Page.getResourceContent` 的 decoded response text 可证明源码结构，但不足以满足 §6 的 sourceSha256 定义。一次更新的 CDP 页面内 fetch 探测显式设置 `credentials: "omit"` 并尝试读取 `Response.arrayBuffer()` / SHA-256；Nature 返回 303 到 `idp.nature.com/authorize`，之后身份 transit 返回 302，最终 URL 标出 `error=cookies_not_supported`，浏览器因跨域 CORS 失败且没有 article body/hash。精确过程见 [来源 ledger](../../nature-corpus.md)。因此这不是已验证的 headless 假设；在同一侧边浏览器中，无 Cookie fetch 也遇到身份 cookie 流程。本次没有证明 Cloudflare 参与。
 
+出版社官方文档将 `idp.nature.com/debug` 指向 Nature content access troubleshooting，并提到 cookies 可能影响访问（链接及范围限制见来源 ledger）。它没有说明当前 Open Access article 为何 303，也没有将错误归因于 Cloudflare；没有访问需要携带本机访问状态的 debug 端点。
+
 若另一个合规网络路径下同样的 cookie-omitting fetch 能返回 200，`Response.arrayBuffer()` 可提供 decoding 前的 body bytes，可能直接满足当前 source hash 定义，无需改 spec。当前探测失败，没有可用 bytes；浏览器展示页的内容依旧不能替代它。A H1 的 `browser-dom` 说明仍适用。
 
 如果人工决定以现有公开浏览器来源作为正式 acquisition，应先独立批准并落地如下设计变更，再恢复依赖该变更的工作：
