@@ -1,0 +1,603 @@
+{
+  "url": "https://pubs.rsc.org/mh/article/10/10/4202/813539/A-polymer-library-enables-the-rapid-identification",
+  "observedAt": "2026-10-03T14:53:58.389Z",
+  "captureMode": "browser-rendered DOM serialization",
+  "serializedBodySha256": "ffd6f1291f432d5ac5069a6e95c6a2f1a2a6a4a25d5f8459c2a1996880f09c75",
+  "responseSha256": null,
+  "responseHashExplanation": "Browser DOM capture; no HTTP response bytes available.",
+  "fixtureSha256": "8f9447539c04053c09ae875dd51cc63720d98f673c7f345c44111baf92b7a611",
+  "fixtureHashEncoding": "UTF-8 with LF line endings",
+  "retained": [
+    {
+      "locator": "section.abstract (document order 0)",
+      "sourceSubtreeSha256": "98ed5cdb4f98f95e68e05aa2b473ebf0b0703349f3ee5f4749d90a2466b3c6be"
+    },
+    {
+      "locator": "#33401217",
+      "sourceSubtreeSha256": "97e53ef0346fa6963f32f9b3fe9b2a0881fd36b1ceabf412ebe443c3800c6183"
+    },
+    {
+      "locator": "#33401224",
+      "sourceSubtreeSha256": "4b90a3cc6df624c32c07a77e2b96bbb2e37efedd7559ff28aea64b9e34eea075"
+    },
+    {
+      "locator": "#33401233",
+      "sourceSubtreeSha256": "36cd8719b2290174c93121884c2589fef3b3ff26dc35dcbcfe4a921ec122f145"
+    },
+    {
+      "locator": "#33401240",
+      "sourceSubtreeSha256": "01bdcc35c823dc498c11cd9831b461a3217871a3f2f5fe8e7fd8b19b8ca305b0"
+    },
+    {
+      "locator": "#33401248",
+      "sourceSubtreeSha256": "ccd387cdbeed5658219a453193e504d8440f3c773d2cf76df87ef55e64b720dc"
+    },
+    {
+      "locator": "#33401253",
+      "sourceSubtreeSha256": "819f522ffc2f8f88e4e5331c4d72ebe236f612ec07695effa628d600496142c1"
+    },
+    {
+      "locator": "#33401259",
+      "sourceSubtreeSha256": "e8727997828b93efa0c278a78039863b8af83336610c2c26f67911bcd4dacf09"
+    },
+    {
+      "locator": "#33401261",
+      "sourceSubtreeSha256": "cf15da374a409661059ee3c9ef91fdbf9b692e4b545881198a7dd51026c42529"
+    },
+    {
+      "locator": "#33401263",
+      "sourceSubtreeSha256": "12d870bac3bd16b318c5faf0129a6acd919663fa519be89d1403be27557b0ae5"
+    },
+    {
+      "locator": "#33401268",
+      "sourceSubtreeSha256": "9f33c540204292fccbf154dc15838688060edab8359b8a263b2a160a409b11cd"
+    },
+    {
+      "locator": "p.undefined (document order 3)",
+      "sourceSubtreeSha256": "9a9e03612b40de7ae3f2741f3431532ae4cd1890f74c352993826b77b134b0cc"
+    },
+    {
+      "locator": "p.undefined (document order 4)",
+      "sourceSubtreeSha256": "8a896ff156fe289c7707cf0f5521996d2c136641ebeebae3c7efa96f614f491e"
+    },
+    {
+      "locator": ".fig[data-id=\"fig1\"]",
+      "sourceSubtreeSha256": "bd06733b98a7c573a98b74fb430d2f048ace3f5ac2a8e8c5916901ae5943a3e2"
+    },
+    {
+      "locator": ".fig[data-id=\"sch1\"]",
+      "sourceSubtreeSha256": "2805536489fa85965099b0e3192dcb40f0a6fccf1d634a519cb600498ebb41eb"
+    },
+    {
+      "locator": "p.undefined (document order 19)",
+      "sourceSubtreeSha256": "188235ea2fee20f775d9ec5967cd585866b2c0db9954c8c40dd01fa38fc4c380"
+    },
+    {
+      "locator": "p.undefined (document order 14)",
+      "sourceSubtreeSha256": "befcc17d36fb7212f3660b6751ff2b3c38f8cc42d5fe7549270856dc23553097"
+    },
+    {
+      "locator": "[content-id=\"tab1 \"]",
+      "sourceSubtreeSha256": "c60f6761a7a178595c4a0c55aa2e44f5c81d3b6751ce01771c5af08544afcb5a"
+    },
+    {
+      "locator": "[content-id=\"tab2 \"]",
+      "sourceSubtreeSha256": "b3b7f554a7f21b485fdc671826c77fb1270535e92ac5190e958f1ff1a9498a42"
+    },
+    {
+      "locator": "[content-id=\"tab3 \"]",
+      "sourceSubtreeSha256": "378ea3eba5bfea5d2f084efdb5a2ff320f414956c95d3b21f8605368d6653704"
+    },
+    {
+      "locator": "[data-content-id=\"cit1\"]",
+      "sourceSubtreeSha256": "679bf65eed9596d5a814d1889fa85d62946f6f886c0bcb58c2b76da3f23b13df"
+    },
+    {
+      "locator": "[data-content-id=\"cit2\"]",
+      "sourceSubtreeSha256": "5187bb6b7400c1eab2f3aedbed5bd80a982dc8f219136bb53b4ee04f255b369a"
+    },
+    {
+      "locator": "[data-content-id=\"cit3\"]",
+      "sourceSubtreeSha256": "7873602ceedb1b53728890cbe0aed705f0fdab18a42c730cb8a7c1ece8251a84"
+    },
+    {
+      "locator": "[data-content-id=\"cit4\"]",
+      "sourceSubtreeSha256": "28de39685aa5eea56289b93cc63e737244c5b5524db86dfe72b721ee3b795d78"
+    },
+    {
+      "locator": "[data-content-id=\"cit5\"]",
+      "sourceSubtreeSha256": "d9ef020e5a37a6ff88b154180e616ff61087ceb2619f6d272514df8f7b62e9dd"
+    },
+    {
+      "locator": "[data-content-id=\"cit6\"]",
+      "sourceSubtreeSha256": "a36c6d943e5d6425d0cb0ffdeaf8b88f41aa1b040e8a00bbafbb93c006e3e03e"
+    },
+    {
+      "locator": "[data-content-id=\"cit7\"]",
+      "sourceSubtreeSha256": "c5cb83159333f3d13f342ccb8f8d50fb1fad0c59e4553dadff3e01c36dd7f31b"
+    },
+    {
+      "locator": "[data-content-id=\"cit8\"]",
+      "sourceSubtreeSha256": "802947e546d3ef3ceb2968a0e0c68a3a4b7575463a6a8357aba9e78454dfa761"
+    },
+    {
+      "locator": "[data-content-id=\"cit9\"]",
+      "sourceSubtreeSha256": "0fa30c803665f32868ef4fd1e02cb3eb2b420ae480f5fab605ac6a25336bd40c"
+    },
+    {
+      "locator": "[data-content-id=\"cit10\"]",
+      "sourceSubtreeSha256": "31bf5becd499b97d055ddc56d746d4af3bd7697e18e4183318e014cd84809336"
+    },
+    {
+      "locator": "[data-content-id=\"cit11\"]",
+      "sourceSubtreeSha256": "9385659c52431e4252262d6b8725ec4f74edf2dca64ae074b574bc359b147d02"
+    },
+    {
+      "locator": "[data-content-id=\"cit12\"]",
+      "sourceSubtreeSha256": "e0179851adb11cc384cb159fb715b0a35d4707ee1ba3783448fab0acba755bf7"
+    },
+    {
+      "locator": "[data-content-id=\"cit13\"]",
+      "sourceSubtreeSha256": "f207b85bb74d31393f27045915ccc029db8996d436bae2abd0095f64ff17d220"
+    },
+    {
+      "locator": "[data-content-id=\"cit14\"]",
+      "sourceSubtreeSha256": "64ea023fce4f0693f7a7ec38d6000f8ef4ed8d2181501ecfda1e33f97825a181"
+    },
+    {
+      "locator": "[data-content-id=\"cit15\"]",
+      "sourceSubtreeSha256": "059af4f2e78a698520168ca203c4a128e271270430a29b61266682bc7fa50fca"
+    },
+    {
+      "locator": "[data-content-id=\"cit16\"]",
+      "sourceSubtreeSha256": "b1425fbe1ea772ddca4b7764eae28dd143ff8505e19f174d65e21b3e29eedc1d"
+    },
+    {
+      "locator": "[data-content-id=\"cit17\"]",
+      "sourceSubtreeSha256": "09526b4a46166f767335c77813f5652bba4a12d39cce37e0baa95f7ed1b4e81c"
+    },
+    {
+      "locator": "[data-content-id=\"cit18\"]",
+      "sourceSubtreeSha256": "50277e29427746adacb081bbadaffbaa5e694c1b7e30fd7779a242e6aad83a18"
+    },
+    {
+      "locator": "[data-content-id=\"cit19\"]",
+      "sourceSubtreeSha256": "88bcaf5370d2ad2ca85db05e3f4cd3ba5b09783fc8b205dfeb8b0ac4aa305f9e"
+    },
+    {
+      "locator": "[data-content-id=\"cit20\"]",
+      "sourceSubtreeSha256": "44d07017405972e45b3a3310876c3b160bb41f616564763ca13779a1e0349dc5"
+    },
+    {
+      "locator": "[data-content-id=\"cit21\"]",
+      "sourceSubtreeSha256": "4972a8ed9732b57967e113374e0541db3bf62ace589070e5fda936471cade60f"
+    },
+    {
+      "locator": "[data-content-id=\"cit22\"]",
+      "sourceSubtreeSha256": "f23f1f96a8bc9d7107d3f42cac9c1b7ed28bf1bf20d7bfb01687db52c94d8c40"
+    },
+    {
+      "locator": "[data-content-id=\"cit23\"]",
+      "sourceSubtreeSha256": "7578df9638f8b968edb494800dcfbfc1177813d1d5cb1b5977470b013034de9c"
+    },
+    {
+      "locator": "[data-content-id=\"cit24\"]",
+      "sourceSubtreeSha256": "5802c070e4b5cca4b54ac331d1d83b3fd4dd09d746f3be3ea619aea5f420fe91"
+    },
+    {
+      "locator": "[data-content-id=\"cit25\"]",
+      "sourceSubtreeSha256": "98ff794181972264c1081c805e0f95b009ec72fa16fd12f16f0ca17d131243f7"
+    },
+    {
+      "locator": "[data-content-id=\"cit26\"]",
+      "sourceSubtreeSha256": "ce61b1bcc126c861e12dc9feb16743b8825cceaad55a58b061b691a17a035cf1"
+    },
+    {
+      "locator": "[data-content-id=\"cit27\"]",
+      "sourceSubtreeSha256": "802e26b5a9ae71e009fc85e99f4cf2c6bdc3d57d3b631042938bb88765b20f60"
+    },
+    {
+      "locator": "[data-content-id=\"cit28\"]",
+      "sourceSubtreeSha256": "3da5925e0f49ab7e02e792cd0beb94319a39dc6bdbc9fb70367ebf57b9b1035e"
+    },
+    {
+      "locator": "[data-content-id=\"cit29\"]",
+      "sourceSubtreeSha256": "f15d280dac3bd716f16cd3ba73adf7f360cd15d154a16b7a37f7f2be8aa8ace4"
+    },
+    {
+      "locator": "[data-content-id=\"cit30\"]",
+      "sourceSubtreeSha256": "b8bd98b2bc8d4324d137c17caca2560a80ca697c88b59f7996bf1a9f1dd7f06f"
+    },
+    {
+      "locator": "[data-content-id=\"cit31\"]",
+      "sourceSubtreeSha256": "ecec91524bba495aa78cacac512f7183e72421675fef431b915803ce80808b41"
+    },
+    {
+      "locator": "[data-content-id=\"cit32\"]",
+      "sourceSubtreeSha256": "9bdfc9ce69f4c17b93ab909cab420e9de62c48f8659941008fabeed0f503f240"
+    },
+    {
+      "locator": "[data-content-id=\"cit33\"]",
+      "sourceSubtreeSha256": "c7a7d4f6a24359b2fbc7ffed7244cbea990775bdcf09b02242071bafe5ebf571"
+    },
+    {
+      "locator": "[data-content-id=\"cit34\"]",
+      "sourceSubtreeSha256": "2db7da0826830b1fa9ba53b67f208cae84351b6b9b5be42f26c77c89651081b6"
+    },
+    {
+      "locator": "[data-content-id=\"cit35\"]",
+      "sourceSubtreeSha256": "bffe2a3cdcc8d999c02fbf5dbd91cb57a7a4fbf5d78b136251fb7628bc0fc8bd"
+    },
+    {
+      "locator": "[data-content-id=\"cit36\"]",
+      "sourceSubtreeSha256": "d0ee93c685906a5b08fcb349d287532245546ab1f19dfd299f5ede1f884754b4"
+    },
+    {
+      "locator": "[data-content-id=\"cit37\"]",
+      "sourceSubtreeSha256": "6e033b763c5bb5c8f2bba458c6e817eb038baa488be6185320016dc51b7716f6"
+    },
+    {
+      "locator": "[data-content-id=\"cit38\"]",
+      "sourceSubtreeSha256": "138c5ab1f42a8c198637a4bfee0e17ab0af340511924f55a83e4551481449d20"
+    },
+    {
+      "locator": "[data-content-id=\"cit39\"]",
+      "sourceSubtreeSha256": "0dc0f910735797083cb8860ce437f9e43031eff8afe488c40064aa4920cf9c59"
+    },
+    {
+      "locator": "[data-content-id=\"cit40\"]",
+      "sourceSubtreeSha256": "a62476c0355ac35c5c00f4169a00e8be365eec7ddef53c54e04ad0e91e99a07d"
+    },
+    {
+      "locator": "[data-content-id=\"cit41\"]",
+      "sourceSubtreeSha256": "d606967541a16500108554fd797e272f76df8d6d7bc84764646da22e2d790b06"
+    },
+    {
+      "locator": "[data-content-id=\"cit42\"]",
+      "sourceSubtreeSha256": "391f5a2d7c2edc9d5ba5c270a1e7636042e839b16ad72e8ab2d9be69546faf43"
+    },
+    {
+      "locator": "[data-content-id=\"cit43\"]",
+      "sourceSubtreeSha256": "d33e0639cc33910b43eecf8b18bf2fe7edf074e76cc9a68a143f3dde6eaddbf8"
+    },
+    {
+      "locator": "[data-content-id=\"cit44\"]",
+      "sourceSubtreeSha256": "841958f128038afd9a7d2bb14a11cefa7e55b92b292b521c614d7de97c018385"
+    },
+    {
+      "locator": "[data-content-id=\"cit45\"]",
+      "sourceSubtreeSha256": "cd28e713ae1764ab96f6f131c43fd95f96582ac2226861d058972367bc4f95ac"
+    },
+    {
+      "locator": "[data-content-id=\"cit46\"]",
+      "sourceSubtreeSha256": "7725419194bb57b5b6e2e74b1e167576767f1e30c235d2e8ba0c57b3fdeb334a"
+    },
+    {
+      "locator": "[data-content-id=\"cit47\"]",
+      "sourceSubtreeSha256": "06d56d9152dd755717f06e143e7ae8b774bc4ff3cb56bb17aee3ee8f620fb2fe"
+    },
+    {
+      "locator": "[data-content-id=\"cit48\"]",
+      "sourceSubtreeSha256": "768727a6aa3bdd373fe7f65d3845ba4ac7639be7c0d2955101148dd00c6414c2"
+    },
+    {
+      "locator": "[data-content-id=\"cit49\"]",
+      "sourceSubtreeSha256": "871fbbdb6aa21c2a8e93b9dd98d279cd731baaf33aa6618c77b362cf4b96316c"
+    },
+    {
+      "locator": "[data-content-id=\"cit50\"]",
+      "sourceSubtreeSha256": "0947b09d3ca14f6e2144e5ef0e48b4b5a40896e81e8f7eb9cd1b70b3793fda9d"
+    },
+    {
+      "locator": "[data-content-id=\"cit51\"]",
+      "sourceSubtreeSha256": "b686283648a0860a3c5c5b53f3f136705d941c3afaf019ebaa7cc92d95685590"
+    },
+    {
+      "locator": "[data-content-id=\"cit52\"]",
+      "sourceSubtreeSha256": "6256dbeba747cf2c7b831a69faa4c1fe26215e6adc7f6c4c9b7dc179ad2554ae"
+    },
+    {
+      "locator": "[data-content-id=\"cit53\"]",
+      "sourceSubtreeSha256": "47880772c01466eef319986b79ca3717b11bbebea2f32f4736d08101102f2e96"
+    },
+    {
+      "locator": "[data-content-id=\"cit54\"]",
+      "sourceSubtreeSha256": "00b2fc162960dcbf0b748ee38c3d9cb11ea43474e877647bf19a247c08bc5991"
+    },
+    {
+      "locator": "[data-content-id=\"cit55\"]",
+      "sourceSubtreeSha256": "3ff2002cbf5b7814c1906447f22c977441a5d3254786668d96a193db5ac162da"
+    },
+    {
+      "locator": "[data-content-id=\"cit56\"]",
+      "sourceSubtreeSha256": "e3c9da120a86dfb4874698fdd317bb83d5c58c01b888d0166ca991e731b5c13e"
+    },
+    {
+      "locator": "[data-content-id=\"cit57\"]",
+      "sourceSubtreeSha256": "2d39cc0a0e49611835e2e8f7cfacd9aa49705af843c28a03e083c0dadfdc1429"
+    },
+    {
+      "locator": "[data-content-id=\"cit58\"]",
+      "sourceSubtreeSha256": "998d68fda8ec28a88b13a9dc9a97648cd100ca3ff3a792d0f0dac76f002f3291"
+    },
+    {
+      "locator": "[data-content-id=\"cit59\"]",
+      "sourceSubtreeSha256": "5a1b529743e17c254c3e83dcc40b70d009272b8714c9a06ae2e72ee346805882"
+    },
+    {
+      "locator": "[data-content-id=\"cit60\"]",
+      "sourceSubtreeSha256": "fb628169a6908b5f457d013f9abc7140cf625068b9634cad3c92ed83bf788e59"
+    },
+    {
+      "locator": "[data-content-id=\"cit61\"]",
+      "sourceSubtreeSha256": "54e0a733bdf44843e67a8e6b4ab4780059804e9bfd34228a530325a624646092"
+    },
+    {
+      "locator": "[data-content-id=\"cit62\"]",
+      "sourceSubtreeSha256": "bb7156c107cf030f161d424fe64462a3bae54bb130ffba358e3140cb1ee750d2"
+    },
+    {
+      "locator": "[data-content-id=\"cit63\"]",
+      "sourceSubtreeSha256": "86be3e9bc330dd9f1d6c78eb02e03270229442028fe0ef0138bcd8eb8d939d8b"
+    },
+    {
+      "locator": "[data-content-id=\"cit64\"]",
+      "sourceSubtreeSha256": "b15b0eab65bc2e609d946b71dfa3297a2892f3efc6d1f160b990b710029c373b"
+    },
+    {
+      "locator": "[data-content-id=\"cit65\"]",
+      "sourceSubtreeSha256": "39b442919134e1d32ffb6d35ff8c7aec2605fcfa8d69e557a91377225ef643f6"
+    },
+    {
+      "locator": "[data-content-id=\"cit66\"]",
+      "sourceSubtreeSha256": "3a8bfc21aba7f28437f4070c74b1c61926e10f18e0b9805415278b8814dc8bfc"
+    },
+    {
+      "locator": "[data-content-id=\"cit67\"]",
+      "sourceSubtreeSha256": "da4ca8976f6a8c9da2bc2d92e440714edd3cb7a363a63a081ecbaa4587a6068e"
+    },
+    {
+      "locator": "[data-content-id=\"cit68\"]",
+      "sourceSubtreeSha256": "ec8e6adcf146e44aa2ddbb887dad526c0a59471339226f17487691502a6063e0"
+    },
+    {
+      "locator": "[data-content-id=\"cit69\"]",
+      "sourceSubtreeSha256": "bcc62573c88296ee9bc57ec7ba3533f04c250a6401b05073750697e9d870233c"
+    },
+    {
+      "locator": "[data-content-id=\"cit70\"]",
+      "sourceSubtreeSha256": "4a750415287580bf621bbc484243eea7d7cdd2fd8fa6eadc7b691ea387eb7732"
+    },
+    {
+      "locator": "[data-content-id=\"cit71\"]",
+      "sourceSubtreeSha256": "d227ba12353464deac3690ad6a7560901c0a36ad40fadec2c31548110b24a15a"
+    },
+    {
+      "locator": "[data-content-id=\"cit72\"]",
+      "sourceSubtreeSha256": "7dd1e5f92bf38489a7f336315700fe415067b5392862e61d4600fd2947545a3f"
+    }
+  ],
+  "sanitization": [
+    "Removed modal duplicates, figure controls, reference discovery links, scripts/inputs and event handlers",
+    "Removed signed CDN query parameters; asset bytes were not captured",
+    "Trimmed trailing line whitespace; hashes use LF line endings"
+  ],
+  "omissions": [
+    "Most prose, figures, references, graphical abstract, footnotes, supplements and author panels omitted; this is an excerpt, not a complete article"
+  ],
+  "expected": {
+    "title": "A polymer library enables the rapid identification of a highly scalable and efficient donor material for organic solar cells",
+    "authors": [
+      "Rimmele, Martina",
+      "Qiao, Zhuoran",
+      "Panidi, Julianna",
+      "Furlan, Francesco",
+      "Lee, Chulyeon",
+      "Tan, Wen Liang",
+      "McNeill, Christopher R.",
+      "Kim, Youngkyoo",
+      "Gasparini, Nicola",
+      "Heeney, Martin"
+    ],
+    "journal": "Materials Horizons",
+    "doi": "10.1039/d3mh00787a",
+    "headings": [
+      "Introduction",
+      "Design and synthesis",
+      "Optoelectronic properties",
+      "Photovoltaic properties",
+      "Morphology",
+      "Discussion and larger scale preparation of FO6-T",
+      "Conclusion",
+      "Conflicts of interest",
+      "Acknowledgements"
+    ],
+    "figures": [
+      {
+        "id": "sch1",
+        "label": "Scheme 1",
+        "caption": "Two step polymer synthesis via nucleophilic aromatic substitution and subsequent polymerisation."
+      },
+      {
+        "id": "fig1",
+        "label": "Fig. 1",
+        "caption": "UV-vis absorption spectra of polymers in solution in CHCl3 (a) FOR-T polymers, (c) FOR-2T polymers, and (e) FOR-TT polymers, and in thin film (b) FOR-T polymers, (d) FOR-2T polymers and (f) FOR-TT polymers. The solutions were prepared at a 5 μM concentration and thin films were prepared from a 10 mg mL−1 solution and spin coated on glass slides."
+      }
+    ],
+    "tables": [
+      {
+        "id": "tab1",
+        "parts": 1,
+        "rows": [
+          14
+        ],
+        "caption": "Polymer yield, molecular weight (Mn), average degree of polymerisation [n] (in italics) and dispersity (Ð) as measured by GPC versus polystyrene standard and solubility limit (in bold) in chloroform by the side chain and comonomer. Polymers indicated with a * were prepared on a larger scale (0.7 mmol in contrast to the scale of the rest of the materials (0.5 mmol)). The solubility limit (mg mL−1) in chloroform was determined following a published protocol33"
+      },
+      {
+        "id": "tab2",
+        "parts": 1,
+        "rows": [
+          12
+        ],
+        "caption": "Absorption maxima (λmax in bold) and shoulders in CHCl3 and thin film, as well as the emission maxima (PLmax) in CHCl3 and optical bandgap are shown"
+      },
+      {
+        "id": "tab3",
+        "parts": 1,
+        "rows": [
+          13
+        ],
+        "caption": "Photovoltaic properties of the polymers with different comonomers T, 2T and TT as well as varying side chains in blends with Y6 as the acceptor under the illumination of AM1.5G"
+      }
+    ],
+    "equations": [],
+    "referenceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72
+    ],
+    "referenceDois": [
+      "10.1002/aenm.v11.23",
+      "10.1002/adma.v27.7",
+      "10.1016/j.joule.2019.01.004",
+      "10.1002/sus2.v2.5",
+      "10.1038/s41467-019-10351-5",
+      "10.1038/s41560-021-00820-x",
+      "10.1016/j.joule.2019.09.010",
+      "10.1002/adma.v32.19",
+      "10.1002/adma.v35.3",
+      "10.1002/adma.v32.21",
+      "10.1002/adfm.v32.34",
+      "10.1016/j.nanoen.2022.108116",
+      "10.1002/aenm.v11.35",
+      "10.1002/adma.v34.2",
+      "10.1016/j.progpolymsci.2019.101175",
+      "10.1002/adma.v33.41",
+      "10.1038/s41563-022-01244-y",
+      "10.1038/ncomms13094",
+      "10.1002/adma.v29.22",
+      "10.1039/D0CC01038C",
+      "10.1002/aenm.v11.1",
+      "10.1002/admt.v7.10",
+      "10.1002/aenm.v11.18",
+      "10.1002/cssc.v14.17",
+      "10.1016/j.scib.2020.01.001",
+      "10.1002/adma.v27.31",
+      "10.1021/ma301900h",
+      "10.1002/adma.v26.7",
+      "10.1021/ma501894w",
+      "10.1021/acs.chemrev.5b00098",
+      "10.1038/s41467-018-03207-x",
+      "10.1016/j.jechem.2021.08.033",
+      "10.1021/acs.chemmater.9b00174",
+      "10.1039/C9TC02296A",
+      "10.3390/polym8010011",
+      "10.1021/cm102419z",
+      "10.1039/c2jm30470h",
+      "10.1021/ma102164c",
+      "10.1016/j.progpolymsci.2011.04.003",
+      "10.1039/C8TA04127J",
+      "10.1002/chem.v26.62",
+      "10.1021/acs.jpcc.0c07334",
+      "10.1021/acsami.0c20389",
+      "10.1021/acsami.1c13245",
+      "10.1021/acs.chemmater.6b02030",
+      "10.1016/j.orgel.2016.01.034",
+      "10.1016/0013-4686(95)00169-F",
+      "10.1021/acs.jmedchem.5b01409",
+      "",
+      "10.1038/s41467-018-05381-4",
+      "10.1021/acs.macromol.7b00235",
+      "10.1016/j.nanoen.2022.108017",
+      "",
+      "10.1016/j.synthmet.2004.09.015",
+      "10.1021/acs.chemmater.9b01886",
+      "10.1002/adma.v8:5",
+      "10.1002/adma.v21:10/11",
+      "10.1002/adma.v34.35",
+      "10.1038/s41467-018-04502-3",
+      "10.1063/1.2130396",
+      "10.1039/D0TC02136A",
+      "10.1016/j.progpolymsci.2013.08.008",
+      "10.1016/j.orgel.2015.11.025",
+      "10.1002/aenm.v9.32",
+      "10.1002/aenm.v3.9",
+      "10.1063/1.2170424",
+      "10.1039/C8EE01150H",
+      "10.1038/nphoton.2015.84",
+      "10.1021/acsenergylett.0c00604",
+      "10.1002/app.07.v13:8",
+      "10.1039/C7TA03052E",
+      "10.1107/S002188981302774X"
+    ]
+  }
+}

@@ -1,61 +1,69 @@
-# Experimental RSC：来源访问与集成交接
+# Experimental RSC：DOM 实证与交接
 
-状态：**来源 admission 受阻；adapter 尚未实现，不能声称 RSC 支持。**
+Work Contract：[Issue #28](https://github.com/uwougil/Academic-clipper/issues/28)；[Draft PR #36](https://github.com/uwougil/Academic-clipper/pull/36)。背景：[Issue #26](https://github.com/uwougil/Academic-clipper/issues/26)。已读 AGENTS、README、PRD/EDD、Issue #10 的 [corpus 规范](specs/issue-10-nature-corpus.md)、[执行计划](plans/issue-10-execution-plan.md)及 acquisition planning；Nature pipeline 只作架构参考。
 
-Work Contract：[Issue #28](https://github.com/uwougil/Academic-clipper/issues/28)。
-规划背景：[Issue #26](https://github.com/uwougil/Academic-clipper/issues/26)。
-方法参考：Issue #10 的 [corpus 规范](specs/issue-10-nature-corpus.md)、[执行计划](plans/issue-10-execution-plan.md)和 [fixture acquisition goal](goals/issue-10/agent-b-fixture-acquisition.md)。
+隔离分支 `codex/rsc-experimental` 从 accepted main `5971ebfbe288e0efed4abef21469f41e2cabb05f` 创建，该 SHA 的 Main CI 成功。范围仅为三个期刊已观察的 Silverchair DOM，不声明 general RSC support，不改变 Nature-only 生产路由或 PRD/EDD。
 
-本分支从 accepted main `5971ebfbe288e0efed4abef21469f41e2cabb05f` 创建；启动时已确认该 SHA 的 CI、Secret scan 与 Issue-finalize 均为 success。目标仅为 Materials Horizons、Physical Chemistry Chemical Physics (PCCP)、Journal of Materials Chemistry C 的独立实验，不改变当前 Nature-only 产品范围。
+## 真实全文与同族证据
 
-## 公开来源检查（2026-10-02）
+2026-10-03 侧边浏览器成功读取六篇公开全文，每刊两篇。旧 `en/content/articlehtml/...` 重定向到新平台；取得完整 rendered DOM，未登录、未解决 CAPTCHA、未绕过 paywall。实际最终 URL：
 
-以下 URL 已发起公开访问。403/challenge/landing 不是可用全文，不能用于证明共享 DOM，不能从搜索文本重新编写 HTML fixture。
-
-| 期刊 | 真实候选全文 URL | 此次观察 |
+| 期刊 / DOI suffix | 全文 URL | 实证结构差异；完整 DOM 的 figure/table/equation/reference 模型数 |
 | --- | --- | --- |
-| Materials Horizons | https://pubs.rsc.org/en/content/articlehtml/2025/mh/d5mh00096c | web 与本地 HTTP 为 403；in-app browser 显示 Cloudflare 安全验证页，无 article DOM |
-| Materials Horizons | https://pubs.rsc.org/en/content/articlehtml/2023/mh/d3mh00787a | web、本地 HTTP 为 403；对应 landing 在 browser 也显示 challenge |
-| Materials Horizons | https://pubs.rsc.org/en/content/articlehtml/2023/mh/d3mh00572k | web 为 403 |
-| Materials Horizons | https://pubs.rsc.org/en/content/articlehtml/2023/mh/d3mh00378g | web 为 403 |
-| PCCP | https://pubs.rsc.org/en/content/articlehtml/2024/cp/d4cp00012a | web 与本地 HTTP 为 403 |
-| PCCP | https://pubs.rsc.org/en/content/articlehtml/2024/cp/d3cp05267b | web 与本地 HTTP 为 403 |
-| PCCP | https://pubs.rsc.org/en/content/articlehtml/2024/cp/d4cp00788c | web 为 403 |
-| Journal of Materials Chemistry C | https://pubs.rsc.org/en/content/articlehtml/2025/tc/d5tc02647d | web 重定向至 `articlelanding/2025/tc/d5tc02647d/unauth`；仅有摘要、作者、DOI，不接纳为全文 |
-| Journal of Materials Chemistry C | https://pubs.rsc.org/en/content/articlehtml/2024/tc/d3tc03672c | web 为 403；公开 landing 可验证 title/DOI/journal，但不能验证全文 DOM |
-| Journal of Materials Chemistry C | https://pubs.rsc.org/en/content/articlehtml/2024/tc/d4tc01199f | web 为 403 |
-| Journal of Materials Chemistry C | https://pubs.rsc.org/en/content/articlehtml/2014/tc/c4tc00336e | web 与本地 HTTP 为 403 |
+| Materials Horizons / d3mh00787a | https://pubs.rsc.org/mh/article/10/10/4202/813539/A-polymer-library-enables-the-rapid-identification | New concepts、Scheme、表中图片、多级表头/脚注、reference 中货币；5/3/0/72 |
+| Materials Horizons / d5mh00096c | https://pubs.rsc.org/mh/article/12/15/5570/897061/Poly-3-hexylthiophene-as-a-versatile | 综述、Wider impact、编号章节与子节、宽表；10/1/0/131 |
+| PCCP / d4cp00788c | https://pubs.rsc.org/cp/article/26/24/16972/842764/Out-of-focus-spatial-map-imaging-of-magnetically | 图片公式、MathML 向量与 HTML 下标混合公式、一个编号的三个子表；8/1/3/45 |
+| PCCP / d4cp00012a | https://pubs.rsc.org/cp/article/26/15/11445/842411/IR-spectroscopic-characterization-of-M-C-2H-M-Ru | 未编号科学图片、化学电荷/自旋态、跨标签方括号、跨行表格；8/4/0/70 |
+| Journal of Materials Chemistry C / d3tc03672c | https://pubs.rsc.org/tc/article/12/2/508/835260/A-combined-experimental-and-modelling-approach-for | 十个 HTML/图片公式、热输运符号、多级表头与 rowspan；9/2/10/62 |
+| Journal of Materials Chemistry C / d4tc01199f | https://pubs.rsc.org/tc/article/12/32/12304/877520/Decoding-the-domain-dynamics-of-polycrystalline-0 | 化学计量与晶向、六个 HTML/图片公式、无主文表；13/0/6/106 |
 
-身份与候选来源：RSC [PCCP collection](https://pubs.rsc.org/en/journals/articlecollectionlanding?sercode=cp&themeid=6ff5d516-59da-4392-abda-38159efa24d0)、RSC [Ag-doped SnS landing](https://pubs.rsc.org/en/content/articlelanding/2024/tc/d3tc03672c)、[Materials Horizons institutional record](https://spiral.imperial.ac.uk/entities/publication/db56fa52-073f-43e0-8d09-816e61ae316c)。候选链接的存在不等于全文获得或结构被验证。
+Figure 模型包含 graphical abstract 与 Scheme；equation 只计带 ID 的 `.disp-formula`，不把未编号图片误算为编号公式。
 
-本地环境的系统 DNS 将 `pubs.rsc.org` 返回为 `198.18.0.252`；现有 `safeFetchExternal()` 正确拒绝该地址。为区分环境 DNS 与 publisher 访问错误，研究阶段另查询公开 DoH，Google / Cloudflare 均返回 `104.18.12.179`、`104.18.13.179`；使用现有 resolver injection 及 URL/redirect、30s、25MiB、HTML type 约束后仍为 403。此诊断没有修改或放宽生产安全代码。完整响应仅存于仓库外临时目录，不提交 cookies、challenge HTML、raw captures 或 credentials。未解决 CAPTCHA、未登录或绕过 paywall。
+六篇均观察到相同 family：`citation_title/author/doi/journal_title`；`.article-body .widget-ArticleFulltext` 与 `widget-items[data-widgetname="ArticleFulltext"]`；`.jumplink-heading[data-section-title]` 与 `.article-section-wrapper`；`.fig[data-id]` / `.fig-label` / `.fig-caption`；`.table-wrap` / `.table-wrap-title` / `.table-overflow > table` / `.table-modal` 重复表 / `table-wrap-foot`；`.xref-bibr[data-modal-source-id]` 指向 `.ref-list [data-content-id="citN"]`；内部链接 `reveal-id`；`.formula-wrap` / `.disp-formula[id="jumplink-eqnN"]`。图片的 `data-src` 是资源，`src` 可能是 preloader。部分公式有 `mjx-assistive-mml math`，不能假设所有公式可获得 TeX。
 
-## DOM family 与 coverage 结论
+实际子树支持一个受限 family adapter；共同域名或相似 URL 不是结论依据。其他 RSC 期刊、旧平台、editorial/correction 及异常结构未经验证。
 
-三个期刊使用同一域名及相似 `articlehtml/<year>/<journal-code>/<id>` 路径，**这不足以证明共享 article DOM**。目前没有任何 admitted full-text article，没有 source-backed excerpts，没有 RSC-focused tests；metadata/authors/DOI、section、equation/scientific notation、figure/caption、table、reference/citation、internal crossref 均尚未取得可执行的 adapter coverage。403 是访问失败，不能归因于 parser regression；`/unauth` 摘要页面不能算成功采集。
+## 实现与入口
 
-后续来源 admission 必须先获取每个期刊多个公开、具有实质正文的 DOM，比较 metadata、body root、heading、equation wrappers、caption placement、table topology、citation links/reference IDs。不同结构必须对应保留的原始 semantic blocks 和独立 source-derived oracle。公式只有在源提供可信 TeX/MathML 时转换；仅有 equation image 时保留 image/label 并显式 warning，不能编造 TeX。保留原 reference 编号，不静默重编号。
+- `src/adapters/rsc.mjs`：URL/全文 admission、metadata、publisher DOM、重复控件清除、图表/引用/内部目标提取、科学字体与有限 MathML 向量/overline 保护。所有 RSC DOM 知识在此文件。
+- `src/experimental/rsc-clip.mjs`：直接 `clipRsc({ html, url, citationStyle })`；接受已加载全文 HTML 与实际最终 URL，不 fetch、不写文件。
+- 复用既有 Defuddle `htmlToMarkdown()`、`withDomGlobals()`、math/academic-inline/citation/anchor normalizers、figure captions、逐子表 table normalizer、`renderClipMarkdown()`、output policy 与四类 validators。明确选择正文 root 后使用 Defuddle 转换；未复制 Nature selectors。
+- Markdown / links / Quarto；Quarto 返回 `referencesBib`，保留 source note 和 DOI 的 `@misc`，不猜 bibliography author/title fields。调用方须保存该 bibliography；生产 writer 尚未接入。
 
-fixture 将使用 RSC 专有目录（例如 `test/fixtures/rsc/`），只提交 sanitized semantic excerpts 与 provenance，不创建或改写全局 corpus schema，也不触碰 Nature agent 所有的 `test/corpus/`。每个 excerpt 应记录 URL/identity、capture mode/time、原响应与 fixture hashes、retained locators/subtree hashes、sanitization/omissions、exact expectations 和 coverage 对应断言。没有来源时不创建合成内容冒充真实 fixture。
+```js
+import { readFile } from 'node:fs/promises';
+import { clipRsc } from './src/experimental/rsc-clip.mjs';
+const result = await clipRsc({
+  html: await readFile('test/fixtures/rsc/d4cp00788c.html', 'utf8'),
+  url: 'https://pubs.rsc.org/cp/article/26/24/16972/842764/Out-of-focus-spatial-map-imaging-of-magnetically',
+  citationStyle: 'markdown',
+});
+console.log(result.markdown, result.debug);
+```
 
-## 架构参考与最小集成提案（未实施）
+## Fixtures 与验证
 
-已阅读 `src/adapters/nature.mjs`、`src/clip.mjs`、`src/markdown.mjs`、`src/normalizers/{math,academic-inline,citations,figures}.mjs`、`src/renderers/output-policy.mjs` 和现有 validators。Nature selectors 不是 RSC selectors 的证据。
+`test/fixtures/rsc/`：六对真实节选 HTML / publisher-local provenance JSON；`test/rsc.test.mjs`：26 focused tests（六个 source oracle、十八个三模式渲染检查、两个拒绝/确定性检查）。覆盖 metadata/authors/DOI、章节层级、figure/caption/Scheme、cells/rowspan/多级表头/脚注、三个子表、原编号 citation/reference/DOI、内部图表/公式目标、MathML 向量、HTML 科学记号、图片公式 warning、货币与跨标签括号。
 
-- RSC DOM 知识拟集中于 `src/adapters/rsc.mjs`；在有来源后先直接 focused tests，避免 production router 冲突。
-- 现有 `defuddleToMarkdown()` / `htmlToMarkdown()`、`withDomGlobals()`、academic normalizers、figure/table normalizers、`renderClipMarkdown()`、output policy 和 validators 可评估复用。必须按真实 RSC 结构验证其输入契约，不能靠复用名称声称正确。
-- `clipNature()` 内的 references rendering 与部分 assembly 是私有函数。如果 RSC 证据证明需要公共 seam，在 Draft PR 提案并由 integrator 决定；本分支不改 normalizer API，不复制 Nature DOM 知识到 shared code。
-- 最小 routing 提案需要 integrator 统一处理 `src/clip.mjs` 的 adapter dispatch，以及 `src/cli.mjs`、`src/article-fetch.mjs` 的 URL/redirect scope。RSC fetch 必须逐跳约束同一 article identity，维持 DNS、timeout、size、content-type 边界。bridge 的 loopback/Origin/token 和 writer 事务协议不需要重构。
-- 正式路由前还必须由人类解决并更新 `docs/PRD.md`、`docs/EDD.md` 的 Nature-only 边界。当前仅授权实验 workstream，不将实验结果写成正式支持。
+Provenance 保存实际 URL、capture time、DOM serialization hash、retained locator/subtree hashes、fixture hash、删减说明、直接从 source DOM 提取的 oracle（未调用 adapter）。没有 HTTP response bytes，因此 `responseSha256` 为 null，明确区分 DOM hash。完整 captures 只在仓库外临时目录，不提交 raw pages、cookie、token、签名参数、chrome 或 credentials。
 
-没有 universal Publisher base class、router redesign、common live verifier 或 global corpus schema 提案；暂不抽取新公共 abstraction。当前 changed shared files：**无**。
+`scripts/rsc-excerpts.mjs <external-capture-directory>` 可从 `{url, observedAt, head, body}` 捕获格式重建。保留真实子树/祖先，不重写学术内容；移除重复 modal、控件、reference discovery links 与 CDN query signatures，保留原引用 DOI。节选引用不重编号，保留所需最高编号以前的 source references 以满足既有 sequential validator。不是完整论文，未创建全局 corpus schema。
 
-## 继续与 merge blockers
+本地验证：`node --test test/rsc.test.mjs` 26 passed；`npm test` 136 passed；`npm run build` 成功；`npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` 全部 valid；`git diff --check` 通过。另对六个完整 browser DOM 做仓库外直接 Markdown smoke，四类 validators 均 valid；这不是常规网络 CI，也不是全文忠实度的独立 oracle。CI 保持 Ubuntu Node 20/24、Windows Node 24。
 
-需要公开完整 article HTML 的可用获取方式或已有本地 capture 路径；不需要账号、cookies 或 token。取得来源后，在**同一 Issue / 同一 Draft PR**继续完成 adapter、代表性 fixtures、focused tests、三种 output dialect 的生产 validators 和既有回归验证。任何目前未验证的结构均属不支持，不声称 general RSC support。
+## 限制、访问与集成边界
 
-Merge blockers：来源 admission、三刊共享 DOM 实证、adapter 实现、真实结构 fixtures、focused coverage、最终回归证据、intent/routing 的明确人工集成决议和 PR CI。此次 source-access 文档不是功能交付，不应 merge 或完成 Issue #28。
+2026-10-02 web / 本地 HTTP 曾遇 403 / Cloudflare；系统 DNS `198.18.0.252` 被现有安全检查正确拒绝。2026-10-03 browser 全文解除来源 blocker，但不能保证 bridge/CLI HTTP 自动抓取可行。安全代码未放宽。`d3mh00572k` 与 `d3mh00594a` 实际重定向 `article-abstract/...?...redirectedFrom=fulltext`，明确显示无权限/购买入口；不能算全文。实验入口拒绝 abstract URL、缺正文/metadata、challenge、unauth、不同 journal/canonical identity。
 
-## 本地验证
+- 图片公式及未编号科学图片保留图片/原编号/上下文并 warning；不 OCR、不编造 TeX。HTML 公式保留原记号。有限 MathML 只转换实证 mi/mn/mo/mrow/mover 向量/overline；其他交给 Defuddle，必须查看返回 validator 状态，不声称全量数学支持。
+- Markdown 的图/表/公式 crossrefs 按既有 policy 降为标签；links 保留锚点；Quarto 支持 figure/table/section，未具备 display TeX 的 equation links 降级并 warning，不建伪造 equation identifier。
+- 未找到的内部目标、ESI/modal notes 与 table note links 保留标签并 warning；主文表脚注内容保留。Supplementary PDF、PDF-only、author affiliation/对应作者面板、资产下载及离线图片未接入。
+- 签名图片会到期，运行时保留 URL 并 warning。fixture 删 query 只验证 URL 选择/渲染，不保证 unsigned 图片可下载。多级表头/rowspan 使用既有 pipe-table 展平，占位和 values 保留，不复刻布局；无 HTML cells 的表 warning。
 
-npm ci 成功（0 vulnerabilities）；npm test：110 passed、0 failed；npm run build 成功；npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto：全部 validators valid。上述为既有 Nature regression，不证明 RSC coverage。git diff --check 通过。
+Exact changed shared files：**无**。PRD/EDD、README、package.json、CI、production router/fetch/bridge/security/writer、shared normalizers、Nature adapter/golden/corpus 均未改。
+
+最小集成提案（未实施）：integrator 决定 `src/clip.mjs` dispatch、`src/cli.mjs` / `src/article-fetch.mjs` RSC URL 与逐跳 identity scope、writer 保存 bibliography/图片；维持 DNS/redirect/size/type 及事务写入边界。正式支持须人类解决 Nature-only PRD/EDD。无 universal Publisher class、router redesign、common verifier 或 shared normalizer API 提案。
+
+Shared seam 观察：cached Defuddle 保留首个 DOMParser realm，关闭该 window 会破坏后续转换；本入口遵循既有 Nature pipeline lifetime，不修改 shared API。统一 realm 回收应由独立集成工作处理。
+
+Merge blockers：Draft review 与最终 head CI；production routing、fetch 可用性、离线资产、正式 publisher intent resolution 是后续集成边界，不将此实验当作正式产品支持。Issue #28 保持 open，交给 AGENTS 的 Main CI 协议；只用 `Refs #28`，不 auto-close。

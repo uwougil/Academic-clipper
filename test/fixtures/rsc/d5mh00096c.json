@@ -1,0 +1,963 @@
+{
+  "url": "https://pubs.rsc.org/mh/article/12/15/5570/897061/Poly-3-hexylthiophene-as-a-versatile",
+  "observedAt": "2026-10-03T14:55:34.277Z",
+  "captureMode": "browser-rendered DOM serialization",
+  "serializedBodySha256": "901bbcec75cf81eea3c018db4d3b47c51a337adf14ecaa37aed85decee196ddb",
+  "responseSha256": null,
+  "responseHashExplanation": "Browser DOM capture; no HTTP response bytes available.",
+  "fixtureSha256": "b27cd3cf0a16292c270ac149bc5960ede5ec99b01cc2fd76bbec8f9397bde846",
+  "fixtureHashEncoding": "UTF-8 with LF line endings",
+  "retained": [
+    {
+      "locator": "section.abstract (document order 0)",
+      "sourceSubtreeSha256": "4c7c03f63386869bead7794526579cf63db6e82a57d7f66c839adafb157fb438"
+    },
+    {
+      "locator": "#38677493",
+      "sourceSubtreeSha256": "0cf1a8426b070ad98a42946900bcd4f045987e9f35ce97b345d98ac230a53197"
+    },
+    {
+      "locator": "#38677497",
+      "sourceSubtreeSha256": "1961cb85617625f0238596d4846137a8fe0ff6aad5a49983f973543c77510956"
+    },
+    {
+      "locator": "#38677501",
+      "sourceSubtreeSha256": "d44bda0ee7348780420eb300f67d25e7a6a1f98f38715dacb63ac973785129c4"
+    },
+    {
+      "locator": "#38677503",
+      "sourceSubtreeSha256": "8f5d3dcaa21e1d925146cd9e69bf0ceb03791dde155230081452039b96fb13e9"
+    },
+    {
+      "locator": "#38677508",
+      "sourceSubtreeSha256": "803fbd640f774ec35406ebba4b58d06cc43a4faf8d1bd373704eb23aab0c0112"
+    },
+    {
+      "locator": "#38677512",
+      "sourceSubtreeSha256": "0b01c3301564c90d3685025f94f3070bbda90ad48bdda6693ae69f5763676cfb"
+    },
+    {
+      "locator": "#38677514",
+      "sourceSubtreeSha256": "fd1fd8ba2931c06da6d3299d651a8d39a7b9bebb1a0cfc6a08a4ee2bb567882c"
+    },
+    {
+      "locator": "#38677517",
+      "sourceSubtreeSha256": "2a2a79224c142e7c891bc0a6c333e211dfe1d5667f975759c93ff630d272058d"
+    },
+    {
+      "locator": "#38677521",
+      "sourceSubtreeSha256": "55913fdcb6ff733c4200b2b35d26d4c9e6e7131d8c69b871e8e5c0b9a63bf871"
+    },
+    {
+      "locator": "#38677523",
+      "sourceSubtreeSha256": "4dc7711b2b43c65b13c43cc5a6eaa3eb325881c8e0bc87f019f37f2a417ed36e"
+    },
+    {
+      "locator": "#38677527",
+      "sourceSubtreeSha256": "c18d34362c4eb0f1beea652e3ebfbd3100a0fcd789e31c99fa5eb3a39ba5639b"
+    },
+    {
+      "locator": "#38677550",
+      "sourceSubtreeSha256": "d3a2e08d4afeeaffecb42fdfd20ac8cb92deac04c6f5515d1ec3b0f93e20017c"
+    },
+    {
+      "locator": "#38677554",
+      "sourceSubtreeSha256": "405a98be16ad3f998b7dc09397df8c46fa2d8e8182088e4810cd0e74ad0ae321"
+    },
+    {
+      "locator": "#38677556",
+      "sourceSubtreeSha256": "3399a18283077654e00c0b8fb0c24d017cd73a7e5e4d0c1e0957bc00309dad50"
+    },
+    {
+      "locator": "#38677565",
+      "sourceSubtreeSha256": "4043c4de727684f8eccd464297a806e18540e1c675250cd238309f496b635ed9"
+    },
+    {
+      "locator": "#38677568",
+      "sourceSubtreeSha256": "ccfe8c9acca58b28469328b1eab8f505592ebdae81c53037af75ac2d79df6ef2"
+    },
+    {
+      "locator": "#38677570",
+      "sourceSubtreeSha256": "5001c15faedc86532eaa12b0a655390de861d1bb02c24f2de48627d775c8387b"
+    },
+    {
+      "locator": "#38677572",
+      "sourceSubtreeSha256": "352fe998c7b6f0921ac977f865428d6ab4b9b16ebd036e0b609853ec864751e9"
+    },
+    {
+      "locator": "#38677635",
+      "sourceSubtreeSha256": "e6633e93c1909c1cf46dffd6a26f07929a0e0311e921d9c33fe0bfebfd634995"
+    },
+    {
+      "locator": "p.undefined (document order 3)",
+      "sourceSubtreeSha256": "f0cfe463c24839ce4529c490c5b9cecff9eab9e43f33c9334b3811b380ce14cf"
+    },
+    {
+      "locator": "p.undefined (document order 4)",
+      "sourceSubtreeSha256": "41cea90ab905cff8e9154260b92b14c3ce95df4e102021bbc97b711bd2c2cf1e"
+    },
+    {
+      "locator": ".fig[data-id=\"fig1\"]",
+      "sourceSubtreeSha256": "33b0825cb2147bd65b5c809f578fe994f810030a9d521ee6b3e071ef56bcab3a"
+    },
+    {
+      "locator": "p.undefined (document order 5)",
+      "sourceSubtreeSha256": "8c4452f7b756ea85bda12afaf6c6be446829bea89dba95c3bb743368f3032533"
+    },
+    {
+      "locator": "p.undefined (document order 62)",
+      "sourceSubtreeSha256": "0a32e657265481e5edc628bccad3316f8e0376580e8d41692b6e03e0562606f9"
+    },
+    {
+      "locator": "[content-id=\"tab1 \"]",
+      "sourceSubtreeSha256": "125694426d1118d263638225f4c7906a95700d2beae5bc0349099dde1948c3b1"
+    },
+    {
+      "locator": "[data-content-id=\"cit1\"]",
+      "sourceSubtreeSha256": "8ce8afd1580acacf39bc62083dffaf9e0c631cb4d2538338a698f85cadc192f5"
+    },
+    {
+      "locator": "[data-content-id=\"cit2\"]",
+      "sourceSubtreeSha256": "66c484aa0cd3863409a9b93d0c1f3eb848cbd20bb537ae80e61444ea5d70f18a"
+    },
+    {
+      "locator": "[data-content-id=\"cit3\"]",
+      "sourceSubtreeSha256": "8a989569ae3e53ae41048b9f77b6bd7620c41f295012c50dc0d8c044d66d3fe2"
+    },
+    {
+      "locator": "[data-content-id=\"cit4\"]",
+      "sourceSubtreeSha256": "5ba5a51a2a265dba7b0ad9d7d8530c37fd1e311547208c66b1d16872b4a37c64"
+    },
+    {
+      "locator": "[data-content-id=\"cit5\"]",
+      "sourceSubtreeSha256": "f1b59a6aab0cefbb9996ddad1e8b0cbd258ff4f0749a128a577ef25e017eb152"
+    },
+    {
+      "locator": "[data-content-id=\"cit6\"]",
+      "sourceSubtreeSha256": "1b30751933b9302dad3ae74c13a1ec46fdfa13063bd66848744b5574e8057518"
+    },
+    {
+      "locator": "[data-content-id=\"cit7\"]",
+      "sourceSubtreeSha256": "a9fe5d90f38803368dbca35238314885decf2af582ff464a7f0ea2ff4fa9a5f0"
+    },
+    {
+      "locator": "[data-content-id=\"cit8\"]",
+      "sourceSubtreeSha256": "68e52e00c5fa161878487ecaafa228437f2ee0bbb915ae09c9080422602fdd63"
+    },
+    {
+      "locator": "[data-content-id=\"cit9\"]",
+      "sourceSubtreeSha256": "06827366ba388b3411640b7b2f8dffd68798b83d45a8758812aa4543519faef4"
+    },
+    {
+      "locator": "[data-content-id=\"cit10\"]",
+      "sourceSubtreeSha256": "1dd804fe547152245eecd35f59e5bfbfa1a103fac6ef1136459c0f6957b45c9f"
+    },
+    {
+      "locator": "[data-content-id=\"cit11\"]",
+      "sourceSubtreeSha256": "273b006c265704e277f71b47c45aa0bbc3cd084e4672e67586f9b5df72f94b91"
+    },
+    {
+      "locator": "[data-content-id=\"cit12\"]",
+      "sourceSubtreeSha256": "56d08084855aaff6d6466e2e92ed35394d8a74662ab2924a9168c95819ce8ce0"
+    },
+    {
+      "locator": "[data-content-id=\"cit13\"]",
+      "sourceSubtreeSha256": "bd49200a26ad70eba8d5494de7b2f686ba22c8b9c4db6eca06c750672dbc890e"
+    },
+    {
+      "locator": "[data-content-id=\"cit14\"]",
+      "sourceSubtreeSha256": "ee3a3b4e9680d3b962dc7a0176d50e999cf46ce0a2a765e65dc1528fba435e61"
+    },
+    {
+      "locator": "[data-content-id=\"cit15\"]",
+      "sourceSubtreeSha256": "42bc51825e04411469809c218658fc21513becb2d3a0bd28eea6d0966386ae6e"
+    },
+    {
+      "locator": "[data-content-id=\"cit16\"]",
+      "sourceSubtreeSha256": "50836f3b89f3de61a8b57a2d966d24d21c14866291a37ab2cead8fb715e3d467"
+    },
+    {
+      "locator": "[data-content-id=\"cit17\"]",
+      "sourceSubtreeSha256": "4e781f1a245350731750577d89836dae91432a7af66191cbfc68ba4cb45be674"
+    },
+    {
+      "locator": "[data-content-id=\"cit18\"]",
+      "sourceSubtreeSha256": "f5ddc87b31ee3df012f92718fd5008bc61f15fcee299a112e03c3d96c8509272"
+    },
+    {
+      "locator": "[data-content-id=\"cit19\"]",
+      "sourceSubtreeSha256": "5194f50d8304eeefbd2ecdcf06d46a80abf5650070e95f61ed958c7779946556"
+    },
+    {
+      "locator": "[data-content-id=\"cit20\"]",
+      "sourceSubtreeSha256": "64b2de0692f77e2d79e2fb20ae4d1eabff25ebe51811dd6ca6f5f75d6b232201"
+    },
+    {
+      "locator": "[data-content-id=\"cit21\"]",
+      "sourceSubtreeSha256": "36c58f116b5b28441157f09e478549e7b3b7528b4a95cd717a50b166d9989a81"
+    },
+    {
+      "locator": "[data-content-id=\"cit22\"]",
+      "sourceSubtreeSha256": "ecad191028e34be47da045b79d2ab8502732f1a3a218840800e42b260d1d8f8d"
+    },
+    {
+      "locator": "[data-content-id=\"cit23\"]",
+      "sourceSubtreeSha256": "ac58adc97bebfb62d379919fa540b7cd29676b50982cd69b138c18d7d7a1db98"
+    },
+    {
+      "locator": "[data-content-id=\"cit24\"]",
+      "sourceSubtreeSha256": "8c4c29b1f84fd2796b62be813ac0071bc00da08838710b88324cd2d20d3400b1"
+    },
+    {
+      "locator": "[data-content-id=\"cit25\"]",
+      "sourceSubtreeSha256": "94e4421ab918cabab0b1cb00f60f2b1a10475ad4fbbf35e35abef74591e66452"
+    },
+    {
+      "locator": "[data-content-id=\"cit26\"]",
+      "sourceSubtreeSha256": "fd1a12640bfe231eebb2b6086d92fa7436bf71fbe9645718698f089a2e7b9ff4"
+    },
+    {
+      "locator": "[data-content-id=\"cit27\"]",
+      "sourceSubtreeSha256": "e4fd3a94f08555d7ef2b6f6a6b68e83a25bc629480a7c90d4d4d24dd428d525d"
+    },
+    {
+      "locator": "[data-content-id=\"cit28\"]",
+      "sourceSubtreeSha256": "ad4ef302542c5b314e91cc0bef094741570e2c95a873bd0ec0b9ce5045ecaa62"
+    },
+    {
+      "locator": "[data-content-id=\"cit29\"]",
+      "sourceSubtreeSha256": "6438bdbe04b8f3678dafd9996b898991bca90eb147aa987042494fc39333b865"
+    },
+    {
+      "locator": "[data-content-id=\"cit30\"]",
+      "sourceSubtreeSha256": "6262d592dc01a9097ccd89ad7ac0e6d112d59f93b60aa17bd092a6ef736f8e29"
+    },
+    {
+      "locator": "[data-content-id=\"cit31\"]",
+      "sourceSubtreeSha256": "26341cb31c77b3fa39f1dc3212d15dbf949950fa012f5978d7b7ea45a8dcdafd"
+    },
+    {
+      "locator": "[data-content-id=\"cit32\"]",
+      "sourceSubtreeSha256": "17dcf6df4956071d5812ce1d0e49711cbb1f17f77a65b3539ba06c52648e5ff7"
+    },
+    {
+      "locator": "[data-content-id=\"cit33\"]",
+      "sourceSubtreeSha256": "a345a030d6de7f9bc8f6ade361610f1cc7fe4f2628e8bd982d59008c1276898b"
+    },
+    {
+      "locator": "[data-content-id=\"cit34\"]",
+      "sourceSubtreeSha256": "5c4b01fe905a5b2bca3d7f862310f943b003cfc46241789bbbdc30503b6a5809"
+    },
+    {
+      "locator": "[data-content-id=\"cit35\"]",
+      "sourceSubtreeSha256": "53439ed8f087e18ec4a677a04dcfd5357bfa4709e61c1c90a9b416bc76c57927"
+    },
+    {
+      "locator": "[data-content-id=\"cit36\"]",
+      "sourceSubtreeSha256": "71a4bcbb346963fe0c360e729682a203c1cdfcc1eacc2223148382ff45c4e06d"
+    },
+    {
+      "locator": "[data-content-id=\"cit37\"]",
+      "sourceSubtreeSha256": "10233950b01ca3481cc9b2929515961fb87a32326e23bb730fb9c8265f88655b"
+    },
+    {
+      "locator": "[data-content-id=\"cit38\"]",
+      "sourceSubtreeSha256": "5b941e6681316d9e1e64d3522ef3fc63ce03d6ef296356ec26b260503f9ee633"
+    },
+    {
+      "locator": "[data-content-id=\"cit39\"]",
+      "sourceSubtreeSha256": "2e77920a4ed811f33de9f8067f4fb2e40ce817ecdf64043220a84d6130a3b70b"
+    },
+    {
+      "locator": "[data-content-id=\"cit40\"]",
+      "sourceSubtreeSha256": "f4f4189613b328f3b9c8e14532311ca88e982dccc733e229b6336fe36a7a22cb"
+    },
+    {
+      "locator": "[data-content-id=\"cit41\"]",
+      "sourceSubtreeSha256": "23d8d9a8aa3e5eb5722764f3b2f3bc9a52c26e3abb906de46c033750cc29b0ae"
+    },
+    {
+      "locator": "[data-content-id=\"cit42\"]",
+      "sourceSubtreeSha256": "2da2e8f5cd916990eca16057cc3a805f094d47343e4396efef8bd238e683f874"
+    },
+    {
+      "locator": "[data-content-id=\"cit43\"]",
+      "sourceSubtreeSha256": "27b6a39da4475acdd6ef4e31d8db54ff4f8fd0c8f92af667f6abd24f652fad53"
+    },
+    {
+      "locator": "[data-content-id=\"cit44\"]",
+      "sourceSubtreeSha256": "b4a3b55b99e93bf00af97426fe58cd5ad46626d8ca5409755c3ee0ccb6284461"
+    },
+    {
+      "locator": "[data-content-id=\"cit45\"]",
+      "sourceSubtreeSha256": "c3dfd35517b7b07dad54d49a9a1988537228a22d5f81bd4c34474a9a4d41705a"
+    },
+    {
+      "locator": "[data-content-id=\"cit46\"]",
+      "sourceSubtreeSha256": "113785ff5da79691b41159cf42ca710ed63fd58ec4c9558716233011766a2850"
+    },
+    {
+      "locator": "[data-content-id=\"cit47\"]",
+      "sourceSubtreeSha256": "c67090f295d38bc1ef352f35277b5612ab4532be716ef81c479e0bdba5d9fcbb"
+    },
+    {
+      "locator": "[data-content-id=\"cit48\"]",
+      "sourceSubtreeSha256": "94d4f1c62aec9c4bd5ff66ff07bea41a7c154c465ffbbb1a966201d148bc306d"
+    },
+    {
+      "locator": "[data-content-id=\"cit49\"]",
+      "sourceSubtreeSha256": "446192472f511c4f56d31b05658d0d8a20179ab11b4d9d3da8836a1a5f6057e0"
+    },
+    {
+      "locator": "[data-content-id=\"cit50\"]",
+      "sourceSubtreeSha256": "fde22ab79c7f9ef0e6177d8fbfbde573357bfd6fbb06d86e8da32990a5dfbbdb"
+    },
+    {
+      "locator": "[data-content-id=\"cit51\"]",
+      "sourceSubtreeSha256": "8edc566397d4fdfbdd2f93bbf14ea6ebd9c20a3492901ef34f70abd837ea601a"
+    },
+    {
+      "locator": "[data-content-id=\"cit52\"]",
+      "sourceSubtreeSha256": "40ef9471e1639e6322992c42ae97e876bcd4cde8b3c716e73b7276c99dbeb380"
+    },
+    {
+      "locator": "[data-content-id=\"cit53\"]",
+      "sourceSubtreeSha256": "b33a265952c1703e787ee7b6a156e5790c08fdcd68651f1b111deea8abcd7feb"
+    },
+    {
+      "locator": "[data-content-id=\"cit54\"]",
+      "sourceSubtreeSha256": "28dd21570fca0bb184023a7375bde4c2bf2517f61d348f2b1b070c1655f73c88"
+    },
+    {
+      "locator": "[data-content-id=\"cit55\"]",
+      "sourceSubtreeSha256": "8dc3215a9fe9ca872188e65d7662ea330e6145dab12528968964f4c9d6477d83"
+    },
+    {
+      "locator": "[data-content-id=\"cit56\"]",
+      "sourceSubtreeSha256": "467f0f218e03e0f699e03da074d34ce2cf0719ab22619c693dcb924530430662"
+    },
+    {
+      "locator": "[data-content-id=\"cit57\"]",
+      "sourceSubtreeSha256": "38ec130b03ac41888cfa31d025e79485bad88fb411eedb8e0021a25e3f2e7aa9"
+    },
+    {
+      "locator": "[data-content-id=\"cit58\"]",
+      "sourceSubtreeSha256": "2683298084db73a0fec98b208a4deab0b05d8454eb51e3873b6b6adb37f481d3"
+    },
+    {
+      "locator": "[data-content-id=\"cit59\"]",
+      "sourceSubtreeSha256": "4041c5c1e12e8aa4ca6c8a73b655fdad70ef90b1737d3136e2530a0610e8cbb5"
+    },
+    {
+      "locator": "[data-content-id=\"cit60\"]",
+      "sourceSubtreeSha256": "6b8a59dd5df8b2240c7b0fcfa77341b2c44ba6d22e4bf7d35e84d02d6f3b74ec"
+    },
+    {
+      "locator": "[data-content-id=\"cit61\"]",
+      "sourceSubtreeSha256": "6a87c64011c10721444add000a14c842a7840756c8fe0d5a8d2ed2d7d5574e5a"
+    },
+    {
+      "locator": "[data-content-id=\"cit62\"]",
+      "sourceSubtreeSha256": "ec8fabd7ce91a2e171d7170b3fdf1bf7eae8136363e76eddd3a32e259e80c406"
+    },
+    {
+      "locator": "[data-content-id=\"cit63\"]",
+      "sourceSubtreeSha256": "acf561e661f5d9f91f38a1b07ed2341d952000f28833f2cda4047a797ab2660e"
+    },
+    {
+      "locator": "[data-content-id=\"cit64\"]",
+      "sourceSubtreeSha256": "2840f5394bb6187f7c93287c264f78366a773b8e12cf535c2772a902748b46c7"
+    },
+    {
+      "locator": "[data-content-id=\"cit65\"]",
+      "sourceSubtreeSha256": "d25aa463f586c9ce661eb8538990b520046000b99ab01593b4740f6221a0e605"
+    },
+    {
+      "locator": "[data-content-id=\"cit66\"]",
+      "sourceSubtreeSha256": "5859c73c36e2bc058dc84375fc3201eb31886b9f2251dbe736cdcbde9fed35f5"
+    },
+    {
+      "locator": "[data-content-id=\"cit67\"]",
+      "sourceSubtreeSha256": "4b6e592aa42b02e7259d99d6a8df4968bc841f2710e4ec1298985a9fa5e1bb50"
+    },
+    {
+      "locator": "[data-content-id=\"cit68\"]",
+      "sourceSubtreeSha256": "46c5f5a920441767dfb7183936ce07014ea7cb16fe8c056017725cce1581bb32"
+    },
+    {
+      "locator": "[data-content-id=\"cit69\"]",
+      "sourceSubtreeSha256": "0eab87f1d1dfd361ab73ec170d8b125431441fa0724456bfe28c25b503473834"
+    },
+    {
+      "locator": "[data-content-id=\"cit70\"]",
+      "sourceSubtreeSha256": "6af089f85c1691acba84d34b8286498ee1c57edfffd150d1736518cb3daa4d28"
+    },
+    {
+      "locator": "[data-content-id=\"cit71\"]",
+      "sourceSubtreeSha256": "164d86f9e44e16e2c90e7a68056a13ace4a53ce714257d3f54feff96c572c2e4"
+    },
+    {
+      "locator": "[data-content-id=\"cit72\"]",
+      "sourceSubtreeSha256": "c99989ea2d5b5782bbca347783457e19de874840e57976c532af66b0bfc2f7d3"
+    },
+    {
+      "locator": "[data-content-id=\"cit73\"]",
+      "sourceSubtreeSha256": "4031935d6fda8ce694c71e138ff0c9e5ddae85c94d603fd5da89ddb9c6bc5cdc"
+    },
+    {
+      "locator": "[data-content-id=\"cit74\"]",
+      "sourceSubtreeSha256": "60f6c60657d58649abc72e0755c8525d01ad138fbd78ab5f0611513a5be7cf37"
+    },
+    {
+      "locator": "[data-content-id=\"cit75\"]",
+      "sourceSubtreeSha256": "8d972384cd11bdc0d66269f67f6eb1b76ad0c7009377733985a0deb838a93001"
+    },
+    {
+      "locator": "[data-content-id=\"cit76\"]",
+      "sourceSubtreeSha256": "f486dc5b71fa166c2df4659bc207fdc70eb2edee28d9cd136bedc7ba939d74cc"
+    },
+    {
+      "locator": "[data-content-id=\"cit77\"]",
+      "sourceSubtreeSha256": "270a53c76d35f9ca152b31376fb1d5f0c39a704e103eed5dd0556d09213b5d50"
+    },
+    {
+      "locator": "[data-content-id=\"cit78\"]",
+      "sourceSubtreeSha256": "3e4a744c7d61ee130516c3f66f6c9f0a4c4744ebe323d4e14f169ee0bec0ff90"
+    },
+    {
+      "locator": "[data-content-id=\"cit79\"]",
+      "sourceSubtreeSha256": "2023fef327a3449b12b4689df703f20588957e431b772a16e87ddc2b2899c16b"
+    },
+    {
+      "locator": "[data-content-id=\"cit80\"]",
+      "sourceSubtreeSha256": "bdbb1cb66742cb8c5f5b2c0e8e70fd0fcfc0dfccde59e6a34b2900db57e6b1d8"
+    },
+    {
+      "locator": "[data-content-id=\"cit81\"]",
+      "sourceSubtreeSha256": "44e74e14de9510a7472eef143fbf4a94a8a717d83b6ec346760710ad712a9717"
+    },
+    {
+      "locator": "[data-content-id=\"cit82\"]",
+      "sourceSubtreeSha256": "7fcecd84ffe9db8047df711dce940d48329c77102f088ea5e833df7a1c603df6"
+    },
+    {
+      "locator": "[data-content-id=\"cit83\"]",
+      "sourceSubtreeSha256": "1a7a3182f191cc61cf34fbb25fe781b94eddcfb069e206fcb6dbfde74632cf12"
+    },
+    {
+      "locator": "[data-content-id=\"cit84\"]",
+      "sourceSubtreeSha256": "078dcc68b447d732f4b1403fbb4af27f19f3814256e0d00a105ab38bb17e6347"
+    },
+    {
+      "locator": "[data-content-id=\"cit85\"]",
+      "sourceSubtreeSha256": "1b2751765635d8ce4e5f699dadebfb2e166ee08e8a893f98218960669013881c"
+    },
+    {
+      "locator": "[data-content-id=\"cit86\"]",
+      "sourceSubtreeSha256": "539b70ad0b58b469f88e550f477d7059be99154971626bffa236252819717fc0"
+    },
+    {
+      "locator": "[data-content-id=\"cit87\"]",
+      "sourceSubtreeSha256": "c3e4df9f37011958cf5aeac723a661bccd2c95ec64959e5892564f4bed8d8e22"
+    },
+    {
+      "locator": "[data-content-id=\"cit88\"]",
+      "sourceSubtreeSha256": "57a9571ebc95883b5849599634b9366b74f6a6186881801f0c7fc44d04ab7108"
+    },
+    {
+      "locator": "[data-content-id=\"cit89\"]",
+      "sourceSubtreeSha256": "2d0e610ad6bb79cb360298277d02c0bad2b1c265bb19a52ad27f3bd7f024f455"
+    },
+    {
+      "locator": "[data-content-id=\"cit90\"]",
+      "sourceSubtreeSha256": "bb02a44e9e1c0824c1d790547a085e71c178ba6525c4a2069b772a9268f45cf1"
+    },
+    {
+      "locator": "[data-content-id=\"cit91\"]",
+      "sourceSubtreeSha256": "fed127d03886744ff12b4d03eaf5d2e9e8ea8ffaba9b54a69868bb577651d388"
+    },
+    {
+      "locator": "[data-content-id=\"cit92\"]",
+      "sourceSubtreeSha256": "f630cc5816aa9009320f960b8aebdd2ac06f16e13ba86b86bc697c3d7768ea15"
+    },
+    {
+      "locator": "[data-content-id=\"cit93\"]",
+      "sourceSubtreeSha256": "c5cfd885cb12f0c242defc5098a96854057ecc486bdcfb6a589d87cb37c9320a"
+    },
+    {
+      "locator": "[data-content-id=\"cit94\"]",
+      "sourceSubtreeSha256": "483c6b63e81b9561364e4d21d38e5f6e7b4de60c840a1e661a9814404ef59eb0"
+    },
+    {
+      "locator": "[data-content-id=\"cit95\"]",
+      "sourceSubtreeSha256": "a6fa054b0844e68bae49853ee22b9611cdc973d85354bf4e90f854ab313b80fe"
+    },
+    {
+      "locator": "[data-content-id=\"cit96\"]",
+      "sourceSubtreeSha256": "a58e075768964779ad7c3f40ed24145350930b137bb6c58874cf00f45608fadc"
+    },
+    {
+      "locator": "[data-content-id=\"cit97\"]",
+      "sourceSubtreeSha256": "26aa20cbc94678ce1b850b933f3b6e7b6dff9787faa26ed8a427979a3ee328ed"
+    },
+    {
+      "locator": "[data-content-id=\"cit98\"]",
+      "sourceSubtreeSha256": "26456b0aa01d5258b6308b005dc9d530b3bc18f9a49fa6fc3cc41f1354c8f657"
+    },
+    {
+      "locator": "[data-content-id=\"cit99\"]",
+      "sourceSubtreeSha256": "b60b93182724324349dc4cb6246dedd3c7e90e9e763a877a1fc96b5695e3dae6"
+    },
+    {
+      "locator": "[data-content-id=\"cit100\"]",
+      "sourceSubtreeSha256": "45ed49b36cc9a5bb506af73b7ebf42445e318913e8fc0ccbf4f98a9242fd5617"
+    },
+    {
+      "locator": "[data-content-id=\"cit101\"]",
+      "sourceSubtreeSha256": "b445c104ee56212392bfce1f5b353e20eaaa1e3d106732a419a902e893ef96db"
+    },
+    {
+      "locator": "[data-content-id=\"cit102\"]",
+      "sourceSubtreeSha256": "3ca9f93851ba6c21f3959ce44d41190e1c7ca3e2af95745a64ef5e1d818240ea"
+    },
+    {
+      "locator": "[data-content-id=\"cit103\"]",
+      "sourceSubtreeSha256": "3577a2b2be70992b96c9af7cc0a1184ffa8029c81ad4362b86b55ee5d3fb055a"
+    },
+    {
+      "locator": "[data-content-id=\"cit104\"]",
+      "sourceSubtreeSha256": "98bf900881ec346ddd489990182c90004826fa782ade2c16d329b0ab5b7e1938"
+    },
+    {
+      "locator": "[data-content-id=\"cit105\"]",
+      "sourceSubtreeSha256": "7f4c5a26d6f60bbd4060640cd8aea899acb8e9d1ccb846fc5e43a6ee3505bbd7"
+    },
+    {
+      "locator": "[data-content-id=\"cit106\"]",
+      "sourceSubtreeSha256": "38f1f109208e0a932e333e5e047b0ac96b1cc72834b0d07f9d4c85db31af11a9"
+    },
+    {
+      "locator": "[data-content-id=\"cit107\"]",
+      "sourceSubtreeSha256": "6d75b6235d8816338e66c299e20cdcb6e86e087370ba9ea6acf28923d6997e27"
+    },
+    {
+      "locator": "[data-content-id=\"cit108\"]",
+      "sourceSubtreeSha256": "693a91e1e13f7aee787ba23b3b5ac30ea1fdef4accdb6aac2656f806354941fc"
+    },
+    {
+      "locator": "[data-content-id=\"cit109\"]",
+      "sourceSubtreeSha256": "a2b438048c03f9d9c7e0981353b7dae772ee1a7a21240c48134b87a3d7f9f991"
+    },
+    {
+      "locator": "[data-content-id=\"cit110\"]",
+      "sourceSubtreeSha256": "2513eef4f9c93419f72fb93f26348ac3afc8615bf68608f9d44bab48f5e496b7"
+    },
+    {
+      "locator": "[data-content-id=\"cit111\"]",
+      "sourceSubtreeSha256": "8a7e70f72dc53866a0e91fba6d7f8857d1b8ccbc1959b3da811d6533f06d010c"
+    },
+    {
+      "locator": "[data-content-id=\"cit112\"]",
+      "sourceSubtreeSha256": "1baeaa9a52d3bc31482f2bb061e7e903ca06a21bc24c8ce97008c70d2e57dfe4"
+    },
+    {
+      "locator": "[data-content-id=\"cit113\"]",
+      "sourceSubtreeSha256": "3e283cc8ba763793ec814a91a1a559559c0c312ca9d18156b87bedcf8803b66f"
+    },
+    {
+      "locator": "[data-content-id=\"cit114\"]",
+      "sourceSubtreeSha256": "67f0d46e4e971e6972426121c4bfc5ad1f8e7e194061af6a4ac8c6d7f6817cdc"
+    },
+    {
+      "locator": "[data-content-id=\"cit115\"]",
+      "sourceSubtreeSha256": "dc72e55b95f9ffb616dd04609134589d4a28ceb0ef9c712798735456da1ba510"
+    },
+    {
+      "locator": "[data-content-id=\"cit116\"]",
+      "sourceSubtreeSha256": "5a62780da8af0d0f21974d8bf2d65464ceae9445d89c8138b142efc8ca3b5155"
+    },
+    {
+      "locator": "[data-content-id=\"cit117\"]",
+      "sourceSubtreeSha256": "045d35b0fd40fb9b443e64b792c7a5eb2d385028778931e3f385a470f105344e"
+    },
+    {
+      "locator": "[data-content-id=\"cit118\"]",
+      "sourceSubtreeSha256": "648056bf6e0255f2930d71de4709ef0321bfb4aa4d1556736c64aafcb0783616"
+    },
+    {
+      "locator": "[data-content-id=\"cit119\"]",
+      "sourceSubtreeSha256": "be7cac84fade585b18816bea620e5372e63aa2c58d738a5c396fa5a445f4a077"
+    },
+    {
+      "locator": "[data-content-id=\"cit120\"]",
+      "sourceSubtreeSha256": "98273a2c70e39299202c3b281986fd05fe20ddccac9cd070c6e206b2b67f3094"
+    },
+    {
+      "locator": "[data-content-id=\"cit121\"]",
+      "sourceSubtreeSha256": "4aa4cc77cc0e3aad6616a403b05e31943963b1d48dd51e558430eb0390b6a0b9"
+    },
+    {
+      "locator": "[data-content-id=\"cit122\"]",
+      "sourceSubtreeSha256": "52baa8938da7889977a1f6f98da18d31074194f410d7aefcbcab4f5d631cc0d1"
+    },
+    {
+      "locator": "[data-content-id=\"cit123\"]",
+      "sourceSubtreeSha256": "5a291342d7367461b2a7c840a5c4610e6fd59c07684fabeff57755f3ab3674e6"
+    },
+    {
+      "locator": "[data-content-id=\"cit124\"]",
+      "sourceSubtreeSha256": "6c803b9319afda68d65a4888c134add5c1c28ddaca14451453300f3164bbceb9"
+    },
+    {
+      "locator": "[data-content-id=\"cit125\"]",
+      "sourceSubtreeSha256": "73b90cee39e3a6d8f6c72551e68f7204d80d135f1ef57dba26575af4d1711332"
+    },
+    {
+      "locator": "[data-content-id=\"cit126\"]",
+      "sourceSubtreeSha256": "d4a98afbf2f5128d3f0ba9e657e8f8363ddef78b7bd28aeca23f298317e20013"
+    },
+    {
+      "locator": "[data-content-id=\"cit127\"]",
+      "sourceSubtreeSha256": "b0ad53d4edaa4031122153214a5195de9ef7499bcaf4174ce50bff8c8e55e14c"
+    },
+    {
+      "locator": "[data-content-id=\"cit128\"]",
+      "sourceSubtreeSha256": "d642ce796080aa0619d52630df76957db011bd85e170535376d5388cba32e612"
+    },
+    {
+      "locator": "[data-content-id=\"cit129\"]",
+      "sourceSubtreeSha256": "0c2bf4cba85a8db99db93fb007e7b3dd0303c8fa761ded94d1fc3980fe3481d2"
+    },
+    {
+      "locator": "[data-content-id=\"cit130\"]",
+      "sourceSubtreeSha256": "5caf3b382409eb4efa7686736d4202e70d883c7dd2c47413b4a82c1fee943b3e"
+    },
+    {
+      "locator": "[data-content-id=\"cit131\"]",
+      "sourceSubtreeSha256": "b41ff656d0477944930967d5d95e1f194e54f1d358e129150891a518717ee914"
+    }
+  ],
+  "sanitization": [
+    "Removed modal duplicates, figure controls, reference discovery links, scripts/inputs and event handlers",
+    "Removed signed CDN query parameters; asset bytes were not captured",
+    "Trimmed trailing line whitespace; hashes use LF line endings"
+  ],
+  "omissions": [
+    "Most prose, figures, references, graphical abstract, footnotes, supplements and author panels omitted; this is an excerpt, not a complete article"
+  ],
+  "expected": {
+    "title": "Poly(3-hexylthiophene) as a versatile semiconducting polymer for cutting-edge bioelectronics",
+    "authors": [
+      "Abdel Aziz, Ilaria",
+      "Tullii, Gabriele",
+      "Antognazza, Maria Rosa",
+      "Criado-Gonzalez, Miryam"
+    ],
+    "journal": "Materials Horizons",
+    "doi": "10.1039/d5mh00096c",
+    "headings": [
+      "1. Introduction",
+      "2. Poly(3-hexylthiophene)",
+      "3. P3HT-based materials",
+      "3.1. P3HT thin films",
+      "3.2. Physical and chemical strategies to modulate the properties of P3HT-based thin films",
+      "3.3. P3HT nanofibers",
+      "3.4. P3HT nanoparticles",
+      "3.5. Physical and chemical strategies to modulate the properties of P3HT-based nanoparticles",
+      "4. Applications of P3HT-based materials for bioelectronics",
+      "4.1. Tissue engineering and regenerative medicine",
+      "4.2. Cell optical stimulation",
+      "4.3. Biosensing",
+      "4.4. Clinical trials involving P3HT-based materials",
+      "5. Perspectives of P3HT derivatives towards advanced applications",
+      "6. Conclusions and outlook",
+      "Conflicts of interest",
+      "Data availability",
+      "Acknowledgements"
+    ],
+    "figures": [
+      {
+        "id": "fig1",
+        "label": "Fig. 1",
+        "caption": "Schematic representation of the employment of P3HT for the synthesis of photo- and electro-active nanomaterials to be used in bioelectronic applications."
+      }
+    ],
+    "tables": [
+      {
+        "id": "tab1",
+        "parts": 1,
+        "rows": [
+          37
+        ],
+        "caption": "Summary of the main types of P3HT-based materials and light excitation conditions used for (bio-opto)electronic applications"
+      }
+    ],
+    "equations": [],
+    "referenceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131
+    ],
+    "referenceDois": [
+      "10.1021/acs.jpcc.2c02938",
+      "10.1002/aelm.v10.4",
+      "10.1021/acsapm.1c00252",
+      "10.1021/acs.accounts.8b00242",
+      "10.1002/adfm.v30.29",
+      "10.1002/adhm.v10.17",
+      "10.1166/jnn.2014.9111",
+      "10.1080/15583720802231718",
+      "10.1016/j.mser.2020.100546",
+      "10.1126/sciadv.ado5042",
+      "10.1002/adhm.v11.20",
+      "10.1016/j.mseb.2024.117391",
+      "10.1021/acssuschemeng.0c09015",
+      "10.1021/acs.jpcc.9b09735",
+      "10.1021/acs.macromol.7b00968",
+      "10.1021/acs.chemmater.0c01293",
+      "10.1039/D0RA02796K",
+      "10.1021/nn1018768",
+      "10.1038/nmat4918",
+      "10.1002/adfm.v32.30",
+      "10.1021/jacs.9b12769",
+      "10.1021/jp4119309",
+      "10.1021/acsenergylett.6b00197",
+      "10.1038/s41580-020-0230-3",
+      "10.1557/s43579-024-00523-w",
+      "10.1002/adfm.v25.28",
+      "10.1016/j.isci.2020.101091",
+      "10.1038/srep08911",
+      "10.1002/mabi.v10:4",
+      "10.1109/TNANO.2010.2060493",
+      "10.1038/s41598-017-08541-6",
+      "10.1038/ncomms1164",
+      "10.1038/srep22718",
+      "10.1038/nphoton.2013.34",
+      "10.1002/adhm.v3.3",
+      "10.1002/adhm.v8.13",
+      "10.1016/j.electacta.2023.142429",
+      "10.1016/j.snb.2017.12.108",
+      "10.1126/sciadv.aav4620",
+      "10.1016/j.ceca.2021.102502",
+      "10.1002/admt.v8.6",
+      "10.1002/adhm.v5.17",
+      "10.1038/nmat4874",
+      "10.1039/C6TB01129B",
+      "10.1002/adma.v26.11",
+      "10.1038/s41467-018-03386-7",
+      "10.1016/j.orgel.2017.04.007",
+      "10.3390/ijms20112661",
+      "10.1021/acsami.4c13197",
+      "10.1007/s12274-023-5633-y",
+      "10.1021/acsaelm.3c01530",
+      "10.1021/acs.chemmater.3c02164",
+      "10.1021/acs.chemrev.1c00363",
+      "10.1021/acsami.9b18187",
+      "10.1021/acsami.9b08822",
+      "10.1002/adpr.v2.2",
+      "10.1021/acsami.3c06633",
+      "10.1002/aelm.v9.8",
+      "10.1039/D0TC01477J",
+      "10.1007/s11664-019-07268-6",
+      "10.7150/thno.20169",
+      "10.1021/acsami.8b19631",
+      "10.1038/s41598-022-19306-1",
+      "10.1002/pen.v65.3",
+      "10.1021/acs.accounts.6b00639",
+      "10.1021/acsnano.0c10161",
+      "10.1039/C7CS00860K",
+      "10.1021/acsnano.6b08176",
+      "10.1039/C6TB02047J",
+      "10.3389/fbioe.2018.00114",
+      "10.1021/ar3000647",
+      "10.1021/ja1002179",
+      "10.1007/s00216-012-6441-5",
+      "10.1039/C7NR01793F",
+      "10.1002/adfm.v21.21",
+      "10.1039/C7TB00146K",
+      "10.1021/acs.jpcc.2c06986",
+      "10.1021/acs.jpca.1c08377",
+      "10.1021/acs.nanolett.4c01195",
+      "10.1038/s41565-020-0696-3",
+      "10.1002/adhm.v10.6",
+      "10.1039/C6RA14109A",
+      "10.1155/2013/390518",
+      "10.1038/ncomms9011",
+      "10.1021/acsanm.2c02810",
+      "10.1021/acs.chemrev.1c00390",
+      "10.1039/D3CP04386J",
+      "10.1002/admt.v4.5",
+      "10.1021/acsnano.2c08543",
+      "10.1038/s44328-024-00015-w",
+      "10.1002/advs.v10.31",
+      "10.1038/s43246-020-0023-4",
+      "10.1038/s41467-022-31180-z",
+      "10.1038/s41467-022-31368-3",
+      "10.1016/j.eurpolymj.2024.113096",
+      "10.1002/viw2.v2.1",
+      "10.1111/php.2014.90.issue-3",
+      "10.3389/fphys.2019.01618",
+      "10.1557/adv.2020.348",
+      "10.1039/D2TC01426B",
+      "10.1002/anbr.v3.5",
+      "10.1002/adhm.v11.19",
+      "10.1021/acsami.1c03537",
+      "10.1557/mrc.2018.104",
+      "10.1021/acsami.6b00916",
+      "10.3390/ma14164761",
+      "10.1016/j.actbio.2021.05.036",
+      "10.1002/adhm.v11.20",
+      "10.1038/srep28085",
+      "10.1016/j.apsusc.2017.05.086",
+      "10.1039/D0TC03342A",
+      "",
+      "10.34133/research.0149",
+      "10.1002/adma.v29.35",
+      "10.1021/acsami.8b13276",
+      "10.1021/acssensors.9b00223",
+      "10.1016/j.cej.2023.143603",
+      "10.1038/s41578-020-00267-8",
+      "10.1021/acs.jpcc.5b02197",
+      "10.1002/advs.v7.2",
+      "10.1002/adma.v32.37",
+      "10.1039/D1MH01079D",
+      "10.1039/D3MH01827J",
+      "10.1039/D3TB02592F",
+      "10.3390/polym13121977",
+      "10.1021/acsaelm.0c00861",
+      "10.1039/D0TB00212G",
+      "10.1039/D1MH01423D",
+      "10.1126/science.adc9998",
+      "10.1002/aelm.v9.8",
+      "10.1126/sciadv.1601699"
+    ]
+  }
+}

@@ -1,0 +1,384 @@
+{
+  "url": "https://pubs.rsc.org/cp/article/26/24/16972/842764/Out-of-focus-spatial-map-imaging-of-magnetically",
+  "observedAt": "2026-10-03T14:53:58.501Z",
+  "captureMode": "browser-rendered DOM serialization",
+  "serializedBodySha256": "1c3a697d526fea328a449702a6de1ff488a77fa5bf92b322137c881767786460",
+  "responseSha256": null,
+  "responseHashExplanation": "Browser DOM capture; no HTTP response bytes available.",
+  "fixtureSha256": "2d02158af38b3a942670eaafdff2f43434c10a2d07f4fc360b6eaed9b0ee767f",
+  "fixtureHashEncoding": "UTF-8 with LF line endings",
+  "retained": [
+    {
+      "locator": "section.abstract (document order 0)",
+      "sourceSubtreeSha256": "2edf7cd4da7aa2e561fa7a367bd8613960a5116e972729e8c7d11f461e2496da"
+    },
+    {
+      "locator": "#47045943",
+      "sourceSubtreeSha256": "ec613099188bc5978ee22451e3fd9a72f2e344aaf1c4abccfa4646d47b1d1c44"
+    },
+    {
+      "locator": "#47045952",
+      "sourceSubtreeSha256": "926b2e5cb33cc13973b805ad48939ec5784154c1c2528a9e98942212610ad9ef"
+    },
+    {
+      "locator": "#47045953",
+      "sourceSubtreeSha256": "ba68641f32940d011cfb5a3937ff001124c0bb758c966204b30de3ea2b58556d"
+    },
+    {
+      "locator": "#47045960",
+      "sourceSubtreeSha256": "845ac256856b50f7e152506dfff4f7934ce67cbd76adfb1dd17bc15ec9319c18"
+    },
+    {
+      "locator": "#47045965",
+      "sourceSubtreeSha256": "40af4c8e5c557127eda8eef80956a29658f889ea418692b9a716e7d811e85eac"
+    },
+    {
+      "locator": "#47045966",
+      "sourceSubtreeSha256": "3dadb2c84ad847bd3a4eca359831d0a36387908bc27fd807b2f1fa0300642fe5"
+    },
+    {
+      "locator": "#47045976",
+      "sourceSubtreeSha256": "d1caece76805bccb4609928c1ef00dc9c40464f7d0bfba12c8e49506a9dd0bb5"
+    },
+    {
+      "locator": "#47045989",
+      "sourceSubtreeSha256": "493787c79e04727ddae709b948335939b2431c09f89de60a1f81255e0f9b9436"
+    },
+    {
+      "locator": "#47045993",
+      "sourceSubtreeSha256": "97f02ff979bdd88b7d1418932c09c7538c97490836b0e7383bfa60d073384f13"
+    },
+    {
+      "locator": "#47045997",
+      "sourceSubtreeSha256": "323d08fc19b381e29b8c007760792a36efec58003054d332c4145c9b6b7eb540"
+    },
+    {
+      "locator": "#47045999",
+      "sourceSubtreeSha256": "60f5b3f4b47e739d5b487542f92626b3ab376744a72139cf71464efb0a0a16d1"
+    },
+    {
+      "locator": "#47046001",
+      "sourceSubtreeSha256": "14484774505308409af95607b749a394a20785beb3da45e7c33fdd5554f1cbba"
+    },
+    {
+      "locator": "p.undefined (document order 3)",
+      "sourceSubtreeSha256": "4c021b35a99ffcdf5f3514470c43e61edcc92df8d7d40a18367e030a0aefc1ac"
+    },
+    {
+      "locator": "p.undefined (document order 4)",
+      "sourceSubtreeSha256": "34cb914fc35ce2d9b4a0e0b8c4c0cee9f956ee7602f8f063119b8f320d4d4f00"
+    },
+    {
+      "locator": ".fig[data-id=\"fig1\"]",
+      "sourceSubtreeSha256": "e249cfca3388808e2dd4ebf9c15d724caf8b28371436c2519d6b49cabb0f1ba5"
+    },
+    {
+      "locator": "p.undefined (document order 11)",
+      "sourceSubtreeSha256": "ecb3705c6468e744084dc3ec5f860b36c1a93aae205d65a57ae3bdd1b3ae162e"
+    },
+    {
+      "locator": "p.undefined (document order 39)",
+      "sourceSubtreeSha256": "337a9d8bda333ccb668594e00b2e6c586a2341615de61142a93490b0497f7393"
+    },
+    {
+      "locator": "[content-id=\"tab1 \"]",
+      "sourceSubtreeSha256": "bf5497dd309659a6cb46562303baf6b81585c8b78ea5eeb062fc0d44f426853c"
+    },
+    {
+      "locator": "div.block-child-p (document order 46)",
+      "sourceSubtreeSha256": "db6e4be48bdb7dcc3d2fbf2aba454be09420794bdb397cfd50673b763a92326a"
+    },
+    {
+      "locator": "div.block-child-p (document order 51)",
+      "sourceSubtreeSha256": "8dfd415fce5271241ed30a66d57722d3d64b02d92af9118410e830d3d1f3a920"
+    },
+    {
+      "locator": "div.block-child-p (document order 61)",
+      "sourceSubtreeSha256": "f68037ebcfa240c1597f104d766e1a0a5281d4b27979d77dbc3660347f7e8bd9"
+    },
+    {
+      "locator": "[data-content-id=\"cit1\"]",
+      "sourceSubtreeSha256": "a8fed7d9c1825057f4b0d9f7e36e35aa5184d3d5a68247f3a67d80380a1c7402"
+    },
+    {
+      "locator": "[data-content-id=\"cit2\"]",
+      "sourceSubtreeSha256": "0a8bfaa918dc3b7b0fd0864a635ffb90a5045f3112041871a4565487925dd30c"
+    },
+    {
+      "locator": "[data-content-id=\"cit3\"]",
+      "sourceSubtreeSha256": "0135b4f19180b29106f6336685fdf3ce5af334d7919065c0708a4c4d74567bf0"
+    },
+    {
+      "locator": "[data-content-id=\"cit4\"]",
+      "sourceSubtreeSha256": "e2c7c3beb8817e72b7c1dab6601eac412feaed9afb9cb10897479cc2ab842884"
+    },
+    {
+      "locator": "[data-content-id=\"cit5\"]",
+      "sourceSubtreeSha256": "d3f8a851f4c0d2f474825d22479cf9b02eb8b1824a059161f76a914026ab2e0d"
+    },
+    {
+      "locator": "[data-content-id=\"cit6\"]",
+      "sourceSubtreeSha256": "3dda66a7c867814302010e72063b7ff02ad022935082a1b462836886c0fe6892"
+    },
+    {
+      "locator": "[data-content-id=\"cit7\"]",
+      "sourceSubtreeSha256": "1650e4ed8eac27d190c06ee84fda47bb57ced4fa6fb8395f4399cc9debfb374d"
+    },
+    {
+      "locator": "[data-content-id=\"cit8\"]",
+      "sourceSubtreeSha256": "3b141c1ad92b0d1fc52ec33a59aaef3adb6ff4811f011685af5167da85c5f5f8"
+    },
+    {
+      "locator": "[data-content-id=\"cit9\"]",
+      "sourceSubtreeSha256": "a12276b03a3bf38b98317f62086bbed7e451a1331249c6205ab79f336b1b1aa9"
+    },
+    {
+      "locator": "[data-content-id=\"cit10\"]",
+      "sourceSubtreeSha256": "31a6077ba2e3f2b0cc0f326eb40deeec685ad7c0d9127f105ba8af1e52d79126"
+    },
+    {
+      "locator": "[data-content-id=\"cit11\"]",
+      "sourceSubtreeSha256": "e4ac99ed3a1482d5076cd9b35591e7110af4bce74ba5f272f4ec1644a5f68d3f"
+    },
+    {
+      "locator": "[data-content-id=\"cit12\"]",
+      "sourceSubtreeSha256": "2046d3dc50acbf593e63a215cc10f91297cc211abc9786b840b2d83b2f62891c"
+    },
+    {
+      "locator": "[data-content-id=\"cit13\"]",
+      "sourceSubtreeSha256": "c8220548085fd819f59241253d04dde099abb6622b5637559770c97d25a4ac10"
+    },
+    {
+      "locator": "[data-content-id=\"cit14\"]",
+      "sourceSubtreeSha256": "01ec392d33b09948987f6a84e933a8597a9dc8237d10267bcbd497df322eb0f0"
+    },
+    {
+      "locator": "[data-content-id=\"cit15\"]",
+      "sourceSubtreeSha256": "b4536f5442017119ad9e44541a97f9348bdf5677a3890f117985a1626a3e38ea"
+    },
+    {
+      "locator": "[data-content-id=\"cit16\"]",
+      "sourceSubtreeSha256": "971ebaab022d58f1925212eadb7a1814637bd0d9d273b0125dfcb7fa932cc3fc"
+    },
+    {
+      "locator": "[data-content-id=\"cit17\"]",
+      "sourceSubtreeSha256": "e65cfad855919ba6ca4a32960a7030436e979567f0c066aa54413f6ce4db27a1"
+    },
+    {
+      "locator": "[data-content-id=\"cit18\"]",
+      "sourceSubtreeSha256": "663f2adb70e463353c400c9f608a88633934897e1475b7cb31fd1e3e911f37d5"
+    },
+    {
+      "locator": "[data-content-id=\"cit19\"]",
+      "sourceSubtreeSha256": "07958480ff526056533f6ef76f64b9ecfde6080fbf309d82c2ecf53aaa74b2d7"
+    },
+    {
+      "locator": "[data-content-id=\"cit20\"]",
+      "sourceSubtreeSha256": "f452619e683f5c7e140e29468da4708a012f695d04496541f26d33adfa65e37f"
+    },
+    {
+      "locator": "[data-content-id=\"cit21\"]",
+      "sourceSubtreeSha256": "f14de5048392dd14cf1fbf5af95ff202b61bb8673463aa90ad61fca531f422a4"
+    },
+    {
+      "locator": "[data-content-id=\"cit22\"]",
+      "sourceSubtreeSha256": "5a5e6fbb0e1ccb36c651fe1d5182b941e64c999247598442eb0a43da2170ca92"
+    },
+    {
+      "locator": "[data-content-id=\"cit23\"]",
+      "sourceSubtreeSha256": "ad23d018cf8d19e7e1ae5184f257368cd62456e8abecd405c33992b1f900f4b5"
+    },
+    {
+      "locator": "[data-content-id=\"cit24\"]",
+      "sourceSubtreeSha256": "d7cee6f0cafbf62e374545d31df465a80621b68586d117123e83e34df8cb46bb"
+    },
+    {
+      "locator": "[data-content-id=\"cit25\"]",
+      "sourceSubtreeSha256": "ab7847f23c14e53fa3e015f9cf7fbe01c2a4d7bf4c1e5406e5ddbf4e1cfb044f"
+    },
+    {
+      "locator": "[data-content-id=\"cit26\"]",
+      "sourceSubtreeSha256": "fe85ddb9dcb36a4fa902a3e6c3f0de2401954e46e0f073da8d4769ca84cc900c"
+    },
+    {
+      "locator": "[data-content-id=\"cit27\"]",
+      "sourceSubtreeSha256": "f672d16e808309fc17b4c1aaeff829f22a7e04fa3c0f5ddf13828513eebdb9f1"
+    },
+    {
+      "locator": "[data-content-id=\"cit28\"]",
+      "sourceSubtreeSha256": "4272c51095276d056c2db03d8e9b59ea45d3a211c63a5148c76463fa59c8d792"
+    },
+    {
+      "locator": "[data-content-id=\"cit29\"]",
+      "sourceSubtreeSha256": "9572b1817393dea7d74b904b2cfdeaf618ecca92bcccd8d06a8661f8899a02fd"
+    },
+    {
+      "locator": "[data-content-id=\"cit30\"]",
+      "sourceSubtreeSha256": "70d4ed55bd584c40728537d3bb52d2d694a3c05c1496f16ee9835e69f64f54a2"
+    },
+    {
+      "locator": "[data-content-id=\"cit31\"]",
+      "sourceSubtreeSha256": "ca3d14d835e2be9bfe7d486d43c43acdd1921b0a2be324d18033ca9d6ba8ac24"
+    },
+    {
+      "locator": "[data-content-id=\"cit32\"]",
+      "sourceSubtreeSha256": "f8e0369b9561fca4665107e31e37ba33f7a538166a4acb36ef8001be0ef55d85"
+    },
+    {
+      "locator": "[data-content-id=\"cit33\"]",
+      "sourceSubtreeSha256": "ed35d44434dda0c5c130ee6c94361329c15d58de7aed73bafa71ae68e837c814"
+    },
+    {
+      "locator": "[data-content-id=\"cit34\"]",
+      "sourceSubtreeSha256": "34c1cd21c4f6baf1b3340f43e1954d15155b9fb06fc066ca8b33f116ebf35ab4"
+    },
+    {
+      "locator": "[data-content-id=\"cit35\"]",
+      "sourceSubtreeSha256": "335a6f995ae3eb67015d8c2eaec8d93971da401bbb1d2c040a599defcdf2a0b7"
+    }
+  ],
+  "sanitization": [
+    "Removed modal duplicates, figure controls, reference discovery links, scripts/inputs and event handlers",
+    "Removed signed CDN query parameters; asset bytes were not captured",
+    "Trimmed trailing line whitespace; hashes use LF line endings"
+  ],
+  "omissions": [
+    "Most prose, figures, references, graphical abstract, footnotes, supplements and author panels omitted; this is an excerpt, not a complete article"
+  ],
+  "expected": {
+    "title": "Out-of-focus spatial map imaging of magnetically deflected sodium ammonia clusters",
+    "authors": [
+      "Borgeaud dit Avocat, D. P.",
+      "Yang, H.",
+      "Nitsche, A.",
+      "Wenger, J.",
+      "Yoder, B. L.",
+      "Signorell, R."
+    ],
+    "journal": "Physical Chemistry Chemical Physics",
+    "doi": "10.1039/d4cp00788c",
+    "headings": [
+      "Introduction",
+      "Methods",
+      "Experimental",
+      "Computational",
+      "Results and discussion",
+      "Characterization of out-of-focus SMI",
+      "Deflection of Na(NH3)n",
+      "Deflection of Nam(NH3)n",
+      "Conclusions",
+      "Conflicts of interest",
+      "Acknowledgements"
+    ],
+    "figures": [
+      {
+        "id": "fig1",
+        "label": "Fig. 1",
+        "caption": "Sketch of the experimental setup consisting of four vacuum chambers separated by skimmers (S1–S3). The molecular beam trajectory for deflector-off measurements is represented by a red line, while the trajectory of a spin 1/2 particle with the deflector on is depicted by green lines. For deflection measurements, S3 was removed."
+      }
+    ],
+    "tables": [
+      {
+        "id": "tab1",
+        "parts": 3,
+        "rows": [
+          10,
+          2,
+          3
+        ],
+        "caption": "Values of τSMI (this work) and τslit from ref. 5 for Na(NH3)n, 1 ≤ n ≤ 9 and Na3(NH3)n, 1 ≤ n ≤ 2 clusters. The error calculation is explained in the ESI"
+      }
+    ],
+    "equations": [
+      {
+        "id": "jumplink-eqn1",
+        "imageOnly": true,
+        "text": ""
+      },
+      {
+        "id": "jumplink-eqn2",
+        "imageOnly": true,
+        "text": ""
+      },
+      {
+        "id": "jumplink-eqn3",
+        "imageOnly": false,
+        "text": "⃑r⃑d = Mr⃑r⃑i + Mv⃑v⃑i,"
+      }
+    ],
+    "referenceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+    ],
+    "referenceDois": [
+      "10.1103/PhysRevA.104.012820",
+      "10.1103/PhysRevB.78.054430",
+      "10.1021/jacs.2c12959",
+      "10.1039/D2FD00091A",
+      "10.1021/acs.jpca.3c03820",
+      "10.1039/D2CP05202D",
+      "10.1007/BF01326983",
+      "10.1103/PhysRevLett.47.906",
+      "10.1039/D0CP04647G",
+      "10.1103/PhysRevA.64.063202",
+      "10.1103/PhysRevA.38.737",
+      "10.1063/5.0020844",
+      "10.1016/S0009-2614(98)00871-9",
+      "10.1063/1.449991",
+      "10.1103/PhysRevB.47.12874",
+      "10.1063/1.1398578",
+      "10.1063/5.0087524",
+      "10.1063/1.1142066",
+      "10.1088/1367-2630/aab5ca",
+      "10.1103/PhysRevResearch.5.033103",
+      "10.1063/1.1813112",
+      "10.1063/1.1148310",
+      "10.1063/1.453276",
+      "10.1126/science.adh0184",
+      "10.1080/01442350701786512",
+      "10.1039/c3cp53659a",
+      "10.1126/science.1150238",
+      "10.1039/c001233e",
+      "10.1039/C7CS00623C",
+      "10.1364/OL.35.004163",
+      "10.1016/j.saa.2020.118404",
+      "10.1021/ac049692q",
+      "10.1063/5.0046015",
+      "10.1063/1.4807482",
+      "10.1063/1.4788620"
+    ]
+  }
+}
