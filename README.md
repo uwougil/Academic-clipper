@@ -1,5 +1,7 @@
 # Academic Clipper — Nature prototype v0.2.0
 
+实验性 Science / Science Advances DOM 入口、source-backed fixtures 与集成限制见 [AAAS 实验适配器调研](docs/aaas-experimental.md)。正式浏览器/CLI 工作流仍为 Nature-only。
+
 项目规范已按 bootstrap 结构整理：
 
 - [产品需求文档](docs/PRD.md)
