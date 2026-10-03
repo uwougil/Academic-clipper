@@ -3,11 +3,20 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { parseRscPage, isExperimentalRscUrl } from '../src/adapters/rsc.mjs';
 import { clipRsc } from '../src/experimental/rsc-clip.mjs';
 
 const ids = ['d3mh00787a', 'd5mh00096c', 'd4cp00788c', 'd4cp00012a', 'd3tc03672c', 'd4tc01199f'];
 const fixtures = new Map();
+for (const order of ['rsc,aaas', 'aaas,rsc', 'pnas,rsc']) {
+  for (const style of ['markdown', 'links', 'quarto']) test(`RSC cold lifecycle ${order} ${style}`, () => {
+    const child = spawnSync(process.execPath, ['--max-old-space-size=512', fileURLToPath(new URL('../scripts/rsc-lifecycle-check.mjs', import.meta.url)), order, style], { encoding: 'utf8', timeout: 120000 });
+    assert.equal(child.status, 0, child.stderr || child.error?.message);
+    assert.ok(JSON.parse(child.stdout).articleWindows > 0);
+  });
+}
 for (const id of ids) fixtures.set(id, {
   html: await readFile(new URL(`./fixtures/rsc/${id}.html`, import.meta.url), 'utf8'),
   provenance: JSON.parse(await readFile(new URL(`./fixtures/rsc/${id}.json`, import.meta.url), 'utf8')),

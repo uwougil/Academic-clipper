@@ -2,7 +2,7 @@
 
 Work Contract：[Issue #28](https://github.com/uwougil/Academic-clipper/issues/28)；[Draft PR #36](https://github.com/uwougil/Academic-clipper/pull/36)。背景：[Issue #26](https://github.com/uwougil/Academic-clipper/issues/26)。已读 AGENTS、README、PRD/EDD、Issue #10 的 [corpus 规范](specs/issue-10-nature-corpus.md)、[执行计划](plans/issue-10-execution-plan.md)及 acquisition planning；Nature pipeline 只作架构参考。
 
-隔离分支 `codex/rsc-experimental` 从 accepted main `5971ebfbe288e0efed4abef21469f41e2cabb05f` 创建，该 SHA 的 Main CI 成功。范围仅为三个期刊已观察的 Silverchair DOM，不声明 general RSC support，不改变 Nature-only 生产路由或 PRD/EDD。
+隔离分支 `codex/rsc-experimental` 从 accepted main `5971ebfbe288e0efed4abef21469f41e2cabb05f` 创建，该 SHA 的 Main CI 成功。最终整合已无冲突 rebase 到 accepted main `ef3975c6a0eb1ec1e5a010a2df5b4f57309cebbe`。范围仅为三个期刊已观察的 Silverchair DOM，不声明 general RSC support，不改变 Nature-only 生产路由或 PRD/EDD。
 
 ## 真实全文与同族证据
 
@@ -43,13 +43,13 @@ console.log(result.markdown, result.debug);
 
 ## Fixtures 与验证
 
-`test/fixtures/rsc/`：六对真实节选 HTML / publisher-local provenance JSON；`test/rsc.test.mjs`：26 focused tests（六个 source oracle、十八个三模式渲染检查、两个拒绝/确定性检查）。覆盖 metadata/authors/DOI、章节层级、figure/caption/Scheme、cells/rowspan/多级表头/脚注、三个子表、原编号 citation/reference/DOI、内部图表/公式目标、MathML 向量、HTML 科学记号、图片公式 warning、货币与跨标签括号。
+`test/fixtures/rsc/`：六对真实节选 HTML / publisher-local provenance JSON；`test/rsc.test.mjs`：35 focused tests（原六个 source oracle、十八个三模式渲染检查、两个拒绝/确定性检查，加九个冷启动生命周期整合检查）。覆盖 metadata/authors/DOI、章节层级、figure/caption/Scheme、cells/rowspan/多级表头/脚注、三个子表、原编号 citation/reference/DOI、内部图表/公式目标、MathML 向量、HTML 科学记号、图片公式 warning、货币与跨标签括号。
 
 Provenance 保存实际 URL、capture time、DOM serialization hash、retained locator/subtree hashes、fixture hash、删减说明、直接从 source DOM 提取的 oracle（未调用 adapter）。没有 HTTP response bytes，因此 `responseSha256` 为 null，明确区分 DOM hash。完整 captures 只在仓库外临时目录，不提交 raw pages、cookie、token、签名参数、chrome 或 credentials。
 
 `scripts/rsc-excerpts.mjs <external-capture-directory>` 可从 `{url, observedAt, head, body}` 捕获格式重建。保留真实子树/祖先，不重写学术内容；移除重复 modal、控件、reference discovery links 与 CDN query signatures，保留原引用 DOI。节选引用不重编号，保留所需最高编号以前的 source references 以满足既有 sequential validator。不是完整论文，未创建全局 corpus schema。
 
-本地验证：`node --test test/rsc.test.mjs` 26 passed；`npm test` 136 passed；`npm run build` 成功；`npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` 全部 valid；`git diff --check` 通过。另对六个完整 browser DOM 做仓库外直接 Markdown smoke，四类 validators 均 valid；这不是常规网络 CI，也不是全文忠实度的独立 oracle。CI 保持 Ubuntu Node 20/24、Windows Node 24。
+本地验证：`node --test test/rsc.test.mjs` 35 passed（`--max-old-space-size=512` 同样 35 passed）；`npm test` 238 passed，0 failed/cancelled/skipped/todo；`npm ci` 成功；`npm run build` 成功；`npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` 全部 valid；`git diff --check` 通过。另对六个完整 browser DOM 做仓库外直接 Markdown smoke，四类 validators 均 valid；这不是常规网络 CI，也不是全文忠实度的独立 oracle。CI 保持 Ubuntu Node 20/24、Windows Node 24。
 
 ## 限制、访问与集成边界
 
@@ -64,6 +64,6 @@ Exact changed shared files：**无**。PRD/EDD、README、package.json、CI、pr
 
 最小集成提案（未实施）：integrator 决定 `src/clip.mjs` 的有限 adapter dispatch；`src/bridge.mjs` 与 `src/cli.mjs` 的 `clipNature()` 调用点转向该 dispatch；CLI admission 和 `src/article-fetch.mjs` 添加 RSC URL/逐跳 identity scope；writer 保存实验返回的 bibliography/图片。维持 loopback/Origin/token、DNS/redirect/size/type 及事务写入边界。正式支持须人类解决 Nature-only PRD/EDD。无 universal Publisher class、router redesign、common verifier 或 shared normalizer API 提案。
 
-Shared seam 观察：cached Defuddle 保留首个 DOMParser realm，关闭该 window 会破坏后续转换。实验入口只保留首个 realm，转换后关闭后续 article windows，逐子表转换之间让出 event loop，使 shared converter 创建的 jsdom WeakRefs 可回收；不修改 shared API。初始 CI run 37133335515 的 RSC test worker 遇到 2 GiB heap OOM，修复 lifetime 后追加 `node --max-old-space-size=512 --test test/rsc.test.mjs`，26 passed。不以提高 CI heap 或修改全局测试配置掩盖问题。统一 converter realm 回收仍应由独立集成工作处理。
+Lifecycle 整合：主线 AAAS 在文章窗口安装 globals 以前静态加载 `defuddle/full`，避免 converter 缓存文章拥有的 DOMParser。新增关闭计数检查先在旧 RSC 策略失败（首窗口 closes=0），随后 RSC-local 入口采用同一加载边界、移除 `converterRealm`、在 finally 关闭每个文章窗口；逐子表 event-loop yield 保留。`scripts/rsc-lifecycle-check.mjs` 在独立进程、512 MiB heap 下动态导入并验证 RSC→AAAS、AAAS→RSC、PNAS→RSC × markdown/links/quarto；每项还检查重复 RSC、并发 RSC+AAAS+PNAS、三者 caption conversion fault injection 后恢复、确定性 Markdown、十个 DOM globals 完全还原、RSC/AAAS 文章窗口成功与失败路径恰关闭一次。观察记录只存计数和 WeakSet，不持有文章窗口。PNAS 采用 accepted-main 生命周期，本 PR 不改变它、不宣称它显式关闭文章窗口；PNAS-first 的 cached realm 也在同一 bounded subprocess 中验证。初始历史 CI 37133335515 曾遇 2 GiB OOM；最终 focused parent 与所有冷启动 child 都在 512 MiB 下通过，无 heap/CI/shared API 调整。
 
 Merge blockers：Draft review 与最终 head CI；production routing、fetch 可用性、离线资产、正式 publisher intent resolution 是后续集成边界，不将此实验当作正式产品支持。Issue #28 保持 open，交给 AGENTS 的 Main CI 协议；只用 `Refs #28`，不 auto-close。

@@ -1,3 +1,6 @@
+// Match accepted main's AAAS lifecycle boundary: initialize the converter
+// outside an article-owned window so closing an article cannot stale its parser.
+import 'defuddle/full';
 import { parseRscPage } from '../adapters/rsc.mjs';
 import { withDomGlobals } from '../dom-runtime.mjs';
 import { htmlToMarkdown } from '../markdown.mjs';
@@ -13,8 +16,6 @@ import { validateRawHtml } from '../validators/html-audit.mjs';
 import { validateCrossReferences } from '../validators/cross-references.mjs';
 import { setImmediate as yieldEventLoop } from 'node:timers/promises';
 
-let converterRealm;
-
 // Experimental direct entry point. No production routing, fetch or filesystem
 // effects. Keep assembly separate from DOM extraction and existing normalizers.
 export async function clipRsc({ html, url, citationStyle = 'markdown' }) {
@@ -23,9 +24,6 @@ export async function clipRsc({ html, url, citationStyle = 'markdown' }) {
   const policy = outputPolicy(citationStyle);
   const finish = (md) => normalizeAnchorMarkers(normalizeCitations(normalizeAcademicInline(normalizeMath(md, page.semantic)), page.semantic.citations,
     { policy, references: page.references }), page.semantic.crossReferences.values(), { policy });
-  // Defuddle caches its first DOMParser realm. Retain that one realm, and close
-  // subsequent article windows after conversion rather than accumulating them.
-  converterRealm ||= page.dom;
   try {
     return await withDomGlobals(page.dom, async () => {
     await normalizeFigureCaptions(page.figures, url);
@@ -65,7 +63,7 @@ export async function clipRsc({ html, url, citationStyle = 'markdown' }) {
     return result;
     });
   } finally {
-    if (page.dom !== converterRealm) page.dom.window.close();
+    page.dom.window.close();
     await yieldEventLoop();
   }
 }
