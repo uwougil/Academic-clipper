@@ -4,14 +4,18 @@
 
 ## 基线、所有权与接口
 
-- Accepted main / base SHA：`5971ebfbe288e0efed4abef21469f41e2cabb05f`，包含 [PR #27](https://github.com/uwougil/Academic-clipper/pull/27) planning contract。
-- [Main CI 37037241055](https://github.com/uwougil/Academic-clipper/actions/runs/37037241055)：Ubuntu Node 20、Ubuntu Node 24、Windows Node 24 全部成功；启动时重新核验。
+- 当前 accepted main / rebased base SHA：`0ee52b585afb1ac2bed11e9a56278feae2da1949`，保留 [PR #27](https://github.com/uwougil/Academic-clipper/pull/27) planning contract。main 之后合入 PR #37、#38、#40、#41；B 无关的 publisher 实验不改变本 task 的 Nature corpus 范围。
+- [Latest Main CI 37133130849](https://github.com/uwougil/Academic-clipper/actions/runs/37133130849)：head `0ee52b585afb1ac2bed11e9a56278feae2da1949`，Ubuntu Node 20、Ubuntu Node 24、Windows Node 24 全部成功（2026-10-03）。此前 base CI 37037241055 也已成功。
 - Branch：`codex/issue-10-agent-b`；worktree：`C:\Users\guoli\.codex\worktrees\3417\academic-clipper`。
 - 本次 owned changed file：`docs/nature-corpus.md` 的 source/coverage 预检部分。没有更改 parser、tests、A infrastructure、manifest、golden、canonical spec 或 PRD/EDD。
-- Ordered commit SHAs 由 `git log --reverse --format="%H %s" 5971ebfbe288e0efed4abef21469f41e2cabb05f..codex/issue-10-agent-b` 重建；最终 handoff 提供实际 SHA。没有建立普通 delivery PR。
+- 分支已 rebase 到当前 accepted main；ordered commits 由 `git log --reverse --format="%H %s" 0ee52b585afb1ac2bed11e9a56278feae2da1949..codex/issue-10-agent-b` 重建，最终 handoff 记录本次重放后的 SHA。没有建立普通 delivery PR。
 - Agent A H1 interface：现已原样消费，schema/recipe `1.0.0`、sanitizer `nature-corpus-sanitizer/1.0.0`、serializer `nature-corpus-subtree/1.0.0`、projection `nature-corpus-projection/1.0.0`。实际 source SHA 和本地 dependency commits 见下方更新。未冻结 manifest、recipe、assertion registry 或 source oracle；基础设施由 A 所有，B 未自行修改。
 
 ## 实际来源证据与 admission
+
+### 2026-10-03 latest main / CI 与分支重放
+
+检查 remote `origin/main` 与 GitHub Actions 后，main 从原 base `5971ebfbe288e0efed4abef21469f41e2cabb05f` 前进至 `0ee52b585afb1ac2bed11e9a56278feae2da1949`，包括 PR #37、#38、#40、#41。最新 CI workflow `CI` run `37133130849` 对该 head 三个平台均为 completed/success：Ubuntu Node 20、Ubuntu Node 24、Windows Node 24。随后本 branch 对 `origin/main` 执行 `git rebase origin/main`，无冲突，保留 11 项有序 commits；新 SHAs 与文件见 [durable handoff](goals/issue-10/agent-b-handoff.md)。本次仅更新本文/handoff 的基线与提交记录，没有更改 publisher code、PRD/EDD、canonical spec 或测试。
 
 2026-10-02 首轮生产 `fetchNatureArticle()` 请求在 HTTP 之前失败：系统 DNS 将 `www.nature.com` 解析为 `198.18.0.249`，`safeFetchExternal()` 按既有策略拒绝该地址。`Resolve-DnsName www.nature.com -Server 1.1.1.1 -Type A` 也返回同一地址；未更改系统 DNS、代理或安全检查。
 
