@@ -74,7 +74,7 @@ FREE ACCESS 与 OPEN ACCESS 是不同标签，不能推断成相同授权或永�
 
 Draft 交付需当前 commit 的完整 CI 与代码审查；eqn6 来源异常、真实 preview/付费样本缺失、原 TeX/公式排版未核验是**提升为正式 PNAS 支持的 blockers**。正式 browser/bridge/CLI integration 需要人工解决 Nature-only intent 并更新 PRD/EDD。不要自动 merge 或关闭 Issue #31。
 
-## Verification
+## Verification（历史：最初基线及 `1597cc2` 集成）
 
 Windows Node `v24.14.1`。最终命令/精确结果/PR CI 记录于 Draft PR delivery contract；研究-only commit 的 CI 不代表后续实现 commit 已验证。
 
@@ -84,3 +84,67 @@ Windows Node `v24.14.1`。最终命令/精确结果/PR CI 记录于 Draft PR del
 - rebase 后完整 `npm test`：169/169 pass，0 fail/cancelled/skipped/todo，14,095.5382 ms；首次执行为 168 pass/1 fail，既有 launcher 第 1 个启动测试偶发 10s timeout（23,075.8361 ms），未经代码改动完整重跑通过。
 - `npm run build`：exit 0；输出为 ignored `dist/extension/`。
 - `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto`：exit 0；所有 validators valid，250 inline/13 display math、50 reference definitions。
+
+## Final integration validation：Nature / Wiley / APL / IOP / PNAS
+
+本节替代历史验证作为当前集成交付依据，不删除此前来源证据或失败记录。这次只 rebase、审计、验证并更新交付文档，没有新增功能、修改 assertions 或改变生产路由。
+
+| 项目 | 本次证据 |
+| --- | --- |
+| Old base | `1597cc2ebf6d92ab24bb243f77230a1e9cc18641` |
+| New accepted base | `07a4ee4df285c4c0f27b5058e041fce7eb96fee5`，Main CI run `37131882128` success，包含 IOP #37 |
+| Old PR head | `e8ef378c37e4d2bcf594e3e986355f358d5c2757` |
+| Rebased implementation head | `6fc351f14893138f1010f4d07e33746061e7c47c` |
+| Final delivery head / CI / Secret scan | 文档提交后的精确 head SHA、fresh CI/Secret scan run IDs 与各 job conclusion 记录于 [PR #38 的 Final integration validation](https://github.com/uwougil/Academic-clipper/pull/38)。不以历史 green checks 代替新 head 检查。 |
+
+执行 `git rebase 07a4ee4df285c4c0f27b5058e041fce7eb96fee5` 无冲突。随后：
+
+```text
+git range-diff 1597cc2ebf6d92ab24bb243f77230a1e9cc18641..e8ef378c37e4d2bcf594e3e986355f358d5c2757 07a4ee4df285c4c0f27b5058e041fce7eb96fee5..6fc351f14893138f1010f4d07e33746061e7c47c
+1: 645c3ed = 1: aa02f45 docs(pnas): record source acquisition evidence and implementation blockers
+2: a6af76f = 2: 21bdd26 feat(publisher): add experimental PNAS core DOM adapter
+3: e8ef378 = 3: 6fc351f test(pnas): verify abstract prose and document accepted-main rebase
+```
+
+三个补丁均 `=`，没有语义变化。`git diff --exit-code e8ef378... 6fc351f... -- src/adapters/pnas.mjs src/pnas-clip.mjs src/clip.mjs test/pnas.test.mjs test/fixtures/pnas .gitattributes` exit 0；后续仅增补本次交付文档。
+
+本地 Windows Node `v24.14.1`：
+
+- `npm ci`：exit 0，65 packages installed，66 audited，0 vulnerabilities。
+- `node --test test/pnas.test.mjs`：exit 0，16/16 pass，0 fail/cancelled/skipped/todo，20,357.8349 ms；count/assertions 均未改变。
+- `npm test`：exit 0，**187/187 pass**，0 fail/cancelled/skipped/todo，14,429.5508 ms。覆盖 Nature、Wiley、APL、IOP、PNAS，并包含安全、writer、issue-finalization、CLI/extension checks；本次未发生历史 launcher timeout。
+- `npm run build`：exit 0。
+- `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto`：exit 0，所有 validators valid，250 inline/13 display math、50 reference definitions。
+- `git diff --check`：exit 0。
+
+### IOP 共存与执行顺序审计
+
+两个独立 Node 进程分别采用 `IOP → PNAS → Nature → APL → Wiley` 和 `PNAS → Wiley → APL → Nature → IOP` 初始化转换器。使用既有 source fixtures：PNAS gossip、Nature minimal、APL 3297874、Wiley advs、IOP aeaa68 math+crossrefs（按已接受 IOP 测试相同方式拼接 source blocks）。IOP math-only excerpt 没有 prose paragraph，单独输入会按既有 guard 拒绝；没有通过修改 IOP 或放宽 guard 来进行审计。
+
+每个进程均比较五种 publisher 的 baseline Markdown；对 PNAS 的 markdown/links/quarto 分别在其他四种转换之间执行 A→B→A，结果逐字相同；`Promise.all()` 同时运行五种转换，结果也与各 baseline 逐字相同。每次调用及全部并发结束后，十个 DOM globals 的 property presence 和 object identity 均恢复到调用前 snapshot。
+
+从 `clip.mjs`、`pnas-clip.mjs`、`wiley-clip.mjs`、`iop.mjs` 遍历 22 个可达本地静态模块，DFS 检查 cycles=0。publisher 入口使用不同模块/导出名；没有引入同名全局 helper。PNAS/IOP/Wiley/APL fixtures 分属独立路径。APL/PNAS root LF rules、Wiley subtree LF rules 保持原样；IOP integrity test 自行 canonicalize LF/CRLF，无新增 IOP/global gitattributes rule。
+
+### 最终 diff 边界
+
+相对 new base，完整 changed-file set 为 **13 paths**：
+
+```text
+.gitattributes
+README.md
+docs/pnas-experiment.md
+scripts/prepare-pnas-fixtures.mjs
+src/adapters/pnas.mjs
+src/clip.mjs
+src/pnas-clip.mjs
+test/fixtures/pnas/1319030111.html
+test/fixtures/pnas/2318124121.html
+test/fixtures/pnas/2400689121.html
+test/fixtures/pnas/README.md
+test/fixtures/pnas/manifest.json
+test/pnas.test.mjs
+```
+
+唯一 shared source diff 仍是导出已有 `referencesMarkdown()`；`.gitattributes` 只增加 PNAS fixture LF rule。Wiley/APL/IOP/Nature adapter、bridge、extension、CLI、writer behavior、normalizers、PRD/EDD、CI/issue-finalization workflows、Nature golden 均与 accepted main 完全相同。没有把 PNAS 加入 `clipArticle()`。
+
+这是 reviewable experimental PNAS reference implementation：真实 paid/subscription-only coverage 不完整、access 会变化、MathML/TeX 来源可能异常、production integration 不在本次范围、其他 Atypon compatibility 未建立、最终 Publisher Adapter Contract 尚未解决。保持 Draft，不 merge，不手动关闭 Issue #31。
