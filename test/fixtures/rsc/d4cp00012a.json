@@ -1,0 +1,585 @@
+{
+  "url": "https://pubs.rsc.org/cp/article/26/15/11445/842411/IR-spectroscopic-characterization-of-M-C-2H-M-Ru",
+  "observedAt": "2026-10-03T14:55:33.986Z",
+  "captureMode": "browser-rendered DOM serialization",
+  "serializedBodySha256": "9f41d08f917e18d93dbe2f275cd0052f922dd55ef536c98a28fbf9aa448ae173",
+  "responseSha256": null,
+  "responseHashExplanation": "Browser DOM capture; no HTTP response bytes available.",
+  "fixtureSha256": "a96bcdb900a892c9dcdd583dd7dc525decfebed318ef00c126b81d4ea1f226aa",
+  "fixtureHashEncoding": "UTF-8 with LF line endings",
+  "retained": [
+    {
+      "locator": "section.abstract (document order 0)",
+      "sourceSubtreeSha256": "0ce26c1caf1cb42cac6a88ff1f42de183f1ac8a2d41aead0d8a0fa38e5008657"
+    },
+    {
+      "locator": "#35119962",
+      "sourceSubtreeSha256": "341e6228f83f6a96b47159a3cf1b14735d1f62d08d77226e0d981038206c228c"
+    },
+    {
+      "locator": "#35119972",
+      "sourceSubtreeSha256": "51910009bd3e2297e845aac36497dd342ee59e09e18e1dba8cd71860ee12ddd7"
+    },
+    {
+      "locator": "#35119973",
+      "sourceSubtreeSha256": "b7abb1c410cb1c364229aa125f395ea4390957ca42aa63262061d21354fb6300"
+    },
+    {
+      "locator": "#35119976",
+      "sourceSubtreeSha256": "23479498e1eef075aec1881240e84a3eb177f90430f34cda5a083e49739b291b"
+    },
+    {
+      "locator": "#35119980",
+      "sourceSubtreeSha256": "e0490cc876e69d8091a20ca6e94e32d8b4c6ab0c3f5286454dd39c798ae2979f"
+    },
+    {
+      "locator": "#35119982",
+      "sourceSubtreeSha256": "d288825c060aa13f946d77b47cbb95ada0c4a88d02f82b1c2588de90ebfd7415"
+    },
+    {
+      "locator": "#35119997",
+      "sourceSubtreeSha256": "def1b3cc12c6bb8a0f944f6ee1f307c17edbf229403b1bdc52717cab9c94d2f8"
+    },
+    {
+      "locator": "#35120004",
+      "sourceSubtreeSha256": "ecfb65d175da89dea34bbb3a47ce4fcfcf5c8a5993048824956ecd7d3c7f9cee"
+    },
+    {
+      "locator": "#35120012",
+      "sourceSubtreeSha256": "a56182cf20dc9f4998a469f2a3c2832281c765c95b3203e7ea21248109538fb7"
+    },
+    {
+      "locator": "#35120015",
+      "sourceSubtreeSha256": "b7a682a8a3b32d5304643c875b0f1d570910aa25ba32d43cae582914a5d12bab"
+    },
+    {
+      "locator": "#35120020",
+      "sourceSubtreeSha256": "554d14565bbb44fa6d03a76d09e80cf626716c072a678352cd43b9ed2e6e4e0d"
+    },
+    {
+      "locator": "#35120022",
+      "sourceSubtreeSha256": "f3d30b8c96edaa5430211171c37a15da4509f8e4fec86f6b1a864e3db8fa947c"
+    },
+    {
+      "locator": "#35120024",
+      "sourceSubtreeSha256": "c456b85b758d54089f4cfbdbce38bfae9be9e61be56f203e2945aa828811d5b3"
+    },
+    {
+      "locator": "#35120026",
+      "sourceSubtreeSha256": "d4ed300d572a5847f41ffe5a96963a1e7b6e2afc32b0671720eddb40308134a8"
+    },
+    {
+      "locator": "p.undefined (document order 3)",
+      "sourceSubtreeSha256": "de2c25121092a4852dad0e5c31ff464bbd50d0a9f74579b44186a20f552b65de"
+    },
+    {
+      "locator": "p.undefined (document order 4)",
+      "sourceSubtreeSha256": "f076263a6ce8eb8047edc79a60e1ab7228cf88fd7ba8bc6f87e7f24ad390c931"
+    },
+    {
+      "locator": ".fig[data-id=\"fig1\"]",
+      "sourceSubtreeSha256": "0f7429786429c95e0473a9e96f2cc693515cac10d1e7c6970ff979b0dc62ee5b"
+    },
+    {
+      "locator": "p.undefined (document order 19)",
+      "sourceSubtreeSha256": "8e623da44149e9dbae78c595acf125ed3ed9fcf62c5ea154d21f1aa84308f873"
+    },
+    {
+      "locator": ".fig[data-id=\"fig5\"]",
+      "sourceSubtreeSha256": "27d56f496b6d6b194a4740626cac47f6f3485e87bceb2d10c525f813f399e459"
+    },
+    {
+      "locator": "[content-id=\"tab1 \"]",
+      "sourceSubtreeSha256": "f6013c79afb786103aa115b804910b74ff99bb10d8e62648ec5392037fde82ee"
+    },
+    {
+      "locator": "[content-id=\"tab2 \"]",
+      "sourceSubtreeSha256": "c2f31573a38fc0b9c7c3f1ad4371c164aef7ccc6909da7da0f95b4127ed25b86"
+    },
+    {
+      "locator": "[content-id=\"tab3 \"]",
+      "sourceSubtreeSha256": "293dfb5881e3d186b5517e878879af0903cadbfd62b6eb4b45eaacae08974233"
+    },
+    {
+      "locator": "[content-id=\"tab4 \"]",
+      "sourceSubtreeSha256": "5087de29ab47d8cd404d2f6ff81d6215ded39e2acb2bbb97aed6937dfd57d07e"
+    },
+    {
+      "locator": "[data-content-id=\"cit1\"]",
+      "sourceSubtreeSha256": "442fefcb93a44fb6ee518384a6f65a68c8de91bb29fd05bd5297a7fa08ed846d"
+    },
+    {
+      "locator": "[data-content-id=\"cit2\"]",
+      "sourceSubtreeSha256": "109f9071e118cf3196a7d0d7866459eb6a084057e7f070f54bbbee5e036497fd"
+    },
+    {
+      "locator": "[data-content-id=\"cit3\"]",
+      "sourceSubtreeSha256": "f141f6f362082b4f75aa4f6a860a71975b5f75c6c2ccd2a7bef95f4ca460a407"
+    },
+    {
+      "locator": "[data-content-id=\"cit4\"]",
+      "sourceSubtreeSha256": "4be16267f5ad820c78a48919ba21dd555b940afc5f36bf5988f67386ced93889"
+    },
+    {
+      "locator": "[data-content-id=\"cit5\"]",
+      "sourceSubtreeSha256": "53da6ab133ba6d1c455e56f6f765e696f26b13ff08cb4df741ec4fe07aec1afa"
+    },
+    {
+      "locator": "[data-content-id=\"cit6\"]",
+      "sourceSubtreeSha256": "a0b657f5fcbb1471eef9d61367924f0ea8c7e34254eae0d187cf000d4137dcc8"
+    },
+    {
+      "locator": "[data-content-id=\"cit7\"]",
+      "sourceSubtreeSha256": "5d037865c98ea39959a9655aafb39eb0b09178b215fb5772667727c20ee0807b"
+    },
+    {
+      "locator": "[data-content-id=\"cit8\"]",
+      "sourceSubtreeSha256": "931e32e4d8ca8b7b1d6aa8aa654338884ee0718f37aa24634e1799eedddcac7a"
+    },
+    {
+      "locator": "[data-content-id=\"cit9\"]",
+      "sourceSubtreeSha256": "59ef7b400184c74289dc01743d93cde913ec97ce992cd48fe33833931a5ba119"
+    },
+    {
+      "locator": "[data-content-id=\"cit10\"]",
+      "sourceSubtreeSha256": "126cbbe8ed47d8e5d141db68aa1d4faee3dc5161289b3ad13914420735f506d6"
+    },
+    {
+      "locator": "[data-content-id=\"cit11\"]",
+      "sourceSubtreeSha256": "400c396b378f310540cb1e31578562a60f8564534db4c51387e14c9acc097fd7"
+    },
+    {
+      "locator": "[data-content-id=\"cit12\"]",
+      "sourceSubtreeSha256": "4ae7fcc3bdac3b4a4679d46f8eff730fd7e83bdeb49da9bd88c891573bcdd23a"
+    },
+    {
+      "locator": "[data-content-id=\"cit13\"]",
+      "sourceSubtreeSha256": "918a1a02cb7f624dd32ed057cb795a0d7e413683624c8e245852c3422819fdad"
+    },
+    {
+      "locator": "[data-content-id=\"cit14\"]",
+      "sourceSubtreeSha256": "71d8e2e87c0d429c7e923f7cfa8330dcfd5d2ead383ae07f413bb4223da9e7b3"
+    },
+    {
+      "locator": "[data-content-id=\"cit15\"]",
+      "sourceSubtreeSha256": "c55bf99957e7c0c4d850d0f957a84c08e51f474f425c52de8341377f26d82b11"
+    },
+    {
+      "locator": "[data-content-id=\"cit16\"]",
+      "sourceSubtreeSha256": "abe21969a3d1dff02af22c0ccbc7c1081c78b080f45de1780b836ed68e6b3ab1"
+    },
+    {
+      "locator": "[data-content-id=\"cit17\"]",
+      "sourceSubtreeSha256": "f3607010f94cad99c8d920b06463c75831f93a1025586ef9907350eb401e1b3a"
+    },
+    {
+      "locator": "[data-content-id=\"cit18\"]",
+      "sourceSubtreeSha256": "53ac3d4bc6c3097dd822a151ffbbbf737f6a201d8975ee7cbf39f5634dec8292"
+    },
+    {
+      "locator": "[data-content-id=\"cit19\"]",
+      "sourceSubtreeSha256": "831c640f01e9ef531453f1998b32c8ffd81908b26d908f1cc4cb85fb8258a313"
+    },
+    {
+      "locator": "[data-content-id=\"cit20\"]",
+      "sourceSubtreeSha256": "07f628f72dd91f57d9749c585633193ef0e0023a4b795f58847de7619195aec3"
+    },
+    {
+      "locator": "[data-content-id=\"cit21\"]",
+      "sourceSubtreeSha256": "330b14c7f0446c52753f5d2556b61992448fa08ea3ff6c314d05a23f1faa4462"
+    },
+    {
+      "locator": "[data-content-id=\"cit22\"]",
+      "sourceSubtreeSha256": "4b01688508e8c7ee7f0c92fac3deda988a28b8de9c1f32d1d619039fe3706bb3"
+    },
+    {
+      "locator": "[data-content-id=\"cit23\"]",
+      "sourceSubtreeSha256": "a6ed013ec8c8734b143076debaa81eb998b8b15c3cca255e5f53aef24a0192b5"
+    },
+    {
+      "locator": "[data-content-id=\"cit24\"]",
+      "sourceSubtreeSha256": "f08adef80f98093d4e2a03e3543662d163034ca4a6658765334c473c5600d8da"
+    },
+    {
+      "locator": "[data-content-id=\"cit25\"]",
+      "sourceSubtreeSha256": "5da4fa7e28139cf10c58cf98edc2426672165a1fcec4e6953c2f8795d226a17f"
+    },
+    {
+      "locator": "[data-content-id=\"cit26\"]",
+      "sourceSubtreeSha256": "a84b719489d1f00e96e684c72f1b1663af50530b2dd4d8d505afacc7a7d89255"
+    },
+    {
+      "locator": "[data-content-id=\"cit27\"]",
+      "sourceSubtreeSha256": "03c8dc7adab1e90be92b397ef3b419cf844652eca154add45234265b88412bd9"
+    },
+    {
+      "locator": "[data-content-id=\"cit28\"]",
+      "sourceSubtreeSha256": "7f360992e7cd997d5db8e7f6e92385f3005bd334c2559d54b81649383e9c19f7"
+    },
+    {
+      "locator": "[data-content-id=\"cit29\"]",
+      "sourceSubtreeSha256": "e1cb50976f151e346d185952dbdfa1b93bf269767919783ff69f56fe1def922b"
+    },
+    {
+      "locator": "[data-content-id=\"cit30\"]",
+      "sourceSubtreeSha256": "36ff62747f394c46952b89cfc235f3d4c6344ee8c0b638b0e5ae8a91844fb639"
+    },
+    {
+      "locator": "[data-content-id=\"cit31\"]",
+      "sourceSubtreeSha256": "831a9f42ca26e270c9219e83fe5d31b2f81fb68b054d7167553c3691ef3cea4c"
+    },
+    {
+      "locator": "[data-content-id=\"cit32\"]",
+      "sourceSubtreeSha256": "a5ea1f31421b13278044509e806b6242cdd38cc8222fdea896a3d1d958a34f00"
+    },
+    {
+      "locator": "[data-content-id=\"cit33\"]",
+      "sourceSubtreeSha256": "6afec79eeae4d2958f505579259f70811e046f68dd8aa863c18c66c725e7a947"
+    },
+    {
+      "locator": "[data-content-id=\"cit34\"]",
+      "sourceSubtreeSha256": "53f2780466176f3ed66b89a0345c0ff232e20a99fcc17381b78ba8575523c8f3"
+    },
+    {
+      "locator": "[data-content-id=\"cit35\"]",
+      "sourceSubtreeSha256": "c75e878aed20bf3484ed945e4f43db4085b60ad4b34f9c26ab92bba4c3353b53"
+    },
+    {
+      "locator": "[data-content-id=\"cit36\"]",
+      "sourceSubtreeSha256": "80b508629ce004da7b38acc34f72311a4a314a0fc34c88778f0554b093e7d73f"
+    },
+    {
+      "locator": "[data-content-id=\"cit37\"]",
+      "sourceSubtreeSha256": "48473f6b232ce78859936fcad2001ba23cc7767d759d92c17e13fb10b142259b"
+    },
+    {
+      "locator": "[data-content-id=\"cit38\"]",
+      "sourceSubtreeSha256": "a2e329acff557301e8e2d632226e191f65bac52b60be8a57c3ff2b621875c9a3"
+    },
+    {
+      "locator": "[data-content-id=\"cit39\"]",
+      "sourceSubtreeSha256": "440be5393eecbcebb4fa3ff9ce9b8e6b752cce346ef31386883ff6f17e1adc68"
+    },
+    {
+      "locator": "[data-content-id=\"cit40\"]",
+      "sourceSubtreeSha256": "5e9aef3d42fd7c6ebfad1f9d376e5969013d5e74a91b2aa32eaebe239526d995"
+    },
+    {
+      "locator": "[data-content-id=\"cit41\"]",
+      "sourceSubtreeSha256": "b1154de5b8ee641c299ea72a07786c48cacb28da960e40f2eabf0501843be304"
+    },
+    {
+      "locator": "[data-content-id=\"cit42\"]",
+      "sourceSubtreeSha256": "d6d2bed97401c790d4c329144bddb78fef97eb266525c710128594fc55852a2b"
+    },
+    {
+      "locator": "[data-content-id=\"cit43\"]",
+      "sourceSubtreeSha256": "abec08f5d789707b83da44108217b578ee1dec6fd508f801846b1c41df09fa4e"
+    },
+    {
+      "locator": "[data-content-id=\"cit44\"]",
+      "sourceSubtreeSha256": "ef6f5e90716f8fab337b804da250d460bfba426d64cfc48277010463060e6860"
+    },
+    {
+      "locator": "[data-content-id=\"cit45\"]",
+      "sourceSubtreeSha256": "e6c631cb5d55b23694e9b92d149577017e0c2a8403d63aa39ac82194e0c24e1e"
+    },
+    {
+      "locator": "[data-content-id=\"cit46\"]",
+      "sourceSubtreeSha256": "5811ebcc5c1d5bca7371f76e9c8ff75a72df43e07b14132620be39e851b37a70"
+    },
+    {
+      "locator": "[data-content-id=\"cit47\"]",
+      "sourceSubtreeSha256": "3c8393b63559d4ca2f065986ff5da606e294d9b4bf3cc3b475684bdd2241a931"
+    },
+    {
+      "locator": "[data-content-id=\"cit48\"]",
+      "sourceSubtreeSha256": "72e71bc1998bcc44600a32f699531899b8ac1233734dd8057a3d686b5cb5faa0"
+    },
+    {
+      "locator": "[data-content-id=\"cit49\"]",
+      "sourceSubtreeSha256": "ff070c1c7531eabf520ff8672b01d4cb3ddf947712351c9ec584bb696d2045ee"
+    },
+    {
+      "locator": "[data-content-id=\"cit50\"]",
+      "sourceSubtreeSha256": "6ddec2dfa7651d26ccff8dd064772ab90149807a4f5d073089b23fedf8095656"
+    },
+    {
+      "locator": "[data-content-id=\"cit51\"]",
+      "sourceSubtreeSha256": "b566d1aba2b879c2a5b48590d9fd4a3dc380626545f6cd02e2633e36d5280720"
+    },
+    {
+      "locator": "[data-content-id=\"cit52\"]",
+      "sourceSubtreeSha256": "742ecb3c4265c209b7f9edbd2c6d43e8d95dda441c79f389dd786739a489731d"
+    },
+    {
+      "locator": "[data-content-id=\"cit53\"]",
+      "sourceSubtreeSha256": "a56f467aa09114a519402d61043ed49b8339dc5eac395d3d71828128498288ec"
+    },
+    {
+      "locator": "[data-content-id=\"cit54\"]",
+      "sourceSubtreeSha256": "205e4d82c204d0b2fdc08b1e71894746e9172dc85849fecbf6ea3868060ebf5a"
+    },
+    {
+      "locator": "[data-content-id=\"cit55\"]",
+      "sourceSubtreeSha256": "88a1e29d8114741c0542e223f31872d859dcdb7efbe3a995fcd101ac4e92d4db"
+    },
+    {
+      "locator": "[data-content-id=\"cit56\"]",
+      "sourceSubtreeSha256": "98f23b4bfd8fd130bb4bacf9999732f101cdaef015a84ae48fcc066dcfd96214"
+    },
+    {
+      "locator": "[data-content-id=\"cit57\"]",
+      "sourceSubtreeSha256": "f9e49835f6bd0fcd7fa095e99e7e201f2ce301971d6773e408adf74c487f7274"
+    },
+    {
+      "locator": "[data-content-id=\"cit58\"]",
+      "sourceSubtreeSha256": "46de2ff24fcb94c31281dc6d5afe49b869b22eb28ee2c6aaedbd9a495e01559c"
+    },
+    {
+      "locator": "[data-content-id=\"cit59\"]",
+      "sourceSubtreeSha256": "6697e529023e9970642b2527e3321ba825070abc167b0c2a099a2b1afe0a4717"
+    },
+    {
+      "locator": "[data-content-id=\"cit60\"]",
+      "sourceSubtreeSha256": "e81a6c820d25d7aacb8abe826db978d0bc282e52518b397b157728593d0cf7a9"
+    },
+    {
+      "locator": "[data-content-id=\"cit61\"]",
+      "sourceSubtreeSha256": "1cb49d56943b8100ea8a032375c0c00cb124d1673a6c7d9ca53ae8963d42b555"
+    },
+    {
+      "locator": "[data-content-id=\"cit62\"]",
+      "sourceSubtreeSha256": "f1e9179a3bc91611f833789d8bd3221ad6d100d5fa3c9f78edacd9be99912f48"
+    },
+    {
+      "locator": "[data-content-id=\"cit63\"]",
+      "sourceSubtreeSha256": "2c3c08b4ad429841ec9c0021295371e3bd92472aea653e0e29d83399f1cc631a"
+    },
+    {
+      "locator": "[data-content-id=\"cit64\"]",
+      "sourceSubtreeSha256": "91ff9a7b7c51db42a3f526ae19e92fe5dbde52c813ea18c8ee4e7f04cf8f2d64"
+    },
+    {
+      "locator": "[data-content-id=\"cit65\"]",
+      "sourceSubtreeSha256": "20d5d69b80ca7751b1ab0811018a359b0478ad3c47b743660c17478953a91fa8"
+    }
+  ],
+  "sanitization": [
+    "Removed modal duplicates, figure controls, reference discovery links, scripts/inputs and event handlers",
+    "Removed signed CDN query parameters; asset bytes were not captured",
+    "Trimmed trailing line whitespace; hashes use LF line endings"
+  ],
+  "omissions": [
+    "Most prose, figures, references, graphical abstract, footnotes, supplements and author panels omitted; this is an excerpt, not a complete article"
+  ],
+  "expected": {
+    "title": "IR spectroscopic characterization of [M,C,2H]+ (M = Ru and Rh) products formed by reacting 4d transition metal cations with oxirane: Spectroscopic evidence for multireference character in RhCH2+",
+    "authors": [
+      "Wensink, Frank J.",
+      "Smink, Corry E.",
+      "Stevenson, Brandon C.",
+      "Steele, Ryan P.",
+      "Bakker, Joost M.",
+      "Armentrout, P. B."
+    ],
+    "journal": "Physical Chemistry Chemical Physics",
+    "doi": "10.1039/d4cp00012a",
+    "headings": [
+      "Introduction",
+      "Methods",
+      "Experimental",
+      "Computational",
+      "Results & discussion",
+      "IR spectroscopy of RuCH2+",
+      "IR spectroscopy of RhCH2+",
+      "EOM-SF-CCSD results for RhCH2+",
+      "DFT performance for prediction of M–C stretch vibrational intensities",
+      "Group 8 and 9 trends: carbene versus hydrido carbyne structures",
+      "Conclusion",
+      "Conflicts of interest",
+      "Acknowledgements"
+    ],
+    "figures": [
+      {
+        "id": "fig1",
+        "label": "Fig. 1",
+        "caption": "(a) Experimental IRMPD spectrum of [Ru,C,2H]+, the black trace is the average of four scans, the red trace is a single scan; (b)–(h) B3LYP/def2-TZVPPD calculated IR spectra of different [Ru,C,2H]+ states and isomers with the harmonic vibrations in red and the rovibrational envelopes in black accompanied by geometric structure, relative energy, and electronic state."
+      },
+      {
+        "id": "fig5",
+        "label": "Fig. 5",
+        "caption": "Constrained potential energy curves along the metal–carbon distance in RhCH2+ in C2v symmetry, as calculated at the EOM-SF-CCSD/cc-pVTZ-PP level of theory. Solid (dashed) lines depict the lowest-energy (first excited) state of each symmetry. The structure was optimized in the lowest state of A1 symmetry, and all other state energies represent vertical excitations at the same structure. Spin and symmetry labels for each state, corresponding to the assignments at the 1A1 minimum geometry, are provided for each curve. [The symmetry labels for the B1 and B2 states are reversed from the Q-Chem outputs, in order to align with the symmetry-axis conventions of Gaussian computations in the remainder of this work.]"
+      }
+    ],
+    "tables": [
+      {
+        "id": "tab1",
+        "parts": 1,
+        "rows": [
+          7
+        ],
+        "caption": "Fragmentation channels and dissociation energies (D0) of the lowest energy [M,C,2H]+ species"
+      },
+      {
+        "id": "tab2",
+        "parts": 1,
+        "rows": [
+          43
+        ],
+        "caption": "Experimental band positions and strengths (s = strong, m = medium) accompanied by theoretical calculated frequencies, intensities, and descriptions for the assigned structures"
+      },
+      {
+        "id": "tab3",
+        "parts": 1,
+        "rows": [
+          20
+        ],
+        "caption": "Energies of [Ru,C,2H]+ and [Rh,C,2H]+ species calculated at the EOM-SF-CCSD/cc-pVTZ-PP level of theory. EOM-SF-CCSD(fT) energies are provided in square brackets"
+      },
+      {
+        "id": "tab4",
+        "parts": 1,
+        "rows": [
+          5
+        ],
+        "caption": "Theoretical energies (eV) of HMCH+ species relative to the most stable MCH2+ carbene"
+      }
+    ],
+    "equations": [],
+    "referenceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65
+    ],
+    "referenceDois": [
+      "10.1016/j.jorganchem.2004.07.034",
+      "10.1016/j.cbpa.2009.02.008",
+      "10.1002/anie.v44:16",
+      "10.1021/cr900183p",
+      "10.1007/s10562-014-1387-1",
+      "10.1021/ic00317a024",
+      "10.1021/ja00183a014",
+      "10.1021/j100174a057",
+      "10.1021/ja00007a070",
+      "10.1021/jp991665u",
+      "10.1021/ja010382o",
+      "10.1021/jp052732p",
+      "",
+      "10.1021/jp070855z",
+      "10.1021/jp900671c",
+      "10.1002/cplu.v78.9",
+      "10.1002/chem.v23.1",
+      "10.1021/jp400305k",
+      "10.1063/1.5016820",
+      "10.1016/j.jms.2021.111472",
+      "10.1021/acs.inorgchem.2c01328",
+      "10.1007/s13361-018-1929-7",
+      "10.1021/om00017a050",
+      "10.1021/ja00394a051",
+      "10.1021/j100308a024",
+      "10.1021/ja00210a017",
+      "10.1021/j100316a040",
+      "10.1021/j100336a009",
+      "10.1021/ja00193a015",
+      "10.1016/0168-1176(89)83003-4",
+      "10.1021/j100022a024",
+      "10.1021/j100027a016",
+      "",
+      "",
+      "10.1039/B500639M",
+      "10.1021/jp056804o",
+      "10.1016/j.ijms.2016.05.003",
+      "10.1021/jp027820d",
+      "10.1021/ic00324a004",
+      "",
+      "10.1021/ja00141a022",
+      "10.1021/ja00307a007",
+      "10.1021/j100118a022",
+      "10.1021/jp981291p",
+      "",
+      "10.1063/5.0024675",
+      "10.1063/1.469535",
+      "10.1002/(SICI)1098-2787(1998)17:1%3C%3E1.0.CO;2-R",
+      "",
+      "10.1063/1.464913",
+      "10.1103/PhysRevB.37.785",
+      "10.1039/b508541a",
+      "10.1080/01442350600785490",
+      "10.1021/acs.jpca.9b08049",
+      "10.1016/j.ijms.2018.10.007",
+      "10.1021/acs.jpca.6b05361",
+      "10.1103/PhysRev.46.618",
+      "10.1146/physchem.1981.32.issue-1",
+      "10.1016/S0009-2614(01)00287-1",
+      "10.1021/ar0402006",
+      "10.1063/1.2647019",
+      "10.1063/1.456153",
+      "",
+      "10.1021/j100026a004",
+      "10.1039/b926429a"
+    ]
+  }
+}
