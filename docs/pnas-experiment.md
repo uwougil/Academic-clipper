@@ -8,6 +8,8 @@
 
 隔离分支 `codex/experimental-pnas` 从已通过 Main CI 的 main `5971ebfbe288e0efed4abef21469f41e2cabb05f` 创建。用户授权隔离实验；不修改 PRD/EDD、不启用全局 publisher router、不扩展 extension 权限、不修改 corpus schema/live verifier/security guard。
 
+交付前 main 已接受 Wiley/APL 实验，遂 rebase 到已通过 Main CI 的 `1597cc2ebf6d92ab24bb243f77230a1e9cc18641`（run `37111979056`）。仅 `.gitattributes` 发生冲突，保留 AIP 与 PNAS 的两条 scoped LF rules；重新阅读已合入 PRD/EDD 的 APL 例外，保留其 route/intent。本 PNAS diff 不新增默认 routing 或更改已接受实现。
+
 实现为 `src/adapters/pnas.mjs` 和 `src/pnas-clip.mjs`。唯一 shared source 修改是导出已有 `referencesMarkdown()`；复用 Defuddle HTML→Markdown、academic normalizers、renderer、validators 和 writer。
 
 ## 当前平台与真实 DOM family
@@ -78,6 +80,7 @@ Windows Node `v24.14.1`。最终命令/精确结果/PR CI 记录于 Draft PR del
 
 - `npm ci`：exit 0，65 packages，0 vulnerabilities（隔离 worktree 初始化）。
 - `node --test test/pnas.test.mjs`：exit 0，16/16 pass，0 fail/cancelled/skipped/todo。
-- `npm test`：exit 0，126/126 pass，0 fail/cancelled/skipped/todo，11,953.5386 ms。
+- `npm test`（初始基线）：exit 0，126/126 pass，0 fail/cancelled/skipped/todo，11,953.5386 ms。
+- rebase 后完整 `npm test`：169/169 pass，0 fail/cancelled/skipped/todo，14,095.5382 ms；首次执行为 168 pass/1 fail，既有 launcher 第 1 个启动测试偶发 10s timeout（23,075.8361 ms），未经代码改动完整重跑通过。
 - `npm run build`：exit 0；输出为 ignored `dist/extension/`。
 - `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto`：exit 0；所有 validators valid，250 inline/13 display math、50 reference definitions。

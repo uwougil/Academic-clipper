@@ -10,6 +10,11 @@ import { referencesBib } from '../src/clip.mjs';
 const manifest = JSON.parse(await readFile(new URL('./fixtures/pnas/manifest.json', import.meta.url), 'utf8'));
 const fixtures = new Map(await Promise.all(manifest.map(async (entry) => [entry.file.replace('.html', ''), { ...entry, html: await readFile(new URL(`./fixtures/pnas/${entry.file}`, import.meta.url), 'utf8') }])));
 const clip = (id, citationStyle = 'markdown') => clipPnas({ ...fixtures.get(id), citationStyle });
+const abstractEvidence = {
+  '2400689121': 'Social reputations facilitate cooperation: those who help others gain a good reputation',
+  '2318124121': 'There is much excitement about the opportunity to harness the power of large language models',
+  '1319030111': 'we metaanalyzed 225 studies that reported data on examination scores or failure rates',
+};
 
 test('PNAS source excerpts have recorded hashes, actual source topology and no executable captures', () => {
   for (const fixture of fixtures.values()) {
@@ -54,6 +59,7 @@ for (const id of fixtures.keys()) for (const style of ['markdown', 'links', 'qua
     for (const name of ['mathValidation', 'markdownStructure', 'rawHtmlValidation', 'crossReferenceValidation']) assert.equal(result.debug[name].valid, true, `${name}: ${JSON.stringify(result.debug[name])}`);
     assert.doesNotMatch(result.markdown, /ACADEMICCLIPPER|No alternative text available|Sign up for PNAS alerts|Google Scholar|Expand All|EXPAND FOR MORE|Open .* in Viewer|View all articles by/u);
     assert.equal((result.markdown.match(/^## Abstract(?: \{#sec-abstract\})?$/gmu) || []).length, 1);
+    assert.ok(result.markdown.includes(abstractEvidence[id]), 'Actual source abstract prose must survive conversion.');
     assert.equal((result.markdown.match(/^## Significance(?: \{#sec-significance\})?$/gmu) || []).length, 1);
     assert.equal((result.markdown.match(/^## References$/gmu) || []).length, 1);
     assert.equal((result.markdown.match(/!\[/gu) || []).length, result.figures.length);
