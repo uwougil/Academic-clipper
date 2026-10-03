@@ -3,3 +3,4 @@
 # Source excerpts preserve publisher whitespace; hashes require LF on every platform.
 test/fixtures/aip/*.html text eol=lf whitespace=-blank-at-eol
 test/fixtures/pnas/*.html text eol=lf
+test/fixtures/sciopen/** text eol=lf

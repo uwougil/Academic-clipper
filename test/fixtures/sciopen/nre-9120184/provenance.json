@@ -1,0 +1,45 @@
+{
+  "url": "https://www.sciopen.com/article/10.26599/NRE.2025.9120184",
+  "observedAt": "2026-10-02",
+  "captureMode": "public-rendered-dom-selected-blocks",
+  "recipe": "sanitize-sciopen-experiment-v2",
+  "selectedInputSha256": "2590dca83b6d103156f39abb4223049a51eda227dd09ebf7d81270f3f4291e65",
+  "fixtureSha256": "bdbb10e11542e6c84bf90e0074166d4c7c75d7b18ebccbad21e15b116f33b94a",
+  "retained": [
+    {
+      "selector": "#title_-2",
+      "selectedSourceSha256": "c2b3961f2af3aa39c5d09e60951cad13ed5fae4acf48daa330f9f4a304cf599b"
+    },
+    {
+      "selector": "#s04-09",
+      "selectedSourceSha256": "63e2dc6d2880b8dca003dca85fda3ca680c415798c9cb26a35670aeda96e54d7"
+    },
+    {
+      "selector": "#title_-11",
+      "selectedSourceSha256": "00d662e16837a2f0dd98bb9a067a385f969f88aba4b42b6be194875655bfa05b"
+    },
+    {
+      "selector": "#insert_content_two",
+      "selectedSourceSha256": "a84df8a96c23c5f7436cfd77e836a0478c26bb8f0bf264bf9ddedf50fc2da8d8"
+    }
+  ],
+  "fullPageObservations": {
+    "figures": 7,
+    "formulas": 15,
+    "tables": 0
+  },
+  "transformations": [
+    "fixed html scaffold",
+    "selected first introduction paragraph / figure-crossref and Greek-subscript results paragraphs with one figure",
+    "related journal retains first display equation and adjacent prose",
+    "retain only data availability from back matter",
+    "replace MathJax duplicate rendering with original accessible MathML",
+    "remove event handlers, styles and executable scripts",
+    "remove image URL query including access signatures; unsigned URL is a locator, not verified downloadable media"
+  ],
+  "omissions": [
+    "other paragraphs and figures",
+    "author UI and account/navigation state",
+    "PDF contents and ESM download handlers"
+  ]
+}
