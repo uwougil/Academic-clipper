@@ -157,6 +157,7 @@ export function parseWileyPage(html, url) {
     addTarget(wrapper.id, { type: 'table', label, anchor }); wrapper.remove();
   }
   // Freeze TeX before Defuddle. Lazy/empty MathJax must use its real image URL.
+  let displayEquationCount = 0;
   for (const [index, equation] of Array.from(body.querySelectorAll('.inline-equation')).entries()) {
     const annotation = equation.querySelector('annotation[encoding="application/x-tex"],script[type^="math/tex"]');
     let tex = (annotation?.textContent || '').trim();
@@ -165,13 +166,15 @@ export function parseWileyPage(html, url) {
       .replace(/^\\begin\{equation\*?\}([\s\S]*)\\end\{equation\*?\}$/u, '$1').trim();
     const label = text(equation.querySelector('.inline-equation__label')?.textContent);
     const display = Boolean(label || equation.querySelector('math[display="block"]'));
+    const displayNumber = display ? ++displayEquationCount : null;
+    const equationLabel = label.replace(/^\((.*)\)$/u, '$1').trim() || displayNumber || index + 1;
     if (tex) {
       const group = display ? semantic.displayMath : semantic.inlineMath;
       const marker = semanticMarker(display ? 'DISPLAYMATH' : 'INLINEMATH', group.length);
       group.push({ marker, tex });
       if (display) {
-        const anchor = `equation-${index + 1}`;
-        addTarget(equation.id, { type: 'equation', label: `Equation ${label || index + 1}`, anchor });
+        const anchor = `equation-${slug(equationLabel) || displayNumber}`;
+        addTarget(equation.id, { type: 'equation', label: `Equation ${equationLabel}`, anchor });
         equation.before(markerParagraph('EQUATIONANCHOR', anchor));
       }
       equation.textContent = marker;
@@ -179,9 +182,9 @@ export function parseWileyPage(html, url) {
       const imageUrl = absolute(equation.querySelector('[data-altimg]')?.getAttribute('data-altimg') || '');
       const replacement = document.createElement(display ? 'p' : 'span');
       if (imageUrl) {
-        const image = document.createElement('img'); image.src = imageUrl; image.alt = `Equation ${label || index + 1} (image fallback)`; replacement.append(image);
-      } else replacement.textContent = `Equation ${label || index + 1} unavailable in supplied DOM.`;
-      warnings.push(`Equation ${label || index + 1}: no source TeX; ${imageUrl ? 'retained remote image fallback' : 'unavailable'}.`);
+        const image = document.createElement('img'); image.src = imageUrl; image.alt = `Equation ${equationLabel} (image fallback)`; replacement.append(image);
+      } else replacement.textContent = `Equation ${equationLabel} unavailable in supplied DOM.`;
+      warnings.push(`Equation ${equationLabel}: no source TeX; ${imageUrl ? 'retained remote image fallback' : 'unavailable'}.`);
       equation.replaceWith(replacement);
     }
   }

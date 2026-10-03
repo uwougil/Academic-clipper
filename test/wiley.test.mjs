@@ -85,6 +85,44 @@ test('Wiley preview is refused unless explicitly requested as incomplete', async
   const { html, provenance } = await fixture('adfm');
   await assert.rejects(clipWiley({ html, url: provenance.url }), /full content absent/u);
 });
+for (const citationStyle of ['markdown', 'links', 'quarto']) {
+  test(`Synthetic inline equation does not shift display crossrefs: ${citationStyle}`, async () => {
+    const { html, provenance } = await fixture('smll-expanded');
+    const dom = new JSDOM(html); const { document } = dom.window;
+    const display = document.querySelector('.inline-equation');
+    const paragraph = document.createElement('p');
+    paragraph.innerHTML = '<span class="inline-equation"><math><annotation encoding="application/x-tex">x=1</annotation></math></span> precedes the numbered display equation.';
+    display.before(paragraph);
+    const later = display.cloneNode(true); later.id = 'synthetic-equation-7';
+    later.querySelector('.inline-equation__label').textContent = '(7)';
+    const unnumbered = display.cloneNode(true); unnumbered.id = 'synthetic-unnumbered';
+    unnumbered.querySelector('.inline-equation__label').remove();
+    unnumbered.querySelector('math').setAttribute('display', 'block');
+    const links = document.createElement('p');
+    links.innerHTML = `<a href="#${display.id}">Equation 1</a>, <a href="#${later.id}">Equation 7</a>, <a href="#${unnumbered.id}">Equation 3</a>.`;
+    display.after(later, unnumbered, links);
+    const variant = document.documentElement.outerHTML;
+    const page = parseWileyPage(variant, provenance.url);
+    assert.equal(page.semantic.inlineMath.length, 1);
+    for (const [id, number] of [[display.id, 1], [later.id, 7], [unnumbered.id, 3]]) {
+      assert.deepEqual(page.semantic.crossReferences.get(id), { type: 'equation', label: `Equation ${number}`, anchor: `equation-${number}` });
+    }
+    const result = await clipWiley({ html: variant, url: provenance.url, citationStyle });
+    assert.match(result.markdown, /\$x=1\$/u);
+    assert.ok(result.debug.validations.crossrefs.valid);
+    for (const number of [1, 7, 3]) {
+      if (citationStyle === 'markdown') {
+        assert.ok(result.markdown.includes(`Equation ${number}`));
+        assert.doesNotMatch(result.markdown, /\]\(#(?:eq-)?equation-/u);
+      } else {
+        const anchor = `${citationStyle === 'quarto' ? 'eq-' : ''}equation-${number}`;
+        assert.ok(result.markdown.includes(`[Equation ${number}](#${anchor})`));
+        assert.ok(result.markdown.includes(citationStyle === 'quarto' ? `{#${anchor}}` : `<a id="${anchor}"></a>`));
+      }
+    }
+    assert.doesNotMatch(result.markdown, /(?:id="equation-2"|\{#eq-equation-2\}|\]\(#(?:eq-)?equation-2\))/u);
+  });
+}
 test('Wiley URL and identity boundaries reject foreign hosts, journals and mismatched DOI', async () => {
   for (const url of ['http://onlinelibrary.wiley.com/doi/10.1002/advs.1', 'https://onlinelibrary.wiley.com.evil.test/doi/10.1002/advs.1', 'https://user@onlinelibrary.wiley.com/doi/10.1002/advs.1', 'https://onlinelibrary.wiley.com/doi/pdf/10.1002/advs.1']) assert.equal(wileyDoiFromUrl(url), '');
   const { html, provenance } = await fixture('advs');

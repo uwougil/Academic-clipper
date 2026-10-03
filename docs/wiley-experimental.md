@@ -53,15 +53,19 @@ Source input 是临时目录内的 selected blocks，不提交完整 raw/cleaned
 
 `node --test test/wiley.test.mjs` 包含三方言 conversion + production validators、metadata/affiliations/日期、section hierarchy、原 TeX、chemical/unit formatting、caption/image source、7-column merged-header table cells、AEM citation ranges（1–3、4–9 等）、bibliography/Quarto keys、实际 Figure 1 crossref、supplement/data statement、preview/identity gates、A→B→A determinism 与零 fetch。缺表格/缺bibliography 是明确 synthetic variants，不能当作新增真实页面覆盖。
 
-## 已知失败与 merge blockers
+## 已知失败与后续集成边界
 
-- 未接入 production 保存/预览入口。正式 Wiley 支持需要明确 PRD/EDD intent resolution 与集成决策；本 PR 不自行修改这些语义。
+- 本 PR 是隔离的实验性实现，不启用 Wiley production routing。Production enablement 与 PRD/EDD intent expansion 是后续独立 integration Work Contract 的 blockers，不是合并本实验实现的 blockers；本 PR 不修改 PRD/EDD 或 production routing。合并仍要求 required PR CI 成功及 review 接受本实验范围与已知限制。
 - 只验证四篇研究文章及一个 editorial；没有 AFM 可公开全文 fixture，没有完整 subscription-authenticated capture。AFM preview 证明访问边界，不证明完整 subscription page parser。
 - 初始或未 expanded 的 MathJax 可能没有原 TeX。此时使用真正的远程 equation image 并 warning；没有 image 时明确 unavailable。不会用空 MathML 或 OCR 冒充可靠公式。
 - References/table overlays 尚未加载时不会 fetch；缺 references 的 citations 保留 public links 并 warning。没有 renderer/headless 等待器或 access automation。
 - 单独的 MathML、特殊 inline equation wrappers、复杂 table footnotes、多个 corresponding emails、received/accepted history 等未形成 source-backed coverage。Meta dates 目前仅 online/publication。没有承诺这些变体。
 - 图号使用 retained DOM order 的稳定 anchors；输出没有本地资源下载的 live 验证。Unknown same-article targets 回到 absolute source links。未验证所有补充/数据 endpoint 能下载。
 - Defuddle 缓存其首次 DOMParser；不能关闭该初始 window 后再调用 converter。此处沿用 Nature 生命周期，A→B→A 测试保护转换隔离；没有重构 shared runtime。
-- Fixture source 是 DOM excerpt，不符合尚未落地的 #10 HTTP-response provenance 全契约；需要 integrator 决定 browser capture provenance admission。
+- Wiley-specific provenance 仅是 experimental evidence，不能成为 shared corpus contract。未来 multi-publisher corpus integration 必须与 Issue #10 Agent A H1 infrastructure 对齐并协调 browser capture provenance admission；DOM excerpt 不能冒充 HTTP-response provenance。
+
+架构交接：`src/adapters/wiley-clip.mjs` 当前从 `src/clip.mjs` 导入 shared rendering helpers。将来不能直接把 `clipWiley()` 接回 `clip.mjs`，必须先避免由反向 import 形成的 dependency cycle。这是未来 Publisher Adapter Contract / integration concern；本 PR 不重构 shared architecture。
+
+Display-equation anchors 优先采用真实 label（去掉外层括号），缺 label 时采用专门的 display-equation counter；先出现的 inline equations 不参与 display 编号。Synthetic regression 在 inline equation 后保留 Equation (1)，另检查非连续 label (7) 与无 label display 的 counter，并验证 markdown/links/quarto cross-reference semantics。这是回归保护，不增加 source-backed 页面覆盖。
 
 Shared-contract 问题（仅提案）：publisher-local entry point 如何进入 production routing；metadata/access/completeness/warning taxonomy；跨host同 DOI fragment 如何归一化；excerpt capture 的 browser-vs-HTTP provenance；动态 expansion 是否由 browser capture 层处理；references rendering 目前需小量 publisher-local glue，何时共享。没有 universal base class、global router/manifest 或 common live verifier 改动。
