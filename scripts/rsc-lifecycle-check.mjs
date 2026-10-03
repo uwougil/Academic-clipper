@@ -64,6 +64,23 @@ try {
     assert.equal(failCaption, false); restored();
     await run(name); restored();
   }
+  // Parser failures happen before clipRsc's conversion try/finally. Check both
+  // early admission and late citation extraction through the real clip entry.
+  const provenance = JSON.parse(await readFile(new URL('../test/fixtures/rsc/d4cp00788c.json', import.meta.url), 'utf8'));
+  const html = await readFile(new URL('../test/fixtures/rsc/d4cp00788c.html', import.meta.url), 'utf8');
+  for (const [rejectedHtml, message] of [
+    [html.replace('<link rel="canonical" href="', '<link rel="canonical" href="https://pubs.rsc.org/cp/article/other/'), /identity/],
+    [html.replace('widget-ArticleFulltext', 'missing-fulltext'), /unavailable/],
+    [html.replace('data-modal-source-id="cit1 cit2"', 'data-modal-source-id="cit999"'), /Unresolved RSC citation/],
+  ]) {
+    assert.notEqual(rejectedHtml, html);
+    const before = records.length;
+    await assert.rejects(() => clips.rsc({ html: rejectedHtml, url: provenance.url, citationStyle }), message);
+    restored();
+    assert.equal(records.length, before + 1, 'rejected parser creates one article window');
+    assert.equal(records.at(-1).closes, 1, 'rejected parser closes its window exactly once');
+  }
+  await run('rsc'); restored();
   assert.ok(records.some(record => record.publisher === 'rsc'));
   for (const record of records) assert.equal(record.closes, 1, `${record.publisher} article window must close exactly once`);
   console.log(JSON.stringify({ order, citationStyle, articleWindows: records.length, heapUsed: process.memoryUsage().heapUsed }));
