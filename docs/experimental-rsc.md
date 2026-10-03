@@ -62,8 +62,8 @@ Provenance 保存实际 URL、capture time、DOM serialization hash、retained l
 
 Exact changed shared files：**无**。PRD/EDD、README、package.json、CI、production router/fetch/bridge/security/writer、shared normalizers、Nature adapter/golden/corpus 均未改。
 
-最小集成提案（未实施）：integrator 决定 `src/clip.mjs` dispatch、`src/cli.mjs` / `src/article-fetch.mjs` RSC URL 与逐跳 identity scope、writer 保存 bibliography/图片；维持 DNS/redirect/size/type 及事务写入边界。正式支持须人类解决 Nature-only PRD/EDD。无 universal Publisher class、router redesign、common verifier 或 shared normalizer API 提案。
+最小集成提案（未实施）：integrator 决定 `src/clip.mjs` 的有限 adapter dispatch；`src/bridge.mjs` 与 `src/cli.mjs` 的 `clipNature()` 调用点转向该 dispatch；CLI admission 和 `src/article-fetch.mjs` 添加 RSC URL/逐跳 identity scope；writer 保存实验返回的 bibliography/图片。维持 loopback/Origin/token、DNS/redirect/size/type 及事务写入边界。正式支持须人类解决 Nature-only PRD/EDD。无 universal Publisher class、router redesign、common verifier 或 shared normalizer API 提案。
 
-Shared seam 观察：cached Defuddle 保留首个 DOMParser realm，关闭该 window 会破坏后续转换；本入口遵循既有 Nature pipeline lifetime，不修改 shared API。统一 realm 回收应由独立集成工作处理。
+Shared seam 观察：cached Defuddle 保留首个 DOMParser realm，关闭该 window 会破坏后续转换。实验入口只保留首个 realm，转换后关闭后续 article windows，逐子表转换之间让出 event loop，使 shared converter 创建的 jsdom WeakRefs 可回收；不修改 shared API。初始 CI run 37133335515 的 RSC test worker 遇到 2 GiB heap OOM，修复 lifetime 后追加 `node --max-old-space-size=512 --test test/rsc.test.mjs`，26 passed。不以提高 CI heap 或修改全局测试配置掩盖问题。统一 converter realm 回收仍应由独立集成工作处理。
 
 Merge blockers：Draft review 与最终 head CI；production routing、fetch 可用性、离线资产、正式 publisher intent resolution 是后续集成边界，不将此实验当作正式产品支持。Issue #28 保持 open，交给 AGENTS 的 Main CI 协议；只用 `Refs #28`，不 auto-close。

@@ -19,7 +19,8 @@ for (const [id, { html, provenance: p }] of fixtures) {
     assert.equal(p.responseSha256, null); // DOM serialization is not HTTP bytes.
     assert.ok(p.retained.length > 5);
     assert.doesNotMatch(html, /Signature=|Key-Pair-Id=|<script|<input|onetrust/iu);
-    const source = new JSDOM(html).window.document;
+    const sourceDom = new JSDOM(html);
+    const source = sourceDom.window.document;
     const page = parseRscPage(html, p.url);
     try {
       for (const field of ['title', 'authors', 'journal', 'doi']) assert.deepEqual(page.metadata[field], p.expected[field]);
@@ -27,11 +28,16 @@ for (const [id, { html, provenance: p }] of fixtures) {
       assert.deepEqual(page.references.map((r) => r.doi), p.expected.referenceDois);
       assert.deepEqual([...page.semantic.crossReferences.values()].filter((t) => t.type === 'section').map((t) => t.label), p.expected.headings);
       assert.deepEqual(page.figures.map((f) => f.label), p.expected.figures.map((f) => f.label));
+      assert.deepEqual(page.figures.map((f) => f.caption), p.expected.figures.map((f) => f.caption));
       assert.equal(page.tables.length, p.expected.tables.length);
       for (let i = 0; i < page.tables.length; i++) {
         const actual = page.tables[i], expected = p.expected.tables[i];
         assert.equal(actual.tableParts.length, expected.parts);
-        assert.deepEqual(actual.tableParts.map((part) => new JSDOM(part.tableHtml).window.document.querySelector('table').rows.length), expected.rows);
+        assert.deepEqual(actual.tableParts.map((part) => {
+          const tableDom = new JSDOM(part.tableHtml);
+          const rows = tableDom.window.document.querySelector('table').rows.length;
+          tableDom.window.close(); return rows;
+        }), expected.rows);
       }
       assert.deepEqual(page.equations.map((e) => e.imageOnly), p.expected.equations.map((e) => e.imageOnly));
       // Each source citation points to the original reference identity, including
@@ -39,7 +45,7 @@ for (const [id, { html, provenance: p }] of fixtures) {
       assert.equal(page.semantic.citations.length, source.querySelectorAll('.xref-bibr').length);
       for (const entry of page.semantic.citations) for (const n of entry.numbers) assert.ok(page.references.some((r) => r.number === n));
       assert.doesNotMatch(page.cleanedHtml, /xref-bibr|reveal-modal|table-modal/);
-    } finally { page.dom.window.close(); }
+    } finally { page.dom.window.close(); sourceDom.window.close(); }
   });
   for (const citationStyle of ['markdown', 'links', 'quarto']) test(`RSC ${id} renders and validates ${citationStyle}`, async () => {
     const result = await clipRsc({ html, url: p.url, citationStyle });

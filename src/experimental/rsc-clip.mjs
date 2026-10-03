@@ -11,6 +11,9 @@ import { validateMathDelimiters } from '../validators/math-delimiters.mjs';
 import { validateMarkdownStructure } from '../validators/markdown-structure.mjs';
 import { validateRawHtml } from '../validators/html-audit.mjs';
 import { validateCrossReferences } from '../validators/cross-references.mjs';
+import { setImmediate as yieldEventLoop } from 'node:timers/promises';
+
+let converterRealm;
 
 // Experimental direct entry point. No production routing, fetch or filesystem
 // effects. Keep assembly separate from DOM extraction and existing normalizers.
@@ -20,13 +23,20 @@ export async function clipRsc({ html, url, citationStyle = 'markdown' }) {
   const policy = outputPolicy(citationStyle);
   const finish = (md) => normalizeAnchorMarkers(normalizeCitations(normalizeAcademicInline(normalizeMath(md, page.semantic)), page.semantic.citations,
     { policy, references: page.references }), page.semantic.crossReferences.values(), { policy });
-  // Existing Defuddle caches its first DOMParser realm. Like clipNature, keep
-  // that realm alive; closing it breaks subsequent conversions in this process.
-  return await withDomGlobals(page.dom, async () => {
+  // Defuddle caches its first DOMParser realm. Retain that one realm, and close
+  // subsequent article windows after conversion rather than accumulating them.
+  converterRealm ||= page.dom;
+  try {
+    return await withDomGlobals(page.dom, async () => {
     await normalizeFigureCaptions(page.figures, url);
     for (const f of page.figures) f.captionMarkdown = finish(f.captionMarkdown);
     for (const t of page.tables) {
-      await normalizeTableContents(t.tableParts, url);
+      for (const part of t.tableParts) {
+        await normalizeTableContents([part], url);
+        // The shared converter creates DOM fragments per cell. Yield between
+        // parts so jsdom's WeakRefs can be collected on bounded CI heaps.
+        await yieldEventLoop();
+      }
       t.caption = finish(await htmlToMarkdown(t.captionHtml, url));
       t.markdown = finish([t.tableParts.map((p) => p.markdown || '').join('\n\n'), await htmlToMarkdown(t.notesHtml, url)].filter(Boolean).join('\n\n'));
     }
@@ -53,5 +63,9 @@ export async function clipRsc({ html, url, citationStyle = 'markdown' }) {
       crossReferenceValidation: validateCrossReferences(result.markdown, { dialect: policy.dialect, citationStyle, referencesBib: result.referencesBib }),
     };
     return result;
-  });
+    });
+  } finally {
+    if (page.dom !== converterRealm) page.dom.window.close();
+    await yieldEventLoop();
+  }
 }
