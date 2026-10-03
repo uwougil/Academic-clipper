@@ -5,7 +5,7 @@ import { existsSync, readFileSync, unlinkSync } from 'node:fs';
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { clipNature, writePaper } from './clip.mjs';
+import { clipArticle, writePaper } from './clip.mjs';
 import { ACADEMIC_CLIPPER_VERSION } from './version.mjs';
 
 const DEFAULT_PORT = 34123;
@@ -133,7 +133,7 @@ export function createBridgeServer(config) {
       if (typeof payload.html !== 'string' || typeof payload.url !== 'string') {
         throw new Error('The request must include html and url.');
       }
-      const result = await clipNature({
+      const result = await clipArticle({
         html: payload.html,
         url: payload.url,
         citationStyle: payload.citationStyle ?? config.citationStyle,

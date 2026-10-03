@@ -148,3 +148,10 @@ acquire same-process queue + cross-process lock
 ## 7. 变更约束
 
 任何新增 publisher、输出格式、外部服务、持久化系统或浏览器权限都必须先更新 PRD/EDD/milestone，并补充对应的安全与回归测试。普通修复应在现有边界内做最小增量修改。
+
+
+## Experimental APL 试点（用户授权，Issue #35）
+
+Nature 仍为正式支持范围。此次明确授权的例外仅为 AIP Publishing 的 Applied Physics Letters (APL) 实验性 DOM adapter，接受 `https://pubs.aip.org/aip/apl/article/<volume>/<issue>/<article-number>/<platform-id>/<slug>`。不自动扩大到全部 AIP journals。现有浏览器 DOM → loopback bridge → Defuddle → academic normalizers/validators → transactional writer 链路复用；CLI live fetch 仍仅支持 Nature。
+
+APL 的 Silverchair DOM 知识保留在 `src/adapters/aip.mjs`；`clipArticle()` 仅增加明确的 APL 分支并复用现有渲染阶段，不引入 adapter base、router redesign、global corpus 或 global live framework。公开响应中无主文时拒绝保存；不绕过 challenge、认证或订阅限制。受限 source-backed excerpts 和离线 tests 记录在 `test/fixtures/aip/`，安全边界、Nature golden 和 CI 矩阵保持既有契约。来源和未验证边界见 `docs/aip-apl-evidence.md`；本 Draft 不声明全面生产支持。
