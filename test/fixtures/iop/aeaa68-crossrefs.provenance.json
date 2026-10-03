@@ -1,0 +1,10 @@
+{
+  "sourceUrl": "https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68",
+  "observedAt": "2026-10-03",
+  "captureMode": "in-app-browser-rendered-dom",
+  "sourceSha256": null,
+  "retained": ["complete paragraph before projected transport equation", "source inline vector TeX", "equation 3 crossref", "computational-details and data headings", "complete data availability paragraph"],
+  "transformations": ["removed image fallback wrappers and namespace attributes", "selected blocks composed without claiming original adjacency"],
+  "omitted": ["equation 3 target and reference 88 deliberately omitted with other article content"],
+  "scope": "source crossrefs and data links; not a complete article"
+}

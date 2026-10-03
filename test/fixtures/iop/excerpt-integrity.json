@@ -1,0 +1,14 @@
+{
+  "scope": "publisher-local selected excerpts, not original response hashes",
+  "normalization": "UTF-8 text with CRLF normalized to LF",
+  "sha256": {
+    "025001-preview.excerpt.html": "a2e50fd26965d1f37174dfb67795719add29997bd0ca60e54aa11a469c5d7e4b",
+    "aeaa68-citations.excerpt.html": "4d07ed355678babb3ffdd644936407d24119e38378fd2daa3c05da83caa67aa8",
+    "aeaa68-crossrefs.excerpt.html": "9f8e2e1c2e2a1d4c23442e1738c7f7ca9869c7fa5e0d4202be736979bfeef7d3",
+    "aeaa68-figure.excerpt.html": "cdbcabd979155a1f4f5711ecfcc3d4a5085be087cb7f6440a6e7771823e2542e",
+    "aeaa68-math.excerpt.html": "39e563f7ad07492cfffd590c705c572a7ab8a0c357dc7ec4226313e8d45be371",
+    "aeaa68-units.excerpt.html": "34f40b32a1823afe31812c38848a11b9b8f59cac8412b77f645a63ae3f525d52",
+    "aeaa6b-references.excerpt.html": "58acb6df434e8b244ba4da07c7a30e7cc52f8fe83ed6952b00f7695790a7ec5d",
+    "aeaa6b-table.excerpt.html": "1a1ea65817bbf228b8373576d1c465b8eaa0ab04581856106346b543085fceb1"
+  }
+}

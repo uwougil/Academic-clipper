@@ -1,99 +1,59 @@
 # IOPscience / 2D Materials 实验
 
-状态：未完成，浏览器 DOM 采集已恢复；全文适配器与代表性 coverage 正在实现，不得集成或宣称支持。Work Contract：[Issue #29](https://github.com/uwougil/Academic-clipper/issues/29)。
+Work Contract：[Issue #29](https://github.com/uwougil/Academic-clipper/issues/29)。交付为独立 publisher-local 实验，生产 Nature 入口不变；不修改 PRD/EDD、universal router、base adapter、global corpus 或 live verifier。基线 accepted main `5971ebfbe288e0efed4abef21469f41e2cabb05f` 的 [Main CI 成功](https://github.com/uwougil/Academic-clipper/actions/runs/37037473932)，隔离分支 `codex/iop-2d-materials`。已读取 AGENTS、README、PRD/EDD、#26、#10 canonical corpus 文档以及 Nature adapter/pipeline/normalizers/validators/writer/security。
 
-## 浏览器来源更新（2026-10-02）
+## 实际检查的页面
 
-用户指出侧边浏览器可用后，重新读取现有 tab：`https://iopscience.iop.org/article/10.1088/2053-1583/1/2/025001` 已成功显示真实页面，含 citation metadata、13 位 authors 与相邻 `citation_author_institution`、摘要和公开 references 控件。`.wd-jnl-art-turn-away-panel` 明确说明当前机构未订阅，正文未提供。浏览器渠道可读取 DOM；下文早先 web/terminal 失败不代表 browser 当前状态。
-
-从该页真实 journal link 进入 `https://iopscience.iop.org/journal/2053-1583`，点击标记 Open Access 的 `https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68`，成功获得全文。其标题为 Tuning magnitude and direction of lattice thermal conductivity in transition metal dichalcogenide heterobilayers，authors 为 Elliot Perviz / Antonio Cammarata，`citation_online_date=2026/10/01`。已确认：
-
-- `.wd-jnl-art-full-text[itemprop=articleBody]` 包含正文；`h2/h3.header-anchor` 使用文章前缀 section IDs。
-- `.inline-eqn` 与 `.display-eqn` 保留 `script[type="math/tex"]` / `script[type="math/tex; mode=display"]` 的原 TeX，另有 image fallback 与渲染后 MathJax。不能同时转换这些重复表示。
-- `figure[data-toolbar-type=figure]` 包含嵌套 figure、caption 和 lazy image `data-src`，standard/high-resolution 链接指向 `content.cld.iop.org`。
-- `#tdmaeaa68t1` 是正文实际 HTML table，cells 中亦有 inline TeX；并非只提供外部 table link。
-- 正文 `a.cite` 指向 `bib*`，range 可用两端 links 与 intervening dash 表示。References 点击后显示 loading，再生成 `li[data-reference][id]` 与 `cite`、DOI/Crossref/backlink；故 references 至少在所观察 UI 中按需加载。
-- 页面显示 Supplementary data 和 Data availability statement，后者链接 `https://doi.org/10.5281/zenodo.19881818`。
-
-以上来自 rendered DOM。server-side response 完整性尚未确定，不能从已加载 DOM 推断。OA 与 subscription 差异已观察到 full-text root vs turn-away panel，但更多文章仍需调研。
-
-第二篇开放全文 `https://iopscience.iop.org/article/10.1088/2053-1583/aeaa6b`（Optomechanical method for characterizing thermal transport across suspended van der Waals interfaces）也从期刊页的 Open Access link 发现。其 full-text root 可用，4 个 display equations，两个 HTML tables 分别为 3 rows × 8 columns / 4 rows × 4 columns（包含 header row）。补充链接为 `/article/10.1088/2053-1583/aeaa6b/data`，data availability 表示数据包含在 article/supplementary files，区别于 aeaa68 的外部 Zenodo link。全文包含 2 个原生 sup、未见原生 sub，其他上下标通过 TeX 表示；这些是 full-page observations，尚非 excerpt tests。
-
-新增 `aeaa68-math.excerpt.html` / `aeaa68.provenance.json`：保留真实 head metadata 与首个 display equation 的来源种子；明确 scaffold、删除项、non-original adjacency、rendered DOM capture 与无 HTTP-byte hash 的限制。首个真实 identity test 通过；此 reduced excerpt 尚未承担完整结构 coverage。`citation_online_date` 已据来源加入 date precedence。后续需要更多实际 blocks、独立 source oracle、equation/figure/table/reference/crossref rendering tests，不能把 7/7 focused preflight tests 宣称为 full-text 验收。
-
-已加入 `extractIopMath()`，只提取实际 `.inline-eqn/.display-eqn` 内 script TeX，忽略 duplicate image/rendered MathJax；没有源 TeX 的 node 返回明确 warning，image-only reference equations 尚不转换。真实首个 equation 的 exact source TeX（含内部 whitespace 与 tag 1）断言通过；当前 focused tests 为 8/8。`parseIopPage()` 仍拒绝全文输出，待剩余 extraction/rendering/validation 完成。
-
-基线为 accepted main `5971ebfbe288e0efed4abef21469f41e2cabb05f`，对应 [成功 Main CI](https://github.com/uwougil/Academic-clipper/actions/runs/37037473932)。隔离 branch 为 `codex/iop-2d-materials`。已读取 AGENTS.md、README、PRD/EDD、Issue #26、Issue #10 canonical spec/execution plan 及 Nature adapter、Defuddle、normalizers、validators、writer 与安全边界。
-
-## 早期访问失败记录（2026-10-02，browser 更新前）
-
-下表记录访问尝试，不等于已检查文章全文 DOM。
-
-| 文章 URL | 渠道与结果 |
+| URL | 观察范围和访问情况 |
 | --- | --- |
-| https://iopscience.iop.org/article/10.1088/2053-1583/1/2/025001 | web reader：restricted URL；普通 in-app browser：`net::ERR_CONNECTION_CLOSED`；同文章 `/meta` guarded transport：DNS 安全拒绝 |
-| https://iopscience.iop.org/article/10.1088/2053-1583/3/3/031012 | web reader：not accessible；同文章 `/meta` guarded transport：DNS 安全拒绝 |
-| https://iopscience.iop.org/article/10.1088/2053-1583/ad77e0 | web reader：restricted URL；同文章 `/meta` guarded transport：DNS 安全拒绝 |
-| https://iopscience.iop.org/article/10.1088/2053-1583/ac5d0e | web reader：restricted URL |
-| https://iopscience.iop.org/article/10.1088/2053-1583/ae2b82 | web reader：restricted URL；从 IOP China 的真实 article link（带 utm 参数）点击同样拒绝 |
+| https://iopscience.iop.org/article/10.1088/2053-1583/1/2/025001 | Isolation and characterization of few-layer black phosphorus；公开 metadata、13 位作者、摘要和 references 控件；真实 `#wd-jnl-art-turn-away-panel` 说明未订阅，无 full-text root。只观察公开预览。 |
+| https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68 | Tuning magnitude and direction of lattice thermal conductivity in transition metal dichalcogenide heterobilayers；开放全文、CC BY 4.0；检查正文、图表、数学、数据声明及公开按钮加载的 88 条 references。 |
+| https://iopscience.iop.org/article/10.1088/2053-1583/aeaa6b | Optomechanical method for characterizing thermal transport across suspended van der Waals interfaces；开放全文、CC BY 4.0；4 个显示公式、4 幅图、两个原生表格；公开按钮加载 41 条 references。后续 reload 到验证码页，未操作 challenge。 |
+| https://iopscience.iop.org/journal/2053-1583 | 从真实期刊页标记 Open Access 的链接发现上述两篇开放文章。 |
 
-系统 `Resolve-DnsName iopscience.iop.org` 返回 `198.18.1.5`，处于既有 security.mjs 拒绝的 benchmark 地址范围。guarded transport 在 HTTP 之前拒绝，故未收到 article HTTP body、status 或 content type。未更换 resolver、覆写 IP、绕过 URL/DNS 检查、使用代理、登录或破解 challenge。
+未检查其他 IOP 期刊；以上结论只适用于观察到的 2D Materials 结构。早期 web/terminal 获取失败不代表浏览器不能读取：本机 DNS 返回 `198.18.1.5`，既有 `safeFetchExternal()` 在 HTTP 前拒绝该 benchmark 地址；未覆写 resolver、IP、安全规则或使用绕过渠道。`3/3/031012`、`ad77e0`、`ac5d0e`、`ae2b82` 曾尝试但没有 admitted publisher DOM，不作为成功样本。
 
-可访问的身份旁证：
+## DOM 与服务器 HTML 发现
 
-- [IOP China roadmap 介绍](https://china.ioppublishing.org/news/2dm-yan-jiu-lu-xian-tu-er-wei-cai-liao-lu-xian-tu/) 提供 `ae2b82` article link、title 与作者名单；该页面是推广页，不是 IOPscience article DOM。
-- [Caltech author record](https://authors.library.caltech.edu/records/8vz1q-3tj40) 提供 `10.1088/2053-1583/3/3/031012`、journal 与作者信息；其开放文件为 submitted manuscript，不证明 publisher HTML 开放。
-- [CNR author record](https://www.imm.cnr.it/node/54183) 是 `ad77e0` 的候选身份线索，不能作 full-text DOM fixture。
+`citation_*` 提供 DOI、journal、title、ordered authors；本批页面日期使用 `citation_online_date`。机构与 ORCID 紧随对应 author。fulltext URL 元数据在订阅预览也存在，不是 access/completeness 信号。通信作者与 email 没有从 head 推断。
 
-没有将上述第三方/推广页改写成 IOPscience HTML，也未把文章内容编写到真实 DOI 下。
+正文根为 `.wd-jnl-art-full-text[itemprop="articleBody"]`；`h2/h3.header-anchor` 有文章前缀 ID。方程 `.inline-eqn/.display-eqn` 含原始 `script[type="math/tex"]` 或 `math/tex; mode=display`，同时存在 lazy GIF 和 MathJax 渲染副本。显示公式的原始 TeX 包含 `\\tag` 和 align 环境。references 中另有 image-only math，`img[role=math]` 的 `$...$` alt 是可用原 TeX；不执行 OCR。化学下标与逆幂单位可能由文字 base 加独立 TeX attachment 构成，转换据 DOM 邻接重建科学表达式。
 
-## 已实现范围与测试证据
+图的外层 `figure[data-toolbar-type=figure]` 有嵌套 viewer、完整 `.figure-caption`、lazy `data-src`，及 `content.cld.iop.org` 的 `_lr.jpg`/`_hr.jpg` 链接。实验只返回链接，不下载图片。表格在正文中已有真实 `table/thead/tbody`，不是远程 hydration 占位；单元格也含 TeX 与引用。普通矩形表复用 Defuddle；合并单元格显式拒绝，避免压平导致语义丢失。
 
-`src/adapters/iop.mjs` 仅实现 experimental preflight：严格限制 2D Materials 已见现代/旧式 DOI URL family；读取候选 `citation_*` head metadata；对 DOI、journal、canonical 冲突拒绝；metadata 缺失返回 null。`authorInformation` 明确为 null。`parseIopPage()` 始终以 `IOP_DOM_UNVERIFIED` 拒绝转换。
+正文 `a.cite` 指向 `bib*`；引用区间可由两个端点 anchor 加 dash 表示。只有中间编号全部存在时才展开；缺项报告 warning，不编写文献。公开 Show References 按钮按需加载 `#references-wrapper li[data-reference]`，含原始编号、`cite`、DOI/Crossref 与 backlink。转换使用原编号 Markdown 脚注；未加载条目保留 publisher fragment URL 并报告缺失。章节引用映射到实际 Markdown heading slug；figure/table/equation 数字引用保留可读文字，不留下不存在的局部 target。
 
-此 API 是本实验的临时本地接口，不是 proposed shared adapter contract，也不是可用 full-text adapter。没有接入 CLI、bridge、extension、writer 或 universal router；没有新增 fetch。JSDOM 不执行 scripts 或载入远程资源，且及时关闭 window。
+两篇开放文章均有 `/article/<doi>/data` Supplementary data 入口；aeaa68 数据声明链接 `https://doi.org/10.5281/zenodo.19881818`，aeaa6b 说明数据包含在 article/supplementary files。只保留链接，不下载附件。
 
-`test/fixtures/iop/synthetic-head.html` 在文件中标记 SYNTHETIC。它只测试候选 head convention，并不算 source-backed fixture 或 journal DOM evidence。focused tests 检查 ordered metadata、URL 范围、identity conflicts、preview/full-text fail-closed、DOM isolation 与 Nature entry point 继续拒绝 IOP。
+2026-10-03 使用浏览器 CDP `Page.getResourceTree` / `Page.getResourceContent` 读取已加载 aeaa68 主文档资源，而非 DOM outerHTML：529556 decoded characters；服务器文档含 articleBody、12 个显示公式、10 幅图、1 张表及末尾数据声明，与渲染正文数量相同。whole-document 原始 TeX scripts 为 528，articleBody rendered scripts 为 523（计数范围不同）；参考列表 li 为 0，wrapper 存在。由此可确定观察到的正文、数学源与图表由服务器 HTML 提供，references 是 deferred component，不能宣称初始页面包含全部内容或推广到所有 IOP 文章。定量记录见 `test/fixtures/iop/aeaa68-server-observation.json`；未保存原始响应字节，不提供虚构 response hash。另一次 Network events 观察被截断，不用它证明完整性。
 
-| 原请求覆盖 | 当前证据 |
+## 实现与来源覆盖
+
+`src/adapters/iop.mjs` 暴露 `iopArticleIdentity`、`inspectIopPage`、`parseIopPage`、`convertIopPage`、`extractIopMath`、`extractIopFigures`。调用方提供 HTML 和 article URL；本模块不 fetch、不写文件、不接生产入口。parse 要求一致 metadata、publisher full-text root 与实质 paragraph，遇到真实订阅 panel 拒绝。返回 `fullTextVerified: false`：该接口不能认证输入是完整页面，不能把精选片段当作全篇。转换复用 Defuddle、已有 DOM globals 边界和 academic inline normalizer；文章 JSDOM 不运行脚本、不加载资源并关闭 window，保留一个空转换 window 以适应 Defuddle 缓存 DOMParser。
+
+| 要求 | 来源片段与直接断言 |
 | --- | --- |
-| identity/metadata | 公开身份旁证与 synthetic preflight；无 IOPscience source-backed DOM test |
-| author information | synthetic ordered author head values；affiliation/correspondence 未验证 |
-| sections | 未验证 |
-| equations/math representation | 未验证，不推断 TeX、MathML 或 equation image |
-| sub/sup/scientific units | 未验证 |
-| figures/captions | 未验证 |
-| tables | 未验证 |
-| citations/references | 未验证 |
-| internal crossrefs | 未验证 |
-| supplementary/data links | 未验证 |
+| identity/metadata、authors | `aeaa68-math.excerpt.html`：title、DOI、journal、date、作者顺序、机构对应和 ORCID；synthetic 只用于冲突/URL fault tests。 |
+| sections、equations | 同片段的真实 heading 与 equation 1 exact TeX/number；`aeaa68-crossrefs.excerpt.html` 的章节和向量段落；保留层级。 |
+| sub/sup、scientific units | reference 11 原生 SiO subscript；reference 1/2 image-alt MoS math；`aeaa68-units.excerpt.html` 完整 Figure 2 caption 的逆幂单位、网格、拟合参数；既有数学 validator 验证。 |
+| figures/captions | `aeaa68-figure.excerpt.html`：完整 Figure 3 caption、原始 TeX、300 K 及两种图片 URL；拒绝伪装 CDN。 |
+| tables | `aeaa6b-table.excerpt.html`：完整 Table 2 caption、四行四列、header、温度与 TeX、单元格 citations；测试矩形表转换与合并单元格拒绝。 |
+| citations/references | `aeaa6b-references.excerpt.html` 保留 11/40/41；`aeaa68-citations.excerpt.html` 保留首句、range 1–3 与前三条完整文献；断言原编号、DOI、缺项和无重复。 |
+| internal crossrefs | 实际 eqnref 3 降级为文本；独立观察的 secref 2 与源 heading 组合测试映射；既有 crossref validator。 |
+| supplementary/data | aeaa6b 真实 Supplementary data URL；aeaa68 完整 data availability paragraph、Zenodo DOI 与缺失 reference 88 warning。 |
+| access differences | `025001-preview.excerpt.html`：真实 panel ID/提示及 fulltext metadata；预览和派生伪 body 均拒绝。 |
 
-由于没有获得正文，无法确定 HTML 是否完整 server-side、equation representation、figure/table loading、reference/crossref encoding。也无法比较 subscription 与 open-access DOM；网络拒绝不证明付费墙，author-repository open badge 不证明 publisher open access。没有检查其他 IOP journals，也不声称平台家族复用。
+每组片段旁有 provenance，注明 rendered capture、locator/保留块、scaffold、清理/重建方式、未保留内容和非原始邻接；原文段落、完整图注/表/选定文献来自公开 DOM，不把编写论文内容伪装到真实 DOI 下。原始整页捕获、cookies、tokens、浏览器 challenge 参数未提交。没有 original HTTP bytes/hash 的样本明确为 null，source selection 不能代替完整 corpus admission。publisher-local `excerpt-integrity.json` 记录精选片段的 UTF-8/LF SHA-256，并由离线测试核对；这些不是原始响应 hash。
 
-## 集成前 blockers
+## 验证与集成限制
 
-本地验证：Windows / Node `v24.14.1`，`npm ci` 成功（0 vulnerabilities）；`node --test test/iop-adapter.test.mjs` 6/6；`npm test` 116/116；`npm run build` 成功；`npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` valid（13 display equations、50 references、math/structure/raw HTML/crossref validators 全部通过）。`git diff --check` 通过。上述结果证明 preflight 与既有回归保持，不证明 IOP full-text conversion。三平台 PR CI 由 GitHub 执行，不能从本地结果推断。
+Windows Node v24.14.1：`npm test` 128/128；`npm run build` 成功；`npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` valid（13 display equations、50 references，math/structure/raw HTML/crossref 均通过）。focused 18 项测试；source units/crossrefs 输出另用现有 math/raw HTML/crossref validators 检查。`git diff --check` 通过。完整 IOP 全页 Markdown/图片下载/附件写入尚未端到端验证；离线精选来源测试与 Nature golden 不能替代这一步。
 
-1. 在正常可访问环境获得多个真实公开 2D Materials article DOM；subscription 页面只检查公开可见部分，不绕过访问控制。
-2. 按 Issue #10 admission 思路验证 canonical/DOI/journal 与实质正文；保留 semantic blocks/topology，制作 deterministic sanitized excerpts、原 source bytes/hash、fixture hash、retained-block locators 与 source-derived oracle。完整 raw captures 不提交。
-3. 据实际 DOM 完成 publisher-local semantic extraction，并复用 Defuddle 和既有 academic normalizers；避免另一套 HTML-to-Markdown parser。
-4. 对上述每个必需覆盖建立真实 source-backed focused assertions，并验证 deterministic Markdown 与 production validators。synthetic edge tests 不替代真实 coverage。
-5. 更新 Draft PR 的真实 DOM findings/access comparison/unsupported structures 与验证记录；生产接入需要人工解决 Nature-only PRD/EDD 边界及独立 integration 决策。
+集成前必须解决：Nature-only PRD/EDD 的人工意图决议；独立生产 pipeline/security 接入审查；真实整页输入和所有 loaded references 的完整性验收；不同文章年代/版本及更多布局的 admission；CI 对最终提交的检查。未支持 merged cells、无原始 TeX 的 image/MathML-only 公式、无邻接 base 的 attachment、通信作者/email 映射、附件内容抓取、脚注/引用以外的未知特殊结构。此 PR 维持 Draft，不 merge、不自动关闭 #29。
 
-## Shared-contract proposals（仅提案）
+## Shared-contract lessons：仅提案
 
-- 将 URL identity、metadata presence、实质全文可用性作为不同信号，避免 preview/challenge 被当成全文。
-- 将网络/DNS/access failures 与 parser regression 分开；失败采集不能生成成功 fixture。
-- provenance 区分 publisher article DOM、author repository record、promotion page 与 synthetic input；不以公开 DOI 或 hash 替代 DOM 真实性。
-- 在真实多 publisher 证据到位后再讨论 semantic result shape、warnings 和 dialect integration。当前没有证据支持 base adapter、global corpus 或 live verifier 改造。
-# 2026-10-03：图注与作者信息增量
-
-侧边浏览器中已加载的 `https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68` 提供 Figure 3 的完整图注、原始行内 TeX、300 K 单位文本，以及 `content.cld.iop.org` 的 `_lr.jpg` / `_hr.jpg` 下载链接。新增代表性片段与独立 provenance 文件，明确它不是完整文章或原始 HTTP 响应。实验性 `extractIopFigures()` 使用 Defuddle 转换图注，保护 TeX 避免反斜线被普通文本转义；只返回观察到的 HTTPS CDN 链接，不下载图片。作者机构和 ORCID 按观察到的 citation 元数据顺序关联，不推断通信作者。
-
-本次 Windows Node 24 验证：`npm test` 119/119；`npm run build` 成功；Nature golden 的 `validate:paper` 全部通过。全文 `parseIopPage()` 仍未开放；表格、引用、交叉引用及服务器初始响应完整性仍待完成，不能据此宣称 IOP 全文支持完成。
-
-## 2026-10-03：正文与原生表格、引用增量
-
-新增 `convertIopPage()`，对提供的可访问正文 DOM 使用 Defuddle 转换。订阅提示、缺少正文或身份不符仍拒绝；实验结果不宣称完整 HTTP 捕获。真实 aeaa6b Table 2 四行、完整图注、TeX 温度范围、补充数据入口已加入片段。通过公开 Show References 按钮观察到 41 条参考文献，保留表格引用的 11/40/41 完整 cite、原始索引及 DOI；加载后转成脚注，未加载时保留出版商链接并报告 IOP_REFERENCE_UNAVAILABLE。片段选取及清理均写入各自 provenance，未提交原始整页捕获。数字交叉引用暂降级为可读文本；精确章节链接和引用区间展开仍待完善。初始服务器响应的 CDP 观察事件出现 truncated，不能将渲染 DOM 当作服务器完整性证据。
-
-本次 focused 11 项测试通过；全套测试、build、Nature golden validate 已运行。仍需整页转换验证、科学符号与交叉引用覆盖，以及初始 HTML 完整性证据。
+- URL identity、metadata、access 与完整性应是不同信号；公开 head 不证明全文可用。
+- 采集故障、订阅拒绝、challenge 和 parser regression 需分别报告；rendered DOM、server document、selected excerpts 与 raw bytes/hash 需不同 provenance。
+- 数学应保存一份原始语义源，另记录 image fallback；引用 range 与 deferred references 需要 source-derived admission，不猜测缺失条目。
+- publisher-local source matrix 验证后再讨论公共 result/warning/citation dialect 合同；当前不提出 universal router/base adapter/global corpus/live-verifier 实现改动。

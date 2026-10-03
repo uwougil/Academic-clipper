@@ -1,0 +1,10 @@
+{
+  "sourceUrl": "https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68",
+  "observedAt": "2026-10-03",
+  "captureMode": "in-app-browser-rendered-dom-after-Show-References",
+  "sourceSha256": null,
+  "retained": ["complete first Introduction sentence with range 1–3 and pair 4/5", "complete cite elements for references 1–3", "original math image alt TeX"],
+  "transformations": ["first sentence wrapped in a minimal paragraph", "selected references wrapped in minimal list", "removed reference navigation/entitlement attributes"],
+  "omitted": ["rest of first paragraph", "references 4 onwards"],
+  "scope": "citation range and image-alt math fallback; not a complete article"
+}

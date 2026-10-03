@@ -1,10 +1,98 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
+import { createHash } from 'node:crypto';
+import { validateMathDelimiters } from '../src/validators/math-delimiters.mjs';
+import { validateRawHtml } from '../src/validators/html-audit.mjs';
+import { validateCrossReferences } from '../src/validators/cross-references.mjs';
 import { convertIopPage, extractIopFigures, extractIopMath, inspectIopPage, iopArticleIdentity, parseIopPage } from '../src/adapters/iop.mjs';
 
 const synthetic = await readFile(new URL('./fixtures/iop/synthetic-head.html', import.meta.url), 'utf8');
 const url = 'https://iopscience.iop.org/article/10.1088/2053-1583/synthetic';
+
+test('publisher-local selected excerpt integrity is deterministic across LF/CRLF checkout', async () => {
+  const manifest = JSON.parse(await readFile(new URL('./fixtures/iop/excerpt-integrity.json', import.meta.url), 'utf8'));
+  for (const [file, expected] of Object.entries(manifest.sha256)) {
+    const html = await readFile(new URL(`./fixtures/iop/${file}`, import.meta.url), 'utf8');
+    assert.equal(createHash('sha256').update(html.replaceAll('\r\n', '\n')).digest('hex'), expected, file);
+  }
+});
+
+test('source figure converts to one remote image and one complete semantic caption without toolbar text', async () => {
+  const html = await readFile(new URL('./fixtures/iop/aeaa68-figure.excerpt.html', import.meta.url), 'utf8');
+  const result = await convertIopPage(html, 'https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68');
+  assert.equal((result.markdown.match(/!\[/g) || []).length, 1);
+  assert.equal((result.markdown.match(/Lattice thermal conductivity/g) || []).length, 1);
+  assert.ok(result.markdown.includes('tdmaeaa68f3_hr.jpg'));
+  assert.ok(result.markdown.includes('$\\kappa$'));
+  assert.doesNotMatch(result.markdown, /Standard image|High-resolution image|IOPSEMANTICTOKEN|<figure/);
+  assert.equal(validateMathDelimiters(result.markdown).valid, true);
+  assert.equal(validateRawHtml(result.markdown).valid, true);
+});
+
+test('real subscription panel cannot become an accessible paper even with fulltext metadata or a derived body', async () => {
+  const preview = await readFile(new URL('./fixtures/iop/025001-preview.excerpt.html', import.meta.url), 'utf8');
+  const articleUrl = 'https://iopscience.iop.org/article/10.1088/2053-1583/1/2/025001';
+  assert.equal(inspectIopPage(preview, articleUrl).metadata.title, 'Isolation and characterization of few-layer black phosphorus');
+  assert.throws(() => parseIopPage(preview, articleUrl), { code: 'IOP_DOM_UNVERIFIED' });
+  const derived = preview.replace('</body>', '<div class="wd-jnl-art-full-text" itemprop="articleBody"><p>Derived access-boundary fault</p></div></body>');
+  await assert.rejects(() => convertIopPage(derived, articleUrl), { code: 'IOP_DOM_UNVERIFIED' });
+});
+
+test('source scientific units and derived section link pass existing validators', async () => {
+  const seed = await readFile(new URL('./fixtures/iop/aeaa68-math.excerpt.html', import.meta.url), 'utf8');
+  const units = await readFile(new URL('./fixtures/iop/aeaa68-units.excerpt.html', import.meta.url), 'utf8');
+  const crossrefs = await readFile(new URL('./fixtures/iop/aeaa68-crossrefs.excerpt.html', import.meta.url), 'utf8');
+  // Source anchor observed independently; the test harness composes these blocks.
+  const anchor = '<p><a class="secref" href="#tdmaeaa68s2">2</a></p>';
+  const html = seed.replace(/<\/div>\r?\n<\/body>/, `${units}${crossrefs}${anchor}</div>\n</body>`);
+  const result = await convertIopPage(html, 'https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68');
+  assert.ok(result.markdown.includes('W\u2009$\\mathrm{m}^{-1}$\u2009$\\mathrm{K}^{-1}$'));
+  assert.ok(result.markdown.includes('$m = 1.00\\pm0.02$'));
+  assert.ok(result.markdown.includes('[2](#2-computational-details)'));
+  for (const validate of [validateMathDelimiters, validateRawHtml, validateCrossReferences]) {
+    const validation = validate(result.markdown);
+    assert.equal(validation.valid, true, JSON.stringify(validation));
+  }
+});
+
+test('source range 1–3 expands all available references and image alt retains original math', async () => {
+  const seed = await readFile(new URL('./fixtures/iop/aeaa68-math.excerpt.html', import.meta.url), 'utf8');
+  const excerpt = await readFile(new URL('./fixtures/iop/aeaa68-citations.excerpt.html', import.meta.url), 'utf8');
+  const html = seed.replace(/<\/div>\r?\n<\/body>/, `${excerpt}</div>\n</body>`);
+  const result = await convertIopPage(html, 'https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68');
+  assert.ok(result.markdown.includes('[^1][^2][^3]'));
+  assert.ok(result.markdown.includes('$\\mathrm{MoS}_2$'));
+  assert.deepEqual(result.warnings.map(w => w.target), ['#tdmaeaa68bib4', '#tdmaeaa68bib5']);
+  assert.equal((result.markdown.match(/Bertolazzi S/g) || []).length, 1);
+  assert.doesNotMatch(result.markdown, /tdmaeaa68ieqn517\.gif/);
+  const incomplete = html.replace(/<li data-reference="" id="tdmaeaa68bib2"[\s\S]*?<\/li>/, '');
+  const partial = await convertIopPage(incomplete, result.metadata.url);
+  assert.ok(partial.warnings.some(w => w.code === 'IOP_CITATION_RANGE_INCOMPLETE'));
+  assert.ok(!partial.markdown.includes('[^2]'));
+});
+
+test('derived malformed table and duplicate reference faults fail closed', async () => {
+  const table = await readFile(new URL('./fixtures/iop/aeaa6b-table.excerpt.html', import.meta.url), 'utf8');
+  const articleUrl = 'https://iopscience.iop.org/article/10.1088/2053-1583/aeaa6b';
+  await assert.rejects(() => convertIopPage(table.replace('<th scope="col">', '<th scope="col" colspan="2">'), articleUrl), { code: 'IOP_TABLE_UNSUPPORTED' });
+  const refs = await readFile(new URL('./fixtures/iop/aeaa6b-references.excerpt.html', import.meta.url), 'utf8');
+  assert.throws(() => parseIopPage(table.replace('</body>', `${refs}${refs}</body>`), articleUrl), { code: 'IOP_REFERENCE_INVALID' });
+});
+
+test('source-backed paragraph preserves vectors, equation reference text and external data DOI', async () => {
+  const seed = await readFile(new URL('./fixtures/iop/aeaa68-math.excerpt.html', import.meta.url), 'utf8');
+  const excerpt = await readFile(new URL('./fixtures/iop/aeaa68-crossrefs.excerpt.html', import.meta.url), 'utf8');
+  const html = seed.replace('</div>\n</body>', `${excerpt}</div>\n</body>`).replace('</div>\r\n</body>', `${excerpt}</div>\r\n</body>`);
+  const result = await convertIopPage(html, 'https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68');
+  assert.match(result.markdown, /\$\\boldsymbol\{V\}_\\alpha = \(V_\\alpha\^x, V_\\alpha\^y\)\$/);
+  assert.match(result.markdown, /Projecting equation \(3\) then gives/);
+  assert.match(result.markdown, /\$\$\n\\begin\{align\}/);
+  assert.match(result.markdown, /10\.5281\/zenodo\.19881818/);
+  assert.doesNotMatch(result.markdown, /\]\(#tdmaeaa68eqn3\)/);
+  assert.deepEqual(result.sections.map(s => s.id), ['tdmaeaa68s1', 'tdmaeaa68s2', 'tdmaeaa68s6']);
+  assert.equal(result.warnings[0].target, '#tdmaeaa68bib88');
+});
 
 test('loaded publisher references resolve table citations and preserve source indices and scientific subscript', async () => {
   const table = await readFile(new URL('./fixtures/iop/aeaa6b-table.excerpt.html', import.meta.url), 'utf8');
@@ -12,9 +100,9 @@ test('loaded publisher references resolve table citations and preserve source in
   const result = await convertIopPage(table.replace('</body>', `${references}</body>`), 'https://iopscience.iop.org/article/10.1088/2053-1583/aeaa6b');
   assert.deepEqual(result.warnings, []);
   assert.deepEqual(result.references.map(r => r.number), [11, 40, 41]);
-  assert.ok(result.markdown.includes('\\[[^40], [^41]\\]'));
+  assert.ok(result.markdown.includes('[[^40], [^41]]'));
   assert.match(result.markdown, /\[\^11\]: Li X/);
-  assert.match(result.markdown, /SiO\$_\{2\}\$/);
+  assert.ok(result.markdown.includes('$\\mathrm{SiO}_{2}$'));
   assert.match(result.markdown, /https:\/\/doi.org\/10\.1038\/srep43886/);
   assert.doesNotMatch(result.markdown, /IOPSEMANTICTOKEN|<sub|fnref-/);
 });

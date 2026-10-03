@@ -1,0 +1,22 @@
+{
+  "sourceUrl": "https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68",
+  "observedAt": "2026-10-03",
+  "method": "Browser CDP Page.getResourceTree followed by Page.getResourceContent for the same loaded main frame URL; not DOM outerHTML",
+  "base64Encoded": false,
+  "decodedCharacters": 529556,
+  "sourceSha256": null,
+  "serverDocument": {
+    "articleBodyMarkers": 1,
+    "displayEquationIds": 12,
+    "sourceTexScriptsAcrossWholeDocument": 528,
+    "figureIds": 10,
+    "tableIds": 1,
+    "dataAvailabilityStatementPresent": true,
+    "dataDoiPresent": true,
+    "referencesWrapperPresent": true,
+    "referenceListItems": 0
+  },
+  "renderedBody": {"displayEquations": 12, "sourceTexScripts": 523, "figures": 10, "tables": 1},
+  "conclusion": "Observed article body, equation sources, figures and table are present in server document, including the final data section. References are a deferred component. This observation is specific to aeaa68, not all IOP journals or article versions.",
+  "limits": ["raw response and original HTTP bytes are not committed", "decoded character count is not byte size or content hash", "whole-document math count includes content outside articleBody", "aeaa6b reload reached a CAPTCHA; no challenge was solved"]
+}

@@ -1,6 +1,7 @@
 import { JSDOM } from 'jsdom';
 import { htmlToMarkdown } from '../markdown.mjs';
 import { withDomGlobals } from '../dom-runtime.mjs';
+import { normalizeAcademicInline } from '../normalizers/academic-inline.mjs';
 
 // Defuddle caches a DOMParser bound to its first window. Keep one empty,
 // publisher-local conversion window alive; article DOMs are still closed.
@@ -130,7 +131,7 @@ export function parseIopPage(html, url) {
     const document = dom.window.document;
     const body = document.querySelector('.wd-jnl-art-full-text[itemprop="articleBody"]');
     if (!diagnostics.metadata || !body || !body.querySelector('p')
-      || document.querySelector('.wd-jnl-art-turn-away-panel')) {
+      || document.querySelector('#wd-jnl-art-turn-away-panel,.wd-jnl-art-turn-away-panel')) {
       throw new IopAdapterError('IOP_DOM_UNVERIFIED', 'An accessible publisher article body and identity are required.', diagnostics);
     }
     const warnings = [];
@@ -139,6 +140,9 @@ export function parseIopPage(html, url) {
       html: node.querySelector('cite')?.innerHTML || '', doi: node.getAttribute('doi') || null,
     }));
     const referenceIds = new Set(references.map(item => item.id));
+    if (referenceIds.size !== references.length || new Set(references.map(item => item.number)).size !== references.length) {
+      throw new IopAdapterError('IOP_REFERENCE_INVALID', 'Reference identifiers and indices must be unique.');
+    }
     const citations = [...body.querySelectorAll('a.cite')].map(node => ({ target: node.getAttribute('href'), text: node.textContent }));
     for (const citation of citations) if (!referenceIds.has(citation.target?.slice(1))) {
       warnings.push({ code: 'IOP_REFERENCE_UNAVAILABLE', target: citation.target });
@@ -160,6 +164,12 @@ export async function convertIopPage(html, url) {
   try {
     const document = dom.window.document;
     const root = document.querySelector('[itemprop="articleBody"]');
+    root.querySelectorAll('#references-wrapper').forEach(node => node.remove());
+    for (const cell of root.querySelectorAll('td,th')) {
+      if (Number(cell.getAttribute('rowspan') || 1) !== 1 || Number(cell.getAttribute('colspan') || 1) !== 1) {
+        throw new IopAdapterError('IOP_TABLE_UNSUPPORTED', 'Merged table cells require a publisher-local representation decision.');
+      }
+    }
     const tokens = [];
     let prefix = 'IOPSEMANTICTOKEN';
     while (html.includes(prefix)) prefix += 'X';
@@ -168,6 +178,22 @@ export async function convertIopPage(html, url) {
       tokens.push({ token, markdown });
       node.replaceWith(document.createTextNode(token));
     };
+    const attachmentTex = (node, tex) => {
+      if (!/^[_^]/.test(tex)) return tex;
+      const previous = node.previousSibling;
+      const base = previous?.nodeType === 3 && previous.textContent.match(/([A-Za-z][A-Za-z0-9]*)$/)?.[1];
+      if (base) {
+        previous.textContent = previous.textContent.slice(0, -base.length);
+        return `\\mathrm{${base}}${tex}`;
+      }
+      if (previous?.matches?.('i,em,b,strong') && /^[A-Za-z]+$/.test(previous.textContent)) {
+        const value = previous.textContent;
+        const styled = previous.matches('b,strong') ? `\\mathbf{${value}}` : value;
+        previous.remove();
+        return `${styled}${tex}`;
+      }
+      throw new IopAdapterError('IOP_SCIENTIFIC_BASE_MISSING', 'A sub/superscript attachment lacks an observed adjacent base.');
+    };
     const prepareMath = (scope) => {
       for (const node of [...scope.querySelectorAll('.inline-eqn,.display-eqn')]) {
         if (node.parentElement?.closest('.inline-eqn,.display-eqn')) continue;
@@ -175,23 +201,40 @@ export async function convertIopPage(html, url) {
         const alt = node.querySelector('img[role="math"]')?.getAttribute('alt') || '';
         const tex = script?.textContent.trim() || (alt.startsWith('$') && alt.endsWith('$') ? alt.slice(1, -1).trim() : '');
         if (!tex) throw new IopAdapterError('IOP_MATH_SOURCE_MISSING', `Missing original TeX at ${node.id || 'inline equation'}.`);
-        protect(node, node.classList.contains('display-eqn') ? `\n\n$$\n${tex}\n$$\n\n` : `$${tex}$`);
+        protect(node, node.classList.contains('display-eqn') ? `\n\n$$\n${tex}\n$$\n\n` : `$${attachmentTex(node, tex)}$`);
       }
     };
     prepareMath(root);
     // Preserve actual sub/superscript semantics without guessing chemical runs.
-    for (const node of root.querySelectorAll('sub,sup')) protect(node, node.tagName === 'SUB' ? `$_{${node.textContent}}$` : `$^{${node.textContent}}$`);
+    for (const node of root.querySelectorAll('sub,sup')) protect(node, `$${attachmentTex(node, `${node.tagName === 'SUB' ? '_' : '^'}{${node.textContent}}`)}$`);
     const referenceMap = new Map(parsed.references.map(item => [item.id, item]));
+    const referenceByNumber = new Map(parsed.references.map(item => [item.number, item]));
     for (const anchor of root.querySelectorAll('a.cite')) {
+      if (!anchor.isConnected) continue;
       const href = anchor.getAttribute('href');
+      if (!/^#[A-Za-z0-9_-]+$/.test(href || '')) throw new IopAdapterError('IOP_CITATION_INVALID', 'Expected a publisher reference fragment.');
       const reference = referenceMap.get(href?.slice(1));
+      const separator = anchor.nextSibling;
+      const rangeEnd = separator?.nodeType === 3 && /^\s*[–−-]\s*$/.test(separator.textContent) ? separator.nextSibling : null;
+      const endReference = rangeEnd?.matches?.('a.cite') && referenceMap.get(rangeEnd.getAttribute('href')?.slice(1));
+      if (reference && endReference && endReference.number > reference.number) {
+        const numbers = [];
+        for (let number = reference.number; number <= endReference.number && numbers.length <= parsed.references.length; number++) numbers.push(number);
+        if (numbers.length <= parsed.references.length && numbers.every(number => referenceByNumber.has(number))) {
+          protect(anchor, numbers.map(number => `[^${number}]`).join(''));
+          separator.remove(); rangeEnd.remove();
+          continue;
+        }
+        parsed.warnings.push({ code: 'IOP_CITATION_RANGE_INCOMPLETE', start: reference.number, end: endReference.number });
+      }
       if (reference?.number) protect(anchor, `[^${reference.number}]`);
       else anchor.setAttribute('href', `${parsed.metadata.url}${href}`);
     }
     for (const figure of root.querySelectorAll('figure[data-toolbar-type="figure"]')) {
       const caption = figure.querySelector('.figure-caption');
-      const image = figure.querySelector('a.fig-dwnld-hi-img,a.fig-dwnld-std-img');
-      const candidate = image && new URL(image.getAttribute('href'), parsed.metadata.url);
+      const image = figure.querySelector('a.fig-dwnld-hi-img') || figure.querySelector('a.fig-dwnld-std-img');
+      let candidate;
+      try { candidate = image && new URL(image.getAttribute('href'), parsed.metadata.url); } catch { candidate = null; }
       const replacement = document.createElement('div');
       if (candidate?.protocol === 'https:' && candidate.hostname === 'content.cld.iop.org' && !candidate.username && !candidate.password && !candidate.port) {
         const label = caption?.querySelector('strong')?.textContent || 'Figure';
@@ -201,15 +244,23 @@ export async function convertIopPage(html, url) {
       } else if (caption) replacement.append(caption);
       figure.replaceWith(replacement);
     }
-    // Publisher numeric crossrefs remain readable; no dangling local targets.
-    for (const anchor of root.querySelectorAll('a[href^="#"]')) anchor.replaceWith(document.createTextNode(anchor.textContent));
+    const sectionTargets = new Map(parsed.sections.filter(section => section.id).map(section => [
+      section.id, section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+    ]));
+    // Section references target the emitted heading; numeric figure/table/math
+    // references stay readable because those structures do not emit anchors.
+    for (const anchor of root.querySelectorAll('a[href^="#"]')) {
+      const target = sectionTargets.get(anchor.getAttribute('href').slice(1));
+      if (target) anchor.setAttribute('href', `#${target}`);
+      else anchor.replaceWith(document.createTextNode(anchor.textContent));
+    }
     root.querySelectorAll('script,svg,mjx-container,button,.print-hide,.texImage,iframe').forEach(node => node.remove());
     const referenceHtml = document.createElement('div');
     for (const reference of parsed.references) {
       if (!Number.isInteger(reference.number) || !reference.number || !reference.html) throw new IopAdapterError('IOP_REFERENCE_INVALID', 'Reference identity or content is missing.');
       const row = document.createElement('p'); row.innerHTML = reference.html;
       prepareMath(row);
-      for (const node of row.querySelectorAll('sub,sup')) protect(node, node.tagName === 'SUB' ? `$_{${node.textContent}}$` : `$^{${node.textContent}}$`);
+      for (const node of row.querySelectorAll('sub,sup')) protect(node, `$${attachmentTex(node, `${node.tagName === 'SUB' ? '_' : '^'}{${node.textContent}}`)}$`);
       referenceHtml.append(row);
     }
     conversionDom ??= new JSDOM('<!doctype html><html><body></body></html>');
@@ -219,11 +270,16 @@ export async function convertIopPage(html, url) {
       markdown += '\n\n## References\n\n';
       for (let i = 0; i < parsed.references.length; i++) {
         const reference = parsed.references[i];
+        if (reference.doi && !/^10\.\d{4,9}\/[^\s<>"'()]+$/.test(reference.doi)) throw new IopAdapterError('IOP_REFERENCE_INVALID', 'Invalid reference DOI.');
         const text = (await convert(referenceHtml.children[i].outerHTML)).trim().replace(/\n/g, ' ');
         markdown += `[^${reference.number}]: ${text}${reference.doi ? ` [Crossref](https://doi.org/${encodeURI(reference.doi)})` : ''}\n`;
       }
     }
     for (const { token, markdown: value } of tokens) markdown = markdown.replaceAll(token, () => value);
+    markdown = normalizeAcademicInline(markdown);
+    // Defuddle escapes publisher citation-group brackets as legacy math-looking
+    // delimiters. Unescape only groups made of our footnotes/source ref links.
+    markdown = markdown.replace(/\\\[((?:\[\^\d+\]|\[\d+\]\(https:\/\/iopscience\.iop\.org\/article\/[^)\s]+\)|[\s,–−-])+)\\\]/g, '[$1]');
     markdown = markdown.replaceAll('\u00a0', ' ').trim() + '\n';
     for (const item of parsed.supplementary) markdown += `\n[${item.title}](${item.url})\n`;
     return { ...parsed, markdown };
