@@ -232,3 +232,13 @@ node (Join-Path $env:TEMP 'academic-clipper-issue10-agent-b/acquire-header-probe
 ```
 
 exit 0 仅为 rejection ledger 写入成功。Helper 与 ledger 在 repo 外 TEMP；未修改 production transport、A interface、canonical spec 或测试。当前 0 admitted entries。C 仍需可验证 raw-byte article/table capture、A-generated excerpts/hashes 及 coverage-to-assertion map 才能开始正式独立验收。
+
+## 同一侧边浏览器中的无 Cookie 请求验证
+
+2026-10-03T15:26:40.746Z 在文章 tab 的页面 JS realm 用 Chrome CDP `Runtime.evaluate` 发起 GET `fetch(location.href, {credentials: "omit", cache: "no-store", redirect: "follow", headers: {accept: "text/html,application/xhtml+xml"}})`，随后读取 arrayBuffer 并计算 SHA-256（只在有 200 body 时才输出 hash；本文没有 source hash）。脚本显式 omit credentials，没有读取或输出 Cookie/auth header/value。
+
+结果为 `TypeError: Failed to fetch`。同一次 Network event ledger 显示请求先由 Nature 返回 303 至 `idp.nature.com/authorize`，之后身份 transit endpoint 返回 302，最终回 Nature 时 URL 含 `error=cookies_not_supported`；Fetch 以跨域 CORS error 结束。未取得文章 body、size 或 hash。重定向中的临时 code 未保存进 repository evidence。
+
+这在同一个侧边浏览器网络上下文中复现了“匿名 Fetch 无法跟随 Nature 身份 cookie 流程”，故不是仅命令行环境存在的现象。它**不能**证明 Nature 全站都必须登录，也不能判定最初为何触发该身份跳转；没有 Cloudflare challenge 证据。浏览器页面能显示文章与匿名 Fetch 失败，是不同请求模式的实测差异。若公开匿名路径在该网络可直接返回 200，Fetch `Response.arrayBuffer()` 可作为任何文本 decoding 前取得 response body bytes 的候选途径；本次 status chain 未给出这种可用 body，不能据此 admission。
+
+后续 exact probe：在 `Network.enable` 后记录 event cursor，使用以上 `Runtime.evaluate` expression（将 result 限制为 status/url/type/content-type/byte count/SHA，绝不回显 body、Cookie 或 redirect code）；成功必须同时确认 200、canonical article body identity、声明长度/hash、`credentials: omit`，并通过 guarded policy/规范来源 review。当前这一步仍失败，不能改用已显示页面所携带的站点状态。
