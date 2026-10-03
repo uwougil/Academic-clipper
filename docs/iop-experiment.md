@@ -91,4 +91,3 @@
 侧边浏览器中已加载的 `https://iopscience.iop.org/article/10.1088/2053-1583/aeaa68` 提供 Figure 3 的完整图注、原始行内 TeX、300 K 单位文本，以及 `content.cld.iop.org` 的 `_lr.jpg` / `_hr.jpg` 下载链接。新增代表性片段与独立 provenance 文件，明确它不是完整文章或原始 HTTP 响应。实验性 `extractIopFigures()` 使用 Defuddle 转换图注，保护 TeX 避免反斜线被普通文本转义；只返回观察到的 HTTPS CDN 链接，不下载图片。作者机构和 ORCID 按观察到的 citation 元数据顺序关联，不推断通信作者。
 
 本次 Windows Node 24 验证：`npm test` 119/119；`npm run build` 成功；Nature golden 的 `validate:paper` 全部通过。全文 `parseIopPage()` 仍未开放；表格、引用、交叉引用及服务器初始响应完整性仍待完成，不能据此宣称 IOP 全文支持完成。
-
