@@ -1,0 +1,282 @@
+[
+  {
+    "id": "science.abj6987",
+    "url": "https://www.science.org/doi/10.1126/science.abj6987",
+    "observedAt": "2026-10-02T17:18:21.901Z",
+    "captureMode": "public browser DOM; no HTTP-byte digest available",
+    "sourceProjectionSha256": "e7a4d76d9642df14be5a6e2e6e180aa59f406a92074dcfec6eb440d6b4f6f098",
+    "fixtureSha256": "fad8ea1d1c692e70c38670cdcc96349168ab38610bce61f04c6fbff36bafcfb9",
+    "retainedBlocks": [
+      {
+        "locator": "#bodymatter",
+        "sha256": "073b740cf8624b7785e9a37064b9ffdaef0ee2ff3d80740e3930ba123c884b28"
+      },
+      {
+        "locator": "#bibliography",
+        "sha256": "2de708de097e4f25542ed655cec798ec5242bf36c716c58899f6a7306303c41d"
+      },
+      {
+        "locator": "#supplementary-materials",
+        "sha256": "3aa1fb0b1ba0e1cb7cf3b8b66091892b6745574ff0a0ecf1fd1a3f4e5beabeb7"
+      },
+      {
+        "locator": "#tab-contributors",
+        "sha256": "fd4218bd0db1e8bf9305c39c16bc8830d6d3bdb268f46fface2f6fd7be00155b"
+      }
+    ],
+    "observations": {
+      "bodyParagraphs": 44,
+      "figures": 5,
+      "math": 0,
+      "references": 128,
+      "tables": 1,
+      "title": "The complete sequence of a human genome | Science"
+    },
+    "transformations": [
+      "Reassembled only observed head/header/abstract/body/backmatter/contributor/date projections",
+      "Pruned body sections except first section, initial paragraphs, complete figure/table/math paragraphs and acknowledgments",
+      "Removed scripts except Article JSON-LD, UI forms, event handlers, style and MathJax visual duplicate",
+      "Removed reference lookup UI; retained full reference list without renumbering",
+      "Removed article share actions/hidden-menu UI; source abstract block captured separately where available",
+      "Normalized whitespace-only scaffold lines; inline scholarly whitespace preserved"
+    ],
+    "omittedContent": [
+      "Not full-page HTML or full article benchmark",
+      "Unretained body paragraphs; navigation/account/analytics state",
+      "HTTP response bytes; no sourceSha256 claim"
+    ],
+    "abstractSource": {
+      "url": "https://www.science.org/doi/10.1126/science.abj6987",
+      "observedAt": "2026-10-03T15:02:32.639Z",
+      "sourceBlockSha256": "46183ccc53ac784c0de17473877251ece79bd9311495b27e5cd0c7d62d55966e",
+      "locator": "#abstracts",
+      "transformations": [
+        "Removed newsletter UI and executable/UI nodes; preserved scholarly text"
+      ]
+    },
+    "contributorsSource": {
+      "url": "https://www.science.org/doi/10.1126/science.abj6987",
+      "observedAt": "2026-10-03T15:03:36.675Z",
+      "sourceBlockSha256": "39d553dc7e860b74dbb9fe62f1f70cc540a90fcba9c4947df027c3de67a953fc",
+      "locator": "#tab-contributors",
+      "transformations": [
+        "Removed author lookup UI, event/style attributes and ORCID display links"
+      ]
+    }
+  },
+  {
+    "id": "science.aaa9297",
+    "url": "https://www.science.org/doi/10.1126/science.aaa9297",
+    "observedAt": "2026-10-02T17:19:10.694Z",
+    "captureMode": "public browser DOM; no HTTP-byte digest available",
+    "sourceProjectionSha256": "e3db7be4938194c7220e6d8d1fc5491796d88781e244d7421989cfd1dd4a5a7e",
+    "fixtureSha256": "0418ac49ef35f71da7a8a48e43a5d190b56d7c587d5f3ba16aad8669137d837e",
+    "retainedBlocks": [
+      {
+        "locator": "#bodymatter",
+        "sha256": "5705ecde4fad15771f39edf77e4df5f40b72613e581b1d32347c5eed7ed176d3"
+      },
+      {
+        "locator": "#bibliography",
+        "sha256": "77f79428cab72b6cff73077ea577303b4c8ddce7d09b32bea2693b47f4cd0a9c"
+      },
+      {
+        "locator": "#supplementary-materials",
+        "sha256": "06e75195017309eca2d3ef6beb462223d0e7a6f58412d422221420b529581f46"
+      },
+      {
+        "locator": "#tab-contributors",
+        "sha256": "1260f39da098d5496dc0e3fc588924b33669ade614942c97251a926c4b995699"
+      }
+    ],
+    "observations": {
+      "bodyParagraphs": 10,
+      "figures": 4,
+      "math": 81,
+      "references": 32,
+      "tables": 0,
+      "title": "Discovery of a Weyl fermion semimetal and topological Fermi arcs | Science"
+    },
+    "transformations": [
+      "Reassembled only observed head/header/abstract/body/backmatter/contributor/date projections",
+      "Pruned body sections except first section, initial paragraphs, complete figure/table/math paragraphs and acknowledgments",
+      "Removed scripts except Article JSON-LD, UI forms, event handlers, style and MathJax visual duplicate",
+      "Removed reference lookup UI; retained full reference list without renumbering",
+      "Removed article share actions/hidden-menu UI; source abstract block captured separately where available",
+      "Normalized whitespace-only scaffold lines; inline scholarly whitespace preserved"
+    ],
+    "omittedContent": [
+      "Not full-page HTML or full article benchmark",
+      "Unretained body paragraphs; navigation/account/analytics state",
+      "HTTP response bytes; no sourceSha256 claim"
+    ],
+    "abstractSource": {
+      "url": "https://www.science.org/doi/10.1126/science.aaa9297",
+      "observedAt": "2026-10-03T14:56:20.282Z",
+      "sourceBlockSha256": "33d04c2a542951d0368af50f20ee19ac0fca392cf7407928ec53ffd6711fe8db",
+      "locator": "#abstracts",
+      "transformations": [
+        "Removed newsletter UI and executable/UI nodes; preserved original scholarly text and child order"
+      ]
+    }
+  },
+  {
+    "id": "sciadv.1700434",
+    "url": "https://www.science.org/doi/10.1126/sciadv.1700434",
+    "observedAt": "2026-10-02T17:17:35.415Z",
+    "captureMode": "public browser DOM; no HTTP-byte digest available",
+    "sourceProjectionSha256": "7318a5574ceefe6b8f7b7a1ebcdc9e12b5ff51a5c0e1a82eb697db87485935b1",
+    "fixtureSha256": "b9f22ee772aec5d77a4f65e7e58f20b7fe4937845e2f02042a3df54c3636034a",
+    "retainedBlocks": [
+      {
+        "locator": "#bodymatter",
+        "sha256": "49d8b075f2a07600cbdb6f1f546ecd233111cca1d7c7463b1b442d50d6d06399"
+      },
+      {
+        "locator": "#bibliography",
+        "sha256": "3e54b1cafbfaa7cdeb9c35ca38877ff1b07c4e44dc0af9185c505b79bcad43eb"
+      },
+      {
+        "locator": "#supplementary-materials",
+        "sha256": "a4e1bccd6855e990ec72c4e05f5f8641a4b0f6556b89efb48028fbf85350ae10"
+      },
+      {
+        "locator": "#tab-contributors",
+        "sha256": "6cd8d8539e1abe5efcb2c51bd4392521de79b7fcfdf9cca20b6f72d6af3a855f"
+      }
+    ],
+    "observations": {
+      "bodyParagraphs": 60,
+      "figures": 7,
+      "math": 1,
+      "references": 69,
+      "tables": 1,
+      "title": "Morphology controls the thermoelectric power factor of a doped semiconducting polymer | Science Advances"
+    },
+    "transformations": [
+      "Reassembled only observed head/header/abstract/body/backmatter/contributor/date projections",
+      "Pruned body sections except first section, initial paragraphs, complete figure/table/math paragraphs and acknowledgments",
+      "Removed scripts except Article JSON-LD, UI forms, event handlers, style and MathJax visual duplicate",
+      "Removed reference lookup UI; retained full reference list without renumbering",
+      "Removed article share actions/hidden-menu UI; source abstract block captured separately where available",
+      "Normalized whitespace-only scaffold lines; inline scholarly whitespace preserved"
+    ],
+    "omittedContent": [
+      "Not full-page HTML or full article benchmark",
+      "Unretained body paragraphs; navigation/account/analytics state",
+      "HTTP response bytes; no sourceSha256 claim"
+    ],
+    "abstractSource": {
+      "url": "https://www.science.org/doi/10.1126/sciadv.1700434",
+      "observedAt": "2026-10-03T14:56:22.737Z",
+      "sourceBlockSha256": "dfda02c134602b756dcbf846c02c8363238a394c9fa068b31b880b8426257869",
+      "locator": "#abstracts",
+      "transformations": [
+        "Removed newsletter UI and executable/UI nodes; preserved original scholarly text and child order"
+      ]
+    }
+  },
+  {
+    "id": "sciadv.1602536",
+    "url": "https://www.science.org/doi/10.1126/sciadv.1602536",
+    "observedAt": "2026-10-02T17:19:39.094Z",
+    "captureMode": "public browser DOM; no HTTP-byte digest available",
+    "sourceProjectionSha256": "719a77d08f3f0ae068fc86e0e11ec7a3092f3370003e10155d1df835f23a56ac",
+    "fixtureSha256": "b4ad581e223206ff8a68002e916972204d3b14146ad431b30565f9137f67a22b",
+    "retainedBlocks": [
+      {
+        "locator": "#bodymatter",
+        "sha256": "61d95f319f88545a0bb73e1f2a03e517ac8564e1f322b89a715a16df3fe0332f"
+      },
+      {
+        "locator": "#bibliography",
+        "sha256": "b5a403618ae5f4063f17b7972b11fa1b4ad76bc32fa0ed85484f5f9b2e4b91b1"
+      },
+      {
+        "locator": "#supplementary-materials",
+        "sha256": "dc99d1b97993f41bf0a92fe9f766522d58d3c5e28123bc4a8bf0a5bb9375561b"
+      },
+      {
+        "locator": "#tab-contributors",
+        "sha256": "aca592af715bcc2311a42f105ea9398e991a622b15a2082bfb27e44e71b9c407"
+      }
+    ],
+    "observations": {
+      "bodyParagraphs": 34,
+      "figures": 5,
+      "math": 2,
+      "references": 59,
+      "tables": 0,
+      "title": "Mechanical deformation induces depolarization of neutrophils | Science Advances"
+    },
+    "transformations": [
+      "Reassembled only observed head/header/abstract/body/backmatter/contributor/date projections",
+      "Pruned body sections except first section, initial paragraphs, complete figure/table/math paragraphs and acknowledgments",
+      "Removed scripts except Article JSON-LD, UI forms, event handlers, style and MathJax visual duplicate",
+      "Removed reference lookup UI; retained full reference list without renumbering",
+      "Removed article share actions/hidden-menu UI; source abstract block captured separately where available",
+      "Normalized whitespace-only scaffold lines; inline scholarly whitespace preserved"
+    ],
+    "omittedContent": [
+      "Not full-page HTML or full article benchmark",
+      "Unretained body paragraphs; navigation/account/analytics state",
+      "HTTP response bytes; no sourceSha256 claim"
+    ],
+    "abstractSource": {
+      "url": "https://www.science.org/doi/10.1126/sciadv.1602536",
+      "observedAt": "2026-10-03T14:56:25.304Z",
+      "sourceBlockSha256": "778841e0abc601e5b7759e7425d885dad27b5c12b90b94e20b5b81cce0f38363",
+      "locator": "#abstracts",
+      "transformations": [
+        "Removed newsletter UI and executable/UI nodes; preserved original scholarly text and child order"
+      ]
+    }
+  },
+  {
+    "id": "science.adv0235",
+    "url": "https://www.science.org/doi/10.1126/science.adv0235",
+    "observedAt": "2026-10-02T17:20:56.015Z",
+    "captureMode": "public browser DOM; no HTTP-byte digest available",
+    "sourceProjectionSha256": "349fe65404b311810c4c06db130ac0e5831900a862214bd282dbb0c0f75d76f8",
+    "fixtureSha256": "e76524cba58c1b9f24627d89ff49096c0dc539817e3ef883fa9831e5d3503118",
+    "retainedBlocks": [
+      {
+        "locator": "#bodymatter",
+        "sha256": "7d87c9daafa592221dbb4a1a6fc9ff59999b680c28d9e8db8b119dbc7093d6b7"
+      },
+      {
+        "locator": "#bibliography",
+        "sha256": "3bd925154a23602b0e3c6fc26ddb980938226acc842148b6c5f718b3c3d35b28"
+      },
+      {
+        "locator": "#supplementary-materials",
+        "sha256": "c74967c575adaa7a33d896d5103b54a7ef8e8a45dae262a31d20ba01e4df2ad0"
+      },
+      {
+        "locator": "#tab-contributors",
+        "sha256": "1651ac192e1fc9a39ebeafee218b0eede9adc0c88276167b81b9e419261f8030"
+      }
+    ],
+    "observations": {
+      "bodyParagraphs": 0,
+      "figures": 0,
+      "math": 0,
+      "references": 63,
+      "tables": 0,
+      "title": "Synergistic polar states by selective atomic gradients | Science"
+    },
+    "transformations": [
+      "Reassembled only observed head/header/abstract/body/backmatter/contributor/date projections",
+      "Pruned body sections except first section, initial paragraphs, complete figure/table/math paragraphs and acknowledgments",
+      "Removed scripts except Article JSON-LD, UI forms, event handlers, style and MathJax visual duplicate",
+      "Removed reference lookup UI; retained full reference list without renumbering",
+      "Removed article share actions/hidden-menu UI; source abstract block captured separately where available",
+      "Normalized whitespace-only scaffold lines; inline scholarly whitespace preserved"
+    ],
+    "omittedContent": [
+      "Not full-page HTML or full article benchmark",
+      "Unretained body paragraphs; navigation/account/analytics state",
+      "HTTP response bytes; no sourceSha256 claim"
+    ]
+  }
+]
