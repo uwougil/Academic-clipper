@@ -1,74 +1,83 @@
-# PNAS 实验：来源获取阻塞记录
+# PNAS 实验适配器与来源证据
 
-状态：调研未完成，尚无 PNAS adapter 或可接纳的 source-backed fixtures。2026-10-02。
+状态：2026-10-03，独立实验入口已实现，Draft PR 待审查；正式 browser/bridge/CLI 支持仍限 Nature。
 
-## Work Contract 与基线
+## Work Contract 与边界
 
-独立 Work Contract：[Issue #31](https://github.com/uwougil/Academic-clipper/issues/31)。关联规划为 Issue #26；Issue #10 的 corpus specification/planning docs 只作为真实性和回归方法参考，不修改其 schema、goals 或交付责任。
+[Issue #31](https://github.com/uwougil/Academic-clipper/issues/31) 是独立 Work Contract；[Issue #26](https://github.com/uwougil/Academic-clipper/issues/26) 是后续 publisher roadmap。已阅读 AGENTS.md、README.md、PRD/EDD、Issue #10 及其 corpus specification/planning docs、Nature adapter/shared pipeline。
 
-基线为 main `5971ebfbe288e0efed4abef21469f41e2cabb05f`，启动时已通过 GitHub CLI 确认该 SHA 的 CI conclusion 为 success。隔离分支 `codex/experimental-pnas`。
+隔离分支 `codex/experimental-pnas` 从已通过 Main CI 的 main `5971ebfbe288e0efed4abef21469f41e2cabb05f` 创建。用户授权隔离实验；不修改 PRD/EDD、不启用全局 publisher router、不扩展 extension 权限、不修改 corpus schema/live verifier/security guard。
 
-已阅读 AGENTS.md、README.md、docs/PRD.md、docs/EDD.md、Issue #26、Issue #10、docs/specs/issue-10-nature-corpus.md、docs/plans/issue-10-execution-plan.md、Nature adapter 与 shared conversion/rendering/validation pipeline。
+实现为 `src/adapters/pnas.mjs` 和 `src/pnas-clip.mjs`。唯一 shared source 修改是导出已有 `referencesMarkdown()`；复用 Defuddle HTML→Markdown、academic normalizers、renderer、validators 和 writer。
 
-用户授权隔离的 PNAS 实验；现有 PRD/EDD 的正式支持范围仍为 Nature。本记录不改变这些 intent sources，也不添加 browser/bridge/CLI routing。
+## 当前平台与真实 DOM family
 
-## 已尝试的文章来源
+平台为 **Atypon Literatum**，适配依据是 **PNAS 当前 core article DOM**。[Atypon 的 PNAS.org tour](https://www.linkedin.com/posts/atypon_an-insiders-tour-of-pnasorg-on-literatum-activity-6971471851113832448-IcUV) 是历史证据；当前 page head 包含 `vendors~lazy-imports~literatum-auth~literatum-commerce-*.js`、`AxelPublicationContent-*.js`、`/products/pnas/releasedAssets/` 和 `tex-mml-chtml.js`，与实际 core DOM 相符。平台品牌不推出通用 selector。
 
-| 公开文章 URL | 研究角色 | 实际获取情况 |
+- `#abstracts > .core-container > section` 分别有 Significance (`#executive-summary-abstract`) 和 Abstract (`#abstract`)；同区 signup UI 不属于这些 section。
+- `section#bodymatter[property="articleBody"] > .core-container` 为正文；`div[role="paragraph"]` 表示段落，嵌套 section/h2/h3/h4 表示层级。
+- `.display-formula#eqnN` 含 equation 与 sibling label；MathJax CHTML 和 `mjx-assistive-mml > math` 同时存在。gossip DOM 没有 TeX script/annotation。
+- `figure.graphic#fig01` 内有 img/figcaption；编号及 Viewer button 在外部 wrapper。新图片用 `assets/images/large/*.jpg`，2014 内容用 `assets/graphic/*.jpeg`。
+- `figure.table#t01` 内有真实 table；collapsed wrapper 的部分 tr 带 `hidden`，不是缺失或访问限制。
+- `a[role="doc-biblioref"][data-xml-rid="rN"]` 指向 collateral IDs `#core-collateral-rN`；真实 bibliography 使用 `.biblioentry`、source label、`#rN .citation-content`。1–3 等范围只有端点 anchors。
+- `#tab-contributors` 暴露 RDFa authors/affiliations/notes；`#tab-information .core-history` 与 citation metadata 区分 online/issue dates。
+- body/backmatter 和 collateral panes 重复图注、文献、data/acknowledgments；adapter 只选 authoritative article roots。
+
+## 检查过的公开文章
+
+| URL | 访问与结构证据 | 接纳范围 |
 | --- | --- | --- |
-| https://www.pnas.org/doi/10.1073/pnas.2400689121 | A mechanistic model of gossip, reputations, and cooperation；理论、公式、Significance、nested sections、citation ranges、correction notice | web tool 首次提供 rendered text；显示 Free access、Significance/Abstract、h2/h3 层次及多段公式表示。没有 HTML bytes/DOM。 |
-| https://www.pnas.org/doi/10.1073/pnas.2311878121 | Explaining neural scaling laws；另一数学模型候选 | web tool 首次确认标题及文章文本可读；未取得实际 DOM。 |
-| https://www.pnas.org/doi/10.1073/pnas.2318124121 | Evaluating language models for mathematics through interactions；实验评估候选 | web tool 首次提供文章 rendered text，经 `?cookieSet=1` redirect；未取得实际 DOM。 |
-| https://www.pnas.org/doi/full/10.1073/pnas.1915321117 | 初始候选探测 | web tool Internal Error；未接纳。 |
+| [A mechanistic model of gossip, reputations, and cooperation](https://www.pnas.org/doi/10.1073/pnas.2400689121) | FREE ACCESS；Significance/Abstract、h2/h3/h4、22 display formulas、4 图、68 文献、多邮箱 correspondence、change history | 完整 intro/sec-1、fig02 及原 ancestor path/headings、完整 abstracts/backmatter/bibliography/author/info panes。fixture 含 6 display/100 inline MathML（含图注）、2 图、68 文献；其余长正文省略。 |
+| [Evaluating language models for mathematics through interactions](https://www.pnas.org/doi/10.1073/pnas.2318124121) | OPEN ACCESS；14 作者、19 author-affiliation associations、深层章节、符号 prose notes、GitHub/data/SI CSV/PDF | 完整 selected article roots/metadata panes；2 display/32 inline MathML、3 图、69 文献。 |
+| [Active learning increases student performance in science, engineering, and mathematics](https://www.pnas.org/doi/10.1073/pnas.1319030111) | OPEN ACCESS；2014 内容迁移到当前 DOM、10 行表格/colspan、currency、legacy supplementary links | 完整 selected article roots/metadata panes；1 table（含 hidden 最后行）、3 图、51 文献。 |
+| [Explaining neural scaling laws](https://www.pnas.org/doi/10.1073/pnas.2311878121) | 早期 web rendered-text 调研候选 | 未接纳 DOM fixture，不能计入结构覆盖。 |
 
-前三条标准 `/doi/` 和 `/doi/full/` URL 的本地、无凭据、通过既有环境代理的 bounded HTTP GET 均返回 HTTP 403。没有尝试 CAPTCHA、隐蔽模式、伪造授权、cookies 或私有 endpoint。
+早期 `/doi/full/10.1073/pnas.1915321117` 探测失败。PMC/PNAS Nexus DOM 未作为 PNAS source 替代。
 
-后续 web tool 读取前三篇的部分内容/搜索时转到 `https://www.pnas.org/action/cookieAbsent`，只返回站点导航和登录 UI。这些响应不是 article corpus；不能因为 URL 含 DOI 就接纳。
+## 获取、动态加载与 access 差异
 
-## Platform 与 DOM 证据的边界
+初始终端请求 403，`safeFetchExternal()` 正确拒绝本机 DNS 的私有地址 `198.18.1.3`；初始浏览器曾 `ERR_CONNECTION_CLOSED`。用户要求重试侧边浏览器后，三篇均正常加载全文。没有操作登录、CAPTCHA、credentials 或访问控制；终端不可访问不等于浏览器不可访问。没有新生产网络请求或复制 cookies/headers/tokens。
 
-Atypon 自身的 [An insider’s tour of PNAS.org on Literatum](https://www.linkedin.com/posts/atypon_an-insiders-tour-of-pnasorg-on-literatum-activity-6971471851113832448-IcUV) 说明 PNAS.org 使用 Literatum。PNAS 编辑部的 [2022 rebrand editorial](https://pmc.ncbi.nlm.nih.gov/articles/PMC8931316/) 讨论当时新站点的组织与 UI。
+对 active-learning tab 的普通 reload 进行 CDP 被动观察：document HTTP 200，响应 HTML 241,963 characters 且完整闭合，已包含 `#bodymatter`、最终表格值 `0.580`、最终文献 `#r51`。loaded DOM 有 10 行表格和 51 文献；普通折叠操作的观测窗口内没有新增内容请求。**该文章的表格/文献无需动态 endpoint**。
 
-当前可观察 URL family 是 `/doi/10.1073/pnas.*`，包含 `/action/cookieAbsent` 会话/浏览器差异；这与旧 `/content/` 链路不同。厂商声明与当前路径支持 Atypon/Literatum 的研究方向，但**不构成当前 article DOM family 的充分确认**。尚未观察 article root、metadata 标签、公式源、figure/caption siblings、reference IDs、table topology 或动态请求。不能仅凭 publisher 名称或平台历史创建 selector。
+同时观察 recommendations、locales、`/action/getFtrUpdate`、metrics 和站点 challenge 资源；不复放内部 endpoint。MathJax 排版和附属 UI 可以继续变化。gossip reload 的 network event buffer 被截断，不能据此证明其 server HTML 或所有文章均静态。adapter 接收已取得的 HTML/loaded DOM；未暴露 table 使用原页链接 fallback，缺少 assistive MathML 明确失败，不做动态 hydration。
 
-PMC 版本可以验证论文身份/科学内容，但 PMC 自己的 DOM 不代表 pnas.org。PNAS Nexus 的 Oxford Academic URL 也不属于本任务。二者均不作为 PNAS publisher fixture 替代品。
+FREE ACCESS 与 OPEN ACCESS 是不同标签，不能推断成相同授权或永久全文权限。没有 subscription-only/preview 真实 fixture；preview/challenge rejection 为明示 synthetic variation。新发表付费文章、机构 access、cookieAbsent/地区差异未验证。
 
-## 获取诊断与 access 差异
+## Corpus provenance 与 focused tests
 
-- `safeFetchExternal()` 拒绝本机 `www.pnas.org` 的 DNS 地址 `198.18.1.3`，报告 local/private address。保留此 guard；不修改 production transport。
-- In-app browser 访问 gossip 论文返回 `ERR_CONNECTION_CLOSED`。
-- Windows curl 的正常证书检查遇到 `CRYPT_E_REVOCATION_OFFLINE`；未禁用证书检查。随后 Node 的正常 TLS、环境代理、30s timeout、manual redirects、25 MiB body cap 研究请求返回 403。
-- web tool 的早期全文可见与后续 cookieAbsent 响应说明 access 状态会变化。它不证明内容必须由动态请求加载，也不证明 paid content 能公开访问。动态依赖、公开授权范围及新发表 subscription-only 文章差异仍未验证。
+`test/fixtures/pnas/manifest.json` 是实验本地 provenance 清单，不是共享 schema。记录 URL、`browser-loaded-dom-blocks`、各导出 block 的文件 mtime UTC/hash、fixture hash/bytes、sanitation/omissions。hash 不是 HTTP response hash，mtime 是实际导出时间而非服务器 publication time。raw captures 在外部临时目录，不提交。
 
-研究 HTTP 请求仅为外部临时操作，没有添加生产网络能力、保存 access headers 或提交 raw captures。
+大小分别 133,599、154,793、87,030 bytes；低于 Issue #10 的 256 KiB ceiling。第二篇略超通常 150 KB 建议区间，以保留完整深层正文/notes/refs。sanitizer 仅保留 citation head metadata；删除 scripts/frames/styles/event handlers、reference 返回菜单/Scholar/PubMed UI、重复 visual `mjx-math`；保留原 assistive MathML ancestry、reference numbering、hidden table rows 和 scholarly links。gossip fig02 未移动到人造 section，未重写学术文字。
 
-## Corpus 与测试覆盖
+`node scripts/prepare-pnas-fixtures.mjs <temporary capture directory>` 离线复现 sanitation。输入为 `pnas-<id>-block0/1/2/3/6/7.html`；gossip body 用分块导出后长度核对为 587,545 characters 的 `pnas-2400689121-body-complete.html`。长 `evaluate` 曾截断整页字符串，未使用这些截断导出。
 
-接纳真实 PNAS DOM fixtures：**0**。新增 PNAS parser/end-to-end tests：**0**。没有用 rendered text 重写 HTML，没有手工编写学术内容来充当 source-backed fixture，没有以 broad count 或 synthetic case 宣称真实覆盖。
+16 个 focused tests 覆盖 hash/topology、title/DOI/journal/online/issue/history dates、完整 authors/affiliations/correspondence、abstract、section hierarchy、MathML/上下标/公式、caption boundary/去重、colspan/hidden rows、原 reference labels/DOI/ranges、equation/figure/table/caption crossrefs、SI/data/legacy links、currency/prose-note symbols、UI cleanup、URL/identity/preview rejection、三种 dialect 的 production validation/determinism。synthetic 缺表/额外 UI case 不算真实 corpus。
 
-全部请求的 PNAS 覆盖仍为未验证：title/DOI/journal/dates；authors/affiliations/correspondence；abstract；section hierarchy；equations/scientific notation；figures/captions；tables；citations/reference list；internal crossrefs；supplementary/data links；site UI cleanup。gossip 的 rendered headings 只是选型线索，不是 parser oracle。
+还对未提交的完整 gossip body blocks 手动验证（4 图、22 display/369 inline MathML），发现并修复 Quarto caption crossrefs。手动检查不扩大 committed excerpt 的 coverage。
 
-## Shared contract 研究影响
+## PNAS quirks、限制与后续 Contract 影响
 
-1. Publisher identity、hosting platform 与当前 DOM family 必须分别记录。Literatum 品牌不能推出通用 selector，也不能把所有使用 Atypon 的站点当成同一个 adapter。
-2. Acquisition status 必须先区分 article、preview、cookie/login/challenge/network response，再判断 parser regression；DOI URL 和 HTTP HTML 不足以接纳 corpus。
-3. browser DOM capture 与 server HTML response 的 provenance 应明确区分。仅有 rendered text 无法生成 source subtree hashes、原始 TeX 或拓扑断言。
-4. 当前 renderer/result model 可以作为实验复用起点，但其 Nature-shaped fields、references 按 position 编号、caption MathJax selector 等是否适合 PNAS，必须等真实 DOM 验证。现在不抽取共享 API，不设计 router/schema/live-verifier。
+1. Placeholder `alttext="No alternative text available"` 会导致 Defuddle 输出错误替代文本；仅清除该 placeholder，保留 MathML。单独转换每棵 MathML，再进入既有 typed markers，避免 math/prose delimiter 拼接。
+2. `mfenced[separators=""]` 可让 Defuddle 拼成非法 `\cdotr`；PNAS 边界展开为等价 mrow/原 fence characters，转换仍由 Defuddle 完成，没有另写 TeX parser。
+3. gossip **eqn6** 的公开 MathML 原本有 `open="(" close="("`；没有原 TeX 可核对。保留源并发出 debug warning，不推测作者修正。delimiter validation 不证明数学正确性或 TeX 排版。fig02 等源文案/punctuation 异常也不静默改写。
+4. 普通 Markdown 按既有 policy 将 figure/table/equation 内链降为文本；links/Quarto 保留目标。prose notes/omitted targets 保留原页 fragment URL；未暴露 author 信息不猜测。BibTeX inference 继承 shared renderer 的限制，完整 reference text 在 note 中。
+5. tables 仍按 shared renderer 放末尾 `## Tables`；保留多行 header/colspan/data cells，但不声称视觉复刻。没有下载 SI/图片；remote fallback/security writer 可复用，当前环境下载未验证。
+6. 部分来源 note URLs 原本类似 `http://https/://proofwiki.org`；不按 label 猜测并修复。
+7. 后续 Publisher Adapter Contract 应分别记录 publisher/platform/DOM family；明确 DOM vs response provenance、author pane/body ownership、placeholder alttext、MathML/TeX source quality、隐藏内容、range/reference identity、caption crossrefs、access 状态。本实验不添加 hierarchy/router/corpus/live-verifier 抽象。
 
-## Merge blockers 与恢复条件
+## 实验入口与 merge blockers
 
-本 Draft 不可 merge 作为 PNAS 支持：需要取得多篇无凭据、公开可访问的 pnas.org article HTML/loaded DOM，并记录来源、实际获取时间、hash、保留 block、sanitization/omissions；确认当前 DOM family 后才能实现 `src/adapters/pnas.mjs` 和离线 focused tests。还需 source-backed table/math/reference/caption 等差异覆盖、三种输出方言的 production validation、完整回归结果与 PR CI。
+显式调用 `clipPnas({ html, url, citationStyle: 'markdown' | 'links' | 'quarto' })`（`src/pnas-clip.mjs`），输入为公开取得的 HTML/loaded DOM，函数不 fetch。检查返回 `debug.warnings`/四项 validators；有效 result 可交给 `writePaper(result, { libraryPath, downloadFigures: false })`。`metadata.date`/frontmatter 使用 online date，issue/history 在 `metadata.dates`。未接入 extension/bridge/CLI。
 
-如已有公开获取的本地 DOM captures，可直接提供目录路径；不需要任何凭据。若将实验接入正式 browser/bridge/CLI，需要人工解决 Nature-only 意图边界并更新 PRD/EDD。本记录不代替该决定。
+Draft 交付需当前 commit 的完整 CI 与代码审查；eqn6 来源异常、真实 preview/付费样本缺失、原 TeX/公式排版未核验是**提升为正式 PNAS 支持的 blockers**。正式 browser/bridge/CLI integration 需要人工解决 Nature-only intent 并更新 PRD/EDD。不要自动 merge 或关闭 Issue #31。
 
-## 本次 baseline verification
+## Verification
 
-Windows Node `v24.14.1`，以上 main 基线，仅新增本记录；这些结果不验证 PNAS。
+Windows Node `v24.14.1`。最终命令/精确结果/PR CI 记录于 Draft PR delivery contract；研究-only commit 的 CI 不代表后续实现 commit 已验证。
 
-- `npm ci`：exit 0，65 packages installed，0 vulnerabilities。
-- `npm test`：exit 0，110 tests，110 pass，0 fail/cancelled/skipped/todo；duration 17487.29 ms。
-- `npm run build`：exit 0，生成 ignored `dist/extension/`。
-- `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto`：exit 0；math、scientificFragments、Markdown structure、raw HTML 与 cross-reference validation 全部 valid；250 inline math、13 display math、50 reference definitions。
-- `git diff --check`：exit 0。最终 tracked change 仅 `docs/pnas-experiment.md`；没有 source/test/intent/security/CI/golden 修改。
-
-Linux Node 20/24 与 Windows Node 24 的本 Draft PR CI 尚待 GitHub 执行；本地 Node 24 结果不能替代跨平台 CI。
+- `npm ci`：exit 0，65 packages，0 vulnerabilities（隔离 worktree 初始化）。
+- `node --test test/pnas.test.mjs`：exit 0，16/16 pass，0 fail/cancelled/skipped/todo。
+- `npm test`：exit 0，126/126 pass，0 fail/cancelled/skipped/todo，11,953.5386 ms。
+- `npm run build`：exit 0；输出为 ignored `dist/extension/`。
+- `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto`：exit 0；所有 validators valid，250 inline/13 display math、50 reference definitions。
