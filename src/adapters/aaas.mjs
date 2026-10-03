@@ -1,4 +1,7 @@
 import { JSDOM } from 'jsdom';
+// Initialize Defuddle outside an article window: Turndown captures its DOMParser
+// at module load, and an article-owned parser becomes unusable after close().
+import 'defuddle/full';
 import { withDomGlobals } from '../dom-runtime.mjs';
 import { defuddleToMarkdown, htmlToMarkdown } from '../markdown.mjs';
 import { semanticMarker } from '../normalizers/markers.mjs';
@@ -167,122 +170,132 @@ export async function parseAaasPage(html, url) {
   const identity = aaasArticleIdentity(url);
   if (!identity) throw new Error('Experimental AAAS supports only Science / Science Advances HTTPS article URLs.');
   const dom = new JSDOM(html, { url });
-  const document = dom.window.document;
-  const sourceBody = document.querySelector('#bodymatter[data-extent="bodymatter"]');
-  // A real subscription preview has the normal article root but no body.
-  if (!sourceBody || sourceBody.querySelector('.denial-block') || document.querySelector('.meta-panel__access--other')) {
-    throw new Error('AAAS full article is unavailable (access wall, preview, challenge, or unloaded body).');
-  }
-  if (!sourceBody.querySelector('[role="paragraph"],p')) throw new Error('AAAS article has no substantive body paragraphs.');
-  const metadata = metadataFor(document, url, identity);
-  const references = parseReferences(document);
-  if (!references.length || references.some((n, i) => n.number !== i + 1)) throw new Error('AAAS complete sequential reference list was not found; page may be partial.');
-  const warnings = [];
-  const mathAudit = [];
-  const semantic = { displayMath: [], inlineMath: [], scientificRuns: [], literalText: [], citations: [], crossReferences: new Map() };
-  const article = document.createElement('article');
-  for (const source of [document.querySelector('#abstracts'), sourceBody, document.querySelector('#supplementary-materials')].filter(Boolean)) article.append(source.cloneNode(true));
-  for (const button of article.querySelectorAll('[role="paragraph"] button[data-target^="core-fv-"]')) {
-    const anchor = document.createElement('a');
-    anchor.setAttribute('href', `#${button.getAttribute('data-target').replace(/^core-fv-/, '')}`);
-    anchor.textContent = (button.getAttribute('aria-label') || '').replace(/^OPEN\s+|\s+IN VIEWER$/g, '');
-    button.replaceWith(anchor);
-  }
-  for (const n of article.querySelectorAll('script,style,button,nav,aside,form,.newsletter,.inline-newsletter,[class*="newsletter"],.alert-signup__dropzone,.external-links,.figure-pop-btn')) n.remove();
-  const figures = [...article.querySelectorAll('figure.graphic')].map((n, i) => ({
-    id: n.id, anchor: `figure-${i + 1}`, label: `Figure ${n.id.match(/\d+/)?.[0] || i + 1}`, alt: `Figure ${n.id.match(/\d+/)?.[0] || i + 1}`,
-    imageUrl: n.querySelector('img')?.getAttribute('src') ? new URL(n.querySelector('img').getAttribute('src'), url).href : '',
-    caption: text(n.querySelector('figcaption')), captionHtml: n.querySelector('figcaption')?.innerHTML || '', source: 'inline figure',
-  }));
-  const tables = [...article.querySelectorAll('figure.table')].map((n, i) => ({
-    id: n.id, anchor: `table-${i + 1}`, label: `Table ${n.id.match(/\d+/)?.[0] || i + 1}`, caption: text(n.querySelector('figcaption')),
-    tableHtml: n.querySelector('table')?.outerHTML || '', url: `${url}#${n.id}`,
-    tableContentStatus: n.querySelector('table') ? 'captured-inline' : 'fallback-no-html',
-    tableContentWarning: n.querySelector('table') ? '' : 'AAAS table cells were not exposed; retained article link.',
-  }));
-  for (const [type, items] of [['figure', figures], ['table', tables]]) for (const n of items) semantic.crossReferences.set(n.id, { type, anchor: n.anchor, label: n.label });
-  const headingSlugs = new Set();
-  for (const heading of article.querySelectorAll('h2,h3,h4,h5,h6')) {
-    const section = heading.parentElement;
-    const base = slug(text(heading)); let anchor = base; let suffix = 1;
-    while (headingSlugs.has(anchor)) anchor = `${base}-${++suffix}`;
-    headingSlugs.add(anchor);
-    const target = { type: 'section', anchor, label: text(heading) };
-    if (!heading.id && !section.id) heading.id = `aaas-${anchor}`;
-    for (const id of [heading.id, section.id].filter(Boolean)) semantic.crossReferences.set(id, target);
-    const p = document.createElement('p'); p.textContent = semanticMarker('SECTIONANCHOR', anchor); heading.before(p);
-  }
-  for (const [i, equation] of [...article.querySelectorAll('.display-formula')].entries()) {
-    const anchor = `equation-${i + 1}`;
-    semantic.crossReferences.set(equation.id, { type: 'equation', anchor, label: `Equation ${i + 1}` });
-    const p = document.createElement('p'); p.textContent = semanticMarker('EQUATIONANCHOR', anchor); equation.before(p);
-    equation.querySelector(':scope > .label')?.remove();
-  }
-  // Viewer crossrefs may be buttons after browser enhancement. Source data-rid
-  // links remain supported; viewer controls around figures are excluded above.
-  for (const n of [...article.querySelectorAll('a[href], [data-target^="core-fv-"]')]) {
-    if (n.matches('img')) continue;
-    let fragment = n.getAttribute('data-target')?.replace(/^core-fv-/, '') || '';
-    if (!fragment && n.hasAttribute('href')) {
-      const resolved = new URL(n.getAttribute('href'), url);
-      if (resolved.origin === new URL(url).origin && aaasArticleIdentity(resolved.href)?.doi === identity.doi) fragment = resolved.hash.slice(1).replace(/^core-collateral-/, '');
+  try {
+    const document = dom.window.document;
+    const sourceBody = document.querySelector('#bodymatter[data-extent="bodymatter"]');
+    // A real subscription preview has the normal article root but no body.
+    if (!sourceBody || sourceBody.querySelector('.denial-block') || document.querySelector('.meta-panel__access--other')) {
+      throw new Error('AAAS full article is unavailable (access wall, preview, challenge, or unloaded body).');
     }
-    const target = semantic.crossReferences.get(fragment);
-    if (target) n.setAttribute('href', `#${target.anchor}`);
-    else if (n.hasAttribute('href') && !n.getAttribute('href').startsWith('#')) n.setAttribute('href', new URL(n.getAttribute('href'), url).href);
-  }
-  protectCitations(article, semantic, new Set(references.map(n => n.number)), warnings);
-  await withDomGlobals(dom, async () => {
-    await protectMath(article, semantic, warnings, mathAudit);
-    protectScientificAttachments(article, semantic);
-    protectLiteralBrackets(article, semantic);
-    for (const table of tables) {
-      const node = [...article.querySelectorAll('figure.table')].find(n => n.id === table.id);
-      table.tableHtml = node.querySelector('table')?.outerHTML || '';
+    if (!sourceBody.querySelector('[role="paragraph"],p')) throw new Error('AAAS article has no substantive body paragraphs.');
+    const metadata = metadataFor(document, url, identity);
+    const references = parseReferences(document);
+    if (!references.length || references.some((n, i) => n.number !== i + 1)) throw new Error('AAAS complete sequential reference list was not found; page may be partial.');
+    const warnings = [];
+    const mathAudit = [];
+    const semantic = { displayMath: [], inlineMath: [], scientificRuns: [], literalText: [], citations: [], crossReferences: new Map() };
+    const article = document.createElement('article');
+    for (const source of [document.querySelector('#abstracts'), sourceBody, document.querySelector('#supplementary-materials')].filter(Boolean)) article.append(source.cloneNode(true));
+    for (const button of article.querySelectorAll('[role="paragraph"] button[data-target^="core-fv-"]')) {
+      const anchor = document.createElement('a');
+      anchor.setAttribute('href', `#${button.getAttribute('data-target').replace(/^core-fv-/, '')}`);
+      anchor.textContent = (button.getAttribute('aria-label') || '').replace(/^OPEN\s+|\s+IN VIEWER$/g, '');
+      button.replaceWith(anchor);
     }
-    for (const figure of figures) {
-      const node = [...article.querySelectorAll('figure.graphic')].find(n => n.id === figure.id);
-      figure.captionHtml = node.querySelector('figcaption')?.innerHTML || '';
-      const p = document.createElement('p'); p.textContent = semanticMarker('FIGURE', figure.anchor); node.replaceWith(p);
-      if (!figure.imageUrl) warnings.push(`AAAS ${figure.label} has no image URL.`);
+    for (const n of article.querySelectorAll('script,style,button,nav,aside,form,.newsletter,.inline-newsletter,[class*="newsletter"],.alert-signup__dropzone,.external-links,.figure-pop-btn')) n.remove();
+    const figures = [...article.querySelectorAll('figure.graphic')].map((n, i) => ({
+      id: n.id, anchor: `figure-${i + 1}`, label: `Figure ${n.id.match(/\d+/)?.[0] || i + 1}`, alt: `Figure ${n.id.match(/\d+/)?.[0] || i + 1}`,
+      imageUrl: n.querySelector('img')?.getAttribute('src') ? new URL(n.querySelector('img').getAttribute('src'), url).href : '',
+      caption: text(n.querySelector('figcaption')), captionHtml: n.querySelector('figcaption')?.innerHTML || '', source: 'inline figure',
+    }));
+    const tables = [...article.querySelectorAll('figure.table')].map((n, i) => ({
+      id: n.id, anchor: `table-${i + 1}`, label: `Table ${n.id.match(/\d+/)?.[0] || i + 1}`, caption: text(n.querySelector('figcaption')),
+      tableHtml: n.querySelector('table')?.outerHTML || '', url: `${url}#${n.id}`,
+      tableContentStatus: n.querySelector('table') ? 'captured-inline' : 'fallback-no-html',
+      tableContentWarning: n.querySelector('table') ? '' : 'AAAS table cells were not exposed; retained article link.',
+    }));
+    for (const [type, items] of [['figure', figures], ['table', tables]]) for (const n of items) semantic.crossReferences.set(n.id, { type, anchor: n.anchor, label: n.label });
+    const headingSlugs = new Set();
+    for (const heading of article.querySelectorAll('h2,h3,h4,h5,h6')) {
+      const section = heading.parentElement;
+      const base = slug(text(heading)); let anchor = base; let suffix = 1;
+      while (headingSlugs.has(anchor)) anchor = `${base}-${++suffix}`;
+      headingSlugs.add(anchor);
+      const target = { type: 'section', anchor, label: text(heading) };
+      if (!heading.id && !section.id) heading.id = `aaas-${anchor}`;
+      for (const id of [heading.id, section.id].filter(Boolean)) semantic.crossReferences.set(id, target);
+      const p = document.createElement('p'); p.textContent = semanticMarker('SECTIONANCHOR', anchor); heading.before(p);
     }
-    for (const table of article.querySelectorAll('figure.table')) table.remove();
-  });
-  // Preserve AAAS paragraphs even when they are div[role=paragraph].
-  for (const n of [...article.querySelectorAll('div[role="paragraph"],div[role="doc-footnote"]')]) {
-    const p = document.createElement('p'); p.append(...n.childNodes); n.replaceWith(p);
+    for (const [i, equation] of [...article.querySelectorAll('.display-formula')].entries()) {
+      const anchor = `equation-${i + 1}`;
+      semantic.crossReferences.set(equation.id, { type: 'equation', anchor, label: `Equation ${i + 1}` });
+      const p = document.createElement('p'); p.textContent = semanticMarker('EQUATIONANCHOR', anchor); equation.before(p);
+      equation.querySelector(':scope > .label')?.remove();
+    }
+    // Viewer crossrefs may be buttons after browser enhancement. Source data-rid
+    // links remain supported; viewer controls around figures are excluded above.
+    for (const n of [...article.querySelectorAll('a[href], [data-target^="core-fv-"]')]) {
+      if (n.matches('img')) continue;
+      let fragment = n.getAttribute('data-target')?.replace(/^core-fv-/, '') || '';
+      if (!fragment && n.hasAttribute('href')) {
+        const resolved = new URL(n.getAttribute('href'), url);
+        if (resolved.origin === new URL(url).origin && aaasArticleIdentity(resolved.href)?.doi === identity.doi) fragment = resolved.hash.slice(1).replace(/^core-collateral-/, '');
+      }
+      const target = semantic.crossReferences.get(fragment);
+      if (target) n.setAttribute('href', `#${target.anchor}`);
+      else if (n.hasAttribute('href') && !n.getAttribute('href').startsWith('#')) n.setAttribute('href', new URL(n.getAttribute('href'), url).href);
+    }
+    protectCitations(article, semantic, new Set(references.map(n => n.number)), warnings);
+    await withDomGlobals(dom, async () => {
+      await protectMath(article, semantic, warnings, mathAudit);
+      protectScientificAttachments(article, semantic);
+      protectLiteralBrackets(article, semantic);
+      for (const table of tables) {
+        const node = [...article.querySelectorAll('figure.table')].find(n => n.id === table.id);
+        table.tableHtml = node.querySelector('table')?.outerHTML || '';
+      }
+      for (const figure of figures) {
+        const node = [...article.querySelectorAll('figure.graphic')].find(n => n.id === figure.id);
+        figure.captionHtml = node.querySelector('figcaption')?.innerHTML || '';
+        const p = document.createElement('p'); p.textContent = semanticMarker('FIGURE', figure.anchor); node.replaceWith(p);
+        if (!figure.imageUrl) warnings.push(`AAAS ${figure.label} has no image URL.`);
+      }
+      for (const table of article.querySelectorAll('figure.table')) table.remove();
+    });
+    // Preserve AAAS paragraphs even when they are div[role=paragraph].
+    for (const n of [...article.querySelectorAll('div[role="paragraph"],div[role="doc-footnote"]')]) {
+      const p = document.createElement('p'); p.append(...n.childNodes); n.replaceWith(p);
+    }
+    document.body.replaceChildren(article);
+    for (const n of document.querySelectorAll('script')) n.remove();
+    return { dom, document, articleId: identity.articleId, metadata, references, figures, tables, semantic, cleanedHtml: document.documentElement.outerHTML,
+      debug: { publisher: 'AAAS (experimental)', articleRoot: '#bodymatter', warnings, mathAudit, access: 'body-present; completeness not guaranteed', metadataSource: metadata.metadataSource } };
+  } catch (error) {
+    dom.window.close();
+    throw error;
   }
-  document.body.replaceChildren(article);
-  for (const n of document.querySelectorAll('script')) n.remove();
-  return { dom, document, articleId: identity.articleId, metadata, references, figures, tables, semantic, cleanedHtml: document.documentElement.outerHTML,
-    debug: { publisher: 'AAAS (experimental)', articleRoot: '#bodymatter', warnings, mathAudit, access: 'body-present; completeness not guaranteed', metadataSource: metadata.metadataSource } };
 }
 
 export async function clipAaas({ html, url, citationStyle = 'markdown' }) {
   if (!['markdown', 'links', 'quarto'].includes(citationStyle)) throw new Error('citationStyle must be markdown, links, or quarto.');
   const page = await parseAaasPage(html, url);
-  const policy = outputPolicy(citationStyle);
-  const converted = await withDomGlobals(page.dom, async () => {
-    await normalizeFigureCaptions(page.figures, url);
-    // Caption math markers share the article semantics.
-    for (const figure of page.figures) figure.captionMarkdown = normalizeAnchorMarkers(normalizeCitations(normalizeAcademicInline(normalizeMath(figure.captionMarkdown, page.semantic)), page.semantic.citations, { policy, references: page.references }), page.semantic.crossReferences.values(), { policy });
-    await normalizeTableContents(page.tables, url);
-    for (const table of page.tables) table.markdown = normalizeCitations(normalizeMath(table.markdown, page.semantic), page.semantic.citations, { policy, references: page.references });
-    const supplementary = page.document.querySelector('#supplementary-materials');
-    const supplementaryMarkdown = supplementary ? await htmlToMarkdown(supplementary.outerHTML, url) : '';
-    supplementary?.remove();
-    const body = await defuddleToMarkdown(page.document, url);
-    return { ...body, markdown: [body.markdown, supplementaryMarkdown].filter(Boolean).join('\n\n'), referencesMarkdown: await referencesMarkdown(page.references, url, policy) };
-  });
-  const result = { ...page, rawHtml: html, citationStyle, outputPolicy: policy, bodyMarkdown: converted.markdown, referencesMarkdown: converted.referencesMarkdown };
-  result.markdown = renderClipMarkdown(result);
-  const validators = {
-    mathValidation: validateMathDelimiters(result.markdown),
-    markdownStructure: validateMarkdownStructure(result.markdown, { dialect: policy.dialect, citationStyle }),
-    rawHtmlValidation: validateRawHtml(result.markdown, { allowHtmlAnchors: policy.allowHtmlAnchors }),
-    crossReferenceValidation: validateCrossReferences(result.markdown, { dialect: policy.dialect, citationStyle }),
-  };
-  result.debug = { ...page.debug, ...validators };
-  if (Object.values(validators).some(n => !n.valid)) throw new Error(`AAAS output validation failed: ${JSON.stringify(validators)}`);
-  return result;
+  try {
+    const policy = outputPolicy(citationStyle);
+    const converted = await withDomGlobals(page.dom, async () => {
+      await normalizeFigureCaptions(page.figures, url);
+      // Caption math markers share the article semantics.
+      for (const figure of page.figures) figure.captionMarkdown = normalizeAnchorMarkers(normalizeCitations(normalizeAcademicInline(normalizeMath(figure.captionMarkdown, page.semantic)), page.semantic.citations, { policy, references: page.references }), page.semantic.crossReferences.values(), { policy });
+      await normalizeTableContents(page.tables, url);
+      for (const table of page.tables) table.markdown = normalizeCitations(normalizeMath(table.markdown, page.semantic), page.semantic.citations, { policy, references: page.references });
+      const supplementary = page.document.querySelector('#supplementary-materials');
+      const supplementaryMarkdown = supplementary ? await htmlToMarkdown(supplementary.outerHTML, url) : '';
+      supplementary?.remove();
+      const body = await defuddleToMarkdown(page.document, url);
+      return { ...body, markdown: [body.markdown, supplementaryMarkdown].filter(Boolean).join('\n\n'), referencesMarkdown: await referencesMarkdown(page.references, url, policy) };
+    });
+    const { articleId, metadata, references, figures, tables, semantic, cleanedHtml } = page;
+    const result = { articleId, metadata, references, figures, tables, semantic, cleanedHtml, rawHtml: html, citationStyle, outputPolicy: policy, bodyMarkdown: converted.markdown, referencesMarkdown: converted.referencesMarkdown };
+    result.markdown = renderClipMarkdown(result);
+    const validators = {
+      mathValidation: validateMathDelimiters(result.markdown),
+      markdownStructure: validateMarkdownStructure(result.markdown, { dialect: policy.dialect, citationStyle }),
+      rawHtmlValidation: validateRawHtml(result.markdown, { allowHtmlAnchors: policy.allowHtmlAnchors }),
+      crossReferenceValidation: validateCrossReferences(result.markdown, { dialect: policy.dialect, citationStyle }),
+    };
+    result.debug = { ...page.debug, ...validators };
+    if (Object.values(validators).some(n => !n.valid)) throw new Error(`AAAS output validation failed: ${JSON.stringify(validators)}`);
+    return result;
+  } finally {
+    page.dom.window.close();
+  }
 }

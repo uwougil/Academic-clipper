@@ -15,6 +15,71 @@ const sources = [
   ['sciadv.1602536', 'Mechanical deformation induces depolarization of neutrophils', 'Science Advances', '2017-06-14', 9, 59, 5, 0],
 ];
 
+test('AAAS public result excludes DOM runtime and preserves pre-fix Markdown', async () => {
+  const expected = {
+    markdown: '1925d007428202c408b7de91b2091ce97e9808b8bca947d9a8efb5915982a44d',
+    links: '4e93c877cceffeab13097962851ca731866d8d5f427732611ac9af8edafca29b',
+    quarto: '7ef7fdd0f617d74e1ae280c27a51fb7142ef83e03187eda074a1d5cf963a60a1',
+  };
+  for (const [citationStyle, hash] of Object.entries(expected)) {
+    const result = await clipAaas({ html: await fixture('sciadv.1700434'), url: url('sciadv.1700434'), citationStyle });
+    assert.equal(Object.hasOwn(result, 'dom'), false);
+    assert.equal(Object.hasOwn(result, 'document'), false);
+    assert.deepEqual(Object.keys(result).sort(), ['articleId', 'metadata', 'references', 'figures', 'tables', 'semantic', 'cleanedHtml', 'rawHtml', 'citationStyle', 'outputPolicy', 'bodyMarkdown', 'referencesMarkdown', 'markdown', 'debug'].sort());
+    assert.equal(createHash('sha256').update(result.markdown).digest('hex'), hash);
+  }
+});
+
+test('AAAS closes its window on success, conversion error and parser rejection', async () => {
+  const descriptor = Object.getOwnPropertyDescriptor(JSDOM.prototype, 'window');
+  const observed = new Map();
+  const conversionError = new Error('Injected supplementary conversion failure');
+  let injectError = false;
+  let articleWindow;
+  Object.defineProperty(JSDOM.prototype, 'window', {
+    ...descriptor,
+    get() {
+      const window = descriptor.get.call(this);
+      // The parser first accesses its owner window before Defuddle creates
+      // any temporary parsing documents (which can share the article URL).
+      articleWindow ||= window;
+      if (window !== articleWindow) return window;
+      if (!observed.has(window)) {
+        const record = { closes: 0 };
+        observed.set(window, record);
+        const close = window.close;
+        window.close = function () { record.closes++; return close.call(this); };
+        if (injectError) {
+          const query = window.document.querySelector;
+          let supplementaryQueries = 0;
+          window.document.querySelector = function (selector) {
+            // First lookup is the parser seam; second is clip conversion.
+            if (selector === '#supplementary-materials' && ++supplementaryQueries === 2) throw conversionError;
+            return query.call(this, selector);
+          };
+        }
+      }
+      return window;
+    },
+  });
+  try {
+    const input = { html: await fixture('sciadv.1700434'), url: url('sciadv.1700434') };
+    await clipAaas(input);
+    articleWindow = undefined;
+    injectError = true;
+    await assert.rejects(() => clipAaas(input), error => error === conversionError);
+    injectError = false;
+    articleWindow = undefined;
+    const denied = await fixture('science.adv0235');
+    await assert.rejects(() => clipAaas({ html: denied, url: url('science.adv0235') }), /unavailable/);
+    assert.equal(observed.size, 3);
+    for (const record of observed.values()) assert.equal(record.closes, 1);
+  } finally {
+    Object.defineProperty(JSDOM.prototype, 'window', descriptor);
+    for (const [window, record] of observed) if (!record.closes) window.close();
+  }
+});
+
 test('AAAS URL identity is limited to the two inspected journals', () => {
   assert.equal(aaasArticleIdentity(url('science.aaa9297')).journal, 'Science');
   for (const candidate of ['http://www.science.org/doi/10.1126/science.aaa9297', 'https://science.org/doi/10.1126/science.aaa9297', 'https://www.science.org.evil.test/doi/10.1126/science.aaa9297', 'https://www.science.org/doi/10.1126/scirobotics.test', 'https://user@www.science.org/doi/10.1126/science.aaa9297', 'https://www.science.org:123/doi/10.1126/science.aaa9297']) assert.equal(aaasArticleIdentity(candidate), null);
