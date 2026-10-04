@@ -5,7 +5,8 @@ import { isIP } from 'node:net';
 import { JSDOM } from 'jsdom';
 
 export const SCHEMA_VERSION = '1.0.0';
-export const SANITIZER_VERSION = 'nature-corpus-sanitizer/1.0.0';
+export const SANITIZER_VERSION = 'nature-corpus-sanitizer/1.1.0';
+export const LEGACY_SANITIZER_VERSION = 'nature-corpus-sanitizer/1.0.0';
 export const SERIALIZER_VERSION = 'nature-corpus-subtree/1.0.0';
 export const PROJECTION_VERSION = 'nature-corpus-projection/1.0.0';
 export const RECIPE_VERSION = '1.0.0';
@@ -233,9 +234,41 @@ function cleanUrl(value) {
   requireThat(!SECRET.test(cleaned), 'Private/local material in URL; manual source review required');
   return cleaned;
 }
-function articleObjects(value) {
-  return (Array.isArray(value) ? value : value?.['@graph'] || [value]).flatMap((item) => item?.['@graph'] ? articleObjects(item) : [item])
+function legacyArticleObjects(value) {
+  return (Array.isArray(value) ? value : value?.['@graph'] || [value]).flatMap((item) => item?.['@graph'] ? legacyArticleObjects(item) : [item])
     .filter((item) => item && (Array.isArray(item['@type']) ? item['@type'] : [item['@type']]).some((type) => /^(?:Article|ScholarlyArticle|NewsArticle)$/u.test(type)));
+}
+/** Traverse only JSON-LD document containers, never arbitrary scholarly fields.
+ * Preserve inherited context when extracting an article from WebPage.mainEntity. */
+function articleObjects(value, inheritedContext) {
+  if (Array.isArray(value)) return value.flatMap((item) => articleObjects(item, inheritedContext));
+  if (!value || typeof value !== 'object') return [];
+  const context = value['@context'] ?? inheritedContext;
+  const types = Array.isArray(value['@type']) ? value['@type'] : [value['@type']];
+  if (types.some((type) => /^(?:Article|ScholarlyArticle|NewsArticle)$/u.test(type))) {
+    return [{ ...value, ...(context !== undefined ? { '@context': context } : {}) }];
+  }
+  return [...articleObjects(value['@graph'], context), ...articleObjects(value.mainEntity, context)];
+}
+function exactArticleIdentity(item, articleUrl) {
+  const doiUrl = `https://doi.org/10.1038/${new URL(articleUrl).pathname.split('/').at(-1)}`;
+  const values = [];
+  for (const key of ['url', '@id', 'mainEntityOfPage', 'sameAs']) {
+    if (!Object.hasOwn(item, key)) continue;
+    if (Array.isArray(item[key]) && item[key].length === 0) return false;
+    for (const value of Array.isArray(item[key]) ? item[key] : [item[key]]) {
+      const identity = typeof value === 'string' ? value : value && typeof value === 'object' ? value['@id'] : undefined;
+      // Missing, malformed and conflicting identities cannot use an identity-free fallback.
+      if (typeof identity !== 'string' || !identity) return false;
+      values.push({ key, identity });
+    }
+  }
+  return values.length > 0 && values.every(({ key, identity }) => {
+    if (identity === articleUrl || identity === doiUrl) return true;
+    // JSON-LD @id/mainEntityOfPage may identify the article node by a fragment.
+    return ['@id', 'mainEntityOfPage'].includes(key) && identity.startsWith(`${articleUrl}#`)
+      && identity.length > articleUrl.length + 1;
+  });
 }
 function cleanJson(value) {
   if (Array.isArray(value)) return value.map(cleanJson);
@@ -250,7 +283,8 @@ function cleanJson(value) {
 /** Sanitizes only recipe-selected source blocks plus original ancestors. No prose is authored.
  * Returns UTF-8 LF bytes, pre-sanitize digests, transformation counts, recipe identity,
  * and signatures of exactly this sanitized retained projection. */
-export function sanitizeNatureHtml(html, recipe) {
+export function sanitizeNatureHtml(html, recipe, { sanitizerVersion = SANITIZER_VERSION } = {}) {
+  requireThat([SANITIZER_VERSION, LEGACY_SANITIZER_VERSION].includes(sanitizerVersion), 'Unsupported sanitizer version');
   const { dom, document, selected, referenceLists } = selectedDocument(html, recipe);
   const transformations = [];
   const record = (operation, count = 1) => { if (count) transformations.push({ operation, count }); };
@@ -269,12 +303,14 @@ export function sanitizeNatureHtml(html, recipe) {
     for (const script of Array.from(document.querySelectorAll('script'))) {
       if (script.getAttribute('type') !== 'application/ld+json') { script.remove(); record('remove-executable-script'); continue; }
       let objects;
-      try { objects = articleObjects(JSON.parse(script.textContent)); } catch { throw new CorpusIntegrityError('Invalid selected JSON-LD'); }
+      const legacy = sanitizerVersion === LEGACY_SANITIZER_VERSION;
+      try { objects = (legacy ? legacyArticleObjects : articleObjects)(JSON.parse(script.textContent)); } catch { throw new CorpusIntegrityError('Invalid selected JSON-LD'); }
       const matches = objects.filter((item) => {
+        if (!legacy) return exactArticleIdentity(item, recipe.articleUrl);
         const identity = [item.url, typeof item.mainEntityOfPage === 'string' ? item.mainEntityOfPage : item.mainEntityOfPage?.['@id'], item['@id']].filter(Boolean);
         return identity.some((url) => String(url).split('#')[0] === recipe.articleUrl);
       });
-      const article = matches.length === 1 ? matches[0] : objects.length === 1 && !objects[0].url && !objects[0].mainEntityOfPage && !objects[0]['@id'] ? objects[0] : null;
+      const article = matches.length === 1 ? matches[0] : legacy && objects.length === 1 && !objects[0].url && !objects[0].mainEntityOfPage && !objects[0]['@id'] ? objects[0] : null;
       requireThat(article, 'Ambiguous or mismatched article JSON-LD; select relevant article script explicitly');
       const cleaned = stableJson(cleanJson(article)).replace(/</gu, '\\u003c');
       if (cleaned !== script.textContent) record('trim-json-ld-to-article-object');
@@ -334,7 +370,7 @@ export function sanitizeNatureHtml(html, recipe) {
     // Canonicalize that representational detail without changing any text bytes.
     document.documentElement.normalize();
     const signatures = projectionSignatures(document.documentElement, recipe);
-    return { bytes, html: htmlOutput, fixtureSha256: sha256Bytes(bytes), sanitizerVersion: SANITIZER_VERSION,
+    return { bytes, html: htmlOutput, fixtureSha256: sha256Bytes(bytes), sanitizerVersion,
       serializerVersion: SERIALIZER_VERSION, recipeSha256: sha256Bytes(Buffer.from(stableJson(recipe))),
       retainedBlocks: selected.map(({ node, ...block }) => block), transformations, signatures };
   } finally { dom.window.close(); }
@@ -436,7 +472,7 @@ export async function verifyManifestFixtures(manifest, corpusRoot, options) {
       const bytes = await readFixtureBytes(corpusRoot, resource.fixturePath, article.articleId, resource.fixtureSha256);
       const maxBytes = resource === article ? 256 * 1024 : 64 * 1024;
       requireThat(bytes.length <= maxBytes || resource.sizeException, `Size limit exceeded: ${resource.fixturePath}`);
-      const repeated = sanitizeNatureHtml(new TextDecoder('utf-8', { fatal: true }).decode(bytes), resource.recipe);
+      const repeated = sanitizeNatureHtml(new TextDecoder('utf-8', { fatal: true }).decode(bytes), resource.recipe, { sanitizerVersion: resource.sanitizerVersion });
       requireThat(bytes.equals(repeated.bytes), `Fixture/recipe is not canonical or idempotent: ${resource.fixturePath}`);
       if (resource === article && article.liveObservations) requireThat(stableJson(article.liveObservations.retainedProjection) === stableJson(repeated.signatures), 'Frozen observation/excerpt projection signatures differ');
       totalBytes += bytes.length;

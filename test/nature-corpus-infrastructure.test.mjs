@@ -9,7 +9,7 @@ import { hydrateNatureTables } from '../src/adapters/nature.mjs';
 import { safeFetchExternal } from '../src/security.mjs';
 import { runSanitizerCli } from '../scripts/sanitize-nature-corpus.mjs';
 import {
-  SCHEMA_VERSION, SANITIZER_VERSION, SERIALIZER_VERSION, sha256Bytes, stableJson,
+  SCHEMA_VERSION, SANITIZER_VERSION, LEGACY_SANITIZER_VERSION, SERIALIZER_VERSION, sha256Bytes, stableJson,
   validateManifest, validateRecipe, validateFixturePath, serializeSubtree,
   sanitizeNatureHtml, createReplay, readFixtureBytes, loadReplayResources,
   consumeExpectations, verifyManifestFixtures,
@@ -168,6 +168,75 @@ test('JSON-LD retains only matched article metadata, safely escapes script closi
     assert.equal(JSON.parse(escapedDom.window.document.querySelector('script').textContent).author[0].name, 'Synthetic </script> author');
     assert.deepEqual(escaped.bytes, sanitizeNatureHtml(escaped.html, recipe).bytes);
   } finally { escapedDom.window.close(); }
+});
+
+// Synthetic shape mirrors B's read-only Nature WebPage/mainEntity observations;
+// these invented payloads remain infrastructure tests, not real corpus evidence.
+function nestedJsonHtml(entity, wrapper = {}) {
+  return `<html><head><script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', mainEntity: entity, ...wrapper })}</script></head><body></body></html>`;
+}
+const jsonRecipe = { ...recipe, id: 'synthetic-jsonld-v1', blocks: [{ id: 'json', selector: 'script[type="application/ld+json"]', role: 'metadata' }] };
+const syntheticArticle = { '@type': 'ScholarlyArticle', sameAs: `https://doi.org/10.1038/${articleId}`, headline: 'Synthetic nested metadata', isPartOf: { '@type': ['Periodical', 'PublicationVolume'], name: 'Synthetic journal' }, author: [{ '@type': 'Person', name: 'Synthetic author' }] };
+
+test('sanitizer 1.1.0 extracts WebPage mainEntity, preserves source context, bytes and signatures idempotently', () => {
+  const source = nestedJsonHtml(syntheticArticle);
+  assert.throws(() => sanitizeNatureHtml(source, jsonRecipe, { sanitizerVersion: LEGACY_SANITIZER_VERSION }), /JSON-LD/);
+  const result = sanitizeNatureHtml(source, jsonRecipe);
+  assert.equal(result.sanitizerVersion, 'nature-corpus-sanitizer/1.1.0');
+  const dom = new JSDOM(result.html);
+  try {
+    assert.deepEqual(JSON.parse(dom.window.document.querySelector('script').textContent), { ...syntheticArticle, '@context': 'https://schema.org' });
+    const raw = new JSDOM(source);
+    try { assert.equal(result.retainedBlocks[0].sourceSubtreeSha256, sha256Bytes(Buffer.from(serializeSubtree(raw.window.document.querySelector('script'))))); }
+    finally { raw.window.close(); }
+  } finally { dom.window.close(); }
+  const again = sanitizeNatureHtml(result.html, jsonRecipe);
+  assert.deepEqual(result.bytes, again.bytes);
+  assert.deepEqual(result.signatures, again.signatures);
+  assert.deepEqual(result.bytes, sanitizeNatureHtml(source, jsonRecipe).bytes);
+  assert.ok(result.transformations.some((entry) => entry.operation === 'trim-json-ld-to-article-object'));
+});
+
+test('nested JSON-LD accepts exact sameAs arrays and rejects misleading or unknown identities', () => {
+  for (const sameAs of [[syntheticArticle.sameAs], [url, syntheticArticle.sameAs]]) {
+    const result = sanitizeNatureHtml(nestedJsonHtml({ ...syntheticArticle, sameAs }), jsonRecipe);
+    assert.deepEqual(result.bytes, sanitizeNatureHtml(result.html, jsonRecipe).bytes);
+  }
+  for (const sameAs of [
+    `${syntheticArticle.sameAs}-other`, `${syntheticArticle.sameAs}?query=true`, `${syntheticArticle.sameAs}#part`,
+    `https://example.org/${syntheticArticle.sameAs}`, 'https://doi.org/10.1038/unrelated',
+    [syntheticArticle.sameAs, 'https://doi.org/10.1038/unrelated'], [], {}, null, 123,
+  ]) assert.throws(() => sanitizeNatureHtml(nestedJsonHtml({ ...syntheticArticle, sameAs }), jsonRecipe), /JSON-LD/);
+  const { sameAs, ...unknown } = syntheticArticle;
+  assert.throws(() => sanitizeNatureHtml(nestedJsonHtml(unknown), jsonRecipe), /JSON-LD/);
+  assert.throws(() => sanitizeNatureHtml(nestedJsonHtml({ ...syntheticArticle, url: 'https://www.nature.com/articles/other' }), jsonRecipe), /JSON-LD/);
+});
+
+test('mainEntity arrays/graphs require one matching article and do not traverse arbitrary metadata fields', () => {
+  const unrelated = { ...syntheticArticle, sameAs: 'https://doi.org/10.1038/unrelated' };
+  const result = sanitizeNatureHtml(nestedJsonHtml([unrelated, syntheticArticle]), jsonRecipe);
+  assert.doesNotMatch(result.html, /10\.1038\/unrelated/);
+  assert.throws(() => sanitizeNatureHtml(nestedJsonHtml([syntheticArticle, syntheticArticle]), jsonRecipe), /JSON-LD/);
+  const graphSource = nestedJsonHtml(undefined, { mainEntity: { '@graph': [syntheticArticle] } });
+  assert.deepEqual(result.bytes, sanitizeNatureHtml(graphSource, jsonRecipe).bytes);
+  assert.throws(() => sanitizeNatureHtml(nestedJsonHtml(undefined, { publisher: syntheticArticle }), jsonRecipe), /JSON-LD/);
+});
+
+test('existing root/graph URL identities remain compatible and legacy version is dispatched explicitly', async (t) => {
+  const old = sanitizeNatureHtml(html, recipe, { sanitizerVersion: LEGACY_SANITIZER_VERSION });
+  assert.deepEqual(old.bytes, sanitizeNatureHtml(html, recipe).bytes);
+  assert.deepEqual(old.signatures, sanitizeNatureHtml(html, recipe).signatures);
+  const sourceWithoutIdentity = nestedJsonHtml({ '@type': 'ScholarlyArticle', headline: 'Synthetic legacy identity-free metadata' }, { '@type': 'ScholarlyArticle', mainEntity: undefined });
+  const legacy = sanitizeNatureHtml(sourceWithoutIdentity, jsonRecipe, { sanitizerVersion: LEGACY_SANITIZER_VERSION });
+  assert.throws(() => sanitizeNatureHtml(sourceWithoutIdentity, jsonRecipe), /JSON-LD/);
+  const m = manifest(); const article = m.articles[0];
+  Object.assign(article, { sanitizerVersion: LEGACY_SANITIZER_VERSION, recipe: jsonRecipe, retainedBlocks: legacy.retainedBlocks, fixtureSha256: legacy.fixtureSha256, coverage: [{ feature: 'metadata', blockId: 'json', expectationId: 'title' }], expectations: [{ id: 'title', assertionId: 'metadata-title', blockIds: ['json'], value: 'Synthetic' }] });
+  const root = await temp(t); const file = path.join(root, article.fixturePath);
+  await mkdir(path.dirname(file), { recursive: true }); await writeFile(file, legacy.bytes);
+  assert.equal((await verifyManifestFixtures(m, root, { assertionRegistry: registry })).files.length, 1);
+  article.sanitizerVersion = 'nature-corpus-sanitizer/9.0.0';
+  assert.throws(() => validate(m), /unsupported value/);
+  assert.throws(() => sanitizeNatureHtml(html, recipe, { sanitizerVersion: article.sanitizerVersion }), /Unsupported sanitizer version/);
 });
 
 test('recipes select exact source nodes; preserve ancestors and scientific adjacency', () => {
