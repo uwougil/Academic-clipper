@@ -72,7 +72,10 @@
           "pattern": "^[a-f0-9]{64}$"
         },
         "sanitizerVersion": {
-          "const": "nature-corpus-sanitizer/1.0.0"
+          "enum": [
+            "nature-corpus-sanitizer/1.0.0",
+            "nature-corpus-sanitizer/1.1.0"
+          ]
         },
         "serializerVersion": {
           "const": "nature-corpus-subtree/1.0.0"
@@ -318,7 +321,10 @@
           "pattern": "^[a-f0-9]{64}$"
         },
         "sanitizerVersion": {
-          "const": "nature-corpus-sanitizer/1.0.0"
+          "enum": [
+            "nature-corpus-sanitizer/1.0.0",
+            "nature-corpus-sanitizer/1.1.0"
+          ]
         },
         "serializerVersion": {
           "const": "nature-corpus-subtree/1.0.0"
