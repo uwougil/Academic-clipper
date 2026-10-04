@@ -25,7 +25,7 @@ Work Contract：[Issue #45](https://github.com/uwougil/Academic-clipper/issues/4
 
 公开 note locator 均为 `#content .c-article-table-footer li`；每条 provenance 记录完整原 `sourceText` / `sourceHtml`、原序、marker、逐条 source selector 与 pre-sanitize subtree SHA。这是 serializer 定义的源子树位置，不是 HTTP byte offset。原始 article identity、raw byte hash 和 observedAt 也在各 provenance 中。
 
-原 raw article 的署名和许可证链接按来源保存：COVID / FRB 链接为 `http://creativecommons.org/licenses/by/4.0/`，golden 为 `http://creativecommons.org/licenses/by-nc-nd/4.0/`；记录 ordered `citation_author`、license selector / source subtree hash、源 URL、title、DOI 和选择/序列化说明。公开可访问不替代许可证审核；这里仅记录观察事实，不作新的法律或使用政策决定。科学内容、脚注、表格均原样保留。
+原 raw article 的署名和许可证链接按来源保存：COVID / FRB 链接为 `http://creativecommons.org/licenses/by/4.0/`，golden 为 `http://creativecommons.org/licenses/by-nc-nd/4.0/`；记录 ordered `citation_author`、原 `#rightslink-content p` notice、copyright notices / metadata、license selector / source subtree hash、源 URL、title、DOI 和选择/序列化说明。来源 excerpts 未按 repository code license 重新许可，用途是科研工具的离线回归。公开可访问不替代许可证审核；这里仅记录观察事实，不作新的法律或使用政策决定。科学内容、脚注、表格均原样保留。
 
 ## Excerpt、转换与边界
 

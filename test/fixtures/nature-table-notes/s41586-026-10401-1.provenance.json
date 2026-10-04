@@ -185,6 +185,42 @@
         "sourceSubtreeSha256": "88818f9b3d388c34553ecfc12cd395d17a8e71d4213f64f870511afd5197674b"
       }
     ],
-    "changes": "仅选择完整源块和原始 ancestors；删除非科学 UI、executable/tracking attributes，确定性序列化；原始科学文字、符号、表格、脚注和次序均未改写。许可证 URL 是原响应中的观察事实；不以 Open Access 替代许可证审阅。"
+    "changes": "仅选择完整源块和原始 ancestors；删除非科学 UI、executable/tracking attributes，确定性序列化；原始科学文字、符号、表格、脚注和次序均未改写。许可证 URL 是原响应中的观察事实；不以 Open Access 替代许可证审阅。",
+    "rightsNotice": {
+      "sourceSelector": "#rightslink-content p",
+      "text": "Open Access  This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.",
+      "sourceSubtreeSha256": "1a7d5bde85d5d3f50248c225a3cb16d11e8c16c3dc4bbe59a08c9368e07c0eff"
+    },
+    "copyrightNotices": [
+      {
+        "sourceSelector": "p",
+        "sourceIndex": 195,
+        "text": "© 2026 Springer Nature Limited",
+        "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3"
+      }
+    ],
+    "observedRightsMetadata": [
+      {
+        "name": "dc.copyright",
+        "content": "2026 The Author(s)"
+      },
+      {
+        "name": "dc.rights",
+        "content": "2026 The Author(s)"
+      },
+      {
+        "name": "dc.rightsAgent",
+        "content": "journalpermissions@springernature.com"
+      },
+      {
+        "name": "prism.copyright",
+        "content": "2026 The Author(s)"
+      },
+      {
+        "name": "prism.rightsAgent",
+        "content": "journalpermissions@springernature.com"
+      }
+    ],
+    "useContext": "科研工具的 source-backed 离线回归；这些原始来源 excerpts 未由本修复按 repository code license 重新许可，原许可和第三方 notices 仍保留。"
   }
 }
