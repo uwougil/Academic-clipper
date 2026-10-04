@@ -1,0 +1,101 @@
+{
+  "evidenceVersion": "nature-table-source-defect/1.0.0",
+  "classification": "PARSER_DEFECT_REPRODUCED",
+  "scope": "Production hydrateNatureTables -> normalizeTableContents -> renderTables only; full clip/dialect suite awaits D seam and C independent assertions",
+  "articleId": "s41586-020-2012-7",
+  "url": "https://www.nature.com/articles/s41586-020-2012-7",
+  "fixtureSha256": "42e83aae5ecffa52c031b36103b0220b52674bec0e6a79346ba088284ccdd594",
+  "correctSourceExpectation": [
+    {
+      "id": "table-1",
+      "url": "https://www.nature.com/articles/s41586-020-2012-7/tables/1",
+      "title": "Extended Data Table 1 Patient information and diagnosis history",
+      "sourceRows": [],
+      "sourceNotes": [
+        {
+          "text": "Note, some records are missing. All patients are sellers or deliverymen at the seafood market except ICU-01, whose contact history is unclear. All patients were admitted to intensive care unit (ICU) during the first investigation and were now in stable condition. Blood IgM tests have been performed for the following respiratory pathogens for all patients: Legionella pneumophilia, Mycoplasma pneumoniae, Chlamydia pneumoniae, respiratory syncytial virus, adenovirus, Rickettsia, influenza A virus, influenza B virus and parainfluenza virus.",
+          "html": "Note, some records are missing. All patients are sellers or deliverymen at the seafood market except ICU-01, whose contact history is unclear. All patients were admitted to intensive care unit (ICU) during the first investigation and were now in stable condition. Blood IgM tests have been performed for the following respiratory pathogens for all patients: <i>Legionella pneumophilia</i>, <i>Mycoplasma pneumoniae</i>, <i>Chlamydia pneumoniae</i>, respiratory syncytial virus, adenovirus, <i>Rickettsia</i>, influenza A virus, influenza B virus and parainfluenza virus."
+        },
+        {
+          "text": "*This patient reported fever on 12 December 2019 and then recovered without medical treatment. He came back to the hospital on 27 December 2019 with a fever. His wife was also ill and admitted to the hospital. Both individuals recovered.",
+          "html": "*This patient reported fever on 12&nbsp;December 2019 and then recovered without medical treatment. He came back to the hospital on 27&nbsp;December 2019 with a fever. His wife was also ill and admitted to the hospital. Both individuals recovered."
+        }
+      ],
+      "physicalRowCount": 0,
+      "physicalCellCounts": [],
+      "expectedStatus": "fallback-no-html-table",
+      "warning": "The full-size Nature page did not expose HTML table cells; retained the absolute URL.",
+      "sourceNotesLocator": "#content .c-article-table-footer li"
+    }
+  ],
+  "statuses": [
+    {
+      "id": "Tab1",
+      "label": "Extended Data Table 1",
+      "status": "fallback-no-html-table",
+      "url": "https://www.nature.com/articles/s41586-020-2012-7/tables/1",
+      "hydratedHtmlContainsFooter": false
+    }
+  ],
+  "warnings": [
+    "Extended Data Table 1: The full-size Nature page did not expose HTML table cells; retained the absolute URL."
+  ],
+  "ledger": {
+    "requests": [
+      {
+        "url": "https://www.nature.com/articles/s41586-020-2012-7/tables/1",
+        "method": "GET",
+        "redirect": "manual"
+      }
+    ],
+    "resolutions": [
+      {
+        "hostname": "www.nature.com",
+        "all": true,
+        "verbatim": true
+      }
+    ],
+    "unexpected": []
+  },
+  "dialects": [
+    {
+      "dialect": "markdown",
+      "sourceNotes": [
+        {
+          "text": "Note, some records are missing. All patients are sellers or deliverymen at the seafood market except ICU-01, whose contact history is unclear. All patients were admitted to intensive care unit (ICU) during the first investigation and were now in stable condition. Blood IgM tests have been performed for the following respiratory pathogens for all patients: Legionella pneumophilia, Mycoplasma pneumoniae, Chlamydia pneumoniae, respiratory syncytial virus, adenovirus, Rickettsia, influenza A virus, influenza B virus and parainfluenza virus.",
+          "present": false
+        },
+        {
+          "text": "*This patient reported fever on 12 December 2019 and then recovered without medical treatment. He came back to the hospital on 27 December 2019 with a fever. His wife was also ill and admitted to the hospital. Both individuals recovered.",
+          "present": false
+        }
+      ]
+    },
+    {
+      "dialect": "quarto",
+      "sourceNotes": [
+        {
+          "text": "Note, some records are missing. All patients are sellers or deliverymen at the seafood market except ICU-01, whose contact history is unclear. All patients were admitted to intensive care unit (ICU) during the first investigation and were now in stable condition. Blood IgM tests have been performed for the following respiratory pathogens for all patients: Legionella pneumophilia, Mycoplasma pneumoniae, Chlamydia pneumoniae, respiratory syncytial virus, adenovirus, Rickettsia, influenza A virus, influenza B virus and parainfluenza virus.",
+          "present": false
+        },
+        {
+          "text": "*This patient reported fever on 12 December 2019 and then recovered without medical treatment. He came back to the hospital on 27 December 2019 with a fever. His wife was also ill and admitted to the hospital. Both individuals recovered.",
+          "present": false
+        }
+      ]
+    },
+    {
+      "dialect": "links",
+      "sourceNotes": [
+        {
+          "text": "Note, some records are missing. All patients are sellers or deliverymen at the seafood market except ICU-01, whose contact history is unclear. All patients were admitted to intensive care unit (ICU) during the first investigation and were now in stable condition. Blood IgM tests have been performed for the following respiratory pathogens for all patients: Legionella pneumophilia, Mycoplasma pneumoniae, Chlamydia pneumoniae, respiratory syncytial virus, adenovirus, Rickettsia, influenza A virus, influenza B virus and parainfluenza virus.",
+          "present": false
+        },
+        {
+          "text": "*This patient reported fever on 12 December 2019 and then recovered without medical treatment. He came back to the hospital on 27 December 2019 with a fever. His wife was also ill and admitted to the hospital. Both individuals recovered.",
+          "present": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1136 @@
+<!doctype html>
+<html class="grade-c" lang="en"><head>
+    
+    
+    
+
+
+
+    
+        
+
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+     
+    
+    
+        
+    
+    
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+
+
+
+
+        
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link href="https://www.nature.com/articles/s41586-023-05896-x" rel="canonical">
+
+
+
+
+
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","author":[{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genetics, Yale University School of Medicine, New Haven, USA"},"name":"Yale University School of Medicine"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Center for Genomic Health, Yale University School of Medicine, New Haven, USA"},"name":"Yale University School of Medicine"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Division of Biology and Biomedical Sciences, Washington University School of Medicine, St. Louis, USA"},"name":"Washington University School of Medicine"}],"name":"Wen-Wei Liao","url":"http://orcid.org/0000-0001-8183-213X"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Mobin Asri"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute for Medical Biometry and Bioinformatics, Medical Faculty, Heinrich Heine University, Düsseldorf, Germany"},"name":"Heinrich Heine University"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Center for Digital Medicine, Heinrich Heine University, Düsseldorf, Germany"},"name":"Heinrich Heine University"}],"name":"Jana Ebler"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute for Medical Biometry and Bioinformatics, Medical Faculty, Heinrich Heine University, Düsseldorf, Germany"},"name":"Heinrich Heine University"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Center for Digital Medicine, Heinrich Heine University, Düsseldorf, Germany"},"name":"Heinrich Heine University"}],"name":"Daniel Doerr","url":"http://orcid.org/0000-0002-3720-6227"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Marina Haukness","url":"http://orcid.org/0000-0001-9991-8089"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Glenn Hickey"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genetics, Yale University School of Medicine, New Haven, USA"},"name":"Yale University School of Medicine"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Center for Genomic Health, Yale University School of Medicine, New Haven, USA"},"name":"Yale University School of Medicine"}],"name":"Shuangjia Lu","url":"http://orcid.org/0000-0001-8571-6902"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Julian K. Lucas"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Jean Monlong"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Division of Oncology, Department of Internal Medicine, Washington University School of Medicine, St. Louis, USA"},"name":"Washington University School of Medicine"}],"name":"Haley J. Abel"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute of Genetics and Biophysics, National Research Council, Naples, Italy"},"name":"National Research Council"}],"name":"Silvia Buonaiuto"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Xian H. Chang"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Data Sciences, Dana-Farber Cancer Institute, Boston, USA"},"name":"Dana-Farber Cancer Institute"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Biomedical Informatics, Harvard Medical School, Boston, USA"},"name":"Harvard Medical School"}],"name":"Haoyu Cheng"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Data Sciences, Dana-Farber Cancer Institute, Boston, USA"},"name":"Dana-Farber Cancer Institute"}],"name":"Justin Chu"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute of Genetics and Biophysics, National Research Council, Naples, Italy"},"name":"National Research Council"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genetics, Genomics and Informatics, University of Tennessee Health Science Center, Memphis, USA"},"name":"University of Tennessee Health Science Center"}],"name":"Vincenza Colonna","url":"http://orcid.org/0000-0002-3966-0474"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Jordan M. Eizenga"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Data Sciences, Dana-Farber Cancer Institute, Boston, USA"},"name":"Dana-Farber Cancer Institute"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Biomedical Informatics, Harvard Medical School, Boston, USA"},"name":"Harvard Medical School"}],"name":"Xiaowen Feng"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genetics, Genomics and Informatics, University of Tennessee Health Science Center, Memphis, USA"},"name":"University of Tennessee Health Science Center"}],"name":"Christian Fischer"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"McDonnell Genome Institute, Washington University School of Medicine, St. Louis, USA"},"name":"Washington University School of Medicine"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genetics, Washington University School of Medicine, St. Louis, USA"},"name":"Washington University School of Medicine"}],"name":"Robert S. Fulton"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Novo Nordisk Foundation Center for Biosustainability, Technical University of Denmark, Copenhagen, Denmark"},"name":"Technical University of Denmark"}],"name":"Shilpa Garg"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Quantitative Life Sciences, McGill University, Montréal, Canada"},"name":"McGill University"}],"name":"Cristian Groza"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genetics, Genomics and Informatics, University of Tennessee Health Science Center, Memphis, USA"},"name":"University of Tennessee Health Science Center"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Research Centre, Human Technopole, Milan, Italy"},"name":"Human Technopole"}],"name":"Andrea Guarracino","url":"http://orcid.org/0000-0001-9744-131X"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genome Sciences, University of Washington School of Medicine, Seattle, USA"},"name":"University of Washington School of Medicine"}],"name":"William T. Harvey"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Quantitative Biology Center (QBiC), University of Tübingen, Tübingen, Germany"},"name":"University of Tübingen"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Biomedical Data Science, Department of Computer Science, University of Tübingen, Tübingen, Germany"},"name":"University of Tübingen"}],"name":"Simon Heumos"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Tree of Life, Wellcome Sanger Institute, Hinxton, Cambridge, UK"},"name":"Wellcome Sanger Institute, Hinxton"}],"name":"Kerstin Howe","url":"http://orcid.org/0000-0003-2237-513X"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Northeastern University, Boston, USA"},"name":"Northeastern University"}],"name":"Miten Jain","url":"http://orcid.org/0000-0002-4571-3982"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Quantitative and Computational Biology, University of Southern California, Los Angeles, USA"},"name":"University of Southern California"}],"name":"Tsung-Yu Lu","url":"http://orcid.org/0000-0001-7110-3937"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Charles Markello"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"European Molecular Biology Laboratory, European Bioinformatics Institute, Wellcome Genome Campus, Hinxton, Cambridge, UK"},"name":"Wellcome Genome Campus, Hinxton"}],"name":"Fergal J. Martin","url":"http://orcid.org/0000-0002-1672-050X"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Coriell Institute for Medical Research, Camden, USA"},"name":"Coriell Institute for Medical Research"}],"name":"Matthew W. Mitchell","url":"http://orcid.org/0000-0002-6947-0495"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genome Sciences, University of Washington School of Medicine, Seattle, USA"},"name":"University of Washington School of Medicine"}],"name":"Katherine M. Munson","url":"http://orcid.org/0000-0001-8413-6498"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Computer Science, University of Pisa, Pisa, Italy"},"name":"University of Pisa"}],"name":"Moses Njagi Mwaniki"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Adam M. Novak","url":"http://orcid.org/0000-0001-5828-047X"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Hugh E. Olsen"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Trevor Pesout"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genome Sciences, University of Washington School of Medicine, Seattle, USA"},"name":"University of Washington School of Medicine"}],"name":"David Porubsky","url":"http://orcid.org/0000-0001-8414-8966"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genetics, Genomics and Informatics, University of Tennessee Health Science Center, Memphis, USA"},"name":"University of Tennessee Health Science Center"}],"name":"Pjotr Prins","url":"http://orcid.org/0000-0002-8021-9162"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Center for Health Data Science, University of Copenhagen, Copenhagen, Denmark"},"name":"University of Copenhagen"}],"name":"Jonas A. Sibbesen"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Jouni Sirén","url":"http://orcid.org/0000-0001-5828-4139"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"McDonnell Genome Institute, Washington University School of Medicine, St. Louis, USA"},"name":"Washington University School of Medicine"}],"name":"Chad Tomlinson","url":"http://orcid.org/0000-0001-9905-6159"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genetics, Genomics and Informatics, University of Tennessee Health Science Center, Memphis, USA"},"name":"University of Tennessee Health Science Center"}],"name":"Flavia Villani","url":"http://orcid.org/0000-0003-3633-0610"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genome Sciences, University of Washington School of Medicine, Seattle, USA"},"name":"University of Washington School of Medicine"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Division of Medical Genetics, University of Washington School of Medicine, Seattle, USA"},"name":"University of Washington School of Medicine"}],"name":"Mitchell R. Vollger","url":"http://orcid.org/0000-0002-8651-1615"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"McDonnell Genome Institute, Washington University School of Medicine, St. Louis, USA"},"name":"Washington University School of Medicine"}],"name":"Lucinda L. Antonacci-Fulton"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google, Mountain View, USA"},"name":"Google"}],"name":"Gunjan Baid"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genome Sciences, University of Washington School of Medicine, Seattle, USA"},"name":"University of Washington School of Medicine"}],"name":"Carl A. Baker"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google, Mountain View, USA"},"name":"Google"}],"name":"Anastasiya Belyaeva"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"European Molecular Biology Laboratory, European Bioinformatics Institute, Wellcome Genome Campus, Hinxton, Cambridge, UK"},"name":"Wellcome Genome Campus, Hinxton"}],"name":"Konstantinos Billis","url":"http://orcid.org/0000-0001-8568-4306"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google, Mountain View, USA"},"name":"Google"}],"name":"Andrew Carroll"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google, Mountain View, USA"},"name":"Google"}],"name":"Pi-Chuan Chang"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"McDonnell Genome Institute, Washington University School of Medicine, St. Louis, USA"},"name":"Washington University School of Medicine"}],"name":"Sarah Cody"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google, Mountain View, USA"},"name":"Google"}],"name":"Daniel E. Cook"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Barrett and O’Connor Washington Center, Arizona State University, Washington, USA"},"name":"Barrett and O’Connor Washington Center, Arizona State University"}],"name":"Robert M. Cook-Deegan"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Ecology and Evolutionary Biology, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Omar E. Cornejo","url":"http://orcid.org/0000-0003-4076-4227"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Mark Diekhans","url":"http://orcid.org/0000-0002-0430-0989"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute for Medical Biometry and Bioinformatics, Medical Faculty, Heinrich Heine University, Düsseldorf, Germany"},"name":"Heinrich Heine University"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Center for Digital Medicine, Heinrich Heine University, Düsseldorf, Germany"},"name":"Heinrich Heine University"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Core Unit Bioinformatics, Medical Faculty, Heinrich Heine University, Düsseldorf, Germany"},"name":"Heinrich Heine University"}],"name":"Peter Ebert","url":"http://orcid.org/0000-0001-7441-532X"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"European Molecular Biology Laboratory, European Bioinformatics Institute, Wellcome Genome Campus, Hinxton, Cambridge, UK"},"name":"Wellcome Genome Campus, Hinxton"}],"name":"Susan Fairley"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Vertebrate Genome Laboratory, The Rockefeller University, New York, USA"},"name":"The Rockefeller University"}],"name":"Olivier Fedrigo","url":"http://orcid.org/0000-0002-6450-7551"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"National Institutes of Health (NIH)–National Human Genome Research Institute, Bethesda, USA"},"name":"National Institutes of Health (NIH)–National Human Genome Research Institute"}],"name":"Adam L. Felsenfeld"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Vertebrate Genome Laboratory, The Rockefeller University, New York, USA"},"name":"The Rockefeller University"}],"name":"Giulio Formenti","url":"http://orcid.org/0000-0002-7554-5991"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"European Molecular Biology Laboratory, European Bioinformatics Institute, Wellcome Genome Campus, Hinxton, Cambridge, UK"},"name":"Wellcome Genome Campus, Hinxton"}],"name":"Adam Frankish"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Center for Computational and Genomic Medicine, The Children’s Hospital of Philadelphia, Philadelphia, USA"},"name":"The Children’s Hospital of Philadelphia"}],"name":"Yan Gao"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute for Society and Genetics, College of Letters and Science, University of California, Los Angeles, USA"},"name":"University of California"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute for Precision Health, David Geffen School of Medicine, University of California, Los Angeles, USA"},"name":"University of California"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Division of General Internal Medicine and Health Services Research, David Geffen School of Medicine, University of California, Los Angeles, USA"},"name":"University of California"}],"name":"Nanibaa’ A. Garrison","url":"http://orcid.org/0000-0002-6228-3216"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"European Molecular Biology Laboratory, European Bioinformatics Institute, Wellcome Genome Campus, Hinxton, Cambridge, UK"},"name":"Wellcome Genome Campus, Hinxton"}],"name":"Carlos Garcia Giron"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Biomolecular Engineering, University of California, Santa Cruz, USA"},"name":"University of California"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Dovetail Genomics, Scotts Valley, USA"},"name":"Dovetail Genomics"}],"name":"Richard E. Green","url":"http://orcid.org/0000-0003-0516-5827"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"European Molecular Biology Laboratory, European Bioinformatics Institute, Wellcome Genome Campus, Hinxton, Cambridge, UK"},"name":"Wellcome Genome Campus, Hinxton"}],"name":"Leanne Haggerty"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genome Sciences, University of Washington School of Medicine, Seattle, USA"},"name":"University of Washington School of Medicine"}],"name":"Kendra Hoekzema"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"European Molecular Biology Laboratory, European Bioinformatics Institute, Wellcome Genome Campus, Hinxton, Cambridge, UK"},"name":"Wellcome Genome Campus, Hinxton"}],"name":"Thibaut Hourlier","url":"http://orcid.org/0000-0003-4894-7773"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Division of Oncology, Department of Medicine, Stanford University School of Medicine, Stanford, USA"},"name":"Stanford University School of Medicine"}],"name":"Hanlee P. Ji","url":"http://orcid.org/0000-0003-3772-3424"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute for Genomic Health, Icahn School of Medicine at Mount Sinai, New York, USA"},"name":"Icahn School of Medicine at Mount Sinai"}],"name":"Eimear E. Kenny"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Program in Bioethics and Institute for Human Genetics, University of California, San Francisco, USA"},"name":"University of California"}],"name":"Barbara A. Koenig"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google, Mountain View, USA"},"name":"Google"}],"name":"Alexey Kolesnikov"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"European Molecular Biology Laboratory, European Bioinformatics Institute, Wellcome Genome Campus, Hinxton, Cambridge, UK"},"name":"Wellcome Genome Campus, Hinxton"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genome Biology Unit, European Molecular Biology Laboratory, Heidelberg, Germany"},"name":"European Molecular Biology Laboratory"}],"name":"Jan O. Korbel","url":"http://orcid.org/0000-0002-2798-3794"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genome Sciences, University of Washington School of Medicine, Seattle, USA"},"name":"University of Washington School of Medicine"}],"name":"Jennifer Kordosky"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genome Informatics Section, Computational and Statistical Genomics Branch, National Human Genome Research Institute, National Institutes of Health, Bethesda, USA"},"name":"National Human Genome Research Institute, National Institutes of Health"}],"name":"Sergey Koren","url":"http://orcid.org/0000-0002-1472-8962"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Division of Oncology, Department of Medicine, Stanford University School of Medicine, Stanford, USA"},"name":"Stanford University School of Medicine"}],"name":"HoJoon Lee","url":"http://orcid.org/0000-0002-0973-9544"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genome Sciences, University of Washington School of Medicine, Seattle, USA"},"name":"University of Washington School of Medicine"}],"name":"Alexandra P. Lewis"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute for Medical Biometry and Bioinformatics, Medical Faculty, Heinrich Heine University, Düsseldorf, Germany"},"name":"Heinrich Heine University"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Center for Digital Medicine, Heinrich Heine University, Düsseldorf, Germany"},"name":"Heinrich Heine University"}],"name":"Hugo Magalhães","url":"http://orcid.org/0000-0002-6807-1548"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Computer Sciences Department, Barcelona Supercomputing Center, Barcelona, Spain"},"name":"Barcelona Supercomputing Center"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Departament d’Arquitectura de Computadors i Sistemes Operatius, Universitat Autònoma de Barcelona, Barcelona, Spain"},"name":"Universitat Autònoma de Barcelona"}],"name":"Santiago Marco-Sola","url":"http://orcid.org/0000-0001-7951-3914"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute for Medical Biometry and Bioinformatics, Medical Faculty, Heinrich Heine University, Düsseldorf, Germany"},"name":"Heinrich Heine University"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Center for Digital Medicine, Heinrich Heine University, Düsseldorf, Germany"},"name":"Heinrich Heine University"}],"name":"Pierre Marijon"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genome Informatics Section, Computational and Statistical Genomics Branch, National Human Genome Research Institute, National Institutes of Health, Bethesda, USA"},"name":"National Human Genome Research Institute, National Institutes of Health"}],"name":"Ann McCartney"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Material Measurement Laboratory, National Institute of Standards and Technology, Gaithersburg, USA"},"name":"National Institute of Standards and Technology"}],"name":"Jennifer McDaniel","url":"http://orcid.org/0000-0003-1987-0914"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Vertebrate Genome Laboratory, The Rockefeller University, New York, USA"},"name":"The Rockefeller University"}],"name":"Jacquelyn Mountcastle","url":"http://orcid.org/0000-0003-1078-4905"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google, Mountain View, USA"},"name":"Google"}],"name":"Maria Nattestad"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genome Informatics Section, Computational and Statistical Genomics Branch, National Human Genome Research Institute, National Institutes of Health, Bethesda, USA"},"name":"National Human Genome Research Institute, National Institutes of Health"}],"name":"Sergey Nurk"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Material Measurement Laboratory, National Institute of Standards and Technology, Gaithersburg, USA"},"name":"National Institute of Standards and Technology"}],"name":"Nathan D. Olson","url":"http://orcid.org/0000-0003-2585-3037"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Public Health Sciences, University of California, Davis, USA"},"name":"University of California"}],"name":"Alice B. Popejoy"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Biomedical Engineering, Johns Hopkins University, Baltimore, USA"},"name":"Johns Hopkins University"}],"name":"Daniela Puiu"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genome Informatics Section, Computational and Statistical Genomics Branch, National Human Genome Research Institute, National Institutes of Health, Bethesda, USA"},"name":"National Human Genome Research Institute, National Institutes of Health"}],"name":"Mikko Rautiainen"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"McDonnell Genome Institute, Washington University School of Medicine, St. Louis, USA"},"name":"Washington University School of Medicine"}],"name":"Allison A. Regier"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genome Informatics Section, Computational and Statistical Genomics Branch, National Human Genome Research Institute, National Institutes of Health, Bethesda, USA"},"name":"National Human Genome Research Institute, National Institutes of Health"}],"name":"Arang Rhie","url":"http://orcid.org/0000-0002-9809-8127"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Ecology and Evolutionary Biology, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Samuel Sacco"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Berlin Institute for Medical Systems Biology, Max Delbrück Center for Molecular Medicine in the Helmholtz Association, Berlin, Germany"},"name":"Max Delbrück Center for Molecular Medicine in the Helmholtz Association"}],"name":"Ashley D. Sanders"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"National Center for Biotechnology Information, National Library of Medicine, National Institutes of Health, Bethesda, USA"},"name":"National Library of Medicine, National Institutes of Health"}],"name":"Valerie A. Schneider"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"National Institutes of Health (NIH)–National Human Genome Research Institute, Bethesda, USA"},"name":"National Institutes of Health (NIH)–National Human Genome Research Institute"}],"name":"Baergen I. Schultz"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google, Mountain View, USA"},"name":"Google"}],"name":"Kishwar Shafin","url":"http://orcid.org/0000-0001-5252-3434"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"National Institutes of Health (NIH)–National Human Genome Research Institute, Bethesda, USA"},"name":"National Institutes of Health (NIH)–National Human Genome Research Institute"}],"name":"Michael W. Smith"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"National Institutes of Health (NIH)–National Human Genome Research Institute, Bethesda, USA"},"name":"National Institutes of Health (NIH)–National Human Genome Research Institute"}],"name":"Heidi J. Sofia"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Al Jalila Genomics Center of Excellence, Al Jalila Children’s Specialty Hospital, Dubai, UAE"},"name":"Al Jalila Children’s Specialty Hospital"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Center for Genomic Discovery, Mohammed Bin Rashid University of Medicine and Health Sciences, Dubai, UAE"},"name":"Mohammed Bin Rashid University of Medicine and Health Sciences"}],"name":"Ahmad N. Abou Tayoun"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"National Center for Biotechnology Information, National Library of Medicine, National Institutes of Health, Bethesda, USA"},"name":"National Library of Medicine, National Institutes of Health"}],"name":"Françoise Thibaud-Nissen","url":"http://orcid.org/0000-0003-4957-7807"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"European Molecular Biology Laboratory, European Bioinformatics Institute, Wellcome Genome Campus, Hinxton, Cambridge, UK"},"name":"Wellcome Genome Campus, Hinxton"}],"name":"Francesca Floriana Tricomi","url":"http://orcid.org/0000-0002-6170-5499"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Material Measurement Laboratory, National Institute of Standards and Technology, Gaithersburg, USA"},"name":"National Institute of Standards and Technology"}],"name":"Justin Wagner"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genome Informatics Section, Computational and Statistical Genomics Branch, National Human Genome Research Institute, National Institutes of Health, Bethesda, USA"},"name":"National Human Genome Research Institute, National Institutes of Health"}],"name":"Brian Walenz","url":"http://orcid.org/0000-0001-8431-1428"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Tree of Life, Wellcome Sanger Institute, Hinxton, Cambridge, UK"},"name":"Wellcome Sanger Institute, Hinxton"}],"name":"Jonathan M. D. Wood","url":"http://orcid.org/0000-0002-7545-2162"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Biomedical Engineering, Johns Hopkins University, Baltimore, USA"},"name":"Johns Hopkins University"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Center for Computational Biology, Johns Hopkins University, Baltimore, USA"},"name":"Johns Hopkins University"}],"name":"Aleksey V. Zimin"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Human Genetics, McGill University, Montréal, Canada"},"name":"McGill University"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Canadian Center for Computational Genomics, McGill University, Montréal, Canada"},"name":"McGill University"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute for the Advanced Study of Human Biology (WPI-ASHBi), Kyoto University, Kyoto, Japan"},"name":"Kyoto University"}],"name":"Guillaume Bourque","url":"http://orcid.org/0000-0002-3933-9656"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Quantitative and Computational Biology, University of Southern California, Los Angeles, USA"},"name":"University of Southern California"}],"name":"Mark J. P. Chaisson","url":"http://orcid.org/0000-0001-5395-1457"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"European Molecular Biology Laboratory, European Bioinformatics Institute, Wellcome Genome Campus, Hinxton, Cambridge, UK"},"name":"Wellcome Genome Campus, Hinxton"}],"name":"Paul Flicek","url":"http://orcid.org/0000-0002-3897-7955"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genome Informatics Section, Computational and Statistical Genomics Branch, National Human Genome Research Institute, National Institutes of Health, Bethesda, USA"},"name":"National Human Genome Research Institute, National Institutes of Health"}],"name":"Adam M. Phillippy","url":"http://orcid.org/0000-0003-2983-8934"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Material Measurement Laboratory, National Institute of Standards and Technology, Gaithersburg, USA"},"name":"National Institute of Standards and Technology"}],"name":"Justin M. Zook","url":"http://orcid.org/0000-0003-2309-8402"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genome Sciences, University of Washington School of Medicine, Seattle, USA"},"name":"University of Washington School of Medicine"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Howard Hughes Medical Institute, Chevy Chase, USA"},"name":"Howard Hughes Medical Institute"}],"name":"Evan E. Eichler","url":"http://orcid.org/0000-0002-8246-4014"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Howard Hughes Medical Institute, Chevy Chase, USA"},"name":"Howard Hughes Medical Institute"}],"name":"David Haussler","url":"http://orcid.org/0000-0003-1533-4575"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"McDonnell Genome Institute, Washington University School of Medicine, St. Louis, USA"},"name":"Washington University School of Medicine"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genetics, Washington University School of Medicine, St. Louis, USA"},"name":"Washington University School of Medicine"}],"name":"Ting Wang","url":"http://orcid.org/0000-0002-6800-242X"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Vertebrate Genome Laboratory, The Rockefeller University, New York, USA"},"name":"The Rockefeller University"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Howard Hughes Medical Institute, Chevy Chase, USA"},"name":"Howard Hughes Medical Institute"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Laboratory of Neurogenetics of Language, The Rockefeller University, New York, USA"},"name":"The Rockefeller University"}],"name":"Erich D. Jarvis","url":"http://orcid.org/0000-0001-8931-5049"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"name":"Karen H. Miga","url":"http://orcid.org/0000-0002-3670-4507"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genetics, Genomics and Informatics, University of Tennessee Health Science Center, Memphis, USA"},"name":"University of Tennessee Health Science Center"}],"email":"egarris5@uthsc.edu","name":"Erik Garrison","url":"http://orcid.org/0000-0003-3821-631X"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute for Medical Biometry and Bioinformatics, Medical Faculty, Heinrich Heine University, Düsseldorf, Germany"},"name":"Heinrich Heine University"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Center for Digital Medicine, Heinrich Heine University, Düsseldorf, Germany"},"name":"Heinrich Heine University"}],"email":"tobias.marschall@hhu.de","name":"Tobias Marschall","url":"http://orcid.org/0000-0002-9376-1030"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Genetics, Yale University School of Medicine, New Haven, USA"},"name":"Yale University School of Medicine"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Center for Genomic Health, Yale University School of Medicine, New Haven, USA"},"name":"Yale University School of Medicine"}],"email":"ira.hall@yale.edu","name":"Ira M. Hall","url":"http://orcid.org/0000-0003-4442-6655"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Data Sciences, Dana-Farber Cancer Institute, Boston, USA"},"name":"Dana-Farber Cancer Institute"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Department of Biomedical Informatics, Harvard Medical School, Boston, USA"},"name":"Harvard Medical School"}],"email":"hli@jimmy.harvard.edu","name":"Heng Li","url":"http://orcid.org/0000-0003-4874-2874"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Genomics Institute, University of California, Santa Cruz, USA"},"name":"University of California"}],"email":"bpaten@ucsc.edu","name":"Benedict Paten","url":"http://orcid.org/0000-0001-8863-3539"}],"dateModified":"2023-05-10T00:00:00Z","datePublished":"2023-05-10T00:00:00Z","description":"Here the Human Pangenome Reference Consortium presents a first draft of the human pangenome reference. The pangenome contains 47 phased, diploid assemblies from a cohort of genetically diverse individuals1. These assemblies cover more than 99% of the expected sequence in each genome and are more than 99% accurate at the structural and base pair levels. Based on alignments of the assemblies, we generate a draft pangenome that captures known variants and haplotypes and reveals new alleles at structurally complex loci. We also add 119 million base pairs of euchromatic polymorphic sequences and 1,115 gene duplications relative to the existing reference GRCh38. Roughly 90 million of the additional base pairs are derived from structural variation. Using our draft pangenome to analyse short-read data reduced small variant discovery errors by 34% and increased the number of structural variants detected per haplotype by 104% compared with GRCh38-based workflows, which enabled the typing of the vast majority of structural variant alleles per sample. An initial draft of the human pangenome is presented and made publicly available by the Human Pangenome Reference Consortium; the draft contains 94 de novo haplotype assemblies from 47 ancestrally diverse individuals.","headline":"A draft human pangenome reference","image":["https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig1_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig2_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig3_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig4_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig5_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig6_HTML.png"],"isAccessibleForFree":true,"isPartOf":{"@type":["Periodical","PublicationVolume"],"issn":["1476-4687","0028-0836"],"name":"Nature","volumeNumber":"617"},"keywords":["Genome informatics","Genomics","Genome assembly algorithms","Haplotypes","Science","Humanities and Social Sciences","multidisciplinary"],"license":"http://creativecommons.org/licenses/by/4.0/","pageEnd":"324","pageStart":"312","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.springernature.com/app-sn/public/images/logo-springernature.png"},"name":"Nature Publishing Group UK"},"sameAs":"https://doi.org/10.1038/s41586-023-05896-x"}</script>
+
+
+
+
+    
+    
+    
+    <meta content="A draft human pangenome reference" name="dc.title">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta content="Nature" name="citation_journal_title">
+    
+    
+    
+    <meta content="A draft human pangenome reference" name="citation_title">
+    <meta content="617" name="citation_volume">
+    <meta content="7960" name="citation_issue">
+    <meta content="2023/05" name="citation_publication_date">
+    <meta content="2023/05/10" name="citation_online_date">
+    <meta content="312" name="citation_firstpage">
+    <meta content="324" name="citation_lastpage">
+    
+    
+    
+    <meta content="doi:10.1038/s41586-023-05896-x" name="dc.identifier">
+    
+    
+    <meta content="10.1038/s41586-023-05896-x" name="citation_doi">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta content="Liao, Wen-Wei" name="citation_author">
+    
+    
+    
+    <meta content="Asri, Mobin" name="citation_author">
+    
+    <meta content="Ebler, Jana" name="citation_author">
+    
+    
+    <meta content="Doerr, Daniel" name="citation_author">
+    
+    
+    <meta content="Haukness, Marina" name="citation_author">
+    
+    <meta content="Hickey, Glenn" name="citation_author">
+    
+    <meta content="Lu, Shuangjia" name="citation_author">
+    
+    
+    <meta content="Lucas, Julian K." name="citation_author">
+    
+    <meta content="Monlong, Jean" name="citation_author">
+    
+    <meta content="Abel, Haley J." name="citation_author">
+    
+    <meta content="Buonaiuto, Silvia" name="citation_author">
+    
+    <meta content="Chang, Xian H." name="citation_author">
+    
+    <meta content="Cheng, Haoyu" name="citation_author">
+    
+    
+    <meta content="Chu, Justin" name="citation_author">
+    
+    <meta content="Colonna, Vincenza" name="citation_author">
+    
+    
+    <meta content="Eizenga, Jordan M." name="citation_author">
+    
+    <meta content="Feng, Xiaowen" name="citation_author">
+    
+    
+    <meta content="Fischer, Christian" name="citation_author">
+    
+    <meta content="Fulton, Robert S." name="citation_author">
+    
+    
+    <meta content="Garg, Shilpa" name="citation_author">
+    
+    <meta content="Groza, Cristian" name="citation_author">
+    
+    <meta content="Guarracino, Andrea" name="citation_author">
+    
+    
+    <meta content="Harvey, William T." name="citation_author">
+    
+    <meta content="Heumos, Simon" name="citation_author">
+    
+    
+    <meta content="Howe, Kerstin" name="citation_author">
+    
+    <meta content="Jain, Miten" name="citation_author">
+    
+    <meta content="Lu, Tsung-Yu" name="citation_author">
+    
+    <meta content="Markello, Charles" name="citation_author">
+    
+    <meta content="Martin, Fergal J." name="citation_author">
+    
+    <meta content="Mitchell, Matthew W." name="citation_author">
+    
+    <meta content="Munson, Katherine M." name="citation_author">
+    
+    <meta content="Mwaniki, Moses Njagi" name="citation_author">
+    
+    <meta content="Novak, Adam M." name="citation_author">
+    
+    <meta content="Olsen, Hugh E." name="citation_author">
+    
+    <meta content="Pesout, Trevor" name="citation_author">
+    
+    <meta content="Porubsky, David" name="citation_author">
+    
+    <meta content="Prins, Pjotr" name="citation_author">
+    
+    <meta content="Sibbesen, Jonas A." name="citation_author">
+    
+    <meta content="Sirén, Jouni" name="citation_author">
+    
+    <meta content="Tomlinson, Chad" name="citation_author">
+    
+    <meta content="Villani, Flavia" name="citation_author">
+    
+    <meta content="Vollger, Mitchell R." name="citation_author">
+    
+    
+    <meta content="Antonacci-Fulton, Lucinda L." name="citation_author">
+    
+    <meta content="Baid, Gunjan" name="citation_author">
+    
+    <meta content="Baker, Carl A." name="citation_author">
+    
+    <meta content="Belyaeva, Anastasiya" name="citation_author">
+    
+    <meta content="Billis, Konstantinos" name="citation_author">
+    
+    <meta content="Carroll, Andrew" name="citation_author">
+    
+    <meta content="Chang, Pi-Chuan" name="citation_author">
+    
+    <meta content="Cody, Sarah" name="citation_author">
+    
+    <meta content="Cook, Daniel E." name="citation_author">
+    
+    <meta content="Cook-Deegan, Robert M." name="citation_author">
+    
+    <meta content="Cornejo, Omar E." name="citation_author">
+    
+    <meta content="Diekhans, Mark" name="citation_author">
+    
+    <meta content="Ebert, Peter" name="citation_author">
+    
+    
+    
+    <meta content="Fairley, Susan" name="citation_author">
+    
+    <meta content="Fedrigo, Olivier" name="citation_author">
+    
+    <meta content="Felsenfeld, Adam L." name="citation_author">
+    
+    <meta content="Formenti, Giulio" name="citation_author">
+    
+    <meta content="Frankish, Adam" name="citation_author">
+    
+    <meta content="Gao, Yan" name="citation_author">
+    
+    <meta content="Garrison, Nanibaa’ A." name="citation_author">
+    
+    
+    
+    <meta content="Giron, Carlos Garcia" name="citation_author">
+    
+    <meta content="Green, Richard E." name="citation_author">
+    
+    
+    <meta content="Haggerty, Leanne" name="citation_author">
+    
+    <meta content="Hoekzema, Kendra" name="citation_author">
+    
+    <meta content="Hourlier, Thibaut" name="citation_author">
+    
+    <meta content="Ji, Hanlee P." name="citation_author">
+    
+    <meta content="Kenny, Eimear E." name="citation_author">
+    
+    <meta content="Koenig, Barbara A." name="citation_author">
+    
+    <meta content="Kolesnikov, Alexey" name="citation_author">
+    
+    <meta content="Korbel, Jan O." name="citation_author">
+    
+    
+    <meta content="Kordosky, Jennifer" name="citation_author">
+    
+    <meta content="Koren, Sergey" name="citation_author">
+    
+    <meta content="Lee, HoJoon" name="citation_author">
+    
+    <meta content="Lewis, Alexandra P." name="citation_author">
+    
+    <meta content="Magalhães, Hugo" name="citation_author">
+    
+    
+    <meta content="Marco-Sola, Santiago" name="citation_author">
+    
+    
+    <meta content="Marijon, Pierre" name="citation_author">
+    
+    
+    <meta content="McCartney, Ann" name="citation_author">
+    
+    <meta content="McDaniel, Jennifer" name="citation_author">
+    
+    <meta content="Mountcastle, Jacquelyn" name="citation_author">
+    
+    <meta content="Nattestad, Maria" name="citation_author">
+    
+    <meta content="Nurk, Sergey" name="citation_author">
+    
+    <meta content="Olson, Nathan D." name="citation_author">
+    
+    <meta content="Popejoy, Alice B." name="citation_author">
+    
+    <meta content="Puiu, Daniela" name="citation_author">
+    
+    <meta content="Rautiainen, Mikko" name="citation_author">
+    
+    <meta content="Regier, Allison A." name="citation_author">
+    
+    <meta content="Rhie, Arang" name="citation_author">
+    
+    <meta content="Sacco, Samuel" name="citation_author">
+    
+    <meta content="Sanders, Ashley D." name="citation_author">
+    
+    <meta content="Schneider, Valerie A." name="citation_author">
+    
+    <meta content="Schultz, Baergen I." name="citation_author">
+    
+    <meta content="Shafin, Kishwar" name="citation_author">
+    
+    <meta content="Smith, Michael W." name="citation_author">
+    
+    <meta content="Sofia, Heidi J." name="citation_author">
+    
+    <meta content="Abou Tayoun, Ahmad N." name="citation_author">
+    
+    
+    <meta content="Thibaud-Nissen, Françoise" name="citation_author">
+    
+    <meta content="Tricomi, Francesca Floriana" name="citation_author">
+    
+    <meta content="Wagner, Justin" name="citation_author">
+    
+    <meta content="Walenz, Brian" name="citation_author">
+    
+    <meta content="Wood, Jonathan M. D." name="citation_author">
+    
+    <meta content="Zimin, Aleksey V." name="citation_author">
+    
+    
+    <meta content="Bourque, Guillaume" name="citation_author">
+    
+    
+    
+    <meta content="Chaisson, Mark J. P." name="citation_author">
+    
+    <meta content="Flicek, Paul" name="citation_author">
+    
+    <meta content="Phillippy, Adam M." name="citation_author">
+    
+    <meta content="Zook, Justin M." name="citation_author">
+    
+    <meta content="Eichler, Evan E." name="citation_author">
+    
+    
+    <meta content="Haussler, David" name="citation_author">
+    
+    
+    <meta content="Wang, Ting" name="citation_author">
+    
+    
+    <meta content="Jarvis, Erich D." name="citation_author">
+    
+    
+    
+    <meta content="Miga, Karen H." name="citation_author">
+    
+    <meta content="Garrison, Erik" name="citation_author">
+    
+    <meta content="Marschall, Tobias" name="citation_author">
+    
+    
+    <meta content="Hall, Ira M." name="citation_author">
+    
+    
+    <meta content="Li, Heng" name="citation_author">
+    
+    
+    <meta content="Paten, Benedict" name="citation_author">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    <meta content="https://www.nature.com/articles/s41586-023-05896-x" property="og:url">
+    <meta content="article" property="og:type">
+    
+    <meta content="A draft human pangenome reference - Nature" property="og:title">
+    
+    
+    
+
+
+
+
+    
+    
+    
+
+
+
+</head>
+<body class="article-page">
+
+
+
+
+
+
+    
+        
+    
+
+
+
+    
+        
+    
+        
+    
+
+    
+
+
+    
+
+
+
+
+
+    <div class="c-article-main u-container u-mt-24 u-mb-32 eds-l-with-sidebar" id="content">
+        <main class="c-article-main-column js-main-column">
+            
+                
+            
+
+            <article lang="en">
+                
+                    
+                        
+                            
+                        
+                    
+                
+                <div class="c-article-header">
+                    <header>
+                        
+
+                        <h1 class="c-article-title" data-test="article-title">A draft human pangenome reference</h1>
+                        
+
+                        
+
+                        
+                        
+                            
+                        
+                        
+        
+        <div class="c-article-metrics-bar__wrapper u-clear-both">
+            <ul class="c-article-metrics-bar u-list-reset">
+                
+                    <li class=" c-article-metrics-bar__item" data-test="access-count">
+                        <p class="c-article-metrics-bar__count">375k <span class="c-article-metrics-bar__label">Accesses</span></p>
+                    </li>
+                
+                
+                    <li class="c-article-metrics-bar__item" data-test="citation-count">
+                        <p class="c-article-metrics-bar__count">1359 <span class="c-article-metrics-bar__label">Citations</span></p>
+                    </li>
+                
+                
+                    
+                        <li class="c-article-metrics-bar__item" data-test="altmetric-score">
+                            <p class="c-article-metrics-bar__count">3221 <span class="c-article-metrics-bar__label">Altmetric</span></p>
+                        </li>
+                    
+                
+                
+                    <li class="c-article-metrics-bar__item">
+                        <p class="c-article-metrics-bar__details"><a href="/articles/s41586-023-05896-x/metrics" rel="nofollow">Metrics <span class="u-visually-hidden">details</span></a></p>
+                    </li>
+                
+            </ul>
+        </div>
+    
+                        
+                    </header>
+
+                    
+    
+    
+
+    
+    
+
+                    
+                </div>
+
+                <div class="c-article-body">
+                    <section aria-labelledby="Abs1" data-title="Abstract" lang="en"><div class="c-article-section" id="Abs1-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Abs1">Abstract</h2><div class="c-article-section__content" id="Abs1-content"><p>Here the Human Pangenome Reference Consortium presents a first draft of the human pangenome reference. The pangenome contains 47 phased, diploid assemblies from a cohort of genetically diverse individuals<sup><a aria-label="Reference 1" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR1" id="ref-link-section-d102338131e2936" title="1000 Genomes Project Consortium. A global reference for human genetic variation. Nature 526, 68–74 (2015).">1</a></sup>. These assemblies cover more than 99% of the expected sequence in each genome and are more than 99% accurate at the structural and base pair levels. Based on alignments of the assemblies, we generate a draft pangenome that captures known variants and haplotypes and reveals new alleles at structurally complex loci. We also add 119 million base pairs of euchromatic polymorphic sequences and 1,115 gene duplications relative to the existing reference GRCh38. Roughly 90 million of the additional base pairs are derived from structural variation. Using our draft pangenome to analyse short-read data reduced small variant discovery errors by 34% and increased the number of structural variants detected per haplotype by 104% compared with GRCh38-based workflows, which enabled the typing of the vast majority of structural variant alleles per sample.</p></div></div></section>
+                    
+    
+
+
+                    
+                        
+                        
+                        
+    
+        
+    
+
+                        
+
+                        <div class="main-content">
+                            <section data-title="Main"><div class="c-article-section" id="Sec1-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec1">Main</h2><div class="c-article-section__content" id="Sec1-content"><p>The human reference genome has formed the backbone of human genomics since its initial draft release more than 20 years ago<sup><a aria-label="Reference 2" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR2" id="ref-link-section-d102338131e2962" title="International Human Genome Sequencing Consortium. Initial sequencing and analysis of the human genome. Nature 409, 860–921 (2001).">2</a></sup>. The primary sequences are a mosaic representation of individual haplotypes containing one representative scaffold sequence for each chromosome. There are 210 Mb of gap or unknown (151 Mb) or computationally simulated sequences (59 Mb) within the current GRCh38 release, constituting 6.7% of the primary chromosome scaffolds. Missing reference sequences create an observational bias, or streetlamp effect, which limits studies to be within the boundaries of the reference. Recently, the Telomere-to-Telomere (T2T) consortium finished the first complete sequence of a haploid human genome, T2T-CHM13, which provides a contiguous representation of each autosome and of chromosome X, with the exception of some ribosomal DNA arrays that remain to be fully resolved<sup><a aria-label="Reference 3" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR3" id="ref-link-section-d102338131e2966" title="Nurk, S. et al. The complete sequence of a human genome. Science 376, 44–53 (2022).">3</a></sup>. Using T2T-CHM13 directly improves genomic analyses; for example, discovering 3.7 million additional single-nucleotide polymorphisms (SNPs) in regions non-syntenic to GRCh38 and better representing the true copy number variants (CNVs) of samples from the 1000 Genomes Project (1KG) compared with GRCh38 (refs. <sup><a aria-label="Reference 1" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR1" id="ref-link-section-d102338131e2970" title="1000 Genomes Project Consortium. A global reference for human genetic variation. Nature 526, 68–74 (2015).">1</a>,<a aria-label="Reference 4" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR4" id="ref-link-section-d102338131e2973" title="Aganezov, S. et al. A complete reference genome improves analysis of human genetic variation. Science 376, eabl3533 (2022).">4</a></sup>).</p><p>Although T2T-CHM13 represents a major achievement, no single genome can represent the genetic diversity of our species. Previous studies have identified tens of megabases of sequence contained within structural variants (SVs) that are polymorphic within the population<sup><a aria-label="Reference 5" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR5" id="ref-link-section-d102338131e2980" title="Ebert, P. et al. Haplotype-resolved diverse human genomes and integrated analysis of structural variation. Science 372, eabf7117 (2021).">5</a></sup>. Owing to the absence of these alternative alleles from the reference genome, more than two-thirds of SVs have been missed in studies that used short-read data and the human reference assembly<sup><a data-test="citation-ref" href="#ref-CR6" id="ref-link-section-d102338131e2984" title="Chaisson, M. J. P. et al. Multi-platform discovery of haplotype-resolved structural variation in human genomes. Nat. Commun. 10, 1784 (2019).">6</a>,<a data-test="citation-ref" href="#ref-CR7" id="ref-link-section-d102338131e2984_1" title="Wenger, A. M. et al. Accurate circular consensus long-read sequencing improves variant detection and assembly of a human genome. Nat. Biotechnol. 37, 1155–1162 (2019).">7</a>,<a aria-label="Reference 8" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR8" id="ref-link-section-d102338131e2987" title="Zhao, X. et al. Expectations and blind spots for structural variation detection from long-read assemblies and short-read genome sequencing technologies. Am. J. Hum. Genet. 108, 919–928 (2021).">8</a></sup>, despite individual SVs being more likely to affect gene function than either individual SNPs or short insertions and deletions (indels)<sup><a aria-label="Reference 9" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR9" id="ref-link-section-d102338131e2991" title="Chiang, C. et al. The impact of structural variation on human gene expression. Nat. Genet. 49, 692–699 (2017).">9</a>,<a aria-label="Reference 10" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR10" id="ref-link-section-d102338131e2994" title="Sudmant, P. H. et al. An integrated map of structural variation in 2,504 human genomes. Nature 526, 75–81 (2015).">10</a></sup>.</p><p>To overcome reference bias, a transition to a pangenomic reference has been envisioned<sup><a aria-label="Reference 11" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR11" id="ref-link-section-d102338131e3001" title="Computational Pan-Genomics Consortium. Computational pan-genomics: status, promises and challenges. Brief. Bioinform. 19, 118–135 (2018).">11</a>,<a aria-label="Reference 12" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR12" id="ref-link-section-d102338131e3004" title="Paten, B., Novak, A. M., Eizenga, J. M. &amp; Garrison, E. Genome graphs and the evolution of genome inference. Genome Res. 27, 665–676 (2017).">12</a></sup>. Pangenomic methods have rapidly progressed over the past few years<sup><a data-test="citation-ref" href="#ref-CR13" id="ref-link-section-d102338131e3008" title="Garrison, E. et al. Variation graph toolkit improves read mapping by representing genetic variation in the reference. Nat. Biotechnol. 36, 875–879 (2018).">13</a>,<a data-test="citation-ref" href="#ref-CR14" id="ref-link-section-d102338131e3008_1" title="Eizenga, J. M. et al. Pangenome graphs. Annu. Rev. Genomics Hum. Genet. 21, 139–162 (2020).">14</a>,<a aria-label="Reference 15" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR15" id="ref-link-section-d102338131e3011" title="Wang, T. et al. The Human Pangenome Project: a global resource to map genomic diversity. Nature 604, 437–446 (2022).">15</a></sup> such that it is now practical to propose that common genomic analyses use a pangenome. Here we sequence and assemble a set of diverse individual genomes and present a draft human pangenome, the first release from the Human Pangenome Reference Consortium (HPRC)<sup><a aria-label="Reference 15" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR15" id="ref-link-section-d102338131e3015" title="Wang, T. et al. The Human Pangenome Project: a global resource to map genomic diversity. Nature 604, 437–446 (2022).">15</a></sup>. These genomes represent a subset of the planned HPRC panel, which aims to better capture global genomic diversity across the 700 haplotypes of 350 individuals.</p></div></div></section><section data-title="Assembling 47 diverse human genomes"><div class="c-article-section" id="Sec2-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec2">Assembling 47 diverse human genomes</h2><div class="c-article-section__content" id="Sec2-content"><p>We assembled 47 fully phased diploid assemblies from genomes selected to represent global genetic diversity (Fig. <a href="/articles/s41586-023-05896-x#Fig1">1a</a>) and for which consent had been given for unrestricted access. All assemblies have been made publicly available, along with all data and analyses. These assemblies include 29 samples with long and linked read sequencing data generated entirely by the HPRC and 18 samples sequenced by other efforts<sup><a data-test="citation-ref" href="#ref-CR16" id="ref-link-section-d102338131e3030" title="Shafin, K. et al. Nanopore sequencing and the Shasta toolkit enable efficient de novo assembly of eleven human genomes. Nat. Biotechnol. 38, 1044–1053 (2020).">16</a>,<a data-test="citation-ref" href="#ref-CR17" id="ref-link-section-d102338131e3030_1" title="Porubsky, D. et al. Fully phased human genome assembly without parental data using single-cell strand sequencing and long reads. Nat. Biotechnol. 39, 302–308 (2021).">17</a>,<a aria-label="Reference 18" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR18" id="ref-link-section-d102338131e3033" title="Zook, J. M. et al. Extensive sequencing of seven human genomes to characterize benchmark reference materials. Sci. Data 3, 160025 (2016).">18</a></sup>. In some cases, we supplemented the 18 additional samples with further sequencing. We selected the 29 HPRC samples from the 1KG lymphoblastoid cell lines, limiting selection to those lines classified as karyotypically normal and with low passage (to avoid artefacts from cell culture). We also ensured that the cell lines were derived from participants for whom whole-genome sequencing (WGS) data were available for both parents (for haplotype phasing). Cell lines meeting these criteria were prioritized by genetic and biogeographic diversity (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>).</p><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-title="Presenting 47 accurate and near-complete diverse diploid human genome assemblies." id="figure-1"><figure><figcaption><b class="c-article-section__figure-caption" data-test="figure-caption-text" id="Fig1">Fig. 1: Presenting 47 accurate and near-complete diverse diploid human genome assemblies.</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture class="c-article-section__figure-picture"><source srcset="//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig1_HTML.png?as=webp" type="image/webp"><img alt="Fig. 1: Presenting 47 accurate and near-complete diverse diploid human genome assemblies." aria-describedby="figure-1-desc" height="600" src="//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig1_HTML.png" width="685"></picture><div class="c-article-section__figure-link"><a aria-label="Full size image figure 1" class="c-article__pill-button" data-test="article-link" href="/articles/s41586-023-05896-x/figures/1" rel="nofollow"><span>Full size image</span><svg aria-hidden="true" class="u-icon" height="16" width="16"><use></use></svg></a></div></div><div class="c-article-section__figure-description" data-test="bottom-caption" id="figure-1-desc"><p><b>a</b>, Selecting the HPRC samples. Left, the first two principal components of 1KG samples showing HPRC (triangles) samples, excluding HG002, HG005 and NA21309. Right, summary of the HPRC sample subpopulations (three letter abbreviations) on a map of Earth as defined by the 1KG. ACB, African Caribbean in Barbados; ASW, African Ancestry in Southwest US; CHS, Han Chinese South; CLM, Colombian in Medellin, Colombia; ESN, Esan in Nigeria; GWD, Gambian in Western Division; KHV, Kinh in Ho Chi Minh City, Vietnam; MKK, Maasai in Kinyawa, Kenya; MSL, Mende in Sierra Leone; PEL, Peruvian in Lima, Peru; PJL, Punjabi in Lahore, Pakistan; PUR, Puerto Rican in Puerto Rico; YRI, Yoruba in Ibadan, Nigeria. <b>b</b>, Interchromosomal joins between acrocentric chromosome short arms. Red, the join is on the same strand; blue, otherwise. <b>c</b>, Total assembled sequence per haploid phased assembly. <b>d</b>, Assembly contiguity shown as a NGx plot. T2T-CHM13 and GRCh38 contigs are included for comparison. <b>e</b>, Assembly QVs showing the base-level accuracy of the maternal and paternal assembly for each sample. <b>f</b>, Yak-reported phasing accuracy showing the switch error percentage versus Hamming error percentage. <b>g</b>, Flagger read-based assembly evaluation pipeline. Coverage is calculated across the genome and a mixture model is fit to account for reliably assembled haploid sequence and various classes of unreliably assembled sequence. For each coverage block, a label is assigned according to the most probable mixture component to which it belongs: erroneous, falsely duplicated, (reliable) haploid, collapsed, and unknown. <b>h</b>, Reliability of the 47 HPRC assemblies using read mapping. For each sample, the left bar is the paternal and the right bar is the maternal haplotype. Regions flagged as haploid are reliable (green), constituting more than 99% on average of each assembly. The <i>y</i> axis is broken to show the dominance of the reliable haploid component and the stratification of the unreliable blocks. <b>i</b>, Assembly reliability of six types of repeats. AlphaSat, alpha satellites; HSat2/3, human satellites 2 and 3. <b>j</b>, Completeness of the HPRC assemblies relative to T2T-CHM13. The number of reference bases covered by none, by one, by two or by more than two alignments are included.</p></div></div></figure></div><p>We created a consistent set of deeply sequenced data types for every sample (Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">1</a>). The data included Pacific Biosciences (PacBio) high-fidelity (HiFi) and Oxford Nanopore Technologies (ONT) long-read sequencing, Bionano optical maps and high-coverage Hi-C Illumina short-read sequencing for all HPRC samples. We also gathered previously generated high-coverage Illumina sequencing data for both parents of each participant<sup><a aria-label="Reference 19" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR19" id="ref-link-section-d102338131e3099" title="Byrska-Bishop, M. et al. High-coverage whole-genome sequencing of the expanded 1000 Genomes Project cohort including 602 trios. Cell 185, 3426–3440.e19 (2022).">19</a></sup>. We generated on average 39.7× HiFi sequence depth of coverage for the 46 HPRC samples (excluding HG002, which had around 130× coverage). This depth of coverage is consistent with the requirements for high-quality, state-of-the-art assemblies<sup><a aria-label="Reference 20" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR20" id="ref-link-section-d102338131e3103" title="Cheng, H., Concepcion, G. T., Feng, X., Zhang, H. &amp; Li, H. Haplotype-resolved de novo assembly using phased assembly graphs with hifiasm. Nat. Methods 18, 170–175 (2021).">20</a></sup> and facilitates comprehensive variant discovery irrespective of allele frequency (AF). The N50 value, which represents the shortest read length at which 50% of the total sequenced bases are covered by considering only equal or longer reads, was 19.6 kb on average for the HiFi reads (Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">1</a>; excluding HG002 because it was sequenced using a different library preparation protocol).</p><p>For the core assembler, we chose Trio-Hifiasm<sup><a aria-label="Reference 20" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR20" id="ref-link-section-d102338131e3113" title="Cheng, H., Concepcion, G. T., Feng, X., Zhang, H. &amp; Li, H. Haplotype-resolved de novo assembly using phased assembly graphs with hifiasm. Nat. Methods 18, 170–175 (2021).">20</a></sup> after detailed benchmarking of several alternatives<sup><a aria-label="Reference 21" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR21" id="ref-link-section-d102338131e3117" title="Jarvis, E. D. et al. Semi-automated assembly of high-quality diploid human reference genomes. Nature 611, 519–531 (2022).">21</a></sup>. Trio-Hifiasm uses PacBio HiFi long-read sequences and parental Illumina short-read sequences to produce near fully phased contig assemblies. The complete assembly pipeline (Supplementary Fig. <a href="/articles/s41586-023-05896-x#MOESM1">1</a> and <a href="/articles/s41586-023-05896-x#Sec18">Methods</a>) included steps to remove adaptor and nonhuman sequence contamination and to ensure a single mitochondrial assembly per maternal assembly.</p><h3 class="c-article__sub-heading" id="Sec3">Assembly assessment</h3><p>We first searched for large-scale misassemblies, looking for gene duplication errors, phasing errors and interchromosomal misjoins (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). We manually fixed three large duplication errors and one large phasing error, but left smaller errors, which are difficult to definitively distinguish from SVs. We found 217 putative interchromosomal joins. Only one of these joins (in the paternal assembly of HG02080) was located in a euchromatic, non-acrocentric region and was manually confirmed to be a misassembly. The remaining joins involved the short arms of the acrocentric chromosomes (Fig. <a href="/articles/s41586-023-05896-x#Fig1">1b</a> and Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">2</a>). This may be the result of misalignment, nonallelic gene conversion or other biological mechanisms that maintain large-scale homology between the short arms of the acrocentrics—a phenomenon that we have studied in an associated paper<sup><a aria-label="Reference 22" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR22" id="ref-link-section-d102338131e3143" title="Guarracino, A. et al. Recombination between heterologous human acrocentric chromosomes. Nature 
+                  https://doi.org/10.1038/s41586-023-05976-y
+                  
+                 (2023).">22</a></sup>.</p><p>To evaluate the resulting assemblies after manual correction of errors, we developed an automated assembly quality control pipeline that combined methods to assess the completeness, contiguity, base level quality and phasing accuracy of each assembly (Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">3</a> and <a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). Haploid assemblies containing an X chromosome averaged a total length of 3.04 Gb, 99.3% the length of T2T-CHM13 (3.06 Gb), which also contains an X chromosome. Haploid assemblies containing a Y chromosome averaged a total length of 2.93 Gb, which reflects the size difference between the sex chromosomes (Fig. <a href="/articles/s41586-023-05896-x#Fig1">1c</a>). The average NG50 value, a widely used measure of contiguity, was comparable with the contig NG50 of GRCh38 (40 Mb compared with 56 Mb, respectively; Fig. <a href="/articles/s41586-023-05896-x#Fig1">1d</a>). Using short substrings (<i>k</i>-mer values of 31) derived from Illumina data, the Yak <i>k</i>-mer analyser<sup><a aria-label="Reference 20" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR20" id="ref-link-section-d102338131e3169" title="Cheng, H., Concepcion, G. T., Feng, X., Zhang, H. &amp; Li, H. Haplotype-resolved de novo assembly using phased assembly graphs with hifiasm. Nat. Methods 18, 170–175 (2021).">20</a></sup> estimated an average quality value (QV) of 53.57 for the assemblies, which corresponded to an average of 1 base error per 227,509 bases (Fig. <a href="/articles/s41586-023-05896-x#Fig1">1e</a>). To validate these QV estimates, we benchmarked the HG002 and HG005 assembly-based variant calls against the small variants called using Genome in a Bottle (GIAB; v.4.2.1). We estimated QVs of 54 for HG002 and 55 for HG005, which were highly similar to the <i>k</i>-mer QVs estimated using Yak. Consistent with our manual observation that most errors were primarily small indels in low-complexity regions, we found that approximately 32% of the indel errors were in homopolymers longer than 5 bp and an additional 48% were in tandem repeats and low-complexity regions. Moreover, about 42% of the indel errors were genotype errors, mostly heterozygous variants incorrectly called as homozygous variants due to collapsed haplotypes in the two assemblies of an individual (Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">4</a>). We next used Yak to analyse the phasing accuracy between the maternal and paternal assemblies using <i>k</i>-mer values derived from Illumina sequencing of the parents. An average haplotype switch error rate of 0.67% was observed and a Hamming error rate of 0.79% (Fig. <a href="/articles/s41586-023-05896-x#Fig1">1f</a>). We also calculated phase accuracy using Pstools<sup><a aria-label="Reference 23" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR23" id="ref-link-section-d102338131e3189" title="Garg, S. Computational methods for chromosome-scale haplotype reconstruction. Genome Biol. 22, 101 (2021).">23</a>,<a aria-label="Reference 24" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR24" id="ref-link-section-d102338131e3192" title="Garg, S. Pstools: a toolkit for fully phased sequences on chromosome level. GitHub 
+                  https://github.com/shilpagarg/pstools
+                  
+                 (2020).">24</a></sup>, which uses Hi-C sequence data of the sample not used to create the assembly. Pstools reported slightly lower switch error rates than Yak but comparable Hamming error rates (Supplementary Fig. <a href="/articles/s41586-023-05896-x#MOESM1">2</a>). Taken together, the above results indicate that the assemblies are highly contiguous and accurate.</p><h3 class="c-article__sub-heading" id="Sec4">Regional assembly reliability</h3><p>To determine which portions of the assemblies are reliable, we developed a read-based pipeline, Flagger, that detects different types of misassemblies within a phased diploid assembly (Fig. <a href="/articles/s41586-023-05896-x#Fig1">1g</a> and <a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). The pipeline works by mapping the HiFi reads to the combined maternal and paternal assembly in a haplotype-aware manner. It then identifies coverage inconsistencies within these read mappings that are likely to be due to assembly errors. This process is similar to likelihood-based approaches, which assess the assembly given the reads<sup><a aria-label="Reference 25" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR25" id="ref-link-section-d102338131e3214" title="Rahman, A. &amp; Pachter, L. CGAL: computing genome assembly likelihoods. Genome Biol. 14, R8 (2013).">25</a></sup>, but is adapted to work with long reads and diploid assemblies. Using Flagger, we identified only 0.88% (26.4 Mb) of each assembly as unreliable (Fig. <a href="/articles/s41586-023-05896-x#Fig1">1h</a> and Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">5</a>). Using T2T-CHM13, we estimated that 0.09% of reliably assembled blocks were falsely labelled as unreliable (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). Compared with the distribution of contig sizes, the unreliable blocks were short (54.6 kb N50 average). We intersected the unreliable blocks in the assemblies from Flagger with different repeat annotations (Fig. <a href="/articles/s41586-023-05896-x#Fig1">1i</a> and Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">6</a>). We estimated that the following percentage of elements were correctly assembled: 95.4% of alpha satellites; 91.5% of human satellites 2 and 3; 97.7% of segmental duplications (SDs); 94.3% of variable number tandem repeats (VNTRs); 94.2% of short tandem repeats (STRs); and 98.8% of all human repeats<sup><a aria-label="Reference 26" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR26" id="ref-link-section-d102338131e3234" title="Smit, A. F. A., Hubley, R. &amp; Green, P. RepeatMasker Open-4.0, 
+                  http://www.repeatmasker.org
+                  
+                 (2013–2015).">26</a></sup>.</p><h3 class="c-article__sub-heading" id="Sec5">Completeness and CNV</h3><p>To assess the completeness and copy number polymorphism of the assemblies, we aligned them to T2T-CHM13 (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). The paternal assemblies of male samples covered about 92.8% of T2T-CHM13 (excluding chromosome X) on average with exactly one alignment. For all other assemblies (excluding chromosome Y), about 94.1% on average was single-copy covered (Fig. <a href="/articles/s41586-023-05896-x#Fig1">1j</a> and Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">7</a>). On average, around 136 Mb (4.4%) of T2T-CHM13 was not covered by any alignment, which indicates that some parts of the genome are either systematically unassembled or cannot be reliably aligned. About 90% of these regions were centromeric or pericentromeric<sup><a aria-label="Reference 27" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR27" id="ref-link-section-d102338131e3255" title="Altemose, N. et al. Complete genomic and epigenetic maps of human centromeres. Science 376, eabl4178 (2022).">27</a></sup> (Extended Data Fig. <a href="/articles/s41586-023-05896-x#Fig7">1</a>). Despite the majority of unaligned bases occurring within and around centromeres, on average, 90% of divergent and monomeric alpha satellites, gamma satellites and centromeric transition regions were covered by at least one alignment. Excluding the T2T-CHM13 centromere and satellites<sup><a aria-label="Reference 3" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR3" id="ref-link-section-d102338131e3263" title="Nurk, S. et al. The complete sequence of a human genome. Science 376, 44–53 (2022).">3</a></sup> and including only the expected sex chromosome for each haploid assembly, on average, around 99.12% of the remaining reference was covered by exactly one alignment (Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">7</a>).</p><p>The average number of T2T-CHM13 bases with two or with more than two alignments was about 32.4 Mb (around 1.0%) and about 20.0 Mb (around 0.6%), respectively. On average, per haploid assembly, these duplicated regions had about 82.20% and 39.82% overlap with the pericentomeric or centromeric satellites and SDs, respectively, and around 94.62% had overlap with either of them. We characterized the accuracy of regions aligned to SDs in T2T-CHM13 (excluding chromosome Y) using a liftover of the assembly read-depth-based evaluation (Extended Data Fig. <a href="/articles/s41586-023-05896-x#Fig8">2</a>). On average, we estimated that only 2.5% (4.99 out of 199 Mb) of the SD sequence that could be lifted onto T2T-CHM13 was in error according to the read depth. To identify SDs associated with these errors, we took all 5 kb windows across the unreliable regions and intersected them with the longest and most identical overlapping SD. The median length of SDs overlapping sequences in error was 3.0 times longer (288 kb compared with 96.3 kb) than those in correctly assembled SDs and 1.8% more identical (98.9 compared with 97.1). This result reinforces earlier findings that the length and identity of SDs play an important part in assembly accuracy<sup><a aria-label="Reference 28" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR28" id="ref-link-section-d102338131e3276" title="Alkan, C., Sajjadian, S. &amp; Eichler, E. E. Limitations of next-generation genome sequence assembly. Nat. Methods 8, 61–65 (2011).">28</a></sup>.</p></div></div></section><section data-title="Constructing a draft pangenome"><div class="c-article-section" id="Sec7-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec7">Constructing a draft pangenome</h2><div class="c-article-section__content" id="Sec7-content"><p>We used a sequence graph representation for pangenomes<sup><a aria-label="Reference 12" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR12" id="ref-link-section-d102338131e3427" title="Paten, B., Novak, A. M., Eizenga, J. M. &amp; Garrison, E. Genome graphs and the evolution of genome inference. Genome Res. 27, 665–676 (2017).">12</a>,<a aria-label="Reference 14" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR14" id="ref-link-section-d102338131e3430" title="Eizenga, J. M. et al. Pangenome graphs. Annu. Rev. Genomics Hum. Genet. 21, 139–162 (2020).">14</a></sup> in which nodes correspond to segments of DNA. Each node has two possible orientations, forward and reverse, and there are four possible edges between any pair of nodes to reflect all combinations of orientations (bidirected graph). The underlying haplotype sequences can be represented as walks in the graph. The model represents a generalized multiple alignment of the genome assemblies from which we built it, whereby haplotypes are aligned where they co-occur on a given node (Fig. <a href="/articles/s41586-023-05896-x#Fig3">3a</a>).</p><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-title="Pangenome graphs represent diverse variation." id="figure-3"><figure><figcaption><b class="c-article-section__figure-caption" data-test="figure-caption-text" id="Fig3">Fig. 3: Pangenome graphs represent diverse variation.</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture class="c-article-section__figure-picture"><source srcset="//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig3_HTML.png?as=webp" type="image/webp"><img alt="Fig. 3: Pangenome graphs represent diverse variation." aria-describedby="figure-3-desc" height="654" src="//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig3_HTML.png" width="685"></picture><div class="c-article-section__figure-link"><a aria-label="Full size image figure 3" class="c-article__pill-button" data-test="article-link" href="/articles/s41586-023-05896-x/figures/3" rel="nofollow"><span>Full size image</span><svg aria-hidden="true" class="u-icon" height="16" width="16"><use></use></svg></a></div></div><div class="c-article-section__figure-description" data-test="bottom-caption" id="figure-3-desc"><p><b>a</b>, A pangenome variation graph comprising two elements: a sequence graph, the nodes of which represent oriented DNA strings and bidirected edges represent the connectivity relationships; and embedded haplotype paths (coloured lines) that represent the individual assemblies. <b>b</b>, Small variant sites in pangenome graphs stratified by the variant type and by the number of alleles at each site. MNP, multinucleotide polymorphism. <b>c</b>, SV sites in the pangenome graphs stratified by repeat class and by the number of alleles at each site. Other TE, a site involving mixed classes of transposable elements (TEs). VNTR, variable-number tandem repeat, a tandem repeat with the unit motif length ≥7 bp. STR, short tandem repeat, a tandem repeat with the unit motif length ≤6 bp. Other LCR, low-complexity regions with mixed VNTR and STR and low-complexity regions without a clear VNTR or STR pattern. Other repeat, a site involving mixed classes of repeats. SegDup, segmental duplication. Low repeat, a small fraction of the longest allele in a site involving repeats. <b>d</b>, Pangenome minor AF (MAF) spectrum for biallelic SNP, VNTR, L1 and Alu variants in the MC and PGGB graphs. <b>e,f</b>, Number of autosomal small variants per sample (<b>e</b>) and SVs per haplotype (<b>f</b>) in the pangenome. Variants were restricted to the Dipcall-confident regions. Samples are organized by 1KG populations. <b>g</b>, Pangenome growth curves for MC (left) and PGGB (right). Depth measures how often a segment is contained in any haplotype sequence, whereby core is present in ≥95% of haplotypes, common is ≥5%. <b>h</b>, Small variants in the GIAB (v.3.0) ‘easy’ regions annotated with AFs from gnomAD (v.3.1.2).</p></div></div></figure></div><p>The process of generating a combined pangenome representation is an active research area. The problem is nontrivial both because of computational challenges (there are hundreds of billions of bases of sequence to align) and because determining which alignments to include is not always obvious, particularly for recently duplicated and repetitive sequences. We applied three different graph construction methods that have been under active development for this project: Minigraph<sup><a aria-label="Reference 34" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR34" id="ref-link-section-d102338131e3487" title="Li, H., Feng, X. &amp; Chu, C. The design and construction of reference pangenome graphs with minigraph. Genome Biol. 21, 265 (2020).">34</a></sup>, Minigraph-Cactus (MC)<sup><a aria-label="Reference 35" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR35" id="ref-link-section-d102338131e3491" title="Hickey, G. et al. Pangenome graph construction from genome alignment with Minigraph-Cactus. Preprint at bioRxiv 
+                  https://doi.org/10.1101/2022.10.06.511217
+                  
+                 (2022).">35</a></sup> and PanGenome Graph Builder (PGGB)<sup><a aria-label="Reference 36" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR36" id="ref-link-section-d102338131e3495" title="Garrison, E. et al. Building pangenome graphs. Preprint at bioRxiv 
+                  https://www.biorxiv.org/content/10.1101/2023.04.05.535718v1
+                  
+                 (2023).">36</a></sup> (Extended Data Fig. <a href="/articles/s41586-023-05896-x#Fig9">3</a> and <a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). The availability of these three models provided us with multiple views into homology relationships in the pangenome while supporting validation of discovered variation by independent methods. We included GRCh38 and T2T-CHM13 references within the pangenomes, and three samples (HG002, HG005 and NA19240) were held out to permit their use in benchmarking (hence 90 haplotypes total). In brief, Minigraph builds a pangenome by starting from a reference assembly, here GRCh38, and iteratively and progressively adds in additional assemblies, recording only SVs ≥ 50 bases. It admits complex variants, including duplications and inversions. MC extends the Minigraph pangenome with a base level alignment of the homology relationships between the assemblies using the Cactus genome aligner<sup><a aria-label="Reference 37" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR37" id="ref-link-section-d102338131e3506" title="Armstrong, J. et al. Progressive Cactus is a multiple-genome aligner for the thousand-genome era. Nature 587, 246–251 (2020).">37</a></sup> while retaining the structure of the Minigraph pangenome. PGGB constructs a pangenome from an all-to-all alignment of the assemblies. Although both T2T-CHM13 and GRCh38 are used to partition contigs into chromosomes, the PGGB graph is otherwise reference free (that is, it does not base itself on a chosen reference assembly).</p><h3 class="c-article__sub-heading" id="Sec8">Measuring pangenome variation</h3><p>The different algorithmic approaches used to construct a pangenome graph influence graph properties while representing the same underlying sequences. The basic properties of the three graphs produced with the different pangenome methods are shown in Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">10</a>. The Minigraph chart, by virtue of being limited to structural variation, is the smallest, with more than two orders of magnitude fewer nodes and edges than the base level graphs. Its length (3.24 Gb), measured as the total bases of all nodes, is similar to the MC graph (3.29 Gb) despite the latter adding many small variants. This difference is due to the MC graph also aligning a significant number of sequences left unaligned by Minigraph. The PGGB graph contains roughly 5 Gb more sequence because it includes highly structurally divergent satellite regions omitted from the other approaches (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>) and does not implement any trimming or filtering of the input assembly contigs.</p><p>To characterize variants in the pangenome graphs, we used graph decomposition to identify ‘bubble’ subgraphs that correspond to non-overlapping variant sites. We then classified variant sites into small variants (&lt;50 bp) and SVs (≥50 bp) of different types (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). We found similar numbers of each variant type in each pangenome, with 22 million small variants in the MC graph (21 million in PGGB) (Fig. <a href="/articles/s41586-023-05896-x#Fig3">3b</a>), and 67,000 SVs in the MC graph (73,000 in PGGB, 75,000 in Minigraph) (Fig. <a href="/articles/s41586-023-05896-x#Fig3">3c</a>). We assessed variation in each individual assembly by tracing their paths through the graphs and found similar numbers of small variants and SVs within confident genomic regions defined by Dipcall<sup><a aria-label="Reference 38" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR38" id="ref-link-section-d102338131e3535" title="Li, H. et al. A synthetic-diploid benchmark for accurate variant-calling evaluation. Nat. Methods 15, 595–597 (2018).">38</a></sup>. Specifically, there were 5.34 million small variants per sample and 16,800 SVs per haplotype on average in the MC graph (5.35 million and 17,400, respectively in PGGB) (Fig. <a href="/articles/s41586-023-05896-x#Fig3">3e,f</a>). Differences in variant counts among samples from different ancestry groups recapitulated previous observations<sup><a aria-label="Reference 1" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR1" id="ref-link-section-d102338131e3543" title="1000 Genomes Project Consortium. A global reference for human genetic variation. Nature 526, 68–74 (2015).">1</a></sup>. There was a total of 90 Mb of non-reference sequence in the SV sites, excluding difficult-to-align centromeric repeats, in the MC graph (55 Mb for PGGB, 86 Mb for Minigraph). Alu, L1 and ERV SVs appeared largely biallelic, whereas VNTRs frequently had three or more distinct alleles per site. The minor AF in the pangenomes of biallelic variants was similar for SNPs and for L1, Alu and VNTR variants, although VNTRs showed a slight shift towards more common alleles (Fig. <a href="/articles/s41586-023-05896-x#Fig3">3d</a>).</p><p>We quantified the amount of euchromatic autosomal non-reference (GRCh38) sequence that each of the 44 diploid genomes incrementally contributes to the pangenome (Fig. <a href="/articles/s41586-023-05896-x#Fig3">3g</a> and <a href="/articles/s41586-023-05896-x#Sec18">Methods</a>) for both MC and PGGB graphs. We limited the analysis to the euchromatic sequence because we were generally confident in its assembly and alignment, and much of the heterochromatic sequence was omitted from the MC graph (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). Overall, the euchromatic autosomal non-reference sequence added up to about 175 Mb in the MC graph (around 190 Mb in PGGB), out of which about 55 Mb (around 105 Mb in PGGB) was observed only on a single haplotype. Our analysis further suggested that about 5 Mb and 70 Mb in the MC graph (around 10 Mb and 60 Mb in PCGB) could be attributed to core (present in ≥95% of all haplotypes) and common genomes (present in ≥5% of all haplotypes), respectively (Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">11</a>). We also estimated the growth of the euchromatic autosomal pangenome independent of the order of genomes by sampling 200 permutations (Supplementary Fig. <a href="/articles/s41586-023-05896-x#MOESM1">4</a>) and recording the median pangenome size across all samples in the MC graph. Our results indicated that the second genome added around 23 Mb of euchromatic autosomal sequence to the pangenome, whereas the last genome tended to add only about 0.64 Mb. These numbers are conservative owing to additional highly polymorphic sequence residing in assembly gaps. Extrapolating under Heaps’ Law<sup><a aria-label="Reference 39" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR39" id="ref-link-section-d102338131e3569" title="Tettelin, H., Riley, D., Cattuto, C. &amp; Medini, D. Comparative genomics: the bacterial pan-genome. Curr. Opin. Microbiol. 11, 472–477 (2008).">39</a></sup> (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>), we anticipate that at least an additional 150 Mb of euchromatic autosomal sequence will be added in the pangenome graph when HPRC produces 700 haplotypes in the future.</p><p>We annotated the small variants overlapping the GIAB (v.3.0) ‘easy’ regions (covering 74.35% of GRCh38) with AFs from gnomAD (v.3.1.2) (Fig. <a href="/articles/s41586-023-05896-x#Fig3">3h</a> and Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">12</a>). In the MC graph, about 60.2% (around 9.7 million variants) had an AF of 1% or greater. About 35.7% were rare, having an AF less than 1% but above zero. About 1.7% were singleton. The remaining 2.4% were missing from gnomAD. Similar results were obtained using the PGGB graph by repeating this exercise with small variant calls detected by pairwise alignment of assemblies to GRCh38 using Dipcall<sup><a aria-label="Reference 38" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR38" id="ref-link-section-d102338131e3585" title="Li, H. et al. A synthetic-diploid benchmark for accurate variant-calling evaluation. Nat. Methods 15, 595–597 (2018).">38</a></sup> and by calling small variants from the HiFi sequencing data using DeepVariant<sup><a aria-label="Reference 40" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR40" id="ref-link-section-d102338131e3589" title="Poplin, R. et al. A universal SNP and small-indel variant caller using deep neural networks. Nat. Biotechnol. 36, 983–987 (2018).">40</a></sup>. Given that 1KG samples are included in gnomAD, these missing variants are expected to be a mixture of false negatives in gnomAD and false positives in the pangenome.</p><p>To further explore the quality of variant calls captured by assembly and graph construction, we compared pangenome-decoded variants against GRCh38 to variant sets identified by conventional reference-based genotyping methods (Supplementary Fig. <a href="/articles/s41586-023-05896-x#MOESM1">5</a> and <a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). These reference-based call sets were generated from the PacBio HiFi reads and haplotype-resolved assemblies using the following different discovery methods: DeepVariant<sup><a aria-label="Reference 40" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR40" id="ref-link-section-d102338131e3603" title="Poplin, R. et al. A universal SNP and small-indel variant caller using deep neural networks. Nat. Biotechnol. 36, 983–987 (2018).">40</a></sup>, PBSV<sup><a aria-label="Reference 41" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR41" id="ref-link-section-d102338131e3607" title="Pacific Biosciences. PBSV: a suite of tools to call and analyze structural variants in diploid genomes from PacBio SMRT reads. GitHub 
+                  https://github.com/PacificBiosciences/pbsv
+                  
+                 (2021).">41</a></sup>, Sniffles<sup><a aria-label="Reference 42" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR42" id="ref-link-section-d102338131e3611" title="Sedlazeck, F. J. et al. Accurate detection of complex structural variations using single-molecule sequencing. Nat. Methods 15, 461–468 (2018).">42</a></sup> with Iris<sup><a aria-label="Reference 43" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR43" id="ref-link-section-d102338131e3616" title="Kirsche, M. et al. Jasmine and Iris: population-scale structural variant comparison and analysis. Nat. Methods 20, 408–417 (2023).">43</a></sup>, SVIM<sup><a aria-label="Reference 44" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR44" id="ref-link-section-d102338131e3620" title="Heller, D. &amp; Vingron, M. SVIM: structural variant identification using mapped long reads. Bioinformatics 35, 2907–2915 (2019).">44</a></sup>, SVIM-asm<sup><a aria-label="Reference 45" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR45" id="ref-link-section-d102338131e3624" title="Heller, D. &amp; Vingron, M. SVIM-asm: structural variant detection from haploid and diploid genome assemblies. Bioinformatics 36, 5519–5521 (2020).">45</a></sup>, PAV<sup><a aria-label="Reference 5" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR5" id="ref-link-section-d102338131e3628" title="Ebert, P. et al. Haplotype-resolved diverse human genomes and integrated analysis of structural variation. Science 372, eabf7117 (2021).">5</a></sup> and the Hall-lab pipeline (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). For benchmarking small variants, we excluded regions that contained SVs detected or implied by the alignment of the haploid assemblies of that sample to GRCh38, as current benchmarking tools do not account for different representations of small variants inside or near SVs (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). Comparing small variants (Fig. <a href="/articles/s41586-023-05896-x#Fig4">4a</a>) and SVs (Fig. <a href="/articles/s41586-023-05896-x#Fig4">4b</a>) from the pangenomes to the reference-based sets, we observed a high level of concordance that varied, as expected, by the relative repeat content of the surrounding genome. Overall, variant calling performance was high in both the MC and PGGB graphs. For example, in relatively unique easy genomic regions constituting 75.42% of the autosomal genome, samples showed a mean of 99.64% recall and 99.64% precision for small variants in the MC graph. Meanwhile, in high-confidence regions (around 90% of autosomal genome), samples showed 97.91% recall and 96.66% precision (Fig. <a href="/articles/s41586-023-05896-x#Fig4">4a</a>). Performance was lower for SVs than for small variants (Fig. <a href="/articles/s41586-023-05896-x#Fig4">4b</a>), as expected, but was still strong. Variant calling performance was lower in highly repetitive genome regions (3.87% of autosomal genome; Fig. <a href="/articles/s41586-023-05896-x#Fig4">4a,b</a>), for which more work will be required to achieve high-quality variant maps. These values are likely to be significant underestimates of variant calling quality, considering known errors in the truth set owing to the inherent limitations of reference-based variant callers (see below). Stratifying the insertion and deletion SVs within the pangenome, we observed relatively high levels of agreement with the reference-based methods regardless of length (Fig. <a href="/articles/s41586-023-05896-x#Fig4">4c</a>).</p><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-title="Pangenome graph evaluation." id="figure-4"><figure><figcaption><b class="c-article-section__figure-caption" data-test="figure-caption-text" id="Fig4">Fig. 4: Pangenome graph evaluation.</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture class="c-article-section__figure-picture"><source srcset="//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig4_HTML.png?as=webp" type="image/webp"><img alt="Fig. 4: Pangenome graph evaluation." aria-describedby="figure-4-desc" height="159" src="//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig4_HTML.png" width="685"></picture><div class="c-article-section__figure-link"><a aria-label="Full size image figure 4" class="c-article__pill-button" data-test="article-link" href="/articles/s41586-023-05896-x/figures/4" rel="nofollow"><span>Full size image</span><svg aria-hidden="true" class="u-icon" height="16" width="16"><use></use></svg></a></div></div><div class="c-article-section__figure-description" data-test="bottom-caption" id="figure-4-desc"><p><b>a,b</b>, Precision and recall of autosomal small variants (<b>a</b>) and SVs (<b>b</b>) in the pangenomes relative to consensus variant sets. Small variants are compared to HiFi–DeepVariant calls. SVs are compared to the consensus of six reference-based SV callers (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). Comparisons are restricted to the Dipcall-confident regions and then stratified by the GIAB (v.3.0) genomic context. <b>c</b>, Average SV precision, recall and frequency in the Dipcall-confident regions stratified by length in the MC (top) and PGGB (bottom) graphs relative to consensus SV sets. The histogram bin size is 50 bp for SVs &lt;1 kb and 500 bp for SVs ≥1 kb.</p></div></div></figure></div><p>An independent measure of the quality of the pangenome graphs is the extent to which sample haplotype paths through the graph are well supported by the raw sequencing data. When we calculated the number of supporting reads by aligning them to the MC graph using GraphAligner (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>), more than 97% of HiFi reads were aligned to the MC graph after filtering (Extended Data Fig. <a href="/articles/s41586-023-05896-x#Fig10">4</a>, left). We further calculated the read depth of on-target and off-target edges based on the sample paths in the graph. On average, more than 94% of on-target edges were supported by at least 5 reads, and we observed 2 peaks in the read depth distribution of on-target edges (Extended Data Fig. <a href="/articles/s41586-023-05896-x#Fig10">4</a>, middle): a minor peak corresponding to the edges in heterozygous regions, and a major peak at twice the minor peak corresponding to the edges in homozygous regions. By contrast, only 7% or fewer off-target edges were supported by at least 5 reads (Extended Data Fig. <a href="/articles/s41586-023-05896-x#Fig10">4</a>, right). In addition to HiFi reads, we used ONT reads from 29 out of the 44 samples to perform the same analysis. Even though the data were lower in coverage, similar results were obtained (Supplementary Figs. <a href="/articles/s41586-023-05896-x#MOESM1">6</a> and <a href="/articles/s41586-023-05896-x#MOESM1">7</a>).</p><p>These data also show that the pangenome graphs performed better at capturing genome variation than the above benchmarking results imply. For example, a mean of 89.3% of putative false-positive small variant calls were supported by ≥5 HiFi reads, and 75.3% by ≥10 reads (85.9% and 73.8%, respectively, for SVs). This result suggests that most putative errors are in fact real variants that were missed by the reference-based callers used to create the truth set (Supplementary Fig. <a href="/articles/s41586-023-05896-x#MOESM1">8</a> and Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">13</a>).</p><p>To assess gene alignments in the pangenome, we used the Comparative Annotation Toolkit (CAT)<sup><a aria-label="Reference 46" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR46" id="ref-link-section-d102338131e3726" title="Fiddes, I. T. et al. Comparative Annotation Toolkit (CAT)—simultaneous clade and personal genome annotation. Genome Res. 28, 1029–1038 (2018).">46</a></sup> to liftover GENCODE (v.38) annotations using the MC pangenome alignment onto the individual haplotype assemblies. CAT lifted and annotated a median of 99.1% of 86,757 protein-coding transcripts per assembly (Extended Data Fig. <a href="/articles/s41586-023-05896-x#Fig11">5</a>, Supplementary Fig. <a href="/articles/s41586-023-05896-x#MOESM1">9</a>, Supplementary Tables <a href="/articles/s41586-023-05896-x#MOESM4">14</a> and <a href="/articles/s41586-023-05896-x#MOESM4">15</a> and <a href="/articles/s41586-023-05896-x#Sec18">Methods</a>), making it comparable to the Ensembl-mapping-based pipeline (median of 99.4% per assembly). This result supports the idea that the MC pangenome captures most transcript homologies. When comparing the CAT and Ensembl annotations per assembly, median Jaccard similarities of 0.99 for both genes and transcripts were obtained (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). A median of 360 (0.4%) protein-coding transcripts per assembly mapped at different loci between the Ensembl and CAT annotations.</p><h3 class="c-article__sub-heading" id="Sec9">Pangenomes represent complex loci</h3><p>We next turned our attention to complex multiallelic SVs, which have historically been difficult to map using reference-based methods. To screen for complex SVs, we identified bubbles &gt;10 kb from Minigraph that exhibited at least five structural alleles among the assembled haplotypes (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). We found that 620 out of 76,506 total sites (0.81%) were complex, and 44 of these overlapped with medically relevant protein-coding genes<sup><a aria-label="Reference 47" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR47" id="ref-link-section-d102338131e3760" title="Wagner, J. et al. Curated variation benchmarks for challenging medically relevant autosomal genes. Nat. Biotechnol. 40, 672–680 (2022).">47</a></sup> (Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">16</a>). Some are well-known complex SV loci, and all are known to be structurally variable based on previous short-read SV mapping studies<sup><a aria-label="Reference 10" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR10" id="ref-link-section-d102338131e3767" title="Sudmant, P. H. et al. An integrated map of structural variation in 2,504 human genomes. Nature 526, 75–81 (2015).">10</a>,<a aria-label="Reference 19" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR19" id="ref-link-section-d102338131e3770" title="Byrska-Bishop, M. et al. High-coverage whole-genome sequencing of the expanded 1000 Genomes Project cohort including 602 trios. Cell 185, 3426–3440.e19 (2022).">19</a>,<a aria-label="Reference 32" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR32" id="ref-link-section-d102338131e3773" title="Handsaker, R. E. et al. Large multiallelic copy number variations in humans. Nat. Genet. 47, 296–303 (2015).">32</a></sup>. However, whereas previous short-read SV calls at these loci are typically imprecise owing to alignment issues and low-resolution read-depth analysis methods, here we resolved their structure at single-base resolution. We selected five clinically relevant complex SV loci for detailed structural analysis: <i>RHD</i>–<i>RHCE</i>, <i>HLA-A</i>, <i>CYP2D6</i>–<i>CYP2D7</i>, <i>C4</i> and <i>LPA</i> (<a href="/articles/s41586-023-05896-x#Sec18">Methods</a>). For each locus and graph, we identified their locations within the graph and then annotated paths within this subgraph with known genes. We traced the individual haplotypes through the subgraph to reveal the structure of each assembly. In <i>CYP2D6</i>–<i>CYP2D7</i> (Extended Data Fig. <a href="/articles/s41586-023-05896-x#Fig12">6</a>), <i>C4</i> (Supplementary Fig. <a href="/articles/s41586-023-05896-x#MOESM1">10</a>) and <i>LPA</i> (Supplementary Fig. <a href="/articles/s41586-023-05896-x#MOESM1">11</a>), we recapitulated previously described haplotypes. For <i>CYP2D6</i>–<i>CYP2D7</i>, our calls matched 96% of haplotypes of 76 assemblies called by Cyrius using Illumina short-read data<sup><a aria-label="Reference 48" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR48" id="ref-link-section-d102338131e3831" title="Chen, X. et al. Cyrius: accurate CYP2D6 genotyping using whole-genome sequencing data. Pharmacogenomics J. 21, 251–261 (2021).">48</a></sup>. Two discrepancies appeared to be caused by errors from Cyrius, and the third was a false duplication in the HG01071-2 pangenome assembly revealed by Flagger. This comparison suggests that the pangenomes faithfully agree with existing knowledge of this complex locus. In <i>RHD</i>–<i>RHCE</i> (Fig. <a href="/articles/s41586-023-05896-x#Fig5">5a–c</a>), in addition to previously described haplotypes, we inferred the presence of five new haplotypes, which included one duplication allele of <i>RHD</i> and one inversion allele between <i>RHD</i> and <i>RHCE</i> that swaps the last exon of both genes. Around <i>HLA-A</i> (Fig. <a href="/articles/s41586-023-05896-x#Fig5">5d–f</a> and Supplementary Fig. <a href="/articles/s41586-023-05896-x#MOESM1">12</a>), two deletion alleles have been previously described—albeit with imprecise breakpoints<sup><a aria-label="Reference 10" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR10" id="ref-link-section-d102338131e3864" title="Sudmant, P. H. et al. An integrated map of structural variation in 2,504 human genomes. Nature 526, 75–81 (2015).">10</a></sup>—but an insertion allele carrying a <i>HLA-Y</i> pseudogene was previously unreported. The long sequence (65 kb) inserted with <i>HLA-Y</i> occurred at high frequency (28%) but has little homology to GRCh38.</p><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-title="Visualizing complex pangenome loci." id="figure-5"><figure><figcaption><b class="c-article-section__figure-caption" data-test="figure-caption-text" id="Fig5">Fig. 5: Visualizing complex pangenome loci.</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture class="c-article-section__figure-picture"><source srcset="//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig5_HTML.png?as=webp" type="image/webp"><img alt="Fig. 5: Visualizing complex pangenome loci." aria-describedby="figure-5-desc" height="521" src="//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig5_HTML.png" width="685"></picture><div class="c-article-section__figure-link"><a aria-label="Full size image figure 5" class="c-article__pill-button" data-test="article-link" href="/articles/s41586-023-05896-x/figures/5" rel="nofollow"><span>Full size image</span><svg aria-hidden="true" class="u-icon" height="16" width="16"><use></use></svg></a></div></div><div class="c-article-section__figure-description" data-test="bottom-caption" id="figure-5-desc"><p><b>a</b>–<b>c</b>, Structural haplotypes of <i>RHD</i> and <i>RHCE</i> from the MC graph. Locations of <i>RHD</i> and <i>RHCE</i> within the graph (<b>a</b>). The colour gradient is based on the precise relative position of each gene; green, head of a gene; blue, end of a gene. The lines alongside the graph are based on the approximate position of gene bodies, including exons and transcription start sites. Different structural haplotypes take different paths through the graph (<b>b</b>). The colour gradient and lines show the path of each allele; red, start of a path; blue, end of a path. Frequency and linear structural visualization of all structural haplotypes called by the graph among 90 haploid assemblies (<b>c</b>). Asterisks indicate newly discovered haplotypes. <b>d</b>–<b>f</b>, Structural haplotypes of <i>HLA-A</i> from the PGGB graph, visualized using the same conventions as <b>a</b>–<b>c</b>. del, deletion; ins, insertion; inv, inversion.</p></div></div></figure></div><p>We also compared the representation of these five loci in the MC and PGGB graphs (Supplementary Fig. <a href="/articles/s41586-023-05896-x#MOESM1">13</a>). Each graph independently recapitulated the same haplotype structures. In general, in the PGGB graph, many SV hotspots, including the centromeres, were transitively collapsed into loops through a subgraph representing a single repeat copy. This feature tends to reduce the size of variants found in repetitive sequences. Assemblies that contained multiple copies of the homologous sequence traversed these nodes a corresponding number of times. By contrast, the MC graph maintained separate copies of these homologous sequences.</p></div></div></section><section data-title="Methods"><div class="c-article-section" id="Sec18-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec18">Methods</h2><div class="c-article-section__content" id="Sec18-content"><h4 class="c-article__sub-heading c-article__sub-heading--small" id="Sec70">MC</h4><p>Graphs constructed by Minigraph only contain structural variation (≥50 bp) by default. The aim of the MC pipeline is to refine the output of Minigraph to include smaller variants, down to the SNP level. Doing so allows the graph to comprehensively represent most variation, as well as to embed the input haplotypes within it as paths, which is important for some applications<sup><a aria-label="Reference 49" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR49" id="ref-link-section-d102338131e6006" title="Sirén, J. et al. Pangenomics enables genotyping of known structural variants in 5202 diverse genomes. Science 374, abg8871 (2021).">49</a></sup>. To remove noisy alignments from the MC pangenome, long (≥100 kb) non-reference sequences identified as being satellite, unassignable to a reference chromosome or which appear unaligned to the remainder of the assemblies were removed from the graph. This resulted in a pangenome with significantly reduced complexity that nevertheless maintained all sequences of the starting reference assembly and the large majority of those in the additional haplotypes. The MC pipeline is composed of the five steps described below and in more detail in ref. <sup><a aria-label="Reference 35" data-test="citation-ref" href="/articles/s41586-023-05896-x#ref-CR35" id="ref-link-section-d102338131e6010" title="Hickey, G. et al. Pangenome graph construction from genome alignment with Minigraph-Cactus. Preprint at bioRxiv 
+                  https://doi.org/10.1101/2022.10.06.511217
+                  
+                 (2022).">35</a></sup>. The script and commands to reproduce this process can be found at GitHub (<a href="https://github.com/ComparativeGenomicsToolkit/cactus/blob/81903cb82ae80da342515109cdee5a85b2fde625/doc/pangenome.md#hprc-version-10-graphs">https://github.com/ComparativeGenomicsToolkit/cactus/blob/81903cb82ae80da342515109cdee5a85b2fde625/doc/pangenome.md#hprc-version-10-graphs</a>). A newer, simpler version of the pipeline that no longer requires satellite masking can be found at GitHub (<a href="https://github.com/ComparativeGenomicsToolkit/cactus/blob/5fed950471f04e9892bb90531e8f63be911857e1/doc/pangenome.md#hprc-graph">https://github.com/ComparativeGenomicsToolkit/cactus/blob/5fed950471f04e9892bb90531e8f63be911857e1/doc/pangenome.md#hprc-graph</a>).</p></div></div></section>
+                        </div>
+                    
+
+                    <div class="u-mt-32">
+                        <section data-title="Data availability"><div class="c-article-section" id="data-availability-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="data-availability">Data availability</h2><div class="c-article-section__content" id="data-availability-content">
+              
+              <p>Sequencing data, assemblies and pangenomes produced by the HPRC are available at AnVIL (<a href="https://anvilproject.org">https://anvilproject.org</a>) in the AnVIL_HPRC workspace. Data are also available as part of the AWS Open Data Program (<a href="https://registry.opendata.aws">https://registry.opendata.aws</a>) in the human-pangenomics S3 bucket (<a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/index.html">https://s3-us-west-2.amazonaws.com/human-pangenomics/index.html</a>). In addition, data have been uploaded to the International Nucleotide Sequence Database Collaboration for long-term storage and availability. Supporting information about the data (including index files with S3 and GCP file locations) can be found in our GitHub repositories (see below). Sequencing data for 29 selected HPRC samples from the 1KG cohort (Results) are uploaded to BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA701308">PRJNA701308</a> (<a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA701308">https://www.ncbi.nlm.nih.gov/bioproject/PRJNA701308</a>). Sequencing data created by the HPRC for samples in the cohort of 18 additional samples are uploaded to BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA731524">PRJNA731524</a> (<a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA731524">https://www.ncbi.nlm.nih.gov/bioproject/PRJNA731524</a>). Both sets of assemblies are grouped by an Umbrella BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA730822">PRJNA730822</a>. Data used in this paper have additional information available at AnVIL and at GitHub (<a href="https://github.com/human-pangenomics/HPP_Year1_Data_Freeze_v1.0">https://github.com/human-pangenomics/HPP_Year1_Data_Freeze_v1.0</a>). Assemblies along with assembly annotations, such as RepeatMasker and Ensembl gene annotations, can be viewed in an assembly hub in the UCSC Genome Browser (<a href="http://hprc-browser.ucsc.edu">http://hprc-browser.ucsc.edu</a>). The data and annotations can also be accessed through the Ensembl Rapid Release Genome Browser (<a href="https://rapid.ensembl.org">https://rapid.ensembl.org</a>) and a dedicated Ensembl project page for centralized access to HPRC data (<a href="https://projects.ensembl.org/hprc">https://projects.ensembl.org/hprc</a>), which includes links to download the data locally. File locations for the assemblies (and select annotation files) that are stored in S3 and GCP can also be found at AnVIL or GitHub (<a href="https://github.com/human-pangenomics/HPP_Year1_Assemblies">https://github.com/human-pangenomics/HPP_Year1_Assemblies</a>). Pangenomes were uploaded to the European Nucleotide Archive as analysis objects and are organized under Umbrella BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA850430">PRJNA850430</a> (<a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA850430">https://www.ncbi.nlm.nih.gov/bioproject/PRJNA850430</a>). File locations for pangenomes, indices and variant calls derived from the pangenomes can be found at AnVIL or GitHub (<a href="https://github.com/human-pangenomics/hpp_pangenome_resources">https://github.com/human-pangenomics/hpp_pangenome_resources</a>). Variant calls produced by the analysis performed in this paper are available at Amazon S3 (<a href="https://s3-us-west-2.amazonaws.com/human-pangenomics/index.html?prefix=publications/PANGENOME_2022">https://s3-us-west-2.amazonaws.com/human-pangenomics/index.html?prefix=publications/PANGENOME_2022</a>) or where indicated in the relevant sections below. PanGenie genotypes produced for the 1KG samples based on the MC graph are available at Zenodo (<a href="https://doi.org/10.5281/zenodo.6797328">https://doi.org/10.5281/zenodo.6797328</a>).</p>
+            </div></div></section><section data-title="Code availability"><div class="c-article-section" id="code-availability-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="code-availability">Code availability</h2><div class="c-article-section__content" id="code-availability-content">
+              
+              <p>The list of all tools, including versions and/or code commits, used for this study are available in Supplementary Table <a href="/articles/s41586-023-05896-x#MOESM4">20</a>.</p>
+            </div></div></section><div id="MagazineFulltextArticleBodySuffix"><section aria-labelledby="Bib1" data-title="References"><div class="c-article-section" id="Bib1-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Bib1">References</h2><div class="c-article-section__content" id="Bib1-content"><div><ol class="c-article-references"><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR1">1000 Genomes Project Consortium. A global reference for human genetic variation. <i>Nature</i> <b>526</b>, 68–74 (2015).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 1" data-doi="10.1038/nature15393" href="https://doi.org/10.1038%2Fnature15393" rel="nofollow noopener">Article</a> 
+    <a aria-label="Google Scholar reference 1" href="http://scholar.google.com/scholar_lookup?&amp;title=A%20global%20reference%20for%20human%20genetic%20variation&amp;journal=Nature&amp;doi=10.1038%2Fnature15393&amp;volume=526&amp;pages=68-74&amp;publication_year=2015" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR2">International Human Genome Sequencing Consortium. Initial sequencing and analysis of the human genome. <i>Nature</i> <b>409</b>, 860–921 (2001).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 2" data-doi="10.1038/35057062" href="https://doi.org/10.1038%2F35057062" rel="nofollow noopener">Article</a> 
+    <a aria-label="ADS reference 2" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2001Natur.409..860I" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 2" href="http://scholar.google.com/scholar_lookup?&amp;title=Initial%20sequencing%20and%20analysis%20of%20the%20human%20genome&amp;journal=Nature&amp;doi=10.1038%2F35057062&amp;volume=409&amp;pages=860-921&amp;publication_year=2001" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR3">Nurk, S. et al. The complete sequence of a human genome. <i>Science</i> <b>376</b>, 44–53 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 3" data-doi="10.1126/science.abj6987" href="https://doi.org/10.1126%2Fscience.abj6987" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 3" href="/articles/cas-redirect/1:CAS:528:DC%2BB38XpvVyns7o%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 3" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=35357919" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 3" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC9186530" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="ADS reference 3" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2022Sci...376...44N" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 3" href="http://scholar.google.com/scholar_lookup?&amp;title=The%20complete%20sequence%20of%20a%20human%20genome&amp;journal=Science&amp;doi=10.1126%2Fscience.abj6987&amp;volume=376&amp;pages=44-53&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR4">Aganezov, S. et al. A complete reference genome improves analysis of human genetic variation. <i>Science</i> <b>376</b>, eabl3533 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 4" data-doi="10.1126/science.abl3533" href="https://doi.org/10.1126%2Fscience.abl3533" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 4" href="/articles/cas-redirect/1:CAS:528:DC%2BB38XpvVynsLo%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 4" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=35357935" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 4" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC9336181" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 4" href="http://scholar.google.com/scholar_lookup?&amp;title=A%20complete%20reference%20genome%20improves%20analysis%20of%20human%20genetic%20variation&amp;journal=Science&amp;doi=10.1126%2Fscience.abl3533&amp;volume=376&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR5">Ebert, P. et al. Haplotype-resolved diverse human genomes and integrated analysis of structural variation. <i>Science</i> <b>372</b>, eabf7117 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 5" data-doi="10.1126/science.abf7117" href="https://doi.org/10.1126%2Fscience.abf7117" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 5" href="/articles/cas-redirect/1:CAS:528:DC%2BB3MXotFGluro%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 5" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=33632895" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 5" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC8026704" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 5" href="http://scholar.google.com/scholar_lookup?&amp;title=Haplotype-resolved%20diverse%20human%20genomes%20and%20integrated%20analysis%20of%20structural%20variation&amp;journal=Science&amp;doi=10.1126%2Fscience.abf7117&amp;volume=372&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR6">Chaisson, M. J. P. et al. Multi-platform discovery of haplotype-resolved structural variation in human genomes. <i>Nat. Commun.</i> <b>10</b>, 1784 (2019).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 6" data-doi="10.1038/s41467-018-08148-z" href="https://doi.org/10.1038%2Fs41467-018-08148-z" rel="nofollow noopener">Article</a> 
+    <a aria-label="PubMed reference 6" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=30992455" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 6" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC6467913" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="ADS reference 6" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2019NatCo..10.1784C" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 6" href="http://scholar.google.com/scholar_lookup?&amp;title=Multi-platform%20discovery%20of%20haplotype-resolved%20structural%20variation%20in%20human%20genomes&amp;journal=Nat.%20Commun.&amp;doi=10.1038%2Fs41467-018-08148-z&amp;volume=10&amp;publication_year=2019" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR7">Wenger, A. M. et al. Accurate circular consensus long-read sequencing improves variant detection and assembly of a human genome. <i>Nat. Biotechnol.</i> <b>37</b>, 1155–1162 (2019).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 7" data-doi="10.1038/s41587-019-0217-9" href="https://doi.org/10.1038%2Fs41587-019-0217-9" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 7" href="/articles/cas-redirect/1:CAS:528:DC%2BC1MXhsFKhtbjN" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 7" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=31406327" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 7" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC6776680" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 7" href="http://scholar.google.com/scholar_lookup?&amp;title=Accurate%20circular%20consensus%20long-read%20sequencing%20improves%20variant%20detection%20and%20assembly%20of%20a%20human%20genome&amp;journal=Nat.%20Biotechnol.&amp;doi=10.1038%2Fs41587-019-0217-9&amp;volume=37&amp;pages=1155-1162&amp;publication_year=2019" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR8">Zhao, X. et al. Expectations and blind spots for structural variation detection from long-read assemblies and short-read genome sequencing technologies. <i>Am. J. Hum. Genet.</i> <b>108</b>, 919–928 (2021).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR9">Chiang, C. et al. The impact of structural variation on human gene expression. <i>Nat. Genet.</i> <b>49</b>, 692–699 (2017).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 9" data-doi="10.1038/ng.3834" href="https://doi.org/10.1038%2Fng.3834" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 9" href="/articles/cas-redirect/1:CAS:528:DC%2BC2sXltl2rurk%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 9" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=28369037" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 9" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC5406250" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 9" href="http://scholar.google.com/scholar_lookup?&amp;title=The%20impact%20of%20structural%20variation%20on%20human%20gene%20expression&amp;journal=Nat.%20Genet.&amp;doi=10.1038%2Fng.3834&amp;volume=49&amp;pages=692-699&amp;publication_year=2017" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR10">Sudmant, P. H. et al. An integrated map of structural variation in 2,504 human genomes. <i>Nature</i> <b>526</b>, 75–81 (2015).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 10" data-doi="10.1038/nature15394" href="https://doi.org/10.1038%2Fnature15394" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 10" href="/articles/cas-redirect/1:CAS:528:DC%2BC2MXhs1SitLrE" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 10" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=26432246" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 10" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4617611" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 10" href="http://scholar.google.com/scholar_lookup?&amp;title=An%20integrated%20map%20of%20structural%20variation%20in%202%2C504%20human%20genomes&amp;journal=Nature&amp;doi=10.1038%2Fnature15394&amp;volume=526&amp;pages=75-81&amp;publication_year=2015" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR11">Computational Pan-Genomics Consortium. Computational pan-genomics: status, promises and challenges. <i>Brief. Bioinform.</i> <b>19</b>, 118–135 (2018).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 11" href="http://scholar.google.com/scholar_lookup?&amp;title=Computational%20pan-genomics%3A%20status%2C%20promises%20and%20challenges&amp;journal=Brief.%20Bioinform.&amp;volume=19&amp;pages=118-135&amp;publication_year=2018" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR12">Paten, B., Novak, A. M., Eizenga, J. M. &amp; Garrison, E. Genome graphs and the evolution of genome inference. <i>Genome Res.</i> <b>27</b>, 665–676 (2017).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 12" data-doi="10.1101/gr.214155.116" href="https://doi.org/10.1101%2Fgr.214155.116" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 12" href="/articles/cas-redirect/1:CAS:528:DC%2BC2sXhtFyjsrjI" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 12" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=28360232" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 12" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC5411762" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 12" href="http://scholar.google.com/scholar_lookup?&amp;title=Genome%20graphs%20and%20the%20evolution%20of%20genome%20inference&amp;journal=Genome%20Res.&amp;doi=10.1101%2Fgr.214155.116&amp;volume=27&amp;pages=665-676&amp;publication_year=2017" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR13">Garrison, E. et al. Variation graph toolkit improves read mapping by representing genetic variation in the reference. <i>Nat. Biotechnol.</i> <b>36</b>, 875–879 (2018).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 13" data-doi="10.1038/nbt.4227" href="https://doi.org/10.1038%2Fnbt.4227" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 13" href="/articles/cas-redirect/1:CAS:528:DC%2BC1cXhsFChurbJ" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 13" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=30125266" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 13" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC6126949" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 13" href="http://scholar.google.com/scholar_lookup?&amp;title=Variation%20graph%20toolkit%20improves%20read%20mapping%20by%20representing%20genetic%20variation%20in%20the%20reference&amp;journal=Nat.%20Biotechnol.&amp;doi=10.1038%2Fnbt.4227&amp;volume=36&amp;pages=875-879&amp;publication_year=2018" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR14">Eizenga, J. M. et al. Pangenome graphs. <i>Annu. Rev. Genomics Hum. Genet.</i> <b>21</b>, 139–162 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 14" data-doi="10.1146/annurev-genom-120219-080406" href="https://doi.org/10.1146%2Fannurev-genom-120219-080406" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 14" href="/articles/cas-redirect/1:CAS:528:DC%2BB3cXhtVWhsrfM" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 14" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=32453966" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 14" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC8006571" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 14" href="http://scholar.google.com/scholar_lookup?&amp;title=Pangenome%20graphs&amp;journal=Annu.%20Rev.%20Genomics%20Hum.%20Genet.&amp;doi=10.1146%2Fannurev-genom-120219-080406&amp;volume=21&amp;pages=139-162&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR15">Wang, T. et al. The Human Pangenome Project: a global resource to map genomic diversity. <i>Nature</i> <b>604</b>, 437–446 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 15" data-doi="10.1038/s41586-022-04601-8" href="https://doi.org/10.1038%2Fs41586-022-04601-8" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 15" href="/articles/cas-redirect/1:CAS:528:DC%2BB38XhtVGrsbnI" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 15" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=35444317" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 15" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC9402379" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="ADS reference 15" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2022Natur.604..437W" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 15" href="http://scholar.google.com/scholar_lookup?&amp;title=The%20Human%20Pangenome%20Project%3A%20a%20global%20resource%20to%20map%20genomic%20diversity&amp;journal=Nature&amp;doi=10.1038%2Fs41586-022-04601-8&amp;volume=604&amp;pages=437-446&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR16">Shafin, K. et al. Nanopore sequencing and the Shasta toolkit enable efficient de novo assembly of eleven human genomes. <i>Nat. Biotechnol.</i> <b>38</b>, 1044–1053 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 16" data-doi="10.1038/s41587-020-0503-6" href="https://doi.org/10.1038%2Fs41587-020-0503-6" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 16" href="/articles/cas-redirect/1:CAS:528:DC%2BB3cXosV2js7Y%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 16" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=32686750" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 16" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC7483855" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 16" href="http://scholar.google.com/scholar_lookup?&amp;title=Nanopore%20sequencing%20and%20the%20Shasta%20toolkit%20enable%20efficient%20de%20novo%20assembly%20of%20eleven%20human%20genomes&amp;journal=Nat.%20Biotechnol.&amp;doi=10.1038%2Fs41587-020-0503-6&amp;volume=38&amp;pages=1044-1053&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR17">Porubsky, D. et al. Fully phased human genome assembly without parental data using single-cell strand sequencing and long reads. <i>Nat. Biotechnol.</i> <b>39</b>, 302–308 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 17" data-doi="10.1038/s41587-020-0719-5" href="https://doi.org/10.1038%2Fs41587-020-0719-5" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 17" href="/articles/cas-redirect/1:CAS:528:DC%2BB3cXisFSlt7fI" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 17" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=33288906" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="Google Scholar reference 17" href="http://scholar.google.com/scholar_lookup?&amp;title=Fully%20phased%20human%20genome%20assembly%20without%20parental%20data%20using%20single-cell%20strand%20sequencing%20and%20long%20reads&amp;journal=Nat.%20Biotechnol.&amp;doi=10.1038%2Fs41587-020-0719-5&amp;volume=39&amp;pages=302-308&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR18">Zook, J. M. et al. Extensive sequencing of seven human genomes to characterize benchmark reference materials. <i>Sci. Data</i> <b>3</b>, 160025 (2016).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 18" data-doi="10.1038/sdata.2016.25" href="https://doi.org/10.1038%2Fsdata.2016.25" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 18" href="/articles/cas-redirect/1:CAS:528:DC%2BC28XpvVWrtLk%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 18" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=27271295" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 18" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4896128" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 18" href="http://scholar.google.com/scholar_lookup?&amp;title=Extensive%20sequencing%20of%20seven%20human%20genomes%20to%20characterize%20benchmark%20reference%20materials&amp;journal=Sci.%20Data&amp;doi=10.1038%2Fsdata.2016.25&amp;volume=3&amp;publication_year=2016" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR19">Byrska-Bishop, M. et al. High-coverage whole-genome sequencing of the expanded 1000 Genomes Project cohort including 602 trios. <i>Cell</i> <b>185</b>, 3426–3440.e19 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 19" data-doi="10.1016/j.cell.2022.08.004" href="https://doi.org/10.1016%2Fj.cell.2022.08.004" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 19" href="/articles/cas-redirect/1:CAS:528:DC%2BB38Xit12qu7fN" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 19" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=36055201" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 19" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC9439720" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 19" href="http://scholar.google.com/scholar_lookup?&amp;title=High-coverage%20whole-genome%20sequencing%20of%20the%20expanded%201000%20Genomes%20Project%20cohort%20including%20602%20trios&amp;journal=Cell&amp;doi=10.1016%2Fj.cell.2022.08.004&amp;volume=185&amp;pages=3426-3440.e19&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR20">Cheng, H., Concepcion, G. T., Feng, X., Zhang, H. &amp; Li, H. Haplotype-resolved de novo assembly using phased assembly graphs with hifiasm. <i>Nat. Methods</i> <b>18</b>, 170–175 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 20" data-doi="10.1038/s41592-020-01056-5" href="https://doi.org/10.1038%2Fs41592-020-01056-5" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 20" href="/articles/cas-redirect/1:CAS:528:DC%2BB3MXis1OntL0%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 20" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=33526886" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 20" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC7961889" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 20" href="http://scholar.google.com/scholar_lookup?&amp;title=Haplotype-resolved%20de%20novo%20assembly%20using%20phased%20assembly%20graphs%20with%20hifiasm&amp;journal=Nat.%20Methods&amp;doi=10.1038%2Fs41592-020-01056-5&amp;volume=18&amp;pages=170-175&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR21">Jarvis, E. D. et al. Semi-automated assembly of high-quality diploid human reference genomes. <i>Nature</i> <b>611</b>, 519–531 (2022).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR22">Guarracino, A. et al. Recombination between heterologous human acrocentric chromosomes. <i>Nature</i> <a href="https://doi.org/10.1038/s41586-023-05976-y">https://doi.org/10.1038/s41586-023-05976-y</a> (2023).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR23">Garg, S. Computational methods for chromosome-scale haplotype reconstruction. <i>Genome Biol.</i> <b>22</b>, 101 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 23" data-doi="10.1186/s13059-021-02328-9" href="https://link.springer.com/doi/10.1186/s13059-021-02328-9" rel="noopener">Article</a> 
+    <a aria-label="CAS reference 23" href="/articles/cas-redirect/1:CAS:528:DC%2BB3MXht1KrtrbK" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 23" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=33845884" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 23" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC8040228" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 23" href="http://scholar.google.com/scholar_lookup?&amp;title=Computational%20methods%20for%20chromosome-scale%20haplotype%20reconstruction&amp;journal=Genome%20Biol.&amp;doi=10.1186%2Fs13059-021-02328-9&amp;volume=22&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR24">Garg, S. Pstools: a toolkit for fully phased sequences on chromosome level. <i>GitHub</i> <a href="https://github.com/shilpagarg/pstools">https://github.com/shilpagarg/pstools</a> (2020).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR25">Rahman, A. &amp; Pachter, L. CGAL: computing genome assembly likelihoods. <i>Genome Biol.</i> <b>14</b>, R8 (2013).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 25" data-doi="10.1186/gb-2013-14-1-r8" href="https://link.springer.com/doi/10.1186/gb-2013-14-1-r8" rel="noopener">Article</a> 
+    <a aria-label="PubMed reference 25" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=23360652" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 25" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3663106" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 25" href="http://scholar.google.com/scholar_lookup?&amp;title=CGAL%3A%20computing%20genome%20assembly%20likelihoods&amp;journal=Genome%20Biol.&amp;doi=10.1186%2Fgb-2013-14-1-r8&amp;volume=14&amp;publication_year=2013" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR26">Smit, A. F. A., Hubley, R. &amp; Green, P. RepeatMasker Open-4.0, <a href="http://www.repeatmasker.org">http://www.repeatmasker.org</a> (2013–2015).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR27">Altemose, N. et al. Complete genomic and epigenetic maps of human centromeres. <i>Science</i> <b>376</b>, eabl4178 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 27" data-doi="10.1126/science.abl4178" href="https://doi.org/10.1126%2Fscience.abl4178" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 27" href="/articles/cas-redirect/1:CAS:528:DC%2BB38XpvVynsLc%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 27" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=35357911" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 27" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC9233505" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 27" href="http://scholar.google.com/scholar_lookup?&amp;title=Complete%20genomic%20and%20epigenetic%20maps%20of%20human%20centromeres&amp;journal=Science&amp;doi=10.1126%2Fscience.abl4178&amp;volume=376&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR28">Alkan, C., Sajjadian, S. &amp; Eichler, E. E. Limitations of next-generation genome sequence assembly. <i>Nat. Methods</i> <b>8</b>, 61–65 (2011).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 28" data-doi="10.1038/nmeth.1527" href="https://doi.org/10.1038%2Fnmeth.1527" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 28" href="/articles/cas-redirect/1:CAS:528:DC%2BC3cXhsVGhsr%2FM" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 28" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=21102452" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="Google Scholar reference 28" href="http://scholar.google.com/scholar_lookup?&amp;title=Limitations%20of%20next-generation%20genome%20sequence%20assembly&amp;journal=Nat.%20Methods&amp;doi=10.1038%2Fnmeth.1527&amp;volume=8&amp;pages=61-65&amp;publication_year=2011" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR29">Frankish, A. et al. GENCODE 2021. <i>Nucleic Acids Res.</i> <b>49</b>, D916–D923 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 29" data-doi="10.1093/nar/gkaa1087" href="https://doi.org/10.1093%2Fnar%2Fgkaa1087" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 29" href="/articles/cas-redirect/1:CAS:528:DC%2BB3MXntlejtbY%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 29" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=33270111" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="Google Scholar reference 29" href="http://scholar.google.com/scholar_lookup?&amp;title=GENCODE%202021&amp;journal=Nucleic%20Acids%20Res.&amp;doi=10.1093%2Fnar%2Fgkaa1087&amp;volume=49&amp;pages=D916-D923&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR30">MacArthur, D. G. et al. A systematic survey of loss-of-function variants in human protein-coding genes. <i>Science</i> <b>335</b>, 823–828 (2012).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 30" data-doi="10.1126/science.1215040" href="https://doi.org/10.1126%2Fscience.1215040" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 30" href="/articles/cas-redirect/1:CAS:528:DC%2BC38XitFGqur0%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 30" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=22344438" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 30" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3299548" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="ADS reference 30" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2012Sci...335..823M" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 30" href="http://scholar.google.com/scholar_lookup?&amp;title=A%20systematic%20survey%20of%20loss-of-function%20variants%20in%20human%20protein-coding%20genes&amp;journal=Science&amp;doi=10.1126%2Fscience.1215040&amp;volume=335&amp;pages=823-828&amp;publication_year=2012" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR31">Sudmant, P. H. et al. Diversity of human copy number variation and multicopy genes. <i>Science</i> <b>330</b>, 641–646 (2010).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 31" data-doi="10.1126/science.1197005" href="https://doi.org/10.1126%2Fscience.1197005" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 31" href="/articles/cas-redirect/1:CAS:528:DC%2BC3cXhtlaqt7bL" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 31" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=21030649" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 31" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3020103" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="ADS reference 31" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2010Sci...330..641S" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 31" href="http://scholar.google.com/scholar_lookup?&amp;title=Diversity%20of%20human%20copy%20number%20variation%20and%20multicopy%20genes&amp;journal=Science&amp;doi=10.1126%2Fscience.1197005&amp;volume=330&amp;pages=641-646&amp;publication_year=2010" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR32">Handsaker, R. E. et al. Large multiallelic copy number variations in humans. <i>Nat. Genet.</i> <b>47</b>, 296–303 (2015).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 32" data-doi="10.1038/ng.3200" href="https://doi.org/10.1038%2Fng.3200" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 32" href="/articles/cas-redirect/1:CAS:528:DC%2BC2MXhsVehsbw%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 32" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=25621458" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 32" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4405206" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 32" href="http://scholar.google.com/scholar_lookup?&amp;title=Large%20multiallelic%20copy%20number%20variations%20in%20humans&amp;journal=Nat.%20Genet.&amp;doi=10.1038%2Fng.3200&amp;volume=47&amp;pages=296-303&amp;publication_year=2015" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR33">Porubsky, D. et al. Gaps and complex structurally variant loci in phased genome assemblies. <i>Genome Res.</i> <a href="https://doi.org/10.1101/gr.277334.122">https://doi.org/10.1101/gr.277334.122</a> (2023).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR34">Li, H., Feng, X. &amp; Chu, C. The design and construction of reference pangenome graphs with minigraph. <i>Genome Biol.</i> <b>21</b>, 265 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 34" data-doi="10.1186/s13059-020-02168-z" href="https://link.springer.com/doi/10.1186/s13059-020-02168-z" rel="noopener">Article</a> 
+    <a aria-label="PubMed reference 34" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=33066802" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 34" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC7568353" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 34" href="http://scholar.google.com/scholar_lookup?&amp;title=The%20design%20and%20construction%20of%20reference%20pangenome%20graphs%20with%20minigraph&amp;journal=Genome%20Biol.&amp;doi=10.1186%2Fs13059-020-02168-z&amp;volume=21&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR35">Hickey, G. et al. Pangenome graph construction from genome alignment with Minigraph-Cactus. Preprint at <i>bioRxiv</i> <a href="https://doi.org/10.1101/2022.10.06.511217">https://doi.org/10.1101/2022.10.06.511217</a> (2022).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR36">Garrison, E. et al. Building pangenome graphs. Preprint at <i>bioRxiv</i> <a href="https://www.biorxiv.org/content/10.1101/2023.04.05.535718v1">https://www.biorxiv.org/content/10.1101/2023.04.05.535718v1</a> (2023).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR37">Armstrong, J. et al. Progressive Cactus is a multiple-genome aligner for the thousand-genome era. <i>Nature</i> <b>587</b>, 246–251 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 37" data-doi="10.1038/s41586-020-2871-y" href="https://doi.org/10.1038%2Fs41586-020-2871-y" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 37" href="/articles/cas-redirect/1:CAS:528:DC%2BB3cXitlWktLnF" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 37" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=33177663" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 37" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC7673649" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="ADS reference 37" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2020Natur.587..246A" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 37" href="http://scholar.google.com/scholar_lookup?&amp;title=Progressive%20Cactus%20is%20a%20multiple-genome%20aligner%20for%20the%20thousand-genome%20era&amp;journal=Nature&amp;doi=10.1038%2Fs41586-020-2871-y&amp;volume=587&amp;pages=246-251&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR38">Li, H. et al. A synthetic-diploid benchmark for accurate variant-calling evaluation. <i>Nat. Methods</i> <b>15</b>, 595–597 (2018).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 38" data-doi="10.1038/s41592-018-0054-7" href="https://doi.org/10.1038%2Fs41592-018-0054-7" rel="nofollow noopener">Article</a> 
+    <a aria-label="PubMed reference 38" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=30013044" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 38" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC6341484" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 38" href="http://scholar.google.com/scholar_lookup?&amp;title=A%20synthetic-diploid%20benchmark%20for%20accurate%20variant-calling%20evaluation&amp;journal=Nat.%20Methods&amp;doi=10.1038%2Fs41592-018-0054-7&amp;volume=15&amp;pages=595-597&amp;publication_year=2018" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR39">Tettelin, H., Riley, D., Cattuto, C. &amp; Medini, D. Comparative genomics: the bacterial pan-genome. <i>Curr. Opin. Microbiol.</i> <b>11</b>, 472–477 (2008).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 39" data-doi="10.1016/j.mib.2008.09.006" href="https://doi.org/10.1016%2Fj.mib.2008.09.006" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 39" href="/articles/cas-redirect/1:CAS:528:DC%2BD1cXhtlGgsLzF" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 39" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=19086349" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="Google Scholar reference 39" href="http://scholar.google.com/scholar_lookup?&amp;title=Comparative%20genomics%3A%20the%20bacterial%20pan-genome&amp;journal=Curr.%20Opin.%20Microbiol.&amp;doi=10.1016%2Fj.mib.2008.09.006&amp;volume=11&amp;pages=472-477&amp;publication_year=2008" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR40">Poplin, R. et al. A universal SNP and small-indel variant caller using deep neural networks. <i>Nat. Biotechnol.</i> <b>36</b>, 983–987 (2018).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 40" data-doi="10.1038/nbt.4235" href="https://doi.org/10.1038%2Fnbt.4235" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 40" href="/articles/cas-redirect/1:CAS:528:DC%2BC1cXhslOhtbjE" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 40" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=30247488" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="Google Scholar reference 40" href="http://scholar.google.com/scholar_lookup?&amp;title=A%20universal%20SNP%20and%20small-indel%20variant%20caller%20using%20deep%20neural%20networks&amp;journal=Nat.%20Biotechnol.&amp;doi=10.1038%2Fnbt.4235&amp;volume=36&amp;pages=983-987&amp;publication_year=2018" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR41">Pacific Biosciences. PBSV: a suite of tools to call and analyze structural variants in diploid genomes from PacBio SMRT reads. <i>GitHub</i> <a href="https://github.com/PacificBiosciences/pbsv">https://github.com/PacificBiosciences/pbsv</a> (2021).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR42">Sedlazeck, F. J. et al. Accurate detection of complex structural variations using single-molecule sequencing. <i>Nat. Methods</i> <b>15</b>, 461–468 (2018).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 42" data-doi="10.1038/s41592-018-0001-7" href="https://doi.org/10.1038%2Fs41592-018-0001-7" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 42" href="/articles/cas-redirect/1:CAS:528:DC%2BC1cXhtFOmtLrP" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 42" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=29713083" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 42" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC5990442" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 42" href="http://scholar.google.com/scholar_lookup?&amp;title=Accurate%20detection%20of%20complex%20structural%20variations%20using%20single-molecule%20sequencing&amp;journal=Nat.%20Methods&amp;doi=10.1038%2Fs41592-018-0001-7&amp;volume=15&amp;pages=461-468&amp;publication_year=2018" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR43">Kirsche, M. et al. Jasmine and Iris: population-scale structural variant comparison and analysis. <i>Nat. Methods</i> <b>20</b>, 408–417 (2023).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR44">Heller, D. &amp; Vingron, M. SVIM: structural variant identification using mapped long reads. <i>Bioinformatics</i> <b>35</b>, 2907–2915 (2019).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 44" data-doi="10.1093/bioinformatics/btz041" href="https://doi.org/10.1093%2Fbioinformatics%2Fbtz041" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 44" href="/articles/cas-redirect/1:CAS:528:DC%2BB3cXhtValtrrM" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 44" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=30668829" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 44" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC6735718" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 44" href="http://scholar.google.com/scholar_lookup?&amp;title=SVIM%3A%20structural%20variant%20identification%20using%20mapped%20long%20reads&amp;journal=Bioinformatics&amp;doi=10.1093%2Fbioinformatics%2Fbtz041&amp;volume=35&amp;pages=2907-2915&amp;publication_year=2019" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR45">Heller, D. &amp; Vingron, M. SVIM-asm: structural variant detection from haploid and diploid genome assemblies. <i>Bioinformatics</i> <b>36</b>, 5519–5521 (2020).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR46">Fiddes, I. T. et al. Comparative Annotation Toolkit (CAT)—simultaneous clade and personal genome annotation. <i>Genome Res.</i> <b>28</b>, 1029–1038 (2018).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 46" data-doi="10.1101/gr.233460.117" href="https://doi.org/10.1101%2Fgr.233460.117" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 46" href="/articles/cas-redirect/1:CAS:528:DC%2BC1cXhsFegs7bK" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 46" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=29884752" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 46" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC6028123" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 46" href="http://scholar.google.com/scholar_lookup?&amp;title=Comparative%20Annotation%20Toolkit%20%28CAT%29%E2%80%94simultaneous%20clade%20and%20personal%20genome%20annotation&amp;journal=Genome%20Res.&amp;doi=10.1101%2Fgr.233460.117&amp;volume=28&amp;pages=1029-1038&amp;publication_year=2018" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR47">Wagner, J. et al. Curated variation benchmarks for challenging medically relevant autosomal genes. <i>Nat. Biotechnol.</i> <b>40</b>, 672–680 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 47" data-doi="10.1038/s41587-021-01158-1" href="https://doi.org/10.1038%2Fs41587-021-01158-1" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 47" href="/articles/cas-redirect/1:CAS:528:DC%2BB38XjtFSit74%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 47" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=35132260" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 47" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC9117392" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 47" href="http://scholar.google.com/scholar_lookup?&amp;title=Curated%20variation%20benchmarks%20for%20challenging%20medically%20relevant%20autosomal%20genes&amp;journal=Nat.%20Biotechnol.&amp;doi=10.1038%2Fs41587-021-01158-1&amp;volume=40&amp;pages=672-680&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR48">Chen, X. et al. Cyrius: accurate <i>CYP2D6</i> genotyping using whole-genome sequencing data. <i>Pharmacogenomics J.</i> <b>21</b>, 251–261 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 48" data-doi="10.1038/s41397-020-00205-5" href="https://doi.org/10.1038%2Fs41397-020-00205-5" rel="nofollow noopener">Article</a> 
+    <a aria-label="PubMed reference 48" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=33462347" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 48" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC7997805" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 48" href="http://scholar.google.com/scholar_lookup?&amp;title=Cyrius%3A%20accurate%20CYP2D6%20genotyping%20using%20whole-genome%20sequencing%20data&amp;journal=Pharmacogenomics%20J.&amp;doi=10.1038%2Fs41397-020-00205-5&amp;volume=21&amp;pages=251-261&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR49">Sirén, J. et al. Pangenomics enables genotyping of known structural variants in 5202 diverse genomes. <i>Science</i> <b>374</b>, abg8871 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 49" data-doi="10.1126/science.abg8871" href="https://doi.org/10.1126%2Fscience.abg8871" rel="nofollow noopener">Article</a> 
+    <a aria-label="PubMed reference 49" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=34914532" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 49" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC9365333" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="Google Scholar reference 49" href="http://scholar.google.com/scholar_lookup?&amp;title=Pangenomics%20enables%20genotyping%20of%20known%20structural%20variants%20in%205202%20diverse%20genomes&amp;journal=Science&amp;doi=10.1126%2Fscience.abg8871&amp;volume=374&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li></ol></div></div></div></section></div><section aria-labelledby="author-information" data-title="Author information"><div class="c-article-section" id="author-information-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="author-information">Author information</h2><div class="c-article-section__content" id="author-information-content"><ol class="c-article-author-information__list"><li class="c-article-author-information__item" id="na1"><p>These authors contributed equally: Wen-Wei Liao, Mobin Asri, Jana Ebler</p></li></ol><h3 class="c-article__sub-heading" id="affiliations">Authors and Affiliations</h3><ol class="c-article-author-affiliation__list"><li id="Aff1"><p class="c-article-author-affiliation__address">Department of Genetics, Yale University School of Medicine, New Haven, CT, USA</p><p class="c-article-author-affiliation__authors-list">Wen-Wei Liao, Shuangjia Lu &amp; Ira M. Hall</p></li><li id="Aff2"><p class="c-article-author-affiliation__address">Center for Genomic Health, Yale University School of Medicine, New Haven, CT, USA</p><p class="c-article-author-affiliation__authors-list">Wen-Wei Liao, Shuangjia Lu &amp; Ira M. Hall</p></li></ol><h3 class="c-article__sub-heading" id="contributions">Contributions</h3><p>Pangenome empirical analysis and pangenome quality control: W.-W.L., D.D., M.H., G.H., C.M., J. Monlong, H.J.A., J.M.Z., E.E.E., T.M., I.M.H., P.M. and J.W. Paper writing: W.-W.L., M.A., J.E., D.D., M.H., G.H., S.L., J. Monlong, R.S.F., S.G., T.-Y.L., M.W.M., A.M.N., H.E.O., T.P., J.A.S., M.R.V., G. Bourque, K.H.M., E.G., T.M., I.M.H., B.P., R.E.G. and L.H. Paper editing: W.-W.L., D.D., M.H., G.H., X.H.C., H.C., A.G., A.M.N., P.P., A.M.P., E.E.E., E.D.J., K.H.M., E.G., E.E.K., T.M., I.M.H., H.L., B.P., O.E.C., P.E., G.F., A.N.A.T. and A.V.Z. Assembly creation: M.A., J.K.L., H.C., A.M.P., H.L., D. Puiu, A.A.R. and A.V.Z. Assembly quality control and assembly reliability analysis: M.A., J.K.L., H.C., J.C., S.G., K. Howe, T.P., D. Porubsky, C.T., M.R.V., A.M.P., J.M.Z., E.E.E., K.H.M., H.L., R.E.G., S.K., J. McDaniel, S.N., N.D.O., D. Puiu, M.R., A.A.R., A.R., V.A.S., K.S., F.T.-N., J.W., B.W., J.M. D.W. and A.B.P. Pangenome applications (structural variants): J.E., G.H., H.J.A., W.T.H., P.P., E.E.E., T.M., H.P.J. and H.M. Pangenome graph creation: D.D., G.H., A.G., S.H., M.N.M., F.V., E.G., Y.G. and S.M.-S. Data coordination and management: M.H., J.K.L., R.S.F., W.T.H., M.J., C.T., A.M.P., E.D.J., K.H.M., T.W., L.L.A.-F., S.C., M.D., S.F. and R.E.G. Transcriptome and annotation: M.H., J.M.E., F.J.M., M.R.V., M.J.P.C., K.B., M.D., A.F., C.G.G., L.H., T.H. and F.F.T. Pangenome applications (small variants): G.H., J. Monlong, C.M., A.M.N., P.P., J.M.Z., G. Baid, A.B., A.C., P.-C.C., D.E.C., H.P.J., A.K., M.N., K.S. and J.W. Pangenome visualization and complex loci analysis: S.L., J.C., C.F. and A.G. Population genetic analysis: S.B., A.G. and V.C. Sample selection: X.F., K.M.M., A.M.P., E.E.K., E.E.E., K.H.M., S.F. and J.O.K. Sequencing: R.S.F., M.J., M.W.M., K.M.M., H.E.O., A.M.P., E.E.E., E.D.J., K.H.M., C.A.B., O.F., R.E.G., K. Hoekzema, J.O.K., J.K., A.P.L., J. Mountcastle, S.S. and A.D.S. Pangenome applications (ChIP-seq analysis): C.G. and G. Bourque. Principal investigator and laboratory organizer within the HPRC: M.J., M.W.M., M.J.P.C., P.F., E.E.K., A.M.P., E.E.E., D.H., E.D.J., K.H.M., T.W., T.M., B.P., R.E.G. and V.A.S. Pangenome applications (VNTR analysis): T.-Y.L. and M.J.P.C. Pangenome applications (RNA-seq analysis): J.A.S. and J.M.E. Development of algorithms and software: J.S., H.P.J., H.L., G.H., A.M.N., P.P., A.G., S.H., D.D., M.N.M., F.V., E.G., Y.G., S.M.-S., H.L., J.M.E., J.A.S., B.P., T.M. and X.H.C. Ethical, legal and social implications: R.M.C.-D., N.A.G., B.A.K., A.M. and A.B.P. Programme organization: A.L.F., B.I.S., M.W.S. and H.J.S.</p><h3 class="c-article__sub-heading" id="corresponding-author">Corresponding authors</h3><p id="corresponding-author-list">Correspondence to
+                <a aria-label="email Erik Garrison" href="mailto:egarris5@uthsc.edu" id="corresp-c1">Erik Garrison</a>, <a aria-label="email Tobias Marschall" href="mailto:tobias.marschall@hhu.de" id="corresp-c2">Tobias Marschall</a>, <a aria-label="email Ira M. Hall" href="mailto:ira.hall@yale.edu" id="corresp-c3">Ira M. Hall</a>, <a aria-label="email Heng Li" href="mailto:hli@jimmy.harvard.edu" id="corresp-c4">Heng Li</a> or <a aria-label="email Benedict Paten" href="mailto:bpaten@ucsc.edu" id="corresp-c5">Benedict Paten</a>.</p></div></div></section><section data-title="Extended data figures and tables"><div class="c-article-section" id="Sec119-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec119">Extended data figures and tables</h2><div class="c-article-section__content" id="Sec119-content"><div data-test="supplementary-info"><div class="c-article-supplementary__item js-c-reading-companion-figures-item" data-test="supp-item" id="Fig7"><h3 class="c-article-supplementary__title u-h3"><a class="print-link" data-supp-info-image="//media.springernature.com/lw685/springer-static/esm/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig7_ESM.jpg" data-test="supp-info-link" href="/articles/s41586-023-05896-x/figures/7">Extended Data Fig. 1 Characterizing uncovered reference bases using peri/centromeric annotation and evaluating the completeness of different satellite families.</a></h3><div class="c-article-supplementary__description"><p>We characterized the regions not covered by the assembly alignments to the T2T-CHM13 (v.2.0) reference and also investigated the completeness of the peri/centromeric satellites across all HPRC assemblies. We characterized these regions using the peri/centromeric annotation available for the T2T-CHM13 (v.2.0) reference. We made separate bar plots for male and female samples to exclude chromosome X for the paternal assemblies of male samples and exclude chromosome Y for all other assemblies. Panels <b>a</b> and <b>b</b> indicate that on average ~90% of the uncovered bases are located in peri/centromeric regions with the active/inactive alpha satellites and human satellite 3 comprising ~50% of these bases, mainly due to their highly repetitive composition and also higher frequency compared to other satellites. Other centromeric satellites, centromeric transition regions, and rDNA arrays accounted for another ~40% of the uncovered bases on average. Panels <b>c</b> and <b>d</b> display the average lengths of uncovered regions located within each satellite family. Panels <b>e</b> and <b>f</b> show what percentage of each satellite family was covered by at least one assembly alignment. The most complete centromeric regions (~90% coverage) are divergent/monomeric alpha satellites, gamma satellites and centromeric transition regions. The rDNA arrays have been covered by ~8% on average, which made them the least completely assembled repeat arrays.</p></div></div><div class="c-article-supplementary__item js-c-reading-companion-figures-item" data-test="supp-item" id="Fig8"><h3 class="c-article-supplementary__title u-h3"><a class="print-link" data-supp-info-image="//media.springernature.com/lw685/springer-static/esm/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_Fig8_ESM.jpg" data-test="supp-info-link" href="/articles/s41586-023-05896-x/figures/8">Extended Data Fig. 2 Segmental duplication reliability.</a></h3><div class="c-article-supplementary__description"><p><b>a</b>, Average number of Mbp per haplotype of correctly or incorrectly assembled SDs lifted from T2T-CHM13 (v.2.0). <b>b</b>, The features of the most identical and longest overlapping SDs for each type of assembly error calculated in 5 kbp windows.</p></div></div></div></div></div></section><section data-title="Supplementary information"><div class="c-article-section" id="Sec120-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec120">Supplementary information</h2><div class="c-article-section__content" id="Sec120-content"><div data-test="supplementary-info"><div class="c-article-supplementary__item" data-test="supp-item" id="MOESM1"><h3 class="c-article-supplementary__title u-h3"><a class="print-link" data-supp-info-image="" data-test="supp-info-link" href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_MOESM1_ESM.pdf">Supplementary Figures (download PDF <svg aria-hidden="true" class="u-icon" height="16" width="16"><use></use></svg>)</a></h3><div class="c-article-supplementary__description"><p>Supplementary Figs. 1–49 and their legends.</p></div></div><div class="c-article-supplementary__item" data-test="supp-item" id="MOESM2"><h3 class="c-article-supplementary__title u-h3"><a class="print-link" data-supp-info-image="" data-test="supp-info-link" href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_MOESM2_ESM.pdf">Reporting Summary (download PDF <svg aria-hidden="true" class="u-icon" height="16" width="16"><use></use></svg>)</a></h3></div><div class="c-article-supplementary__item" data-test="supp-item" id="MOESM3"><h3 class="c-article-supplementary__title u-h3"><a class="print-link" data-supp-info-image="" data-test="supp-info-link" href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_MOESM3_ESM.pdf">Peer Review File (download PDF <svg aria-hidden="true" class="u-icon" height="16" width="16"><use></use></svg>)</a></h3></div><div class="c-article-supplementary__item" data-test="supp-item" id="MOESM4"><h3 class="c-article-supplementary__title u-h3"><a class="print-link" data-supp-info-image="" data-test="supp-info-link" href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-05896-x/MediaObjects/41586_2023_5896_MOESM4_ESM.xlsx">Supplementary Tables (download XLSX <svg aria-hidden="true" class="u-icon" height="16" width="16"><use></use></svg>)</a></h3><div class="c-article-supplementary__description"><p>Supplementary Tables 1–22 and their legends.</p></div></div></div></div></div></section>
+                    </div>
+
+                    
+                        
+                            
+                        
+                    
+
+                    
+                </div>
+            </article>
+        </main>
+        
+            
+
+        
+    </div>
+
+    
+
+
+
+
+    
+        
+    
+    
+        
+            
+        
+
+        
+            
+        
+    
+    
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,1039 @@
+{
+  "evidenceVersion": "nature-source-evidence/1.0.0",
+  "reviewStatus": "B source review and repeat/idempotence passed; C independent semantic review and registered consumers pending",
+  "authorization": "Human approved bounded fresh anonymous Nature CookieJar; no account, user browser profile, imported Cookie or credential. This is a task-specific exception to original no-cookie acquisition instruction, not a production transport policy change.",
+  "source": {
+    "url": "https://www.nature.com/articles/s41586-021-03819-2",
+    "canonical": "https://www.nature.com/articles/s41586-021-03819-2",
+    "doi": "10.1038/s41586-021-03819-2",
+    "title": "Highly accurate protein structure prediction with AlphaFold",
+    "journal": "Nature",
+    "observedAt": "2026-10-03T16:44:11.820Z",
+    "bytes": 616249,
+    "sourceSha256": "7a9843e69996c1a64a9a5ecc8b96015cfd45262e636e33e505a011d315c4310b",
+    "publicAccess": {
+      "articleLabel": "Article Open access Published: 15 July 2021",
+      "jsonLdIsAccessibleForFree": true,
+      "jsonLdSameAs": "https://doi.org/10.1038/s41586-021-03819-2"
+    },
+    "bodyCharacters": 81582,
+    "dns": [
+      {
+        "host": "www.nature.com",
+        "addresses": [
+          {
+            "address": "151.101.192.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.0.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.64.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.128.95",
+            "family": 4
+          }
+        ]
+      },
+      {
+        "host": "idp.nature.com",
+        "addresses": [
+          {
+            "address": "151.101.64.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.128.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.192.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.0.95",
+            "family": 4
+          }
+        ]
+      }
+    ],
+    "redirectLedger": [
+      {
+        "url": "https://www.nature.com/articles/s41586-021-03819-2",
+        "status": 303,
+        "contentType": "text/html",
+        "cookiesSent": false,
+        "cookiesSet": 0,
+        "redirect": "https://idp.nature.com/authorize"
+      },
+      {
+        "url": "https://idp.nature.com/authorize",
+        "status": 302,
+        "contentType": "",
+        "cookiesSent": false,
+        "cookiesSet": 3,
+        "redirect": "https://idp.nature.com/transit"
+      },
+      {
+        "url": "https://idp.nature.com/transit",
+        "status": 302,
+        "contentType": "",
+        "cookiesSent": true,
+        "cookiesSet": 0,
+        "redirect": "https://www.nature.com/articles/s41586-021-03819-2"
+      },
+      {
+        "url": "https://www.nature.com/articles/s41586-021-03819-2",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "cookiesSent": true,
+        "cookiesSet": 3,
+        "redirect": null
+      }
+    ]
+  },
+  "fixture": {
+    "bytes": 188879,
+    "fixtureSha256": "b47e9b289dfd671000e361872c9feb561b6b603eaf7c9a7011923fbf43a3c5ef",
+    "recipeSha256": "4a3629aa098dc34f031b5d0f6884a5d0423a7106b12edff1497423458f85ebc7",
+    "signatures": {
+      "projectionVersion": "nature-corpus-projection/1.0.0",
+      "serializerVersion": "nature-corpus-subtree/1.0.0",
+      "recipeSha256": "4a3629aa098dc34f031b5d0f6884a5d0423a7106b12edff1497423458f85ebc7",
+      "structureSha256": "ac94faa7d09ba81448d5b463c8bbe64b4d8fedb0d44fd10204e5a8b6670ae78e",
+      "payloadSha256": "b14f0bc10ff704ac3a98638d85d28e0a009b74a618b4a53bfa67fc61b1b1dd45"
+    },
+    "repeatedBytesEqual": true,
+    "sanitizationIdempotent": true
+  },
+  "sourcePositions": [
+    {
+      "id": "a-meta-11",
+      "sourceSerializedBytes": 92,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-36",
+      "sourceSerializedBytes": 53,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-40",
+      "sourceSerializedBytes": 98,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-41",
+      "sourceSerializedBytes": 43,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-42",
+      "sourceSerializedBytes": 43,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-43",
+      "sourceSerializedBytes": 57,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-44",
+      "sourceSerializedBytes": 55,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-45",
+      "sourceSerializedBytes": 46,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-46",
+      "sourceSerializedBytes": 45,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-50",
+      "sourceSerializedBytes": 68,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-53",
+      "sourceSerializedBytes": 63,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-178",
+      "sourceSerializedBytes": 52,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-180",
+      "sourceSerializedBytes": 54,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-182",
+      "sourceSerializedBytes": 58,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-184",
+      "sourceSerializedBytes": 50,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-186",
+      "sourceSerializedBytes": 57,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-188",
+      "sourceSerializedBytes": 57,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-190",
+      "sourceSerializedBytes": 64,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-192",
+      "sourceSerializedBytes": 51,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-194",
+      "sourceSerializedBytes": 57,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-196",
+      "sourceSerializedBytes": 55,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-198",
+      "sourceSerializedBytes": 55,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-200",
+      "sourceSerializedBytes": 54,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-202",
+      "sourceSerializedBytes": 57,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-204",
+      "sourceSerializedBytes": 58,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-206",
+      "sourceSerializedBytes": 53,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-208",
+      "sourceSerializedBytes": 66,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-210",
+      "sourceSerializedBytes": 58,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-212",
+      "sourceSerializedBytes": 52,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-214",
+      "sourceSerializedBytes": 52,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-216",
+      "sourceSerializedBytes": 52,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-218",
+      "sourceSerializedBytes": 54,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-220",
+      "sourceSerializedBytes": 53,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-222",
+      "sourceSerializedBytes": 53,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-224",
+      "sourceSerializedBytes": 57,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-226",
+      "sourceSerializedBytes": 58,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-229",
+      "sourceSerializedBytes": 60,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-231",
+      "sourceSerializedBytes": 57,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-233",
+      "sourceSerializedBytes": 61,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-235",
+      "sourceSerializedBytes": 53,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-237",
+      "sourceSerializedBytes": 54,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-239",
+      "sourceSerializedBytes": 57,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-241",
+      "sourceSerializedBytes": 58,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-243",
+      "sourceSerializedBytes": 55,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-245",
+      "sourceSerializedBytes": 55,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-254",
+      "sourceSerializedBytes": 85,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-255",
+      "sourceSerializedBytes": 43,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-257",
+      "sourceSerializedBytes": 105,
+      "sourceId": null
+    },
+    {
+      "id": "a-canonical",
+      "sourceSerializedBytes": 80,
+      "sourceId": null
+    },
+    {
+      "id": "a-jsonld",
+      "sourceSerializedBytes": 10016,
+      "sourceId": null
+    },
+    {
+      "id": "a-title",
+      "sourceSerializedBytes": 140,
+      "sourceId": null
+    },
+    {
+      "id": "a-abstract",
+      "sourceSerializedBytes": 7472,
+      "sourceId": null
+    },
+    {
+      "id": "a-section-1",
+      "sourceSerializedBytes": 19679,
+      "sourceId": null
+    },
+    {
+      "id": "a-section-2",
+      "sourceSerializedBytes": 5367,
+      "sourceId": null
+    },
+    {
+      "id": "a-section-3",
+      "sourceSerializedBytes": 6941,
+      "sourceId": null
+    },
+    {
+      "id": "a-section-4",
+      "sourceSerializedBytes": 6195,
+      "sourceId": null
+    },
+    {
+      "id": "a-section-5",
+      "sourceSerializedBytes": 6307,
+      "sourceId": null
+    },
+    {
+      "id": "a-section-6",
+      "sourceSerializedBytes": 3498,
+      "sourceId": null
+    },
+    {
+      "id": "a-section-7",
+      "sourceSerializedBytes": 5410,
+      "sourceId": null
+    },
+    {
+      "id": "a-section-8",
+      "sourceSerializedBytes": 11539,
+      "sourceId": null
+    },
+    {
+      "id": "a-data-availability",
+      "sourceSerializedBytes": 5740,
+      "sourceId": null
+    },
+    {
+      "id": "a-code-availability",
+      "sourceSerializedBytes": 3397,
+      "sourceId": null
+    },
+    {
+      "id": "a-author-heading",
+      "sourceSerializedBytes": 138,
+      "sourceId": "author-information"
+    },
+    {
+      "id": "a-author-note-na1",
+      "sourceSerializedBytes": 423,
+      "sourceId": "na1"
+    },
+    {
+      "id": "a-affiliation-heading",
+      "sourceSerializedBytes": 82,
+      "sourceId": "affiliations"
+    },
+    {
+      "id": "a-affiliation-Aff1",
+      "sourceSerializedBytes": 738,
+      "sourceId": "Aff1"
+    },
+    {
+      "id": "a-affiliation-Aff2",
+      "sourceSerializedBytes": 223,
+      "sourceId": "Aff2"
+    },
+    {
+      "id": "a-contributions-heading",
+      "sourceSerializedBytes": 72,
+      "sourceId": "contributions"
+    },
+    {
+      "id": "a-contributions",
+      "sourceSerializedBytes": 812,
+      "sourceId": null
+    },
+    {
+      "id": "a-correspondence-heading",
+      "sourceSerializedBytes": 87,
+      "sourceId": "corresponding-author"
+    },
+    {
+      "id": "a-correspondence",
+      "sourceSerializedBytes": 284,
+      "sourceId": "corresponding-author-list"
+    },
+    {
+      "id": "a-supplementary-links",
+      "sourceSerializedBytes": 6747,
+      "sourceId": null
+    },
+    {
+      "id": "a-metrics-ui",
+      "sourceSerializedBytes": 1349,
+      "sourceId": null
+    },
+    {
+      "id": "a-references-heading",
+      "sourceSerializedBytes": 116,
+      "sourceId": "Bib1"
+    },
+    {
+      "id": "a-reference-1",
+      "sourceSerializedBytes": 1671,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-2",
+      "sourceSerializedBytes": 1972,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-3",
+      "sourceSerializedBytes": 2353,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-4",
+      "sourceSerializedBytes": 1561,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-5",
+      "sourceSerializedBytes": 1291,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-6",
+      "sourceSerializedBytes": 1503,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-7",
+      "sourceSerializedBytes": 2050,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-8",
+      "sourceSerializedBytes": 2669,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-9",
+      "sourceSerializedBytes": 2213,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-10",
+      "sourceSerializedBytes": 2253,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-11",
+      "sourceSerializedBytes": 2437,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-12",
+      "sourceSerializedBytes": 2206,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-13",
+      "sourceSerializedBytes": 2079,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-14",
+      "sourceSerializedBytes": 2377,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-15",
+      "sourceSerializedBytes": 685,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-16",
+      "sourceSerializedBytes": 2200,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-17",
+      "sourceSerializedBytes": 2154,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-18",
+      "sourceSerializedBytes": 1675,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-19",
+      "sourceSerializedBytes": 2005,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-20",
+      "sourceSerializedBytes": 2152,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-21",
+      "sourceSerializedBytes": 2080,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-22",
+      "sourceSerializedBytes": 2465,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-23",
+      "sourceSerializedBytes": 2550,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-24",
+      "sourceSerializedBytes": 2196,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-25",
+      "sourceSerializedBytes": 2010,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-26",
+      "sourceSerializedBytes": 2382,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-27",
+      "sourceSerializedBytes": 1937,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-28",
+      "sourceSerializedBytes": 1770,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-29",
+      "sourceSerializedBytes": 364,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-30",
+      "sourceSerializedBytes": 2281,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-31",
+      "sourceSerializedBytes": 317,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-32",
+      "sourceSerializedBytes": 2266,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-33",
+      "sourceSerializedBytes": 2218,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-34",
+      "sourceSerializedBytes": 2489,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-35",
+      "sourceSerializedBytes": 373,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-36",
+      "sourceSerializedBytes": 1958,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-37",
+      "sourceSerializedBytes": 456,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-38",
+      "sourceSerializedBytes": 285,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-39",
+      "sourceSerializedBytes": 528,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-40",
+      "sourceSerializedBytes": 2275,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-41",
+      "sourceSerializedBytes": 2242,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-42",
+      "sourceSerializedBytes": 2024,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-43",
+      "sourceSerializedBytes": 2052,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-44",
+      "sourceSerializedBytes": 2616,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-45",
+      "sourceSerializedBytes": 2710,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-46",
+      "sourceSerializedBytes": 337,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-47",
+      "sourceSerializedBytes": 2215,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-48",
+      "sourceSerializedBytes": 2370,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-49",
+      "sourceSerializedBytes": 357,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-50",
+      "sourceSerializedBytes": 465,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-51",
+      "sourceSerializedBytes": 2099,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-52",
+      "sourceSerializedBytes": 283,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-53",
+      "sourceSerializedBytes": 320,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-54",
+      "sourceSerializedBytes": 2435,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-55",
+      "sourceSerializedBytes": 2280,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-56",
+      "sourceSerializedBytes": 2343,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-57",
+      "sourceSerializedBytes": 2063,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-58",
+      "sourceSerializedBytes": 555,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-59",
+      "sourceSerializedBytes": 347,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-60",
+      "sourceSerializedBytes": 2038,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-61",
+      "sourceSerializedBytes": 1674,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-62",
+      "sourceSerializedBytes": 1243,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-63",
+      "sourceSerializedBytes": 2285,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-64",
+      "sourceSerializedBytes": 1989,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-65",
+      "sourceSerializedBytes": 2618,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-66",
+      "sourceSerializedBytes": 1977,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-67",
+      "sourceSerializedBytes": 2156,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-68",
+      "sourceSerializedBytes": 2791,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-69",
+      "sourceSerializedBytes": 2012,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-70",
+      "sourceSerializedBytes": 507,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-71",
+      "sourceSerializedBytes": 566,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-72",
+      "sourceSerializedBytes": 2472,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-73",
+      "sourceSerializedBytes": 245,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-74",
+      "sourceSerializedBytes": 315,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-75",
+      "sourceSerializedBytes": 451,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-76",
+      "sourceSerializedBytes": 2102,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-77",
+      "sourceSerializedBytes": 2287,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-78",
+      "sourceSerializedBytes": 550,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-79",
+      "sourceSerializedBytes": 2255,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-80",
+      "sourceSerializedBytes": 2306,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-81",
+      "sourceSerializedBytes": 1974,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-82",
+      "sourceSerializedBytes": 2580,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-83",
+      "sourceSerializedBytes": 2335,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-84",
+      "sourceSerializedBytes": 1948,
+      "sourceId": null
+    }
+  ],
+  "resourceEvidence": [],
+  "sanitizationCommands": {
+    "article": [
+      "node",
+      "scripts/sanitize-nature-corpus.mjs",
+      "--input",
+      "<external-capture-root>/s41586-021-03819-2.anonymous.raw.html",
+      "--recipe",
+      "<external-capture-root>/s41586-021-03819-2.recipe.json",
+      "--output",
+      "fixtures/s41586-021-03819-2/article.excerpt.html",
+      "--kind",
+      "article"
+    ],
+    "tables": []
+  },
+  "sourcePositionConvention": "Match id to manifest retainedBlocks for original source selector, role and pre-sanitize subtree digest. sourceSerializedBytes uses nature-corpus-subtree/1.0.0, not HTTP byte offsets.",
+  "captionSiblingEvidence": [
+    {
+      "figureId": "Fig1",
+      "blockIds": [
+        "a-section-1"
+      ],
+      "sourceLocator": "#figure-1 [data-test=\"bottom-caption\"]",
+      "insideFigure": true,
+      "parentClass": "c-article-section__figure-content",
+      "orderedElementSiblings": [
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-item",
+          "id": "",
+          "test": null
+        },
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-description",
+          "id": "figure-1-desc",
+          "test": "bottom-caption"
+        }
+      ]
+    },
+    {
+      "figureId": "Fig2",
+      "blockIds": [
+        "a-section-1"
+      ],
+      "sourceLocator": "#figure-2 [data-test=\"bottom-caption\"]",
+      "insideFigure": true,
+      "parentClass": "c-article-section__figure-content",
+      "orderedElementSiblings": [
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-item",
+          "id": "",
+          "test": null
+        },
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-description",
+          "id": "figure-2-desc",
+          "test": "bottom-caption"
+        }
+      ]
+    },
+    {
+      "figureId": "Fig3",
+      "blockIds": [
+        "a-section-3"
+      ],
+      "sourceLocator": "#figure-3 [data-test=\"bottom-caption\"]",
+      "insideFigure": true,
+      "parentClass": "c-article-section__figure-content",
+      "orderedElementSiblings": [
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-item",
+          "id": "",
+          "test": null
+        },
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-description",
+          "id": "figure-3-desc",
+          "test": "bottom-caption"
+        }
+      ]
+    },
+    {
+      "figureId": "Fig4",
+      "blockIds": [
+        "a-section-5"
+      ],
+      "sourceLocator": "#figure-4 [data-test=\"bottom-caption\"]",
+      "insideFigure": true,
+      "parentClass": "c-article-section__figure-content",
+      "orderedElementSiblings": [
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-item",
+          "id": "",
+          "test": null
+        },
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-description",
+          "id": "figure-4-desc",
+          "test": "bottom-caption"
+        }
+      ]
+    },
+    {
+      "figureId": "Fig5",
+      "blockIds": [
+        "a-section-7"
+      ],
+      "sourceLocator": "#figure-5 [data-test=\"bottom-caption\"]",
+      "insideFigure": true,
+      "parentClass": "c-article-section__figure-content",
+      "orderedElementSiblings": [
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-item",
+          "id": "",
+          "test": null
+        },
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-description",
+          "id": "figure-5-desc",
+          "test": "bottom-caption"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "evidenceVersion": "nature-table-source-defect/1.0.0",
+  "classification": "PARSER_DEFECT_REPRODUCED",
+  "scope": "Production hydrateNatureTables -> normalizeTableContents -> renderTables only; full clip/dialect suite awaits D seam and C independent assertions",
+  "articleId": "s41586-026-10401-1",
+  "url": "https://www.nature.com/articles/s41586-026-10401-1",
+  "fixtureSha256": "73c0cbb04cf5d2f3424b4119f9085fad54ae8928665c21c362178bee6c2ec292",
+  "correctSourceExpectation": [
+    {
+      "id": "table-1",
+      "url": "https://www.nature.com/articles/s41586-026-10401-1/tables/1",
+      "title": "Table 1 The constraints of symmetry on effects in different magnetic systems",
+      "sourceRows": [
+        [
+          {
+            "tag": "TH",
+            "text": "Symmetry",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Symmetry</p>"
+          },
+          {
+            "tag": "TH",
+            "text": "Effects",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Effects</p>"
+          },
+          {
+            "tag": "TH",
+            "text": "Pure AFM",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Pure AFM</p>"
+          },
+          {
+            "tag": "TH",
+            "text": "SOM",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>SOM</p>"
+          },
+          {
+            "tag": "TH",
+            "text": "FM",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>FM</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "OSSG",
+            "colspan": 1,
+            "rowspan": 2,
+            "html": "<p>OSSG</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "Ms",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p><i>M</i><sub>s</sub></p>"
+          },
+          {
+            "tag": "TD",
+            "text": "0",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>0</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "\\(\\sum {\\lambda }^{n}\\)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p><span class=\"mathjax-tex\">\\(\\sum {\\lambda }^{n}\\)</span></p>"
+          },
+          {
+            "tag": "TD",
+            "text": "\\({\\lambda }^{0}+\\sum {\\lambda }^{n}\\)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p><span class=\"mathjax-tex\">\\({\\lambda }^{0}+\\sum {\\lambda }^{n}\\)</span></p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Mo (AHE)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p><i>M</i><sub>o</sub> (AHE)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "0",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>0</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "\\({\\lambda }^{0}+\\sum {\\lambda }^{n}\\)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p><span class=\"mathjax-tex\">\\({\\lambda }^{0}+\\sum {\\lambda }^{n}\\)</span></p>"
+          },
+          {
+            "tag": "TD",
+            "text": "\\({\\lambda }^{0}+\\sum {\\lambda }^{n}\\)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p><span class=\"mathjax-tex\">\\({\\lambda }^{0}+\\sum {\\lambda }^{n}\\)</span></p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "MSG",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>MSG</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "M (AHE)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p><i>M</i> (AHE)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "0",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>0</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "Not 0",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Not 0</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "Not 0",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Not 0</p>"
+          }
+        ]
+      ],
+      "sourceNotes": [
+        {
+          "text": "The expansion of SOC is abbreviated as the order form of SOC coefficients. λ0 represents the non-SOC effects allowed by OSSG.",
+          "html": "The expansion of SOC is abbreviated as the order form of SOC coefficients. <i>λ</i><sup>0</sup> represents the non-SOC effects allowed by OSSG."
+        }
+      ],
+      "physicalRowCount": 4,
+      "physicalCellCounts": [
+        5,
+        5,
+        4,
+        5
+      ],
+      "expectedStatus": "full-size-html",
+      "warning": null,
+      "sourceNotesLocator": "#content .c-article-table-footer li"
+    }
+  ],
+  "statuses": [
+    {
+      "id": "Tab1",
+      "label": "Table 1",
+      "status": "full-size-html",
+      "url": "https://www.nature.com/articles/s41586-026-10401-1/tables/1",
+      "hydratedHtmlContainsFooter": false
+    }
+  ],
+  "warnings": [],
+  "ledger": {
+    "requests": [
+      {
+        "url": "https://www.nature.com/articles/s41586-026-10401-1/tables/1",
+        "method": "GET",
+        "redirect": "manual"
+      }
+    ],
+    "resolutions": [
+      {
+        "hostname": "www.nature.com",
+        "all": true,
+        "verbatim": true
+      }
+    ],
+    "unexpected": []
+  },
+  "dialects": [
+    {
+      "dialect": "markdown",
+      "sourceNotes": [
+        {
+          "text": "The expansion of SOC is abbreviated as the order form of SOC coefficients. λ0 represents the non-SOC effects allowed by OSSG.",
+          "present": false
+        }
+      ]
+    },
+    {
+      "dialect": "quarto",
+      "sourceNotes": [
+        {
+          "text": "The expansion of SOC is abbreviated as the order form of SOC coefficients. λ0 represents the non-SOC effects allowed by OSSG.",
+          "present": false
+        }
+      ]
+    },
+    {
+      "dialect": "links",
+      "sourceNotes": [
+        {
+          "text": "The expansion of SOC is abbreviated as the order form of SOC coefficients. λ0 represents the non-SOC effects allowed by OSSG.",
+          "present": false
+        }
+      ]
+    }
+  ]
+}
