@@ -266,7 +266,7 @@ export function renderClipMarkdown(result, imagePathByAnchor = new Map()) {
   return `${frontmatter(result.metadata, policy.dialect === 'quarto' ? 'quarto' : result.citationStyle)}${markdownBody}\n`;
 }
 
-export async function clipNature({ html, url, rawHtml = html, citationStyle = 'markdown' }) {
+export async function clipNature({ html, url, rawHtml = html, citationStyle = 'markdown', fetchImpl, resolveHostname }) {
   if (!isNatureUrl(url)) throw new Error('This prototype only supports https://www.nature.com/articles/<id> URLs.');
   if (!['markdown', 'links', 'quarto'].includes(citationStyle)) throw new Error('citationStyle must be markdown, links, or quarto.');
   const policy = outputPolicy(citationStyle);
@@ -275,7 +275,7 @@ export async function clipNature({ html, url, rawHtml = html, citationStyle = 'm
   if (parsedPage.debug.articleRoot !== '.c-article-body') {
     throw new Error('Nature article body was not found; refusing to write a non-article page.');
   }
-  parsedPage.debug.warnings.push(...await hydrateNatureTables(parsedPage.tables, url));
+  parsedPage.debug.warnings.push(...await hydrateNatureTables(parsedPage.tables, url, { fetchImpl, resolveHostname }));
   return finishClip(parsedPage, { url, rawHtml, citationStyle, policy, articleId: articleIdFromUrl(url) });
 }
 
