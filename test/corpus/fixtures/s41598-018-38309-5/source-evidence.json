@@ -3,38 +3,38 @@
   "reviewStatus": "B source review and repeat/idempotence passed; C independent semantic review and registered consumers pending",
   "authorization": "Human approved bounded fresh anonymous Nature CookieJar; no account, user browser profile, imported Cookie or credential. This is a task-specific exception to original no-cookie acquisition instruction, not a production transport policy change.",
   "source": {
-    "url": "https://www.nature.com/articles/s41534-023-00746-0",
-    "canonical": "https://www.nature.com/articles/s41534-023-00746-0",
-    "doi": "10.1038/s41534-023-00746-0",
-    "title": "Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits",
-    "journal": "npj Quantum Information",
-    "observedAt": "2026-10-03T16:44:08.251Z",
-    "bytes": 511799,
-    "sourceSha256": "6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e",
+    "url": "https://www.nature.com/articles/s41598-018-38309-5",
+    "canonical": "https://www.nature.com/articles/s41598-018-38309-5",
+    "doi": "10.1038/s41598-018-38309-5",
+    "title": "Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States",
+    "journal": "Scientific Reports",
+    "observedAt": "2026-10-04T06:56:41.242Z",
+    "bytes": 487190,
+    "sourceSha256": "a1a135395d984fcda4548aacd0d6eabe0d41bb22c16cc31f4c8f16f8eaf49d51",
     "publicAccess": {
-      "articleLabel": "Article Open access Published: 03 August 2023",
+      "articleLabel": "Article Open access Published: 07 February 2019",
       "jsonLdIsAccessibleForFree": true,
-      "jsonLdSameAs": "https://doi.org/10.1038/s41534-023-00746-0"
+      "jsonLdSameAs": "https://doi.org/10.1038/s41598-018-38309-5"
     },
-    "bodyCharacters": 98354,
+    "bodyCharacters": 66784,
     "dns": [
       {
         "host": "www.nature.com",
         "addresses": [
-          {
-            "address": "151.101.192.95",
-            "family": 4
-          },
-          {
-            "address": "151.101.0.95",
-            "family": 4
-          },
           {
             "address": "151.101.64.95",
             "family": 4
           },
           {
             "address": "151.101.128.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.192.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.0.95",
             "family": 4
           }
         ]
@@ -43,6 +43,10 @@
         "host": "idp.nature.com",
         "addresses": [
           {
+            "address": "151.101.0.95",
+            "family": 4
+          },
+          {
             "address": "151.101.64.95",
             "family": 4
           },
@@ -53,17 +57,13 @@
           {
             "address": "151.101.192.95",
             "family": 4
-          },
-          {
-            "address": "151.101.0.95",
-            "family": 4
           }
         ]
       }
     ],
     "redirectLedger": [
       {
-        "url": "https://www.nature.com/articles/s41534-023-00746-0",
+        "url": "https://www.nature.com/articles/s41598-018-38309-5",
         "status": 303,
         "contentType": "text/html",
         "cookiesSent": false,
@@ -84,10 +84,10 @@
         "contentType": "",
         "cookiesSent": true,
         "cookiesSet": 0,
-        "redirect": "https://www.nature.com/articles/s41534-023-00746-0"
+        "redirect": "https://www.nature.com/articles/s41598-018-38309-5"
       },
       {
-        "url": "https://www.nature.com/articles/s41534-023-00746-0",
+        "url": "https://www.nature.com/articles/s41598-018-38309-5",
         "status": 200,
         "contentType": "text/html; charset=utf-8",
         "cookiesSent": true,
@@ -97,15 +97,15 @@
     ]
   },
   "fixture": {
-    "bytes": 228057,
-    "fixtureSha256": "b32d31f2389e8c052f990812cfd86441172538fd66e37fa17f97704d8795d9fc",
-    "recipeSha256": "894980104222786259d9959f54e21705bb499c356206d24f0ea95ddbeb05ce5a",
+    "bytes": 172171,
+    "fixtureSha256": "136cb3b089fac6850fab400bcce1e7b063a2aaccf763f02eeb65697a7700af00",
+    "recipeSha256": "8a0007a45c54d49296b15a97d091bb6c94bf42fc577eb933e521ad70bc47efd6",
     "signatures": {
       "projectionVersion": "nature-corpus-projection/1.0.0",
       "serializerVersion": "nature-corpus-subtree/1.0.0",
-      "recipeSha256": "894980104222786259d9959f54e21705bb499c356206d24f0ea95ddbeb05ce5a",
-      "structureSha256": "f379d48adddf6fcf12a403c3cc946ac0b1c13e90b5256391df2b17f22cf66ac7",
-      "payloadSha256": "1ae8711bd3fb9d1106f9b7c265463a1fc44deaf6bf28cbd4dd0df78eda4eeecf"
+      "recipeSha256": "8a0007a45c54d49296b15a97d091bb6c94bf42fc577eb933e521ad70bc47efd6",
+      "structureSha256": "31f7977e055bc9b4f26f2ffd05e7741f092cc739633ea7e83d442c73f7da7ebb",
+      "payloadSha256": "b75605aad4bc5c9c384b1e84afad9321d2ce869e417e52f0ecd19acfa4721b2b"
     },
     "repeatedBytesEqual": true,
     "sanitizationIdempotent": true
@@ -113,17 +113,17 @@
   "sourcePositions": [
     {
       "id": "a-meta-11",
-      "sourceSerializedBytes": 132,
+      "sourceSerializedBytes": 201,
       "sourceId": null
     },
     {
       "id": "a-meta-36",
-      "sourceSerializedBytes": 70,
+      "sourceSerializedBytes": 65,
       "sourceId": null
     },
     {
       "id": "a-meta-40",
-      "sourceSerializedBytes": 138,
+      "sourceSerializedBytes": 207,
       "sourceId": null
     },
     {
@@ -143,7 +143,7 @@
     },
     {
       "id": "a-meta-44",
-      "sourceSerializedBytes": 45,
+      "sourceSerializedBytes": 47,
       "sourceId": null
     },
     {
@@ -162,48 +162,43 @@
       "sourceId": null
     },
     {
-      "id": "a-meta-140",
-      "sourceSerializedBytes": 48,
+      "id": "a-meta-136",
+      "sourceSerializedBytes": 52,
       "sourceId": null
     },
     {
-      "id": "a-meta-142",
+      "id": "a-meta-138",
+      "sourceSerializedBytes": 52,
+      "sourceId": null
+    },
+    {
+      "id": "a-meta-140",
       "sourceSerializedBytes": 50,
       "sourceId": null
     },
     {
+      "id": "a-meta-142",
+      "sourceSerializedBytes": 51,
+      "sourceId": null
+    },
+    {
       "id": "a-meta-144",
-      "sourceSerializedBytes": 52,
+      "sourceSerializedBytes": 55,
       "sourceId": null
     },
     {
-      "id": "a-meta-146",
-      "sourceSerializedBytes": 53,
-      "sourceId": null
-    },
-    {
-      "id": "a-meta-149",
-      "sourceSerializedBytes": 57,
-      "sourceId": null
-    },
-    {
-      "id": "a-meta-151",
-      "sourceSerializedBytes": 52,
-      "sourceId": null
-    },
-    {
-      "id": "a-meta-160",
+      "id": "a-meta-153",
       "sourceSerializedBytes": 85,
       "sourceId": null
     },
     {
-      "id": "a-meta-161",
+      "id": "a-meta-154",
       "sourceSerializedBytes": 43,
       "sourceId": null
     },
     {
-      "id": "a-meta-163",
-      "sourceSerializedBytes": 162,
+      "id": "a-meta-156",
+      "sourceSerializedBytes": 226,
       "sourceId": null
     },
     {
@@ -213,42 +208,37 @@
     },
     {
       "id": "a-jsonld",
-      "sourceSerializedBytes": 5327,
+      "sourceSerializedBytes": 4252,
       "sourceId": null
     },
     {
       "id": "a-title",
-      "sourceSerializedBytes": 180,
+      "sourceSerializedBytes": 249,
       "sourceId": null
     },
     {
       "id": "a-abstract",
-      "sourceSerializedBytes": 1758,
+      "sourceSerializedBytes": 1658,
       "sourceId": null
     },
     {
       "id": "a-section-1",
-      "sourceSerializedBytes": 30166,
+      "sourceSerializedBytes": 27666,
       "sourceId": null
     },
     {
       "id": "a-section-2",
-      "sourceSerializedBytes": 72205,
+      "sourceSerializedBytes": 38758,
       "sourceId": null
     },
     {
       "id": "a-section-3",
-      "sourceSerializedBytes": 16802,
-      "sourceId": null
-    },
-    {
-      "id": "a-section-4",
-      "sourceSerializedBytes": 52394,
+      "sourceSerializedBytes": 24757,
       "sourceId": null
     },
     {
       "id": "a-data-availability",
-      "sourceSerializedBytes": 499,
+      "sourceSerializedBytes": 1725,
       "sourceId": null
     },
     {
@@ -257,23 +247,18 @@
       "sourceId": "author-information"
     },
     {
-      "id": "a-author-note-na1",
-      "sourceSerializedBytes": 122,
-      "sourceId": "na1"
-    },
-    {
       "id": "a-affiliation-heading",
       "sourceSerializedBytes": 82,
       "sourceId": "affiliations"
     },
     {
       "id": "a-affiliation-Aff1",
-      "sourceSerializedBytes": 294,
+      "sourceSerializedBytes": 213,
       "sourceId": "Aff1"
     },
     {
       "id": "a-affiliation-Aff2",
-      "sourceSerializedBytes": 228,
+      "sourceSerializedBytes": 227,
       "sourceId": "Aff2"
     },
     {
@@ -283,7 +268,7 @@
     },
     {
       "id": "a-contributions",
-      "sourceSerializedBytes": 321,
+      "sourceSerializedBytes": 278,
       "sourceId": null
     },
     {
@@ -293,17 +278,17 @@
     },
     {
       "id": "a-correspondence",
-      "sourceSerializedBytes": 177,
+      "sourceSerializedBytes": 174,
       "sourceId": "corresponding-author-list"
     },
     {
       "id": "a-supplementary-links",
-      "sourceSerializedBytes": 1452,
+      "sourceSerializedBytes": 1202,
       "sourceId": null
     },
     {
       "id": "a-metrics-ui",
-      "sourceSerializedBytes": 1343,
+      "sourceSerializedBytes": 1028,
       "sourceId": null
     },
     {
@@ -313,516 +298,390 @@
     },
     {
       "id": "a-reference-1",
-      "sourceSerializedBytes": 330,
+      "sourceSerializedBytes": 1438,
       "sourceId": null
     },
     {
       "id": "a-reference-2",
-      "sourceSerializedBytes": 281,
+      "sourceSerializedBytes": 1979,
       "sourceId": null
     },
     {
       "id": "a-reference-3",
-      "sourceSerializedBytes": 535,
+      "sourceSerializedBytes": 1964,
       "sourceId": null
     },
     {
       "id": "a-reference-4",
-      "sourceSerializedBytes": 306,
+      "sourceSerializedBytes": 466,
       "sourceId": null
     },
     {
       "id": "a-reference-5",
-      "sourceSerializedBytes": 1414,
+      "sourceSerializedBytes": 316,
       "sourceId": null
     },
     {
       "id": "a-reference-6",
-      "sourceSerializedBytes": 1601,
+      "sourceSerializedBytes": 2195,
       "sourceId": null
     },
     {
       "id": "a-reference-7",
-      "sourceSerializedBytes": 320,
+      "sourceSerializedBytes": 1982,
       "sourceId": null
     },
     {
       "id": "a-reference-8",
-      "sourceSerializedBytes": 1314,
+      "sourceSerializedBytes": 2873,
       "sourceId": null
     },
     {
       "id": "a-reference-9",
-      "sourceSerializedBytes": 872,
+      "sourceSerializedBytes": 901,
       "sourceId": null
     },
     {
       "id": "a-reference-10",
-      "sourceSerializedBytes": 958,
+      "sourceSerializedBytes": 2431,
       "sourceId": null
     },
     {
       "id": "a-reference-11",
-      "sourceSerializedBytes": 1388,
+      "sourceSerializedBytes": 1567,
       "sourceId": null
     },
     {
       "id": "a-reference-12",
-      "sourceSerializedBytes": 1202,
+      "sourceSerializedBytes": 1961,
       "sourceId": null
     },
     {
       "id": "a-reference-13",
-      "sourceSerializedBytes": 1220,
+      "sourceSerializedBytes": 1557,
       "sourceId": null
     },
     {
       "id": "a-reference-14",
-      "sourceSerializedBytes": 871,
+      "sourceSerializedBytes": 2870,
       "sourceId": null
     },
     {
       "id": "a-reference-15",
-      "sourceSerializedBytes": 1336,
+      "sourceSerializedBytes": 595,
       "sourceId": null
     },
     {
       "id": "a-reference-16",
-      "sourceSerializedBytes": 1174,
+      "sourceSerializedBytes": 1958,
       "sourceId": null
     },
     {
       "id": "a-reference-17",
-      "sourceSerializedBytes": 1255,
+      "sourceSerializedBytes": 2072,
       "sourceId": null
     },
     {
       "id": "a-reference-18",
-      "sourceSerializedBytes": 944,
+      "sourceSerializedBytes": 2104,
       "sourceId": null
     },
     {
       "id": "a-reference-19",
-      "sourceSerializedBytes": 924,
+      "sourceSerializedBytes": 2276,
       "sourceId": null
     },
     {
       "id": "a-reference-20",
-      "sourceSerializedBytes": 908,
+      "sourceSerializedBytes": 1506,
       "sourceId": null
     },
     {
       "id": "a-reference-21",
-      "sourceSerializedBytes": 1191,
+      "sourceSerializedBytes": 2487,
       "sourceId": null
     },
     {
       "id": "a-reference-22",
-      "sourceSerializedBytes": 1161,
+      "sourceSerializedBytes": 2026,
       "sourceId": null
     },
     {
       "id": "a-reference-23",
-      "sourceSerializedBytes": 1163,
+      "sourceSerializedBytes": 2133,
       "sourceId": null
     },
     {
       "id": "a-reference-24",
-      "sourceSerializedBytes": 1222,
+      "sourceSerializedBytes": 2051,
       "sourceId": null
     },
     {
       "id": "a-reference-25",
-      "sourceSerializedBytes": 529,
+      "sourceSerializedBytes": 609,
       "sourceId": null
     },
     {
       "id": "a-reference-26",
-      "sourceSerializedBytes": 1209,
+      "sourceSerializedBytes": 1940,
       "sourceId": null
     },
     {
       "id": "a-reference-27",
-      "sourceSerializedBytes": 545,
+      "sourceSerializedBytes": 2304,
       "sourceId": null
     },
     {
       "id": "a-reference-28",
-      "sourceSerializedBytes": 1461,
+      "sourceSerializedBytes": 2045,
       "sourceId": null
     },
     {
       "id": "a-reference-29",
-      "sourceSerializedBytes": 1511,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-30",
-      "sourceSerializedBytes": 897,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-31",
-      "sourceSerializedBytes": 1318,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-32",
-      "sourceSerializedBytes": 1184,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-33",
-      "sourceSerializedBytes": 1204,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-34",
-      "sourceSerializedBytes": 1291,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-35",
-      "sourceSerializedBytes": 927,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-36",
-      "sourceSerializedBytes": 1256,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-37",
-      "sourceSerializedBytes": 1213,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-38",
-      "sourceSerializedBytes": 1274,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-39",
-      "sourceSerializedBytes": 1222,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-40",
-      "sourceSerializedBytes": 1256,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-41",
-      "sourceSerializedBytes": 1647,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-42",
-      "sourceSerializedBytes": 1245,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-43",
-      "sourceSerializedBytes": 1202,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-44",
-      "sourceSerializedBytes": 1260,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-45",
-      "sourceSerializedBytes": 1284,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-46",
-      "sourceSerializedBytes": 835,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-47",
-      "sourceSerializedBytes": 1370,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-48",
-      "sourceSerializedBytes": 966,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-49",
-      "sourceSerializedBytes": 935,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-50",
-      "sourceSerializedBytes": 803,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-51",
-      "sourceSerializedBytes": 1226,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-52",
       "sourceSerializedBytes": 1009,
       "sourceId": null
     },
     {
+      "id": "a-reference-30",
+      "sourceSerializedBytes": 617,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-31",
+      "sourceSerializedBytes": 934,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-32",
+      "sourceSerializedBytes": 2082,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-33",
+      "sourceSerializedBytes": 608,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-34",
+      "sourceSerializedBytes": 427,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-35",
+      "sourceSerializedBytes": 905,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-36",
+      "sourceSerializedBytes": 1949,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-37",
+      "sourceSerializedBytes": 1935,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-38",
+      "sourceSerializedBytes": 657,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-39",
+      "sourceSerializedBytes": 2073,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-40",
+      "sourceSerializedBytes": 1809,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-41",
+      "sourceSerializedBytes": 2129,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-42",
+      "sourceSerializedBytes": 2282,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-43",
+      "sourceSerializedBytes": 714,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-44",
+      "sourceSerializedBytes": 2016,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-45",
+      "sourceSerializedBytes": 1563,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-46",
+      "sourceSerializedBytes": 2524,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-47",
+      "sourceSerializedBytes": 2041,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-48",
+      "sourceSerializedBytes": 1988,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-49",
+      "sourceSerializedBytes": 2124,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-50",
+      "sourceSerializedBytes": 908,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-51",
+      "sourceSerializedBytes": 1640,
+      "sourceId": null
+    },
+    {
+      "id": "a-reference-52",
+      "sourceSerializedBytes": 2043,
+      "sourceId": null
+    },
+    {
       "id": "a-reference-53",
-      "sourceSerializedBytes": 1242,
+      "sourceSerializedBytes": 1945,
       "sourceId": null
     },
     {
       "id": "a-reference-54",
-      "sourceSerializedBytes": 1331,
+      "sourceSerializedBytes": 1974,
       "sourceId": null
     },
     {
       "id": "a-reference-55",
-      "sourceSerializedBytes": 1281,
+      "sourceSerializedBytes": 2139,
       "sourceId": null
     },
     {
       "id": "a-reference-56",
-      "sourceSerializedBytes": 889,
+      "sourceSerializedBytes": 1921,
       "sourceId": null
     },
     {
       "id": "a-reference-57",
-      "sourceSerializedBytes": 1524,
+      "sourceSerializedBytes": 1981,
       "sourceId": null
     },
     {
       "id": "a-reference-58",
-      "sourceSerializedBytes": 1212,
+      "sourceSerializedBytes": 2075,
       "sourceId": null
     },
     {
       "id": "a-reference-59",
-      "sourceSerializedBytes": 1865,
+      "sourceSerializedBytes": 2016,
       "sourceId": null
     },
     {
       "id": "a-reference-60",
-      "sourceSerializedBytes": 1471,
+      "sourceSerializedBytes": 361,
       "sourceId": null
     },
     {
       "id": "a-reference-61",
-      "sourceSerializedBytes": 1384,
+      "sourceSerializedBytes": 415,
       "sourceId": null
     },
     {
       "id": "a-reference-62",
-      "sourceSerializedBytes": 1251,
+      "sourceSerializedBytes": 2161,
       "sourceId": null
     },
     {
       "id": "a-reference-63",
-      "sourceSerializedBytes": 1144,
+      "sourceSerializedBytes": 1995,
       "sourceId": null
     },
     {
       "id": "a-reference-64",
-      "sourceSerializedBytes": 1530,
+      "sourceSerializedBytes": 538,
       "sourceId": null
     },
     {
       "id": "a-reference-65",
-      "sourceSerializedBytes": 497,
+      "sourceSerializedBytes": 1980,
       "sourceId": null
     },
     {
       "id": "a-reference-66",
-      "sourceSerializedBytes": 950,
+      "sourceSerializedBytes": 406,
       "sourceId": null
     },
     {
       "id": "a-reference-67",
-      "sourceSerializedBytes": 966,
+      "sourceSerializedBytes": 1947,
       "sourceId": null
     },
     {
       "id": "a-reference-68",
-      "sourceSerializedBytes": 1362,
+      "sourceSerializedBytes": 2137,
       "sourceId": null
     },
     {
       "id": "a-reference-69",
-      "sourceSerializedBytes": 977,
+      "sourceSerializedBytes": 342,
       "sourceId": null
     },
     {
       "id": "a-reference-70",
-      "sourceSerializedBytes": 1540,
+      "sourceSerializedBytes": 1586,
       "sourceId": null
     },
     {
       "id": "a-reference-71",
-      "sourceSerializedBytes": 1566,
+      "sourceSerializedBytes": 1849,
       "sourceId": null
     },
     {
       "id": "a-reference-72",
-      "sourceSerializedBytes": 1318,
+      "sourceSerializedBytes": 2041,
       "sourceId": null
     },
     {
       "id": "a-reference-73",
-      "sourceSerializedBytes": 1383,
+      "sourceSerializedBytes": 644,
       "sourceId": null
     },
     {
       "id": "a-reference-74",
-      "sourceSerializedBytes": 870,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-75",
-      "sourceSerializedBytes": 903,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-76",
-      "sourceSerializedBytes": 1214,
-      "sourceId": null
-    },
-    {
-      "id": "a-reference-77",
-      "sourceSerializedBytes": 1260,
+      "sourceSerializedBytes": 518,
       "sourceId": null
     }
   ],
-  "resourceEvidence": [
-    {
-      "id": "table-1",
-      "url": "https://www.nature.com/articles/s41534-023-00746-0/tables/1",
-      "observedAt": "2026-10-03T16:47:53.404Z",
-      "sourceBytes": 169146,
-      "sourceSha256": "7772399037acb3ba4dfc100bc6c9a8fdf4f82c56d8836e65fcb761294e9ee069",
-      "fixtureBytes": 4299,
-      "fixtureSha256": "90670968407415e1f7e7c624b3244330015a4e52bc9790e811d2992205851c2d",
-      "recipeSha256": "b78cce6136d10a538df0c533ada34c68754e8f7e38389dcaa7a1ba915268092d",
-      "signatures": {
-        "projectionVersion": "nature-corpus-projection/1.0.0",
-        "serializerVersion": "nature-corpus-subtree/1.0.0",
-        "recipeSha256": "b78cce6136d10a538df0c533ada34c68754e8f7e38389dcaa7a1ba915268092d",
-        "structureSha256": "c80c60e9f2c03befa7d742c95d38c303c842589e7fcbf11662330e5aadd26956",
-        "payloadSha256": "b8528829e533ee8c6b187b68c204e7cefe74f83a2b8ba67f9f44acbfeb6962fb"
-      },
-      "dns": [
-        {
-          "host": "www.nature.com",
-          "addresses": [
-            {
-              "address": "151.101.128.95",
-              "family": 4
-            },
-            {
-              "address": "151.101.192.95",
-              "family": 4
-            },
-            {
-              "address": "151.101.0.95",
-              "family": 4
-            },
-            {
-              "address": "151.101.64.95",
-              "family": 4
-            }
-          ]
-        },
-        {
-          "host": "idp.nature.com",
-          "addresses": [
-            {
-              "address": "151.101.64.95",
-              "family": 4
-            },
-            {
-              "address": "151.101.128.95",
-              "family": 4
-            },
-            {
-              "address": "151.101.192.95",
-              "family": 4
-            },
-            {
-              "address": "151.101.0.95",
-              "family": 4
-            }
-          ]
-        }
-      ],
-      "redirectLedger": [
-        {
-          "url": "https://www.nature.com/articles/s41534-023-00746-0/tables/1",
-          "status": 303,
-          "contentType": "text/html",
-          "cookiesSent": false,
-          "cookiesSet": 0,
-          "redirect": "https://idp.nature.com/authorize"
-        },
-        {
-          "url": "https://idp.nature.com/authorize",
-          "status": 302,
-          "contentType": "",
-          "cookiesSent": false,
-          "cookiesSet": 3,
-          "redirect": "https://idp.nature.com/transit"
-        },
-        {
-          "url": "https://idp.nature.com/transit",
-          "status": 302,
-          "contentType": "",
-          "cookiesSent": true,
-          "cookiesSet": 0,
-          "redirect": "https://www.nature.com/articles/s41534-023-00746-0/tables/1"
-        },
-        {
-          "url": "https://www.nature.com/articles/s41534-023-00746-0/tables/1",
-          "status": 200,
-          "contentType": "text/html; charset=utf-8",
-          "cookiesSent": true,
-          "cookiesSet": 1,
-          "redirect": null
-        }
-      ],
-      "repeatedBytesEqual": true,
-      "sanitizationIdempotent": true
-    }
-  ],
+  "resourceEvidence": [],
   "sanitizationCommands": {
     "article": [
       "node",
       "scripts/sanitize-nature-corpus.mjs",
       "--input",
-      "<external-capture-root>/s41534-023-00746-0.anonymous.raw.html",
+      "<external-capture-root>/s41598-018-38309-5.anonymous.raw.html",
       "--recipe",
-      "<external-capture-root>/s41534-023-00746-0.recipe.json",
+      "<external-capture-root>/s41598-018-38309-5.recipe.json",
       "--output",
-      "fixtures/s41534-023-00746-0/article.excerpt.html",
+      "fixtures/s41598-018-38309-5/article.excerpt.html",
       "--kind",
       "article"
     ],
-    "tables": [
-      [
-        "node",
-        "scripts/sanitize-nature-corpus.mjs",
-        "--input",
-        "<external-capture-root>/s41534-023-00746-0.table-1.anonymous.raw.html",
-        "--recipe",
-        "<external-capture-root>/s41534-023-00746-0.table-1.recipe.json",
-        "--output",
-        "fixtures/s41534-023-00746-0/tables/table-1.excerpt.html",
-        "--kind",
-        "table"
-      ]
-    ]
+    "tables": []
   },
   "sourcePositionConvention": "Match id to manifest retainedBlocks for original source selector, role and pre-sanitize subtree digest. sourceSerializedBytes uses nature-corpus-subtree/1.0.0, not HTTP byte offsets.",
   "captionSiblingEvidence": [
@@ -914,52 +773,6 @@
           "tag": "DIV",
           "class": "c-article-section__figure-description",
           "id": "figure-4-desc",
-          "test": "bottom-caption"
-        }
-      ]
-    },
-    {
-      "figureId": "Fig5",
-      "blockIds": [
-        "a-section-4"
-      ],
-      "sourceLocator": "#figure-5 [data-test=\"bottom-caption\"]",
-      "insideFigure": true,
-      "parentClass": "c-article-section__figure-content",
-      "orderedElementSiblings": [
-        {
-          "tag": "DIV",
-          "class": "c-article-section__figure-item",
-          "id": "",
-          "test": null
-        },
-        {
-          "tag": "DIV",
-          "class": "c-article-section__figure-description",
-          "id": "figure-5-desc",
-          "test": "bottom-caption"
-        }
-      ]
-    },
-    {
-      "figureId": "Fig6",
-      "blockIds": [
-        "a-section-4"
-      ],
-      "sourceLocator": "#figure-6 [data-test=\"bottom-caption\"]",
-      "insideFigure": true,
-      "parentClass": "c-article-section__figure-content",
-      "orderedElementSiblings": [
-        {
-          "tag": "DIV",
-          "class": "c-article-section__figure-item",
-          "id": "",
-          "test": null
-        },
-        {
-          "tag": "DIV",
-          "class": "c-article-section__figure-description",
-          "id": "figure-6-desc",
           "test": "bottom-caption"
         }
       ]

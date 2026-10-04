@@ -1,6 +1,68 @@
 # Nature corpus 来源与覆盖
 
-## 2026-10-04 当前来源交接（覆盖后面的历史阻塞状态）
+## 2026-10-04 后续覆盖补齐（最新状态）
+
+当前为 **9篇source-admitted articles、4个table resources、13个excerpts、85个source expectations**。保留原8篇的全部科学内容和expectation values；没有把已知parser失败算作passing coverage。Sources已准备供C独立核验，完整Issue10仍未完成。
+
+新增 [s41598-018-38309-5](https://www.nature.com/articles/s41598-018-38309-5)：Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States；Scientific Reports，DOI 10.1038/s41598-018-38309-5，canonical/structured identity、实质body、OpenAccess label与JSONLD mainEntity.isAccessibleForFree=true均核验。ObservedAt 2026-10-04T06:56:41.242Z；raw 487190bytes / SHA256 a1a135395d984fcda4548aacd0d6eabe0d41bb22c16cc31f4c8f16f8eaf49d51；fixture 172171bytes / SHA256 136cb3b089fac6850fab400bcce1e7b063a2aaccf763f02eeb65697a7700af00；111 retained blocks，3个完整body sections，1 display equation、4mainfigures、74条原referenceprefix。使用同一A sanitizer1.1.0/schema1.0.0，不重复或改写A infrastructure。原始响应只有外部TEMP；新excerpt<256KiB，全部13fixturebytes共1577502（<2MiB）；全corpus含manifest/evidence 2977065bytes，metadataoverhead仍如实交integrator审核。
+
+新增的reference锚点位于li子级p，而非li自身：source-citations-v1.references逐项记录sourceAnchorId及sourceAnchorSelector（ref-CR1…ref-CR74）。Figures标签为Figure1…4，description另含完整caption；Data Availability大小写、firstpage作为article number1657/lastpage空均保持源事实。source-headings/metadata/figures values采用同一10个proposedconsumerIDs，C仍未registered/consumed。
+
+### 真实外文章fragment
+
+新source-crossrefs-v1保留6个不同article链接，均来自referenceprefix而非造进body的测试文本：
+
+- [https://www.nature.com/articles/nclimate1716#supplementary-information](https://www.nature.com/articles/nclimate1716#supplementary-information)；source block a-reference-9
+- [http://www.nature.com/ngeo/journal/v7/n5/abs/ngeo2141.html#supplementary-information](http://www.nature.com/ngeo/journal/v7/n5/abs/ngeo2141.html#supplementary-information)；source block a-reference-29
+- [https://www.nature.com/articles/ngeo1174#supplementary-information](https://www.nature.com/articles/ngeo1174#supplementary-information)；source block a-reference-31
+- [https://www.nature.com/articles/nature11377#supplementary-information](https://www.nature.com/articles/nature11377#supplementary-information)；source block a-reference-35
+- [http://www.nature.com/ngeo/journal/v4/n1/abs/ngeo1032.html#supplementary-information](http://www.nature.com/ngeo/journal/v4/n1/abs/ngeo1032.html#supplementary-information)；source block a-reference-43
+- [https://www.nature.com/articles/ngeo2514#supplementary-information](https://www.nature.com/articles/ngeo2514#supplementary-information)；source block a-reference-50
+
+这些hrefs在markdown/links productionclip诊断中保留于References；Quarto保留于真实referencesBib输出（正文按既有policy不列reference文本）。不把bibliography中的sourceexternalURL写成local章节target。诊断没有tables，不需要尚未提供的tabletransportseam；未运行writer或globalfetch/DNSpatch。仍待C独立verification，不能以此代替ledger/semantic/all-dialect suite。
+
+### 更正caption sibling的先前解释
+
+Canonical §4/§5要求保留真实caption siblings/topology，并没有额外要求description必须位于figure外。实际9源的38个retained mainfigures中，在.c-article-section__figure-content下，.c-article-section__figure-item（image/link容器）与[data-test=bottom-caption]描述div是有序siblings；description同时是figure后代。各source-evidence.json的captionSiblingEvidence记录公开sourceLocator、blockIds和orderedElementSiblings；whole-source block digests/原excerpt bytes未改。先前把“无figure外description”当作未完成必需coverage，是B过严的解释，撤回该缺口判断，不修改canonical，也不需要syntheticDOM补洞。C应按实际src/caption节点关系验证完整caption一次和相邻正文位置。
+
+### 新发现的生产defects（保持真实input与正确oracle）
+
+新article的生产clipNature三policy诊断：debug1display/4figures/74refs，structure/crossrefs validators为true、warnings为空；math与rawHTML validators为false。Figure3的sourcecitation74/56进入数学superscript并残留<a>原HTML；Figure3caption出现2次（sourcewrapper1次）；Methods的m+sup3、kg m+sup−2 s+sup−1等产生7个isolatedSuperscript fragments。完整source nodes、pre-sanitize digests、正确source期待和各policyvalidation结果见fixtures/s41598-018-38309-5/parser-defect-evidence.json；没有完整Markdown snapshot、没有validator豁免。
+
+这两个scope（figurecaption引用/重复；plain-text scientificunit attachment）应以独立bugWorkContracts修复，不能在B扩大parser任务，也不能删掉Methods/caption让它通过。先前tablefooter-note defect仍未解决。Requiredroles已有truthfulsource，passingcoverage仍受这些defects与C/D独立验证阻塞。
+
+### 本轮候选与精确执行命令
+
+[Scientific Reports官方PDF线索](https://www.nature.com/articles/s41598-018-38309-5.pdf)仅用于定位candidate URL/外文章fragment，fixture来自实际guardedarticlebody；未下载PDF转换或构造HTML。另一个[候选PDF线索](https://www.nature.com/articles/s41598-018-35577-z.pdf)也未计为DOM evidence。
+
+| Candidate | UTC observedAt | Raw bytes | Source body SHA256 | Decision |
+| --- | --- | --- | --- | --- |
+| ncomms5918 | 2026-10-04T06:55:46.635Z | 422351 | 36d618ff2a872585a9e3107587cba985478fbf69b35e9c481aee87b53f4d8adb | 拒绝：无OA label，JSONLD isAccessibleForFree=false |
+| ncomms12307 | 2026-10-04T06:55:51.372Z | 485680 | 20968b27bc3689ca1339cbe7337bdf07c1ffe8e0b9dd4995cb72d86c1dc0088e | 不接纳：公开但无目标外文章fragment，caption同布局/已有roles冗余 |
+| s41598-018-38309-5 | 2026-10-04T06:56:41.242Z | 487190 | a1a135395d984fcda4548aacd0d6eabe0d41bb22c16cc31f4c8f16f8eaf49d51 | 接纳：真实外文章fragments，Scientific Reports reference p-ID/figure label变体 |
+| s41598-018-35577-z | 2026-10-04T06:56:46.238Z | 433829 | 560f708b2f173fe33d72f4af1abd81f2556fe027ae5de207df71d3740fd10608 | 不接纳：公开且有3个外文章fragment；与已选SR角色重复 |
+
+以下本轮命令按实际执行记录，不声称复制前轮batch组合：
+
+```powershell
+node $env:TEMP/academic-clipper-issue10-agent-b/acquire-anonymous.mjs ncomms5918 ncomms12307
+node $env:TEMP/academic-clipper-issue10-agent-b/acquire-anonymous.mjs s41598-018-38309-5 s41598-018-35577-z
+node $env:TEMP/academic-clipper-issue10-agent-b/prepare-recipes.mjs s41598-018-38309-5
+node $env:TEMP/academic-clipper-issue10-agent-b/freeze-additional.mjs
+node $env:TEMP/academic-clipper-issue10-agent-b/enrich-additional-oracle.mjs
+node $env:TEMP/academic-clipper-issue10-agent-b/append-additional-contract.mjs
+node $env:TEMP/academic-clipper-issue10-agent-b/caption-sibling-evidence.mjs
+node $env:TEMP/academic-clipper-issue10-agent-b/reference-anchor-evidence.mjs
+node $env:TEMP/academic-clipper-issue10-agent-b/audit-source-contracts.mjs
+node $env:TEMP/academic-clipper-issue10-agent-b/diagnose-additional.mjs
+node $env:TEMP/academic-clipper-issue10-agent-b/preserve-additional-defect.mjs
+```
+
+Finalsourceaudit exit0：9篇untouchedsourcepayload/hash/subtree/idem/signatures/path/mapping，13fixture bytes/hash/size PASS；第9篇原input重复与idem PASS；manifestemptyregistry正确拒绝Unconsumed expectation，仍未Cassertionpreflight通过。完整clip诊断exit0只表示report已生成，**不表示validators通过**。本轮生产/parser/tests/规范/黄金artifact无修改；未因仅新增source数据重复已有288-test suite来冒充corpus测试。
+
+## 前轮8-entry交接与历史访问ledger（下文是当时状态）
+
+## 2026-10-04 前轮8-entry来源交接
 
 已取得并按来源接纳 8 篇公开 Open Access article DOM、4 个独立 table responses；12 个 A-generated excerpts 共 1,405,331 bytes，全部重复生成一致、二次 sanitization 幂等、fixture/hash 与原始 source bytes 一致。来源字段已写入 [manifest](../test/corpus/corpus-manifest.json)，逐篇 source-evidence.json 是脱敏 DNS/HTTP ledger 与 source position 证据。76 个 versioned source expectations / 10 个 assertion IDs 交未来 C 登记；尚未独立消费，不能视为 offline regression 通过或 Issue #10 完成。
 

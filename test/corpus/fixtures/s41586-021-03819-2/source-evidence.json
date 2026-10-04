@@ -918,5 +918,122 @@
     ],
     "tables": []
   },
-  "sourcePositionConvention": "Match id to manifest retainedBlocks for original source selector, role and pre-sanitize subtree digest. sourceSerializedBytes uses nature-corpus-subtree/1.0.0, not HTTP byte offsets."
+  "sourcePositionConvention": "Match id to manifest retainedBlocks for original source selector, role and pre-sanitize subtree digest. sourceSerializedBytes uses nature-corpus-subtree/1.0.0, not HTTP byte offsets.",
+  "captionSiblingEvidence": [
+    {
+      "figureId": "Fig1",
+      "blockIds": [
+        "a-section-1"
+      ],
+      "sourceLocator": "#figure-1 [data-test=\"bottom-caption\"]",
+      "insideFigure": true,
+      "parentClass": "c-article-section__figure-content",
+      "orderedElementSiblings": [
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-item",
+          "id": "",
+          "test": null
+        },
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-description",
+          "id": "figure-1-desc",
+          "test": "bottom-caption"
+        }
+      ]
+    },
+    {
+      "figureId": "Fig2",
+      "blockIds": [
+        "a-section-1"
+      ],
+      "sourceLocator": "#figure-2 [data-test=\"bottom-caption\"]",
+      "insideFigure": true,
+      "parentClass": "c-article-section__figure-content",
+      "orderedElementSiblings": [
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-item",
+          "id": "",
+          "test": null
+        },
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-description",
+          "id": "figure-2-desc",
+          "test": "bottom-caption"
+        }
+      ]
+    },
+    {
+      "figureId": "Fig3",
+      "blockIds": [
+        "a-section-3"
+      ],
+      "sourceLocator": "#figure-3 [data-test=\"bottom-caption\"]",
+      "insideFigure": true,
+      "parentClass": "c-article-section__figure-content",
+      "orderedElementSiblings": [
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-item",
+          "id": "",
+          "test": null
+        },
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-description",
+          "id": "figure-3-desc",
+          "test": "bottom-caption"
+        }
+      ]
+    },
+    {
+      "figureId": "Fig4",
+      "blockIds": [
+        "a-section-5"
+      ],
+      "sourceLocator": "#figure-4 [data-test=\"bottom-caption\"]",
+      "insideFigure": true,
+      "parentClass": "c-article-section__figure-content",
+      "orderedElementSiblings": [
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-item",
+          "id": "",
+          "test": null
+        },
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-description",
+          "id": "figure-4-desc",
+          "test": "bottom-caption"
+        }
+      ]
+    },
+    {
+      "figureId": "Fig5",
+      "blockIds": [
+        "a-section-7"
+      ],
+      "sourceLocator": "#figure-5 [data-test=\"bottom-caption\"]",
+      "insideFigure": true,
+      "parentClass": "c-article-section__figure-content",
+      "orderedElementSiblings": [
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-item",
+          "id": "",
+          "test": null
+        },
+        {
+          "tag": "DIV",
+          "class": "c-article-section__figure-description",
+          "id": "figure-5-desc",
+          "test": "bottom-caption"
+        }
+      ]
+    }
+  ]
 }
