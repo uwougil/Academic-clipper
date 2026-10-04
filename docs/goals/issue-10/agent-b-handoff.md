@@ -1,86 +1,170 @@
-# Agent B — 当前来源采集交接（未完成）
+# Agent B — Nature source handoff（供未来 integrator / Agent C）
 
-本文是当前 evidence/handoff，不是 5–10 corpus entries 的交付声明。Canonical spec、生产 parser、golden 与 A infrastructure 均未由 B 改写。
+来源采集已解阻：8 篇 source-admitted Open Access article、4 个真实 table resource、12 个 deterministic sanitized excerpts 与76个source expectations已提交。**Agent B的最终验收仍未完成，Issue #10未完成**：C尚未独立审核/登记消费，table notes有真实parser defect，另有外文章fragment/caption外sibling覆盖缺口；不能把这些计成passing coverage。规范未改，production parser/tests/golden均未由B修改。
 
-## Base、依赖与 commits
+## Accepted base / branch / ordered commits
 
-- Accepted base：`ef3975c6a0eb1ec1e5a010a2df5b4f57309cebbe`，含 PR #27 与随后主线提交。2026-10-03 最新 remote main 对应 [CI run 37135219340](https://github.com/uwougil/Academic-clipper/actions/runs/37135219340) completed/success，三个 CI jobs（Ubuntu Node 20/24、Windows Node 24）均成功。Workflow 实际名称为 `CI`。
-- Branch：`codex/issue-10-agent-b`；worktree：`C:/Users/guoli/.codex/worktrees/3417/academic-clipper`。不选择或修改其他 agent worktree。
-- A H1 consumed：原 `20b48328114f195974e92827583b6bf5875beb27` → `4e0aec64f996a0090a7c74c14edd8ab5051d9639`，B 原样 cherry-pick 并 rebase 到最新 main 后为 `330e8d1a63bca29b2f0bc9236609b8bd5d814113` → `6d7389e4ed16d7a98416a47a7499c7871780bfe0`。Schema/recipe `1.0.0`；sanitizer `nature-corpus-sanitizer/1.0.0`；serializer `nature-corpus-subtree/1.0.0`；projection `nature-corpus-projection/1.0.0`。见 [A handoff](agent-a-handoff.md)。Integrator 若已选 A originals，不要重复选择 B dependency copies。
+- Base：e85b1b809b56242b89b6313ce5d1165c745466bb，latest accepted main，含PR #27 planning contract（5971ebf）；[CI 37182993143](https://github.com/uwougil/Academic-clipper/actions/runs/37182993143) completed/success，Ubuntu Node20/24与Windows Node24均success。冻结源文件时de8a8955db0327c0241d648e4546c2d9f85a330d的Main CI也success；其后只rebase本branch，15 commits无冲突，未touch其他agent worktree/branch。
+- Branch：codex/issue-10-agent-b；worktree：C:/Users/guoli/.codex/worktrees/3417/academic-clipper。
+- 当前source delivery commit：bee3910240c83789dcb6f8ae530c233289fda737。文件：test/corpus/corpus-manifest.json；fixtures/<id>/article.excerpt.html、source-evidence.json；4 tables/table-1.excerpt.html；3 table-defect-evidence.json；docs/nature-corpus.md。没有raw capture、image/PDF/XLSX、credentials或普通delivery PR。
+- 本handoff commit自身SHA使用 git log -1 --format=%H -- docs/goals/issue-10/agent-b-handoff.md 获取，避免commit自引用；完整ordered list可用 git log --reverse --format="%H %s" e85b1b809b56242b89b6313ce5d1165c745466bb..HEAD 重建。
 
-基于已成功的 latest main 做 `git rebase origin/main` 无冲突完成；本次 rebase 仅重写此 task branch 自身 commit identities。
-
-当前完整顺序：
-
-| SHA | 文件/归属 |
+| SHA | Commit / ownership |
 | --- | --- |
-| `052a7c381047a5afea8d621c03c77e890eb91419` | B：docs/nature-corpus.md |
-| `8158be383c370c11020f36ddd4735844159f1fa9` | B：docs/nature-corpus.md |
-| `36daaf422c74da2d55b241603e21572bd54c9809` | B：docs/nature-corpus.md |
-| `330e8d1a63bca29b2f0bc9236609b8bd5d814113` | A dependency：test/corpus/.gitattributes、scripts/lib/nature-corpus-infrastructure.mjs、scripts/sanitize-nature-corpus.mjs、test/corpus/corpus-schema.json、test/nature-corpus-infrastructure.test.mjs |
-| `6d7389e4ed16d7a98416a47a7499c7871780bfe0` | A dependency：docs/goals/issue-10/agent-a-handoff.md |
-| `52ef6380724b536e88c9f61797d7fac274bb7f9b` | B：docs/nature-corpus.md |
-| `6730e7446e84e8d982abdaea9825f118c3576f2a` | B：docs/nature-corpus.md |
-| `462443eb9290fed668f50579c746841fee3ad8ef` | B：docs/nature-corpus.md |
-| `9094b1f51a3e66e045a18baf152506e5df0feaaa` | B：docs/goals/issue-10/agent-b-handoff.md |
-| `13fdc0b3d3178eff77c2dd08ef336af568186595` | B：docs/goals/issue-10/agent-b-handoff.md、docs/nature-corpus.md |
-| `b11f6ed852c336cb11bc78b777cfc439f5bd9f3e` | B：docs/goals/issue-10/agent-b-handoff.md、docs/nature-corpus.md |
-| `64639633fd43863cc97ee2784b59e035294eb456` | B：docs/nature-corpus.md；刷新基线与 CI 记录 |
-| `92c3a6a0c595703cd564fc727ae78af634d686a6` | B：docs/goals/issue-10/agent-b-handoff.md；前次基线与 commit map |
+| 60ccd6d726581f65d870a6c6a15f3cae16bad8ed | docs(corpus): 记录 Agent B 来源访问阻塞与交接条件 |
+| 51c57bcdb6890ac576bb1b96699df25270e1483d | docs(corpus): 保留精确 UTC 来源时间并记录访问复核 |
+| 2a03a06fb9e29bd43f9c28c099bb14c88a2682da | docs(corpus): 记录第三次访问核验与阻塞审计 |
+| 5f54a4159984c99956f08ef2db7282da6b6f7c61 | feat(corpus): add versioned Nature corpus infrastructure for H1 |
+| e5d0d29cf15df5499297b4432275766be9042ec5 | docs(corpus): record Agent A H1 interface and integration handoff |
+| f840c036177d1923b405c5046191667aa42fa58d | docs(corpus): 记录 H1 接入版本与浏览器访问证据边界 |
+| 75aff3ed2fb865dc94a22e8732d1c7e424f4981e | docs(corpus): 记录侧边浏览器真实 DOM 与响应字节限制 |
+| 512177bc3e4bcd3fcc73bdfb2547b5e970a46f16 | docs: record initial Nature source and table research |
+| cb7c792925a86853130a23e7330e860bf9ee05a5 | docs(corpus): add Agent B acquisition handoff and source-interface proposal |
+| 9ebee607369f6fd0895f3c1066a6cbb1a6bcd2ad | docs(corpus): record anonymous browser redirect evidence |
+| ee751a480366f0af4920cc62e4f2caeab46ad02b | docs(corpus): cite publisher access troubleshooting evidence |
+| 5d2addcc87cd668e687eecaa29e6f984caa141f7 | docs(corpus): refresh accepted main and CI baseline |
+| 380858d172687e0c8e769bbd7325885366806db4 | docs(corpus): refresh Agent B handoff base and commit map |
+| 7e09aea4f86152eb397c4f6e8f28121058e4b704 | docs(corpus): record anonymous acquisition alternatives and bounded recovery proposal |
+| b2082154fa31ab7fbda2b97cc112284ae56f0e9b | fix(corpus): version exact-identity mainEntity JSON-LD support |
+| 2e0a9763540834f4b941a10a57ae96a24310299f | fix(corpus): preserve source HTML whitespace in diff checks |
+| bee3910240c83789dcb6f8ae530c233289fda737 | feat(corpus): acquire eight source-backed Nature excerpts and source contracts |
 
-上表是本次交接刷新前的有序历史；本 handoff 刷新 commit 自身 SHA 由 `git log --format=%H -- docs/goals/issue-10/agent-b-handoff.md` 获取，避免在同一 commit 内自引用 SHA。相对最新 base 的完整列表也可由 `git log --reverse --format="%H %s" ef3975c6a0eb1ec1e5a010a2df5b4f57309cebbe..HEAD` 重建。
+早期B docs commits主要修改docs/nature-corpus.md或本handoff，保存历史访问证据；current source guide明确覆盖旧“0 admitted”状态。A dependencies是原样cherry-pick：20b48328114f195974e92827583b6bf5875beb27 → local5f54a4159984c99956f08ef2db7282da6b6f7c61（scripts/lib/nature-corpus-infrastructure.mjs、scripts/sanitize-nature-corpus.mjs、test/corpus/corpus-schema.json、test/corpus/.gitattributes、test/nature-corpus-infrastructure.test.mjs）；4e0aec64f996a0090a7c74c14edd8ab5051d9639 → locale5d0d29cf15df5499297b4432275766be9042ec5（A handoff）；3754d3a781459635e719859353fe3cbdf8741897 → localb2082154fa31ab7fbda2b97cc112284ae56f0e9b（A1.1helper/schema/tests/handoff）；8f8a3dbf5d83c1475c41a197bcdfd1bf73834679 → local2e0a976（A .gitattributes/Ahandoff whitespace rule）。Integrator已选A originals时不要再选B dependency copies。
 
-## 当前 admission、source oracle 与资源状态
+## A interface consumed / source authorization
 
-0 admitted articles；没有 frozen manifest、fixtures、resource files 或 source-derived expectations。没有可报告的 fixture/resource byte sizes/hashes、通过的 coverage 或 expected warning contracts。不能把研究观察计入验收。
+Schema/recipe1.0.0；sanitizer nature-corpus-sanitizer/1.1.0；serializer nature-corpus-subtree/1.0.0；projection nature-corpus-projection/1.0.0。见[A handoff](agent-a-handoff.md)。原始Nature JSON-LD为WebPage.mainEntity ScholarlyArticle，sameAs exact DOI；A1.0拒绝真实结构，B送source feedback，A owner发布1.1兼容，不改raw/source scientific content。Legacy1.0 replay仍保留。
 
-8 个 canonical 候选及 4 个 replacement 的 cookie-free guarded acquisition 均因 HTTP 303 到 `https://idp.nature.com/authorize` 被 article-scope guard 拒绝；每个 ID/URL、精确 UTC observedAt、失败理由和临时 evidence 路径见 [来源 ledger](../../nature-corpus.md)。它们是 acquisition-rejected candidates，不是已证实科学内容不足或结构冗余的论文。完整 captures 未提交，也没有取得可用 raw article body。
+用户对bounded fresh anonymous Cookie proposal明确回复：“可以 继续往下尝试 直到能拿到需要对的东西”。这是任务内source acquisition例外，取代原cookie禁令的受限范围；没有复用用户浏览器profile/Cookie、账号或机构凭据，Jar每个article/resource全新且内存清空；不导出Cookie/code/query、不改生产transport或canonical。原raw-body hash要求完全保持，未使用decoded string hash。
 
-`s41534-024-00877-y` 的用户已打开公开页面可供只读研究：canonical/DOI/title/journal/两名 ordered authors 已核验，rendered DOM 有 52 display wrappers、257 math spans、74 references。Full-page observations 不等于 excerpt oracle。Eq9 的初始源码保留直接 `$$…$$` TeX；Table 1 初始 HTML 为 4 th + 4 td、单行 body、无 spans，含 i/sup 和 inline TeX。其 equation-heavy 与 simple-table-with-inline-math roles 仅为候选；不能覆盖 multiline-array、第二种 table layout 或其他必需角色。精确 TeX、公开 locators 与 decoded-string positions 见来源 ledger；positions 明确是 UTF-16 offsets，不是原 body byte offsets。
+复用safeFetchExternal与生产DNS guard；public DoH A/AAAA增量64KiB/10s；verified-public-IP socket绑定；TLS hostname/cert verification；exact HTTPS article/table路径+idp /authorize,/transit allowlist；max5redirects；30s含body、25MiB增量body、HTMLtype。Observed303→302→302→200不是Cloudflare CAPTCHA证据。成功source必须canonical+exactcitationDOI+title/journal+substantivebody+OpenAccess label+JSONLD isAccessibleForFree=true同时成立。Article/table raw bytes均在TextDecoder/JSDOM前hash；ledger只保存redacted origin/path、status/type、cookieboolean/count。Fullcapturedraw仅外部TEMP，永不commit。
 
-Article/table 的 CDP `Page.getResourceContent` 均返回 decoded string，`base64Encoded: false`。Lengths 分别 449217/162813 JS code units。没有任何 sourceSha256；未将字符串重新 UTF-8 编码冒充 pre-decoding hash。浏览器网络请求是否带站点 Cookie 亦未取得合规 acquisition 证明；没有读取或导出 Cookie/credentials。Source sanitization 尚未执行，因此 transformations/omissions/size policy 审核待采集后完成。
+## Admissions / rejection / coverage / sizes
 
-尚无 truthful reduced parser reproducer 或已确认 parser defect。Rendered MathJax 与 initial HTML 的差异是来源选择风险，不是已证明的生产 defect；B 未修改 parser/tests 来回避它。
+Canonical gate、distinct DOM、ordered source roles、transformations/omissions详见[来源指南](../../nature-corpus.md)与manifest；source-evidence.json是来源位置、public accessibility、sanitized HTTP/DNS ledger、repeat/idem事实。Hash不是真实性证明。
 
-## 恢复路径与待人工决议的规范建议
+| Article | Role | Eq / main+ED / refs | Blocks | Fixture SHA |
+| --- | --- | --- | --- | --- |
+| [s41586-026-10401-1](https://www.nature.com/articles/s41586-026-10401-1) | golden scientific runs / main+Extended Data / rowspan table / internal crossrefs | 13 / 3+4 / 50 | 99 | 73c0cbb04cf5d2f3424b4119f9085fad54ae8928665c21c362178bee6c2ec292 |
+| [s41534-023-00746-0](https://www.nature.com/articles/s41534-023-00746-0) | quantum numbered multiline arrays / Eq. (9) / four body sections / simple math table | 37 / 6+0 / 77 | 117 | b32d31f2389e8c052f990812cfd86441172538fd66e37fa17f97704d8795d9fc |
+| [s41586-021-03819-2](https://www.nature.com/articles/s41586-021-03819-2) | AlphaFold five long panel captions / paragraph adjacency / main figure topology | 0 / 5+0 / 84 | 158 | b47e9b289dfd671000e361872c9feb561b6b603eaf7c9a7011923fbf43a3c5ef |
+| [s41586-020-2012-7](https://www.nature.com/articles/s41586-020-2012-7) | ordered citations / update UI / zero displays / image-only table fallback | 0 / 3+2 / 16 | 84 | 42e83aae5ecffa52c031b36103b0220b52674bec0e6a79346ba088284ccdd594 |
+| [s41586-023-05896-x](https://www.nature.com/articles/s41586-023-05896-x) | 119 authors / nested sections / notes and first two affiliations / supplementary links / GitHub fragments | 0 / 4+2 / 49 | 209 | 9abb9d06ecbf79f8b4cb0883c4625d64fc25ab0bd7c01a45b6fb46353e3f29af |
+| [s41586-023-06735-9](https://www.nature.com/articles/s41586-023-06735-9) | materials units and scientific attachment / captions / data and code URLs | 1 / 3+0 / 71 | 115 | c997a761f1dea592df1d1b6007d338bf028de4825e48acdd94645cd2eba05517 |
+| [s41467-023-44030-3](https://www.nature.com/articles/s41467-023-44030-3) | compound bold numbers / GABA_A subscripts / Greek and units / nested Results | 0 / 7+0 / 52 | 93 | b3b10a0f1b4cdb2fb9980ebc44142d778689a18b396e51af93ebeb95f84b605e |
+| [s41586-022-04755-5](https://www.nature.com/articles/s41586-022-04755-5) | FRB units / coordinates and uncertainties / negative powers / colspan table / 2 Extended Data | 8 / 3+2 / 53 | 127 | 3214c1ee6e7f232b45dcb5e44768f38608edcd9d6d870c1fc93948c854d54f1b |
 
-优先保持当前规范：在可由 production guarded transport 取得 cookie-free 原始 article/table bytes 的环境继续采集。该环境必须保留 URL、DNS、redirect scope、timeout、size 和 content-type 检查；不得把跟随 idp、带 Cookie 或关闭安全检查当作恢复步骤。现有 browser request headers 对照没有解除 303，故无需继续同类重复重试。未确认根因为 Cloudflare。
+Rejected/replaced：s41586-021-04354-w有institutional access而非publicOA，拒绝使用已取得内容，替换s41586-022-04755-5。s41534-024-00877-y公开可取，source hash edd817c105ca946ec123076e09224ef18f377ce6bfcefbf37214108e230d3ffc、449888bytes，仅保留研究对照；其52display/2×4无span表与已有quantumrole冗余，不算第9篇。其余早期replacement只有noCookie rejection/research，无admission声明。不得把原PR #13输入作为证据，本交付没有复用它。
 
-当前 `Page.getResourceContent` 的 decoded response text 可证明源码结构，但不足以满足 §6 的 sourceSha256 定义。一次更新的 CDP 页面内 fetch 探测显式设置 `credentials: "omit"` 并尝试读取 `Response.arrayBuffer()` / SHA-256；Nature 返回 303 到 `idp.nature.com/authorize`，之后身份 transit 返回 302，最终 URL 标出 `error=cookies_not_supported`，浏览器因跨域 CORS 失败且没有 article body/hash。精确过程见 [来源 ledger](../../nature-corpus.md)。因此这不是已验证的 headless 假设；在同一侧边浏览器中，无 Cookie fetch 也遇到身份 cookie 流程。本次没有证明 Cloudflare 参与。
+| Body | observedAt UTC | Raw / fixture bytes | sourceSha256 | fixtureSha256 |
+| --- | --- | --- | --- | --- |
+| s41586-026-10401-1 article | 2026-10-03T16:44:03.154Z | 437403 / 155363 | ea2508302b4c3af4efe421f02c3de93379b50940dd1a8762166efb38033cc91c | 73c0cbb04cf5d2f3424b4119f9085fad54ae8928665c21c362178bee6c2ec292 |
+| s41586-026-10401-1 table-1 | 2026-10-03T16:47:49.080Z | 172830 / 2968 | 36a52d93aca60fb50cb7452b2990f955f399d1b8a59e5278dff0764a9042d568 | 0f140482b5ed5873629f22df427fffe01aa5374c6253e465a4678f1ea1749677 |
+| s41534-023-00746-0 article | 2026-10-03T16:44:08.251Z | 511799 / 228057 | 6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e | b32d31f2389e8c052f990812cfd86441172538fd66e37fa17f97704d8795d9fc |
+| s41534-023-00746-0 table-1 | 2026-10-03T16:47:53.404Z | 169146 / 4299 | 7772399037acb3ba4dfc100bc6c9a8fdf4f82c56d8836e65fcb761294e9ee069 | 90670968407415e1f7e7c624b3244330015a4e52bc9790e811d2992205851c2d |
+| s41586-021-03819-2 article | 2026-10-03T16:44:11.820Z | 616249 / 188879 | 7a9843e69996c1a64a9a5ecc8b96015cfd45262e636e33e505a011d315c4310b | b47e9b289dfd671000e361872c9feb561b6b603eaf7c9a7011923fbf43a3c5ef |
+| s41586-020-2012-7 article | 2026-10-03T16:44:15.126Z | 418904 / 82098 | 340b1b93ba889c99acf492c7e5ba14ba36e0a5c12866da39a445237e992e2cb9 | 42e83aae5ecffa52c031b36103b0220b52674bec0e6a79346ba088284ccdd594 |
+| s41586-020-2012-7 table-1 | 2026-10-03T16:50:31.782Z | 179489 / 2500 | 3b6d64a5934ac4b45df370930ec4d9a9e51b41dc71ad3aaf2d87eb5c3125e29e | 6d67417849218c151fc8a1b27c1cbe56634d3774005b911cdc7c763462e42794 |
+| s41586-023-05896-x article | 2026-10-03T16:44:18.130Z | 1251945 / 191458 | 342b8dc5d0bf7d01618a3e9965ef6de9b23c59c7f7bef429592cbdb7852c36ec | 9abb9d06ecbf79f8b4cb0883c4625d64fc25ab0bd7c01a45b6fb46353e3f29af |
+| s41586-023-06735-9 article | 2026-10-03T16:44:22.324Z | 506351 / 201653 | 79f575e1941633c2dbd036682977ea6c274acd5c8c44fdb4648856a00a8d7cc6 | c997a761f1dea592df1d1b6007d338bf028de4825e48acdd94645cd2eba05517 |
+| s41467-023-44030-3 article | 2026-10-03T16:44:25.253Z | 460171 / 155114 | a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d | b3b10a0f1b4cdb2fb9980ebc44142d778689a18b396e51af93ebeb95f84b605e |
+| s41586-022-04755-5 article | 2026-10-03T16:48:03.040Z | 545450 / 187508 | 190a270027c69a816b2647d2fdc6f1777cdf669695506fa40f2fe3cab8801ace | 3214c1ee6e7f232b45dcb5e44768f38608edcd9d6d870c1fc93948c854d54f1b |
+| s41586-022-04755-5 table-1 | 2026-10-03T16:50:36.037Z | 185820 / 5434 | 97eaaa31a6f3443e63ad7cf2cef66776d72d61c6b0f0d2956d87cd43b39485a2 | d5c167a5e0e2bbe016a1728985a5f96788492a9397060cee4292bcb37ec81fd0 |
 
-出版社官方文档将 `idp.nature.com/debug` 指向 Nature content access troubleshooting，并提到 cookies 可能影响访问（链接及范围限制见来源 ledger）。它没有说明当前 Open Access article 为何 303，也没有将错误归因于 Cloudflare；没有访问需要携带本机访问状态的 debug 端点。
+Article最大228057bytes；table最大5434bytes；fixture aggregate1405331bytes，全部within256KiB/64KiB/2MiB默认bounds。几篇超过20–150KiB软目标，为完整display/caption/author/section/refprefix保留stress topology。全部corpus含schema/manifest/source/defect evidence约2.5MiB，metadata overhead需integrator明确审核，未填虚假reviewedBy。
 
-若另一个合规网络路径下同样的 cookie-omitting fetch 能返回 200，`Response.arrayBuffer()` 可提供 decoding 前的 body bytes，可能直接满足当前 source hash 定义，无需改 spec。当前探测失败，没有可用 bytes；浏览器展示页的内容依旧不能替代它。A H1 的 `browser-dom` 说明仍适用。
+| Table | Physical rows / cells | Real spans | Notes | Status |
+| --- | --- | --- | --- | --- |
+| s41586-026-10401-1/table-1 | 4; [5, 5, 4, 5] | OSSG: colSpan=1, rowSpan=2 | 1 | full-size-html |
+| s41534-023-00746-0/table-1 | 3; [3, 3, 3] | none | 0 | full-size-html |
+| s41586-020-2012-7/table-1 | 0; [] | none | 2 | fallback-no-html-table |
+| s41586-022-04755-5/table-1 | 24; [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2] | Burst parameters: colSpan=2, rowSpan=1; Persistent radio source: colSpan=2, rowSpan=1; Host galaxy: colSpan=2, rowSpan=1 | 6 | full-size-html |
 
-如果人工决定以现有公开浏览器来源作为正式 acquisition，应先独立批准并落地如下设计变更，再恢复依赖该变更的工作：
+正确warning：display0的AlphaFold/COVID/pangenome/chemistry允许且只允许 No equation nodes were detected.；table HTML successes无resourcewarning；COVID exactresourcewarning为 Extended Data Table 1: The full-size Nature page did not expose HTML table cells; retained the absolute URL.。Source table footnotes仍必须保留，不因为fallback允许静默丢弃。HTTP failure/同article redirect/逃离scope rejection仍由C/D声明synthetic，不伪装sourceHTTP200。
 
-1. 在 canonical §5/§6 明确一种 decoded-initial-response acquisition，保留独立 `decodedSourceSha256`（对浏览器返回的 initial response text UTF-8 bytes），禁止将它命名或解释为 raw `sourceSha256`；保留 source capability、实际观察时间、公开 URL/locators、独立 source review。Rendered DOM 与 initial response 仍要区分。
-2. 人工明确这种公开浏览器读取是否允许匿名站点 session/Cookie；当前“不使用 cookies/private sessions”指令不因页面打开而自动解除。保持不使用账号、机构权限、credentials，不导出 Cookie 到脚本，不以受限页面替代公开全文。
-3. A 发布兼容 schema/helper/CLI/provenance 版本及迁移说明；C 独立审查该模式可证明和不能证明的来源性质；D 的 guarded live verifier 仍单独报告 access blocked，不把浏览器访问等同 guarded HTTP 成功。
-4. 5–10 篇、所有必需覆盖、完整 semantic blocks、真实 table resource、三 dialect、确定性与所有 validators 等验收范围保持不变。
+## Frozen source expectations / public positions
 
-以上只是供人工审议的 proposal；B 没有修改 canonical、采用该模式或宣称它满足现有规范。单独允许 decoded hash 仍不能解除 Cookie/guarded acquisition 前置条件，必须完整解决来源访问契约。
+实际manifest为A1.0schema形状，没有自创incompatible schema；10个proposed consumer IDs是nature-source-metadata-v1、nature-source-abstract-v1、nature-source-headings-v1、nature-source-equations-v1、nature-source-figures-v1、nature-source-citations-v1、nature-source-inline-v1、nature-source-crossrefs-v1、nature-source-ui-v1、nature-source-tables-v1。76个values均由untouched source DOM提取，value.version=1.0.0。C尚未registered消费；普通A validation严格报Unconsumed expectation，B没有dummy/no-op registry。
 
-### 本轮实际多路径结果与较小的恢复提案（未批准、未执行）
+每个coverage条目指向retained block / expectation；每个expectation.blockIds都指向实际article/table source。公开source URL+manifest recipe.selector+original source ID可定位；retainedBlocks记录pre-sanitize subtreeSha256，source-evidence sourcePositions记录sourceSerializedBytes，按idjoin，serializer同A版本。这不是HTTP byte offset。Scientific案例另有blockId/selector/index/sourceContext；caption有完整text+首尾+bold single-letter sequence+previous/next paragraph+src/srcset候选+descriptionPlacement；equation有ordered IDs/exactsourceTex/number，包括quantumEqu9 rclarray和rowseparator；citations原anchor序列及orderednumbers、referenceprefix原positions；abstract原paragraphorder；headinglevel/text/parent；orderedauthors/date-source-fields/notes/2完整affiliations/contributions/correspondence均由源保存。C负责验证生产变换后的语义，B没有用parser output反推expected。
 
-2026-10-03 已实际比较：文章公开 alternate links、真实 Chrome/154 UA 与 navigation headers、4 个 fresh-DNS public CDN addresses、Undici allowH2、系统现有 local proxy 的 public-IP-pinned CONNECT 路线。7 个 guarded HTTP cases 均为 303/text/html → `https://idp.nature.com/authorize`，未跟随；同一侧边浏览器的 cookie-omitting/manual-redirect Fetch 则 12 秒 timeout，没有新的 HTTP response evidence。完整配置、UTC、exact commands、external diagnostic file hashes 见 [ledger](../../nature-corpus.md)。未证实 Cloudflare/headless 归因，不能保证换出口一定成功。
+Metadata date保留citation_online_date/publication_date/date；first online来源字段有值优先，source字符串和最终ISO形式要区分。Figure boldsinglelettersequence不全解释为panel编号（可能有数学变量）。当前bottom-caption在figure内容div内；descriptionIsSibling=false是真实source事实。Internal targetRetained=false保留了真实omittedtarget，不可造节点。Pangenome外fragment是真实GitHubresources，并非externalNaturearticle。
 
-当前最小待审议选项是仅改变 acquisition 的匿名站点 Cookie 限制，而保持 raw-byte provenance 定义：
+Omissions：recipe选择完整sections/paragraphs/Extendednodes/referencesoriginalprefix，不重编号；其余sections、余下affiliations、部分ED figures不覆盖。全metadataauthor序列保留。移除executable/ads/analytics/session/access/tracking/无关UI；保留source metrics/update UI用于排除。JSONLD article metadata保留真实结构，A fixedscaffold/sortedattributes/UTF8noBOM/LF/URLcleanups transformations operation/count写入manifest。没有全局collapse meaningfulwhitespace或prettyprintscientificinline。Data/Code/Supplementary保留actualURLs，无supplementarybinary转HTML。
 
-1. 新建可证明独立的临时匿名浏览器 context；不能复用当前用户 profile/Cookie、账号、机构权限或 credentials。当前 CUA 已列出的能力没有专门的 isolated-context API，不能把普通新 tab 宣称匿名隔离；具体可用接口/环境仍需证明。
-2. 仅在人工明确批准并修订 canonical acquisition 契约后，允许 Nature 在该 context 设置临时站点 Cookie。认证路径仅限定 HTTPS `www.nature.com` 和 `idp.nature.com`，严格 redirect count/time/body bounds；最终 article/table 必须返回所声明 article 的 canonical/structured DOI 与实质全文。拒绝任何账号登录、机构权限、付费授权或其他 host。不得导出 Cookie、token/authorization code 或写入 repository。
-3. 从 cookie exchange 后的实际 HTTP 解压 body bytes 在 decoding 前捕获 sourceSha256；不得以 decoded string/DOM 重新编码替代。Source hash 语义、5–10 篇、真实 topology、table resources、independent oracle、全部 coverage/validators 均保持原要求。若可用接口仍只返回 decoded string，此选项尚不能满足来源条件，不能悄悄改成另一种 hash。
-4. 这是 source acquisition 例外提案，不修改 production `safeFetchExternal()` / article/table redirect scope 或 D 默认 live verifier。无 Cookie live verifier仍如实报告 access blocked，不将 acquisition 特例算作默认传输成功。批准后也须由相应 owner 定义明确的 versioned captureMode/schema 接口再冻结 manifest；B 不自行修改 A infrastructure。
-5. 若继续严格 no-Cookie，则保留本轮全部拒绝证据，在可用另一出口作有限探测；当前没有已验证的新出口。不能通过反复改 UA、允许越界 redirect、复制 Cookie 或关闭 guards 来宣称解阻。
+## Defect evidence / independent bug Work Contract proposal
 
-这份具体提案是为解决用户当前困境的审议材料，不是已测试的成功方案。人工可以批准这段有限的来源规则变更，或继续严格 no-Cookie；没有决议前，B 不执行依赖 Cookie 的步骤，也不改 canonical spec。它比上述 decoded-source 模式更小，但仍需要显式解除原始用户指令与 Agent B precondition 中的 Cookie 禁令以及 canonical guarded-acquisition 范围假设。
+拟议独立bug（尚未创建Issue、无parserfix）：**Nature full-size tables lose adjacent source footnotes**。
 
-## Commands、验证与 Agent C 条件
+Trigger：source table page #content .c-article-table-footer li在table外，golden1条、FRB6条；COVID image-onlytable也有2条公开note。hydrateNatureTables仅赋tableElement.outerHTML，或no-cell分支仅保留URL；normalize/render只能看到cells，脚注关联及正文丢失。正确source期待见source-tables-v1.sourceNotes与sourceNotesLocator，source根本不需要改变。
 
-Exact acquisition/header-probe commands、时间及结果见来源 ledger；脚本 exit 0 表示 rejection ledger 保存成功，不是取得正文。B 实际已执行 `npm ci`（65 packages，0 vulnerabilities）、接入 H1 前 `npm test`（110 pass）、`npm run build`、golden `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto`（valid，13 display equations/50 references）、接入 H1 后 `node scripts/sanitize-nature-corpus.mjs --help`（exit 0）及 `node --test test/nature-corpus-infrastructure.test.mjs`（28 pass）。这些不证明 corpus 验收。A 自己的 138-test/full-build 结果见 A handoff，不冒充 B 已执行结果。
+Scope：最小修复Nature table source footer捕获、科学inline处理与三policy渲染，继续保留同articleURL/DNS/redirect/body/type安全边界及no-cellfallbackwarning；不改writer、publisherrouting、fixtureprose或其他适配器。验收：对本truthfulresources，在markdown/quarto/links中脚注原次序/marker/text/scientificattachment存在一次；HTMLtable和no-cellresource状态/链接/warning保持正确；tablecells/spans与quartoidentifiers/zeroHTML/linksanchorpolicy不退化；未声明requests仍fail。
 
-本轮 rebase 到 `ef3975c6a0eb1ec1e5a010a2df5b4f57309cebbe` 后重新执行 `node --test test/nature-corpus-infrastructure.test.mjs`：exit 0，28 pass，0 fail/skip。`git diff --check` exit 0；本轮 tracked diff 只含 B 的来源文档和 handoff；相对 accepted base 的其他文件仍是原样 A dependencies。没有 full capture、Cookie、credentials 或新 fixture。未因仅来源文档变更重复整套 parser/build checks；新 accepted main 的三平台 CI 结果单独记录，不冒充 B 本地全套重跑。
+Evidence：3个fixtures/<id>/table-defect-evidence.json，正确notes/fullsourcephysicalcells/status/warnings、Aledger unexpected0、三个outputPolicy的缺失结果。此诊断是production table子链路，不冒充完整clip或Call-dialect验收。Golden/astro无hydrationwarning；COVIDwarning是exactexpectedfallback。现有288testpass不能证明notes角色passed。
 
-C 可基于已交 H1 做 assertion framework，但 source-specific verification 的明确 unblocking 条件是：合规获取 article/table 原 bytes 或已批准的新来源接口；B 用实际 A 版本生成 deterministic excerpts/provenance 并核对 transformations/omissions；为每条 coverage 交付 retained block、source position 和 source-derived assertion value；C 登记 strict registry 并独立确认。完整 clip table replay 还依赖 D 的 transport seam。当前这些 source-specific 条件均未满足。
+可复制的最小只读复现（无真实DNS/HTTP、无globalfetchpatch、无writer；保持DOM到整个诊断结束，避免Defuddle缓存realm被人为提前close）：
 
-Integrator 选择 B commits 前检查 `git diff --check`、`git status --short`、tracked filenames；只包含来源文档与明确的 A dependencies，不含 full captures、credentials、binaries 或 fixture 伪造。最终 implementation 的全部 checks/三平台 CI 仍须执行。本文不声明 Agent B 或 Issue #10 完成。
+```javascript
+import { readFile } from 'node:fs/promises';
+import { parseNaturePage, hydrateNatureTables } from './src/adapters/nature.mjs';
+import { normalizeTableContents, renderTables } from './src/normalizers/figures.mjs';
+import { withDomGlobals } from './src/dom-runtime.mjs';
+import { outputPolicy } from './src/renderers/output-policy.mjs';
+import { createReplay, loadReplayResources } from './scripts/lib/nature-corpus-infrastructure.mjs';
+const manifest = JSON.parse(await readFile('test/corpus/corpus-manifest.json'));
+const article = manifest.articles.find(a => a.articleId === 's41586-022-04755-5');
+const replay = createReplay({ resources: await loadReplayResources(article, 'test/corpus'),
+  dns: { 'www.nature.com': [{ address: '151.101.0.95', family: 4 }] } });
+const page = parseNaturePage(await readFile('test/corpus/' + article.fixturePath, 'utf8'), article.url);
+await hydrateNatureTables(page.tables, article.url, replay);
+await withDomGlobals(page.dom, () => normalizeTableContents(page.tables, article.url));
+for (const style of ['markdown', 'quarto', 'links']) {
+  const markdown = renderTables(page.tables, outputPolicy(style));
+  console.log(style, markdown.includes('Including the FAST and VLA observations.')); // actual false; source true
+}
+replay.assertClean();
+page.dom.window.close();
+```
+
+## Commands / exact recorded results / failed experiments
+
+External root是 $env:TEMP/academic-clipper-issue10-agent-b（实际C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-b）；临时helper及完整raw不会进入repository。逐篇实际sanitizer CLIargs由freeze-receipts.json保留，durable source-evidence.sanitizationCommands使用external-root占位符防止localpath进入fixture。recipe内容等于manifest.recipe；要重跑时从manifest导出相应recipe，再用真实外部rawbody输入；output必须是新路径（CLI wx），重复结果与committedbytes比较，不能覆盖source。
+
+```powershell
+node $env:TEMP/academic-clipper-issue10-agent-b/acquire-anonymous.mjs s41586-026-10401-1 s41534-023-00746-0 s41586-021-03819-2 s41586-020-2012-7 s41586-023-05896-x s41586-023-06735-9 s41467-023-44030-3
+node $env:TEMP/academic-clipper-issue10-agent-b/acquire-anonymous.mjs s41586-022-04755-5
+node $env:TEMP/academic-clipper-issue10-agent-b/acquire-anonymous-tables.mjs s41586-026-10401-1 s41534-023-00746-0 s41586-020-2012-7 s41586-022-04755-5
+node $env:TEMP/academic-clipper-issue10-agent-b/prepare-recipes.mjs
+node $env:TEMP/academic-clipper-issue10-agent-b/freeze-excerpts.mjs
+node $env:TEMP/academic-clipper-issue10-agent-b/enrich-source-oracle.mjs
+node $env:TEMP/academic-clipper-issue10-agent-b/audit-source-contracts.mjs
+node $env:TEMP/academic-clipper-issue10-agent-b/reproduce-table-notes.mjs
+node $env:TEMP/academic-clipper-issue10-agent-b/audit-index.mjs
+npm ci
+node --test test/nature-corpus-infrastructure.test.mjs
+npm test
+npm run build
+npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto
+git diff --cached --check
+git diff --check
+git status --short
+git diff --name-only e85b1b809b56242b89b6313ce5d1165c745466bb..HEAD
+```
+
+上列前3条acquisition命令是重建的等价重现命令，不声称当时精确batch组合；准确observedAt/body/hash/hops以每个source-evidence ledger为准。其后source preparation/audit/verification脚本与命令均实际执行。成功source请求为article/table200与exactidentity/OAgate如表。Finalfreezeexit0：8article/4table重复bytes和idem PASS。Sourceauditexit0：8sourcepayload（metadataauthors/abstract/orderedheadings/equationTeX+numbers/完整caption/refpositions/tablecells）、blockrawhash、fixturehash/idem/signatures/coverageblockmapping/size PASS；emptyregistry被正确拒绝Unconsumed expectation。Indexaudit12hash PASS，24sourcefilenames/secret/executableaudit PASS。
+
+npmci exit0，65packages/0vuln（e85mainpackage/lock相对de8无变化）；H1focused32pass；de8basefull270pass，最终e85basefull288pass/0fail/skip；buildexit0；goldenvalid：13display/50references，全productionvalidatorsvalid。MainCI三个job结果单独列出，不冒充BbranchCI或corpussemanticpass。npmrun test:corpus尚未集成，不声称执行。后续C实际registry可用时必须执行：node scripts/sanitize-nature-corpus.mjs --validate-manifest test/corpus/corpus-manifest.json --corpus-root test/corpus --registry scripts/lib/nature-corpus-assertions.mjs；目前该module不存在，不能用empty/dummyregistry声称通过。
+
+诚实记录失败实验：A1.0拒绝原JSONLD，owner1.1修复；table recipe最初误用不存在main，改为源唯一#content；COVIDupdatebox/Pangenomeparagraph初始nth-of-typelocator在pruning后不稳定，改为原sourcehref稳定:has selector，firstsanitizedscientificbytes未变化，repairedrecipehash与重复/idem已重新核验。这些是B selection缺陷，不是parserbug。COVIDtable最初gate误要求cells，修为真实title/backlink的negativecase，不改sourcecells。Table诊断首次未使用withDomGlobals，以及第二轮提前close首次DOM造成Defuddle缓存realm错误；最终使用真实withDomGlobals/outputPolicy并在全部运行后close，finaldiagnostic无convertererrors，notes缺失仍复现。没有将这些setup错误当作生产defect。
+
+普通gitdiff --cached --check initiallyexit2，2770个sourceHTML blank-at-eol，科学bytes不能trim；B把证据交A，A8f8a3d提供仅fixtures/**/*.html whitespace=-blank-at-eol（仍text eol=lf，blank-atEOF/代码prose检查保留）。原样选择后cachedcheckexit0，12indexhash未变；不是B修改sanitizer或删sourcewhitespace。JSON非hashfixture允许Git本地CRLF，HTMLforcedLF，两份filehash一致。
+
+## Spec proposals / C unblocking conditions
+
+未修改canonical/PRD/EDD。Sourceacquisition例外已经由human授权，仅记录，不提重新批准。需要resolvedhuman判断的spec假设：当前8个initialresponses没有figure外的captiondescription sibling，也没有externalNaturearticlefragment；补真正source是优先路径，如确实不可取得，明确允许标synthetic的补充case，而不是把GitHubfragment或nestedcaption当成该真实角色。Aggregate“约2MiB”请明确是否包括metadata/provenance；A当前gate仅fixturebytes，B总文件metadata更大，不能填假review。
+
+C可立即消费：A H1 originals+3754d3a+8f8a3d；B bee3910 sourcecommit+本handoff。先从publicsource/retainedblocklocators独立审核8篇身份和oracle，不只看parseroutput；C登记10个严格valuevalidators/assertions，消费76个expectationIDs并维护coverage记录。审阅日期precedence、caption完整性/adjacency和notes/inlineCases尤其重要；遇到疑问交B解释，不能修改fixture以消掉failure。
+
+正式all-dialectclip还需要D的实际productionreplayseam（clipNature当前没透传hydratefetchImpl/resolveHostname）；不能globalfetch/DNSpatch。需要单独notesbug WorkContract修复并passingregression；所需externalNaturefragment/captionlayout source或humanresolvedsyntheticcase、aggregate大小决定完成后，才有机会满足B/C最终验收。C还须运行全部validators、ledger/determinism/A→B→A/bibliography/golden契约。
+
+当前appthreads里没有已启动的AgentC任务；这是给未来C/integrator的durablehandoff，未虚报“C已审核/收到消息”。没有新建未经人类请求的chat，也没有普通Issue10deliveryPR。Issue10只能由最终integrator单一PR和mergedcommitMainCI结束。
