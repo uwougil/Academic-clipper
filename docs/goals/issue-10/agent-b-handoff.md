@@ -1,6 +1,18 @@
 # Agent B — Nature source handoff（9篇 source contracts）
 
-## 收尾状态与未来消费者
+## 后续 orchestration 与来源署名补充
+
+用户后续 autonomous orchestrator Goal 已取代下文“C 暂未启动，先收尾”的当时状态；C / D 已被自动启动，实际任务和依赖 DAG 见 `orchestration-handoff.md`。这里仍只交付 B-owned source contracts / provenance，不修 production、不改 canonical，也不宣称 Issue #10 完成。
+
+本补充仅新增 9 个 `source-evidence.json` 的 `sourceRights` 字段以及本文/来源指南。消费 A sanitizer `nature-corpus-sanitizer/1.1.0` 与 serializer `nature-corpus-subtree/1.0.0` 原接口；manifest、85 source expectations、13 fixture bytes / hashes、科学内容和 source positions 全部保持。记录完整 ordered authors、原页面完整 Rights and permissions 声明、原始 CC href、声明源 selector/index/hash；golden 源标注 CC BY-NC-ND 4.0，其余 8 源标注 CC BY 4.0。Publisher site footer copyright 与 article notice 分开；4 table 页面没有 CC anchor，真实记录为空并指向所属 article 的许可证据。许可/credit 不被 repository code license 替代，技术转换与 omissions 如实说明。
+
+实际运行 `node $env:TEMP/academic-clipper-issue10-agent-b/record-source-rights.mjs`（只读 audit）及 `.../record-source-rights.mjs --write`：9 article raw hashes / creator arrays / notice positions、4 table raw hashes PASS；manifest bytes 与 13 fixture hashes 不变。随后 `audit-source-contracts.mjs` exit 0：9 payload reviews、13 fixtures、1577502 fixture bytes PASS；其 empty-registry 的 Unconsumed expectation 拒绝仅证明未使用 dummy registry，不能代替 C assertions。全 `test/corpus` 为 3010072 bytes / 29 files，大小政策仍交 integrator 审核，未写虚假 exception。本补充没有 HTTP/DNS、production/parser/tests、完整 raw capture 或 golden 修改。补充 commit SHA 由该 B branch 的 `git log -1 --format=%H` 重建，final integrator 明确选择。
+
+C 当前已独立报告全部 85 source oracle values 与 13 原 body / retained subtree / fixture hash 校验 PASS，待其 durable checkpoint 固化。C 的三 dialect 实测中仍有真实 parser failures；Table-footer 独立 PR #46 正在等待 fresh CI / Secret scan 和独立 review，其余缺陷交独立 bug agents。B 的 explicit C unblocking conditions 仍为：消费实际 A/B interfaces、独立核验科学 oracle、经 D 的 real production seam replay resources、对每个 mandatory expectation 三 dialect 真实执行、严格 warnings / ledgers / deterministic repeat / A→B→A / bibliography / golden；缺陷 landing 后恢复 SAME C，不允许略过失败。
+
+本轮 `audit-index.mjs` 首次在 11 staged files 上校验 13 index hashes PASS，随后因它仅允许 `test/corpus/` source paths、另含 2 个 docs paths 而 exit 1（unexpected staged path），未将该次结果称 secret audit 成功。暂时只 unstaged 两个 docs 后重跑 exit 0：13 index hashes / 9 staged source filename、secret、executable audit PASS；再 stage docs 并核对 11 个明确 owned filenames、`git diff --cached --check` 和 clean post-commit status。没有更改 audit 的 secret 规则或任何 scientific input。
+
+## 收尾状态与未来消费者（上一轮历史）
 
 用户已明确回复 Agent C“暂未启动 先收尾吧”。因此本交付是供未来 C / integrator 选择的 durable handoff；尚未向已启动的 C 任务发送 oracle，也没有独立审核结果。下文先前索取 C taskname/threadID 的问题已得到回答，不再等待该问题的回复，不自行创建 C 任务。
 

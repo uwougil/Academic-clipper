@@ -1,5 +1,15 @@
 # Nature corpus 来源与覆盖
 
+## 2026-10-04 来源署名与许可记录补齐
+
+9 篇 `source-evidence.json` 新增 `sourceRights`，版本 `nature-source-rights/1.0.0`。从已核对 raw-body SHA 的原始响应提取完整 ordered `citation_author` 署名、原页面 Rights and permissions 声明、原始许可 href、声明 paragraph selector/index 与 A serializer 的 pre-sanitize subtree hash。`s41586-026-10401-1` 原页面声明 [CC BY-NC-ND 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/)；其余 8 篇原页面声明 [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)。每篇保留原声明中的第三方材料说明；记录不把摘录重新授权为 repository code license，也不声称检查过未提交的 image binaries。
+
+原页面 `p.c-footer__legal` 的 `© 2026 Springer Nature Limited` 单独标为 site footer，不冒充文章自身的 copyright notice。4 个 table 页面均未观察到 CC license anchor；记录真实空列表及关联 article 的署名/许可来源，没有虚报 table 页面存在许可链接。摘录转换为 recipe 选取、A sanitizer 1.1.0、确定性 serialization 与 LF normalization；遗漏项仍见 manifest / handoff，科学文字、公式、caption、表格和原 source expectations 未改。
+
+本补充命令 `node $env:TEMP/academic-clipper-issue10-agent-b/record-source-rights.mjs --write`：9 raw hashes / ordered creators / rights notice positions、4 table raw hashes PASS；manifest bytes 与全部 13 fixture hashes 不变。`audit-source-contracts.mjs` 复核 9 source payloads / 13 fixtures / 1577502 HTML bytes PASS；全 `test/corpus` 为 3010072 bytes（29 files），供 integrator 审核 metadata overhead，未填 sizeException。普通读取没有新 HTTP/DNS、writer 或 production 变更。
+
+此前“C 尚未启动”的收尾状态已被用户后续 autonomous orchestrator 任务取代。C / D 已在独立 worktrees 工作：C 报告独立核对全部 85 source expectations 和 13 source hashes，通过记录待其 checkpoint 固化；解析输出的失败仍完整保留，不能把 source audit 当 semantic acceptance。Table-footer 修复已形成独立 PR #46 / Issue #45，待独立 review 与 fresh checks；caption/citations、scientific units 等前置缺陷按各自 Work Contract 处理。下文保留 acquisition 历史，最终 passing coverage 由 C 和 integrator 的实测记录确定。
+
 ## 2026-10-04 后续覆盖补齐（最新状态）
 
 当前为 **9篇source-admitted articles、4个table resources、13个excerpts、85个source expectations**。保留原8篇的全部科学内容和expectation values；没有把已知parser失败算作passing coverage。Sources已准备供C独立核验，完整Issue10仍未完成。
