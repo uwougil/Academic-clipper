@@ -2,6 +2,8 @@
 
 状态：H1 基础设施接口已交付，供 B/C/D 与 integrator 选择；不代表 Issue #10 完成。2026-10-02。
 
+更新：2026-10-04 的 `mainEntity` 兼容修订见本文末尾；新增采集应使用 sanitizer `1.1.0`。下面原 H1 证据保留为历史版本记录。
+
 ## 基线、提交与所有权
 
 - Base SHA：`5971ebfbe288e0efed4abef21469f41e2cabb05f`。
@@ -176,3 +178,83 @@ Registry module exports `assertionRegistry`。Sanitize CLI 在 UTF-8 decoding �
 - **C**：选择相同 SHA/版本后可立即实现 assertion framework；每个 oracle payload 注册严格 `validate` 和独立 `assert`，先 full preflight，再生产链路，再 `consumeExpectations()`；每个 dialect 均执行 validators。最终 source-specific assertions 等 B 的真实源合同。每场景 teardown 检查 ledger，full clip table replay 等 D seam，不调用缺少注入的 full clip 导致 live 网络。
 - **D**：选择相同 SHA/版本并重新检查 actual landed transport/main CI 后，可用 replay API 与 frozen signatures 实现 live/mock tests。保持生产 guards，选择最小 table transport seam、bounded body/timeout 透传；不建立第二套 parser。新 live signatures 使用同 recipe/sanitizer/serializer，与 frozen retained projection 比较；full-page counts 另列。最终 semantic comparison 等 C API。
 - **Integrator**：按有序 SHA 选择 commits；B/C/D 接受接口并记录 SHA 后 H1 才成为它们各自的明确依赖。后续接口变更由 A 提供兼容 commits 和迁移说明。最终 5–10 真文章、全覆盖、三 dialect、full checks 和 CI 不在本 H1 中宣称完成。
+
+## 2026-10-04 — B 真实来源反馈后的 JSON-LD 兼容修订
+
+本次只修订 A infrastructure，不更改生产 parser、安全 transport、B fixtures/manifest、canonical spec 或 raw captures。仍在原隔离 branch/worktree `codex/issue-10-agent-a` / `C:\Users\guoli\.codex\worktrees\7658\academic-clipper` 工作；原 base `5971ebfbe288e0efed4abef21469f41e2cabb05f` 与两个原 H1 SHA 不变，兼容提交顺接 `4e0aec64f996a0090a7c74c14edd8ab5051d9639`，不 rebase 消费者已选的 dependency commits。修订启动时 remote main 是 `de8a8955db0327c0241d648e4546c2d9f85a330d`，其 [Main CI 37137870378](https://github.com/uwougil/Academic-clipper/actions/runs/37137870378) 已成功；未把其他任务的 main changes 混入兼容提交。精确新 SHA 由包含本节的 commit 确定，并在最终交接列出；可用 `git rev-list --reverse 4e0aec64f996a0090a7c74c14edd8ab5051d9639..codex/issue-10-agent-a` 查询。
+
+本次 changed files 仅：`scripts/lib/nature-corpus-infrastructure.mjs`、`test/corpus/corpus-schema.json`、`test/nature-corpus-infrastructure.test.mjs`、本 handoff。没有新 PR。
+
+### 真实结构证据与根因
+
+B 提供的两个临时 capture 均为 `script[type="application/ld+json"]`，根 keys 为 `mainEntity`, `@context`, `@type`，根 type 为 `WebPage`；`mainEntity.@type` 是 `ScholarlyArticle`。两份 `sameAs` 的实际类型均为 string，分别精确为：
+
+- `https://doi.org/10.1038/s41534-023-00746-0`
+- `https://doi.org/10.1038/s41586-023-05896-x`
+
+没有 mainEntity 根 `url`, `@id`, `mainEntityOfPage`；`isPartOf` 是 journal/volume 对象。原 sanitizer `1.0.0` 只遍历 root/`@graph`，无法取得 `mainEntity`，两份均实际抛出 `Ambiguous or mismatched article JSON-LD; select relevant article script explicitly`。这违反了实现对规范 §5 相关 article object 的支持，属于 A helper compatibility defect，未通过删除 JSON-LD 或重写 source 绕过；不是生产 parser defect，也无需改规范。
+
+| Article ID | 原始 HTTP body SHA-256（只读重查相同） | 本次 metadata-only excerpt SHA-256 |
+| --- | --- | --- |
+| `s41534-023-00746-0` | `6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e` | `edfb3cb27a70af54701590a7ec3555af25fc5bb2fbcee1de5eea94382ab95283` |
+| `s41586-023-05896-x` | `342b8dc5d0bf7d01618a3e9965ef6de9b23c59c7f7bef429592cbdb7852c36ec` | `14e468a46ddfd4b09679afa13949337b78b813c12efa274b82ba5f55653e7456` |
+
+这两份 excerpt 只在内存中验证，未提交，不能计入 corpus admission/coverage；B 仍负责最终完整 semantic block 选取、真实来源 provenance/oracle。A 没有审查/授权 B acquisition Cookie 行为，也没有使用 Cookie、账号、已有 profile、新 HTTP/DNS 或读取 research ledger 的敏感内容。
+
+### 版本、调用及迁移
+
+- `SANITIZER_VERSION` 默认改为 `nature-corpus-sanitizer/1.1.0`；新增 `LEGACY_SANITIZER_VERSION = "nature-corpus-sanitizer/1.0.0"`。
+- Schema、recipe、subtree serializer、projection version 仍为 `1.0.0`，数据形状/API 无破坏性变化；schema 的 `sanitizerVersion` 接受明确的 `1.0.0` 和 `1.1.0`，未知版本拒绝。
+- 调用新增可选第三参数：`sanitizeNatureHtml(html, recipe, {sanitizerVersion = SANITIZER_VERSION} = {})`。默认使用新版本；`verifyManifestFixtures()` 按每个 article/resource 已记录的版本重放，不悄悄用新算法改变旧 fixture oracle。
+- 新版本只遍历 JSON-LD root/arrays/`@graph`/`mainEntity` containers，抽出相关 article，保留继承的源 `@context`（article 自己的 context 优先）。不遍历 publisher/author 等任意字段寻找 article。保留既有 `trim-json-ld-to-article-object` transformation 记录。
+- 新版要求候选具有显式身份；`url`, `@id`, `mainEntityOfPage`, `sameAs` 支持 scalar/array，字符串或 `{"@id": ...}` identity 对象。所有声明值必须为 recipe 的精确 canonical article URL 或精确 `https://doi.org/10.1038/<article-id>`；仅 `@id`/`mainEntityOfPage` 可附 article node fragment。URL query、相似 DOI、外部域嵌入 DOI、相似域、混合 foreign identity、空数组/无身份均拒绝。候选必须恰有一个匹配，否则继续抛同一 integrity error。
+- `1.0.0` 分支仅用于已标记旧版本 fixture 的 byte verification，保留原 root/graph 与无 identity fallback；新增采集不得为了绕过新版 identity gate 标为 legacy。CLI 默认是 `1.1.0`，没有 legacy downgrade flag。
+- B 从未经修改的 raw body 重跑 source selection/sanitization，填写新 `sanitizerVersion`，重算 fixture hash、transformations、retained signatures。Source body hash 和 subtree serializer定义不变；源 digest 必须继续在 raw DOM 上计算。JSON-LD 裁剪时继承 context 可改变输出 bytes，因此已有 JSON-LD fixtures 升级时不能只改版本字符串。
+- D 比较 frozen/live 必须使用 frozen article/resource 的 `sanitizerVersion` 调用第三参数；不可用默认新版与旧版 frozen signatures 混比。C 的 fixture preflight 已自动 version dispatch；其它显式重新 sanitize 调用也应透传 frozen version。
+
+### Exact verification commands 与结果
+
+以下均 exit 0（Windows Node `v24.14.1`）：
+
+- `npm ci`：65 packages、0 vulnerabilities，lockfile 未改。
+- `node --test test/nature-corpus-infrastructure.test.mjs`：32 pass、0 fail/skip；新增四组测试覆盖 source-shape synthetic mainEntity/context、strict sameAs scalar/array rejection、multiple/graph candidates、legacy preflight/version dispatch。原 28 项继续通过。
+- `npm test`：142 pass、0 fail/skip。
+- `npm run build`：成功；`dist/` ignored。
+- `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto`：所有 validators valid，13 display equations、50 references；golden 未改。
+- `git diff --check`、`git diff --cached --check`：无 whitespace errors；changed/tracked paths 只含本次四个 owned files，提交后 `git status --short` 干净。
+
+真实源复核命令：仓库根目录 PowerShell 中把以下 JS 用 `@' ... '@ | node --input-type=module` 执行。它只读取既有临时 raw，输出 hash/check facts，不写 source/excerpt 文件，不访问网络：
+
+```js
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {JSDOM} from 'jsdom';
+import {sanitizeNatureHtml, sha256Bytes, LEGACY_SANITIZER_VERSION} from './scripts/lib/nature-corpus-infrastructure.mjs';
+for (const id of ['s41534-023-00746-0', 's41586-023-05896-x']) {
+  const file = `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-b/${id}.anonymous.raw.html`;
+  const bytes = readFileSync(file), source = bytes.toString('utf8');
+  const recipe = {version: '1.0.0', id: 'real-jsonld-review', articleUrl: `https://www.nature.com/articles/${id}`,
+    blocks: [{id: 'metadata', selector: 'script[type="application/ld+json"]', role: 'metadata'}], removeSelectors: []};
+  assert.throws(() => sanitizeNatureHtml(source, recipe, {sanitizerVersion: LEGACY_SANITIZER_VERSION}), /JSON-LD/);
+  const first = sanitizeNatureHtml(source, recipe), again = sanitizeNatureHtml(first.html, recipe);
+  assert.deepEqual(first.bytes, sanitizeNatureHtml(source, recipe).bytes);
+  assert.deepEqual(first.bytes, again.bytes); assert.deepEqual(first.signatures, again.signatures);
+  const rawDom = new JSDOM(source), excerptDom = new JSDOM(first.html);
+  const original = JSON.parse(rawDom.window.document.querySelector('script[type="application/ld+json"]').textContent);
+  const retained = JSON.parse(excerptDom.window.document.querySelector('script[type="application/ld+json"]').textContent);
+  assert.deepEqual(retained, {...original.mainEntity, '@context': original['@context']});
+  assert.equal(retained.sameAs, `https://doi.org/10.1038/${id}`);
+  assert.equal(sha256Bytes(bytes), sha256Bytes(readFileSync(file)));
+  console.log(JSON.stringify({id, sourceSha256: sha256Bytes(bytes), fixtureSha256: first.fixtureSha256,
+    bytes: first.bytes.length, sanitizerVersion: first.sanitizerVersion, result: 'PASS'}));
+  rawDom.window.close(); excerptDom.window.close();
+}
+```
+
+结果两篇均 PASS；in-memory excerpts 为 6689/47040 bytes。真实来源只用于复核这个接口问题；未作 bulk fixtures，不新增网络采集。临时文件可能被 B 清理，因此永久 offline regression 使用明确 synthetic source-shape inputs，不能伪称其为真实全文。
+
+### Consumers / remaining boundaries
+
+B 选择本修订 SHA 后可保留原 JSON-LD script 输入并正常冻结 `1.1.0` source-backed excerpts，不需要删 JSON-LD 或修改 input。C/D 选择相同 SHA 并登记版本后可按上述 migration 消费；旧 fixture 仍可显式重放旧版本。Integrator 对实际 selected commits 重跑完整 checks/三平台 CI。本 compatibility branch 未运行新的 GitHub CI，accepted main 的成功 CI 不能替代修订后的集成 CI。
+
+若其它真实来源仅有不支持的身份表示，继续保留 evidence 交 A 扩展明确规则，不能以 DOI substring/无 identity fallback 绕过。Production adapter 对原 WebPage.mainEntity 的 metadata fallback 支持不属于本次修订，仍由独立 source assertions 判断；没有宣称生产 parser 对这些文章通过。无 proposed spec changes，Issue #10 仍未完成。
