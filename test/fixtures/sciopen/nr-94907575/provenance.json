@@ -1,0 +1,69 @@
+{
+  "url": "https://www.sciopen.com/article/10.26599/NR.2025.94907575?issn=1998-0124",
+  "observedAt": "2026-10-02",
+  "captureMode": "public-rendered-dom-selected-blocks",
+  "recipe": "sanitize-sciopen-experiment-v2",
+  "selectedInputSha256": "277ce6bf2e226eb4173c8abc6e5d906075540833c7c364c44c903c48cdfae01c",
+  "fixtureSha256": "5d540f731773e392776ec5fcea9f2602465d6854a919b066af9b59698c2eb210",
+  "retained": [
+    {
+      "selector": "#title_-2",
+      "selectedSourceSha256": "d717d4c8982d510e89528853ce73f9e8ad3f60a803769dd20dfa7df0b98dc52c"
+    },
+    {
+      "selector": "#s01",
+      "selectedSourceSha256": "82143382482baca4a4df0968df1e0f86276104b5edabf5d446388d3f5501b991"
+    },
+    {
+      "selector": "#s02",
+      "selectedSourceSha256": "c3c9966cd3111a78bd53f8c492ca5d481499655a666e2812b9e576b00d0e8dc6"
+    },
+    {
+      "selector": "#s02-02",
+      "selectedSourceSha256": "b9fd7bf51e8e009bc46ff160b9e900d4c78ad7ea36f8a6b636d9496a340b14a4"
+    },
+    {
+      "selector": "#s02-03",
+      "selectedSourceSha256": "339877ba9e10d067256bc6c4c7bb0c6c52e676e39a8af64424bc80ce74e2ebfe"
+    },
+    {
+      "selector": "#s03",
+      "selectedSourceSha256": "0d2b55a9ff6bc724fcde718d9c717c5bdd83d41cd8c4638407256e9f4c63a91b"
+    },
+    {
+      "selector": "#s04",
+      "selectedSourceSha256": "c9c0d5454fba2030731a20e8b32be6b35d2946bc4c875525057413bce4536b45"
+    },
+    {
+      "selector": "#title_-11",
+      "selectedSourceSha256": "cb7a80dce80808b24602e89f4ff559cf9d0fd62d4a6f67dfbb2b875ffd078c6a"
+    },
+    {
+      "selector": "#insert_content_two",
+      "selectedSourceSha256": "0f90f0714a49f823fe4d511e9dbddb1499c108a1cf93329ab49f4cf2555ede32"
+    },
+    {
+      "selector": "#title_-12",
+      "selectedSourceSha256": "1bbfc197444fdc0435d2cb383c613f6f8c1f9432d562ec455f327a52fa0ab711"
+    }
+  ],
+  "fullPageObservations": {
+    "figures": 4,
+    "formulas": 1,
+    "tables": 0
+  },
+  "transformations": [
+    "fixed html scaffold",
+    "selected first introduction paragraph / figure-crossref and Greek-subscript results paragraphs with one figure",
+    "related journal retains first display equation and adjacent prose",
+    "retain only data availability from back matter",
+    "replace MathJax duplicate rendering with original accessible MathML",
+    "remove event handlers, styles and executable scripts",
+    "remove image URL query including access signatures; unsigned URL is a locator, not verified downloadable media"
+  ],
+  "omissions": [
+    "other paragraphs and figures",
+    "author UI and account/navigation state",
+    "PDF contents and ESM download handlers"
+  ]
+}
