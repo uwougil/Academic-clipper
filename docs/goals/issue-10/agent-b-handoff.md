@@ -1,5 +1,24 @@
 # Agent B — Nature source handoff（9篇 source contracts）
 
+## 收尾状态与未来消费者
+
+用户已明确回复 Agent C“暂未启动 先收尾吧”。因此本交付是供未来 C / integrator 选择的 durable handoff；尚未向已启动的 C 任务发送 oracle，也没有独立审核结果。下文先前索取 C taskname/threadID 的问题已得到回答，不再等待该问题的回复，不自行创建 C 任务。
+
+本次收尾复核：remote main 仍为 e85b1b809b56242b89b6313ce5d1165c745466bb，PR #27 planning commit 5971ebf 是其祖先；Main CI run 37182993143 completed/success，Ubuntu Node 20/24、Windows Node 24 三 jobs 均 success。B 本轮复核前 HEAD 与 remote branch 均为 cd176742ef8733b31c6e6d60814183e0a5eb9eb0，工作区干净。此次仅补交本 handoff；新的末尾 commit SHA 可用下文 git log 命令获取，不改变 source contracts 或 fixtures。
+
+| Agent B 要求 | 当前证据与验收状态 |
+| --- | --- |
+| 5–10 条真实、不同结构的 admission / 来源、转换、omissions / hashes / sizes / oracle positions | 9 篇、4 table resources、13 excerpts、85 expectations；manifest、各 source-evidence 与来源指南已提交。重新执行 source audit 得到 9 source payload reviews / 13 fixtures / 1577502 fixture bytes PASS，index 13 hashes PASS；仅证明 B source/integrity 范围。 |
+| A 实际接口、重复生成、sanitization / path / secret audit | 使用下文 A owner commits 和版本；各 source-evidence 记录原始输入、recipe、repeat/idem 与审计。本轮重新核对 raw subtree hashes、fixture hashes、idempotence、projection、retained-block / coverage mapping；没有替换 helper 或 scientific input。 |
+| 必需角色的 passing coverage / exact oracle 已交 C 独立审核 | 未完成：C 未启动，scripts/lib/nature-corpus-assertions.mjs 不存在；empty registry 仍正确拒绝 Unconsumed expectation: nature-source-metadata-v1。未来 C 必须独立审核全部来源并真实消费 85 expectations，不能以 B audit 代替。 |
+| 已知 parser failures 的处理 | 正确输入、期待与实际失败证据已保留；table footer notes、caption/citations、plain-text scientific units 三项独立 bug Work Contract 草案在下文。未解决的必需覆盖不能计 passing，B 无 production 修复授权。 |
+| 全链路 table replay | 当前 src/clip.mjs 仍未向 hydrateNatureTables 透传 fetchImpl / resolveHostname；需 D 的实际 seam，再由 C 做全部 dialect、request/DNS ledger、determinism 与 validators 检查。B 的直接 hydration 诊断不能代替完整 clip 测试。 |
+| 规范 / 大小审阅 | canonical 保持不变；caption sibling 及 external fragment 旧疑问已由真实来源解决。全 corpus 含 manifest/evidence 的 2977065 bytes 仍需 integrator 按约 2 MiB 政策审核，未填虚假 sizeException。 |
+
+本轮实际命令：`gh run list --branch main --limit 6 --json databaseId,workflowName,headSha,status,conclusion`；`gh run view 37182993143 --json headSha,status,conclusion,jobs`；`git merge-base --is-ancestor 5971ebf e85b1b809b56242b89b6313ce5d1165c745466bb`（exit 0）；`node "$env:TEMP/academic-clipper-issue10-agent-b/audit-source-contracts.mjs"`（exit 0，source/integrity PASS，registry rejection 如上）；`node "$env:TEMP/academic-clipper-issue10-agent-b/audit-index.mjs"`（exit 0，13 index hashes PASS；当时 0 staged files，故该轮 staged secret scan 不提供新的 source secret 审计证明）；`git diff --check`（exit 0）；`git status --short`（空）；`git ls-remote origin refs/heads/main refs/heads/codex/issue-10-agent-b`（与上列 SHAs 一致）。首次 workflow 查询误用不存在的 main-ci.yml，返回 404；改为枚举实际 CI workflow 并检查指定 run 成功，未将查询失败当作 Main CI pending。
+
+当前 C / D / 独立 bug 修复是验收前置条件，没有可等待的已启动 C handle；本 handoff 不宣称 Agent B 最终验收或 Issue #10 完成。
+
 ## 2026-10-04 最新补充交接（下文8-entry记录由此更新）
 
 **当前9篇source-admitted articles、4个table resources、13个excerpts、85个source expectations**。新增source commit f4cafa32274bf0b1ab427c82c950457feb68fa78已在本isolated B branch：test/corpus/corpus-manifest.json；9篇source-evidence.json（补38个mainfigure真实sibling定位）；新fixtures/s41598-018-38309-5/article.excerpt.html、source-evidence.json、parser-defect-evidence.json；docs/nature-corpus.md。前8个manifest article/source expectation values完整保留，12个原fixture hashes未改。Accepted base仍e85b1b809b56242b89b6313ce5d1165c745466bb，A versions/ownership/branch/worktree同下文。Source/integrity验收与独立C验收保持区分，不宣称AgentB/Issue10 complete。
