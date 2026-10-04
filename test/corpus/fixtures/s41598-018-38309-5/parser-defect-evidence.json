@@ -1,0 +1,785 @@
+{
+  "evidenceVersion": "nature-source-parser-defect/1.0.0",
+  "classification": "PARSER_DEFECT_REPRODUCED; independent C audit pending",
+  "articleId": "s41598-018-38309-5",
+  "url": "https://www.nature.com/articles/s41598-018-38309-5",
+  "sourceSha256": "a1a135395d984fcda4548aacd0d6eabe0d41bb22c16cc31f4c8f16f8eaf49d51",
+  "fixtureSha256": "136cb3b089fac6850fab400bcce1e7b063a2aaccf763f02eeb65697a7700af00",
+  "scope": "Zero-table-resource clipNature -> production converters/normalizers/renderers/validators, no writer or global network patch. No passing coverage claim.",
+  "sourcePositions": [
+    {
+      "blockId": "a-section-2",
+      "blockSelector": "section[data-title=\"Results\"]",
+      "sourceId": "figure-3-desc",
+      "sourceDescendantIndex": 16,
+      "sourceTag": "DIV",
+      "sourceSubtreeSha256": "97dedd0cd8d86a6d5cf96831c688e0ab4b1295f5e3e3a54e12d4372e1812fb06",
+      "sourceScientificHtml": "<div class=\"c-article-section__figure-description\" data-test=\"bottom-caption\" id=\"figure-3-desc\"><p>HYDRO 1 K Elevation map of the USA Source <a href=\"http://srtm.csi.cgiar.org/\">http://srtm.csi.cgiar.org/</a>.<sup><a aria-label=\"Reference 74\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41598-018-38309-5#ref-CR74\" id=\"ref-link-section-d152458983e749\" title=\"USGS. HYDRO1k Elevation Derivative Database: U.S. Geological Survey available online at, \n                  https://lta.cr.usgs.gov/HYDRO1K\n                  \n                 (accessed 08 November 2018) (2000).\">74</a></sup>. Mean GPCP precipitation (mm/day) during the period 1979–2008 considering only JJA months (<b>b</b>). Map of areas equipped for irrigation expressed as percentage of total area<sup><a aria-label=\"Reference 56\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41598-018-38309-5#ref-CR56\" id=\"ref-link-section-d152458983e756\" title=\"Siebert, S. et al. A global data set of the extent of irrigated land from 1900 to 2005. Hydrol. Earth Syst. Sci. 19, 1521–1545, \n                  https://doi.org/10.5194/hess-19-1521-2015\n                  \n                 (2015).\">56</a></sup> (<b>c</b>). All maps are re-gridded at the 2° × 2° resolution, to match the bias maps.</p></div>"
+    },
+    {
+      "blockId": "a-section-3",
+      "blockSelector": "section[data-title=\"Methods\"]",
+      "sourceId": null,
+      "sourceDescendantIndex": 8,
+      "sourceTag": "P",
+      "sourceSubtreeSha256": "ef1666f31fc9d5ef91d05932f6f75a271d01f93a2cd60b3ee08a43acefffd60c",
+      "sourceScientificHtml": "<p>The most recent re-processed SMOS-IC SM product retrieved from SMOS Satellite brightness temperature (TB) observations. The SMOS satellite was launched in 2009 by the European Space Agency (ESA) to monitor SM and sea surface salinity at the global scale<sup><a aria-label=\"Reference 62\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41598-018-38309-5#ref-CR62\" id=\"ref-link-section-d152458983e1199\" title=\"Wigneron, J. P. et al. Modelling the passive microwave signature from land surfaces: A review of recent results and application to the L-band SMOS &amp; SMAP soil moisture retrieval algorithms. Remote Sensing of Environment 192, 238–262, \n                  https://doi.org/10.1016/j.rse.2017.01.024\n                  \n                 (2017).\">62</a>,<a aria-label=\"Reference 63\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41598-018-38309-5#ref-CR63\" id=\"ref-link-section-d152458983e1202\" title=\"Kerr, Y. H. et al. Overview of SMOS performance in terms of global soil moisture monitoring after six years in operation. Remote Sensing of Environment 180, 40–63, \n                  https://doi.org/10.1016/j.rse.2016.02.042\n                  \n                 (2016).\">63</a></sup>. SMOS-IC SM was recently developed by INRA (Institut National de la Recherche Agronomique) in collaboration with CESBIO (Centre d’Etudes Spatiales de la BIOsphère). The SMOS-IC SM product differs from the operational SMOS Level 3 SM product (SMOSL3) in three main ways: (i) SMOS-IC is based on SMOS Level 3 TB data and it is independent from auxiliary model products, (ii) specific filters were introduced to select the TB data used in the SM retrievals, and (iii) a new calibration of the soil roughness parameters and vegetation parameters was applied in the forward L-MEB (L-band Microwave Emission of the Biosphere) model. SMOS-IC provides SM (in m<sup>3</sup>/m<sup>3</sup>) for the first 5 cm centimetres of the soil and is available for the period 2010–2016 on a daily basis and at a spatial resolution of 25 km. More details on the SMOS-IC data can be found in Fernandez-Moran <i>et al</i>.<sup><a aria-label=\"Reference 64\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41598-018-38309-5#ref-CR64\" id=\"ref-link-section-d152458983e1213\" title=\"Fernandez-Moran, R. et al. SMOS-IC: An Alternative SMOS Soil Moisture and Vegetation Optical Depth Product. Remote Sensing 9, \n                  https://doi.org/10.3390/rs9050457\n                  \n                 (2017).\">64</a></sup>.</p>"
+    },
+    {
+      "blockId": "a-section-3",
+      "blockSelector": "section[data-title=\"Methods\"]",
+      "sourceId": null,
+      "sourceDescendantIndex": 9,
+      "sourceTag": "P",
+      "sourceSubtreeSha256": "4f25e8ac9e1426554014e17329318e7b3fc1c25116f9e1ab0f48e57f3bcb9633",
+      "sourceScientificHtml": "<p>The ESA CCI combined (version 03.2) SM product was generated by combining different active and passive microwave SM retrievals from different sensors: ERS, ASCAT (Metop-A and Metop-B), SSMR, TMI, AMSR-E, SSM/I, SMOS, AMSR2, and WindSat<sup><a aria-label=\"Reference 34\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41598-018-38309-5#ref-CR34\" id=\"ref-link-section-d152458983e1228\" title=\"Wagner, W. et al. Fusion of Active and Passive Microwave Observations to Create an Essential Climate Variable Data Record on Soil Moisture. XII Congress of the International Society for Photogrammetry and Remote Sensing-Melbourne, Australia (2012).\">34</a>,<a data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"#ref-CR65\" id=\"ref-link-section-d152458983e1231\" title=\"Owe, M., de Jeu, R. &amp; Holmes, T. Multisensor historical climatology of satellite-derived global land surface moisture. Journal of Geophysical Research: Earth Surface 113, F01002, \n                  https://doi.org/10.1029/2007jf000769\n                  \n                 (2008).\">65</a>,<a data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"#ref-CR66\" id=\"ref-link-section-d152458983e1231_1\" title=\"Bartalis, Z., Hasenauer, S., Naeimi, V. &amp; Wagner, W. WARP-NRT 2.0 Reference Manual. ASCAT Soil Moisture Report Series, No. 14. Institute of Photogrammetry and Remote Sensing, Vienna University of Technology, Austria (2007).\">66</a>,<a aria-label=\"Reference 67\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41598-018-38309-5#ref-CR67\" id=\"ref-link-section-d152458983e1234\" title=\"Liu, Y. Y. et al. Trend-preserving blending of passive and active microwave soil moisture retrievals. Remote Sensing of Environment 123, 280–297, \n                  https://doi.org/10.1016/j.rse.2012.03.014\n                  \n                 (2012).\">67</a></sup>. It should be noted that this CCI version included more recent sensors (e.g., SMOS and AMSR2) that were not considered in the previous versions of the CCI SM products. Hence, a significant increase in the scientific value of the products is expected. It is worth noting that the SMOS SM product included in the CCI was derived using the LPRM algorithm which is different from the SMOS-IC products used in this study. The CCI SM product is provided as daily SM (in m<sup>3</sup>/m<sup>3</sup>) for the first 5 cm of the soil column and is available for the 1978–2015 period with a spatial resolution of 0.25° × 0.25°.</p>"
+    },
+    {
+      "blockId": "a-section-3",
+      "blockSelector": "section[data-title=\"Methods\"]",
+      "sourceId": null,
+      "sourceDescendantIndex": 12,
+      "sourceTag": "P",
+      "sourceSubtreeSha256": "af263d53c19f9fca7054d08994038c3d287dcebcf705f9ba94e6d86d96b3e186",
+      "sourceScientificHtml": "<p>We focused on so-called AMIP simulations (historical land-atmosphere simulations with prescribed sea surface temperatures over 1979–2008) of the CMIP5 project and selected 20 models providing the following three output variables: 1) TAS: 2-m near surface air temperature (in K); 2) Pr: total precipitation (in kg m<sup>−2</sup> s<sup>−1</sup>); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m<sup>2</sup>). It is often argued that SM variability varies with soil depth<sup><a aria-label=\"Reference 36\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41598-018-38309-5#ref-CR36\" id=\"ref-link-section-d152458983e1302\" title=\"Dorigo, W. A. et al. Evaluation of the ESA CCI soil moisture product using ground-based observations. Remote Sensing of Environment 162, 380–395, \n                  https://doi.org/10.1016/j.rse.2014.07.023\n                  \n                 (2015).\">36</a>,<a aria-label=\"Reference 71\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41598-018-38309-5#ref-CR71\" id=\"ref-link-section-d152458983e1305\" title=\"Koster, R. D. et al. On the Nature of Soil Moisture in Land Surface Models. Journal of Climate 22, 4322–4335, \n                  https://doi.org/10.1175/2009jcli2832.1\n                  \n                 (2009).\">71</a></sup>, but it was not possible to extract the top 5-cm SM for a large enough number of models. Yet, a recent comparison of <i>in situ</i> and modelled SM profiles showed very similar monthly mean SM values at 5 and 10 cm<sup><a aria-label=\"Reference 72\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41598-018-38309-5#ref-CR72\" id=\"ref-link-section-d152458983e1313\" title=\"Campoy, A. et al. Response of land surface fluxes and precipitation to different soil bottom hydrological conditions in a general circulation model. Journal of Geophysical Research: Atmospheres 118(10), 725–710,739, \n                  https://doi.org/10.1002/jgrd.50627\n                  \n                 (2013).\">72</a></sup>, while several observational studies reviewed in Gruber <i>et al</i>.<sup><a aria-label=\"Reference 73\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41598-018-38309-5#ref-CR73\" id=\"ref-link-section-d152458983e1320\" title=\"Gruber, A., Dorigo, W. A., Zwieback, S., Xaver, A. &amp; Wagner, W. Characterizing Coarse-Scale Representativeness of in situ Soil Moisture Measurements from the International Soil Moisture Network. Vadose Zone Journal 12, \n                  https://doi.org/10.2136/vzj2012.0170\n                  \n                 (2013).\">73</a></sup> reported a good correlation of SM measured at various depths, leading to persistent patterns of SM. Eventually, to make the 10-cm modelled SM as comparable as possible to the 5-cm remotely sensed SM, we relied on both long-term averaging (JJA) and a normalization procedure<sup><a aria-label=\"Reference 71\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41598-018-38309-5#ref-CR71\" id=\"ref-link-section-d152458983e1324\" title=\"Koster, R. D. et al. On the Nature of Soil Moisture in Land Surface Models. Journal of Climate 22, 4322–4335, \n                  https://doi.org/10.1175/2009jcli2832.1\n                  \n                 (2009).\">71</a></sup>, as described below. More details about the 20 models used in this study can be found in Table <a data-track=\"click\" data-track-action=\"supplementary material anchor\" data-track-label=\"link\" href=\"/articles/s41598-018-38309-5#MOESM1\">S1</a> (Supplementary).</p>"
+    }
+  ],
+  "correctSourceExpectations": {
+    "figure3SourceOccurs": 1,
+    "captionCitationNumbers": [
+      74,
+      56
+    ],
+    "publicCaptionCitationHrefs": [
+      "/articles/s41598-018-38309-5#ref-CR74",
+      "/articles/s41598-018-38309-5#ref-CR56"
+    ],
+    "units": "Preserve original m+sup3 /m+sup3, kg m+sup−2 s+sup−1 and kg/m+sup2 as attached scientific runs; do not leave isolated superscript fragments.",
+    "allDialects": "Preserve complete caption once, correct ordered citations and reference definitions/bibliography keys; default/quarto zero raw HTML, links strict anchors only. Production math/scientificFragments validators must pass."
+  },
+  "styles": [
+    {
+      "citationStyle": "markdown",
+      "mathValidation": {
+        "valid": false,
+        "inlineMathCount": 10,
+        "displayMathCount": 1,
+        "issues": [
+          {
+            "type": "inline-math-crosses-line",
+            "line": 65,
+            "column": 114,
+            "delimiter": "$",
+            "context": "… HYDRO 1 K Elevation map of the USA Source [http://srtm.csi.cgiar.org/](http://srtm.csi.cgiar.org/).$^{<a aria-label=\"Reference 74\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s4159…",
+            "message": "Inline math crossed a Markdown line boundary."
+          },
+          {
+            "type": "inline-math-crosses-line",
+            "line": 71,
+            "column": 34,
+            "delimiter": "$",
+            "context": "                 (2015).\">56</a>}$ (**c**). All maps are re-gridded at the 2° × 2° resolution, to match the bias maps.",
+            "message": "Inline math crossed a Markdown line boundary."
+          },
+          {
+            "type": "inline-math-crosses-line",
+            "line": 186,
+            "column": 114,
+            "delimiter": "$",
+            "context": "… HYDRO 1 K Elevation map of the USA Source [http://srtm.csi.cgiar.org/](http://srtm.csi.cgiar.org/).$^{<a aria-label=\"Reference 74\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s4159…",
+            "message": "Inline math crossed a Markdown line boundary."
+          },
+          {
+            "type": "inline-math-crosses-line",
+            "line": 192,
+            "column": 34,
+            "delimiter": "$",
+            "context": "                 (2015).\">56</a>}$ (**c**). All maps are re-gridded at the 2° × 2° resolution, to match the bias maps.",
+            "message": "Inline math crossed a Markdown line boundary."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 126,
+            "column": 917,
+            "delimiter": "$",
+            "context": "…d in the forward L-MEB (L-band Microwave Emission of the Biosphere) model. SMOS-IC provides SM (in m$^{3}$ /m$^{3}$) for the first 5 cm centimetres of the soil and is available for the period 2010–201…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 126,
+            "column": 926,
+            "delimiter": "$",
+            "context": "…forward L-MEB (L-band Microwave Emission of the Biosphere) model. SMOS-IC provides SM (in m$^{3}$ /m$^{3}$) for the first 5 cm centimetres of the soil and is available for the period 2010–2016 on a da…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 128,
+            "column": 725,
+            "delimiter": "$",
+            "context": "…erent from the SMOS-IC products used in this study. The CCI SM product is provided as daily SM (in m$^{3}$ /m$^{3}$) for the first 5 cm of the soil column and is available for the 1978–2015 period wit…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 128,
+            "column": 734,
+            "delimiter": "$",
+            "context": "…m the SMOS-IC products used in this study. The CCI SM product is provided as daily SM (in m$^{3}$ /m$^{3}$) for the first 5 cm of the soil column and is available for the 1978–2015 period with a spati…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 138,
+            "column": 315,
+            "delimiter": "$",
+            "context": "…tput variables: 1) TAS: 2-m near surface air temperature (in K); 2) Pr: total precipitation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is …",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 138,
+            "column": 324,
+            "delimiter": "$",
+            "context": "…ables: 1) TAS: 2-m near surface air temperature (in K); 2) Pr: total precipitation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is often arg…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 138,
+            "column": 400,
+            "delimiter": "$",
+            "context": "…tation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is often argued that SM variability varies with soil depth[^36][^71], but it was not pos…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          }
+        ],
+        "scientificFragments": {
+          "valid": false,
+          "counts": {
+            "isolatedSubscript": 0,
+            "isolatedSuperscript": 7,
+            "boldThenSubscript": 0,
+            "italicThenSuperscript": 0
+          },
+          "issues": [
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 126,
+              "column": 917,
+              "delimiter": "$",
+              "context": "…d in the forward L-MEB (L-band Microwave Emission of the Biosphere) model. SMOS-IC provides SM (in m$^{3}$ /m$^{3}$) for the first 5 cm centimetres of the soil and is available for the period 2010–201…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 126,
+              "column": 926,
+              "delimiter": "$",
+              "context": "…forward L-MEB (L-band Microwave Emission of the Biosphere) model. SMOS-IC provides SM (in m$^{3}$ /m$^{3}$) for the first 5 cm centimetres of the soil and is available for the period 2010–2016 on a da…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 128,
+              "column": 725,
+              "delimiter": "$",
+              "context": "…erent from the SMOS-IC products used in this study. The CCI SM product is provided as daily SM (in m$^{3}$ /m$^{3}$) for the first 5 cm of the soil column and is available for the 1978–2015 period wit…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 128,
+              "column": 734,
+              "delimiter": "$",
+              "context": "…m the SMOS-IC products used in this study. The CCI SM product is provided as daily SM (in m$^{3}$ /m$^{3}$) for the first 5 cm of the soil column and is available for the 1978–2015 period with a spati…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 138,
+              "column": 315,
+              "delimiter": "$",
+              "context": "…tput variables: 1) TAS: 2-m near surface air temperature (in K); 2) Pr: total precipitation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is …",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 138,
+              "column": 324,
+              "delimiter": "$",
+              "context": "…ables: 1) TAS: 2-m near surface air temperature (in K); 2) Pr: total precipitation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is often arg…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 138,
+              "column": 400,
+              "delimiter": "$",
+              "context": "…tation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is often argued that SM variability varies with soil depth[^36][^71], but it was not pos…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ]
+        },
+        "states": {
+          "TEXT": 65412,
+          "INLINE_MATH": 1076,
+          "DISPLAY_MATH": 29,
+          "INLINE_CODE": 0,
+          "FENCED_CODE": 0
+        }
+      },
+      "rawHtmlValidation": {
+        "valid": false,
+        "violations": [
+          {
+            "tag": "a",
+            "line": 65,
+            "column": 117,
+            "context": "<a aria-label=\"Reference 74\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s41598-018-38309-5#ref-CR74\" id=\"ref-link-section-d152458983e749\" title=\"USGS. HYDRO1k Elevation Derivative Database: U.S. Geological Survey available online at,\n                  https://lta.cr.usgs.gov/HYDRO1K\n\n                 (accessed 08 November 2018) (2000).\">",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 68,
+            "column": 57,
+            "context": "</a>",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 68,
+            "column": 240,
+            "context": "<a aria-label=\"Reference 56\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s41598-018-38309-5#ref-CR56\" id=\"ref-link-section-d152458983e756\" title=\"Siebert, S. et al. A global data set of the extent of irrigated land from 1900 to 2005. Hydrol. Earth Syst. Sci. 19, 1521–1545,\n                  https://doi.org/10.5194/hess-19-1521-2015\n\n                 (2015).\">",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 71,
+            "column": 29,
+            "context": "</a>",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 186,
+            "column": 117,
+            "context": "<a aria-label=\"Reference 74\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s41598-018-38309-5#ref-CR74\" id=\"ref-link-section-d152458983e749\" title=\"USGS. HYDRO1k Elevation Derivative Database: U.S. Geological Survey available online at,\n                  https://lta.cr.usgs.gov/HYDRO1K\n\n                 (accessed 08 November 2018) (2000).\">",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 189,
+            "column": 57,
+            "context": "</a>",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 189,
+            "column": 240,
+            "context": "<a aria-label=\"Reference 56\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s41598-018-38309-5#ref-CR56\" id=\"ref-link-section-d152458983e756\" title=\"Siebert, S. et al. A global data set of the extent of irrigated land from 1900 to 2005. Hydrol. Earth Syst. Sci. 19, 1521–1545,\n                  https://doi.org/10.5194/hess-19-1521-2015\n\n                 (2015).\">",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 192,
+            "column": 29,
+            "context": "</a>",
+            "type": "unpermitted-html-tag"
+          }
+        ]
+      },
+      "markdownStructureValid": true,
+      "crossReferenceValidationValid": true,
+      "warnings": [],
+      "figure3CaptionOccurrences": 2,
+      "figures": 4,
+      "equations": 1,
+      "references": 74,
+      "sourceExternalFragmentsPreserved": "Verified in Markdown by separate diagnostic"
+    },
+    {
+      "citationStyle": "quarto",
+      "mathValidation": {
+        "valid": false,
+        "inlineMathCount": 10,
+        "displayMathCount": 1,
+        "issues": [
+          {
+            "type": "inline-math-crosses-line",
+            "line": 60,
+            "column": 114,
+            "delimiter": "$",
+            "context": "… HYDRO 1 K Elevation map of the USA Source [http://srtm.csi.cgiar.org/](http://srtm.csi.cgiar.org/).$^{<a aria-label=\"Reference 74\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s4159…",
+            "message": "Inline math crossed a Markdown line boundary."
+          },
+          {
+            "type": "inline-math-crosses-line",
+            "line": 66,
+            "column": 34,
+            "delimiter": "$",
+            "context": "                 (2015).\">56</a>}$ (**c**). All maps are re-gridded at the 2° × 2° resolution, to match the bias maps.",
+            "message": "Inline math crossed a Markdown line boundary."
+          },
+          {
+            "type": "inline-math-crosses-line",
+            "line": 161,
+            "column": 114,
+            "delimiter": "$",
+            "context": "… HYDRO 1 K Elevation map of the USA Source [http://srtm.csi.cgiar.org/](http://srtm.csi.cgiar.org/).$^{<a aria-label=\"Reference 74\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s4159…",
+            "message": "Inline math crossed a Markdown line boundary."
+          },
+          {
+            "type": "inline-math-crosses-line",
+            "line": 167,
+            "column": 34,
+            "delimiter": "$",
+            "context": "                 (2015).\">56</a>}$ (**c**). All maps are re-gridded at the 2° × 2° resolution, to match the bias maps.",
+            "message": "Inline math crossed a Markdown line boundary."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 109,
+            "column": 933,
+            "delimiter": "$",
+            "context": "…d in the forward L-MEB (L-band Microwave Emission of the Biosphere) model. SMOS-IC provides SM (in m$^{3}$ /m$^{3}$) for the first 5 cm centimetres of the soil and is available for the period 2010–201…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 109,
+            "column": 942,
+            "delimiter": "$",
+            "context": "…forward L-MEB (L-band Microwave Emission of the Biosphere) model. SMOS-IC provides SM (in m$^{3}$ /m$^{3}$) for the first 5 cm centimetres of the soil and is available for the period 2010–2016 on a da…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 111,
+            "column": 753,
+            "delimiter": "$",
+            "context": "…erent from the SMOS-IC products used in this study. The CCI SM product is provided as daily SM (in m$^{3}$ /m$^{3}$) for the first 5 cm of the soil column and is available for the 1978–2015 period wit…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 111,
+            "column": 762,
+            "delimiter": "$",
+            "context": "…m the SMOS-IC products used in this study. The CCI SM product is provided as daily SM (in m$^{3}$ /m$^{3}$) for the first 5 cm of the soil column and is available for the 1978–2015 period with a spati…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 119,
+            "column": 315,
+            "delimiter": "$",
+            "context": "…tput variables: 1) TAS: 2-m near surface air temperature (in K); 2) Pr: total precipitation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is …",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 119,
+            "column": 324,
+            "delimiter": "$",
+            "context": "…ables: 1) TAS: 2-m near surface air temperature (in K); 2) Pr: total precipitation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is often arg…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 119,
+            "column": 400,
+            "delimiter": "$",
+            "context": "…tation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is often argued that SM variability varies with soil depth[@Dorigo2014; @Koster2009], bu…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          }
+        ],
+        "scientificFragments": {
+          "valid": false,
+          "counts": {
+            "isolatedSubscript": 0,
+            "isolatedSuperscript": 7,
+            "boldThenSubscript": 0,
+            "italicThenSuperscript": 0
+          },
+          "issues": [
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 109,
+              "column": 933,
+              "delimiter": "$",
+              "context": "…d in the forward L-MEB (L-band Microwave Emission of the Biosphere) model. SMOS-IC provides SM (in m$^{3}$ /m$^{3}$) for the first 5 cm centimetres of the soil and is available for the period 2010–201…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 109,
+              "column": 942,
+              "delimiter": "$",
+              "context": "…forward L-MEB (L-band Microwave Emission of the Biosphere) model. SMOS-IC provides SM (in m$^{3}$ /m$^{3}$) for the first 5 cm centimetres of the soil and is available for the period 2010–2016 on a da…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 111,
+              "column": 753,
+              "delimiter": "$",
+              "context": "…erent from the SMOS-IC products used in this study. The CCI SM product is provided as daily SM (in m$^{3}$ /m$^{3}$) for the first 5 cm of the soil column and is available for the 1978–2015 period wit…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 111,
+              "column": 762,
+              "delimiter": "$",
+              "context": "…m the SMOS-IC products used in this study. The CCI SM product is provided as daily SM (in m$^{3}$ /m$^{3}$) for the first 5 cm of the soil column and is available for the 1978–2015 period with a spati…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 119,
+              "column": 315,
+              "delimiter": "$",
+              "context": "…tput variables: 1) TAS: 2-m near surface air temperature (in K); 2) Pr: total precipitation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is …",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 119,
+              "column": 324,
+              "delimiter": "$",
+              "context": "…ables: 1) TAS: 2-m near surface air temperature (in K); 2) Pr: total precipitation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is often arg…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 119,
+              "column": 400,
+              "delimiter": "$",
+              "context": "…tation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is often argued that SM variability varies with soil depth[@Dorigo2014; @Koster2009], bu…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ]
+        },
+        "states": {
+          "TEXT": 50257,
+          "INLINE_MATH": 1076,
+          "DISPLAY_MATH": 29,
+          "INLINE_CODE": 0,
+          "FENCED_CODE": 0
+        }
+      },
+      "rawHtmlValidation": {
+        "valid": false,
+        "violations": [
+          {
+            "tag": "a",
+            "line": 60,
+            "column": 117,
+            "context": "<a aria-label=\"Reference 74\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s41598-018-38309-5#ref-CR74\" id=\"ref-link-section-d152458983e749\" title=\"USGS. HYDRO1k Elevation Derivative Database: U.S. Geological Survey available online at,\n                  https://lta.cr.usgs.gov/HYDRO1K\n\n                 (accessed 08 November 2018) (2000).\">",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 63,
+            "column": 57,
+            "context": "</a>",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 63,
+            "column": 240,
+            "context": "<a aria-label=\"Reference 56\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s41598-018-38309-5#ref-CR56\" id=\"ref-link-section-d152458983e756\" title=\"Siebert, S. et al. A global data set of the extent of irrigated land from 1900 to 2005. Hydrol. Earth Syst. Sci. 19, 1521–1545,\n                  https://doi.org/10.5194/hess-19-1521-2015\n\n                 (2015).\">",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 66,
+            "column": 29,
+            "context": "</a>",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 161,
+            "column": 117,
+            "context": "<a aria-label=\"Reference 74\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s41598-018-38309-5#ref-CR74\" id=\"ref-link-section-d152458983e749\" title=\"USGS. HYDRO1k Elevation Derivative Database: U.S. Geological Survey available online at,\n                  https://lta.cr.usgs.gov/HYDRO1K\n\n                 (accessed 08 November 2018) (2000).\">",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 164,
+            "column": 57,
+            "context": "</a>",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 164,
+            "column": 240,
+            "context": "<a aria-label=\"Reference 56\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s41598-018-38309-5#ref-CR56\" id=\"ref-link-section-d152458983e756\" title=\"Siebert, S. et al. A global data set of the extent of irrigated land from 1900 to 2005. Hydrol. Earth Syst. Sci. 19, 1521–1545,\n                  https://doi.org/10.5194/hess-19-1521-2015\n\n                 (2015).\">",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 167,
+            "column": 29,
+            "context": "</a>",
+            "type": "unpermitted-html-tag"
+          }
+        ]
+      },
+      "markdownStructureValid": true,
+      "crossReferenceValidationValid": true,
+      "warnings": [],
+      "figure3CaptionOccurrences": 2,
+      "figures": 4,
+      "equations": 1,
+      "references": 74,
+      "sourceExternalFragmentsPreserved": "Verified in bibliography by separate diagnostic"
+    },
+    {
+      "citationStyle": "links",
+      "mathValidation": {
+        "valid": false,
+        "inlineMathCount": 10,
+        "displayMathCount": 1,
+        "issues": [
+          {
+            "type": "inline-math-crosses-line",
+            "line": 68,
+            "column": 114,
+            "delimiter": "$",
+            "context": "… HYDRO 1 K Elevation map of the USA Source [http://srtm.csi.cgiar.org/](http://srtm.csi.cgiar.org/).$^{<a aria-label=\"Reference 74\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s4159…",
+            "message": "Inline math crossed a Markdown line boundary."
+          },
+          {
+            "type": "inline-math-crosses-line",
+            "line": 74,
+            "column": 34,
+            "delimiter": "$",
+            "context": "                 (2015).\">56</a>}$ (**c**). All maps are re-gridded at the 2° × 2° resolution, to match the bias maps.",
+            "message": "Inline math crossed a Markdown line boundary."
+          },
+          {
+            "type": "inline-math-crosses-line",
+            "line": 193,
+            "column": 114,
+            "delimiter": "$",
+            "context": "… HYDRO 1 K Elevation map of the USA Source [http://srtm.csi.cgiar.org/](http://srtm.csi.cgiar.org/).$^{<a aria-label=\"Reference 74\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s4159…",
+            "message": "Inline math crossed a Markdown line boundary."
+          },
+          {
+            "type": "inline-math-crosses-line",
+            "line": 199,
+            "column": 34,
+            "delimiter": "$",
+            "context": "                 (2015).\">56</a>}$ (**c**). All maps are re-gridded at the 2° × 2° resolution, to match the bias maps.",
+            "message": "Inline math crossed a Markdown line boundary."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 130,
+            "column": 935,
+            "delimiter": "$",
+            "context": "…d in the forward L-MEB (L-band Microwave Emission of the Biosphere) model. SMOS-IC provides SM (in m$^{3}$ /m$^{3}$) for the first 5 cm centimetres of the soil and is available for the period 2010–201…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 130,
+            "column": 944,
+            "delimiter": "$",
+            "context": "…forward L-MEB (L-band Microwave Emission of the Biosphere) model. SMOS-IC provides SM (in m$^{3}$ /m$^{3}$) for the first 5 cm centimetres of the soil and is available for the period 2010–2016 on a da…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 132,
+            "column": 763,
+            "delimiter": "$",
+            "context": "…erent from the SMOS-IC products used in this study. The CCI SM product is provided as daily SM (in m$^{3}$ /m$^{3}$) for the first 5 cm of the soil column and is available for the 1978–2015 period wit…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 132,
+            "column": 772,
+            "delimiter": "$",
+            "context": "…m the SMOS-IC products used in this study. The CCI SM product is provided as daily SM (in m$^{3}$ /m$^{3}$) for the first 5 cm of the soil column and is available for the 1978–2015 period with a spati…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 142,
+            "column": 315,
+            "delimiter": "$",
+            "context": "…tput variables: 1) TAS: 2-m near surface air temperature (in K); 2) Pr: total precipitation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is …",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 142,
+            "column": 324,
+            "delimiter": "$",
+            "context": "…ables: 1) TAS: 2-m near surface air temperature (in K); 2) Pr: total precipitation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is often arg…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 142,
+            "column": 400,
+            "delimiter": "$",
+            "context": "…tation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is often argued that SM variability varies with soil depth[36](#ref-36), [71](#ref-71), …",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          }
+        ],
+        "scientificFragments": {
+          "valid": false,
+          "counts": {
+            "isolatedSubscript": 0,
+            "isolatedSuperscript": 7,
+            "boldThenSubscript": 0,
+            "italicThenSuperscript": 0
+          },
+          "issues": [
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 130,
+              "column": 935,
+              "delimiter": "$",
+              "context": "…d in the forward L-MEB (L-band Microwave Emission of the Biosphere) model. SMOS-IC provides SM (in m$^{3}$ /m$^{3}$) for the first 5 cm centimetres of the soil and is available for the period 2010–201…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 130,
+              "column": 944,
+              "delimiter": "$",
+              "context": "…forward L-MEB (L-band Microwave Emission of the Biosphere) model. SMOS-IC provides SM (in m$^{3}$ /m$^{3}$) for the first 5 cm centimetres of the soil and is available for the period 2010–2016 on a da…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 132,
+              "column": 763,
+              "delimiter": "$",
+              "context": "…erent from the SMOS-IC products used in this study. The CCI SM product is provided as daily SM (in m$^{3}$ /m$^{3}$) for the first 5 cm of the soil column and is available for the 1978–2015 period wit…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 132,
+              "column": 772,
+              "delimiter": "$",
+              "context": "…m the SMOS-IC products used in this study. The CCI SM product is provided as daily SM (in m$^{3}$ /m$^{3}$) for the first 5 cm of the soil column and is available for the 1978–2015 period with a spati…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 142,
+              "column": 315,
+              "delimiter": "$",
+              "context": "…tput variables: 1) TAS: 2-m near surface air temperature (in K); 2) Pr: total precipitation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is …",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 142,
+              "column": 324,
+              "delimiter": "$",
+              "context": "…ables: 1) TAS: 2-m near surface air temperature (in K); 2) Pr: total precipitation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is often arg…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 142,
+              "column": 400,
+              "delimiter": "$",
+              "context": "…tation (in kg m$^{−2}$ s$^{−1}$); 3) mrsos: moisture in upper portion of soil column (10 cm; in kg/m$^{2}$). It is often argued that SM variability varies with soil depth[36](#ref-36), [71](#ref-71), …",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ]
+        },
+        "states": {
+          "TEXT": 68183,
+          "INLINE_MATH": 1076,
+          "DISPLAY_MATH": 29,
+          "INLINE_CODE": 0,
+          "FENCED_CODE": 0
+        }
+      },
+      "rawHtmlValidation": {
+        "valid": false,
+        "violations": [
+          {
+            "tag": "a",
+            "line": 68,
+            "column": 117,
+            "context": "<a aria-label=\"Reference 74\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s41598-018-38309-5#ref-CR74\" id=\"ref-link-section-d152458983e749\" title=\"USGS. HYDRO1k Elevation Derivative Database: U.S. Geological Survey available online at,\n                  https://lta.cr.usgs.gov/HYDRO1K\n\n                 (accessed 08 November 2018) (2000).\">",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 71,
+            "column": 57,
+            "context": "</a>",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 71,
+            "column": 240,
+            "context": "<a aria-label=\"Reference 56\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s41598-018-38309-5#ref-CR56\" id=\"ref-link-section-d152458983e756\" title=\"Siebert, S. et al. A global data set of the extent of irrigated land from 1900 to 2005. Hydrol. Earth Syst. Sci. 19, 1521–1545,\n                  https://doi.org/10.5194/hess-19-1521-2015\n\n                 (2015).\">",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 74,
+            "column": 29,
+            "context": "</a>",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 193,
+            "column": 117,
+            "context": "<a aria-label=\"Reference 74\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s41598-018-38309-5#ref-CR74\" id=\"ref-link-section-d152458983e749\" title=\"USGS. HYDRO1k Elevation Derivative Database: U.S. Geological Survey available online at,\n                  https://lta.cr.usgs.gov/HYDRO1K\n\n                 (accessed 08 November 2018) (2000).\">",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 196,
+            "column": 57,
+            "context": "</a>",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 196,
+            "column": 240,
+            "context": "<a aria-label=\"Reference 56\" data-test=\"citation-ref\" href=\"https://www.nature.com/articles/s41598-018-38309-5#ref-CR56\" id=\"ref-link-section-d152458983e756\" title=\"Siebert, S. et al. A global data set of the extent of irrigated land from 1900 to 2005. Hydrol. Earth Syst. Sci. 19, 1521–1545,\n                  https://doi.org/10.5194/hess-19-1521-2015\n\n                 (2015).\">",
+            "type": "unpermitted-html-tag"
+          },
+          {
+            "tag": "a",
+            "line": 199,
+            "column": 29,
+            "context": "</a>",
+            "type": "unpermitted-html-tag"
+          }
+        ]
+      },
+      "markdownStructureValid": true,
+      "crossReferenceValidationValid": true,
+      "warnings": [],
+      "figure3CaptionOccurrences": 2,
+      "figures": 4,
+      "equations": 1,
+      "references": 74,
+      "sourceExternalFragmentsPreserved": "Verified in Markdown by separate diagnostic"
+    }
+  ]
+}
