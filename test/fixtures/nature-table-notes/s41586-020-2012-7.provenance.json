@@ -1,7 +1,7 @@
 {
   "evidenceVersion": "nature-table-notes-regression/1.0.0",
   "sourceContractCommit": "143fc77ebdc4bf15dd1cdca63afcddb91e6b55f5",
-  "scope": "Complete selected table-link figure and full-size table semantic blocks; not a full article capture or corpus acceptance.",
+  "scope": "完整的选定 table-link figure 和 full-size table semantic blocks；不是全文 capture，也不代表 corpus 验收。",
   "article": {
     "url": "https://www.nature.com/articles/s41586-020-2012-7",
     "doi": "10.1038/s41586-020-2012-7",
@@ -159,6 +159,51 @@
     "spans": [],
     "cellNoteMarkers": []
   },
-  "acquisition": "Reuses B approved anonymous public guarded captures; no new requests, credentials, cookies, private session or account access used by this bug agent.",
-  "sourceReview": "Raw body hashes independently checked; exact complete source li texts/HTML, ordered markers, table shapes and recipe repeat/idempotence reviewed against untouched external raw DOM. This is not Agent C corpus acceptance."
+  "acquisition": "复用 B 已获授权的匿名公开 guarded captures；本 bug agent 未进行新的请求，也未使用凭据、cookies、private session 或账号访问。",
+  "sourceReview": "独立核对了 raw body hashes、外部 untouched raw DOM 的完整 li text/HTML、marker 次序、表格形状和 recipe repeat/idempotence。此检查不替代 Agent C 的 corpus 独立验收。",
+  "attribution": {
+    "title": "A pneumonia outbreak associated with a new coronavirus of probable bat origin",
+    "doi": "10.1038/s41586-020-2012-7",
+    "articleUrl": "https://www.nature.com/articles/s41586-020-2012-7",
+    "authors": [
+      "Zhou, Peng",
+      "Yang, Xing-Lou",
+      "Wang, Xian-Guang",
+      "Hu, Ben",
+      "Zhang, Lei",
+      "Zhang, Wei",
+      "Si, Hao-Rui",
+      "Zhu, Yan",
+      "Li, Bei",
+      "Huang, Chao-Lin",
+      "Chen, Hui-Dong",
+      "Chen, Jing",
+      "Luo, Yun",
+      "Guo, Hua",
+      "Jiang, Ren-Di",
+      "Liu, Mei-Qin",
+      "Chen, Ying",
+      "Shen, Xu-Rui",
+      "Wang, Xi",
+      "Zheng, Xiao-Shuang",
+      "Zhao, Kai",
+      "Chen, Quan-Jiao",
+      "Deng, Fei",
+      "Liu, Lin-Lin",
+      "Yan, Bing",
+      "Zhan, Fa-Xian",
+      "Wang, Yan-Yi",
+      "Xiao, Geng-Fu",
+      "Shi, Zheng-Li"
+    ],
+    "authorsLocator": "meta[name=\"citation_author\"]",
+    "observedLicenses": [
+      {
+        "url": "http://creativecommons.org/licenses/by/4.0/",
+        "sourceSelector": "a[href=\"http://creativecommons.org/licenses/by/4.0/\"]",
+        "sourceSubtreeSha256": "ff420029f3d25b850722962458d36fdb01371fe9834e4630f4be41b89a4b30eb"
+      }
+    ],
+    "changes": "仅选择完整源块和原始 ancestors；删除非科学 UI、executable/tracking attributes，确定性序列化；原始科学文字、符号、表格、脚注和次序均未改写。许可证 URL 是原响应中的观察事实；不以 Open Access 替代许可证审阅。"
+  }
 }
