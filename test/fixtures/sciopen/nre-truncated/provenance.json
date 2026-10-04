@@ -1,0 +1,41 @@
+{
+  "url": "https://www.sciopen.com/article/10.26599/NRE.2025.9120184",
+  "observedAt": "2026-10-02",
+  "captureMode": "truncated-public-rendered-dom-selected-blocks",
+  "recipe": "sciopen-reference-repro-v1",
+  "serializedSourceSha256": "d93fad928e4c595302cf2a07a9fc25b65f8c37241bd6e6ad5f9a7bf20b3e127c",
+  "fixtureSha256": "6af0ac66a146c2d3c4cefb983b76b6e9fd0d5f3de98c117c8d851d7629db816e",
+  "retainedSourceSubtreeSha256": [
+    "34368c1339a765c2fd123b1810c34e45488334bdd1c96f884f9d13a7018e04bc",
+    "20c1d01bbf1ba921dff5dd71b1301fda71fe44aee0cb60cb7329237952472040"
+  ],
+  "sourceEvidence": {
+    "browserReferences": 52,
+    "serializedCharacters": 200011,
+    "serializedReferenceIds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "reparsedReferenceIds": [
+      "r_b1",
+      "r_b2",
+      "r_b3",
+      "r_b4",
+      "r_b5"
+    ],
+    "terminalMarker": "[Truncated]",
+    "closedScaffold": false
+  },
+  "transformations": [
+    "fixed scaffold",
+    "retain source citation range ending at b8 and exported bibliography",
+    "remove reference navigation and event handlers; strip URL queries"
+  ],
+  "omissions": [
+    "other article content",
+    "references absent from truncated acquisition"
+  ]
+}

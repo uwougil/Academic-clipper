@@ -3,7 +3,9 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
-import { isSciOpenArticleUrl, parseSciOpenPage, clipSciOpenExperimental } from '../src/adapters/sciopen.mjs';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { isSciOpenArticleUrl, parseSciOpenPage as parseArticle, clipSciOpenExperimental } from '../src/adapters/sciopen.mjs';
 import { validateMathDelimiters } from '../src/validators/math-delimiters.mjs';
 import { validateRawHtml } from '../src/validators/html-audit.mjs';
 import { validateCrossReferences } from '../src/validators/cross-references.mjs';
@@ -13,10 +15,26 @@ async function fixture(id) {
   const dir = new URL(`fixtures/sciopen/${id}/`, import.meta.url);
   const html = await readFile(new URL('article.excerpt.html', dir), 'utf8');
   const provenance = JSON.parse(await readFile(new URL('provenance.json', dir), 'utf8'));
-  return { html, url: provenance.url, provenance };
+  return { html, url: provenance.url, provenance, sourceScope: 'excerpt' };
 }
+const parseSciOpenPage = (html, url) => parseArticle(html, url, { sourceScope: 'excerpt' });
 const nr = await fixture('nr-94907575');
 const nre = await fixture('nre-9120184');
+let compositionHashes;
+for (const order of ['sciopen,rsc','rsc,sciopen','sciopen,aaas','aaas,sciopen','sciopen,pnas','pnas,sciopen']) {
+  test(`SciOpen cold lifecycle, bounded heap and concurrent composition: ${order}`, () => {
+    const child = spawnSync(process.execPath, ['--expose-gc','--max-old-space-size=512',
+      fileURLToPath(new URL('../scripts/sciopen-lifecycle-check.mjs', import.meta.url)), order],
+    { encoding: 'utf8', timeout: 120000 });
+    assert.equal(child.status, 0, child.stderr || child.error?.message);
+    const result = JSON.parse(child.stdout);
+    assert.equal(result.articleWindows, 32);
+    assert.equal(result.citationStyle, 'markdown');
+    assert.equal(result.memoryBytes.length, 3);
+    if (compositionHashes) assert.deepEqual(result.markdownHashes, compositionHashes);
+    else compositionHashes = result.markdownHashes;
+  });
+}
 
 test('SciOpen URL admission uses verified host and DOI path, not branding', () => {
   assert.equal(isSciOpenArticleUrl(nr.url), true);
@@ -110,7 +128,7 @@ test('original MathML survives a MathJax block wrapper during HTML reparsing', a
   const original = math.match(/<math\b[\s\S]*?<\/math>/)[0];
   const wrapped = nre.html.replace(original,
     `<div class="MathJax">visual duplicate</div><script type="math/mml">${original}</script>`);
-  const result = await clipSciOpenExperimental({ html: wrapped, url: nre.url });
+  const result = await clipSciOpenExperimental({ html: wrapped, url: nre.url, sourceScope: 'excerpt' });
   assert.equal(result.markdown, (await clipSciOpenExperimental(nre)).markdown);
 });
 
@@ -129,4 +147,62 @@ test('HTML tables are explicitly unverified, never silently dropped or fabricate
   assert.equal(nre.provenance.fullPageObservations.tables, 0);
   assert.throws(() => parseSciOpenPage(nr.html.replace('<div id="insert_content_one">',
     '<div id="insert_content_one"><table><tr><td>synthetic</td></tr></table>'),nr.url), /table layout has no admitted source-backed fixture/);
+});
+
+test('article admission rejects observed partial-loading topology, not just an empty body', () => {
+  const mutate = action => {
+    const dom = new JSDOM(nr.html); action(dom.window.document);
+    const html = dom.serialize(); dom.window.close(); return html;
+  };
+  for (const [html, reason] of [
+    [mutate(d => d.querySelector('#insert_content_one').innerHTML = '<p>Loading</p>'), /not substantively/],
+    [mutate(d => d.querySelector('#s01').remove()), /opening\/closing/],
+    [mutate(d => d.querySelector('#s04').remove()), /opening\/closing/],
+    [mutate(d => d.querySelector('#s02-02 p').remove()), /section 2.2 is unhydrated/],
+    [mutate(d => d.querySelector('#title_-12').remove()), /bibliography is unhydrated/],
+    [mutate(d => d.body.append(d.querySelector('#v4_art_main_center').cloneNode(true))), /Ambiguous/],
+  ]) assert.throws(() => parseArticle(html, nr.url), reason);
+  assert.throws(() => parseArticle(nre.html, nre.url), /opening\/closing/);
+  assert.throws(() => parseSciOpenPage(nr.html.replace('content="Nano Research"', 'content="Friction"'), nr.url), /outside the observed experiment/);
+});
+
+test('NRE transport truncation diagnosis and source-backed missing-range rejection are deterministic', async () => {
+  const broken = await fixture('nre-truncated');
+  const p = broken.provenance;
+  assert.equal(createHash('sha256').update(broken.html).digest('hex'), p.fixtureSha256);
+  assert.deepEqual(p.sourceEvidence.serializedReferenceIds, [1,2,3,4,5]);
+  assert.deepEqual(p.sourceEvidence.reparsedReferenceIds, ['r_b1','r_b2','r_b3','r_b4','r_b5']);
+  assert.equal(p.sourceEvidence.browserReferences, 52);
+  assert.equal(p.sourceEvidence.serializedCharacters, 200000 + '[Truncated]'.length);
+  assert.doesNotMatch(broken.html, /Signature=|OSSAccessKeyId|security-token|<script\b|\son\w+=/i);
+  for (let i = 0; i < 2; i++) {
+    await assert.rejects(() => clipSciOpenExperimental(broken), /Invalid SciOpen citation range/);
+    await assert.rejects(() => clipSciOpenExperimental({ ...broken, html: broken.html + '[Truncated]' }), /acquisition is truncated/);
+  }
+});
+
+test('bibliography source scope, source numbering, unresolved targets and unsupported modes fail closed', async () => {
+  const dom = new JSDOM(nr.html);
+  const d = dom.window.document;
+  d.body.insertAdjacentHTML('beforeend', '<div class="v4-art-reference-item">synthetic outside-root copy</div>');
+  const p = parseSciOpenPage(dom.serialize(), nr.url);
+  assert.equal(p.references.length, 32); p.dom.window.close();
+  d.querySelector('#r_b2').textContent = '[3]';
+  assert.throws(() => parseSciOpenPage(dom.serialize(), nr.url), /Malformed/);
+  dom.window.close();
+  assert.throws(() => parseSciOpenPage(nr.html.replace('rid="b6"', 'rid="b0"'), nr.url), /Invalid.*range/);
+  assert.throws(() => parseArticle(nr.html.replace('rid="Figure1"', 'rid="absent"'), nr.url), /Unresolved.*target/);
+  for (const citationStyle of ['links', 'quarto'])
+    await assert.rejects(() => clipSciOpenExperimental({ ...nr, citationStyle }), /markdown only/);
+  const result = await clipSciOpenExperimental(nr);
+  assert.equal(result.admission.sourceScope, 'excerpt');
+  assert.equal(result.admission.targetsChecked, false);
+  assert.match(result.admission.completeness, /not established/);
+  const visit = value => {
+    if (!value || typeof value !== 'object') return;
+    assert.ok([Object.prototype, Array.prototype].includes(Object.getPrototypeOf(value)), 'result contains plain data');
+    for (const child of Object.values(value)) visit(child);
+  };
+  visit(result);
+  assert.ok(!('dom' in result) && !('document' in result));
 });

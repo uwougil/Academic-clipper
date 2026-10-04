@@ -1,4 +1,7 @@
 import { JSDOM } from 'jsdom';
+// Turndown must initialize without a disposable article-owned DOMParser.
+import 'defuddle/full';
+import { setImmediate as yieldEventLoop } from 'node:timers/promises';
 import { htmlToMarkdown } from '../markdown.mjs';
 import { withDomGlobals } from '../dom-runtime.mjs';
 import { normalizeAcademicInline } from '../normalizers/academic-inline.mjs';
@@ -19,12 +22,10 @@ export function isSciOpenArticleUrl(value) {
 
 const text = n => String(n?.textContent || '').replace(/\s+/gu, ' ').trim();
 const slug = s => s.toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, '').replace(/\s+/g, '-');
-// Defuddle caches its DOMParser constructor. Keep that inert realm alive,
-// while closing per-article DOMs; use the existing serial globals boundary.
-const converterDom = new JSDOM('<!doctype html><html><body></body></html>');
-
-export function parseSciOpenPage(html, url) {
+export function parseSciOpenPage(html, url, { sourceScope = 'article' } = {}) {
   if (!isSciOpenArticleUrl(url)) throw new Error('Unsupported SciOpen article URL.');
+  if (!['article', 'excerpt'].includes(sourceScope)) throw new Error('Unknown SciOpen source scope.');
+  if (/\[Truncated\]\s*$/u.test(html)) throw new Error('SciOpen acquisition is truncated; clipping refused.');
   // Compact inert original MathML before HTML reparsing can detach MathJax
   // block divs from their browser-rendered <p><disp-formula> ancestry.
   const compactMath = html.replace(/<(inline-formula|disp-formula)\b([^>]*)>([\s\S]*?)<\/\1>/g, (whole, tag, attrs, inner) => {
@@ -32,8 +33,9 @@ export function parseSciOpenPage(html, url) {
     return payload ? `<${tag}${attrs}>${inner.match(/<label>[\s\S]*?<\/label>/)?.[0] || ''}${payload}</${tag}>` : whole;
   });
   const dom = new JSDOM(compactMath, { url });
+  try {
   const d = dom.window.document;
-  const fail = message => { dom.window.close(); throw new Error(message); };
+  const fail = message => { throw new Error(message); };
   const meta = name => [...d.querySelectorAll(`meta[name="citation_${name}"]`)].map(x => x.content);
   const doi = new URL(url).pathname.slice('/article/'.length);
   if (meta('doi')[0]?.toLowerCase() !== doi.toLowerCase()) fail('SciOpen DOI identity mismatch.');
@@ -42,13 +44,44 @@ export function parseSciOpenPage(html, url) {
   if (!body?.querySelector('p') || !text(body).trim()) {
     fail('SciOpen public main text is missing: wait for rendered body; abstract/fulltext URL metadata is insufficient.');
   }
-  const titleFragment = JSDOM.fragment(meta('title')[0] || '');
+  if (d.querySelectorAll('[id="v4_art_main_center"]').length !== 1
+      || root.querySelectorAll('[id="insert_content_one"]').length !== 1)
+    fail('Ambiguous SciOpen scholarly root/body.');
+  const sourceSections = [...body.querySelectorAll('.v4-art-content-p')];
+  const substantive = n => [...n.querySelectorAll('p')].some(p => text(p).length >= 80);
+  if (!sourceSections.some(substantive)) fail('SciOpen body is not substantively loaded.');
+  if (sourceScope === 'article') {
+    // Observed research-article family only: opening and closing numbered
+    // sections, each leaf with prose, and no gaps between top-level numbers.
+    const headings = [...body.querySelectorAll('h2')].map(h => ({ h, label: text(h) }));
+    const opening = headings.find(x => /^1\s+Introduction$/iu.test(x.label));
+    const closing = headings.find(x => /^\d+\s+Conclusions?$/iu.test(x.label));
+    if (!opening || !closing || !substantive(opening.h.parentElement) || !substantive(closing.h.parentElement))
+      fail('SciOpen article is partially loaded: opening/closing scholarly sections are missing.');
+    const numbers = headings.filter(x => /^\d+\s/u.test(x.label)).map(x => Number(x.label.match(/^\d+/u)[0]));
+    if (numbers.some((number, i) => number !== i + 1)) fail('SciOpen article section sequence is incomplete.');
+    for (const { h, label } of headings) {
+      if (!/^\d/u.test(label)) continue;
+      const prefix = label.match(/^\d+(?:\.\d+)*/u)[0];
+      const hasChildren = headings.some(x => x.label.startsWith(`${prefix}.`));
+      if (!hasChildren && !substantive(h.parentElement)) fail(`SciOpen section ${prefix} is unhydrated.`);
+    }
+  }
+  const titleFragment = d.createElement('span');
+  titleFragment.innerHTML = meta('title')[0] || '';
   const metadata = { title: text(titleFragment), authors: meta('author'), affiliations: meta('author_institution'),
     journal: meta('journal_title')[0] || '', publisher: meta('publisher')[0] || '', doi,
     onlineDate: meta('online_date')[0] || '', publicationDate: meta('publication_date')[0] || '', url };
   if (!metadata.title || !metadata.authors.length) fail('SciOpen article metadata is incomplete.');
+  const doiFamilies = { 'Nano Research': /^10\.26599\/NR\.\d{4}\.\d+$/i,
+    'Nano Research Energy': /^10\.26599\/NRE\.\d{4}\.\d+$/i };
+  if (!doiFamilies[metadata.journal]?.test(doi)) fail('SciOpen journal/DOI family is outside the observed experiment.');
+  if (sourceScope === 'article' && metadata.journal === 'Nano Research Energy')
+    fail('NRE full-article admission is unverified after truncated acquisition; excerpt evidence only.');
   const warnings = [];
-  const references = [...root.querySelectorAll('#article_references .v4-art-reference-item')].map(n => ({
+  const bibliography = root.querySelectorAll('[id="title_-12"]');
+  if (bibliography.length > 1) fail('Ambiguous SciOpen canonical bibliography.');
+  const references = [...(bibliography[0]?.querySelectorAll('.v4-art-reference-item') || [])].map(n => ({
     id: n.querySelector('.v4-art-reference-item-index')?.id?.replace(/^r_/, '') || '',
     number: Number(text(n.querySelector('.v4-art-reference-item-index')).replace(/\D/g, '')),
     html: n.querySelector('.v4-art-reference-item-title')?.innerHTML || '',
@@ -56,6 +89,9 @@ export function parseSciOpenPage(html, url) {
   if (references.some(r => !r.id || !r.number || !r.html)
       || new Set(references.map(r => r.id)).size !== references.length
       || new Set(references.map(r => r.number)).size !== references.length) fail('Malformed SciOpen references.');
+  if (references.some((r, i) => r.number !== i + 1 || r.id !== `b${r.number}`))
+    fail('SciOpen bibliography is not a consistent source-numbered sequence.');
+  if (sourceScope === 'article' && !references.length) fail('SciOpen article bibliography is unhydrated.');
   const refMap = new Map(references.map(r => [r.id, r]));
   const content = d.createElement('article');
   for (const selector of ['#title_-2', '#insert_content_one', '#title_-11', '#insert_content_two']) {
@@ -77,6 +113,14 @@ export function parseSciOpenPage(html, url) {
     usedSlugs.add(anchor);
     if (h.parentElement.id) targets.set(h.parentElement.id, anchor);
     sections.push({ title: label, level, anchor }); h.replaceWith(replacement);
+  }
+  const semanticIds = new Set([...content.querySelectorAll('[id]')].map(n => n.id));
+  if (sourceScope === 'article') {
+    for (const x of content.querySelectorAll('xref')) {
+      if (x.getAttribute('ref-type') === 'bibr') continue;
+      const rid = x.getAttribute('rid');
+      if (!rid || !semanticIds.has(rid)) fail(`Unresolved SciOpen scholarly target ${rid}.`);
+    }
   }
   const figures = [];
   for (const fig of content.querySelectorAll('fig')) {
@@ -177,13 +221,21 @@ export function parseSciOpenPage(html, url) {
     const marker = `SCIOPENSCI${scientificRuns.length}END`;
     scientificRuns.push({ marker, tex }); sup.replaceWith(d.createTextNode(marker));
   }
-  return { dom, metadata, sections, figures, formulas, references, citations, supplementary, scientificRuns, warnings, cleanedHtml: content.outerHTML };
+  const admission = { sourceScope, identityValid: true, bodyPresent: true, bodySubstantive: true,
+    referencesInternallyConsistent: true, targetsChecked: sourceScope === 'article',
+    admitted: true, completeness: 'not established; internal consistency is not proof of complete full text' };
+  return { dom, metadata, sections, figures, formulas, references, citations, supplementary, scientificRuns, warnings, admission, cleanedHtml: content.outerHTML };
+  } catch (error) {
+    dom.window.close();
+    throw error;
+  }
 }
 
-export async function clipSciOpenExperimental({ html, url }) {
-  const result = parseSciOpenPage(html, url);
+export async function clipSciOpenExperimental({ html, url, sourceScope = 'article', citationStyle = 'markdown' }) {
+  if (citationStyle !== 'markdown') throw new Error('SciOpen experiment supports markdown only.');
+  const result = parseSciOpenPage(html, url, { sourceScope });
   try {
-    return await withDomGlobals(converterDom, async () => {
+    return await withDomGlobals(result.dom, async () => {
     // Defuddle emits MathML as dollar-delimited TeX. Do not run Nature's
     // legacy escaped-bracket pass over SciOpen bracketed citation prose.
     const convert = async value => normalizeAcademicInline(await htmlToMarkdown(value, url));
@@ -203,5 +255,9 @@ export async function clipSciOpenExperimental({ html, url }) {
     const { dom, ...summary } = result;
     return { ...summary, markdown };
     });
-  } finally { result.dom.window.close(); }
+  } finally {
+    result.dom.window.close();
+    // Allow jsdom/Defuddle fragment WeakRefs to become collectible between clips.
+    await yieldEventLoop();
+  }
 }

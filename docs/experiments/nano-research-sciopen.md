@@ -28,7 +28,7 @@ Nano Research 的当前文章由清华大学出版社（Tsinghua University Pres
 
 一次使用现有 `safeFetchExternal()` 的独立 Node 请求被本环境 DNS 安全检查拒绝（解析结果涉及 local/private 地址）。没有修改该保护或改用不受保护的抓取请求。后续证据来自正常公开浏览器渲染。该环境网络限制与期刊访问控制是不同的观测，不能据此断言期刊没有公开全文。
 
-实验 API 只接收调用者提供的 HTML；不会启动浏览器、等待页面、访问网络或调用写入器。空正文直接报错；已有正文节点只是必要条件，目前没有生产级的全文完整性/readiness 判定。
+实验 API 只接收调用者提供的 HTML；不会启动浏览器、等待页面、访问网络或调用写入器。默认 `sourceScope: 'article'` 要求唯一 scholarly root/body、含实质段落的章节、已观察的 Introduction/Conclusions 边界、连续顶层章节、已加载且编号一致的 bibliography、可解析的 scholarly xref targets。缺失这些结构直接拒绝；正文存在仍不能证明全部内容已加载。该规则仅限已观察的研究文章，不是通用或生产级完整性协议。
 
 ## DOM 与实现证据
 
@@ -44,7 +44,11 @@ Nano Research 的当前文章由清华大学出版社（Tsinghua University Pres
 | Crossrefs | `xref` 的 figure、formula 等类型 | 图/公式引用按现有 Markdown 规则降级为可读文本；section 链接仅在真实 heading target 可解析时保留；未知类型保留文字与 warning |
 | ESM / data | `#title_-11` 的 `enhanceDownload(id)` 控件、DOI 链接，`#insert_content_two` 的 data availability | 保留源文件名称、声明及公开 DOI 链接；无公开 href 的下载按钮回退至文章页，不猜测隐藏下载端点 |
 
-`clipSciOpenExperimental({ html, url })` 返回 metadata、语义记录、warnings 和验证后的 Markdown。它未接入 CLI、extension、bridge、writer、生产 URL dispatch、citation-mode negotiation 或 Nature adapter。Nature 源码、golden artifact、PRD/EDD 和现有 CI workflow 均不修改。
+`clipSciOpenExperimental({ html, url, sourceScope, citationStyle })` 返回 plain metadata、语义记录、warnings、admission 和验证后的 Markdown；不返回 Window、document 或 DOM nodes。仅支持 `markdown`，显式拒绝 `links`/`quarto`。验证后的 output consistency 与 source admission 分开记录，`admission.completeness` 明确为未证明。`excerpt` scope 用于明确的删节证据回放，仍要求实质正文和 citation/reference 内部一致性，但不检查被删去的完整文章边界/图目标，也不证明整篇兼容。
+
+当前 scope 限于 `Nano Research` / `Nano Research Energy` 的已观察 `10.26599/NR.*` / `10.26599/NRE.*` metadata/DOI family，不支持其他 SciOpen journals、Friction、历史 `10.1007` DOI 或通用 JATS。NRE 保持 outcome B：完整文章 admission 明确拒绝，只保留 excerpt 证据。
+
+它未接入 CLI、extension、bridge、writer、生产 URL dispatch、citation-mode negotiation 或 Nature adapter。Nature 源码、golden artifact、PRD/EDD 和现有 CI workflow 均不修改。
 
 离线使用示例（在仓库根目录，Node.js 20+）：
 
@@ -53,7 +57,7 @@ import { readFile } from 'node:fs/promises';
 import { clipSciOpenExperimental } from './src/adapters/sciopen.mjs';
 const html = await readFile('test/fixtures/sciopen/nr-94907575/article.excerpt.html', 'utf8');
 const result = await clipSciOpenExperimental({
-  html, url: 'https://www.sciopen.com/article/10.26599/NR.2025.94907575',
+  html, url: 'https://www.sciopen.com/article/10.26599/NR.2025.94907575', sourceScope: 'excerpt',
 });
 console.log(result.markdown);
 console.error(result.warnings);
@@ -70,19 +74,35 @@ node scripts/sanitize-sciopen-experiment.mjs <selected-blocks.json> <output-dire
 node --test test/sciopen-experimental.test.mjs
 ```
 
-9 个实验测试覆盖上述源证据、manifest 完整性和无敏感参数、DOM admission/DOI 失败、A-B-A 与并发确定性、MathJax 再解析问题、table 拒绝，以及既有 math/raw-HTML/crossref/structure validators。截取样本通过验证不等于对全部全文的可靠性承诺。
+当前 focused suite 为 18 个 tests，覆盖源证据、manifest 完整性和无敏感参数、DOM admission/DOI/partial-loading 失败、A-B-A 与并发确定性、MathJax 再解析问题、table 拒绝，以及既有 math/raw-HTML/crossref/structure validators。截取样本通过验证不等于对全部全文的可靠性承诺。
 
 额外的本地完整正文 smoke replay：Nano Research `10.26599/NR.2025.94907575` 的公开文章语义块通过全部返回前 validators，得到 14 个章节、4 个 figure、1 个公式、32 条参考文献、34,415 字符 Markdown。该检查发现的 Greek variable subscript 问题已用同源段落补入 excerpt 并在适配器内修复，未修改共享 normalizer。
 
-Nano Research Energy 的整页 DOM 观察到 52 条参考文献，但所导出的语义块经 HTML 再解析后只有 5 条，完整正文回放因此报 `Invalid SciOpen citation range.`，没有输出不完整 Markdown。其页面含重复 `article_references` ID；当前仅证明显示公式 excerpt 的兼容性，尚未证明整篇 NRE acquisition/replay。需后续以完整子树采集、原始/再解析 DOM 计数对照查明丢失边界，不能把此次失败称为付费墙或忽略引用验证。该来源变体也是 merge blocker。
+### NRE 52 → 5 的根因与拒绝证据
 
-本地验证环境为 Windows、Node.js 24.14.1：`npm ci` 成功；`npm test` 为 119/119 通过（包括 9 个实验测试）；`npm run build` 成功；`npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` 返回 `valid: true`。没有运行 `clip:live`，没有覆盖 paper artifact。
+旧 NRE 导出 JSON（仅在临时目录）的观察值为 52 references，但 `html.length` 恰为 200,011：200,000 字符后附加 `[Truncated]`，并在 reference 5 的导航链接内结束，缺少闭合 scaffold。对原 serialized string 查找 `id="r_bN"` 得到 1–5；JSDOM reparsing 同样得到 1–5，root 内/全 document 计数均为 5。因此损失发生在 browser result export 的截断边界，不是 JSDOM 将已导出的 52 个节点丢掉，也没有 parser mutation 或其他 UI bibliography 被当成完整 bibliography 的证据。仅凭现有产物不能确认工具内部哪一层施加 200,000 字符上限。
+
+源中每条引用分别使用重复 `article_references` ID；全匹配 selector 可以覆盖这些 sibling containers，但 `querySelector('#article_references')` 会只取第一条，仍是独立风险。现在从唯一的 scholarly `#title_-12` 选择全部 `.v4-art-reference-item`，不依赖 bibliography container ID 的唯一性；多个 canonical section 拒绝，不从页面其他 UI 区域补引文。
+
+`scripts/sciopen-source-audit.mjs` 离线报告 raw/reparsed 拓扑；`scripts/sciopen-reference-repro.mjs` 从该截断产物选取真实 `b5–b8` 引用段落和 exported references 1–5，生成 `nre-truncated` 的 source-backed excerpt/manifest。Manifest 记录 serialized source digest、原串和再解析参考编号、terminal marker 和删节。测试证明原 scholarly range 因缺少 b8 被确定性拒绝，显式末尾 truncation marker 在建 DOM 前被拒绝，不返回貌似完整的 Markdown。
+
+选择 **B：NRE excerpt-level evidence only**。已验证显示公式与同 family DOM，不声称完整 NRE clipping；默认 article scope 即使收到新的无 truncation marker 的 NRE DOM 也拒绝，直到完整 acquisition/replay 有独立证据。此次不扩大 corpus、不绕过访问、不强迫 NRE pass。
+
+旧 head `04d5554` 的 119/119 是历史结果，不是当前集成证据。当前 accepted base 为 `de8a8955db0327c0241d648e4546c2d9f85a330d`，Main CI `37137870378` 和 Secret scan `37137870392` 成功后使用。当前本地/远端全套结果和 final SHA 记录在 PR #42 最终交接节。没有运行 `clip:live`，没有覆盖 paper artifact。
 
 一次后续全套测试遇到既有 launcher test 的 10 秒 bridge startup timeout（`test/launcher.test.mjs:63`）；未修改 launcher 或放宽测试，复跑结果在 PR 交付记录中报告。SciOpen fixture 使用限定路径的 `.gitattributes` LF 规则，以保持 Windows checkout 后的 provenance bytes/hash。
 
+### Lifecycle、composition 与有界内存
+
+对照当前 AAAS/RSC 的 accepted-main 实现，SciOpen 在 article globals 安装前静态初始化 `defuddle/full`，不保留自己的永久 conversion window；title fragment 使用同一个 article document。Parser 整体 catch 关闭窗口（包含未预期的晚期异常），clip 的 finally 在成功/转换失败后关闭并 yield event loop。共享 `dom-runtime` 与 converter 不修改。
+
+`scripts/sciopen-lifecycle-check.mjs` 的六个冷启动子进程覆盖 SciOpen↔RSC、SciOpen↔AAAS、SciOpen↔PNAS。每个进程都运行四 publisher 并发、A-B-A/跨顺序 Markdown hashes 对照、own/global 值恢复、SciOpen admission/late-parser/conversion-normalization failure、24 次额外 SciOpen clips。SciOpen owned article windows 每次正好 close 一次（每进程 32 个），返回值无 DOM nodes；NodeFilter sentinel 及缺省 DOM globals 原样恢复。PNAS 等其他 publisher 的 lifecycle 不由本 PR 修改或重新设计。
+
+每个进程用 `--expose-gc --max-old-space-size=512`；三批回放后记录 heapUsed。初次观测为 172,106,912 → 77,567,016 → 58,083,512 bytes，未见单调积累，六顺序均未 OOM。此为有界执行/ownership 证据，不是无条件内存上界或其他 publisher 完整生命周期承诺。focused suite 同样在 512 MiB heap 下通过。仅测试 SciOpen 真正支持的 markdown；没有为 parity 添加其他 dialect。
+
 ## 后续 shared contract 提案与 merge blockers
 
-供 #26 后续阶段讨论的提案：区分 article identity、正文 readiness 与完整性；明确 publisher-local JATS range/reference 解析到中间语义的责任；保留原始公式 payload 与标签；规定签名媒体、无 href 下载控件的 fallback/warning；统一验证诊断的交接形式。这里不提取这些合同，不修改任何共享实现或路由。
+供 #26 后续阶段讨论的提案：区分 body-present/readiness/完整性与 output validators；在 browser/export/reparse 各边界对照同一 scholarly projection 的计数/截断信号；canonical bibliography 不应依赖 publisher ID 唯一性；明确 publisher-local JATS range/reference 解析责任；保留原始 MathML provenance；规定签名媒体 lifetime、无 href ESM fallback/warning；runtime-owned parser result 与 plain clip result 分开，不能从其他 publisher 的 result shape 推断 shared type；DOM lifecycle/失败阶段应可审计。SciOpen 仅支持 markdown，而其他实验接口有不同 dialect、debug 和 result 字段，属于未来合同的证据，未在此统一。这里不提取这些合同，不修改任何共享实现或路由。
 
 该 Draft 暂不满足生产支持的 merge 条件：
 
