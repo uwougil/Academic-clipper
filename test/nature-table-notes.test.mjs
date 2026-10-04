@@ -170,3 +170,55 @@ test('table-note Markdown is stable across repeated A then B then A conversion',
   }
   assert.equal(first.table.notes?.length || 0, 1);
 });
+
+test('synthetic inline relocation keeps recorded notes without a table fetch', async () => {
+  // Move the unchanged recorded full-size container into its recorded link figure.
+  // This explicitly synthetic placement protects the inline-table path only.
+  const source = new JSDOM(cases[2].tableHtml);
+  const article = new JSDOM(cases[2].articleHtml);
+  opened.push(source, article);
+  article.window.document.querySelector('.c-article-body figure').append(
+    source.window.document.querySelector('.c-article-table-container').cloneNode(true),
+  );
+  const page = parseNaturePage(article.serialize(), cases[2].provenance.article.url);
+  opened.push(page.dom);
+  const operations = [];
+  const warnings = await hydrateNatureTables(page.tables, cases[2].provenance.article.url, {
+    fetchImpl: async () => { operations.push('HTTP'); throw new Error('Unexpected inline table fetch'); },
+    resolveHostname: async () => { operations.push('DNS'); throw new Error('Unexpected inline table DNS'); },
+  });
+  assert.deepEqual(operations, []);
+  assert.deepEqual(warnings, []);
+  await withDomGlobals(page.dom, () => normalizeTableContents(page.tables, cases[2].provenance.article.url));
+  assert.equal(page.tables[0].tableContentStatus, 'inline-html');
+  assert.equal(page.tables[0].notes.length, 6);
+  assert.ok(renderTables(page.tables).includes('Including the FAST and VLA observations.'));
+});
+
+test('synthetic marker boundary does not reinterpret scientific powers or citations', async () => {
+  // Non-scholarly synthetic values exercise the marker/attachment boundary.
+  const dom = new JSDOM('');
+  opened.push(dom);
+  const tables = [{
+    tableHtml:'<table><tr><td><i>x</i> <sup>a</sup>; <span class="mathjax-tex">\\(x\\)</span><sup>a</sup>; <sup><a href="#ref-CR1">a</a></sup>; x<sup>a</sup>; x<sup>z</sup>; 10<sup>3</sup></td></tr></table>',
+    notes:[{ marker:'a', html:'<sup>a</sup>marker boundary' }],
+  }];
+  await withDomGlobals(dom, () => normalizeTableContents(tables, cases[0].provenance.article.url));
+  assert.doesNotMatch(tables[0].markdown, /\*\*a\*\*/u);
+  assert.match(tables[0].markdown, /\^\{a\}/u);
+  assert.match(tables[0].markdown, /\^\{z\}/u);
+  assert.match(tables[0].markdown, /\^\{3\}/u);
+});
+
+test('synthetic numeric footer marker cannot turn unit or numeric powers into note markers', async () => {
+  const dom = new JSDOM('');
+  opened.push(dom);
+  const tables = [{
+    tableHtml:'<table><tr><td>cm<sup>3</sup>; 10<sup>3</sup></td></tr></table>',
+    notes:[{ marker:'3', html:'<sup>3</sup>numeric marker boundary' }],
+  }];
+  await withDomGlobals(dom, () => normalizeTableContents(tables, cases[0].provenance.article.url));
+  assert.doesNotMatch(tables[0].markdown, /\*\*3\*\*/u);
+  assert.equal((tables[0].markdown.match(/\^\{3\}/gu) || []).length, 2);
+  assert.match(tables[0].notes[0].markdown, /^\*\*3\*\* /u);
+});

@@ -297,6 +297,16 @@ function extractFigures(body, url) {
   return figures;
 }
 
+function tableNotes(root) {
+  if (!root) return [];
+  return Array.from(root.querySelectorAll('.c-article-table-footer li')).map((item) => {
+    const first = Array.from(item.childNodes).find((node) => node.nodeType !== 3 || node.textContent.trim());
+    const marker = first?.nodeType === 1 && first.tagName === 'SUP' && /^[A-Za-z0-9*†‡]$/u.test(first.textContent.trim())
+      ? first.textContent.trim() : '';
+    return { html: item.innerHTML, marker };
+  });
+}
+
 function extractTables(body, url) {
   let number = 0;
   return Array.from(body.querySelectorAll('figure')).flatMap((figure) => {
@@ -315,6 +325,7 @@ function extractTables(body, url) {
       caption,
       url: normalizeUrl(link, url),
       tableHtml: tableElement?.outerHTML || '',
+      notes: tableNotes(figure),
       tableContentStatus: tableElement ? 'inline-html' : 'not-loaded',
     }];
   });
@@ -377,6 +388,11 @@ export async function hydrateNatureTables(tables, articleUrl, {
       const html = await response.text();
       const tableDocument = new JSDOM(html, { url: table.url }).window.document;
       const tableElement = tableDocument.querySelector('table');
+      const container = tableElement
+        ? tableElement.closest('.c-article-table-container') || tableElement.parentElement
+        : tableDocument.querySelector('#content .c-article-table-container');
+      table.notes = tableNotes(container);
+      table.tableContentUrl = finalUrl;
       if (!tableElement) {
         table.tableContentStatus = 'fallback-no-html-table';
         table.tableContentWarning = 'The full-size Nature page did not expose HTML table cells; retained the absolute URL.';
@@ -385,7 +401,6 @@ export async function hydrateNatureTables(tables, articleUrl, {
       }
       table.tableHtml = tableElement.outerHTML;
       table.tableContentStatus = 'full-size-html';
-      table.tableContentUrl = finalUrl;
     } catch (error) {
       table.tableContentStatus = 'fallback-fetch-failed';
       table.tableContentWarning = `Unable to fetch or parse the full-size table: ${error instanceof Error ? error.message : String(error)}`;

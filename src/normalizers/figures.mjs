@@ -151,6 +151,9 @@ export function renderTables(tables, policy = { dialect: 'markdown' }) {
         : ' — ⚠️ Table cells were not exposed as HTML; retained the full-size link.';
       lines.push(`- ${caption}${table.url ? ` ([Full size table](${table.url}))` : ''}${identifier}${warning}`, '');
     }
+    for (const note of table.notes || []) {
+      if (note.markdown) lines.push(`- ${note.markdown.replace(/\n/gu, '\n  ')}`, '');
+    }
   }
   return lines.join('\n').trimEnd();
 }
@@ -163,14 +166,28 @@ function cellTextForMarkdown(value) {
     .trim();
 }
 
-async function tableCellMarkdown(cell, url) {
-  const html = normalizeHtmlUrls(cell.innerHTML, url);
+async function tableCellMarkdown(cell, url, noteMarkers) {
+  const contents = cell.cloneNode(true);
+  for (const sup of contents.querySelectorAll('sup')) {
+    const marker = sup.textContent.trim();
+    let previous = sup.previousSibling;
+    while (previous?.nodeType === 3 && !previous.textContent.trim()) previous = previous.previousSibling;
+    // Numeric powers cannot be inferred to be note references from marker equality.
+    if (!/^[A-Za-z*†‡]$/u.test(marker) || !noteMarkers.has(marker) || sup.querySelector('a') || sup.closest('.mathjax-tex')
+      || ['I', 'B', 'EM', 'STRONG'].includes(previous?.tagName)
+      || previous?.classList?.contains('mathjax-tex')
+      || previous?.nodeType === 3 && /(?:^|\s)[A-Za-z]$/u.test(previous.textContent)) continue;
+    const readableMarker = contents.ownerDocument.createElement('strong');
+    readableMarker.textContent = marker;
+    sup.replaceWith(readableMarker);
+  }
+  const html = normalizeHtmlUrls(contents.innerHTML, url);
   let converted = await markdownFragment(html, url);
   converted = normalizeMath(converted);
   return cellTextForMarkdown(normalizeAcademicInline(converted));
 }
 
-async function tableMarkdown(tableHtml, url) {
+async function tableMarkdown(tableHtml, url, noteMarkers) {
   const document = new JSDOM(tableHtml, { url }).window.document;
   const table = document.querySelector('table');
   if (!table) return '';
@@ -185,7 +202,7 @@ async function tableMarkdown(tableHtml, url) {
     let column = 0;
     for (const cell of Array.from(row.children).filter((node) => node.tagName === 'TH' || node.tagName === 'TD')) {
       while (grid[rowIndex][column] !== undefined) column += 1;
-      const value = await tableCellMarkdown(cell, url);
+      const value = await tableCellMarkdown(cell, url, noteMarkers);
       const rowSpan = Math.max(Number(cell.getAttribute('rowspan') || 1), 1);
       const colSpan = Math.max(Number(cell.getAttribute('colspan') || 1), 1);
       for (let rowOffset = 0; rowOffset < rowSpan; rowOffset += 1) {
@@ -220,11 +237,30 @@ async function tableMarkdown(tableHtml, url) {
   return output.join('\n');
 }
 
+async function tableNoteMarkdown(note, url) {
+  const dom = new JSDOM(`<div>${note.html}</div>`, { url });
+  const root = dom.window.document.body.firstElementChild;
+  const first = Array.from(root.childNodes).find((node) => node.nodeType !== 3 || node.textContent.trim());
+  if (note.marker && first?.tagName === 'SUP' && first.textContent.trim() === note.marker) {
+    const readableMarker = root.ownerDocument.createElement('strong');
+    readableMarker.textContent = note.marker;
+    first.replaceWith(readableMarker, root.ownerDocument.createTextNode(' '));
+  }
+  const html = normalizeHtmlUrls(root.innerHTML, url);
+  dom.window.close();
+  const converted = await markdownFragment(html, url);
+  return normalizeAcademicInline(normalizeMath(converted)).replace(/\r\n/gu, '\n').trim();
+}
+
 export async function normalizeTableContents(tables, url) {
   for (const table of tables) {
+    for (const note of table.notes || []) {
+      note.markdown = await tableNoteMarkdown(note, table.tableContentUrl || url);
+    }
     if (!table.tableHtml) continue;
     try {
-      table.markdown = await tableMarkdown(table.tableHtml, table.tableContentUrl || url);
+      const noteMarkers = new Set((table.notes || []).map((note) => note.marker).filter(Boolean));
+      table.markdown = await tableMarkdown(table.tableHtml, table.tableContentUrl || url, noteMarkers);
       if (!table.markdown) {
         table.tableContentStatus = 'fallback-empty-table';
         table.tableContentWarning = 'The exposed HTML table contained no usable rows.';
