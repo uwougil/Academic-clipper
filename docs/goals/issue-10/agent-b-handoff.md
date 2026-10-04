@@ -1,4 +1,44 @@
-# Agent B — Nature source handoff（供未来 integrator / Agent C）
+# Agent B — Nature source handoff（9篇 source contracts）
+
+## 2026-10-04 最新补充交接（下文8-entry记录由此更新）
+
+**当前9篇source-admitted articles、4个table resources、13个excerpts、85个source expectations**。新增source commit f4cafa32274bf0b1ab427c82c950457feb68fa78已在本isolated B branch：test/corpus/corpus-manifest.json；9篇source-evidence.json（补38个mainfigure真实sibling定位）；新fixtures/s41598-018-38309-5/article.excerpt.html、source-evidence.json、parser-defect-evidence.json；docs/nature-corpus.md。前8个manifest article/source expectation values完整保留，12个原fixture hashes未改。Accepted base仍e85b1b809b56242b89b6313ce5d1165c745466bb，A versions/ownership/branch/worktree同下文。Source/integrity验收与独立C验收保持区分，不宣称AgentB/Issue10 complete。
+
+最新source/hash/size/role表与本轮4候选rejection准确ledger见[来源指南最新段](../../nature-corpus.md)。新admitted：[s41598-018-38309-5](https://www.nature.com/articles/s41598-018-38309-5)，Scientific Reports，Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States，DOI10.1038/s41598-018-38309-5；observedAt2026-10-04T06:56:41.242Z；actualraw487190bytes，SHA a1a135395d984fcda4548aacd0d6eabe0d41bb22c16cc31f4c8f16f8eaf49d51；fixture172171bytes，SHA136cb3b089fac6850fab400bcce1e7b063a2aaccf763f02eeb65697a7700af00。完整source identity/OA/substantivebody gates通过，同approvedanonymousguardedHTTP模式，全文仅externalTEMP。111blocks、3完整sections、1display、4mainfigures、74条source referencesprefix，5个metadata authors，reference锚点在li子p（sourceAnchorId/selector记录ref-CR1…74）；Figure1标签与独立captiondescription、Data Availability大小写/空publicationdate与online2019字段等是新增source DOM变体。所有fixture aggregate1577502bytes，article/tablehardbounds均满足；全corpus含manifest/evidence2977065bytes，metadata大小请integrator审核，未假填sizeException。
+
+### 原coverage缺口核验与纠正
+
+1. **真实externalarticlefragment已取得**：source-crossrefs-v1引用a-reference-9/29/31/35/43/50，6个不同Nature文章#supplementary-information URL，保留源HTTP/HTTPS表示。此角色不再依赖synthetic或GitHubfragment。Productionzero-tableclip诊断中markdown/links保留于References；Quarto保留于referencesBib（按policy正文不渲染reference正文），并没有改成本地target。因同篇其他validators失败，该条目仍不能计为passingcoverage。
+2. **撤回“必须figure外description”的B解释**：canonical只要求保留actualcaption siblings/topology，从未规定描述必须在figure外。真实源.c-article-section__figure-content下image容器.c-article-section__figure-item与[data-test=bottom-caption]desc互为有序siblings，且均在figure里；9源38条captionSiblingEvidence保存selector、blockIds、orderedElementSiblings。既有scientificinput/recipe/sourcehash不改。这个要求已有truthfulsource证据，仍待C执行断言，不再提syntheticDOM或规范修订。
+3. 下文“缺少externalfragment/caption外sibling”是上一轮判断，已由上两项更新。三项productiondefects和C/D独立验证仍是真实阻塞；不能以新增来源宣称全coverage通过。
+
+### 新独立bug Work Contract草案（不创建Issue，不改production）
+
+**A. Nature figure descriptions with citations emit raw anchor HTML and duplicate captions**。
+
+Trigger：原source [Figure3 bottom-caption](https://www.nature.com/articles/s41598-018-38309-5#Fig3)包含orderedcitation74、56，title/tooltips真实保留。使用committed truthfularticle走clipNature（无tables，不会fetch）后，三种outputPolicy均出现caption两次、superscript中残留真实<a> tags，并让inline math跨行；rawHTMLvalidators每policy8violations。正确期待：每figure完整caption仅一次；citation numbers/definitions/Bib正确，superscripts不吞citation anchors；markdown/quarto zeroHTML，links只strictanchors；math/scientificFragments与全部validators通过。source paragraph/topology/links不改。
+
+Scope：Naturecaption extraction/normalization和位置渲染的最小必要修复，复用既有Defuddle/citation/semantic机制，保留Figurelabels、paragraphadjacency、scientificnotation、imagefallback；不改其它publisher/security/writer/golden/inputscientificcontent。验收：本source Figure3及完整4mainfigures的caption/start/end/panels/orderedcitation/position一次；三policy全部validators，不容忍rawHTML或duplicate；source85expectations按C独立核验，不删除该难例。根因仅就已观察failurepath提出，最终由bugowner诊断。
+
+**B. Nature plain-text scientific units retain isolated superscript fragments**。
+
+Trigger：Methods的原m<sup>3</sup> /m<sup>3</sup>、kg m<sup>−2</sup> s<sup>−1</sup>、kg/m<sup>2</sup>以未包i/b的plaintext单位出现，三policy输出7个scientific-isolatedSuperscript fragments。正确期待是原bases/exponents/斜线/单位attachment完整、没有isolatedfragments，可按既有outputpolicy归一化；不创造或改写科学值、计量单位。
+
+Scope：最小Naturescientificrun recognition/academicinline处理，literal unit+source sup/sub接合；保留citation/compoundnumber区别，不弱化scientificFragmentsvalidator。验收：source3Methodsparagraphs中原unit runs正确附着、exactbase/exponentorder；三policy全部validators通过；不会把sup内真实citations当scientificpower；protect已有golden/chemistry/astronomyruns。与caption合同分开diagnose，避免扩大基础设施Issue10职责。
+
+两个草案共享新parser-defect-evidence.json：原4个完整source节点（caption+3Methodsparagraphs）、原serializedsubtree/hash/publicposition、correctsourceexpectations、三policyvalidator细节/actualcaptionoccurrences。没有完整Markdownsnapshot、dummyexpectedvalue或validator豁免。Tablefooternote合同仍如本文原提案，另有correctsource6FRB/2COVID/1goldennotes。所需bugfixes是Issue10passingcoverage前置，不是拆分Issue10finalPR责任。
+
+### 本轮exact checks / C handoff状态
+
+Exactacquisition/preparation/CLI/audit commands及UTC/results见来源指南最新段。新增CLI生成与rawinput再生成byteequal/idem PASS；sourceaudit9篇/13files/1577502bytes/sourcepayload/subtree/hash/signatures/path/mapping PASS；indexaudit13hash PASS和12本轮stagedsourcefilenames/secret/executablePASS；gitdiff --cached --check PASS。A manifestshape符合既有schema，emptyregistry仍正确拒绝Unconsumed expectation；85个expectations/10个IDs未registered消费。
+
+新clipdiagnose为productionwholechain但只是B只读failurediagnosis，**exit0为report成功，不是validator成功**。三policycount1eq/4fig/74ref，结构/crossrefsvalid，warnings为空；math/rawHTMLfalse/7isolatedsup/caption3twice/8HTMLviolations，均保存，不计passedcoverage。No-table preflight后才跑clip，没有globalfetch/DNSpatch、writer或declaredtable网络。
+
+C可接纳A originals（H1+3754d3a+8f8a3d）、B bee3910/61e19e0/f4cafa3及本handoff更新；现在要求独立检查9篇/85expectations，包括新SRp-IDreferences、Figurelabel/caption分离、6外文章fragments、原metadata和全部source科学内容。C需要真实strictregistry/values/assertions、各policy执行records和Dtabletransportseam。C若已启动，请用taskname/threadID完成真实交接；本轮已通过asyncquestion索取任务位置，未虚报C收到或审核。
+
+该handoff更新commit自身仍用gitlog获取；下文原ordered列表加61e19e0981d4e82a5a6fb2d8f3c5dd9a0578fc2e（Bhandoff）→f4cafa32274bf0b1ab427c82c950457feb68fa78（B新增source/evidence/guide）→本更新commit，是完整顺序。适用证据不代表主线已接受B；未开普通deliveryPR，Issue10最终单一PR与MainCI规则不变。
+
+## 前轮8-entry handoff（历史，latest以本节为准）
 
 来源采集已解阻：8 篇 source-admitted Open Access article、4 个真实 table resource、12 个 deterministic sanitized excerpts 与76个source expectations已提交。**Agent B的最终验收仍未完成，Issue #10未完成**：C尚未独立审核/登记消费，table notes有真实parser defect，另有外文章fragment/caption外sibling覆盖缺口；不能把这些计成passing coverage。规范未改，production parser/tests/golden均未由B修改。
 
