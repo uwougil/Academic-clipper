@@ -1,0 +1,552 @@
+{
+  "evidenceVersion": "nature-table-source-defect/1.0.0",
+  "classification": "PARSER_DEFECT_REPRODUCED",
+  "scope": "Production hydrateNatureTables -> normalizeTableContents -> renderTables only; full clip/dialect suite awaits D seam and C independent assertions",
+  "articleId": "s41586-022-04755-5",
+  "url": "https://www.nature.com/articles/s41586-022-04755-5",
+  "fixtureSha256": "3214c1ee6e7f232b45dcb5e44768f38608edcd9d6d870c1fc93948c854d54f1b",
+  "correctSourceExpectation": [
+    {
+      "id": "table-1",
+      "url": "https://www.nature.com/articles/s41586-022-04755-5/tables/1",
+      "title": "Table 1 Properties of FRB 20190520B",
+      "sourceRows": [
+        [
+          {
+            "tag": "TH",
+            "text": "Burst parameters",
+            "colspan": 2,
+            "rowspan": 1,
+            "html": "<p>Burst parameters</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Right ascension (J2000)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Right ascension (J2000)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "16 h 02 min 04.272 s (0.1″)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>16 h 02 min 04.272 s (0.1″)</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Declination (J2000)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Declination (J2000)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "−11° 17′ 17.32″ (0.08″)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>−11° 17′ 17.32″ (0.08″)</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Galactic coordinates (l, b)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Galactic coordinates (<i>l</i>, <i>b</i>)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "359.67°, 29.91°",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>359.67°, 29.91°</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Number of detectionsa",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Number of detections<sup>a</sup></p>"
+          },
+          {
+            "tag": "TD",
+            "text": "88",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>88</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Mean total DM (pc cm−3)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Mean total DM (pc cm<sup>−3</sup>)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "1,204.7 ± 4.0",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>1,204.7 ± 4.0</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Mean burst width (ms)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Mean burst width (ms)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "13.5 ± 1.2b",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>13.5 ± 1.2<sup>b</sup></p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Mean scattering timescale (ms) at 1.25 GHz",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Mean scattering timescale (ms) at 1.25 GHz</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "10 ± 2b",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>10 ± 2<sup>b</sup></p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Measured fluence (Jy ms)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Measured fluence (Jy ms)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "0.03 to 0.33",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>0.03 to 0.33</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "\\({{\\rm{DM}}}_{{\\rm{MW}},{\\rm{disk}}},{{\\rm{DM}}}_{{\\rm{MW}},{\\rm{halo}}}\\) (pc cm−3)c",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p><span class=\"mathjax-tex\">\\({{\\rm{DM}}}_{{\\rm{MW}},{\\rm{disk}}},{{\\rm{DM}}}_{{\\rm{MW}},{\\rm{halo}}}\\)</span> (pc cm<sup>−3</sup>)<sup>c</sup></p>"
+          },
+          {
+            "tag": "TD",
+            "text": "60, 50",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>60, 50</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "\\({{\\rm{DM}}}_{{\\rm{host}}}\\) (pc cm−3)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p><span class=\"mathjax-tex\">\\({{\\rm{DM}}}_{{\\rm{host}}}\\)</span> (pc cm<sup>−3</sup>)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "\\({903}_{-111}^{+72}\\)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p><span class=\"mathjax-tex\">\\({903}_{-111}^{+72}\\)</span></p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Luminosity distance (Mpc)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Luminosity distance (Mpc)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "1,218",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>1,218</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Isotropic equivalent energy (1037 erg)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Isotropic equivalent energy (10<sup>37</sup> erg)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "3.6 to 40",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>3.6 to 40</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Persistent radio source",
+            "colspan": 2,
+            "rowspan": 1,
+            "html": "<p><b>Persistent radio source</b></p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Right ascension (J2000)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Right ascension (J2000)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "16 h 02 min 04.261 s (0.1″)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>16 h 02 min 04.261 s (0.1″)</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Declination (J2000)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Declination (J2000)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "−11° 17′ 17.35″ (0.05″)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>−11° 17′ 17.35″ (0.05″)</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Flux density at 3.0 GHz (μJy)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Flux density at 3.0 GHz (μJy)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "202 ± 8d",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>202 ± 8<sup>d</sup></p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Luminosity at 3.0 GHz (erg s−1 Hz−1)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Luminosity at 3.0 GHz (erg s<sup>−1</sup> Hz<sup>−1</sup>)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "3 × 1029",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>3 × 10<sup>29</sup></p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Size (3 GHz)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Size (3 GHz)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "<0.36″ (<1.4 kpc)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>&lt;0.36″ (&lt;1.4 kpc)</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Host galaxy",
+            "colspan": 2,
+            "rowspan": 1,
+            "html": "<p><b>Host galaxy</b></p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Redshift (z)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Redshift (<i>z</i>)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "0.241 ± 0.001",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>0.241 ± 0.001</p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Stellar mass (M⊙)e",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Stellar mass (<i>M</i><sub>⊙</sub>)<sup>e</sup></p>"
+          },
+          {
+            "tag": "TD",
+            "text": "~6 × 108",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>~6 × 10<sup>8</sup></p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Hα luminosity (erg s−1)",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Hα luminosity (erg s<sup>−1</sup>)</p>"
+          },
+          {
+            "tag": "TD",
+            "text": "7.4 × 1040 ± 0.2 × 1040",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>7.4 × 10<sup>40</sup> ± 0.2 × 10<sup>40</sup></p>"
+          }
+        ],
+        [
+          {
+            "tag": "TD",
+            "text": "Star-formation rate (M⊙ yr−1)f",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>Star-formation rate (<i>M</i><sub>⊙</sub> yr<sup>−1</sup>)<sup>f</sup></p>"
+          },
+          {
+            "tag": "TD",
+            "text": "~0.41",
+            "colspan": 1,
+            "rowspan": 1,
+            "html": "<p>~0.41</p>"
+          }
+        ]
+      ],
+      "sourceNotes": [
+        {
+          "text": "aIncluding the FAST and VLA observations.",
+          "html": "<sup>a</sup>Including the FAST and VLA observations."
+        },
+        {
+          "text": "bThese are the mean values from FAST bursts fitted with a Gaussian pulse convolved with a one-sided exponential (Methods).",
+          "html": "<sup>b</sup>These are the mean values from FAST bursts fitted with a Gaussian pulse convolved with a one-sided exponential (Methods)."
+        },
+        {
+          "text": "cThe MW electron density model from NE2001 and YMW16.",
+          "html": "<sup>c</sup>The MW electron density model from NE2001 and YMW16."
+        },
+        {
+          "text": "dAveraged over a span of about 2 months from 30 August to 16 November 2020.",
+          "html": "<sup>d</sup>Averaged over a span of about 2 months from 30 August to 16 November 2020."
+        },
+        {
+          "text": "eBased on the J-band magnitude.",
+          "html": "<sup>e</sup>Based on the J-band magnitude."
+        },
+        {
+          "text": "fBased on the Hα luminosity.",
+          "html": "<sup>f</sup>Based on the Hα luminosity."
+        }
+      ],
+      "physicalRowCount": 24,
+      "physicalCellCounts": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "expectedStatus": "full-size-html",
+      "warning": null,
+      "sourceNotesLocator": "#content .c-article-table-footer li"
+    }
+  ],
+  "statuses": [
+    {
+      "id": "Tab1",
+      "label": "Table 1",
+      "status": "full-size-html",
+      "url": "https://www.nature.com/articles/s41586-022-04755-5/tables/1",
+      "hydratedHtmlContainsFooter": false
+    }
+  ],
+  "warnings": [],
+  "ledger": {
+    "requests": [
+      {
+        "url": "https://www.nature.com/articles/s41586-022-04755-5/tables/1",
+        "method": "GET",
+        "redirect": "manual"
+      }
+    ],
+    "resolutions": [
+      {
+        "hostname": "www.nature.com",
+        "all": true,
+        "verbatim": true
+      }
+    ],
+    "unexpected": []
+  },
+  "dialects": [
+    {
+      "dialect": "markdown",
+      "sourceNotes": [
+        {
+          "text": "aIncluding the FAST and VLA observations.",
+          "present": false
+        },
+        {
+          "text": "bThese are the mean values from FAST bursts fitted with a Gaussian pulse convolved with a one-sided exponential (Methods).",
+          "present": false
+        },
+        {
+          "text": "cThe MW electron density model from NE2001 and YMW16.",
+          "present": false
+        },
+        {
+          "text": "dAveraged over a span of about 2 months from 30 August to 16 November 2020.",
+          "present": false
+        },
+        {
+          "text": "eBased on the J-band magnitude.",
+          "present": false
+        },
+        {
+          "text": "fBased on the Hα luminosity.",
+          "present": false
+        }
+      ]
+    },
+    {
+      "dialect": "quarto",
+      "sourceNotes": [
+        {
+          "text": "aIncluding the FAST and VLA observations.",
+          "present": false
+        },
+        {
+          "text": "bThese are the mean values from FAST bursts fitted with a Gaussian pulse convolved with a one-sided exponential (Methods).",
+          "present": false
+        },
+        {
+          "text": "cThe MW electron density model from NE2001 and YMW16.",
+          "present": false
+        },
+        {
+          "text": "dAveraged over a span of about 2 months from 30 August to 16 November 2020.",
+          "present": false
+        },
+        {
+          "text": "eBased on the J-band magnitude.",
+          "present": false
+        },
+        {
+          "text": "fBased on the Hα luminosity.",
+          "present": false
+        }
+      ]
+    },
+    {
+      "dialect": "links",
+      "sourceNotes": [
+        {
+          "text": "aIncluding the FAST and VLA observations.",
+          "present": false
+        },
+        {
+          "text": "bThese are the mean values from FAST bursts fitted with a Gaussian pulse convolved with a one-sided exponential (Methods).",
+          "present": false
+        },
+        {
+          "text": "cThe MW electron density model from NE2001 and YMW16.",
+          "present": false
+        },
+        {
+          "text": "dAveraged over a span of about 2 months from 30 August to 16 November 2020.",
+          "present": false
+        },
+        {
+          "text": "eBased on the J-band magnitude.",
+          "present": false
+        },
+        {
+          "text": "fBased on the Hα luminosity.",
+          "present": false
+        }
+      ]
+    }
+  ]
+}

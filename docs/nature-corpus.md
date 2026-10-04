@@ -1,4 +1,82 @@
-# Nature corpus — Agent B 来源采集预检交接
+# Nature corpus 来源与覆盖
+
+## 2026-10-04 当前来源交接（覆盖后面的历史阻塞状态）
+
+已取得并按来源接纳 8 篇公开 Open Access article DOM、4 个独立 table responses；12 个 A-generated excerpts 共 1,405,331 bytes，全部重复生成一致、二次 sanitization 幂等、fixture/hash 与原始 source bytes 一致。来源字段已写入 [manifest](../test/corpus/corpus-manifest.json)，逐篇 source-evidence.json 是脱敏 DNS/HTTP ledger 与 source position 证据。76 个 versioned source expectations / 10 个 assertion IDs 交未来 C 登记；尚未独立消费，不能视为 offline regression 通过或 Issue #10 完成。
+
+基线为 latest accepted main e85b1b809b56242b89b6313ce5d1165c745466bb（[Main CI](https://github.com/uwougil/Academic-clipper/actions/runs/37182993143)，Ubuntu Node 20/24、Windows Node 24 全 success）。此前冻结源文件时基线 de8a8955db0327c0241d648e4546c2d9f85a330d 的 [CI](https://github.com/uwougil/Academic-clipper/actions/runs/37137870378) 也已成功；最后无冲突 rebase 到 e85b1b8。PR #27 contract 在 accepted ancestry 中。B-owned files 仅 source manifest、fixtures/evidence、本文与 B handoff；A dependencies 原样接入。
+
+### 明确的人类 acquisition 例外
+
+前一轮提出 bounded fresh anonymous Cookie 方案后，用户明确回复“可以 继续往下尝试 直到能拿到需要对的东西”。据此执行一次 task-specific source acquisition 例外：每个 article/resource 新建内存 CookieJar，只接收 Nature 本次会话设置的临时站点 Cookie，结束立即清空；无账号、机构凭据、用户 browser profile/Cookie 复用或导出。没有改变 canonical、生产 safeFetchExternal、默认 article/table scope 或 D 的 no-Cookie live 行为。旧 ledger 中“未批准 / 0 admitted”均是当时状态。本次保留 raw sourceSha256 语义，未采用 decodedSourceSha256。
+
+实际 guarded acquisition：public DoH A/AAAA + 64 KiB/10s bound、生产 DNS guard、公网 socket lookup binding、原 hostname/TLS verification；HTTPS exact article/table 路径与 idp.nature.com 的 /authorize、/transit 路径 allowlist，最多 5 redirects；总 article/body 30s、25 MiB incrementally bounded body、HTML content type。所有临时 code/query/Cookie values、set-cookie headers 均未输出/保存到 repository。Ledger 只含 redacted origin+path、HTTP status/type 与 cookie sent boolean / set count。最终重新检查 exact canonical、citation DOI、title/journal、有实质 .c-article-body，并要求源 JSON-LD mainEntity.isAccessibleForFree true 与 Open Access label。
+
+### 来源接纳与覆盖
+
+下表 equation / main+Extended figures / references 是 retained source counts，不是 full-page observations，也不是 parser 成功计数。
+
+| Article | 来源角色 | Eq / figures / refs | Blocks | Fixture SHA-256 |
+| --- | --- | --- | --- | --- |
+| [s41586-026-10401-1](https://www.nature.com/articles/s41586-026-10401-1) | golden scientific runs / main+Extended Data / rowspan table / internal crossrefs | 13 / 3+4 / 50 | 99 | 73c0cbb04cf5d2f3424b4119f9085fad54ae8928665c21c362178bee6c2ec292 |
+| [s41534-023-00746-0](https://www.nature.com/articles/s41534-023-00746-0) | quantum numbered multiline arrays / Eq. (9) / four body sections / simple math table | 37 / 6+0 / 77 | 117 | b32d31f2389e8c052f990812cfd86441172538fd66e37fa17f97704d8795d9fc |
+| [s41586-021-03819-2](https://www.nature.com/articles/s41586-021-03819-2) | AlphaFold five long panel captions / paragraph adjacency / main figure topology | 0 / 5+0 / 84 | 158 | b47e9b289dfd671000e361872c9feb561b6b603eaf7c9a7011923fbf43a3c5ef |
+| [s41586-020-2012-7](https://www.nature.com/articles/s41586-020-2012-7) | ordered citations / update UI / zero displays / image-only table fallback | 0 / 3+2 / 16 | 84 | 42e83aae5ecffa52c031b36103b0220b52674bec0e6a79346ba088284ccdd594 |
+| [s41586-023-05896-x](https://www.nature.com/articles/s41586-023-05896-x) | 119 authors / nested sections / notes and first two affiliations / supplementary links / GitHub fragments | 0 / 4+2 / 49 | 209 | 9abb9d06ecbf79f8b4cb0883c4625d64fc25ab0bd7c01a45b6fb46353e3f29af |
+| [s41586-023-06735-9](https://www.nature.com/articles/s41586-023-06735-9) | materials units and scientific attachment / captions / data and code URLs | 1 / 3+0 / 71 | 115 | c997a761f1dea592df1d1b6007d338bf028de4825e48acdd94645cd2eba05517 |
+| [s41467-023-44030-3](https://www.nature.com/articles/s41467-023-44030-3) | compound bold numbers / GABA_A subscripts / Greek and units / nested Results | 0 / 7+0 / 52 | 93 | b3b10a0f1b4cdb2fb9980ebc44142d778689a18b396e51af93ebeb95f84b605e |
+| [s41586-022-04755-5](https://www.nature.com/articles/s41586-022-04755-5) | FRB units / coordinates and uncertainties / negative powers / colspan table / 2 Extended Data | 8 / 3+2 / 53 | 127 | 3214c1ee6e7f232b45dcb5e44768f38608edcd9d6d870c1fc93948c854d54f1b |
+
+8 篇 DOM 差异可核对：Nature 与 npj Quantum Information / Nature Communications；分开编号的 nested display arrays、无 display；caption 另有 bottom-caption 节点但当前初始响应中位于 figure 内；不同 main/Extended DOM、author metadata 119 项与6项、H2/H3 hierarchy、update boxes、不同 citation href 表示和 scientific i/b/sub/sup/MathJax。未把学科数量当作 DOM 多样性的唯一证据。
+
+Rejected/replaced：s41586-021-04354-w 虽返回正文，却显示 institutional-access banner，非 Open Access且 JSON-LD 不声明免费公开；拒绝该 source，不使用机构内容做 excerpt，换成 s41586-022-04755-5。s41534-024-00877-y 可公开采集，作为研究对照；52 displays/简单2×4 table与已有 quantum role 冗余，最终不计入8篇。最初8+4的 no-Cookie acquisition rejection 保留在历史 ledger；它们不是论文科学内容被证实无效，后来成功的候选已重新通过 source gate。其余 replacement 仍仅研究线索，未冒充 admitted。
+
+### 表格、来源 hashes 与 sizes
+
+Physical rows 是原 DOM cells，不把 colspan/rowspan 展开后的矩阵当作另一份原文。
+
+| Resource | Physical rows / cells per row | 原 spans | Source notes | Expected status |
+| --- | --- | --- | --- | --- |
+| s41586-026-10401-1/table-1 | 4; [5, 5, 4, 5] | OSSG: colSpan=1, rowSpan=2 | 1 | full-size-html |
+| s41534-023-00746-0/table-1 | 3; [3, 3, 3] | none | 0 | full-size-html |
+| s41586-020-2012-7/table-1 | 0; [] | none | 2 | fallback-no-html-table |
+| s41586-022-04755-5/table-1 | 24; [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2] | Burst parameters: colSpan=2, rowSpan=1; Persistent radio source: colSpan=2, rowSpan=1; Host galaxy: colSpan=2, rowSpan=1 | 6 | full-size-html |
+
+Quantum/golden/astro 的 HTML table success 正确 resource warnings 为空；COVID 必须为 fallback-no-html-table，并保留 absolute URL，exact warning 为 Extended Data Table 1: The full-size Nature page did not expose HTML table cells; retained the absolute URL. Source equations 为0的 AlphaFold/COVID/pangenome/chemistry 声明 No equation nodes were detected.；其余不允许 absence warning。HTTP failure/同文章 redirect/逃离 scope 的 simulated scenarios 仍由 C/D 明确标 synthetic；它们不是新的 raw captures。
+
+| Body | observedAt UTC | Raw / fixture bytes | sourceSha256 | fixtureSha256 |
+| --- | --- | --- | --- | --- |
+| s41586-026-10401-1 article | 2026-10-03T16:44:03.154Z | 437403 / 155363 | ea2508302b4c3af4efe421f02c3de93379b50940dd1a8762166efb38033cc91c | 73c0cbb04cf5d2f3424b4119f9085fad54ae8928665c21c362178bee6c2ec292 |
+| s41586-026-10401-1 table-1 | 2026-10-03T16:47:49.080Z | 172830 / 2968 | 36a52d93aca60fb50cb7452b2990f955f399d1b8a59e5278dff0764a9042d568 | 0f140482b5ed5873629f22df427fffe01aa5374c6253e465a4678f1ea1749677 |
+| s41534-023-00746-0 article | 2026-10-03T16:44:08.251Z | 511799 / 228057 | 6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e | b32d31f2389e8c052f990812cfd86441172538fd66e37fa17f97704d8795d9fc |
+| s41534-023-00746-0 table-1 | 2026-10-03T16:47:53.404Z | 169146 / 4299 | 7772399037acb3ba4dfc100bc6c9a8fdf4f82c56d8836e65fcb761294e9ee069 | 90670968407415e1f7e7c624b3244330015a4e52bc9790e811d2992205851c2d |
+| s41586-021-03819-2 article | 2026-10-03T16:44:11.820Z | 616249 / 188879 | 7a9843e69996c1a64a9a5ecc8b96015cfd45262e636e33e505a011d315c4310b | b47e9b289dfd671000e361872c9feb561b6b603eaf7c9a7011923fbf43a3c5ef |
+| s41586-020-2012-7 article | 2026-10-03T16:44:15.126Z | 418904 / 82098 | 340b1b93ba889c99acf492c7e5ba14ba36e0a5c12866da39a445237e992e2cb9 | 42e83aae5ecffa52c031b36103b0220b52674bec0e6a79346ba088284ccdd594 |
+| s41586-020-2012-7 table-1 | 2026-10-03T16:50:31.782Z | 179489 / 2500 | 3b6d64a5934ac4b45df370930ec4d9a9e51b41dc71ad3aaf2d87eb5c3125e29e | 6d67417849218c151fc8a1b27c1cbe56634d3774005b911cdc7c763462e42794 |
+| s41586-023-05896-x article | 2026-10-03T16:44:18.130Z | 1251945 / 191458 | 342b8dc5d0bf7d01618a3e9965ef6de9b23c59c7f7bef429592cbdb7852c36ec | 9abb9d06ecbf79f8b4cb0883c4625d64fc25ab0bd7c01a45b6fb46353e3f29af |
+| s41586-023-06735-9 article | 2026-10-03T16:44:22.324Z | 506351 / 201653 | 79f575e1941633c2dbd036682977ea6c274acd5c8c44fdb4648856a00a8d7cc6 | c997a761f1dea592df1d1b6007d338bf028de4825e48acdd94645cd2eba05517 |
+| s41467-023-44030-3 article | 2026-10-03T16:44:25.253Z | 460171 / 155114 | a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d | b3b10a0f1b4cdb2fb9980ebc44142d778689a18b396e51af93ebeb95f84b605e |
+| s41586-022-04755-5 article | 2026-10-03T16:48:03.040Z | 545450 / 187508 | 190a270027c69a816b2647d2fdc6f1777cdf669695506fa40f2fe3cab8801ace | 3214c1ee6e7f232b45dcb5e44768f38608edcd9d6d870c1fc93948c854d54f1b |
+| s41586-022-04755-5 table-1 | 2026-10-03T16:50:36.037Z | 185820 / 5434 | 97eaaa31a6f3443e63ad7cf2cef66776d72d61c6b0f0d2956d87cd43b39485a2 | d5c167a5e0e2bbe016a1728985a5f96788492a9397060cee4292bcb37ec81fd0 |
+
+所有 article <256 KiB、table <64 KiB、fixture bytes <2 MiB。Quantum/AlphaFold/pangenome/materials/astro 超过150 KiB软目标，是为了保留完整公式/长caption/119 authors/嵌套章节/正文邻接和 references prefix；未删除 stress topology 凑大小。Manifest与provenance/defect evidence另占约1.1 MiB，全部 corpus文件约2.5 MiB；需要 integrator 审核“约2 MiB”是否只指fixture bytes（A当前size gate）或含metadata。没有虚报 reviewed sizeException。
+
+### 转换、source oracle 与未通过的覆盖
+
+消费 A schema/recipe 1.0.0、sanitizer nature-corpus-sanitizer/1.1.0、serializer nature-corpus-subtree/1.0.0、projection nature-corpus-projection/1.0.0。1.0.0 不支持原 WebPage.mainEntity ScholarlyArticle + exact DOI sameAs；B提供真实反馈，A以独立3754d3a781459635e719859353fe3cbdf8741897发布兼容版本。未编辑或删掉 source JSON-LD 来绕过问题。
+
+Manifest recipe是实际source selector、block roles；retainedBlocks附 pre-sanitize deterministic subtree digests。各 source-evidence.json 的 sourcePositions 补 serialized bytes / original source ID，按 block id关联manifest，不是假body byte offsets。Original figures完整 captionText、首尾 sentinels、bold single-letter sequence、相邻段落、candidate src/srcset 与 descriptionPlacement 已冻结；bold letter不全声称panel标号。Source equations保留原delimiters/TeX/编号，quantum Equ9 的 rcl array 与 row separator 原样保留。Ordered citation anchors/numbers和refs完整原prefix；metadata保留全author序列和source date fields（online date优先）、选定notes/前两条完整affiliations/contributions/full correspondence。Scientific cases带source node subtree、context和source locator/index。Internal targetRetained false保留为真实excerpt omission，不能造target。
+
+移除scripts/analytics/tracking/session/access signatures/无关UI，保留少量原metrics/update UI供排除；fixed scaffold/attribute sort/UTF-8无BOM LF由A实现，operation/count逐篇存manifest。仅选择完整源sections或完整paragraph、Extended nodes、originalreferenceprefix；未选sections/余下affiliations/其余ED figures明确omitted；Data/Code/Supplementary只保留真实links，无image/PDF/XLSX binaries。Initial raw sources只在外部TEMP，没有 full capture或完整Markdown snapshot入库。
+
+未通过的必需覆盖：C尚未独立source审核/登记并消费76 expectations，也尚无all-dialect clip/seam/determinism/validator结果；不能把B source/integrity audit或现有288 tests当corpus通过。真实外文章章节fragment暂未找到：pangenome的两条fragment是GitHub资源，不能声称另一篇Nature article。当前8源caption bottom-description都位于figure内，不能假称已观察到figure外的sibling描述布局。应补真实不同source或由人类明确允许标synthetic的补充案例，不能悄悄放宽spec。
+
+独立parser defect：source .c-article-table-footer li notes golden1/COVID2/astro6项被hydrateNatureTables只选table.outerHTML而丢弃；在其生产 table normalizer/renderers 子链路三种policy下确认缺失。证据各table-defect-evidence.json包括correct source notes、statuses、exact warning与A replay request/DNS ledger（unexpected0）。B没有修parser、删notes或把该角色计为passing coverage。见B handoff中的独立bug Work Contract草案。
+
+详细ordered SHA/commands/失败实验修正/Agent C unblocking见 [B handoff](goals/issue-10/agent-b-handoff.md)。
+
+## 历史访问研究 ledger（下文保留当时状态）
+
 
 状态：**未完成采集，0 条 admitted articles**。本文仅记录来源预检与当前访问阻塞，不是 frozen corpus contract，不证明 Issue #10 已完成。权威要求见 [canonical spec](specs/issue-10-nature-corpus.md) §4–7；本文不修改其语义。
 
