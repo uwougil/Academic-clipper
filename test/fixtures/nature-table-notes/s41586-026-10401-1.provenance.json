@@ -1,0 +1,168 @@
+{
+  "evidenceVersion": "nature-table-notes-regression/1.0.0",
+  "sourceContractCommit": "143fc77ebdc4bf15dd1cdca63afcddb91e6b55f5",
+  "scope": "Complete selected table-link figure and full-size table semantic blocks; not a full article capture or corpus acceptance.",
+  "article": {
+    "url": "https://www.nature.com/articles/s41586-026-10401-1",
+    "doi": "10.1038/s41586-026-10401-1",
+    "title": "Symmetry classification of magnetic orders using oriented spin space groups",
+    "observedAt": "2026-10-03T16:44:03.154Z",
+    "sourceBytes": 437403,
+    "sourceSha256": "ea2508302b4c3af4efe421f02c3de93379b50940dd1a8762166efb38033cc91c",
+    "fixturePath": "s41586-026-10401-1.article.excerpt.html",
+    "fixtureBytes": 3345,
+    "fixtureSha256": "8a9cdf624343872bba5873ccda96697737b597724f627bcac39d894fd0e085eb",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41586-026-10401-1-table-notes-minimal",
+      "articleUrl": "https://www.nature.com/articles/s41586-026-10401-1",
+      "blocks": [
+        {
+          "id": "citation-title",
+          "selector": "meta[name=\"citation_title\"]",
+          "role": "metadata-title"
+        },
+        {
+          "id": "citation-doi",
+          "selector": "meta[name=\"citation_doi\"]",
+          "role": "metadata-doi"
+        },
+        {
+          "id": "canonical",
+          "selector": "link[rel=\"canonical\"]",
+          "role": "metadata-canonical"
+        },
+        {
+          "id": "table-figure",
+          "selector": ".c-article-body figure:has(#Tab1)",
+          "role": "table-link-and-caption"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "retainedBlocks": [
+      {
+        "id": "citation-title",
+        "selector": "meta[name=\"citation_title\"]",
+        "role": "metadata-title",
+        "sourceSubtreeSha256": "d0bde499e430a517f017e1630a2878ace06e94ff48bd6ac5b5a64ad177bdb0b8"
+      },
+      {
+        "id": "citation-doi",
+        "selector": "meta[name=\"citation_doi\"]",
+        "role": "metadata-doi",
+        "sourceSubtreeSha256": "84ca749616bb31369556756b89a43d7d10a5b68d7a62eb0aec20c92d47747b94"
+      },
+      {
+        "id": "canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata-canonical",
+        "sourceSubtreeSha256": "a48060ea0b66d2408eaef87a350915f7a945c4a498be4f9a789894fc3eeb2c3e"
+      },
+      {
+        "id": "table-figure",
+        "selector": ".c-article-body figure:has(#Tab1)",
+        "role": "table-link-and-caption",
+        "sourceSubtreeSha256": "9ec2c3d382866c7d184177fa7504f9d9f90b7e0a25914a261797d3e0fd5247be"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 4
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 11
+      }
+    ],
+    "omittedContent": [
+      "Unselected article metadata, body, equations, figures, other tables, references, author information and UI."
+    ]
+  },
+  "table": {
+    "url": "https://www.nature.com/articles/s41586-026-10401-1/tables/1",
+    "observedAt": "2026-10-03T16:47:49.080Z",
+    "sourceBytes": 172830,
+    "sourceSha256": "36a52d93aca60fb50cb7452b2990f955f399d1b8a59e5278dff0764a9042d568",
+    "fixturePath": "s41586-026-10401-1.table.excerpt.html",
+    "fixtureBytes": 2968,
+    "fixtureSha256": "0f140482b5ed5873629f22df427fffe01aa5374c6253e465a4678f1ea1749677",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41586-026-10401-1-table-1-source-v1",
+      "articleUrl": "https://www.nature.com/articles/s41586-026-10401-1",
+      "blocks": [
+        {
+          "id": "t1-content",
+          "selector": "#content",
+          "role": "table-response"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "retainedBlocks": [
+      {
+        "id": "t1-content",
+        "selector": "#content",
+        "role": "table-response",
+        "sourceSubtreeSha256": "a008bbb738bdf37180d987cd66e365305018eb736e1a7bddcb9b5bc3986af113"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 1
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 14
+      }
+    ],
+    "omittedContent": [
+      "Full raw response, page head/footer, scripts and session/access material omitted; original #content scientific blocks retained; no image/PDF/XLSX bytes"
+    ],
+    "sourceNotesLocator": "#content .c-article-table-footer li",
+    "notes": [
+      {
+        "index": 0,
+        "marker": "",
+        "sourceText": "The expansion of SOC is abbreviated as the order form of SOC coefficients. λ0 represents the non-SOC effects allowed by OSSG.",
+        "bodyText": "The expansion of SOC is abbreviated as the order form of SOC coefficients. λ0 represents the non-SOC effects allowed by OSSG.",
+        "sourceHtml": "The expansion of SOC is abbreviated as the order form of SOC coefficients. <i>λ</i><sup>0</sup> represents the non-SOC effects allowed by OSSG.",
+        "sourceSelector": "#content .c-article-table-footer li:nth-child(1)",
+        "sourceSubtreeSha256": "00e5f8fcc11f4d6f5c0c40aa9347f521ae11f16619083555811f112c3e9df760"
+      }
+    ],
+    "physicalCellCounts": [
+      5,
+      5,
+      4,
+      5
+    ],
+    "spans": [
+      {
+        "rowIndex": 1,
+        "cellIndex": 0,
+        "rowSpan": 2,
+        "colSpan": 1,
+        "text": "OSSG"
+      }
+    ],
+    "cellNoteMarkers": []
+  },
+  "acquisition": "Reuses B approved anonymous public guarded captures; no new requests, credentials, cookies, private session or account access used by this bug agent.",
+  "sourceReview": "Raw body hashes independently checked; exact complete source li texts/HTML, ordered markers, table shapes and recipe repeat/idempotence reviewed against untouched external raw DOM. This is not Agent C corpus acceptance."
+}

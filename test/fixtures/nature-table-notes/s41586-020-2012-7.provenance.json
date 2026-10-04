@@ -1,0 +1,164 @@
+{
+  "evidenceVersion": "nature-table-notes-regression/1.0.0",
+  "sourceContractCommit": "143fc77ebdc4bf15dd1cdca63afcddb91e6b55f5",
+  "scope": "Complete selected table-link figure and full-size table semantic blocks; not a full article capture or corpus acceptance.",
+  "article": {
+    "url": "https://www.nature.com/articles/s41586-020-2012-7",
+    "doi": "10.1038/s41586-020-2012-7",
+    "title": "A pneumonia outbreak associated with a new coronavirus of probable bat origin",
+    "observedAt": "2026-10-03T16:44:15.126Z",
+    "sourceBytes": 418904,
+    "sourceSha256": "340b1b93ba889c99acf492c7e5ba14ba36e0a5c12866da39a445237e992e2cb9",
+    "fixturePath": "s41586-020-2012-7.article.excerpt.html",
+    "fixtureBytes": 3715,
+    "fixtureSha256": "561079f84fa79b9a00c82e2c3a96f07fe924a0eac05a1ef1aeb3efd6b9d85620",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41586-020-2012-7-table-notes-minimal",
+      "articleUrl": "https://www.nature.com/articles/s41586-020-2012-7",
+      "blocks": [
+        {
+          "id": "citation-title",
+          "selector": "meta[name=\"citation_title\"]",
+          "role": "metadata-title"
+        },
+        {
+          "id": "citation-doi",
+          "selector": "meta[name=\"citation_doi\"]",
+          "role": "metadata-doi"
+        },
+        {
+          "id": "canonical",
+          "selector": "link[rel=\"canonical\"]",
+          "role": "metadata-canonical"
+        },
+        {
+          "id": "table-figure",
+          "selector": ".c-article-body figure:has(#Tab1)",
+          "role": "table-link-and-caption"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "retainedBlocks": [
+      {
+        "id": "citation-title",
+        "selector": "meta[name=\"citation_title\"]",
+        "role": "metadata-title",
+        "sourceSubtreeSha256": "5f243a9a75528e9196eff8127d03a03a59f288b577de1e2714b990ddea1b56fb"
+      },
+      {
+        "id": "citation-doi",
+        "selector": "meta[name=\"citation_doi\"]",
+        "role": "metadata-doi",
+        "sourceSubtreeSha256": "c45cbb6d0caf57e23b9c9ac26b998f86837be1ffb25268cdaad03af928caa1f8"
+      },
+      {
+        "id": "canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata-canonical",
+        "sourceSubtreeSha256": "94ee5243a6c9fabd1faa6fe018c77268f7537cd2b58c3665171bf7d3dbd47863"
+      },
+      {
+        "id": "table-figure",
+        "selector": ".c-article-body figure:has(#Tab1)",
+        "role": "table-link-and-caption",
+        "sourceSubtreeSha256": "15c264b163dc23de19570bda89f7cc9552d112eca3b072c6311409e629d5cfe0"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 4
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 11
+      }
+    ],
+    "omittedContent": [
+      "Unselected article metadata, body, equations, figures, other tables, references, author information and UI."
+    ]
+  },
+  "table": {
+    "url": "https://www.nature.com/articles/s41586-020-2012-7/tables/1",
+    "observedAt": "2026-10-03T16:50:31.782Z",
+    "sourceBytes": 179489,
+    "sourceSha256": "3b6d64a5934ac4b45df370930ec4d9a9e51b41dc71ad3aaf2d87eb5c3125e29e",
+    "fixturePath": "s41586-020-2012-7.table.excerpt.html",
+    "fixtureBytes": 2500,
+    "fixtureSha256": "6d67417849218c151fc8a1b27c1cbe56634d3774005b911cdc7c763462e42794",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41586-020-2012-7-table-1-source-v1",
+      "articleUrl": "https://www.nature.com/articles/s41586-020-2012-7",
+      "blocks": [
+        {
+          "id": "t1-content",
+          "selector": "#content",
+          "role": "table-response"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "retainedBlocks": [
+      {
+        "id": "t1-content",
+        "selector": "#content",
+        "role": "table-response",
+        "sourceSubtreeSha256": "b3dfad08c4a2637a437eab784ec9274de7f6fba98817ebb4e6e1b18e7ad26472"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 1
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 13
+      }
+    ],
+    "omittedContent": [
+      "Full raw response, page head/footer, scripts and session/access material omitted; original #content scientific blocks retained; no image/PDF/XLSX bytes"
+    ],
+    "sourceNotesLocator": "#content .c-article-table-footer li",
+    "notes": [
+      {
+        "index": 0,
+        "marker": "",
+        "sourceText": "Note, some records are missing. All patients are sellers or deliverymen at the seafood market except ICU-01, whose contact history is unclear. All patients were admitted to intensive care unit (ICU) during the first investigation and were now in stable condition. Blood IgM tests have been performed for the following respiratory pathogens for all patients: Legionella pneumophilia, Mycoplasma pneumoniae, Chlamydia pneumoniae, respiratory syncytial virus, adenovirus, Rickettsia, influenza A virus, influenza B virus and parainfluenza virus.",
+        "bodyText": "Note, some records are missing. All patients are sellers or deliverymen at the seafood market except ICU-01, whose contact history is unclear. All patients were admitted to intensive care unit (ICU) during the first investigation and were now in stable condition. Blood IgM tests have been performed for the following respiratory pathogens for all patients: Legionella pneumophilia, Mycoplasma pneumoniae, Chlamydia pneumoniae, respiratory syncytial virus, adenovirus, Rickettsia, influenza A virus, influenza B virus and parainfluenza virus.",
+        "sourceHtml": "Note, some records are missing. All patients are sellers or deliverymen at the seafood market except ICU-01, whose contact history is unclear. All patients were admitted to intensive care unit (ICU) during the first investigation and were now in stable condition. Blood IgM tests have been performed for the following respiratory pathogens for all patients: <i>Legionella pneumophilia</i>, <i>Mycoplasma pneumoniae</i>, <i>Chlamydia pneumoniae</i>, respiratory syncytial virus, adenovirus, <i>Rickettsia</i>, influenza A virus, influenza B virus and parainfluenza virus.",
+        "sourceSelector": "#content .c-article-table-footer li:nth-child(1)",
+        "sourceSubtreeSha256": "c97965056644d1780235acfb5e3b13c1d68367aec14335f0812373730a964f12"
+      },
+      {
+        "index": 1,
+        "marker": "",
+        "sourceText": "*This patient reported fever on 12 December 2019 and then recovered without medical treatment. He came back to the hospital on 27 December 2019 with a fever. His wife was also ill and admitted to the hospital. Both individuals recovered.",
+        "bodyText": "*This patient reported fever on 12 December 2019 and then recovered without medical treatment. He came back to the hospital on 27 December 2019 with a fever. His wife was also ill and admitted to the hospital. Both individuals recovered.",
+        "sourceHtml": "*This patient reported fever on 12&nbsp;December 2019 and then recovered without medical treatment. He came back to the hospital on 27&nbsp;December 2019 with a fever. His wife was also ill and admitted to the hospital. Both individuals recovered.",
+        "sourceSelector": "#content .c-article-table-footer li:nth-child(2)",
+        "sourceSubtreeSha256": "f8b89340b8b9e46f83a3311a97e1ed80d845f92b8a9e877d7d61406899b39014"
+      }
+    ],
+    "physicalCellCounts": [],
+    "spans": [],
+    "cellNoteMarkers": []
+  },
+  "acquisition": "Reuses B approved anonymous public guarded captures; no new requests, credentials, cookies, private session or account access used by this bug agent.",
+  "sourceReview": "Raw body hashes independently checked; exact complete source li texts/HTML, ordered markers, table shapes and recipe repeat/idempotence reviewed against untouched external raw DOM. This is not Agent C corpus acceptance."
+}
