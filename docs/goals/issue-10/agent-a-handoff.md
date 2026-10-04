@@ -258,3 +258,21 @@ for (const id of ['s41534-023-00746-0', 's41586-023-05896-x']) {
 B 选择本修订 SHA 后可保留原 JSON-LD script 输入并正常冻结 `1.1.0` source-backed excerpts，不需要删 JSON-LD 或修改 input。C/D 选择相同 SHA 并登记版本后可按上述 migration 消费；旧 fixture 仍可显式重放旧版本。Integrator 对实际 selected commits 重跑完整 checks/三平台 CI。本 compatibility branch 未运行新的 GitHub CI，accepted main 的成功 CI 不能替代修订后的集成 CI。
 
 若其它真实来源仅有不支持的身份表示，继续保留 evidence 交 A 扩展明确规则，不能以 DOI substring/无 identity fallback 绕过。Production adapter 对原 WebPage.mainEntity 的 metadata fallback 支持不属于本次修订，仍由独立 source assertions 判断；没有宣称生产 parser 对这些文章通过。无 proposed spec changes，Issue #10 仍未完成。
+
+## 2026-10-04 — Source HTML whitespace 的 Git 检查规则
+
+B 报告已生成的真实 excerpts 保留原 source whitespace，因此 staged `git diff --cached --check` 的 `blank-at-eol` 诊断与规范 §5 保留有意义空白的要求冲突。A 仅更新自己拥有的 `test/corpus/.gitattributes`：
+
+```gitattributes
+fixtures/**/*.html text eol=lf whitespace=-blank-at-eol
+```
+
+保留 LF checkout/hash 契约，只对 `test/corpus/fixtures/**/*.html` 禁用行尾空白诊断，不 trim/rewrite fixture bytes，不改变 sanitizer/schema/helper versions，不对 prose/code 或整个 repository 禁用 whitespace checks。其它默认诊断（例如 `blank-at-eof`）继续有效。B 的 fixtures、manifest、worktree/index 未被 A 修改或读取；生产 table-footer note loss 是 B 另报的独立问题，不能通过改 fixture/oracle 或此 attribute 掩盖。
+
+本提交顺接 `3754d3a781459635e719859353fe3cbdf8741897`，branch/worktree 与 original base 同前，changed files 仅 `.gitattributes` 和本 handoff。消费者只需选择本兼容提交并保留原 excerpt bytes，无 API 或 provenance 重算要求；B 应重新执行 staged diff check，并继续等待 C 的独立 registry，不能把本规则验证当 corpus semantic acceptance。
+
+验证：`git check-attr text eol whitespace -- test/corpus/fixtures/synthetic/article.excerpt.html test/corpus/fixtures/synthetic/tables/1.excerpt.html test/corpus/fixtures/synthetic/notes.md scripts/lib/nature-corpus-infrastructure.mjs docs/goals/issue-10/agent-a-handoff.md` exit 0；两个 HTML 路径为 `text: set`, `eol: lf`, `whitespace: -blank-at-eol`，其余路径 `whitespace: unspecified`。
+
+另在 OS temp 的全新 disposable Git repo 中，用 `node --input-type=module` 执行 Node assertions：synthetic article/table HTML 包含两个 spaces 后接 LF；原 attribute 下 `git diff --cached --check` 非零，使用本 attribute 后 exit 0；`git show :<fixture-path>` 的 Buffer 与原写入 bytes 完全相等。添加带 trailing spaces 的 `.mjs`、`docs/*.md`、fixture `notes.md` 后 diff check 非零且同时报告三者；HTML 没有 trailing-space 诊断。HTML 添加末尾 blank line 后仍报 `new blank line at EOF`。所有 assertions 通过；temporary repo 已清理，无真实采集、HTTP/DNS 或 B source mutation。
+
+`git diff --check`、`git diff --cached --check` 均 exit 0；提交后 clean status。本次只变 Git attributes/说明，未重复运行 runtime tests；前一兼容提交的 32 focused / 142 full tests、build 和 golden validation 记录保持有效。没有 proposed spec changes，没有 delivery PR，Issue #10 未完成。
