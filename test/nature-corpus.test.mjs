@@ -216,6 +216,18 @@ for(const dialect of DIALECTS)test(`source figures frame a label-only source hea
   assert.ok(figures(duplicate).failures.some(f=>f.path==='figures[0].captionOccurrences'),'An additional caption copy is rejected even when its original remains complete');
 });
 
+for(const dialect of DIALECTS)test(`source citations preserve a body citation followed by a colon/${dialect}`,async()=>{
+  const article=manifest.articles.find(a=>a.articleId==='s41586-022-04755-5'),entry=await run(article,dialect);
+  const citations=result=>compareArticleResult(article,result,{sourceHtml:entry.html}).expectations.find(e=>e.id==='source-citations-v1');
+  const key=entry.result.references[16].citationKey,citation=dialect==='markdown'?'[^17]':dialect==='links'?'[17](#ref-17)':`[@${key}]`;
+  const context=`following equation (9) of ref. ${citation}:`;
+  assert.equal(entry.result.markdown.split(context).length,2,'The source citation and following colon survive in their original body paragraph');
+  assert.equal(citations(entry.result).status,'pass','An inline citation before a colon is not a footnote definition');
+  const result={...entry.result,markdown:entry.result.markdown.replace(context,context.replace('equation','LOST_SOURCE_CONTEXT'))};
+  assert.strictEqual(result.semantic,entry.result.semantic);assert.notEqual(result.markdown,entry.result.markdown);
+  assert.ok(citations(result).failures.some(f=>f.path==='clusters[50].sourceContext'),'Changing the text next to the same citation still fails its source context predicate');
+});
+
 for(const dialect of DIALECTS)test(`source inline cases use the complete source paragraph context beyond a common introductory word/${dialect}`,async()=>{
   const article=manifest.articles.find(a=>a.articleId==='s41534-023-00746-0'),entry=await run(article,dialect);
   const inline=result=>compareArticleResult(article,result,{sourceHtml:entry.html}).expectations.find(e=>e.id==='source-inline-v1');

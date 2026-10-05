@@ -90,7 +90,7 @@ function checks() {
 function readable(value, result) {
   const byKey = new Map(result.references.map(r => [r.citationKey, r.number]));
   return sourceText(String(value)
-    .replace(/\[\^\d+\]:[^\n]*/gu, '')
+    .replace(/^\[\^\d+\]:[^\n]*/gmu, '')
     .replace(/<a id="[A-Za-z0-9_.:-]+"><\/a>/gu, '')
     .replace(/\{#[^}]+\}/gu, '')
     .replace(/(?:\[\^(?:[0-9]+)\])+/gu, group => Array.from(group.matchAll(/\[\^(\d+)\]/gu)).map(m => m[1]).join(','))
