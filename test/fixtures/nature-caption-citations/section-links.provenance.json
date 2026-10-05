@@ -1,0 +1,941 @@
+{
+  "evidenceVersion": "nature-caption-regression/1.0.0",
+  "articleId": "s41586-020-2012-7",
+  "kind": "section-links",
+  "url": "https://www.nature.com/articles/s41586-020-2012-7",
+  "title": "A pneumonia outbreak associated with a new coronavirus of probable bat origin",
+  "journal": "Nature",
+  "doi": "10.1038/s41586-020-2012-7",
+  "observedAt": "2026-10-03T16:44:15.126Z",
+  "sourceSha256": "340b1b93ba889c99acf492c7e5ba14ba36e0a5c12866da39a445237e992e2cb9",
+  "sourceBytes": 418904,
+  "fixtureSha256": "e560ec9341b7408ead9c3765df1052c3d3116763fcf2873fce766562b15a8232",
+  "fixtureBytes": 44445,
+  "retainedReferencePrefix": 13,
+  "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+  "serializerVersion": "nature-corpus-subtree/1.0.0",
+  "recipeSha256": "f1f39c4c58a31420753f9a71acb5acd691fdf104d4afdb02f94f5284afcf5543",
+  "recipe": {
+    "version": "1.0.0",
+    "id": "s41586-020-2012-7-source-v1",
+    "articleUrl": "https://www.nature.com/articles/s41586-020-2012-7",
+    "blocks": [
+      {
+        "id": "a-meta-11",
+        "selector": "head > meta[name=\"dc.title\"][content=\"A pneumonia outbreak associated with a new coronavirus of probable bat origin\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-36",
+        "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-40",
+        "selector": "head > meta[name=\"citation_title\"][content=\"A pneumonia outbreak associated with a new coronavirus of probable bat origin\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-41",
+        "selector": "head > meta[name=\"citation_volume\"][content=\"579\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-42",
+        "selector": "head > meta[name=\"citation_issue\"][content=\"7798\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-43",
+        "selector": "head > meta[name=\"citation_publication_date\"][content=\"2020/03\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-44",
+        "selector": "head > meta[name=\"citation_online_date\"][content=\"2020/02/03\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-45",
+        "selector": "head > meta[name=\"citation_firstpage\"][content=\"270\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-46",
+        "selector": "head > meta[name=\"citation_lastpage\"][content=\"273\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-50",
+        "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41586-020-2012-7\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-53",
+        "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41586-020-2012-7\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-104",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zhou, Peng\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-106",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Yang, Xing-Lou\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-108",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Wang, Xian-Guang\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-110",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Hu, Ben\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-112",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zhang, Lei\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-114",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zhang, Wei\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-116",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Si, Hao-Rui\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-119",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zhu, Yan\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-121",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Li, Bei\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-123",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Huang, Chao-Lin\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-125",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Hui-Dong\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-127",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Jing\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-130",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Luo, Yun\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-133",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Guo, Hua\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-136",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Jiang, Ren-Di\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-139",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Liu, Mei-Qin\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-142",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Ying\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-145",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Shen, Xu-Rui\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-148",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Wang, Xi\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-151",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zheng, Xiao-Shuang\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-154",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zhao, Kai\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-157",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Quan-Jiao\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-159",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Deng, Fei\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-161",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Liu, Lin-Lin\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-163",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Yan, Bing\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-165",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zhan, Fa-Xian\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-167",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Wang, Yan-Yi\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-169",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Xiao, Geng-Fu\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-171",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Shi, Zheng-Li\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-180",
+        "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41586-020-2012-7\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-181",
+        "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-183",
+        "selector": "head > meta[property=\"og:title\"][content=\"A pneumonia outbreak associated with a new coronavirus of probable bat origin - Nature\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-title",
+        "selector": "h1.c-article-title",
+        "role": "title"
+      },
+      {
+        "id": "a-references-heading",
+        "selector": "#Bib1",
+        "role": "heading"
+      },
+      {
+        "id": "a-reference-1",
+        "selector": "ol.c-article-references > li:nth-child(1)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-2",
+        "selector": "ol.c-article-references > li:nth-child(2)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-3",
+        "selector": "ol.c-article-references > li:nth-child(3)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-4",
+        "selector": "ol.c-article-references > li:nth-child(4)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-5",
+        "selector": "ol.c-article-references > li:nth-child(5)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-6",
+        "selector": "ol.c-article-references > li:nth-child(6)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-7",
+        "selector": "ol.c-article-references > li:nth-child(7)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-8",
+        "selector": "ol.c-article-references > li:nth-child(8)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-9",
+        "selector": "ol.c-article-references > li:nth-child(9)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-10",
+        "selector": "ol.c-article-references > li:nth-child(10)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-11",
+        "selector": "ol.c-article-references > li:nth-child(11)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-12",
+        "selector": "ol.c-article-references > li:nth-child(12)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-13",
+        "selector": "ol.c-article-references > li:nth-child(13)",
+        "role": "reference"
+      },
+      {
+        "id": "caption-figure-1",
+        "selector": "#figure-1",
+        "role": "figure"
+      },
+      {
+        "id": "caption-figure-1-previous",
+        "selector": "#Sec1-content > p:has(+ #figure-1)",
+        "role": "paragraph"
+      },
+      {
+        "id": "caption-figure-1-next",
+        "selector": "#figure-1 + p",
+        "role": "paragraph"
+      },
+      {
+        "id": "caption-figure-2",
+        "selector": "#figure-2",
+        "role": "figure"
+      },
+      {
+        "id": "caption-figure-2-previous",
+        "selector": "#Sec1-content > p:has(+ #figure-2)",
+        "role": "paragraph"
+      },
+      {
+        "id": "caption-figure-2-next",
+        "selector": "#figure-2 + p",
+        "role": "paragraph"
+      },
+      {
+        "id": "source-heading-Sec1",
+        "selector": "#Sec1",
+        "role": "heading"
+      },
+      {
+        "id": "retained-methods-heading",
+        "selector": "#Sec2",
+        "role": "heading"
+      },
+      {
+        "id": "retained-methods-first",
+        "selector": "#Sec2-content > p:first-of-type",
+        "role": "paragraph"
+      }
+    ],
+    "removeSelectors": []
+  },
+  "retainedBlocks": [
+    {
+      "id": "a-meta-11",
+      "selector": "head > meta[name=\"dc.title\"][content=\"A pneumonia outbreak associated with a new coronavirus of probable bat origin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "36dc9baa48cd1322fb59c9f513928a4cb812e4fadbf08ddca1eec1f8fb50887a"
+    },
+    {
+      "id": "a-meta-36",
+      "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d624cd945018592d96ac7b5f06c775fab966979552e03ab8f4185895ea0af853"
+    },
+    {
+      "id": "a-meta-40",
+      "selector": "head > meta[name=\"citation_title\"][content=\"A pneumonia outbreak associated with a new coronavirus of probable bat origin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "5f243a9a75528e9196eff8127d03a03a59f288b577de1e2714b990ddea1b56fb"
+    },
+    {
+      "id": "a-meta-41",
+      "selector": "head > meta[name=\"citation_volume\"][content=\"579\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d6ce880ffbc2b105025431921b348e9040066b1c86805db8ebbff2ffb79c42e0"
+    },
+    {
+      "id": "a-meta-42",
+      "selector": "head > meta[name=\"citation_issue\"][content=\"7798\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "87c04a561da52d11ee1c060651c309c03d546495aa5ff6adbe5d1a2a7fbffb6c"
+    },
+    {
+      "id": "a-meta-43",
+      "selector": "head > meta[name=\"citation_publication_date\"][content=\"2020/03\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "661b34a6233a853ac8064f87c9e07c8425f30074523fd7cf094b7294eff52dcd"
+    },
+    {
+      "id": "a-meta-44",
+      "selector": "head > meta[name=\"citation_online_date\"][content=\"2020/02/03\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "52d33329e822b403703c25ddb590cf72b36e58efcbe0f0554ba3f01bfe472f2b"
+    },
+    {
+      "id": "a-meta-45",
+      "selector": "head > meta[name=\"citation_firstpage\"][content=\"270\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "8f99cbd1c941167eeca9e848d75f9aa3847c19dbdd203fd64202f0f645360838"
+    },
+    {
+      "id": "a-meta-46",
+      "selector": "head > meta[name=\"citation_lastpage\"][content=\"273\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "090147d78849863781d083748e5e2e1efd08b00c17b0e3dddd92d3a88bb1a845"
+    },
+    {
+      "id": "a-meta-50",
+      "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41586-020-2012-7\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "0669a872b6ed6a9122de4e5dcaa45671a2f025853fa100401348debe7cfaf725"
+    },
+    {
+      "id": "a-meta-53",
+      "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41586-020-2012-7\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c45cbb6d0caf57e23b9c9ac26b998f86837be1ffb25268cdaad03af928caa1f8"
+    },
+    {
+      "id": "a-meta-104",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Zhou, Peng\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "6e7d804fd077f25ac2b069cfc554caaaf41eda9316e9070728e07a9d018ebba1"
+    },
+    {
+      "id": "a-meta-106",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Yang, Xing-Lou\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e57a8726b76bee0a3db3b8d20726acaec73d24af9b2983f3147b3f40aef2369b"
+    },
+    {
+      "id": "a-meta-108",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Wang, Xian-Guang\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "664437b07ec12988160eab11ad525f669ae3f2468bc22fb1bcc976abb8d70dc5"
+    },
+    {
+      "id": "a-meta-110",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Hu, Ben\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "9e6b80410e5be4f0944e3a9dc0eb1700c8852adaf8323f8142f3a5fbd8a153c2"
+    },
+    {
+      "id": "a-meta-112",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Zhang, Lei\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c7749a45b49cfec3200d819a6200155ff9e5346da828e9b4ac980cab4a07d223"
+    },
+    {
+      "id": "a-meta-114",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Zhang, Wei\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "920754236133a2654e94c065bee927af280f06d9885cadb2d2c7c4016e2c212d"
+    },
+    {
+      "id": "a-meta-116",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Si, Hao-Rui\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "85bbac849e6be15ff54aa34b22d8d4d134c86a87a3dc419329df63c3b94200b7"
+    },
+    {
+      "id": "a-meta-119",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Zhu, Yan\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "08df226ce39a4b32804900e56072e0de0727758de4ebb6f6757b67c68275de71"
+    },
+    {
+      "id": "a-meta-121",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Li, Bei\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "09fe592773d5f097ee7432c5f5fb79231ba2b6b2714ab3e0496ba5474a85f565"
+    },
+    {
+      "id": "a-meta-123",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Huang, Chao-Lin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "708dbd55b920d7e2c58bc951ec2b60e1b25be79f17f5303f1b0e8c6ad01a2c19"
+    },
+    {
+      "id": "a-meta-125",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Hui-Dong\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d9e11b9e7f85b960dd01c26385777224e85beffcd34984254ed78e1dce951ba7"
+    },
+    {
+      "id": "a-meta-127",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Jing\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "0aa1918df97b010299d27436952b0d9b1e633a25f8e22b6564a06e4ab99ce728"
+    },
+    {
+      "id": "a-meta-130",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Luo, Yun\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "979ddc08f97b68f63856e22c9ddd19a92a2af59b50558a758e1a46ca75576d3e"
+    },
+    {
+      "id": "a-meta-133",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Guo, Hua\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "618b4b498d1bcf266fb5feb52da764b07618037168553d806b56c3ba2db89e45"
+    },
+    {
+      "id": "a-meta-136",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Jiang, Ren-Di\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "97ccff3ab56ad89a679490c3124533cf8dba4aa114b5e710f0ce24ad3d05ab13"
+    },
+    {
+      "id": "a-meta-139",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Liu, Mei-Qin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "85285ceac64063537de6ed08ca5b1aac6bf65e584b5471bd98564d98d2eb73df"
+    },
+    {
+      "id": "a-meta-142",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Ying\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "6ec071b4e0c335222b5e823ae65a0a5150ffa8374d919ff794c4cc6c7381a724"
+    },
+    {
+      "id": "a-meta-145",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Shen, Xu-Rui\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a0c9e844734e16ea65298059a8067548a740f64ba2ae1354b6426e47079b94c3"
+    },
+    {
+      "id": "a-meta-148",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Wang, Xi\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "7c9f1dc7812702c014cbb6e8bb394680d2ca4ecfdcec17449a0ff338d8f5833e"
+    },
+    {
+      "id": "a-meta-151",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Zheng, Xiao-Shuang\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "0735cd2d15a07fc3925b253aac3e87ec0bfebe849ec0bcce73d438ef80338176"
+    },
+    {
+      "id": "a-meta-154",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Zhao, Kai\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "90317e8405ac77357615171f184deae8c1006ef63c2b028d74681e4582d87ace"
+    },
+    {
+      "id": "a-meta-157",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Quan-Jiao\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "f1c5d4989365b3125c6635396e2c8b9aff7dc25d309d7bf319854129e9d160b1"
+    },
+    {
+      "id": "a-meta-159",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Deng, Fei\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d3448cd36cebd81160c30332b086d9bfc5d7f00350f18612eab99c8fa9dd5f71"
+    },
+    {
+      "id": "a-meta-161",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Liu, Lin-Lin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e5ec3e7cff2dca767b9561624abe01449a6376a86f57bdeedd63f383c0d5cfdb"
+    },
+    {
+      "id": "a-meta-163",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Yan, Bing\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "1cc8291771ba4e032b17960a54c5c4739520a2349a427ae8ceb4a2c72b27e5fe"
+    },
+    {
+      "id": "a-meta-165",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Zhan, Fa-Xian\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "445d66b72b66e858557b66943dc0ec9d9c4cb633182ef362f00b64811ea14c28"
+    },
+    {
+      "id": "a-meta-167",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Wang, Yan-Yi\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "fd5f8e89e1fa97e3c1d76b7c95cebfe05bdde42626b542653ea96cad47beb298"
+    },
+    {
+      "id": "a-meta-169",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Xiao, Geng-Fu\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "4b7683f67b321f25de4a1f3c691638c3a6c268decc84560249f77bc17915a0ed"
+    },
+    {
+      "id": "a-meta-171",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Shi, Zheng-Li\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "8244e0369e74677d4f4d90a98f4ab8dd150d0097001ae17fdee9fad69bdab7a0"
+    },
+    {
+      "id": "a-meta-180",
+      "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41586-020-2012-7\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "70ff0c073ad99f4a46a1a5f575be6157316c249a7a7b16f76c8657693576047c"
+    },
+    {
+      "id": "a-meta-181",
+      "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e2a47d03efa7114d4bc8e65c0fba2e84722b49e6e718eb787898c3c61ac5bcc9"
+    },
+    {
+      "id": "a-meta-183",
+      "selector": "head > meta[property=\"og:title\"][content=\"A pneumonia outbreak associated with a new coronavirus of probable bat origin - Nature\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "850b459f8c327263d4b17e5b00f8fe0c36743f5b60ce6ba2cf409d65194b5344"
+    },
+    {
+      "id": "a-canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "94ee5243a6c9fabd1faa6fe018c77268f7537cd2b58c3665171bf7d3dbd47863"
+    },
+    {
+      "id": "a-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a2405408f94b98013046d8b0eda0165511f602431daee282b07fba20bf11b20e"
+    },
+    {
+      "id": "a-title",
+      "selector": "h1.c-article-title",
+      "role": "title",
+      "sourceSubtreeSha256": "84402346829a2eae8ad78d1d3025293bead7fe76f8d9610738291b02bec392da"
+    },
+    {
+      "id": "a-references-heading",
+      "selector": "#Bib1",
+      "role": "heading",
+      "sourceSubtreeSha256": "af92342e8974526976997242004de48e6fcf9aef95e778bf2972d4199120887d"
+    },
+    {
+      "id": "a-reference-1",
+      "selector": "ol.c-article-references > li:nth-child(1)",
+      "role": "reference",
+      "sourceSubtreeSha256": "579385e1ef2105e617a132ea3822c37c6ca00d3d5b32732e0f2ba11b715c728f"
+    },
+    {
+      "id": "a-reference-2",
+      "selector": "ol.c-article-references > li:nth-child(2)",
+      "role": "reference",
+      "sourceSubtreeSha256": "1bd44cd651ef86600a7d32e922f78e1cd3ed4a8f2bec7f8b42d91edd7c6ae492"
+    },
+    {
+      "id": "a-reference-3",
+      "selector": "ol.c-article-references > li:nth-child(3)",
+      "role": "reference",
+      "sourceSubtreeSha256": "ee2bddb993d713d7d826aeaff74dd24e0681e0098b2b4aab301c54fbea4cdf65"
+    },
+    {
+      "id": "a-reference-4",
+      "selector": "ol.c-article-references > li:nth-child(4)",
+      "role": "reference",
+      "sourceSubtreeSha256": "d15b2f75538fa786e31bbc2ce33ce2a967b3d97dcfa1855cd44819daea2dfb3e"
+    },
+    {
+      "id": "a-reference-5",
+      "selector": "ol.c-article-references > li:nth-child(5)",
+      "role": "reference",
+      "sourceSubtreeSha256": "f8ea789163e13bb221921861696125768f18e7b39b938792b45620a79757d888"
+    },
+    {
+      "id": "a-reference-6",
+      "selector": "ol.c-article-references > li:nth-child(6)",
+      "role": "reference",
+      "sourceSubtreeSha256": "760c07a5c0ecf1790a587672af21cda0f77dd78c122a2feccf83f4df73d9f4dd"
+    },
+    {
+      "id": "a-reference-7",
+      "selector": "ol.c-article-references > li:nth-child(7)",
+      "role": "reference",
+      "sourceSubtreeSha256": "a62d8b75a30e0129b692ba6c6f6ab6195eb592ca9c96ffb176e598239d584d68"
+    },
+    {
+      "id": "a-reference-8",
+      "selector": "ol.c-article-references > li:nth-child(8)",
+      "role": "reference",
+      "sourceSubtreeSha256": "292d78d9e9c622f05eba0d01699c3500046be23032c8762f5f0f184661d12813"
+    },
+    {
+      "id": "a-reference-9",
+      "selector": "ol.c-article-references > li:nth-child(9)",
+      "role": "reference",
+      "sourceSubtreeSha256": "e1c60d410ea0eb6266b0c4ce2daa6d1f0e3e121a554896c8c97b2ec8f8bf4935"
+    },
+    {
+      "id": "a-reference-10",
+      "selector": "ol.c-article-references > li:nth-child(10)",
+      "role": "reference",
+      "sourceSubtreeSha256": "19c5d468f4ec740efb4db0e62a4a7e3ab28ff1807702853b18eca897b00d0def"
+    },
+    {
+      "id": "a-reference-11",
+      "selector": "ol.c-article-references > li:nth-child(11)",
+      "role": "reference",
+      "sourceSubtreeSha256": "929ad0e55b9209191537de67c90b0ba8125aa5ce3cabfb54b8db1eb25b385efe"
+    },
+    {
+      "id": "a-reference-12",
+      "selector": "ol.c-article-references > li:nth-child(12)",
+      "role": "reference",
+      "sourceSubtreeSha256": "3348ecd3c5e345f86c9b237fdb01008ceb3dcf1b46c3746e68ceb50d03de0638"
+    },
+    {
+      "id": "a-reference-13",
+      "selector": "ol.c-article-references > li:nth-child(13)",
+      "role": "reference",
+      "sourceSubtreeSha256": "8768e2577cdeb5e8cd386f99260e37607869d161432dd223f272f1bb9748779c"
+    },
+    {
+      "id": "caption-figure-1",
+      "selector": "#figure-1",
+      "role": "figure",
+      "sourceSubtreeSha256": "2771a16887c904c2f77f8cae55e3ff6790e265797e98d01c0eb266f85bfbdeed"
+    },
+    {
+      "id": "caption-figure-1-previous",
+      "selector": "#Sec1-content > p:has(+ #figure-1)",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "ca54a5d670521bba2dbfce8c83d6be76bc4b5783f1bc197990910e1caad34516"
+    },
+    {
+      "id": "caption-figure-1-next",
+      "selector": "#figure-1 + p",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "22bbd79d98e806a8f70cf680727d8275ee320e5f99ed7191f1a6d40a26e5df58"
+    },
+    {
+      "id": "caption-figure-2",
+      "selector": "#figure-2",
+      "role": "figure",
+      "sourceSubtreeSha256": "580c3af41c66edfd41ba91e99d5cd9ebc70ee08beb70732ba8227a91ae0baf95"
+    },
+    {
+      "id": "caption-figure-2-previous",
+      "selector": "#Sec1-content > p:has(+ #figure-2)",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "2751f1d939fe26e60c250f794ba9fc9062a43523cf5b05e4b1f6c5733a31b803"
+    },
+    {
+      "id": "caption-figure-2-next",
+      "selector": "#figure-2 + p",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "f4f183f1ae2e0343100b4629b474a42c0239a49199dcc2381de56b769cf5f445"
+    },
+    {
+      "id": "source-heading-Sec1",
+      "selector": "#Sec1",
+      "role": "heading",
+      "sourceSubtreeSha256": "09f8778f43dc62a0f59cf52aa9b5d47329480bff79dd9e53c7c544aeb548aac7"
+    },
+    {
+      "id": "retained-methods-heading",
+      "selector": "#Sec2",
+      "role": "heading",
+      "sourceSubtreeSha256": "53446b73dabbfd56cb9dc4b91d44bbdd4a8f16f73a1ee6a206afc0e62ab5733d"
+    },
+    {
+      "id": "retained-methods-first",
+      "selector": "#Sec2-content > p:first-of-type",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "f11cb5f9c52ffaf1f8c7ac4f47df4dc256d72eaf08d9795af929277ff3471a8f"
+    }
+  ],
+  "transformations": [
+    {
+      "operation": "select-complete-source-blocks-with-ancestors",
+      "count": 69
+    },
+    {
+      "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+      "count": 1
+    },
+    {
+      "operation": "trim-json-ld-to-article-object",
+      "count": 1
+    },
+    {
+      "operation": "remove-attributes",
+      "count": 317
+    },
+    {
+      "operation": "sanitize-resource-urls",
+      "count": 12
+    }
+  ],
+  "omittedContent": [
+    "All unselected article blocks and UI; complete reference prefix through the highest retained citation is preserved without renumbering.",
+    "No image binaries or full HTTP captures are committed."
+  ],
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41586-020-2012-7",
+    "sourceObservedAt": "2026-10-03T16:44:15.126Z",
+    "sourceSha256": "340b1b93ba889c99acf492c7e5ba14ba36e0a5c12866da39a445237e992e2cb9",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Zhou, Peng",
+      "Yang, Xing-Lou",
+      "Wang, Xian-Guang",
+      "Hu, Ben",
+      "Zhang, Lei",
+      "Zhang, Wei",
+      "Si, Hao-Rui",
+      "Zhu, Yan",
+      "Li, Bei",
+      "Huang, Chao-Lin",
+      "Chen, Hui-Dong",
+      "Chen, Jing",
+      "Luo, Yun",
+      "Guo, Hua",
+      "Jiang, Ren-Di",
+      "Liu, Mei-Qin",
+      "Chen, Ying",
+      "Shen, Xu-Rui",
+      "Wang, Xi",
+      "Zheng, Xiao-Shuang",
+      "Zhao, Kai",
+      "Chen, Quan-Jiao",
+      "Deng, Fei",
+      "Liu, Lin-Lin",
+      "Yan, Bing",
+      "Zhan, Fa-Xian",
+      "Wang, Yan-Yi",
+      "Xiao, Geng-Fu",
+      "Shi, Zheng-Li"
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [],
+    "technicalTransformations": "This regression retains only recipe-selected original metadata, figure wrappers and adjacent paragraphs, heading/table targets where required, and the complete original reference prefix through the highest retained citation. A sanitizer 1.1.0 removes non-scholarly attributes and executable/UI content and serializes UTF-8 LF. Scholarly prose, captions, authors, citations, TeX, topology and source order are unchanged.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "repeatByteEqual": true,
+  "idempotent": true,
+  "figures": [
+    {
+      "id": "Fig1",
+      "label": "Fig. 1: Genome characterization of 2019-nCoV.",
+      "descriptionSelector": "#figure-1-desc",
+      "descriptionSha256": "2dba82cf467bd578f22a459253da97e5aebe689821357ad2417d40ffdd349da8",
+      "descriptionText": "a, Metagenomics analysis of next-generation sequencing of BALF from patient ICU06. b, Genomic organization of 2019-nCoV WIV04. M, membrane. c, Similarity plot based on the full-length genome sequence of 2019-nCoV WIV04. Full-length genome sequences of SARS-CoV BJ01, bat SARSr-CoV WIV1, bat coronavirus RaTG13 and ZC45 were used as reference sequences. d, Phylogenetic tree based on nucleotide sequences of complete genomes of coronaviruses. MHV, murine hepatitis virus; PEDV, porcine epidemic diarrhoea virus; TGEV, porcine transmissible gastroenteritis virus.The scale bars represent 0.1 substitutions per nucleotide position. Descriptions of the settings and software that was used are included in the Methods.",
+      "captionStart": "a, Metagenomics analysis of next-generation sequencing of BALF from patient ICU06. b, Geno",
+      "captionEnd": "tion. Descriptions of the settings and software that was used are included in the Methods.",
+      "boldLetters": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "previousText": "Samples from seven patients with severe pneumonia (six of whom are sellers or deliverymen from the seafood market), who were admitted to the intensive care unit of Wuhan Jin Yin-Tan Hospital at the beginning of the outbreak, were sent to the laboratory at the Wuhan Institute of Virology (WIV) for the diagnosis of the causative pathogen (Extended Data Table 1). As a laboratory investigating CoV, we first used pan-CoV PCR primers to test these samples13, given that the outbreak occurred in winter and in a market—the same environment as SARS infections. We found five samples to be PCR-positive for CoVs. One sample (WIV04), collected from the bronchoalveolar lavage fluid (BALF), was analysed by metagenomics analysis using next-generation sequencing to identify potential aetiological agents. Of the 10,038,758 total reads—of which 1,582 total reads were retained after filtering of reads from the human genome—1,378 (87.1%) sequences matched the sequence of SARSr-CoV (Fig. 1a). By de novo assembly and targeted PCR, we obtained a 29,891-base-pair CoV genome that shared 79.6% sequence identity to SARS-CoV BJ01 (GenBank accession number AY278488.2). High genome coverage was obtained by remapping the total reads to this genome (Extended Data Fig. 1). This sequence has been submitted to GISAID (https://www.gisaid.org/) (accession number EPI_ISL_402124). Following the name given by the World Health Organization (WHO), we tentatively call it novel coronavirus 2019 (2019-nCoV). Four more full-length genome sequences of 2019-nCoV (WIV02, WIV05, WIV06 and WIV07) (GISAID accession numbers EPI_ISL_402127–402130) that were more than 99.9% identical to each other were subsequently obtained from four additional patients using next-generation sequencing and PCR (Extended Data Table 2).",
+      "nextText": "The virus genome consists of six major open-reading frames (ORFs) that are common to coronaviruses and a number of other accessory genes (Fig. 1b). Further analysis indicates that some of the 2019-nCoV genes shared less than 80% nucleotide sequence identity to SARS-CoV. However, the amino acid sequences of the seven conserved replicase domains in ORF1ab that were used for CoV species classification were 94.4% identical between 2019-nCoV and SARS-CoV, suggesting that the two viruses belong to the same species, SARSr-CoV.",
+      "imageAttrs": [
+        {
+          "tag": "SOURCE",
+          "attrs": {
+            "srcset": "//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-020-2012-7/MediaObjects/41586_2020_2012_Fig1_HTML.png?as=webp"
+          }
+        },
+        {
+          "tag": "IMG",
+          "attrs": {
+            "src": "//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-020-2012-7/MediaObjects/41586_2020_2012_Fig1_HTML.png"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Fig2",
+      "label": "Fig. 2: Molecular and serological investigation of patient samples.",
+      "descriptionSelector": "#figure-2-desc",
+      "descriptionSha256": "386cd5155f890021eff83cb8ee7fb9cf585bedaabd96943e784ea7a97c4e5562",
+      "descriptionText": "a, Molecular detection of 2019-nCoV in seven patients. Patient information can be found in Extended Data Tables 1, 2. Detection methods are described in the Methods. AS, anal swab; OS, oral swab. b, Dynamics of 2019-nCoV antibody levels in one patient who showed signs of disease on 23 December 2019 (ICU-06). OD ratio, optical density at 450–630 nm. The right and left y axes indicate ELISA OD ratios for IgM and IgG, respectively. c, Serological test of 2019-nCoV antibodies in five patients (Extended Data Table 2). The asterisk indicates data collected from patient ICU-06 on 10 January 2020. b, c, The cut-off was to 0.2 for the IgM analysis and to 0.3 for the IgG analysis, according to the levels of healthy controls.",
+      "captionStart": "a, Molecular detection of 2019-nCoV in seven patients. Patient information can be found in",
+      "captionEnd": "IgM analysis and to 0.3 for the IgG analysis, according to the levels of healthy controls.",
+      "boldLetters": [
+        "a",
+        "b",
+        "c",
+        "b",
+        "c"
+      ],
+      "previousText": "We rapidly developed a qPCR-based detection method on the basis of the sequence of the receptor-binding domain of the S gene, which was the most variable region of the genome (Fig. 1c). Our data show that the primers could differentiate 2019-nCoV from all other human coronaviruses including bat SARSr-CoV WIV1, which shares 95% identity with SARS-CoV (Extended Data Fig. 4a, b). Of the samples obtained from the seven patients, we found that six BALF and five oral swab samples were positive for 2019-nCoV during the first sampling, as assessed by qPCR and conventional PCR. However, we could no longer detect virus-positive samples in oral swabs, anal swabs and blood samples taken from these patients during the second sampling (Fig. 2a). However, we recommend that other qPCR targets, including the RdRp or envelope (E) genes are used for the routine detection of 2019-nCoV. On the basis of these findings, we propose that the disease could be transmitted by airborne transmission, although we cannot rule out other possible routes of transmission, as further investigation, including more patients, is required.",
+      "nextText": "For serological detection of 2019-nCoV, we used a previously developed nucleocapsid (N) protein from bat SARSr-CoV Rp3 as antigen for IgG and IgM enzyme-linked immunosorbent assays (ELISAs), as this protein shared 92% amino acid identity to N protein of 2019-nCoV (Extended Data Fig. 5) and showed no cross-reactivity against other human coronaviruses except SARSr-CoV7. We were only able to obtain five serum samples from the seven patients with viral infections. We monitored viral antibody levels in one patient (ICU-06) 7, 8, 9 and 18 days after the onset of disease (Extended Data Table 2). A clear trend was observed in the IgG and IgM titres, which increased over time, except that the IgM titre was decreased in the last sample (Fig. 2b). As a second analysis, we tested samples from 5 of the 7 virus-positive patients around 20 days after disease onset for the presence of viral antibodies (Extended Data Tables 1, 2). All patient samples—but not samples from healthy individuals—were strongly positive for viral IgG (Fig. 2b). There were also three IgM-positive samples, indicating an acute infection.",
+      "imageAttrs": [
+        {
+          "tag": "SOURCE",
+          "attrs": {
+            "srcset": "//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-020-2012-7/MediaObjects/41586_2020_2012_Fig2_HTML.png?as=webp"
+          }
+        },
+        {
+          "tag": "IMG",
+          "attrs": {
+            "src": "//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-020-2012-7/MediaObjects/41586_2020_2012_Fig2_HTML.png"
+          }
+        }
+      ]
+    }
+  ]
+}

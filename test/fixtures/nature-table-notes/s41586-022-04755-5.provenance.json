@@ -1,0 +1,370 @@
+{
+  "evidenceVersion": "nature-table-notes-regression/1.0.0",
+  "sourceContractCommit": "143fc77ebdc4bf15dd1cdca63afcddb91e6b55f5",
+  "scope": "完整的选定 table-link figure 和 full-size table semantic blocks；不是全文 capture，也不代表 corpus 验收。",
+  "article": {
+    "url": "https://www.nature.com/articles/s41586-022-04755-5",
+    "doi": "10.1038/s41586-022-04755-5",
+    "title": "A repeating fast radio burst associated with a persistent radio source",
+    "observedAt": "2026-10-03T16:48:03.040Z",
+    "sourceBytes": 545450,
+    "sourceSha256": "190a270027c69a816b2647d2fdc6f1777cdf669695506fa40f2fe3cab8801ace",
+    "fixturePath": "s41586-022-04755-5.article.excerpt.html",
+    "fixtureBytes": 3816,
+    "fixtureSha256": "e3aaf1a76de8ca132f6cbc08ec5f25e72afc884ec7b7a8e8a5167e5f9b0bf018",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41586-022-04755-5-table-notes-minimal",
+      "articleUrl": "https://www.nature.com/articles/s41586-022-04755-5",
+      "blocks": [
+        {
+          "id": "citation-title",
+          "selector": "meta[name=\"citation_title\"]",
+          "role": "metadata-title"
+        },
+        {
+          "id": "citation-doi",
+          "selector": "meta[name=\"citation_doi\"]",
+          "role": "metadata-doi"
+        },
+        {
+          "id": "canonical",
+          "selector": "link[rel=\"canonical\"]",
+          "role": "metadata-canonical"
+        },
+        {
+          "id": "table-figure",
+          "selector": ".c-article-body figure:has(#Tab1)",
+          "role": "table-link-and-caption"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "retainedBlocks": [
+      {
+        "id": "citation-title",
+        "selector": "meta[name=\"citation_title\"]",
+        "role": "metadata-title",
+        "sourceSubtreeSha256": "23cd0b5004cab7afe85fc07ef4c5572ff2bdd07f88f8ae217a612c8c8d80d4fc"
+      },
+      {
+        "id": "citation-doi",
+        "selector": "meta[name=\"citation_doi\"]",
+        "role": "metadata-doi",
+        "sourceSubtreeSha256": "d8d18c5aa8ae8b2563611fec2bed90c2918a1b68221332ebfd8c98e0400f145b"
+      },
+      {
+        "id": "canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata-canonical",
+        "sourceSubtreeSha256": "18f01b32880f9f6cffc641d7e98ef957dd7c8cdc1fd2773a9f3fc95da60db5ea"
+      },
+      {
+        "id": "table-figure",
+        "selector": ".c-article-body figure:has(#Tab1)",
+        "role": "table-link-and-caption",
+        "sourceSubtreeSha256": "bf4328c9178424850f762c06e9e262503bcaf55ded16a1fbef583555204a9175"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 4
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 11
+      }
+    ],
+    "omittedContent": [
+      "Unselected article metadata, body, equations, figures, other tables, references, author information and UI."
+    ]
+  },
+  "table": {
+    "url": "https://www.nature.com/articles/s41586-022-04755-5/tables/1",
+    "observedAt": "2026-10-03T16:50:36.037Z",
+    "sourceBytes": 185820,
+    "sourceSha256": "97eaaa31a6f3443e63ad7cf2cef66776d72d61c6b0f0d2956d87cd43b39485a2",
+    "fixturePath": "s41586-022-04755-5.table.excerpt.html",
+    "fixtureBytes": 5434,
+    "fixtureSha256": "d5c167a5e0e2bbe016a1728985a5f96788492a9397060cee4292bcb37ec81fd0",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41586-022-04755-5-table-1-source-v1",
+      "articleUrl": "https://www.nature.com/articles/s41586-022-04755-5",
+      "blocks": [
+        {
+          "id": "t1-content",
+          "selector": "#content",
+          "role": "table-response"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "retainedBlocks": [
+      {
+        "id": "t1-content",
+        "selector": "#content",
+        "role": "table-response",
+        "sourceSubtreeSha256": "18da227f41ab3633988b3b3899256c95297f37df25e80d3f90f5a6ab7b16dd63"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 1
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 14
+      }
+    ],
+    "omittedContent": [
+      "Full raw response, page head/footer, scripts and session/access material omitted; original #content scientific blocks retained; no image/PDF/XLSX bytes"
+    ],
+    "sourceNotesLocator": "#content .c-article-table-footer li",
+    "notes": [
+      {
+        "index": 0,
+        "marker": "a",
+        "sourceText": "aIncluding the FAST and VLA observations.",
+        "bodyText": "Including the FAST and VLA observations.",
+        "sourceHtml": "<sup>a</sup>Including the FAST and VLA observations.",
+        "sourceSelector": "#content .c-article-table-footer li:nth-child(1)",
+        "sourceSubtreeSha256": "fffebbc6b41ba693f16eb8fcccb63f40dfc5f9e6057bf76d655360ee605e82b2"
+      },
+      {
+        "index": 1,
+        "marker": "b",
+        "sourceText": "bThese are the mean values from FAST bursts fitted with a Gaussian pulse convolved with a one-sided exponential (Methods).",
+        "bodyText": "These are the mean values from FAST bursts fitted with a Gaussian pulse convolved with a one-sided exponential (Methods).",
+        "sourceHtml": "<sup>b</sup>These are the mean values from FAST bursts fitted with a Gaussian pulse convolved with a one-sided exponential (Methods).",
+        "sourceSelector": "#content .c-article-table-footer li:nth-child(2)",
+        "sourceSubtreeSha256": "13bb9022375917e4cc0075fa8426e7b2b684fe62ad7989cf8e8d691bbf461e33"
+      },
+      {
+        "index": 2,
+        "marker": "c",
+        "sourceText": "cThe MW electron density model from NE2001 and YMW16.",
+        "bodyText": "The MW electron density model from NE2001 and YMW16.",
+        "sourceHtml": "<sup>c</sup>The MW electron density model from NE2001 and YMW16.",
+        "sourceSelector": "#content .c-article-table-footer li:nth-child(3)",
+        "sourceSubtreeSha256": "af676129bcee5ce69a80aa0eda70ae43b45b95a99d262ec717d5f619589b7be8"
+      },
+      {
+        "index": 3,
+        "marker": "d",
+        "sourceText": "dAveraged over a span of about 2 months from 30 August to 16 November 2020.",
+        "bodyText": "Averaged over a span of about 2 months from 30 August to 16 November 2020.",
+        "sourceHtml": "<sup>d</sup>Averaged over a span of about 2 months from 30 August to 16 November 2020.",
+        "sourceSelector": "#content .c-article-table-footer li:nth-child(4)",
+        "sourceSubtreeSha256": "4a111706516606c439dcda84bf49ed1f07ae23f66ad7c7a0328015e10e28c16c"
+      },
+      {
+        "index": 4,
+        "marker": "e",
+        "sourceText": "eBased on the J-band magnitude.",
+        "bodyText": "Based on the J-band magnitude.",
+        "sourceHtml": "<sup>e</sup>Based on the J-band magnitude.",
+        "sourceSelector": "#content .c-article-table-footer li:nth-child(5)",
+        "sourceSubtreeSha256": "50546fb009f8163eb69d927448226274a4e45d4eb27503d3ae6a4d474989fcea"
+      },
+      {
+        "index": 5,
+        "marker": "f",
+        "sourceText": "fBased on the Hα luminosity.",
+        "bodyText": "Based on the Hα luminosity.",
+        "sourceHtml": "<sup>f</sup>Based on the Hα luminosity.",
+        "sourceSelector": "#content .c-article-table-footer li:nth-child(6)",
+        "sourceSubtreeSha256": "3c7cc57eaf2f42f329a8559324ba590497b8f9f6c5886cee89659356d5e8ebc7"
+      }
+    ],
+    "physicalCellCounts": [
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      1,
+      2,
+      2,
+      2,
+      2
+    ],
+    "spans": [
+      {
+        "rowIndex": 0,
+        "cellIndex": 0,
+        "rowSpan": 1,
+        "colSpan": 2,
+        "text": "Burst parameters"
+      },
+      {
+        "rowIndex": 13,
+        "cellIndex": 0,
+        "rowSpan": 1,
+        "colSpan": 2,
+        "text": "Persistent radio source"
+      },
+      {
+        "rowIndex": 19,
+        "cellIndex": 0,
+        "rowSpan": 1,
+        "colSpan": 2,
+        "text": "Host galaxy"
+      }
+    ],
+    "cellNoteMarkers": [
+      {
+        "rowIndex": 4,
+        "cellIndex": 0,
+        "marker": "a"
+      },
+      {
+        "rowIndex": 6,
+        "cellIndex": 1,
+        "marker": "b"
+      },
+      {
+        "rowIndex": 7,
+        "cellIndex": 1,
+        "marker": "b"
+      },
+      {
+        "rowIndex": 9,
+        "cellIndex": 0,
+        "marker": "c"
+      },
+      {
+        "rowIndex": 16,
+        "cellIndex": 1,
+        "marker": "d"
+      },
+      {
+        "rowIndex": 21,
+        "cellIndex": 0,
+        "marker": "e"
+      },
+      {
+        "rowIndex": 23,
+        "cellIndex": 0,
+        "marker": "f"
+      }
+    ]
+  },
+  "acquisition": "复用 B 已获授权的匿名公开 guarded captures；本 bug agent 未进行新的请求，也未使用凭据、cookies、private session 或账号访问。",
+  "sourceReview": "独立核对了 raw body hashes、外部 untouched raw DOM 的完整 li text/HTML、marker 次序、表格形状和 recipe repeat/idempotence。此检查不替代 Agent C 的 corpus 独立验收。",
+  "attribution": {
+    "title": "A repeating fast radio burst associated with a persistent radio source",
+    "doi": "10.1038/s41586-022-04755-5",
+    "articleUrl": "https://www.nature.com/articles/s41586-022-04755-5",
+    "authors": [
+      "Niu, C.-H.",
+      "Aggarwal, K.",
+      "Li, D.",
+      "Zhang, X.",
+      "Chatterjee, S.",
+      "Tsai, C.-W.",
+      "Yu, W.",
+      "Law, C. J.",
+      "Burke-Spolaor, S.",
+      "Cordes, J. M.",
+      "Zhang, Y.-K.",
+      "Ocker, S. K.",
+      "Yao, J.-M.",
+      "Wang, P.",
+      "Feng, Y.",
+      "Niino, Y.",
+      "Bochenek, C.",
+      "Cruces, M.",
+      "Connor, L.",
+      "Jiang, J.-A.",
+      "Dai, S.",
+      "Luo, R.",
+      "Li, G.-D.",
+      "Miao, C.-C.",
+      "Niu, J.-R.",
+      "Anna-Thomas, R.",
+      "Sydnor, J.",
+      "Stern, D.",
+      "Wang, W.-Y.",
+      "Yuan, M.",
+      "Yue, Y.-L.",
+      "Zhou, D.-J.",
+      "Yan, Z.",
+      "Zhu, W.-W.",
+      "Zhang, B."
+    ],
+    "authorsLocator": "meta[name=\"citation_author\"]",
+    "observedLicenses": [
+      {
+        "url": "http://creativecommons.org/licenses/by/4.0/",
+        "sourceSelector": "a[href=\"http://creativecommons.org/licenses/by/4.0/\"]",
+        "sourceSubtreeSha256": "ff420029f3d25b850722962458d36fdb01371fe9834e4630f4be41b89a4b30eb"
+      }
+    ],
+    "changes": "仅选择完整源块和原始 ancestors；删除非科学 UI、executable/tracking attributes，确定性序列化；原始科学文字、符号、表格、脚注和次序均未改写。许可证 URL 是原响应中的观察事实；不以 Open Access 替代许可证审阅。",
+    "rightsNotice": {
+      "sourceSelector": "#rightslink-content p",
+      "text": "Open Access  This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+      "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69"
+    },
+    "copyrightNotices": [
+      {
+        "sourceSelector": "p",
+        "sourceIndex": 283,
+        "text": "© 2026 Springer Nature Limited",
+        "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3"
+      }
+    ],
+    "observedRightsMetadata": [
+      {
+        "name": "dc.copyright",
+        "content": "2022 The Author(s)"
+      },
+      {
+        "name": "dc.rights",
+        "content": "2022 The Author(s)"
+      },
+      {
+        "name": "dc.rightsAgent",
+        "content": "journalpermissions@springernature.com"
+      },
+      {
+        "name": "prism.copyright",
+        "content": "2022 The Author(s)"
+      },
+      {
+        "name": "prism.rightsAgent",
+        "content": "journalpermissions@springernature.com"
+      }
+    ],
+    "useContext": "科研工具的 source-backed 离线回归；这些原始来源 excerpts 未由本修复按 repository code license 重新许可，原许可和第三方 notices 仍保留。"
+  }
+}

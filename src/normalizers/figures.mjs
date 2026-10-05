@@ -2,6 +2,7 @@ import { JSDOM } from 'jsdom';
 import { htmlToMarkdown } from '../markdown.mjs';
 import { normalizeAcademicInline } from './academic-inline.mjs';
 import { normalizeMath } from './math.mjs';
+import { normalizeAnchorMarkers, normalizeCitations } from './citations.mjs';
 
 function extractMathSource(value) {
   const text = String(value || '').trim();
@@ -62,7 +63,7 @@ function markdownFragment(html, url) {
     : htmlToMarkdown(`<p>${html}</p>`, url);
 }
 
-export async function normalizeFigureCaptions(figures, url) {
+export async function normalizeFigureCaptions(figures, url, options = {}) {
   for (const figure of figures) {
     if (!figure.captionHtml) {
       figure.captionMarkdown = figure.caption;
@@ -71,10 +72,11 @@ export async function normalizeFigureCaptions(figures, url) {
     const protectedCaption = protectCaptionMath(figure.captionHtml, url);
     const protectedDirections = protectCaptionDirections(protectedCaption.html);
     let converted = await markdownFragment(protectedDirections.html, url);
-    converted = normalizeMath(converted);
+    converted = normalizeMath(converted, options.semantic);
     for (const { marker, tex } of protectedCaption.math) converted = converted.replaceAll(marker, `$${tex}$`);
     for (const { marker, value } of protectedDirections.directions) converted = converted.replaceAll(marker, value);
-    figure.captionMarkdown = normalizeAcademicInline(converted)
+    converted = normalizeCitations(normalizeAcademicInline(converted), options.semantic?.citations, options);
+    figure.captionMarkdown = normalizeAnchorMarkers(converted, options.semantic?.crossReferences?.values(), options)
       .replace(/\r\n/g, '\n')
       .replace(/[ \t]+\n/g, '\n')
       .trim();
@@ -151,6 +153,9 @@ export function renderTables(tables, policy = { dialect: 'markdown' }) {
         : ' — ⚠️ Table cells were not exposed as HTML; retained the full-size link.';
       lines.push(`- ${caption}${table.url ? ` ([Full size table](${table.url}))` : ''}${identifier}${warning}`, '');
     }
+    for (const note of table.notes || []) {
+      if (note.markdown) lines.push(`- ${note.markdown.replace(/\n/gu, '\n  ')}`, '');
+    }
   }
   return lines.join('\n').trimEnd();
 }
@@ -163,14 +168,62 @@ function cellTextForMarkdown(value) {
     .trim();
 }
 
-async function tableCellMarkdown(cell, url) {
-  const html = normalizeHtmlUrls(cell.innerHTML, url);
+function isTableNoteReferenceContext(sup, cell) {
+  // Unlinked publisher markers are ambiguous. Infer only final markers on
+  // prose labels, uncertainty values, or labels with parenthesized units;
+  // a matching footer alone is never evidence that a power is a reference.
+  const context = sup.closest('p') || cell;
+  const range = sup.ownerDocument.createRange();
+  range.selectNodeContents(context);
+  range.setStartAfter(sup);
+  if (range.toString().trim()) return false;
+  range.selectNodeContents(context);
+  range.setEndBefore(sup);
+  const before = range.cloneContents();
+  const text = before.textContent.trim();
+  const proseLabel = (value) => {
+    const words = value.trim().split(/\s+/u);
+    return words.length > 1 && words.every(word => /^[A-Za-z]{2,}(?:-[A-Za-z]{2,})*$/u.test(word))
+      && /^[a-z]{4,}$/u.test(words.at(-1));
+  };
+  if (!before.querySelector('sub, sup, i, b, em, strong, .mathjax-tex')) {
+    if (proseLabel(text) || /^[+−-]?\d+(?:\.\d+)?\s*±\s*\d+(?:\.\d+)?$/u.test(text)) return true;
+  }
+  const annotation = text.match(/^(.*\S)\s+\(([^()]*)\)$/u);
+  // Only source-backed physical unit forms establish this context. Unknown
+  // letter products and numeric subscripts are not evidence of units.
+  if (!annotation || !/^(?:pc cm[−-]3|M⊙(?: yr[−-]1)?)$/u.test(annotation[2])) return false;
+  if ([...before.querySelectorAll('sub')].some(node => node.textContent.trim() !== '⊙')
+    || [...before.querySelectorAll('sup')].some(node => !/^[+−-]?\d+$/u.test(node.textContent.trim()))) return false;
+  for (const styled of before.querySelectorAll('i, b, em, strong')) {
+    let next = styled.nextSibling;
+    while (next?.nodeType === 3 && !next.textContent.trim()) next = next.nextSibling;
+    if (styled.textContent.trim() !== 'M' || next?.tagName !== 'SUB' || next.textContent.trim() !== '⊙') return false;
+  }
+  if (proseLabel(annotation[1])) return true;
+  const mathLabels = before.querySelectorAll('.mathjax-tex');
+  return mathLabels.length === 1 && annotation[1] === mathLabels[0].textContent.trim()
+    && annotation[2].trim().split(/\s+/u).length > 1;
+}
+
+async function tableCellMarkdown(cell, url, noteMarkers) {
+  const contents = cell.cloneNode(true);
+  for (const sup of contents.querySelectorAll('sup')) {
+    const marker = sup.textContent.trim();
+    // Numeric powers cannot be inferred to be note references from marker equality.
+    if (!/^[A-Za-z*†‡]$/u.test(marker) || !noteMarkers.has(marker) || sup.querySelector('a') || sup.closest('.mathjax-tex')
+      || sup.closest('sub, i, b, em, strong') || !isTableNoteReferenceContext(sup, contents)) continue;
+    const readableMarker = contents.ownerDocument.createElement('strong');
+    readableMarker.textContent = marker;
+    sup.replaceWith(readableMarker);
+  }
+  const html = normalizeHtmlUrls(contents.innerHTML, url);
   let converted = await markdownFragment(html, url);
   converted = normalizeMath(converted);
   return cellTextForMarkdown(normalizeAcademicInline(converted));
 }
 
-async function tableMarkdown(tableHtml, url) {
+async function tableMarkdown(tableHtml, url, noteMarkers) {
   const document = new JSDOM(tableHtml, { url }).window.document;
   const table = document.querySelector('table');
   if (!table) return '';
@@ -185,7 +238,7 @@ async function tableMarkdown(tableHtml, url) {
     let column = 0;
     for (const cell of Array.from(row.children).filter((node) => node.tagName === 'TH' || node.tagName === 'TD')) {
       while (grid[rowIndex][column] !== undefined) column += 1;
-      const value = await tableCellMarkdown(cell, url);
+      const value = await tableCellMarkdown(cell, url, noteMarkers);
       const rowSpan = Math.max(Number(cell.getAttribute('rowspan') || 1), 1);
       const colSpan = Math.max(Number(cell.getAttribute('colspan') || 1), 1);
       for (let rowOffset = 0; rowOffset < rowSpan; rowOffset += 1) {
@@ -220,11 +273,30 @@ async function tableMarkdown(tableHtml, url) {
   return output.join('\n');
 }
 
+async function tableNoteMarkdown(note, url) {
+  const dom = new JSDOM(`<div>${note.html}</div>`, { url });
+  const root = dom.window.document.body.firstElementChild;
+  const first = Array.from(root.childNodes).find((node) => node.nodeType !== 3 || node.textContent.trim());
+  if (note.marker && first?.tagName === 'SUP' && first.textContent.trim() === note.marker) {
+    const readableMarker = root.ownerDocument.createElement('strong');
+    readableMarker.textContent = note.marker;
+    first.replaceWith(readableMarker, root.ownerDocument.createTextNode(' '));
+  }
+  const html = normalizeHtmlUrls(root.innerHTML, url);
+  dom.window.close();
+  const converted = await markdownFragment(html, url);
+  return normalizeAcademicInline(normalizeMath(converted)).replace(/\r\n/gu, '\n').trim();
+}
+
 export async function normalizeTableContents(tables, url) {
   for (const table of tables) {
+    for (const note of table.notes || []) {
+      note.markdown = await tableNoteMarkdown(note, table.tableContentUrl || url);
+    }
     if (!table.tableHtml) continue;
     try {
-      table.markdown = await tableMarkdown(table.tableHtml, table.tableContentUrl || url);
+      const noteMarkers = new Set((table.notes || []).map((note) => note.marker).filter(Boolean));
+      table.markdown = await tableMarkdown(table.tableHtml, table.tableContentUrl || url, noteMarkers);
       if (!table.markdown) {
         table.tableContentStatus = 'fallback-empty-table';
         table.tableContentWarning = 'The exposed HTML table contained no usable rows.';

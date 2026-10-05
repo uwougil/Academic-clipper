@@ -1,0 +1,245 @@
+{
+  "evidenceVersion": "nature-table-notes-regression/1.0.0",
+  "sourceContractCommit": "143fc77ebdc4bf15dd1cdca63afcddb91e6b55f5",
+  "scope": "完整的选定 table-link figure 和 full-size table semantic blocks；不是全文 capture，也不代表 corpus 验收。",
+  "article": {
+    "url": "https://www.nature.com/articles/s41586-020-2012-7",
+    "doi": "10.1038/s41586-020-2012-7",
+    "title": "A pneumonia outbreak associated with a new coronavirus of probable bat origin",
+    "observedAt": "2026-10-03T16:44:15.126Z",
+    "sourceBytes": 418904,
+    "sourceSha256": "340b1b93ba889c99acf492c7e5ba14ba36e0a5c12866da39a445237e992e2cb9",
+    "fixturePath": "s41586-020-2012-7.article.excerpt.html",
+    "fixtureBytes": 3715,
+    "fixtureSha256": "561079f84fa79b9a00c82e2c3a96f07fe924a0eac05a1ef1aeb3efd6b9d85620",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41586-020-2012-7-table-notes-minimal",
+      "articleUrl": "https://www.nature.com/articles/s41586-020-2012-7",
+      "blocks": [
+        {
+          "id": "citation-title",
+          "selector": "meta[name=\"citation_title\"]",
+          "role": "metadata-title"
+        },
+        {
+          "id": "citation-doi",
+          "selector": "meta[name=\"citation_doi\"]",
+          "role": "metadata-doi"
+        },
+        {
+          "id": "canonical",
+          "selector": "link[rel=\"canonical\"]",
+          "role": "metadata-canonical"
+        },
+        {
+          "id": "table-figure",
+          "selector": ".c-article-body figure:has(#Tab1)",
+          "role": "table-link-and-caption"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "retainedBlocks": [
+      {
+        "id": "citation-title",
+        "selector": "meta[name=\"citation_title\"]",
+        "role": "metadata-title",
+        "sourceSubtreeSha256": "5f243a9a75528e9196eff8127d03a03a59f288b577de1e2714b990ddea1b56fb"
+      },
+      {
+        "id": "citation-doi",
+        "selector": "meta[name=\"citation_doi\"]",
+        "role": "metadata-doi",
+        "sourceSubtreeSha256": "c45cbb6d0caf57e23b9c9ac26b998f86837be1ffb25268cdaad03af928caa1f8"
+      },
+      {
+        "id": "canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata-canonical",
+        "sourceSubtreeSha256": "94ee5243a6c9fabd1faa6fe018c77268f7537cd2b58c3665171bf7d3dbd47863"
+      },
+      {
+        "id": "table-figure",
+        "selector": ".c-article-body figure:has(#Tab1)",
+        "role": "table-link-and-caption",
+        "sourceSubtreeSha256": "15c264b163dc23de19570bda89f7cc9552d112eca3b072c6311409e629d5cfe0"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 4
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 11
+      }
+    ],
+    "omittedContent": [
+      "Unselected article metadata, body, equations, figures, other tables, references, author information and UI."
+    ]
+  },
+  "table": {
+    "url": "https://www.nature.com/articles/s41586-020-2012-7/tables/1",
+    "observedAt": "2026-10-03T16:50:31.782Z",
+    "sourceBytes": 179489,
+    "sourceSha256": "3b6d64a5934ac4b45df370930ec4d9a9e51b41dc71ad3aaf2d87eb5c3125e29e",
+    "fixturePath": "s41586-020-2012-7.table.excerpt.html",
+    "fixtureBytes": 2500,
+    "fixtureSha256": "6d67417849218c151fc8a1b27c1cbe56634d3774005b911cdc7c763462e42794",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41586-020-2012-7-table-1-source-v1",
+      "articleUrl": "https://www.nature.com/articles/s41586-020-2012-7",
+      "blocks": [
+        {
+          "id": "t1-content",
+          "selector": "#content",
+          "role": "table-response"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "retainedBlocks": [
+      {
+        "id": "t1-content",
+        "selector": "#content",
+        "role": "table-response",
+        "sourceSubtreeSha256": "b3dfad08c4a2637a437eab784ec9274de7f6fba98817ebb4e6e1b18e7ad26472"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 1
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 13
+      }
+    ],
+    "omittedContent": [
+      "Full raw response, page head/footer, scripts and session/access material omitted; original #content scientific blocks retained; no image/PDF/XLSX bytes"
+    ],
+    "sourceNotesLocator": "#content .c-article-table-footer li",
+    "notes": [
+      {
+        "index": 0,
+        "marker": "",
+        "sourceText": "Note, some records are missing. All patients are sellers or deliverymen at the seafood market except ICU-01, whose contact history is unclear. All patients were admitted to intensive care unit (ICU) during the first investigation and were now in stable condition. Blood IgM tests have been performed for the following respiratory pathogens for all patients: Legionella pneumophilia, Mycoplasma pneumoniae, Chlamydia pneumoniae, respiratory syncytial virus, adenovirus, Rickettsia, influenza A virus, influenza B virus and parainfluenza virus.",
+        "bodyText": "Note, some records are missing. All patients are sellers or deliverymen at the seafood market except ICU-01, whose contact history is unclear. All patients were admitted to intensive care unit (ICU) during the first investigation and were now in stable condition. Blood IgM tests have been performed for the following respiratory pathogens for all patients: Legionella pneumophilia, Mycoplasma pneumoniae, Chlamydia pneumoniae, respiratory syncytial virus, adenovirus, Rickettsia, influenza A virus, influenza B virus and parainfluenza virus.",
+        "sourceHtml": "Note, some records are missing. All patients are sellers or deliverymen at the seafood market except ICU-01, whose contact history is unclear. All patients were admitted to intensive care unit (ICU) during the first investigation and were now in stable condition. Blood IgM tests have been performed for the following respiratory pathogens for all patients: <i>Legionella pneumophilia</i>, <i>Mycoplasma pneumoniae</i>, <i>Chlamydia pneumoniae</i>, respiratory syncytial virus, adenovirus, <i>Rickettsia</i>, influenza A virus, influenza B virus and parainfluenza virus.",
+        "sourceSelector": "#content .c-article-table-footer li:nth-child(1)",
+        "sourceSubtreeSha256": "c97965056644d1780235acfb5e3b13c1d68367aec14335f0812373730a964f12"
+      },
+      {
+        "index": 1,
+        "marker": "",
+        "sourceText": "*This patient reported fever on 12 December 2019 and then recovered without medical treatment. He came back to the hospital on 27 December 2019 with a fever. His wife was also ill and admitted to the hospital. Both individuals recovered.",
+        "bodyText": "*This patient reported fever on 12 December 2019 and then recovered without medical treatment. He came back to the hospital on 27 December 2019 with a fever. His wife was also ill and admitted to the hospital. Both individuals recovered.",
+        "sourceHtml": "*This patient reported fever on 12&nbsp;December 2019 and then recovered without medical treatment. He came back to the hospital on 27&nbsp;December 2019 with a fever. His wife was also ill and admitted to the hospital. Both individuals recovered.",
+        "sourceSelector": "#content .c-article-table-footer li:nth-child(2)",
+        "sourceSubtreeSha256": "f8b89340b8b9e46f83a3311a97e1ed80d845f92b8a9e877d7d61406899b39014"
+      }
+    ],
+    "physicalCellCounts": [],
+    "spans": [],
+    "cellNoteMarkers": []
+  },
+  "acquisition": "复用 B 已获授权的匿名公开 guarded captures；本 bug agent 未进行新的请求，也未使用凭据、cookies、private session 或账号访问。",
+  "sourceReview": "独立核对了 raw body hashes、外部 untouched raw DOM 的完整 li text/HTML、marker 次序、表格形状和 recipe repeat/idempotence。此检查不替代 Agent C 的 corpus 独立验收。",
+  "attribution": {
+    "title": "A pneumonia outbreak associated with a new coronavirus of probable bat origin",
+    "doi": "10.1038/s41586-020-2012-7",
+    "articleUrl": "https://www.nature.com/articles/s41586-020-2012-7",
+    "authors": [
+      "Zhou, Peng",
+      "Yang, Xing-Lou",
+      "Wang, Xian-Guang",
+      "Hu, Ben",
+      "Zhang, Lei",
+      "Zhang, Wei",
+      "Si, Hao-Rui",
+      "Zhu, Yan",
+      "Li, Bei",
+      "Huang, Chao-Lin",
+      "Chen, Hui-Dong",
+      "Chen, Jing",
+      "Luo, Yun",
+      "Guo, Hua",
+      "Jiang, Ren-Di",
+      "Liu, Mei-Qin",
+      "Chen, Ying",
+      "Shen, Xu-Rui",
+      "Wang, Xi",
+      "Zheng, Xiao-Shuang",
+      "Zhao, Kai",
+      "Chen, Quan-Jiao",
+      "Deng, Fei",
+      "Liu, Lin-Lin",
+      "Yan, Bing",
+      "Zhan, Fa-Xian",
+      "Wang, Yan-Yi",
+      "Xiao, Geng-Fu",
+      "Shi, Zheng-Li"
+    ],
+    "authorsLocator": "meta[name=\"citation_author\"]",
+    "observedLicenses": [
+      {
+        "url": "http://creativecommons.org/licenses/by/4.0/",
+        "sourceSelector": "a[href=\"http://creativecommons.org/licenses/by/4.0/\"]",
+        "sourceSubtreeSha256": "ff420029f3d25b850722962458d36fdb01371fe9834e4630f4be41b89a4b30eb"
+      }
+    ],
+    "changes": "仅选择完整源块和原始 ancestors；删除非科学 UI、executable/tracking attributes，确定性序列化；原始科学文字、符号、表格、脚注和次序均未改写。许可证 URL 是原响应中的观察事实；不以 Open Access 替代许可证审阅。",
+    "rightsNotice": {
+      "sourceSelector": "#rightslink-content p",
+      "text": "Open Access  This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+      "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69"
+    },
+    "copyrightNotices": [
+      {
+        "sourceSelector": "p",
+        "sourceIndex": 210,
+        "text": "© 2026 Springer Nature Limited",
+        "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3"
+      }
+    ],
+    "observedRightsMetadata": [
+      {
+        "name": "dc.copyright",
+        "content": "2020 The Author(s)"
+      },
+      {
+        "name": "dc.rights",
+        "content": "2020 The Author(s)"
+      },
+      {
+        "name": "dc.rightsAgent",
+        "content": "journalpermissions@springernature.com"
+      },
+      {
+        "name": "prism.copyright",
+        "content": "2020 The Author(s)"
+      },
+      {
+        "name": "prism.rightsAgent",
+        "content": "journalpermissions@springernature.com"
+      }
+    ],
+    "useContext": "科研工具的 source-backed 离线回归；这些原始来源 excerpts 未由本修复按 repository code license 重新许可，原许可和第三方 notices 仍保留。"
+  }
+}

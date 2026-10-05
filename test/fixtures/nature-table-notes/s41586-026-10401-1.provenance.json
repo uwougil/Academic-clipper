@@ -1,0 +1,226 @@
+{
+  "evidenceVersion": "nature-table-notes-regression/1.0.0",
+  "sourceContractCommit": "143fc77ebdc4bf15dd1cdca63afcddb91e6b55f5",
+  "scope": "完整的选定 table-link figure 和 full-size table semantic blocks；不是全文 capture，也不代表 corpus 验收。",
+  "article": {
+    "url": "https://www.nature.com/articles/s41586-026-10401-1",
+    "doi": "10.1038/s41586-026-10401-1",
+    "title": "Symmetry classification of magnetic orders using oriented spin space groups",
+    "observedAt": "2026-10-03T16:44:03.154Z",
+    "sourceBytes": 437403,
+    "sourceSha256": "ea2508302b4c3af4efe421f02c3de93379b50940dd1a8762166efb38033cc91c",
+    "fixturePath": "s41586-026-10401-1.article.excerpt.html",
+    "fixtureBytes": 3345,
+    "fixtureSha256": "8a9cdf624343872bba5873ccda96697737b597724f627bcac39d894fd0e085eb",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41586-026-10401-1-table-notes-minimal",
+      "articleUrl": "https://www.nature.com/articles/s41586-026-10401-1",
+      "blocks": [
+        {
+          "id": "citation-title",
+          "selector": "meta[name=\"citation_title\"]",
+          "role": "metadata-title"
+        },
+        {
+          "id": "citation-doi",
+          "selector": "meta[name=\"citation_doi\"]",
+          "role": "metadata-doi"
+        },
+        {
+          "id": "canonical",
+          "selector": "link[rel=\"canonical\"]",
+          "role": "metadata-canonical"
+        },
+        {
+          "id": "table-figure",
+          "selector": ".c-article-body figure:has(#Tab1)",
+          "role": "table-link-and-caption"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "retainedBlocks": [
+      {
+        "id": "citation-title",
+        "selector": "meta[name=\"citation_title\"]",
+        "role": "metadata-title",
+        "sourceSubtreeSha256": "d0bde499e430a517f017e1630a2878ace06e94ff48bd6ac5b5a64ad177bdb0b8"
+      },
+      {
+        "id": "citation-doi",
+        "selector": "meta[name=\"citation_doi\"]",
+        "role": "metadata-doi",
+        "sourceSubtreeSha256": "84ca749616bb31369556756b89a43d7d10a5b68d7a62eb0aec20c92d47747b94"
+      },
+      {
+        "id": "canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata-canonical",
+        "sourceSubtreeSha256": "a48060ea0b66d2408eaef87a350915f7a945c4a498be4f9a789894fc3eeb2c3e"
+      },
+      {
+        "id": "table-figure",
+        "selector": ".c-article-body figure:has(#Tab1)",
+        "role": "table-link-and-caption",
+        "sourceSubtreeSha256": "9ec2c3d382866c7d184177fa7504f9d9f90b7e0a25914a261797d3e0fd5247be"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 4
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 11
+      }
+    ],
+    "omittedContent": [
+      "Unselected article metadata, body, equations, figures, other tables, references, author information and UI."
+    ]
+  },
+  "table": {
+    "url": "https://www.nature.com/articles/s41586-026-10401-1/tables/1",
+    "observedAt": "2026-10-03T16:47:49.080Z",
+    "sourceBytes": 172830,
+    "sourceSha256": "36a52d93aca60fb50cb7452b2990f955f399d1b8a59e5278dff0764a9042d568",
+    "fixturePath": "s41586-026-10401-1.table.excerpt.html",
+    "fixtureBytes": 2968,
+    "fixtureSha256": "0f140482b5ed5873629f22df427fffe01aa5374c6253e465a4678f1ea1749677",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41586-026-10401-1-table-1-source-v1",
+      "articleUrl": "https://www.nature.com/articles/s41586-026-10401-1",
+      "blocks": [
+        {
+          "id": "t1-content",
+          "selector": "#content",
+          "role": "table-response"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "retainedBlocks": [
+      {
+        "id": "t1-content",
+        "selector": "#content",
+        "role": "table-response",
+        "sourceSubtreeSha256": "a008bbb738bdf37180d987cd66e365305018eb736e1a7bddcb9b5bc3986af113"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 1
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 14
+      }
+    ],
+    "omittedContent": [
+      "Full raw response, page head/footer, scripts and session/access material omitted; original #content scientific blocks retained; no image/PDF/XLSX bytes"
+    ],
+    "sourceNotesLocator": "#content .c-article-table-footer li",
+    "notes": [
+      {
+        "index": 0,
+        "marker": "",
+        "sourceText": "The expansion of SOC is abbreviated as the order form of SOC coefficients. λ0 represents the non-SOC effects allowed by OSSG.",
+        "bodyText": "The expansion of SOC is abbreviated as the order form of SOC coefficients. λ0 represents the non-SOC effects allowed by OSSG.",
+        "sourceHtml": "The expansion of SOC is abbreviated as the order form of SOC coefficients. <i>λ</i><sup>0</sup> represents the non-SOC effects allowed by OSSG.",
+        "sourceSelector": "#content .c-article-table-footer li:nth-child(1)",
+        "sourceSubtreeSha256": "00e5f8fcc11f4d6f5c0c40aa9347f521ae11f16619083555811f112c3e9df760"
+      }
+    ],
+    "physicalCellCounts": [
+      5,
+      5,
+      4,
+      5
+    ],
+    "spans": [
+      {
+        "rowIndex": 1,
+        "cellIndex": 0,
+        "rowSpan": 2,
+        "colSpan": 1,
+        "text": "OSSG"
+      }
+    ],
+    "cellNoteMarkers": []
+  },
+  "acquisition": "复用 B 已获授权的匿名公开 guarded captures；本 bug agent 未进行新的请求，也未使用凭据、cookies、private session 或账号访问。",
+  "sourceReview": "独立核对了 raw body hashes、外部 untouched raw DOM 的完整 li text/HTML、marker 次序、表格形状和 recipe repeat/idempotence。此检查不替代 Agent C 的 corpus 独立验收。",
+  "attribution": {
+    "title": "Symmetry classification of magnetic orders using oriented spin space groups",
+    "doi": "10.1038/s41586-026-10401-1",
+    "articleUrl": "https://www.nature.com/articles/s41586-026-10401-1",
+    "authors": [
+      "Liu, Yuntian",
+      "Chen, Xiaobing",
+      "Yu, Yutong",
+      "Etxebarria, Jesús",
+      "Perez-Mato, J. Manuel",
+      "Liu, Qihang"
+    ],
+    "authorsLocator": "meta[name=\"citation_author\"]",
+    "observedLicenses": [
+      {
+        "url": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "sourceSelector": "a[href=\"http://creativecommons.org/licenses/by-nc-nd/4.0/\"]",
+        "sourceSubtreeSha256": "88818f9b3d388c34553ecfc12cd395d17a8e71d4213f64f870511afd5197674b"
+      }
+    ],
+    "changes": "仅选择完整源块和原始 ancestors；删除非科学 UI、executable/tracking attributes，确定性序列化；原始科学文字、符号、表格、脚注和次序均未改写。许可证 URL 是原响应中的观察事实；不以 Open Access 替代许可证审阅。",
+    "rightsNotice": {
+      "sourceSelector": "#rightslink-content p",
+      "text": "Open Access  This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.",
+      "sourceSubtreeSha256": "1a7d5bde85d5d3f50248c225a3cb16d11e8c16c3dc4bbe59a08c9368e07c0eff"
+    },
+    "copyrightNotices": [
+      {
+        "sourceSelector": "p",
+        "sourceIndex": 195,
+        "text": "© 2026 Springer Nature Limited",
+        "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3"
+      }
+    ],
+    "observedRightsMetadata": [
+      {
+        "name": "dc.copyright",
+        "content": "2026 The Author(s)"
+      },
+      {
+        "name": "dc.rights",
+        "content": "2026 The Author(s)"
+      },
+      {
+        "name": "dc.rightsAgent",
+        "content": "journalpermissions@springernature.com"
+      },
+      {
+        "name": "prism.copyright",
+        "content": "2026 The Author(s)"
+      },
+      {
+        "name": "prism.rightsAgent",
+        "content": "journalpermissions@springernature.com"
+      }
+    ],
+    "useContext": "科研工具的 source-backed 离线回归；这些原始来源 excerpts 未由本修复按 repository code license 重新许可，原许可和第三方 notices 仍保留。"
+  }
+}
