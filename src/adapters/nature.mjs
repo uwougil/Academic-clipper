@@ -281,6 +281,7 @@ function extractFigures(body, url) {
     extendedNumber += 1;
     const number = figureNumber(label, extendedNumber);
     const identity = item.id || `supplementary-figure-${extendedNumber}`;
+    item.setAttribute(FIGURE_IDENTITY_ATTR, identity);
     figures.push({
       identity,
       id: item.id || '',
@@ -946,7 +947,19 @@ function prepareSemanticNodes(body, url, figures, tables) {
       fragment = href.startsWith('#') ? href.slice(1) : '';
     }
     const target = crossReferences.get(fragment);
-    if (target) anchor.setAttribute('href', `#${target.anchor}`);
+    // Numeric scholarly links must not match a DOM ID while Defuddle detects
+    // prose footnotes. Restore the semantic target after conversion.
+    if (target) anchor.setAttribute('href', `#${semanticMarker('CROSSREFERENCE', target.anchor)}`);
+  }
+
+  // Capture the protected caption DOM, including citations and typed math,
+  // before main figures become placeholders or supplementary sections vanish.
+  for (const element of body.querySelectorAll(`[${FIGURE_IDENTITY_ATTR}]`)) {
+    const data = figures.find((candidate) => candidate.identity === element.getAttribute(FIGURE_IDENTITY_ATTR));
+    if (!data) continue;
+    data.captionHtml = data.source === 'inline figure'
+      ? captionFor(element, { includeFigureDescription: true }).html
+      : [elementContentHtml(element.querySelector('h3')), elementContentHtml(element.querySelector('.c-article-supplementary__description'))].filter(Boolean).join(' ');
   }
 
   for (const heading of Array.from(body.querySelectorAll('[id]')).filter((node) => /^H[2-6]$/.test(node.tagName))) {

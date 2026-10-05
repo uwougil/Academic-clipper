@@ -1,0 +1,1439 @@
+{
+  "evidenceVersion": "nature-caption-regression/1.0.0",
+  "articleId": "s41598-018-38309-5",
+  "kind": "scientific-reports",
+  "url": "https://www.nature.com/articles/s41598-018-38309-5",
+  "title": "Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States",
+  "journal": "Scientific Reports",
+  "doi": "10.1038/s41598-018-38309-5",
+  "observedAt": "2026-10-04T06:56:41.242Z",
+  "sourceSha256": "a1a135395d984fcda4548aacd0d6eabe0d41bb22c16cc31f4c8f16f8eaf49d51",
+  "sourceBytes": 487190,
+  "fixtureSha256": "23de0c22dcfd8673890a7053978ec86535a0b0ac60b14fb8ad27c0df5df54102",
+  "fixtureBytes": 107925,
+  "retainedReferencePrefix": 74,
+  "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+  "serializerVersion": "nature-corpus-subtree/1.0.0",
+  "recipeSha256": "72f5893357e6dbda8eaf832bc5c6e2e449b5459d5d0ff1a01dc9510338a1f533",
+  "recipe": {
+    "version": "1.0.0",
+    "id": "s41598-018-38309-5-source-v1",
+    "articleUrl": "https://www.nature.com/articles/s41598-018-38309-5",
+    "blocks": [
+      {
+        "id": "a-meta-11",
+        "selector": "head > meta[name=\"dc.title\"][content=\"Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-36",
+        "selector": "head > meta[name=\"citation_journal_title\"][content=\"Scientific Reports\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-40",
+        "selector": "head > meta[name=\"citation_title\"][content=\"Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-41",
+        "selector": "head > meta[name=\"citation_volume\"][content=\"9\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-42",
+        "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-43",
+        "selector": "head > meta[name=\"citation_online_date\"][content=\"2019/02/07\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-44",
+        "selector": "head > meta[name=\"citation_firstpage\"][content=\"1657\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-45",
+        "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-49",
+        "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41598-018-38309-5\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-52",
+        "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41598-018-38309-5\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-136",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Al-Yaari, A.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-138",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Ducharne, A.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-140",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Cheruy, F.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-142",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Crow, W. T.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-144",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Wigneron, J.-P.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-153",
+        "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41598-018-38309-5\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-154",
+        "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-156",
+        "selector": "head > meta[property=\"og:title\"][content=\"Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States - Scientific Reports\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-title",
+        "selector": "h1.c-article-title",
+        "role": "title"
+      },
+      {
+        "id": "a-references-heading",
+        "selector": "#Bib1",
+        "role": "heading"
+      },
+      {
+        "id": "a-reference-1",
+        "selector": "ol.c-article-references > li:nth-child(1)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-2",
+        "selector": "ol.c-article-references > li:nth-child(2)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-3",
+        "selector": "ol.c-article-references > li:nth-child(3)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-4",
+        "selector": "ol.c-article-references > li:nth-child(4)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-5",
+        "selector": "ol.c-article-references > li:nth-child(5)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-6",
+        "selector": "ol.c-article-references > li:nth-child(6)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-7",
+        "selector": "ol.c-article-references > li:nth-child(7)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-8",
+        "selector": "ol.c-article-references > li:nth-child(8)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-9",
+        "selector": "ol.c-article-references > li:nth-child(9)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-10",
+        "selector": "ol.c-article-references > li:nth-child(10)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-11",
+        "selector": "ol.c-article-references > li:nth-child(11)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-12",
+        "selector": "ol.c-article-references > li:nth-child(12)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-13",
+        "selector": "ol.c-article-references > li:nth-child(13)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-14",
+        "selector": "ol.c-article-references > li:nth-child(14)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-15",
+        "selector": "ol.c-article-references > li:nth-child(15)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-16",
+        "selector": "ol.c-article-references > li:nth-child(16)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-17",
+        "selector": "ol.c-article-references > li:nth-child(17)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-18",
+        "selector": "ol.c-article-references > li:nth-child(18)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-19",
+        "selector": "ol.c-article-references > li:nth-child(19)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-20",
+        "selector": "ol.c-article-references > li:nth-child(20)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-21",
+        "selector": "ol.c-article-references > li:nth-child(21)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-22",
+        "selector": "ol.c-article-references > li:nth-child(22)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-23",
+        "selector": "ol.c-article-references > li:nth-child(23)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-24",
+        "selector": "ol.c-article-references > li:nth-child(24)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-25",
+        "selector": "ol.c-article-references > li:nth-child(25)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-26",
+        "selector": "ol.c-article-references > li:nth-child(26)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-27",
+        "selector": "ol.c-article-references > li:nth-child(27)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-28",
+        "selector": "ol.c-article-references > li:nth-child(28)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-29",
+        "selector": "ol.c-article-references > li:nth-child(29)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-30",
+        "selector": "ol.c-article-references > li:nth-child(30)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-31",
+        "selector": "ol.c-article-references > li:nth-child(31)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-32",
+        "selector": "ol.c-article-references > li:nth-child(32)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-33",
+        "selector": "ol.c-article-references > li:nth-child(33)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-34",
+        "selector": "ol.c-article-references > li:nth-child(34)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-35",
+        "selector": "ol.c-article-references > li:nth-child(35)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-36",
+        "selector": "ol.c-article-references > li:nth-child(36)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-37",
+        "selector": "ol.c-article-references > li:nth-child(37)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-38",
+        "selector": "ol.c-article-references > li:nth-child(38)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-39",
+        "selector": "ol.c-article-references > li:nth-child(39)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-40",
+        "selector": "ol.c-article-references > li:nth-child(40)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-41",
+        "selector": "ol.c-article-references > li:nth-child(41)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-42",
+        "selector": "ol.c-article-references > li:nth-child(42)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-43",
+        "selector": "ol.c-article-references > li:nth-child(43)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-44",
+        "selector": "ol.c-article-references > li:nth-child(44)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-45",
+        "selector": "ol.c-article-references > li:nth-child(45)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-46",
+        "selector": "ol.c-article-references > li:nth-child(46)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-47",
+        "selector": "ol.c-article-references > li:nth-child(47)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-48",
+        "selector": "ol.c-article-references > li:nth-child(48)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-49",
+        "selector": "ol.c-article-references > li:nth-child(49)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-50",
+        "selector": "ol.c-article-references > li:nth-child(50)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-51",
+        "selector": "ol.c-article-references > li:nth-child(51)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-52",
+        "selector": "ol.c-article-references > li:nth-child(52)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-53",
+        "selector": "ol.c-article-references > li:nth-child(53)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-54",
+        "selector": "ol.c-article-references > li:nth-child(54)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-55",
+        "selector": "ol.c-article-references > li:nth-child(55)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-56",
+        "selector": "ol.c-article-references > li:nth-child(56)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-57",
+        "selector": "ol.c-article-references > li:nth-child(57)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-58",
+        "selector": "ol.c-article-references > li:nth-child(58)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-59",
+        "selector": "ol.c-article-references > li:nth-child(59)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-60",
+        "selector": "ol.c-article-references > li:nth-child(60)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-61",
+        "selector": "ol.c-article-references > li:nth-child(61)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-62",
+        "selector": "ol.c-article-references > li:nth-child(62)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-63",
+        "selector": "ol.c-article-references > li:nth-child(63)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-64",
+        "selector": "ol.c-article-references > li:nth-child(64)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-65",
+        "selector": "ol.c-article-references > li:nth-child(65)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-66",
+        "selector": "ol.c-article-references > li:nth-child(66)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-67",
+        "selector": "ol.c-article-references > li:nth-child(67)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-68",
+        "selector": "ol.c-article-references > li:nth-child(68)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-69",
+        "selector": "ol.c-article-references > li:nth-child(69)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-70",
+        "selector": "ol.c-article-references > li:nth-child(70)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-71",
+        "selector": "ol.c-article-references > li:nth-child(71)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-72",
+        "selector": "ol.c-article-references > li:nth-child(72)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-73",
+        "selector": "ol.c-article-references > li:nth-child(73)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-74",
+        "selector": "ol.c-article-references > li:nth-child(74)",
+        "role": "reference"
+      },
+      {
+        "id": "caption-figure-1",
+        "selector": "#figure-1",
+        "role": "figure"
+      },
+      {
+        "id": "caption-figure-1-previous",
+        "selector": "#Sec2-content > p:has(+ #figure-1)",
+        "role": "paragraph"
+      },
+      {
+        "id": "caption-figure-1-next",
+        "selector": "#figure-1 + p",
+        "role": "paragraph"
+      },
+      {
+        "id": "caption-figure-2",
+        "selector": "#figure-2",
+        "role": "figure"
+      },
+      {
+        "id": "caption-figure-2-previous",
+        "selector": "#Sec2-content > p:has(+ #figure-2)",
+        "role": "paragraph"
+      },
+      {
+        "id": "caption-figure-2-next",
+        "selector": "#figure-2 + p",
+        "role": "paragraph"
+      },
+      {
+        "id": "caption-figure-3",
+        "selector": "#figure-3",
+        "role": "figure"
+      },
+      {
+        "id": "caption-figure-3-previous",
+        "selector": "#Sec2-content > p:has(+ #figure-3)",
+        "role": "paragraph"
+      },
+      {
+        "id": "caption-figure-3-next",
+        "selector": "#figure-3 + p",
+        "role": "paragraph"
+      },
+      {
+        "id": "caption-figure-4",
+        "selector": "#figure-4",
+        "role": "figure"
+      },
+      {
+        "id": "caption-figure-4-previous",
+        "selector": "#Sec2-content > p:has(+ #figure-4)",
+        "role": "paragraph"
+      },
+      {
+        "id": "caption-figure-4-next",
+        "selector": "#figure-4 + p",
+        "role": "paragraph"
+      },
+      {
+        "id": "source-heading-Sec2",
+        "selector": "#Sec2",
+        "role": "heading"
+      },
+      {
+        "id": "source-heading-Sec3",
+        "selector": "#Sec3",
+        "role": "heading"
+      },
+      {
+        "id": "source-heading-Sec4",
+        "selector": "#Sec4",
+        "role": "heading"
+      }
+    ],
+    "removeSelectors": []
+  },
+  "retainedBlocks": [
+    {
+      "id": "a-meta-11",
+      "selector": "head > meta[name=\"dc.title\"][content=\"Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "81ccb54f0a9328efe8a66caa444aa4343779d79486c0d77753710fcb40349ebb"
+    },
+    {
+      "id": "a-meta-36",
+      "selector": "head > meta[name=\"citation_journal_title\"][content=\"Scientific Reports\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "98690953751af7cff1c083fa0df99a10c67e65b471c141ee2bda9c4ffae15810"
+    },
+    {
+      "id": "a-meta-40",
+      "selector": "head > meta[name=\"citation_title\"][content=\"Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "bf7228cc04939f81663cd753a70efa6b47fbb7b7234e67fb3a34fee76273716e"
+    },
+    {
+      "id": "a-meta-41",
+      "selector": "head > meta[name=\"citation_volume\"][content=\"9\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "287b7c72329f2a716ae7cb52dc7abc0eb6cd915eca14d157d41b0f1610bc7a56"
+    },
+    {
+      "id": "a-meta-42",
+      "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ed1801e512cd04c79001567258d9938bff6132aa5dd4e064b95179536e4cdde8"
+    },
+    {
+      "id": "a-meta-43",
+      "selector": "head > meta[name=\"citation_online_date\"][content=\"2019/02/07\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "69e1dd744dce3c1e6631939e00b528225e96893397fde94cdc0140195aadacb3"
+    },
+    {
+      "id": "a-meta-44",
+      "selector": "head > meta[name=\"citation_firstpage\"][content=\"1657\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "9a519cd74f9091d4330d24c36d81994f1a1f3e5ed3d12016e0aa2af891a5178e"
+    },
+    {
+      "id": "a-meta-45",
+      "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "aeb52796a9a520993fee49b41ab2b5460c5dcfe24a657aaee093d4618fd9e1c6"
+    },
+    {
+      "id": "a-meta-49",
+      "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41598-018-38309-5\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "61033f1e72d8fab243138ed8da3e52010f99b726f8ae150fb42e34865e5480e7"
+    },
+    {
+      "id": "a-meta-52",
+      "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41598-018-38309-5\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "96a7057b707b6c5d6c2aef592d8bbba62a2ecd4c492ca99372a2ef4524d47cc3"
+    },
+    {
+      "id": "a-meta-136",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Al-Yaari, A.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "2f9de5a29009642e53a99b6299a5480bd0869cba5d23135251cc997a88ae0670"
+    },
+    {
+      "id": "a-meta-138",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Ducharne, A.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "96238196850ed4b4911e9cee1e332aa9a8c4e8c4a8ebb67deff59fb23fadf381"
+    },
+    {
+      "id": "a-meta-140",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Cheruy, F.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "91a55fb2636df73a6a7965ef3b4b380296ab511af5a01f9dcbea6cee061ad11b"
+    },
+    {
+      "id": "a-meta-142",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Crow, W. T.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c96ee9a5f716232b343e7043ad9cc35a41974c6aaf0b6c09a6878d08629b596d"
+    },
+    {
+      "id": "a-meta-144",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Wigneron, J.-P.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "986e47601dc0c9a340123fff77df80bf901b5d91605cb70a5aef5453312a9c26"
+    },
+    {
+      "id": "a-meta-153",
+      "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41598-018-38309-5\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "12ccb9bb36b6b0679a07f26b1f3c542841493bf880885ae89317059d120d4209"
+    },
+    {
+      "id": "a-meta-154",
+      "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e2a47d03efa7114d4bc8e65c0fba2e84722b49e6e718eb787898c3c61ac5bcc9"
+    },
+    {
+      "id": "a-meta-156",
+      "selector": "head > meta[property=\"og:title\"][content=\"Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States - Scientific Reports\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "3254b30e7d7d3ca4aef0fc0bdb4487ab9e9a1ad2ad0d2261ed8e00695249dffd"
+    },
+    {
+      "id": "a-canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "0af3aa4340f5f0236adffff9f429f6181e5ad88ed2b8ff9201c1c8f05dc8a630"
+    },
+    {
+      "id": "a-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "15b7ca0851a66d943eb0f77371c743d1f79a3f9284aa15169a43ada49aaf8ad9"
+    },
+    {
+      "id": "a-title",
+      "selector": "h1.c-article-title",
+      "role": "title",
+      "sourceSubtreeSha256": "dee29887d3a98765cb87cf1fef3c659e0ea3ae687f6d5005c0e6cbbaa9a6251f"
+    },
+    {
+      "id": "a-references-heading",
+      "selector": "#Bib1",
+      "role": "heading",
+      "sourceSubtreeSha256": "af92342e8974526976997242004de48e6fcf9aef95e778bf2972d4199120887d"
+    },
+    {
+      "id": "a-reference-1",
+      "selector": "ol.c-article-references > li:nth-child(1)",
+      "role": "reference",
+      "sourceSubtreeSha256": "2792962bb1ab2d69c91834dcf6cc83d24e6922e9a5e431519e91b9a1d817d6e1"
+    },
+    {
+      "id": "a-reference-2",
+      "selector": "ol.c-article-references > li:nth-child(2)",
+      "role": "reference",
+      "sourceSubtreeSha256": "4db72e9b8ebc00e621ff7827b528155247962bdb3cb208a00431255e8f8a1bb6"
+    },
+    {
+      "id": "a-reference-3",
+      "selector": "ol.c-article-references > li:nth-child(3)",
+      "role": "reference",
+      "sourceSubtreeSha256": "a38de499b8ab34c6766469db6cdd5693604a5734d3d6fd34e3cf6cbe11a36463"
+    },
+    {
+      "id": "a-reference-4",
+      "selector": "ol.c-article-references > li:nth-child(4)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b66c4ba085a3d530fb5ec6859e663d364d7d047b36c0ab73dab42d6d272aec17"
+    },
+    {
+      "id": "a-reference-5",
+      "selector": "ol.c-article-references > li:nth-child(5)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b008ad29c344d11755ea7bd7a7269dfaa9d95f053e6940a9578a06923ef684ec"
+    },
+    {
+      "id": "a-reference-6",
+      "selector": "ol.c-article-references > li:nth-child(6)",
+      "role": "reference",
+      "sourceSubtreeSha256": "1e5574a197727a2ad3e4e6d2434e958afc12e770d35f3f89ea21da87b7426727"
+    },
+    {
+      "id": "a-reference-7",
+      "selector": "ol.c-article-references > li:nth-child(7)",
+      "role": "reference",
+      "sourceSubtreeSha256": "c7334774126226a6eace319388ab12060e4e7d069d4da62accf2da2d4c5bd548"
+    },
+    {
+      "id": "a-reference-8",
+      "selector": "ol.c-article-references > li:nth-child(8)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b01cef5ac622a64ca93b8ec69d5f1e8c31397df25f8abeb4bb12fb9e36d2183c"
+    },
+    {
+      "id": "a-reference-9",
+      "selector": "ol.c-article-references > li:nth-child(9)",
+      "role": "reference",
+      "sourceSubtreeSha256": "fa71e49f30f080aa9f3027ab2602f88cd692e33e5ee8646f2bec10b77529978e"
+    },
+    {
+      "id": "a-reference-10",
+      "selector": "ol.c-article-references > li:nth-child(10)",
+      "role": "reference",
+      "sourceSubtreeSha256": "ad64553baee5d0486fcb3fbea79c635522f480b433c75e94fa282f1b7e844764"
+    },
+    {
+      "id": "a-reference-11",
+      "selector": "ol.c-article-references > li:nth-child(11)",
+      "role": "reference",
+      "sourceSubtreeSha256": "199951f29bb56b3c26ed55135831c2a2952d8cca2b43fa77cfe45a3c4693d295"
+    },
+    {
+      "id": "a-reference-12",
+      "selector": "ol.c-article-references > li:nth-child(12)",
+      "role": "reference",
+      "sourceSubtreeSha256": "c8ad35898950c3cfd09bddbb9e210eed1611a1bec57df5d3aeed5829763e8595"
+    },
+    {
+      "id": "a-reference-13",
+      "selector": "ol.c-article-references > li:nth-child(13)",
+      "role": "reference",
+      "sourceSubtreeSha256": "cdd03dff9f515ca563d74cdd797010dc59011b16c66e1815f20ef6d31a0a0bca"
+    },
+    {
+      "id": "a-reference-14",
+      "selector": "ol.c-article-references > li:nth-child(14)",
+      "role": "reference",
+      "sourceSubtreeSha256": "21179d713e1f3ebebed026b8aef9fac7e37c8a9bbc15485780524ead5e67ecaa"
+    },
+    {
+      "id": "a-reference-15",
+      "selector": "ol.c-article-references > li:nth-child(15)",
+      "role": "reference",
+      "sourceSubtreeSha256": "8cc91f0854801ecff22008d1098cef9604c18c37b0746622b0d363c332a7c067"
+    },
+    {
+      "id": "a-reference-16",
+      "selector": "ol.c-article-references > li:nth-child(16)",
+      "role": "reference",
+      "sourceSubtreeSha256": "f409a401521ef1fc266c3ae3f178f58ba56abb28940459805f1f913cce2e2660"
+    },
+    {
+      "id": "a-reference-17",
+      "selector": "ol.c-article-references > li:nth-child(17)",
+      "role": "reference",
+      "sourceSubtreeSha256": "1334e182c52368f072fc4328c31fd733ba40cf35b032d84a8640da5c5646a6ea"
+    },
+    {
+      "id": "a-reference-18",
+      "selector": "ol.c-article-references > li:nth-child(18)",
+      "role": "reference",
+      "sourceSubtreeSha256": "ad2ae015adc8d8d05f18feb6717604f2e81eca412339081b13976f906bc70449"
+    },
+    {
+      "id": "a-reference-19",
+      "selector": "ol.c-article-references > li:nth-child(19)",
+      "role": "reference",
+      "sourceSubtreeSha256": "6f0bc7c7dce5f06c28b1be65290c63643513e8cc136a7280ef9b7dd8f8228ceb"
+    },
+    {
+      "id": "a-reference-20",
+      "selector": "ol.c-article-references > li:nth-child(20)",
+      "role": "reference",
+      "sourceSubtreeSha256": "566bb34b217c9c3d5780580a764ea1667732b46ad2a04cdb752750506e55abde"
+    },
+    {
+      "id": "a-reference-21",
+      "selector": "ol.c-article-references > li:nth-child(21)",
+      "role": "reference",
+      "sourceSubtreeSha256": "cb92cf2794062892fc9e8c2dfe50d286000b85900d63109241653c3b5c16b27c"
+    },
+    {
+      "id": "a-reference-22",
+      "selector": "ol.c-article-references > li:nth-child(22)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b563a8334cde18410f1cc78800bf5b6d3f3007fa72d32367aa025e7e7c88dc50"
+    },
+    {
+      "id": "a-reference-23",
+      "selector": "ol.c-article-references > li:nth-child(23)",
+      "role": "reference",
+      "sourceSubtreeSha256": "9a1a2116c1e335b94f2b5471028556c4713bc6ce689f6d3741a0a91d983eee6f"
+    },
+    {
+      "id": "a-reference-24",
+      "selector": "ol.c-article-references > li:nth-child(24)",
+      "role": "reference",
+      "sourceSubtreeSha256": "d231cef2cabfc2ba9c74fe23e451b6b80d7646c5d1d51d6f5a5198a6b59bbcf1"
+    },
+    {
+      "id": "a-reference-25",
+      "selector": "ol.c-article-references > li:nth-child(25)",
+      "role": "reference",
+      "sourceSubtreeSha256": "a403b6743f152c450cd07cca6268c034ba9c1b558da8e9e9ebbd65c03ef64511"
+    },
+    {
+      "id": "a-reference-26",
+      "selector": "ol.c-article-references > li:nth-child(26)",
+      "role": "reference",
+      "sourceSubtreeSha256": "7e36d44129dc97686fa9e80c7833fd57e0605e65ca1a854b7ed8a9bd2e4e45f7"
+    },
+    {
+      "id": "a-reference-27",
+      "selector": "ol.c-article-references > li:nth-child(27)",
+      "role": "reference",
+      "sourceSubtreeSha256": "17b3230bb8bf2365862149e1c4a63e234e08208d55e4106a2bdc8f1bf51e4bd6"
+    },
+    {
+      "id": "a-reference-28",
+      "selector": "ol.c-article-references > li:nth-child(28)",
+      "role": "reference",
+      "sourceSubtreeSha256": "8df593e43b14e44bed7f126756780b36801c6f316c81d49f45ebe3f5fcbf3249"
+    },
+    {
+      "id": "a-reference-29",
+      "selector": "ol.c-article-references > li:nth-child(29)",
+      "role": "reference",
+      "sourceSubtreeSha256": "3521ddd6332a5d71a10d37d572a0a5d338792e04fe610b9d2c3a38b1fb386d5c"
+    },
+    {
+      "id": "a-reference-30",
+      "selector": "ol.c-article-references > li:nth-child(30)",
+      "role": "reference",
+      "sourceSubtreeSha256": "6597f774676a45b77dfde5729d815dfd7ea6a8754e4fdaa042a100dc86af0184"
+    },
+    {
+      "id": "a-reference-31",
+      "selector": "ol.c-article-references > li:nth-child(31)",
+      "role": "reference",
+      "sourceSubtreeSha256": "535d7d5e5dd140458c64a6e15f3d929712a539bb5cd55c460d60dafc2f3af9af"
+    },
+    {
+      "id": "a-reference-32",
+      "selector": "ol.c-article-references > li:nth-child(32)",
+      "role": "reference",
+      "sourceSubtreeSha256": "c30169498113e3bff12a9bde94eb4965ef4a93f5859a5e302f1ea692af4ef11c"
+    },
+    {
+      "id": "a-reference-33",
+      "selector": "ol.c-article-references > li:nth-child(33)",
+      "role": "reference",
+      "sourceSubtreeSha256": "76096a9a86ab3dec4a4dfdf6f476f5d699e3ecdeaaeff46ed537050fd291238d"
+    },
+    {
+      "id": "a-reference-34",
+      "selector": "ol.c-article-references > li:nth-child(34)",
+      "role": "reference",
+      "sourceSubtreeSha256": "e8f7c63b100054de921aa2622f7e8a36032bc3d3c57d33a017bf82e52ea785bf"
+    },
+    {
+      "id": "a-reference-35",
+      "selector": "ol.c-article-references > li:nth-child(35)",
+      "role": "reference",
+      "sourceSubtreeSha256": "00340203fc94e66a291bed8d7423356920777fff5903dc7a9150682bcac8b620"
+    },
+    {
+      "id": "a-reference-36",
+      "selector": "ol.c-article-references > li:nth-child(36)",
+      "role": "reference",
+      "sourceSubtreeSha256": "1255c5f0027143989274e7f797bfa067b763b34ea38065ef6c917f2be2573ff6"
+    },
+    {
+      "id": "a-reference-37",
+      "selector": "ol.c-article-references > li:nth-child(37)",
+      "role": "reference",
+      "sourceSubtreeSha256": "eb2b0b355af014cd0fae6652ed9229178aea94a463ee9dea3ddc978f9a21dfb3"
+    },
+    {
+      "id": "a-reference-38",
+      "selector": "ol.c-article-references > li:nth-child(38)",
+      "role": "reference",
+      "sourceSubtreeSha256": "507942d395157c88319c55bbdcb8b42f1fbd20ebb537f591e191d5ee03c8d1d1"
+    },
+    {
+      "id": "a-reference-39",
+      "selector": "ol.c-article-references > li:nth-child(39)",
+      "role": "reference",
+      "sourceSubtreeSha256": "4a5159c1c5353e9a799dd315ebbfa5753d231a89940aa106f57159e8783f68d9"
+    },
+    {
+      "id": "a-reference-40",
+      "selector": "ol.c-article-references > li:nth-child(40)",
+      "role": "reference",
+      "sourceSubtreeSha256": "33ed4788317adb6d52ab1cb11eac02348368c0cf3f0b55d251e157cf70441857"
+    },
+    {
+      "id": "a-reference-41",
+      "selector": "ol.c-article-references > li:nth-child(41)",
+      "role": "reference",
+      "sourceSubtreeSha256": "4e772c7d3167d10de7d5e5650c32d0e5b7ea74fec770cdf67c9d09a596b5c14a"
+    },
+    {
+      "id": "a-reference-42",
+      "selector": "ol.c-article-references > li:nth-child(42)",
+      "role": "reference",
+      "sourceSubtreeSha256": "bcc2af76eddc51c597234cf95e98cf1895dbda30798f81039bcc6b354e88d81b"
+    },
+    {
+      "id": "a-reference-43",
+      "selector": "ol.c-article-references > li:nth-child(43)",
+      "role": "reference",
+      "sourceSubtreeSha256": "aa920c9237c14084c1dfec00cf3d864db8088b5e99bedf59399315e2e7be0487"
+    },
+    {
+      "id": "a-reference-44",
+      "selector": "ol.c-article-references > li:nth-child(44)",
+      "role": "reference",
+      "sourceSubtreeSha256": "49048a2202aa16b8d442e02d33f3de5239d2bfc326b01d7d0f45d7d8d2eb574d"
+    },
+    {
+      "id": "a-reference-45",
+      "selector": "ol.c-article-references > li:nth-child(45)",
+      "role": "reference",
+      "sourceSubtreeSha256": "ee0ee0d6b078c1e76feb39691d25ea8fe09a904d15de3043809c08393df7c21c"
+    },
+    {
+      "id": "a-reference-46",
+      "selector": "ol.c-article-references > li:nth-child(46)",
+      "role": "reference",
+      "sourceSubtreeSha256": "fd5b19f2bb60df0cbb6b07a8508c8f242ec76f6e8b5c1fbd0f4da3905c92d4f9"
+    },
+    {
+      "id": "a-reference-47",
+      "selector": "ol.c-article-references > li:nth-child(47)",
+      "role": "reference",
+      "sourceSubtreeSha256": "72903375e02fa44d24d42f7edb5c635586334b778a08199bd03d98751d7ac382"
+    },
+    {
+      "id": "a-reference-48",
+      "selector": "ol.c-article-references > li:nth-child(48)",
+      "role": "reference",
+      "sourceSubtreeSha256": "39f713615ccbc81389a8d48d98e10c20146724f806653d5474f01f736eadf4a0"
+    },
+    {
+      "id": "a-reference-49",
+      "selector": "ol.c-article-references > li:nth-child(49)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b3d0da7f9f89224692cc783ca5a4bba2986a8cfc7a4ef769cd2a8d4c22e471ed"
+    },
+    {
+      "id": "a-reference-50",
+      "selector": "ol.c-article-references > li:nth-child(50)",
+      "role": "reference",
+      "sourceSubtreeSha256": "a9a9101c48c3f58f510ede15611c0f609b1b01a769790999e6456f6aba684c90"
+    },
+    {
+      "id": "a-reference-51",
+      "selector": "ol.c-article-references > li:nth-child(51)",
+      "role": "reference",
+      "sourceSubtreeSha256": "dbcaa8cc2c80e41d703884ac979a5b3e4560661b593019b7d95ed40c10e48f98"
+    },
+    {
+      "id": "a-reference-52",
+      "selector": "ol.c-article-references > li:nth-child(52)",
+      "role": "reference",
+      "sourceSubtreeSha256": "936ae54e00f888a0ae10953b61450e42edff794e420b06be8b4fc5b2f343155e"
+    },
+    {
+      "id": "a-reference-53",
+      "selector": "ol.c-article-references > li:nth-child(53)",
+      "role": "reference",
+      "sourceSubtreeSha256": "52f59f454fcfb1dde5c8ea06d903aac2330cdb5099baecf0718f432da651624e"
+    },
+    {
+      "id": "a-reference-54",
+      "selector": "ol.c-article-references > li:nth-child(54)",
+      "role": "reference",
+      "sourceSubtreeSha256": "7d18ffa181006812f91bb62ac9debd51c2acfd614a0cffe39654983b4b8eb22c"
+    },
+    {
+      "id": "a-reference-55",
+      "selector": "ol.c-article-references > li:nth-child(55)",
+      "role": "reference",
+      "sourceSubtreeSha256": "a3f5577d1c235ea7242f11ed12774a928087ecdeac6c4a4d4a139cda58c15947"
+    },
+    {
+      "id": "a-reference-56",
+      "selector": "ol.c-article-references > li:nth-child(56)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b17576ee50629b3afbc0927ced117c92ac5de1cb2153b8253252033f4a13b941"
+    },
+    {
+      "id": "a-reference-57",
+      "selector": "ol.c-article-references > li:nth-child(57)",
+      "role": "reference",
+      "sourceSubtreeSha256": "e4620d5ac25e66e78d55469b47137079f250e3e74256de64a34fe578c404dd84"
+    },
+    {
+      "id": "a-reference-58",
+      "selector": "ol.c-article-references > li:nth-child(58)",
+      "role": "reference",
+      "sourceSubtreeSha256": "5cdf7316668358bb8b89c9a802cf7c26f66e9df27d17ca1e74815a6d08b9d32e"
+    },
+    {
+      "id": "a-reference-59",
+      "selector": "ol.c-article-references > li:nth-child(59)",
+      "role": "reference",
+      "sourceSubtreeSha256": "bfa810c9ff373587601bcb7297d53eae2adaa3f5098533d8765b782ae51669cc"
+    },
+    {
+      "id": "a-reference-60",
+      "selector": "ol.c-article-references > li:nth-child(60)",
+      "role": "reference",
+      "sourceSubtreeSha256": "bb32831a0e5eeee8524ccbeb1407287c96f75e9afcac68405835535cbc381869"
+    },
+    {
+      "id": "a-reference-61",
+      "selector": "ol.c-article-references > li:nth-child(61)",
+      "role": "reference",
+      "sourceSubtreeSha256": "d359f8ed032665767c6b6f51ed0981cea8c55d5ba70bae645e63fd2b932826d4"
+    },
+    {
+      "id": "a-reference-62",
+      "selector": "ol.c-article-references > li:nth-child(62)",
+      "role": "reference",
+      "sourceSubtreeSha256": "063f3fb27c15910df0deffa33e5a779f9998436bb8b526efd0a0a468922e5890"
+    },
+    {
+      "id": "a-reference-63",
+      "selector": "ol.c-article-references > li:nth-child(63)",
+      "role": "reference",
+      "sourceSubtreeSha256": "528e5678cb1973e335f25660a3b82e105bd8df7af7eb12a70468905a18ee88d9"
+    },
+    {
+      "id": "a-reference-64",
+      "selector": "ol.c-article-references > li:nth-child(64)",
+      "role": "reference",
+      "sourceSubtreeSha256": "173c8dfc159bf79de3a9fbe5f38779c28ebc963fae08ad912a7bd4b6337e7a0a"
+    },
+    {
+      "id": "a-reference-65",
+      "selector": "ol.c-article-references > li:nth-child(65)",
+      "role": "reference",
+      "sourceSubtreeSha256": "9273e80c5f760195f987d1b230b73b81a0bbee1a84072f15624eb9b4cd0ea59f"
+    },
+    {
+      "id": "a-reference-66",
+      "selector": "ol.c-article-references > li:nth-child(66)",
+      "role": "reference",
+      "sourceSubtreeSha256": "9596dcaad55a922e458dd3230ba5da3e5c8e0cc5729070afbf8e8bc99e4fdd5d"
+    },
+    {
+      "id": "a-reference-67",
+      "selector": "ol.c-article-references > li:nth-child(67)",
+      "role": "reference",
+      "sourceSubtreeSha256": "a3f1b9331da2a0eb699f7f6053034ddbd99e01dc5d2f19d6840019ed4d00ce29"
+    },
+    {
+      "id": "a-reference-68",
+      "selector": "ol.c-article-references > li:nth-child(68)",
+      "role": "reference",
+      "sourceSubtreeSha256": "bc5093d840c47003354bd042fbc1d3e3d0dc3ef113a2e813f9bdc29940cc336f"
+    },
+    {
+      "id": "a-reference-69",
+      "selector": "ol.c-article-references > li:nth-child(69)",
+      "role": "reference",
+      "sourceSubtreeSha256": "4b8eec7fefc4e3353476b8b6da92966216cdc82210fd66c26027d7b02a2d62a0"
+    },
+    {
+      "id": "a-reference-70",
+      "selector": "ol.c-article-references > li:nth-child(70)",
+      "role": "reference",
+      "sourceSubtreeSha256": "ebb3f0fffde8c7bbace7e06151ef34bc04a0e341aa2e90c7e4a85b216f7f1b3d"
+    },
+    {
+      "id": "a-reference-71",
+      "selector": "ol.c-article-references > li:nth-child(71)",
+      "role": "reference",
+      "sourceSubtreeSha256": "5f77ca5620c07c14ea7c210912d2c0dd0f3163342be255dc099f656df3ae98f0"
+    },
+    {
+      "id": "a-reference-72",
+      "selector": "ol.c-article-references > li:nth-child(72)",
+      "role": "reference",
+      "sourceSubtreeSha256": "15e903245b45ca0d9cb4997f47cf05947996a3e6df1bb563682476f58d9e841b"
+    },
+    {
+      "id": "a-reference-73",
+      "selector": "ol.c-article-references > li:nth-child(73)",
+      "role": "reference",
+      "sourceSubtreeSha256": "00be57b3cf8a901dd51ecc8e09819767e8c490b7016f7e9c92047c5a13961384"
+    },
+    {
+      "id": "a-reference-74",
+      "selector": "ol.c-article-references > li:nth-child(74)",
+      "role": "reference",
+      "sourceSubtreeSha256": "509d8865e8f91e2674437fb2e94842637dd7c1215294124042ff7d37c5ce0202"
+    },
+    {
+      "id": "caption-figure-1",
+      "selector": "#figure-1",
+      "role": "figure",
+      "sourceSubtreeSha256": "0f1416540b3f38330a0ee93e5d28f2ee684e4afb9a3b0bf24f3ca9572d608c71"
+    },
+    {
+      "id": "caption-figure-1-previous",
+      "selector": "#Sec2-content > p:has(+ #figure-1)",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "93f0a63fdec4eec0c986315139aa78deccafd2ea50f004882245c793526d75ba"
+    },
+    {
+      "id": "caption-figure-1-next",
+      "selector": "#figure-1 + p",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "9a1ede46715ebb1c8622235ed219ba1dc60b81c23d96a1b43e2962f472eb8c7a"
+    },
+    {
+      "id": "caption-figure-2",
+      "selector": "#figure-2",
+      "role": "figure",
+      "sourceSubtreeSha256": "0b5c1c6eb82751ad248934af888d7bae18b5ecca2463c0a7d3ee467e4ce82904"
+    },
+    {
+      "id": "caption-figure-2-previous",
+      "selector": "#Sec2-content > p:has(+ #figure-2)",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "adc1d1e95fd22609a58d85e5ba56248f3fd7a2fcad655f641b82d59c7e7effe6"
+    },
+    {
+      "id": "caption-figure-2-next",
+      "selector": "#figure-2 + p",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "f4a42fe07dd8396bae6d663b81bc80d45cfbd0389ed16f3be8428d321aae079f"
+    },
+    {
+      "id": "caption-figure-3",
+      "selector": "#figure-3",
+      "role": "figure",
+      "sourceSubtreeSha256": "3aaf51d6976df9982ceed5ae10c301578a9a1f405d88ecd244e0b40a99161144"
+    },
+    {
+      "id": "caption-figure-3-previous",
+      "selector": "#Sec2-content > p:has(+ #figure-3)",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "f4a42fe07dd8396bae6d663b81bc80d45cfbd0389ed16f3be8428d321aae079f"
+    },
+    {
+      "id": "caption-figure-3-next",
+      "selector": "#figure-3 + p",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "d7d896fc410b890b1a64ce55c04f8c396f12fce39b3df990b9801909f2f0b7b6"
+    },
+    {
+      "id": "caption-figure-4",
+      "selector": "#figure-4",
+      "role": "figure",
+      "sourceSubtreeSha256": "d7dc76bd50647637a5fbd4af2e4bfaf9a4b49f39d629a12c5dd6ed47a3180eb3"
+    },
+    {
+      "id": "caption-figure-4-previous",
+      "selector": "#Sec2-content > p:has(+ #figure-4)",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "c6e953188b6320ca3109839fac6f8d7dd15ea0fa0f21fd852f0e1e3eda1d175f"
+    },
+    {
+      "id": "caption-figure-4-next",
+      "selector": "#figure-4 + p",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "2974c1709cd4dfd11510da348d9c072e20dba65d8e4e8ca8d2c85b4a681cc933"
+    },
+    {
+      "id": "source-heading-Sec2",
+      "selector": "#Sec2",
+      "role": "heading",
+      "sourceSubtreeSha256": "b05d837b4acc0107b3277337c107f65be4a18c0bd31c2db268b4ce350058bb02"
+    },
+    {
+      "id": "source-heading-Sec3",
+      "selector": "#Sec3",
+      "role": "heading",
+      "sourceSubtreeSha256": "56ab758d4197cf3c702415beaec42e3d5bdbbcf038beb9860fdddfb69babd727"
+    },
+    {
+      "id": "source-heading-Sec4",
+      "selector": "#Sec4",
+      "role": "heading",
+      "sourceSubtreeSha256": "b5b05ac805beda01a3bcee3efcb0396d7fc59e6284ca4e86af1a825715c9b33a"
+    }
+  ],
+  "transformations": [
+    {
+      "operation": "select-complete-source-blocks-with-ancestors",
+      "count": 111
+    },
+    {
+      "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+      "count": 1
+    },
+    {
+      "operation": "trim-json-ld-to-article-object",
+      "count": 1
+    },
+    {
+      "operation": "remove-attributes",
+      "count": 1367
+    },
+    {
+      "operation": "sanitize-resource-urls",
+      "count": 53
+    }
+  ],
+  "omittedContent": [
+    "All unselected article blocks and UI; complete reference prefix through the highest retained citation is preserved without renumbering.",
+    "No image binaries or full HTTP captures are committed."
+  ],
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41598-018-38309-5",
+    "sourceObservedAt": "2026-10-04T06:56:41.242Z",
+    "sourceSha256": "a1a135395d984fcda4548aacd0d6eabe0d41bb22c16cc31f4c8f16f8eaf49d51",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Al-Yaari, A.",
+      "Ducharne, A.",
+      "Cheruy, F.",
+      "Crow, W. T.",
+      "Wigneron, J.-P."
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [],
+    "technicalTransformations": "This regression retains only recipe-selected original metadata, figure wrappers and adjacent paragraphs, heading/table targets where required, and the complete original reference prefix through the highest retained citation. A sanitizer 1.1.0 removes non-scholarly attributes and executable/UI content and serializes UTF-8 LF. Scholarly prose, captions, authors, citations, TeX, topology and source order are unchanged.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "repeatByteEqual": true,
+  "idempotent": true,
+  "figures": [
+    {
+      "id": "Fig1",
+      "label": "Figure 1",
+      "descriptionSelector": "#figure-1-desc",
+      "descriptionSha256": "d97ee4203ed4746c0faf81324bb930bfb0ab2648335fcf5a2130a569c3366d28",
+      "descriptionText": "Mean bias between multi-model CMIP5 and observations. (a) Multi-model mean bias air temperature (TAS) CMIP5- Obs (CRU). (b) Multi-model mean bias TAS CMIP5- Obs (Willmott) during the 1978–2008 period (JJA). (c) Multi-model mean bias precipitation (Pr) CMIP5- Obs (CRU) during the 1978–2008 period. (d) Multi-model mean bias Pr CMIP5- Obs (GPCP) during the 1978–2008 period (JJA). (e) Multi-model mean bias soil moisture (SM) CMIP5- Obs (SMOS; 2010–2016 JJA). (f) Multi-model mean bias SM CMIP5- Obs (CCI) during the 1978–2008 period (JJA). Crosses on the figures indicate that at least 65% of the models agree on the sign of the observed bias. White regions represent pixels with percentage of forest >60%, strong topography, or frozen soil conditions, which were excluded from the analyses.",
+      "captionStart": "Mean bias between multi-model CMIP5 and observations. (a) Multi-model mean bias air temper",
+      "captionEnd": ">60%, strong topography, or frozen soil conditions, which were excluded from the analyses.",
+      "boldLetters": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f"
+      ],
+      "previousText": "Figure 1a,b shows that the spatial patterns of the mean air temperature bias in CMIP5 simulations are very similar for the CRU and Willmott air temperature observations (see scatter plots of each pair of the different variables in Fig. S1 in the Supplementary). Most of the CMIP5 simulations (more than 2/3; see Supplementary Fig. S2 for each CMIP5 model separately) systematically overestimate both observational datasets, particularly over the CGP region as previously described by Cheruy et al.10 and Ma et al.37. However, there are two exceptions (viz. the GISS.E2.R and MRI.AGCM3.2 H models), with low air temperature biases and different spatial patterns compared to the other models (Fig. S2). Note that the singularity of the GISS.E2.R model has already been noted in previous studies e.g.15. As for the air temperature biases, there exists a strong similarity in the spatial patterns of the summer mean bias of precipitation for both the CRU and GPCP observational datasets (Figs 1c,d and S3 for each CMIP5 model separately). Compared with the precipitation observations, the CMIP5 models produce excessive precipitation over north-eastern and north-western CONUS and a deficit of precipitation over the CGP region and in south-western CONUS (which is consistent with both Klein et al.38 and Lin et al.14).",
+      "nextText": "Reflecting these spatial patterns of precipitation biases, normalized SM is underestimated by a majority of models over the CGP and eastern CONUS in the CMIP5 simulations, while overestimated in north-western CONUS (Fig. 1e,f and Supplementary Figs S4–5 for each CMIP5 model separately). This is consistent with the findings of Yuan & Quiring39 who found clear underestimation of SM by the models during summertime over the South Great Plains (SGP) compared to both in situ and CCI SM observations. Positive biases are more consistent across models for SM than for the precipitation, particularly over mountainous areas. Some differences can be noted between the SM bias spatial patterns derived from the SMOS and CCI datasets. For instance, over eastern CONUS, the precipitation bias maps are more consistent with the CCI map (although the CCI SM biases are shifted to the south relative to CRU and GPCP precipitation biases). The opposite is true over south-western CONUS (in e.g., Arizona, southern Nevada and southern California) where SMOS-based SM provides a better match to the observed pattern of precipitation bias.",
+      "imageAttrs": [
+        {
+          "tag": "SOURCE",
+          "attrs": {
+            "srcset": "//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-018-38309-5/MediaObjects/41598_2018_38309_Fig1_HTML.png?as=webp"
+          }
+        },
+        {
+          "tag": "IMG",
+          "attrs": {
+            "src": "//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-018-38309-5/MediaObjects/41598_2018_38309_Fig1_HTML.png"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Fig2",
+      "label": "Figure 2",
+      "descriptionSelector": "#figure-2-desc",
+      "descriptionSha256": "f7a039bfd242be4ca5a555ee962b731ef5ee1adde4ff41bca240146d01d633dd",
+      "descriptionText": "Link between summer soil moisture, air temperature, and precipitation biases. (a) Map relating the SMOS SM bias and the CRU air temperature (Temp) bias for the CMIP5 multimodel ensemble. (b) Map relating the CCI SM bias and the CRU Temp bias for the CMIP5 multimodel ensemble. (c) Map relating the SMOS SM bias and the GPCP precipitation (Pr) bias for the CMIP5 multimodel ensemble. (d) Map relating the CCI SM bias and the GPCP Pr bias for the CMIP5 multimodel ensemble. Multimodel reflects results for the CMIP5 ensemble mean. Note that each colour represents a 10% quantile shift (calculated with respect to the spatial histogram of bias results across the CONUS) in both soil moisture and air temperature/precipitation. White regions represent pixels with percentage of forest >60%, strong topography, or frozen soil conditions, which were excluded from the analyses. Each square at the angle of the legends in the right column has a 30% × 30% size with the % of pixels in this square.",
+      "captionStart": "Link between summer soil moisture, air temperature, and precipitation biases. (a) Map rela",
+      "captionEnd": " the legends in the right column has a 30% × 30% size with the % of pixels in this square.",
+      "boldLetters": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "previousText": "In order to better characterize the spatial link between summer biases in air temperature, precipitation and SM, we computed bivariate maps that combine biases in SM (CMIP5 models - SMOS/CCI) and either air temperature (CMIP5 models - CRU) or precipitation (CMIP5 models - GPCP), based on quantile-quantile associations (Fig. 2). The multi-model ensemble (Fig. 2a,b) reveals three main types of bias combinations: (i) a dry and warm bias (in red) mainly over the CGP, (ii) a wet and cold bias (in blue) over north-western CONUS and (iii) a dry and cold bias (in green) in south-western CONUS. Note that, to be more precise, the term “cold” is not really appropriate and we should rather speak of “the smallest warm biases”, since a large majority of the CMIP5 models overestimate mean summer air temperature over the CONUS (Fig. S2). The combination of a dry and cold bias (green areas in Fig. 2a,b) is somewhat surprising. However, several mechanisms can be proposed to explain this. For example, dry soils may lead to excessive albedo or weakened thermal inertia leading to excessive nocturnal cooling during cloudless nights40. Conversely, a cold bias can lead to a corresponding dry bias owing to the stabilization of the boundary layer – making it less prone to convection.",
+      "nextText": "Figures S6–7b (Supplementary) display the same maps for each individual CMIP5 model. Despite the variability stemming from inter-model differences, these maps reveal systematic patterns structured by the east-west precipitation gradient and the Rocky Mountains (Fig. 3a,b), which are well-known influential factors on CONUS climate. Interestingly, these patterns are much less systematic when looking at the individual temperature and SM biases present in each of the CMIP5 models (Figs S2–5), suggesting that regional drivers of the CONUS climate have more influence on the relationship between the different types of bias than on the biases themselves. Figures S6–7b also show a few exceptions to the dominance of a warm and dry bias combination in the CGP. These exceptions notably include the two climate models (GISS.E2.R & MRI.AGCM3.2H) characterized by low biases in air temperature and precipitation over CONUS compared to the other models.",
+      "imageAttrs": [
+        {
+          "tag": "SOURCE",
+          "attrs": {
+            "srcset": "//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-018-38309-5/MediaObjects/41598_2018_38309_Fig2_HTML.png?as=webp"
+          }
+        },
+        {
+          "tag": "IMG",
+          "attrs": {
+            "src": "//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-018-38309-5/MediaObjects/41598_2018_38309_Fig2_HTML.png"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Fig3",
+      "label": "Figure 3",
+      "descriptionSelector": "#figure-3-desc",
+      "descriptionSha256": "97dedd0cd8d86a6d5cf96831c688e0ab4b1295f5e3e3a54e12d4372e1812fb06",
+      "descriptionText": "HYDRO 1 K Elevation map of the USA Source http://srtm.csi.cgiar.org/.74. Mean GPCP precipitation (mm/day) during the period 1979–2008 considering only JJA months (b). Map of areas equipped for irrigation expressed as percentage of total area56 (c). All maps are re-gridded at the 2° × 2° resolution, to match the bias maps.",
+      "captionStart": "HYDRO 1 K Elevation map of the USA Source http://srtm.csi.cgiar.org/.74. Mean GPCP precipi",
+      "captionEnd": "tal area56 (c). All maps are re-gridded at the 2° × 2° resolution, to match the bias maps.",
+      "boldLetters": [
+        "b",
+        "c"
+      ],
+      "previousText": "Figures S6–7b (Supplementary) display the same maps for each individual CMIP5 model. Despite the variability stemming from inter-model differences, these maps reveal systematic patterns structured by the east-west precipitation gradient and the Rocky Mountains (Fig. 3a,b), which are well-known influential factors on CONUS climate. Interestingly, these patterns are much less systematic when looking at the individual temperature and SM biases present in each of the CMIP5 models (Figs S2–5), suggesting that regional drivers of the CONUS climate have more influence on the relationship between the different types of bias than on the biases themselves. Figures S6–7b also show a few exceptions to the dominance of a warm and dry bias combination in the CGP. These exceptions notably include the two climate models (GISS.E2.R & MRI.AGCM3.2H) characterized by low biases in air temperature and precipitation over CONUS compared to the other models.",
+      "nextText": "The bivariate maps combining the multi-model ensemble SM and precipitation biases in Fig. 2c (using GPCP and SMOS data) and in Fig. 2d (using GPCP and CCI data) show relatively similar spatial patterns to those obtained in Fig. 2a,b (see Supplementary Figs S8–9 for each model separately). In particular, the same three main areas can be distinguished: the CGP region associated with negative SM and precipitation biases (red), north-western CONUS associated with positive SM and precipitation biases (blue) and south-western CONUS (green), where very different responses can be noted depending on the CMIP5 models (red, blue or green colours can be seen in that region for the different models).",
+      "imageAttrs": [
+        {
+          "tag": "SOURCE",
+          "attrs": {
+            "srcset": "//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-018-38309-5/MediaObjects/41598_2018_38309_Fig3_HTML.png?as=webp"
+          }
+        },
+        {
+          "tag": "IMG",
+          "attrs": {
+            "src": "//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-018-38309-5/MediaObjects/41598_2018_38309_Fig3_HTML.png"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Fig4",
+      "label": "Figure 4",
+      "descriptionSelector": "#figure-4-desc",
+      "descriptionSha256": "3dec16a9eaf7ad7baaccabb97dc70163fb7c294a48bb6f92c77be8cdb87cfe5c",
+      "descriptionText": "Cross-correlations between the mean biases of the three studied variables over the CGP region among the CMIP5 models. (a) Air temperature (Temp) bias (Models-CRU) vs soil moisture (SM) bias (Models-SMOS). (b) Temp bias (Models-CRU) vs precipitation (Pr) bias (Models- GPCP). (c) Pr bias (Models-GPCP) vs SM bias (Models-SMOS). The inter-model correlation R and p-value are shown on each panel.",
+      "captionStart": "Cross-correlations between the mean biases of the three studied variables over the CGP reg",
+      "captionEnd": " SM bias (Models-SMOS). The inter-model correlation R and p-value are shown on each panel.",
+      "boldLetters": [
+        "a",
+        "b",
+        "c"
+      ],
+      "previousText": "We have established a clear link between SM, precipitation and air temperature biases across several large CONUS regions (Figs 2 and S6–9), but the most consistent spatial patterns and the stronger air temperature biases have been obtained over the CGP region (103°W–89°W, 32°N–48°N, displayed as a red box in Figs 1, 2 and 3). Therefore, we now focus on this particular region to better quantify the link between the warm bias found in most models and the negative biases of precipitation and SM. Figure 4a confirms that a large majority of models overestimate air temperature and underestimate SM in the CGP during summer, with a strong negative inter-model correlation between these two biases (R = −0.65; 18 models out of 20 are in the upper-left quadrant), meaning that the warm bias is more pronounced when the dry bias is strong. A strong negative correlation is also found between the biases of precipitation and air temperature among the models, albeit with a slightly smaller correlation coefficient (R = −0.61, the same 18 models are in the upper-left quadrant), which is consistent with the larger variability of atmospheric variables in comparison to surface variables. Eventually, the strongest (positive) inter-model correlation (R = 0.87; the same 18 models are in the lower-left quadrant) are found between the biases in precipitation and SM, in agreement with the fact that precipitation exerts a strong control on SM. The same correlations are obtained when the biases are calculated with respect to the other observational datasets (see Supplementary Fig. S10), which only changes the offset of the scatter plots.",
+      "nextText": "These correlations can arise from two different causal relationships, which are probably entangled:",
+      "imageAttrs": [
+        {
+          "tag": "SOURCE",
+          "attrs": {
+            "srcset": "//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-018-38309-5/MediaObjects/41598_2018_38309_Fig4_HTML.png?as=webp"
+          }
+        },
+        {
+          "tag": "IMG",
+          "attrs": {
+            "src": "//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-018-38309-5/MediaObjects/41598_2018_38309_Fig4_HTML.png"
+          }
+        }
+      ]
+    }
+  ]
+}
