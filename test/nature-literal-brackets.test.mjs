@@ -105,6 +105,35 @@ function syntheticBody(contents) {
   return `<!doctype html><html><body><div class="c-article-body">${contents}</div></body></html>`;
 }
 
+// Defuddle renders kbd/samp as ordinary text and code/pre as opaque code.
+// Exercise the complete clip model and final output, not only adapter DOM.
+for (const tag of ['kbd', 'samp', 'code', 'pre']) {
+  for (const dialect of ['markdown', 'links', 'quarto']) {
+    test(`synthetic ${tag} numeric brackets retain their final literal role (${dialect})`, async () => {
+      const contents = tag === 'pre' ? '<pre>[100]</pre>' : `<p><${tag}>[100]</${tag}></p>`;
+      const html = syntheticBody(contents);
+      const result = await clipNature({html,url:'https://www.nature.com/articles/synthetic-control',citationStyle:dialect});
+      assert.equal(result.rawHtml, html);
+      assert.deepEqual(result.figures, []);
+      assert.deepEqual(result.tables, []);
+      assert.deepEqual(result.references, []);
+      assert.deepEqual(result.semantic.displayMath, []);
+      assert.deepEqual(result.semantic.inlineMath, []);
+      assert.deepEqual(result.semantic.citations, []);
+      assert.equal(result.semantic.crossReferences.size, 0);
+      assert.equal(result.debug.equations, 0);
+      assert.equal(result.debug.mathValidation.displayMathCount, 0, 'Literal keyboard/sample/code text must not create a display equation');
+      assert.equal(result.debug.mathValidation.inlineMathCount, 0);
+      for (const validation of ['mathValidation', 'rawHtmlValidation', 'markdownStructure', 'crossReferenceValidation']) {
+        assert.ok(result.debug[validation].valid, validation);
+      }
+      const literal = tag === 'code' ? '`[100]`' : tag === 'pre' ? '```\n[100]\n```' : '[100]';
+      assert.equal(result.markdown.split('\n---\n\n')[1], `# Untitled\n\n${literal}\n`, 'Complete body preserves the accepted e2 literal presentation');
+      assert.doesNotMatch(result.markdown, /ACADEMICCLIPPER|\$|\\\[|\\\]/u);
+    });
+  }
+}
+
 test('synthetic MathJax and explicit legacy delimiters retain their original math roles', async () => {
   const page = parseNaturePage(syntheticBody(String.raw`<p><span class="mathjax-tex">\(x_{i}\)</span></p><div class="c-article-equation" id="Equ1"><span class="mathjax-tex">\[y_{j}\]</span></div><p>\[z\]</p><p>$$w$$</p><p>\(q\)</p>`), 'https://www.nature.com/articles/synthetic-control');
   opened.push(page.dom);
@@ -120,11 +149,9 @@ test('synthetic MathJax and explicit legacy delimiters retain their original mat
 });
 
 test('synthetic code, reference DOM, bracket citation ranges and known internal targets keep their source text', () => {
-  const html = syntheticBody('<p><code>[code]</code><kbd>[key]</kbd><samp>[sample]</samp><a href="#ref-CR1" data-test="citation-ref">[1–3]</a> <a href="#other" data-test="citation-ref">[4–6]</a> <a href="#ref-CR7">[7–9]</a> <a href="#Sec1">Section</a></p><pre>[preformatted]</pre><h2 id="Sec1">Section</h2><ol class="c-article-references"><li id="ref-CR1">[reference]</li></ol>');
+  const html = syntheticBody('<p><code>[code]</code><a href="#ref-CR1" data-test="citation-ref">[1–3]</a> <a href="#other" data-test="citation-ref">[4–6]</a> <a href="#ref-CR7">[7–9]</a> <a href="#Sec1">Section</a></p><pre>[preformatted]</pre><h2 id="Sec1">Section</h2><ol class="c-article-references"><li id="ref-CR1">[reference]</li></ol>');
   const page = parseNaturePage(html, 'https://www.nature.com/articles/synthetic-control'); opened.push(page.dom);
   assert.equal(page.document.querySelector('code').textContent, '[code]');
-  assert.equal(page.document.querySelector('kbd').textContent, '[key]');
-  assert.equal(page.document.querySelector('samp').textContent, '[sample]');
   assert.equal(page.document.querySelector('pre').textContent, '[preformatted]');
   assert.deepEqual(page.semantic.citations.map(citation => citation.numbers), [[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
   assert.ok(page.semantic.crossReferences.has('Sec1'));
