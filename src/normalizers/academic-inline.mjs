@@ -128,10 +128,13 @@ function blockCodeRanges(value) {
   let active = null;
   let containers = [];
   let paragraph = false;
+  let opaqueEnd = 0;
   for (const line of value.matchAll(/[^\n]*(?:\n|$)/gu)) {
     if (!line[0]) continue;
     const start = line.index;
     const end = start + line[0].length;
+    // Existing math and inline code cannot open or close block-code state.
+    if (start < opaqueEnd) continue;
     let content = expandLeadingTabs(line[0].replace(/\r?\n$/u, ''));
     let column = 0;
     const continued = [];
@@ -195,6 +198,14 @@ function blockCodeRanges(value) {
     const setextHeading = paragraph && /^ {0,3}(?:=+|-+)[ \t]*$/u.test(content);
     paragraph = !active && Boolean(content.trim())
       && !setextHeading && !isThematicBreak(content) && !/^ {0,3}#{1,6}(?:\s|$)/u.test(content);
+    if (!active) {
+      for (const match of line[0].matchAll(/[$`]/gu)) {
+        const index = start + match.index;
+        if (index < opaqueEnd) continue;
+        const protectedEnd = literalProtectedEnd(value, index);
+        if (protectedEnd !== null) opaqueEnd = protectedEnd;
+      }
+    }
   }
   return ranges;
 }
