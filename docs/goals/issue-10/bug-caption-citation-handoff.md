@@ -1,11 +1,12 @@
 # Nature caption / citation bug — 独立交接
 
-状态：`PREFLIGHT_RED`。本文件为 [Issue #47](https://github.com/uwougil/Academic-clipper/issues/47) 的独立 bug 证据，不承担 Issue #10 的部分交付责任，不宣称 corpus 验收完成。Shared production-file gate 尚未释放；当前没有 production 修改。
+状态：`LOCAL_VERIFIED_PR_READY`。本文件为 [Issue #47](https://github.com/uwougil/Academic-clipper/issues/47) 的一个最终 delivery PR 交接，不承担 Issue #10 的部分交付责任，不宣称 corpus 验收完成。最终 exact-head 三平台 CI / Secrets 和独立 review 由 orchestrator 核验；本 agent 不 merge。
 
 ## 合同与基线
 
 - Work Contract：`[bug] Nature 图注引用与内部链接绕过语义归一化`，唯一类型 `bug`，OPEN。使用 human-settled-intent 来源模式；由用户 autonomous orchestration 授权立项及修复。
 - Accepted-main base：`e85b1b809b56242b89b6313ce5d1165c745466bb`。启动时 `git fetch origin main` 重新核验；Main CI `37182993143` 与 Secret scan `37182993093` 均 success。
+- Shared production gate 在 #46 进入 accepted main `e0a341fc97ff845a250c2f016dcb2363e10ed49e` 后由 orchestrator 释放：Main CI `37269007138` 三平台均 success；Secrets `37269007093` success。`git fetch origin main` 确认该 SHA，从 clean/pushed 原 red `97b193b738abb508736a4a7c5459c951f9d4c76c` rebase，得到 red `9bd15729b8454d03d1a5f51201d162db874dc09b`；复跑仍 1 PASS / 10 FAIL。
 - Branch：`codex/issue-10-bug-caption-citation`；managed worktree：`issue-10-caption/academic-clipper`。
 - Runtime：Windows / Node `v24.14.1`、npm `11.11.0`。不是最终 Ubuntu Node 20/24、Windows Node 24 CI 证据。
 - 已读实际 `AGENTS.md`、immutable canonical spec、execution plan、PRD §3、EDD §2.4–2.5，以及 B/C 完整 handoffs。PRD/EDD 既已要求完整图注、正确引用、三方言内部 target 和 HTML purity；本修复恢复这些承诺，不定义新行为。
@@ -44,7 +45,20 @@ Scientific Reports 的四个 main figures 原描述位于 figure 内：image DIV
 1. `extractFigures()` 在 `prepareSemanticNodes()` 前冻结原始 `captionHtml`；后续正文上的 math/scientific/citation/semantic target 保护不会更新这个副本。Caption converter 因而把 `<sup><a ...>74</a></sup>` 解释为含 raw HTML 的 superscript math，并让 caption section/equation/figure links 绕过已有目标策略。
 2. Adapter 仍把已识别 scholarly internal links 直接交给 Defuddle。Defuddle `elements/footnotes.js` 的 `tryGenericIdDetection()` 以数字标签和文内 IDs 识别 footnotes，克隆 retained figure placeholder 或 table wrapper；renderer 将原位与 footnote 副本的同一 placeholder 都展开，导致重复图注。Quantum body Table 1 和 retained Fig1/Fig6 failures 使用同一机制。
 
-最小必要修复提案：在既有 Nature 语义边界保护已识别 internal href，snapshot 已保护 caption DOM，复用 Defuddle / academic / citation normalizers，并将实际保留的正文 heading context 传给 caption target policy。拟议文件为 `src/adapters/nature.mjs`、`src/normalizers/figures.mjs`、`src/normalizers/citations.mjs`、`src/clip.mjs`；等 orchestrator 提供 accepted merged-main SHA 和 successful Main CI 后 rebase、复跑红测试，再开始写共享生产文件。
+最小修复涉及四个已有 production 文件：`src/adapters/nature.mjs` 在已识别 internal href 放入 `CROSSREFERENCE` marker，使数字 link 暂不匹配 DOM ID，并在全部语义保护后重新 snapshot main / supplementary captions；`src/normalizers/citations.mjs` 在既有方言策略前恢复 target，caption 的 section 判定接受实际 body heading context；`src/normalizers/figures.mjs` 复用既有 typed math / academic / citation / target normalizers；`src/clip.mjs` 先取得实际 body conversion，将 semantic、references、policy、body heading context 传给 caption converter。没有第二个 parser，没有更改 Defuddle / dependencies、source numbering、fallback、table notes、writer、bridge 或 validators。
+
+## 自有断言的 source 核查与校正
+
+原 red 日志保存在外部临时目录的 `red-baseline.log` / `red-rebased.log`。修复后执行推进到此前未到达的断言，发现本 agent 的两项测试假设与 committed source 不符；先查询 source DOM 证明，再仅校正自有 test，不改三个 excerpts / provenance、B oracle 或 validators：
+
+- Scientific Reports 查询 `#figure-1-desc p` 和 `#figure-2-desc p`：尾句 `White regions represent pixels with percentage of forest >60%, strong topography, or frozen soil conditions, which were excluded from the analyses.` 在各图注各出现一次，合计两次。因此 Fig1 `captionEnd` 在整个输出出现一次的旧期待是 test bug。现在完整四个 caption bodies 各出现一次，首部各一次，尾部次数等于原四幅 source captions 中的真实次数（Fig1 tail=2，其余=1）；每幅 `captionMarkdown` 的完整文本仍与原 label + description 相等，面板顺序、位置和 definitions/Bib 断言保留。
+- Quantum 查询 committed excerpt 的 `a[href$="#Fig1"]`：1 个 body link，原文字 `1`；`a[href$="#Fig6"]`：0 个。`#figure-6` / `#Fig6` wrapper、原 description 及 image topology 存在，adapter 的 Fig6 target 为 `figure-6`，Defuddle body 含唯一原位 placeholder `ACADEMICCLIPPERFIGUREfigure-6X`。测试按实际 source links 检查文字和 target，并从真实 Fig1/Fig6 数据检查 links anchor / Quarto identifier；不声称此 excerpt 覆盖 Fig6 的 body link。
+- Quantum 原 raw body 有两个 Fig6 body links，位于 `#Sec2-content > p:nth-of-type(15)`、`#Sec8-content > p:nth-of-type(13)`，原文字都为 `6`。本独立 recipe 仅保留六个完整 figure wrappers、直接相邻段落、必要 headings/table target、Discussion paragraphs 6/7 和 reference prefix65；这两个非相邻 paragraph 没有被选择。recipe 没有变化，也没有把不存在的 link 加进 fixture。C 的完整 B85 验收仍须独立检查其实际 retained refs。
+- Source 相邻段落的 `Figures S6–7b` 被 Defuddle 排版为 `Figures S6 – 7b`；位置断言仅忽略 whitespace，所有非空白字符保留，并且现在要求相邻段落实际找到（`position >= 0`），再检查前后顺序。
+
+校正后的完整 11 tests 另在 exact accepted production `e0a341f` 上复跑：exit1，1 PASS / 10 FAIL，0 skip / todo / cancel；真实失败仍是 duplicate caption、raw citation superscript、caption Methods target 和 quantum invented prose footnote。记录 `red-corrected.log`；不是用删真实失败换取 green。修复后的同一校正 test 为 11 PASS / 0 FAIL。
+
+另对只读 B 的完整 quantum excerpt（fixture SHA-256 `b32d31f2389e8c052f990812cfd86441172538fd66e37fa17f97704d8795d9fc`）执行实际 adapter → Defuddle → `normalizeAnchorMarkers`：原 source 的两个 Fig6 body links 均在 links 中为 `[6](#figure-6)`、Quarto 中为 `[6](#fig-figure-6)`，默认 Markdown 依已有策略降为文本；Defuddle 没有 invented prose footnote definitions。此为额外 lower-stage 原引用检查，未执行 table hydration 或完整 article validators，不代替 C 的独立 B85 验收；日志 `quantum-complete-links.json` 仍在外部临时目录。
 
 ## 独立缺陷边界
 
@@ -58,8 +72,16 @@ Plain-text units、literal brackets、leading isotope、adjacent-inline dollars 
 | --- | --- |
 | `npm ci` | exit 0；65 packages，0 vulnerabilities |
 | Source preparation with recorded A recipe/version | exit 0；3 raw hashes、source creators / notices、repeat byte equality、idempotence PASS |
-| `node --test test/nature-caption-citations.test.mjs` | exit 1；1 PASS / 10 FAIL，真实红基线 |
-| `git diff --check` / `git status --short` | production clean；仅本新 test / fixture paths untracked |
-| Focused after-fix / full / build / golden / PR CI | 尚未执行；production-file gate 未释放 |
+| `node --test test/nature-caption-citations.test.mjs` on original / rebased / corrected accepted production | exit 1；每次 1 PASS / 10 FAIL，真实红基线 |
+| `node --test test/nature-caption-citations.test.mjs` after fix | exit 0；11 PASS / 0 FAIL |
+| `node --test test/nature-caption-citations.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs test/aip-adapter.test.mjs` | exit 0；54 PASS / 0 FAIL |
+| `npm test` | exit 0；294 PASS / 0 FAIL，0 skip / todo / cancel；包含 #46 table-note regressions |
+| `npm run build` | exit 0；extension build 成功 |
+| `node -e "if (!require('node:fs').existsSync('dist/extension/manifest.json')) process.exit(1)"` | exit 0；CI build existence check 成功 |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit 0；只读 golden validation 成功，golden bytes 无修改 |
+| `git diff --check` / `git diff --cached --check` / filenames / status audit | PASS；仅四个 contracted production files、自有 test / excerpts / provenance / handoff；无完整 captures 或 credentials |
+| Final exact-head PR CI / Secrets / independent review | 本地交接时尚未执行；由 orchestrator 核实 fresh results 后决定是否 merge |
+
+`npm test` 的既有 #45 tests 仍明确报告 FRB table-cell scientific-unit/numeric-power 独立问题每方言12个；这不是 #47 的 source caption failure，也没有弱化任何 scientific validator。当前 #47 Scientific Reports 的 raw HTML、math/scientific-fragment、Markdown structure、cross-reference validators 三方言全部通过。更广的 units / literal bracket / isotope / adjacent-inline 原始 corpus failures 仍如实留给各独立 Work Contracts。
 
 Source preparation / red diagnostic logs 只在外部临时目录。最终 PR 须使用唯一独立 `Refs #47` 行，不 merge；orchestrator 负责 fresh 三平台 CI/Gitleaks、独立 exact-head review 及是否 squash-merge。Merge 仅接纳代码；successful merged-commit Main CI 才完成本 Work Contract。
