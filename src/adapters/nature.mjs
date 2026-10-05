@@ -802,7 +802,7 @@ function replaceScientificBracketText(body) {
   // backslash-prefixed delimiters continue through the legacy math path.
   const pattern = /(?<!\\)[\[\]]/gu;
   for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-    if (node.parentElement?.closest('.mathjax-tex, .c-article-equation, code, pre, kbd, samp, ol.c-article-references, ol.c-article-references__list, a[data-test="citation-ref"], a[href*="#ref-CR"]')) continue;
+    if (node.parentElement?.closest('.mathjax-tex, .c-article-equation, code, pre, ol.c-article-references, ol.c-article-references__list, a[data-test="citation-ref"], a[href*="#ref-CR"]')) continue;
     const next = node.textContent.replace(pattern, (match) => {
       const marker = semanticMarker('LITERALTEXT', values.length);
       values.push({ marker, text: match });
