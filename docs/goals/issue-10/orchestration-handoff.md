@@ -207,3 +207,15 @@ Root完整读取independent pr50-3a7e18f-review.md：exact3a7e18fff6209706e4bf91
 PR54 fixed d159eb35102bedb36d96056df61ac976d4eb5a90 的freshCI37322455984三jobs111804696047/111804695147/111804695628现全部SUCCESS，Secrets37322455802success。SAME reviewer做此head的一行guard/immutable-source/12完整compat/newmeaningfulRED独立precheck；该precheck不能代替随后accepted6b依赖组合最终head审查和freshCI。Naturegate仍53，55alt在后。
 
 Issue55 source-only finalclean/pushed56ced086f0bb6f90ab5b46fc3eabfef0f1f34453，ordered bb356049b00eb33654c38540c14c09f3af3de6a8→56ced086：6ownedfiles，10RED=6pass4fail、affected38/build/goldenPASS，actualA recipe/204retainednodes/raw/fourprehash/rights/repeat/idem/143109byteexcerpt可复核。未production/未PR，gate冻结。SAME旧table-footer child另恢复 materials styled-adjacency SOURCE-ONLY新worktree预检，必须独立核raw-vs-frozen hash、保留原128<i>x</i>0<i>e</i>等完整科学nodes，不猜造sup/sub或全局合并dollars。旧45worktree不动。当前two newpreflight owners均已收到pending6b状态，仅做read-onlysource/preflight，Mainclear前不冻结最终base/fixturecontract。SAME reviewer保留严格newC实际helper审查队列；finalintegrator仍不满足startgate。
+
+## Units 主线接纳与增量验证安排（2026-10-05）
+
+Latest accepted main 为 6b90413d806f7e611b00559c8208f6b95b31dd1e。Main CI37323651988 三 jobs111808767556 Ubuntu24 /111808767880 Windows24 /111808768068 Ubuntu20、Secrets37323651876 全completed/success且对应exact6b；planning5971ebf ancestor成立。Issue48由automation于2026-10-05T14:25:28Z closed/completed；没有root手动关闭。PR50及其独立审查已终结，不再重复验证旧3a7。
+
+按用户“后面继续跑goal避免重复劳动”，维持增量证据策略：来源/recipe/rights/hash审计在Gitbytes未变时复用，后续提交明确证明immutable identity；所有历史RED/P2/失败日志保留，但不重复采集13resources或跑已知失败的旧base corpus。源输入不改，实际helper变更必须重新审对应delta。production/base发生变化时仅补受影响验证、必要的一轮完整验证；文档-only不触发重跑。每次精确提交仍满足canonical与十项merge门槛，不能用缓存结果覆盖新风险。同一机制出现两轮追加P2则先重审策略及边界矩阵，再做下一轮实现，避免逐条追补后反复跑full。
+
+本机只允许一个完整测试进程。SAME literal53 owner已non-destructive merge accepted6b，dependency commit35aad9bf2dbd46b74fb74551d7a339333fdb5690；24focused及142affected实际PASS（预测130被实际142取代），npmci PASS，正在固定此code/test树运行唯一full。四source/provenance文件与永久37f source一致；12 compatibility+6真实source replay PASS/zero unexpected network，FRB先前unit问题已消失，chem leading-isotope仍单独保留。source/oracle未改。
+
+SAME reviewer保存 d159独立precheck packet于 C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-review/pr54-d159eb3-precheck.md：24PASS、永久37cb RED18pass6fail、12完整counterexamples/18boundaries/6source-repeat、raw/source identity及zero-network成立。外部两个harness setup errors和重试原日志保留，仅修external harness。该packet不作为35aad9或后续composed-final head clearance。reviewer当前定点审C exactbc81的02c/dbe新增helper55a，不跑旧known-red380full；待literal作者full terminal后安排新head独立最终验证。
+
+SAME scientific-citation child恢复独立source-only工作，先adopt accepted6b再一次focusedRED/根因/合同/handoff，production Naturegate仍53→55串行；不改旧47已交付branch。SAME C/D本轮尚未恢复，直接notifyC一次被host thread-limit拒绝，不能把queued接口当成功送达；待slot释放恢复原child，复用valid source audits，结合下一个accepted literal fix重跑255 source记录。Styled-adjacency preflight仍待恢复；无human-only blocker。Final integrator startgate尚未满足，Issue10仍未完成。
