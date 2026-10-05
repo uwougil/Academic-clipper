@@ -118,6 +118,12 @@ test('source assertions reject lost target, changed scientific attachment, reord
   const article=manifest.articles[0],entry=await run(article,'quarto');
   const compare = result=>compareArticleResult(article,result,{sourceHtml:entry.html});
   const find = (result,id)=>compare(result).expectations.find(e=>e.id===id).failures;
+  for(const id of ['source-crossrefs-v1','source-inline-v1','source-citations-v1','source-figures-v1'])assert.deepEqual(find(entry.result,id),[],`Mutation consumer baseline must pass: ${id}`);
+  // The truthful footer defect still blocks the aggregate table consumer. Its cell
+  // predicate passes independently and must become a failure after the cell mutation.
+  assert.ok(!find(entry.result,'source-tables-v1').some(f=>f.path.includes('.renderedCell[')));
+  assert.deepEqual(compare(entry.result).warnings.unexpected,[]);
+  assert.deepEqual(compare(entry.result).warnings.missing,[]);
   const semantic={...entry.result.semantic,crossReferences:new Map(entry.result.semantic.crossReferences)};
   semantic.crossReferences.delete('Fig1');
   assert.ok(find({...entry.result,semantic},'source-crossrefs-v1').some(f=>f.path.endsWith('.identity')));
