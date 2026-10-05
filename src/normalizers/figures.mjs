@@ -218,8 +218,17 @@ async function tableCellMarkdown(cell, url, noteMarkers) {
     sup.replaceWith(readableMarker);
   }
   const protectedMath = protectCaptionMath(contents.innerHTML, url);
+  const semanticMath = { inlineMath: [], displayMath: [] };
+  let mathIndex = 0;
+  for (const element of contents.querySelectorAll('.mathjax-tex')) {
+    const source = element.textContent.trim();
+    if (!extractMathSource(source)) continue;
+    const display = source.startsWith('\\[') && source.endsWith('\\]')
+      || source.startsWith('$$') && source.endsWith('$$');
+    semanticMath[display ? 'displayMath' : 'inlineMath'].push(protectedMath.math[mathIndex++]);
+  }
   let converted = await markdownFragment(protectedMath.html, url);
-  converted = normalizeMath(converted, { inlineMath: protectedMath.math });
+  converted = normalizeMath(converted, semanticMath);
   return cellTextForMarkdown(normalizeAcademicInline(converted));
 }
 
