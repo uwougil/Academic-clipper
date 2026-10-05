@@ -177,6 +177,26 @@ test('synthetic plain underscores and inline code remain literal Markdown text',
   assert.doesNotMatch(table.markdown, /\$/u);
 });
 
+for (const {name,tex,displayMathCount,inlineMathCount} of [
+  {name:'display brackets',tex:String.raw`\[\text{literal display}\]`,displayMathCount:1,inlineMathCount:0},
+  {name:'display dollars',tex:String.raw`$$\text{literal display}$$`,displayMathCount:1,inlineMathCount:0},
+  {name:'inline parentheses',tex:String.raw`\(\text{literal inline}\)`,displayMathCount:0,inlineMathCount:1},
+]) {
+  test(`synthetic ${name} retains its original MathJax role`, async () => {
+    // The same labelled literal-text cells were run on unchanged accepted 4783291.
+    // They protect conversion roles and do not count as source corpus admission.
+    const table = await normalizeSynthetic(`<table><tr><th>Literal control</th></tr><tr><td><span class="mathjax-tex">${tex}</span></td></tr></table>`);
+    for (const citationStyle of ['markdown','links','quarto']) {
+      const rendered = renderTables([table],outputPolicy(citationStyle));
+      const validation = validateMathDelimiters(rendered);
+      assert.equal(validation.valid, true);
+      assert.equal(validation.displayMathCount, displayMathCount);
+      assert.equal(validation.inlineMathCount, inlineMathCount);
+      assert.ok(rendered.includes(displayMathCount ? String.raw`$$ \text{literal display} $$` : String.raw`$\text{literal inline}$`));
+    }
+  });
+}
+
 test('source table conversion is deterministic through A then literal boundary then A', async () => {
   const first = await hydrate();
   await normalizeSynthetic(String.raw`<table><tr><td><span class="mathjax-tex">\(\text{literal\_underscore}\)</span></td></tr></table>`);
