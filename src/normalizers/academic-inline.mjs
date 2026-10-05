@@ -96,20 +96,58 @@ function subscriptValue(content) {
 // The non-SI tokens cover common astronomical, chemical and rate notation.
 const UNIT_SYMBOL = /^(?:(?:[fpnumcdhkMGT]|[µμ])?(?:m|s|g|l|L|Hz|A|K|mol|cd|eV)|Å|erg|pc|Jy|yr|min|h|d|day|atom)$/u;
 
+function isEscaped(value, index) {
+  let backslashes = 0;
+  for (let cursor = index - 1; cursor >= 0 && value[cursor] === '\\'; cursor -= 1) backslashes += 1;
+  return backslashes % 2 === 1;
+}
+
+function literalProtectedEnd(value, start) {
+  const character = value[start];
+  if (!/[$`~]/u.test(character) || isEscaped(value, start)) return null;
+  if (character === '$') {
+    const delimiter = value.startsWith('$$', start) ? '$$' : '$';
+    let closing = start + delimiter.length;
+    while ((closing = value.indexOf(delimiter, closing)) >= 0) {
+      if (!isEscaped(value, closing)) return closing + delimiter.length;
+      closing += delimiter.length;
+    }
+    return value.length;
+  }
+
+  const run = value.slice(start).match(/^(?:`+|~+)/u)[0];
+  const lineStart = value.lastIndexOf('\n', start - 1) + 1;
+  const lineEnd = value.indexOf('\n', start);
+  const restOfLine = value.slice(start + run.length, lineEnd < 0 ? value.length : lineEnd);
+  const fenced = run.length >= 3 && /^ {0,3}$/u.test(value.slice(lineStart, start))
+    && (character !== '`' || !restOfLine.includes('`'));
+  if (fenced) {
+    const fences = /(?:^|\n) {0,3}(`{3,}|~{3,})[ \t]*\r?(?=\n|$)/gu;
+    fences.lastIndex = start + run.length;
+    let match;
+    while ((match = fences.exec(value))) {
+      if (match[1][0] === character && match[1].length >= run.length) return fences.lastIndex;
+    }
+    return value.length;
+  }
+  if (character !== '`') return null;
+  const runs = /`+/gu;
+  runs.lastIndex = start + run.length;
+  let match;
+  while ((match = runs.exec(value))) {
+    if (match[0].length === run.length) return runs.lastIndex;
+  }
+  return value.length;
+}
+
 function combineLiteralPowers(value) {
   let output = '';
   let cursor = 0;
   while (cursor < value.length) {
     // This pass only repairs prose attachments. Existing math and code remain
     // opaque, including source examples that happen to contain orphan syntax.
-    const protectedDelimiter = value[cursor] === '`'
-      ? value.slice(cursor).match(/^`+/u)[0]
-      : value[cursor] === '$' && value[cursor - 1] !== '\\'
-        ? value.startsWith('$$', cursor) ? '$$' : '$'
-        : '';
-    if (protectedDelimiter) {
-      const closing = value.indexOf(protectedDelimiter, cursor + protectedDelimiter.length);
-      const end = closing < 0 ? value.length : closing + protectedDelimiter.length;
+    const end = literalProtectedEnd(value, cursor);
+    if (end !== null) {
       output += value.slice(cursor, end);
       cursor = end;
       continue;

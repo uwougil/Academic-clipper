@@ -208,3 +208,26 @@ test('synthetic unit prefixes and explicit numeric bases keep typed signed power
     assert.equal(normalizeAcademicInline(result), result);
   }
 });
+
+test('literal powers respect escaped math delimiters and backslash parity', () => {
+  for (const opaque of [String.raw`$\text{cost \$5}$`, String.raw`$x \\ $`, '$$\n\\text{cost \\$5}\n$$']) {
+    const expected = `${opaque} $\\mathrm{cm}^{2}$`;
+    const result = normalizeAcademicInline(`${opaque} cm<sup>2</sup>`);
+    assert.equal(result, expected);
+    assert.equal(normalizeAcademicInline(result), expected);
+    assert.equal(validateMathDelimiters(result).valid, true);
+  }
+  assert.equal(normalizeAcademicInline(String.raw`\$5 cm<sup>2</sup>`), String.raw`\$5 $\mathrm{cm}^{2}$`);
+});
+
+test('literal powers preserve nested inline code and complete fenced code spans', () => {
+  for (const opaque of ['``a``` m$^{3}$``', '``a` m$^{3}$``', '```text\nm$^{3}$\n````', '~~~text\nm$^{3}$\n~~~']) {
+    const expected = `${opaque}\n$\\mathrm{cm}^{2}$`;
+    const result = normalizeAcademicInline(`${opaque}\ncm<sup>2</sup>`);
+    assert.equal(result, expected);
+    assert.equal(normalizeAcademicInline(result), expected);
+  }
+  assert.equal(normalizeAcademicInline('~~~text\nm$^{3}$'), '~~~text\nm$^{3}$');
+  assert.equal(normalizeAcademicInline('~~~text\nm$^{3}$\n~~\ns$^{-1}$'), '~~~text\nm$^{3}$\n~~\ns$^{-1}$');
+  assert.equal(normalizeAcademicInline('\\` cm<sup>2</sup>'), '\\` $\\mathrm{cm}^{2}$');
+});

@@ -1,6 +1,6 @@
 # Issue #48 — 科学单位修复交接
 
-状态：修复已实现，local source/focused/full/build/golden 验证通过；待 fresh PR CI、Secret scan 与 exact-head 独立 review。独立合同：[Issue #48](https://github.com/uwougil/Academic-clipper/issues/48)，type `bug`，Work Contract 尚未完成。本 bug 是 Issue #10 的 parser 前置条件，不承担其 corpus infrastructure 最终交付；PR 只使用 `Refs #48`，不使用 `Refs #10`。
+状态：修复已实现，local source/focused/full/build/golden 验证通过；待 fresh PR CI、Secret scan 与 exact-head 独立 review。独立合同：[Issue #48](https://github.com/uwougil/Academic-clipper/issues/48)，type `bug`，delivery [PR #50](https://github.com/uwougil/Academic-clipper/pull/50)，Work Contract 尚未完成。本 bug 是 Issue #10 的 parser 前置条件，不承担其 corpus infrastructure 最终交付；PR 只使用 `Refs #48`，不使用 `Refs #10`。
 
 Branch `codex/issue-10-bug-scientific-units`，managed worktree `C:/Users/guoli/.codex/worktrees/issue-10-bug-scientific-units/academic-clipper`。启动 accepted base `e85b1b809b56242b89b6313ce5d1165c745466bb` 已经 fetch 核验；Main CI `37182993143`、Secret scan `37182993093` 均 success。Node `v24.14.1`，`npm ci` exit 0：65 packages、0 vulnerabilities。
 
@@ -30,16 +30,20 @@ Root 明确释放 `src/normalizers/academic-inline.mjs` 给本 agent：仅在红
 
 初次 green-run 揭示本任务新 test harness 的两处错误假设：reduced SR excerpt 没有 figures，应同时声明 `No Nature figures were detected.`；BibTeX 既可为 `article` 也可为 `misc`，应核验 emitted keys 与 bibliography keys 的实际对应。修正仅新 test，未改生产 warning/BibTeX 或 B oracle，最终 red 使用同一最终 test 重证 attachment 缺陷。
 
+PR 首次 head `d94631ccf4720a4f8383a7ce1fb161bdc6e786e0` 的自查另发现新增 pass 的 opaque boundary 错误：`$\text{cost \$5}$ cm<sup>2</sup>` 的 escaped dollar 被误当 closing delimiter，` ``a``` m$^{3}$`` ` 的较长 run 被误当 inline-code closing delimiter，两者后面的 `cm²` 都未重接。此 head 的 CI 和 Secret scan 不能用于修正后的 head；root 已暂停合并，独立 review 未开始。两个最终 synthetic regression tests 在该 head 上重新执行，**2 tests / 0 pass / 2 fail，exit 1**，log `units-opacity-red-final-tests.log`。
+
+修正仍仅在 `academic-inline.mjs` 内：数学 closing delimiter 核验连续反斜杠奇偶；inline code 只接受同长度的完整 backtick run；fenced code 只在适当 line position 用相同 character 的足够长 closing fence 结束。已有跨度 byte-for-byte 保留，unclosed fenced content 保守保持；跨度之外的源 unit attachment 仍完成。Synthetic controls 明确覆盖 escaped currency、inline/display math、even backslashes、短/长 nested backtick runs、backtick/tilde fences 与较长/过短/缺失 closing fence。没有改 validator、math normalizer、unit 白名单或独立 source boundaries。最新 fetch 的 accepted main 仍为 `e0a341fc97ff845a250c2f016dcb2363e10ed49e`。
+
 | Exact command | Result |
 | --- | --- |
 | `npm ci` | exit 0，65 packages，0 vulnerabilities |
-| `node --test test/nature-scientific-units.test.mjs test/nature-table-notes.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs` | exit 0，63 pass / 0 fail / 0 skip/todo/cancel |
-| `npm test` | exit 0，292 pass / 0 fail / 0 skip/todo/cancel，79907 ms |
+| `node --test test/nature-scientific-units.test.mjs test/nature-table-notes.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs` | exit 0，65 pass / 0 fail / 0 skip/todo/cancel |
+| `npm test` | exit 0，294 pass / 0 fail / 0 skip/todo/cancel，65582 ms |
 | `npm run build` | exit 0，extension build 成功，dist 仍 ignored |
 | `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit 0，13 displays / 50 references / scientificFragments 和四 validators valid |
 | `git diff --check`、`git status --short`、diff/tracked filename audit | owned scope only；最终 commit 前重跑 |
 
-Logs 只在外部 B TEMP 的 `units-focused-green.log`、`units-full-tests.log`。本 bug 的 frozen source/dialect attachment 合同通过，不代表完整 C 85×3 corpus 验收；C 须等其它独立修复被 accepted 后恢复 SAME C。
+最新 logs 只在外部 B TEMP 的 `units-opacity-focused-green.log`、`units-opacity-full-tests.log`、`units-opacity-build.log`、`units-opacity-golden.log`；先前 red/green logs 也保留。本 bug 的 frozen source/dialect attachment 合同通过，不代表完整 C 85×3 corpus 验收；C 须等其它独立修复被 accepted 后恢复 SAME C。
 
 ## 其它来源的同机制与独立边界
 
