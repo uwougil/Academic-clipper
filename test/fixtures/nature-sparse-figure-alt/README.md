@@ -1,6 +1,6 @@
 # Nature 稀疏主图 short-alt 来源回归
 
-本目录是 [Issue #55](https://github.com/uwougil/Academic-clipper/issues/55) 的独立 bug 输入，当前只保存来源与真实 RED。它不是 Issue #10 corpus 的第二个 manifest、parser 或 assertion framework。生产文件未修改。
+本目录是 [Issue #55](https://github.com/uwougil/Academic-clipper/issues/55) 的独立 bug 输入，保存原来源与真实 RED，最小修复后同一永久回归已 GREEN。它不是 Issue #10 corpus 的第二个 manifest、parser 或 assertion framework。修复只让主图 short alt 使用已识别的原 figure number。
 
 原文章为 [A draft human pangenome reference](https://www.nature.com/articles/s41586-023-05896-x)，DOI `10.1038/s41586-023-05896-x`，Nature。完整 119 位原 ordered creators 见 provenance 的 `sourceRights.orderedSourceCreators`；excerpt 保留同一序列的 citation metadata。来源许可为原 article 的 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) notice；原文字、链接、位置与 pre-sanitize digest 均保留在 `sourceRights.notices`，excerpt 也保留原 notice。`sourceRights` 另区分原 publisher footer，不把 footer 当成文章许可，也不为原第三方材料另行授予许可。
 
@@ -45,4 +45,6 @@ node --test test/nature-sparse-figure-alt.test.mjs
 
 未改 production 的 accepted `e2d32e9ec819692a1f08075636c3a168f15ad20b` 上 exit 1，10 tests：6 pass / 4 fail，0 skip/todo/cancel。Adapter 与最终三方言的 alt 均错误为 `Figure 1/2/3/4`，应为 `Figure 1/3/4/5`；四个失败只证明这个行为。三个独立 preservation tests 全部通过完整 caption/panels/邻接正文、原 image association、ordinal anchors/identities、ordered metadata/references、全部 production validators/scientificFragments 和精确 warning `No equation nodes were detected.`。
 
-两个标明 synthetic 的 inline HTML controls 只保护既有 id-less/无可识别 label fallback 与 Extended Data identity/alt；不算真实 Nature 来源，也未写进 article admission。图片本地 filename、实际下载/IO 在此 source-only preflight 没有执行；后续最小 production fix 后须完成 affected/full/build/golden、独立 review、fresh CI 等最终交付门槛。
+同一四个 RED 在 accepted `0de5c8b5c4c51a9231f250c336216598c10f27ae` 上再次确认：6 pass / 4 fail。最小修复后同一文件 10/10 通过；来源 HTML/provenance 与原 RED commit `bb356049b00eb33654c38540c14c09f3af3de6a8` 的 Git bytes 完全相等。本轮只读重核全部 204 source nodes/prehash、四 wrappers、119 creators、原 rights、helper identity，并按同一 recipe 重建 fixture、重复与幂等，均通过。原 proof 的 acceptedBase=e2 保留为 acquisition/preflight 历史，不改为当前 parser base。
+
+两个标明 synthetic 的 inline HTML controls 只保护既有 id-less/无可识别 label fallback 与 Extended Data identity/alt；不算真实 Nature 来源，也未写进 article admission。实际 image download/IO 没有执行；ordinal anchors、image paths/filename 生成与 writer 代码未改。最终 full/build/golden、独立 review 和 fresh CI 的结果见 [handoff](../../../docs/goals/issue-10/bug-sparse-figure-alt-handoff.md)。
