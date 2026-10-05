@@ -93,26 +93,44 @@ function readable(value, result) {
     .replace(/\[\^\d+\]:[^\n]*/gu, '')
     .replace(/<a id="[A-Za-z0-9_.:-]+"><\/a>/gu, '')
     .replace(/\{#[^}]+\}/gu, '')
+    .replace(/(?:\[\^(?:[0-9]+)\])+/gu, group => Array.from(group.matchAll(/\[\^(\d+)\]/gu)).map(m => m[1]).join(','))
     .replace(/\[([^\]]+)\]\([^\n]*?\)/gu, '$1')
-    .replace(/\[\^([0-9]+)\]/gu, '$1')
     .replace(/\[@([^\]]+)\]/gu, (_, keys) => keys.split(/;\s*@?/u).map(k => byKey.get(k) ?? k).join(','))
     .replace(/\*\*|(?<!\\)\*/gu, '')
-    .replace(/\\([\[\]{}|])/gu, '$1')
+    .replace(/\\([\[\]{}|.-])/gu, '$1')
     .replace(/\\(?:mathrm|mathbf|text|mathit)\{([^{}]*)\}/gu, '$1')
+    .replace(/\\(?:rm|bf)\b/gu,'')
+    .replace(/\\(?:left|right)(?=[()[\]{}|])/gu,'')
+    .replace(/\\[()[\]]/gu,'')
     .replace(/\\(?:,|;|!|quad|qquad|thinspace|\s)/gu, '')
     .replace(/\\times/gu, '×').replace(/\\pm/gu, '±')
+    .replace(/\\Vert/gu,'||').replace(/\\mid/gu,'|')
     .replace(/\\(?:alpha|beta|gamma|delta|lambda|mu|sigma|tau|omega|theta|chi|rho|nu|phi|pi|epsilon|eta|kappa|zeta|psi)/gu,
       s => ({ alpha:'α',beta:'β',gamma:'γ',delta:'δ',lambda:'λ',mu:'μ',sigma:'σ',tau:'τ',omega:'ω',theta:'θ',chi:'χ',rho:'ρ',nu:'ν',phi:'φ',pi:'π',epsilon:'ϵ',eta:'η',kappa:'κ',zeta:'ζ',psi:'ψ' })[s.slice(1)])
-    .replace(/[$^_{}]/gu, '').replace(/\s*−\s*/gu, '−'));
+    .replace(/[$^_{}]/gu, '').replace(/\s*−\s*/gu, '-').replace(/(\d),\s+(?=\d)/gu, '$1,'));
 }
-function sourceReadable(value) { return sourceText(value).replace(/[$^_{}]/gu, ''); }
+function sourceReadable(value) { return readable(value,{references:[]}); }
+function compactProse(value, result) { return readable(value, result).replace(/\s/gu, ''); }
 function sameProse(c, path, actual, expected, result) {
-  c.equal(path, readable(actual, result), sourceReadable(expected));
+  c.equal(path, compactProse(actual, result), sourceReadable(expected).replace(/\s/gu, ''));
 }
 const blockNode = (context, blockId) => {
   const block = context.article.retainedBlocks.find(b => b.id === blockId);
   return block ? context.sourceDocument.querySelector(block.selector) : null;
 };
+function retainedNodes(context, selector, blockIds = context.article.retainedBlocks.map(b => b.id)) {
+  const roots = blockIds.map(id => blockNode(context, id)).filter(Boolean);
+  return Array.from(context.sourceDocument.querySelectorAll(selector)).filter(node => roots.some(root => root === node || root.contains(node)));
+}
+function sourceNeighbors(node, length = 32) {
+  const root = node.closest('p,figcaption,[data-test="bottom-caption"]') || node.parentElement;
+  if (!root) return { before:'',after:'' };
+  const before = node.ownerDocument.createRange(), after = node.ownerDocument.createRange();
+  before.selectNodeContents(root); before.setEndBefore(node);
+  after.selectNodeContents(root); after.setStartAfter(node);
+  return { before:sourceReadable(before.toString()).slice(-length).replace(/\s/gu,''),
+    after:sourceReadable(after.toString()).slice(0,length).replace(/\s/gu,'') };
+}
 
 function assertMetadata(context, e, c) {
   const { result } = context, v = e.value, m = result.metadata;
@@ -196,7 +214,10 @@ function assertFigures(context, e, c) {
     c.equal(`figures[${i}].caption`, actual?.caption, f.captionText);
     c.equal(`figures[${i}].image`, actual?.imageUrl, expectedImage(f, context.article.url));
     if (!actual) return;
-    c.equal(`figures[${i}].shortAlt`, actual.alt, actual.label);
+    sameProse(c,`figures[${i}].completeCaptionPayload`,actual.captionMarkdown || '',f.captionText,result);
+    const label = `${/^Extended Data/u.test(f.label) ? 'Extended Data ':''}Figure ${Number(f.label.match(/\d+/u)?.[0])}`;
+    c.equal(`figures[${i}].label`, actual.label, label);
+    c.equal(`figures[${i}].shortAlt`, actual.alt, label);
     const image = `![${actual.alt}](${actual.imageUrl})`;
     c.equal(`figures[${i}].renderedImageOccurrences`, result.markdown.split(image).length - 1, 1);
     const start = result.markdown.indexOf(image), next = result.markdown.indexOf('\n![', start + image.length);
@@ -204,13 +225,14 @@ function assertFigures(context, e, c) {
     const withoutLabel = f.captionText.replace(/^(?:Extended Data )?Fig(?:ure)?\.?\s*\d+\s*[:.]?\s*/iu, '');
     c.truth(`figures[${i}].captionStart`, readable(renderedCaption, result).includes(sourceReadable(withoutLabel.slice(0, 80))), 'Complete caption start must follow its image');
     c.truth(`figures[${i}].captionEnd`, readable(renderedCaption, result).includes(sourceReadable(f.captionEnd)), 'Complete caption end must follow its image');
-    for (const letter of f.boldSingleLetterSequence) c.truth(`figures[${i}].bold.${letter}`, actual.captionMarkdown?.includes(`**${letter}**`) || actual.captionMarkdown?.includes(`\\mathbf{${letter}}`), 'Source bold panel/variable marker must survive');
+    const bold = Array.from((actual.captionMarkdown || '').matchAll(/\*\*([a-z])\*\*|\\mathbf\{([a-z])\}/gu)).map(m=>m[1] || m[2]);
+    c.equal(`figures[${i}].boldSingleLetterSequence`, bold, f.boldSingleLetterSequence);
     const captionPlain = readable(result.markdown, result), sentinel = sourceReadable(withoutLabel.slice(0, 72));
     c.equal(`figures[${i}].captionOccurrences`, captionPlain.split(sentinel).length - 1, 1);
     if (actual.source === 'inline figure') {
-      const before = readable(result.markdown.slice(0, start), result), after = readable(result.markdown.slice(start + image.length), result);
-      if (f.previousParagraph) c.truth(`figures[${i}].previousParagraph`, before.includes(sourceReadable(f.previousParagraph)), 'Image must follow its source-adjacent paragraph');
-      if (f.nextParagraph) c.truth(`figures[${i}].nextParagraph`, after.includes(sourceReadable(f.nextParagraph)), 'Image must precede its source-adjacent paragraph');
+      const before = compactProse(result.markdown.slice(0, start), result), after = compactProse(result.markdown.slice(start + image.length), result);
+      if (f.previousParagraph) c.truth(`figures[${i}].previousParagraph`, before.includes(sourceReadable(f.previousParagraph).replace(/\s/gu,'')), 'Image must follow its source-adjacent paragraph');
+      if (f.nextParagraph) c.truth(`figures[${i}].nextParagraph`, after.includes(sourceReadable(f.nextParagraph).replace(/\s/gu,'')), 'Image must precede its source-adjacent paragraph');
     }
     if (context.citationStyle === 'quarto') c.truth(`figures[${i}].identifier`, result.markdown.includes(`${image}{#fig-${actual.anchor}}`), 'Quarto image must carry its figure identifier');
   });
@@ -219,6 +241,7 @@ function assertCitations(context, e, c) {
   const { result, bibliography } = context, v = e.value;
   c.equal('references.count', result.references.length, v.referenceCount);
   c.equal('debug.references', result.debug.references, v.referenceCount);
+  c.equal('semantic.orderedSourceClusters',result.semantic.citations.map(item=>item.numbers),v.clusters.map(item=>item.orderedNumbers));
   c.equal('references.sourcePayload', result.references.map(r => ({ number: r.number, text: r.text, doi: r.doi })),
     v.references.map(r => ({ number: r.number, text: r.text, doi: r.doi })));
   const keys = result.references.map(r => r.citationKey);
@@ -226,14 +249,28 @@ function assertCitations(context, e, c) {
   const bibKeys = Array.from(bibliography.matchAll(/^@\w+\{([^,]+),/gmu)).map(m => m[1]);
   c.equal('bibliography.orderedKeys', bibKeys, keys);
   const body = result.markdown.split(/^## References\s*$/mu)[0];
+  const keyNumbers = new Map(result.references.map(r=>[r.citationKey,r.number]));
+  const renderedClusters = context.citationStyle === 'quarto'
+    ? Array.from(body.matchAll(/\[@([^\]]+)\]/gu)).map(m=>m[1].split(/;\s*@?/u).map(k=>keyNumbers.get(k)))
+    : context.citationStyle === 'markdown'
+      ? Array.from(body.replace(/^\[\^\d+\]:[^\n]*$/gmu,'').matchAll(/(?:\[\^\d+\])+/gu)).map(m=>Array.from(m[0].matchAll(/\[\^(\d+)\]/gu)).map(n=>Number(n[1])))
+      : Array.from(body.matchAll(/\[\d+\]\(#ref-\d+\)(?:,\s*\[\d+\]\(#ref-\d+\))*/gu)).map(m=>Array.from(m[0].matchAll(/\[(\d+)\]\(#ref-\d+\)/gu)).map(n=>Number(n[1])));
+  c.equal('rendered.orderedSourceClusters',renderedClusters,v.clusters.map(item=>item.orderedNumbers));
+  const sourceClusters = retainedNodes(context,'sup',e.blockIds).filter(n=>n.querySelector('a[data-test="citation-ref"],a[href*="#ref-CR"]'));
+  c.equal('source.orderedClusterTexts',sourceClusters.map(n=>sourceText(n.textContent)),v.clusters.map(item=>item.text));
   for (const [i, cluster] of v.clusters.entries()) {
     const expected = context.citationStyle === 'quarto'
       ? `[${cluster.orderedNumbers.map(n => `@${keys[n - 1]}`).join('; ')}]`
       : context.citationStyle === 'links' ? cluster.orderedNumbers.map(n => `[${n}](#ref-${n})`).join(', ')
         : cluster.orderedNumbers.map(n => `[^${n}]`).join('');
     c.truth(`clusters[${i}].rendered`, body.includes(expected), `Ordered source citation cluster ${cluster.text} must be rendered`);
+    if (sourceClusters[i]) {
+      const { before,after } = sourceNeighbors(sourceClusters[i]);
+      c.truth(`clusters[${i}].sourceContext`,compactProse(body,result).includes(`${before}${compactProse(expected,result)}${after}`),
+        'Citation cluster must remain between its original neighboring source text');
+    }
   }
-  if (context.citationStyle === 'markdown') c.equal('referenceDefinitions', Array.from(result.markdown.matchAll(/^\[\^(\d+)\]:/gmu)).map(m => Number(m[1])), v.references.map(r => r.number));
+  if (context.citationStyle === 'markdown') c.equal('referenceDefinitions', Array.from(result.referencesMarkdown.matchAll(/^\[\^(\d+)\]:/gmu)).map(m => Number(m[1])), v.references.map(r => r.number));
   if (context.citationStyle === 'links') c.equal('orderedReferenceAnchors', Array.from(result.referencesMarkdown.matchAll(/<a id="ref-(\d+)"><\/a>/gu)).map(m => Number(m[1])), v.references.map(r => r.number));
   if (context.citationStyle === 'quarto') {
     const emitted = Array.from(body.matchAll(/\[@([^\]]+)\]/gu)).flatMap(m => m[1].split(/;\s*@?/u));
@@ -250,20 +287,46 @@ function assertInline(context, e, c) {
     if (!node) continue;
     // Compare complete source paragraph prose and all literal scientific attachments,
     // rather than merely checking that a symbol exists somewhere in the document.
-    const paragraph = sourceText(node.closest('p')?.textContent), plain = readable(result.markdown, result);
-    const expected = sourceReadable(paragraph);
-    c.truth(`cases[${i}].paragraph`, plain.includes(expected), 'Full paragraph including source scientific attachment must survive');
-    const scientific = result.semantic.scientificRuns || [];
-    if (['SUB','SUP'].includes(v.tag) && !node.querySelector('a[href*="#ref-CR"]'))
-      c.truth(`cases[${i}].attachment`, scientific.some(run => run.tex.includes(v.text) || texCanonical(run.tex).includes(v.text))
-        || !result.debug.mathValidation.scientificFragments?.length, 'Sub/sup must remain attached without isolated scientific fragments');
+    const paragraph = sourceText(node.closest('p')?.textContent);
+    const contextStart = paragraph.split(/\\\(|\$\$/u)[0].slice(0,36);
+    const candidates = result.markdown.split(/\n\s*\n/u).filter(p=>compactProse(p,result).includes(contextStart.replace(/\s/gu,'')));
+    c.truth(`cases[${i}].paragraphContext`, candidates.length === 1, 'Scientific case must remain in its unique source paragraph');
+    const output = candidates[0] || '';
+    const compact = value => readable(value,result).replace(/\s/gu,'');
+    if (node.matches('sub,sup') && !node.querySelector('a[href*="#ref-CR"]')) {
+      let previous = node.previousSibling;while(previous && !sourceText(previous.textContent))previous=previous.previousSibling;
+      const base = sourceText(previous?.textContent).match(/[\p{L}\p{N}()′″]+$/u)?.[0] || '';
+      const operator = node.tagName === 'SUB' ? '_':'^';
+      const attachment = value => sourceText(value).replace(/\\(?:mathrm|mathbf|text|mathit)\{([^{}]*)\}/gu,'$1').replace(/[\s${}]/gu,'');
+      const nextBase = !base ? sourceText(node.nextSibling?.textContent).match(/^[\p{L}\p{N}()′″]+/u)?.[0] || '' : '';
+      const target = base ? `${attachment(base)}${operator}${attachment(v.text)}` : `${operator}${attachment(v.text)}${attachment(nextBase)}`;
+      const rendered = attachment(output.replace(/\[\^\d+\]/gu,'').replace(/\*\*/gu,'').replace(/\*/gu,''));
+      c.truth(`cases[${i}].baseAndAttachment`, !!(base || nextBase) && rendered.includes(target), `Source base/exponent must remain attached as ${target}`);
+    } else if (node.matches('b,i') && !node.querySelector('sup,sub')) {
+      c.truth(`cases[${i}].valueInContext`,compact(output).includes(compact(v.text)),'Styled scientific value must remain in source context');
+      if (node.tagName === 'B' && /^\d+$/u.test(v.text)) c.truth(`cases[${i}].compoundMarker`,output.includes(`**${v.text}**`),'Compound numbers must remain bold rather than becoming citations');
+    } else if (node.matches('.mathjax-tex')) {
+      const tex = texCanonical(v.text);
+      c.truth(`cases[${i}].sourceTeX`,output.includes(tex),'Source inline TeX must remain intact in its paragraph');
+    }
   }
 }
 function assertCrossrefs(context, e, c) {
   const { result, bibliography } = context;
+  const positions = new Map();
   for (const [i, v] of e.value.internal.entries()) {
+    const sourceKey = `${v.blockIds.join(',')}\u0000${v.href}\u0000${v.text}`, position = positions.get(sourceKey) || 0;
+    positions.set(sourceKey,position+1);
+    const source = retainedNodes(context,'a[href]',v.blockIds).filter(n=>n.getAttribute('href')===v.href && sourceText(n.textContent)===v.text)[position];
+    c.truth(`internal[${i}].source`,!!source,'Internal link must retain its source occurrence');
+    if (source) {
+      const { before,after } = sourceNeighbors(source);
+      c.truth(`internal[${i}].readableContext`,compactProse(result.markdown,result).includes(`${before}${sourceReadable(v.text).replace(/\s/gu,'')}${after}`),
+        'Internal reference text must survive in its original source context');
+    }
     const original = new URL(v.href, context.article.url).hash.slice(1), target = result.semantic.crossReferences.get(original);
     const expectedTarget = target?.anchor;
+    if (v.targetRetained) c.truth(`internal[${i}].identity`,!!target,'Retained source identity must have a semantic target');
     if (v.targetRetained && target) {
       const prefix = { figure:'fig', table:'tbl', equation:'eq', section:'sec' }[target.type];
       const renderedTarget = context.citationStyle === 'quarto' ? `${prefix}-${expectedTarget}` : expectedTarget;
@@ -297,9 +360,32 @@ function assertTables(context, e, c) {
       c.equal(`tables[${i}].sourceCellsAndSpans`, rows, v.sourceRows.map(row => row.map(({ tag,text,colspan,rowspan }) => ({ tag,text,colspan,rowspan }))));
       dom.window.close();
       c.truth(`tables[${i}].markdown`, !!actual.markdown, 'Structured table must have rendered Markdown cells');
+      c.equal(`tables[${i}].renderedTableOccurrences`,result.markdown.split(actual.markdown || '\u0000').length-1,1);
+      const grid=[];
+      for(const [rowIndex,row] of v.sourceRows.entries()) { grid[rowIndex] ||= [];let column=0;
+        for(const cell of row) { while(grid[rowIndex][column]!==undefined)column++;
+          for(let y=0;y<cell.rowspan;y++)for(let x=0;x<cell.colspan;x++) { grid[rowIndex+y] ||= [];grid[rowIndex+y][column+x]=x===0&&y===0?cell.text:''; }
+          column+=cell.colspan;
+        }
+      }
+      const width=Math.max(...grid.map(row=>row.length));const header=v.sourceRows[0].some(cell=>cell.tag==='TH');
+      const expectedGrid=(header?grid:[Array.from({length:width},(_,n)=>`Column ${n+1}`),...grid]).map(row=>Array.from({length:width},(_,n)=>row[n] || ''));
+      const renderedGrid=String(actual.markdown || '').split('\n').filter(line=>line.startsWith('|')).filter(line=>!/^\|\s*:?-+:?\s*\|/u.test(line))
+        .map(line=>line.slice(1,-1).split(/(?<!\\)\|/u).map(cell=>cell.trim()));
+      c.equal(`tables[${i}].renderedGridDimensions`,renderedGrid.map(row=>row.length),expectedGrid.map(row=>row.length));
+      for(const [y,row] of expectedGrid.entries())for(const [x,cell]of row.entries()) {
+        const normalizeCell=value=>compactProse(value,result).replace(/\\[()[\]]/gu,'');
+        c.equal(`tables[${i}].renderedCell[${y},${x}]`,normalizeCell(renderedGrid[y]?.[x] || ''),normalizeCell(cell));
+      }
     }
-    for (const [j, note] of v.sourceNotes.entries()) c.truth(`tables[${i}].notes[${j}]`,
-      readable(result.markdown, result).includes(sourceReadable(note.text)), 'Source table footer note must survive');
+    let previousNote=-1;
+    for (const [j, note] of v.sourceNotes.entries()) {
+      const tableSection=result.markdown.split(/^## Tables\s*$/mu)[1]?.split(/^## /mu)[0] || '';
+      const output=compactProse(tableSection,result),text=sourceReadable(note.text).replace(/\s/gu,'');
+      const position=output.indexOf(text);c.truth(`tables[${i}].notes[${j}]`,position>=0,'Source table footer note must survive');
+      c.equal(`tables[${i}].notes[${j}].occurrences`,output.split(text).length-1,1);
+      c.truth(`tables[${i}].notes[${j}].order`,position>previousNote,'Table notes must remain in source order');previousNote=position;
+    }
   }
   c.equal('debug.tableSummary.total', result.debug.tableSummary.totalTables, e.value.resources.length);
   c.equal('debug.tableSummary.statuses', result.debug.tableSummary.statuses.map(s => s.status), e.value.resources.map(r => r.expectedStatus));
@@ -352,13 +438,16 @@ export function compareArticleResult(article, result, { sourceDocument, sourceHt
     const expected = article.expectations.flatMap(e => e.assertionId === 'nature-source-equations-v1'
       ? (e.value.absenceWarning ? [e.value.absenceWarning] : [])
       : e.assertionId === 'nature-source-tables-v1' ? e.value.resources.filter(r => r.warning).map(r => `${result.tables.find(t => t.url === r.url)?.label}: ${r.warning}`) : []);
+    const difference = (left,right) => {
+      const remaining=[...right];return left.filter(item=>{const index=remaining.indexOf(item);if(index<0)return true;remaining.splice(index,1);return false;});
+    };
     const actual = result.debug.warnings, warnings = { expected,actual,
-      unexpected:actual.filter(w => !expected.includes(w)), missing:expected.filter(w => !actual.includes(w)) };
+      unexpected:difference(actual,expected), missing:difference(expected,actual) };
     const validation = runProductionValidators(result,citationStyle);
     return { version:ASSERTION_VERSION, articleId:article.articleId, citationStyle, expectations,
       validators:validation, warnings, summary:semanticSummary(result),
       pass:expectations.every(e => e.status === 'pass') && Object.values(validation).every(v => v.valid)
-        && !warnings.unexpected.length && !warnings.missing.length };
+        && !warnings.unexpected.length && !warnings.missing.length && isDeepStrictEqual(actual,expected) };
   } finally { dom?.window.close(); }
 }
 
@@ -369,4 +458,109 @@ export function expectationCoverage(manifest, { transportSeamAvailable = false, 
         : article.resources.length && !transportSeamAvailable ? 'BLOCKED_BY_D_TRANSPORT_SEAM':'EXECUTABLE_NOW',
     reason:parserDefects.get(`${article.articleId}/${e.id}`) || (article.resources.length && !transportSeamAvailable
       ? 'clipNature table replay transport forwarding is required before any whole-article offline clip':'') })));
+}
+
+export function auditSourceOracle(article, sourceDocument, resourceDocuments = new Map()) {
+  const c = checks(), roots = article.retainedBlocks.map(b => sourceDocument.querySelector(b.selector)).filter(Boolean);
+  const selected = selector => Array.from(sourceDocument.querySelectorAll(selector)).filter(n => roots.some(root => root === n || root.contains(n)));
+  const metadata = name => sourceText(sourceDocument.querySelector(`meta[name="${name}"]`)?.getAttribute('content'));
+  const records = [];
+  for (const e of article.expectations) {
+    const before = c.failures.length, v = e.value, key = e.assertionId;
+    const eq = (p,a,b) => c.equal(`${e.id}.${p}`,a,b);
+    const truth = (p,a,m) => c.truth(`${e.id}.${p}`,a,m);
+    if (key === 'nature-source-metadata-v1') {
+      for (const [field,name] of Object.entries({ title:'citation_title',doi:'citation_doi',journal:'citation_journal_title',volume:'citation_volume',issue:'citation_issue',firstPage:'citation_firstpage',lastPage:'citation_lastpage' })) eq(field,metadata(name),v[field]);
+      eq('url',sourceDocument.querySelector('link[rel="canonical"]')?.getAttribute('href'),v.url);
+      eq('authors',Array.from(sourceDocument.querySelectorAll('meta[name="citation_author"]')).map(n => sourceText(n.getAttribute('content'))),v.authors);
+      for (const [field,value] of Object.entries(v.sourceDateFields)) eq(`sourceDateFields.${field}`,metadata(field),value);
+      const section = sourceDocument.querySelector('section[data-title="Author information"]');
+      const within = n => roots.some(root => root === n || root.contains(n));
+      eq('notes',Array.from(section?.querySelectorAll('.c-article-author-information__item p') || []).filter(within).map(n => sourceText(n.textContent)),v.notes);
+      eq('affiliations',Array.from(section?.querySelectorAll('.c-article-author-affiliation__list > li') || []).filter(within).map(n => ({ address:sourceText(n.querySelector('.c-article-author-affiliation__address')?.textContent),authors:sourceText(n.querySelector('.c-article-author-affiliation__authors-list')?.textContent) })),v.affiliations);
+      eq('contributions',sourceText(section?.querySelector('#contributions + p')?.textContent),v.contributions);
+      const correspondence = section?.querySelector('#corresponding-author-list');
+      eq('correspondence',correspondence ? { text:sourceText(correspondence.textContent),firstEmail:correspondence.querySelector('a[href^="mailto:"]')?.getAttribute('href') || '' }:null,v.correspondence);
+    } else if (key === 'nature-source-abstract-v1') {
+      eq('paragraphs',selected('section[data-title="Abstract"] p').map(n => sourceText(n.textContent)),v.paragraphs);
+    } else if (key === 'nature-source-headings-v1') {
+      eq('ordered',selected('h2,h3,h4,h5,h6').map(n => ({ level:Number(n.tagName.slice(1)),id:n.id,text:sourceText(n.textContent),parentSection:sourceText(n.closest('section')?.getAttribute('data-title')) })),v.ordered.map(({level,id,text,parentSection})=>({level,id,text,parentSection})));
+    } else if (key === 'nature-source-equations-v1') {
+      eq('count',selected('.c-article-equation').length,v.count);
+      eq('ordered',selected('.c-article-equation').map(n => ({ id:n.id,number:sourceText(n.querySelector('.c-article-equation__number')?.textContent),sourceTeX:n.querySelector('.mathjax-tex')?.textContent.trim() || '' })),v.ordered.map(({id,number,sourceTeX})=>({id,number,sourceTeX})));
+    } else if (key === 'nature-source-figures-v1') {
+      eq('count',v.ordered.length,v.count);
+      eq('mainCount',v.ordered.filter(f=>!/^Extended Data/u.test(f.label)).length,v.mainCount);
+      eq('extendedCount',v.ordered.filter(f=>/^Extended Data/u.test(f.label)).length,v.extendedCount);
+      for (const [i,f] of v.ordered.entries()) {
+        const identity = sourceDocument.getElementById(f.id);
+        const node = identity?.closest('figure,.js-c-reading-companion-figures-item') || identity;
+        truth(`ordered[${i}].source`,!!node,'Original figure identity must exist');
+        if (!node) continue;
+        const heading = node.querySelector('[data-test="figure-caption-text"],figcaption,h3');
+        const description = node.querySelector('[data-test="bottom-caption"],.c-article-section__figure-description,.c-article-supplementary__description');
+        const caption = sourceText([heading?.textContent,description?.textContent].filter(Boolean).join(' '));
+        eq(`ordered[${i}].captionText`,caption,f.captionText);
+        truth(`ordered[${i}].captionStart`,caption.startsWith(f.captionStart),'Caption start must come from the original caption');
+        truth(`ordered[${i}].captionEnd`,caption.endsWith(f.captionEnd),'Caption end must come from the original caption');
+        eq(`ordered[${i}].label`,sourceText(heading?.textContent),f.label);
+        eq(`ordered[${i}].boldSingleLetterSequence`,Array.from(node.querySelectorAll('b,strong')).map(n=>sourceText(n.textContent)).filter(text=>/^[a-z]$/u.test(text)),f.boldSingleLetterSequence);
+        if (description) eq(`ordered[${i}].descriptionPlacement`,{ id:description.id,parentTag:description.parentElement.tagName,parentClass:description.parentElement.className,insideFigure:!!description.closest('figure'),previousSiblingTag:description.previousElementSibling?.tagName || '' },f.descriptionPlacement);
+        eq(`ordered[${i}].descriptionIsSibling`,!!description && !node.contains(description),f.descriptionIsSibling);
+        if (!/^Extended Data/u.test(f.label)) {
+          const wrapper=node.closest('.js-c-reading-companion-figures-item') || node;
+          const adjacent=direction=>{let p=wrapper[direction];while(p&&p.tagName!=='P')p=p[direction];return p?sourceText(p.textContent):null;};
+          const previous=adjacent('previousElementSibling'),next=adjacent('nextElementSibling');
+          eq(`ordered[${i}].previousParagraph`,previous?.slice(-f.previousParagraph?.length) || null,f.previousParagraph);
+          eq(`ordered[${i}].nextParagraph`,next?.slice(0,f.nextParagraph?.length) || null,f.nextParagraph);
+        }
+        const candidates = [...(node.matches('[data-supp-info-image]') ? [node]:[]),...node.querySelectorAll('source,img,[data-supp-info-image]')].map(n=>Object.fromEntries(['src','srcset','data-src','data-srcset','data-original','data-lazy-src','data-supp-info-image','alt'].filter(k=>n.hasAttribute(k)).map(k=>[k,n.getAttribute(k)])));
+        eq(`ordered[${i}].imageCandidates`,candidates,f.imageCandidates);
+      }
+    } else if (key === 'nature-source-citations-v1') {
+      const references = selected('ol.c-article-references > li,ol.c-article-references__list > li');
+      eq('referenceCount',references.length,v.referenceCount);
+      references.forEach((node,i) => { const expected=v.references[i];
+        if (!expected) return;
+        eq(`references[${i}].text`,sourceText(node.querySelector('.c-article-references__text')?.textContent || node.textContent),expected.text);
+        eq(`references[${i}].id`,node.id,expected.id);
+        eq(`references[${i}].doi`,node.querySelector('[data-doi]')?.getAttribute('data-doi') || '',expected.doi);
+        eq(`references[${i}].doiLinks`,Array.from(node.querySelectorAll('a[href]')).map(n=>n.getAttribute('href')).filter(href=>/doi\.org/u.test(href)),expected.doiLinks);
+        if (expected.sourceAnchorId) eq(`references[${i}].sourceAnchorId`,node.querySelector(expected.sourceAnchorSelector)?.id,expected.sourceAnchorId);
+      });
+      const superscripts = selected('sup').filter(n=>n.querySelector('a[data-test="citation-ref"],a[href*="#ref-CR"]'));
+      eq('clusters.orderedSourcePayload',superscripts.map(n=>({text:sourceText(n.textContent),anchors:Array.from(n.querySelectorAll('a[href]')).map(a=>({text:sourceText(a.textContent),href:a.getAttribute('href')}))})),v.clusters.map(({text,anchors})=>({text,anchors})));
+      for (const [i,cluster] of v.clusters.entries()) {
+        const numbers=cluster.text.split(',').flatMap(part=>{const match=part.trim().match(/^(\d+)\s*[–−-]\s*(\d+)$/u);return match?Array.from({length:Number(match[2])-Number(match[1])+1},(_,n)=>Number(match[1])+n):[Number(part.trim())];});
+        eq(`clusters[${i}].orderedNumbers`,numbers,cluster.orderedNumbers);
+      }
+    } else if (key === 'nature-source-inline-v1') {
+      for (const [i,item] of v.cases.entries()) {
+        const block=article.retainedBlocks.find(b=>b.id===item.sourceLocation.blockId),root=sourceDocument.querySelector(block?.selector);
+        const node=root?.querySelectorAll(item.sourceLocation.selector)[item.sourceLocation.index];
+        eq(`cases[${i}].tag`,node?.tagName,item.tag);eq(`cases[${i}].text`,sourceText(node?.textContent),item.text);
+        eq(`cases[${i}].subtree`,node?.outerHTML,item.subtree);
+        const paragraph=sourceText(node?.closest('p')?.textContent);
+        truth(`cases[${i}].paragraphStart`,paragraph.startsWith(item.paragraphStart),'Inline source context start must match');
+        truth(`cases[${i}].paragraphEnd`,paragraph.endsWith(item.paragraphEnd),'Inline source context end must match');
+      }
+    } else if (key === 'nature-source-crossrefs-v1') {
+      for (const [i,item] of [...v.internal,...v.externalFragments].entries()) truth(`links[${i}]`,selected('a[href]').some(n=>n.getAttribute('href')===item.href && sourceText(n.textContent)===item.text),'Exact source link identity/text must exist');
+    } else if (key === 'nature-source-ui-v1') {
+      for (const ui of v.excluded) { const block=article.retainedBlocks.find(b=>b.id===ui.blockId);eq(ui.blockId,sourceText(sourceDocument.querySelector(block?.selector)?.textContent),ui.text); }
+    } else if (key === 'nature-source-tables-v1') {
+      for (const resource of v.resources) {
+        const document=resourceDocuments.get(resource.id);
+        truth(resource.id,!!document,'Independent table source document is required');if(!document)continue;
+        eq(`${resource.id}.title`,sourceText(document.querySelector('h1')?.textContent),resource.title);
+        const rows=Array.from(document.querySelector('table')?.rows || []).map(row=>Array.from(row.cells).map(cell=>({tag:cell.tagName,text:sourceText(cell.textContent),colspan:cell.colSpan,rowspan:cell.rowSpan,html:cell.innerHTML})));
+        eq(`${resource.id}.sourceRows`,rows,resource.sourceRows);
+        eq(`${resource.id}.sourceNotes`,Array.from(document.querySelectorAll(resource.sourceNotesLocator)).map(n=>({text:sourceText(n.textContent),html:n.innerHTML})),resource.sourceNotes);
+        eq(`${resource.id}.physicalRowCount`,rows.length,resource.physicalRowCount);
+        eq(`${resource.id}.physicalCellCounts`,rows.map(row=>row.length),resource.physicalCellCounts);
+      }
+    }
+    records.push({ id:e.id,assertionId:e.assertionId,status:c.failures.length===before?'pass':'failure',failures:c.failures.slice(before) });
+  }
+  return records;
 }
