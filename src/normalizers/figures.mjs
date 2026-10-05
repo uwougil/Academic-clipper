@@ -166,17 +166,47 @@ function cellTextForMarkdown(value) {
     .trim();
 }
 
+function isTableNoteReferenceContext(sup, cell) {
+  // Unlinked publisher markers are ambiguous. Infer only final markers on
+  // prose labels, uncertainty values, or labels with parenthesized units;
+  // a matching footer alone is never evidence that a power is a reference.
+  const context = sup.closest('p') || cell;
+  const range = sup.ownerDocument.createRange();
+  range.selectNodeContents(context);
+  range.setStartAfter(sup);
+  if (range.toString().trim()) return false;
+  range.selectNodeContents(context);
+  range.setEndBefore(sup);
+  const before = range.cloneContents();
+  const text = before.textContent.trim();
+  const proseLabel = (value) => {
+    const words = value.trim().split(/\s+/u);
+    return words.length > 1 && words.every(word => /^[A-Za-z]{2,}(?:-[A-Za-z]{2,})*$/u.test(word))
+      && /^[a-z]{4,}$/u.test(words.at(-1));
+  };
+  if (!before.querySelector('sub, sup, i, b, em, strong, .mathjax-tex')) {
+    if (proseLabel(text) || /^[+−-]?\d+(?:\.\d+)?\s*±\s*\d+(?:\.\d+)?$/u.test(text)) return true;
+  }
+  const annotation = text.match(/^(.*\S)\s+\(([^()]*)\)$/u);
+  if (!annotation || !/^[A-Za-z]{1,3}⊙?(?:[+−-]?\d+)?(?:\s+[A-Za-z]{1,3}(?:[+−-]?\d+)?)*$/u.test(annotation[2])) return false;
+  // A lone indexed symbol in parentheses is still an expression. Require a
+  // solar-unit symbol or multiple unit tokens for this inference.
+  if (!annotation[2].includes('⊙') && (annotation[2].match(/[A-Za-z]{2,3}/gu) || []).length < 2) return false;
+  if ([...before.querySelectorAll('sub')].some(node => !/^(?:⊙|\d+)$/u.test(node.textContent.trim()))
+    || [...before.querySelectorAll('sup')].some(node => !/^[+−-]?\d+$/u.test(node.textContent.trim()))) return false;
+  if (proseLabel(annotation[1])) return true;
+  const mathLabels = before.querySelectorAll('.mathjax-tex');
+  return mathLabels.length === 1 && annotation[1] === mathLabels[0].textContent.trim()
+    && annotation[2].trim().split(/\s+/u).length > 1;
+}
+
 async function tableCellMarkdown(cell, url, noteMarkers) {
   const contents = cell.cloneNode(true);
   for (const sup of contents.querySelectorAll('sup')) {
     const marker = sup.textContent.trim();
-    let previous = sup.previousSibling;
-    while (previous?.nodeType === 3 && !previous.textContent.trim()) previous = previous.previousSibling;
     // Numeric powers cannot be inferred to be note references from marker equality.
     if (!/^[A-Za-z*†‡]$/u.test(marker) || !noteMarkers.has(marker) || sup.querySelector('a') || sup.closest('.mathjax-tex')
-      || ['I', 'B', 'EM', 'STRONG'].includes(previous?.tagName)
-      || previous?.classList?.contains('mathjax-tex')
-      || previous?.nodeType === 3 && /(?:^|\s)[A-Za-z]$/u.test(previous.textContent)) continue;
+      || sup.closest('sub, i, b, em, strong') || !isTableNoteReferenceContext(sup, contents)) continue;
     const readableMarker = contents.ownerDocument.createElement('strong');
     readableMarker.textContent = marker;
     sup.replaceWith(readableMarker);
