@@ -107,13 +107,14 @@ for (const citationStyle of ['markdown', 'quarto', 'links']) {
     assert.deepEqual(result.semantic.citations.map(citation => citation.numbers), record.provenance.sourceCitationClusters);
     assert.equal(result.references.length, 73);
     assert.deepEqual(result.metadata.authors, record.provenance.sourceRights.orderedSourceCreators);
-    assert.deepEqual(result.debug.warnings, ['No equation nodes were detected.']);
+    assert.deepEqual(result.debug.warnings, ['No Nature figures were detected.', 'No equation nodes were detected.']);
     if (citationStyle === 'quarto') {
       const bibliography = referencesBib(result.references);
+      const bibliographyKeys = new Set(Array.from(bibliography.matchAll(/^@[A-Za-z]+\{([^,]+),/gmu), match => match[1]));
       for (const citation of result.semantic.citations) for (const number of citation.numbers) {
         const key = result.references.find(reference => reference.number === number).citationKey;
         assert.ok(result.markdown.includes(`@${key}`));
-        assert.ok(bibliography.includes(`@misc{${key},`));
+        assert.ok(bibliographyKeys.has(key));
       }
     }
     assertValidators(result.markdown, citationStyle);
@@ -190,4 +191,20 @@ test('synthetic boundary controls preserve existing styled runs, chemistry, math
   const citation = 'm<sup><a data-test="citation-ref" href="#ref-CR3">3</a></sup>';
   assert.equal(normalizeAcademicInline(citation), 'm$^{<a data-test="citation-ref" href="#ref-CR3">3</a>}$');
   assert.equal(validateMathDelimiters('m$^{3}$').valid, false, 'Scientific validators must continue rejecting the old orphan');
+});
+
+test('synthetic unit prefixes and explicit numeric bases keep typed signed powers', () => {
+  for (const [html, expected] of [
+    ['cm<sup>−3</sup>', '$\\mathrm{cm}^{−3}$'],
+    ['ml<sup>-1</sup>', '$\\mathrm{ml}^{-1}$'],
+    ['Å<sup>3</sup>', '$\\mathrm{Å}^{3}$'],
+    ['atom<sup>−1</sup>', '$\\mathrm{atom}^{−1}$'],
+    ['10<sup>37</sup>', '$10^{37}$'],
+    ['2.5<sup>+2</sup>', '$2.5^{+2}$'],
+  ]) {
+    const result = normalizeAcademicInline(html);
+    assert.equal(result, expected);
+    assert.equal(validateMathDelimiters(result).valid, true);
+    assert.equal(normalizeAcademicInline(result), result);
+  }
 });

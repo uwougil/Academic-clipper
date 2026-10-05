@@ -92,6 +92,57 @@ function subscriptValue(content) {
   return value;
 }
 
+// Recognize complete unit tokens, never an arbitrary word's terminal letters.
+// The non-SI tokens cover common astronomical, chemical and rate notation.
+const UNIT_SYMBOL = /^(?:(?:[fpnumcdhkMGT]|[µμ])?(?:m|s|g|l|L|Hz|A|K|mol|cd|eV)|Å|erg|pc|Jy|yr|min|h|d|day|atom)$/u;
+
+function combineLiteralPowers(value) {
+  let output = '';
+  let cursor = 0;
+  while (cursor < value.length) {
+    // This pass only repairs prose attachments. Existing math and code remain
+    // opaque, including source examples that happen to contain orphan syntax.
+    const protectedDelimiter = value[cursor] === '`'
+      ? value.slice(cursor).match(/^`+/u)[0]
+      : value[cursor] === '$' && value[cursor - 1] !== '\\'
+        ? value.startsWith('$$', cursor) ? '$$' : '$'
+        : '';
+    if (protectedDelimiter) {
+      const closing = value.indexOf(protectedDelimiter, cursor + protectedDelimiter.length);
+      const end = closing < 0 ? value.length : closing + protectedDelimiter.length;
+      output += value.slice(cursor, end);
+      cursor = end;
+      continue;
+    }
+
+    const token = value.slice(cursor).match(/^(?:\p{L}+|\d+(?:\.\d+)?)/u)?.[0];
+    if (token) {
+      const tokenEnd = cursor + token.length;
+      const before = value[cursor - 1] || '';
+      const fragment = mathFragmentAt(value, tokenEnd);
+      const numericBase = /^\d+(?:\.\d+)?$/u.test(token);
+      if (!/[\p{L}\p{N}_*$]/u.test(before)
+        && (numericBase || UNIT_SYMBOL.test(token))
+        && fragment?.kind === '^'
+        && /^[−+\-]?\d+$/u.test(fragment.content)
+        // A leading isotope attaches to the following element, not a prior
+        // number/unit. Do not consume forms such as ppm <sup>1</sup>H.
+        && !/[\p{L}\p{N}_]/u.test(value[fragment.end] || '')) {
+        const base = numericBase ? token : `\\mathrm{${token}}`;
+        output += `$${base}^{${fragment.content}}$`;
+        cursor = fragment.end;
+      } else {
+        output += token;
+        cursor = tokenEnd;
+      }
+      continue;
+    }
+    output += value[cursor];
+    cursor += 1;
+  }
+  return output;
+}
+
 function combineScientificRuns(value) {
   let output = '';
   let cursor = 0;
@@ -141,7 +192,7 @@ function normalizeAcademicAdjacency(value) {
 }
 
 export function normalizeAcademicInline(markdown) {
-  const converted = renderRange(String(markdown || '')).output;
+  const converted = combineLiteralPowers(renderRange(String(markdown || '')).output);
   // Nature often represents a scientific variable as adjacent italic base and
   // sub/sup nodes. Rejoin the complete semantic run so P + sub(spin) + sup(-1)
   // becomes one math expression, while chemical formulas such as Mn + sub(3)
