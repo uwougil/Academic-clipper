@@ -7,7 +7,7 @@ Work Contract：[Issue #51](https://github.com/uwougil/Academic-clipper/issues/5
 - Accepted main：`4783291dcb8a5d0ac62dc2e5d314ba91f6c6d9e2`（PR #49）；独立核验 Main CI `37272529095` 三 jobs `111642385793` / `111642385891` / `111642385902` 均 success，Secret scan `37272529070` success。最初只读 preflight 在 `e0a341fc97ff845a250c2f016dcb2363e10ed49e`，生产文件未改；文件 gate 释放后 fast-forward 到 accepted `4783291`。
 - Branch：`codex/issue-10-bug-table-mathjax`；managed worktree：`C:/Users/guoli/.codex/worktrees/issue-10-bug-table-mathjax/academic-clipper`。未改 B checkout、index、branch 或任何其他 agent 的文件。
 - 原始 source contract：B `b718fa8b826c2abeb45c2dd30cd5414b3d6d8330`，仅用 Git object 只读核验；没有选择 B dependency copies 或 PR #13 commits。
-- 唯一 production 改动：`src/normalizers/figures.mjs` 的 `tableCellMarkdown()` 三行替换。新 authored 文件为 `test/nature-table-mathjax.test.mjs`、`test/fixtures/nature-table-mathjax/.gitattributes`、同目录 FRB table excerpt/provenance，以及本文。
+- 唯一 production 改动：`src/normalizers/figures.mjs` 的 `tableCellMarkdown()`，复用现有 typed MathJax protection，并按原 source delimiters 保留 inline/display 角色。新 authored 文件为 `test/nature-table-mathjax.test.mjs`、`test/fixtures/nature-table-mathjax/.gitattributes`、同目录 FRB table excerpt/provenance，以及本文。
 - 先交 RED-only commit `258447a90165167709355bfcb53ae83a1569b4b2`；随后 fix commit 与本 handoff receipt 的完整 SHA 用 `git log --reverse --format="%H %s" 4783291dcb8a5d0ac62dc2e5d314ba91f6c6d9e2..HEAD` 重建。RED commit 只含 source excerpt/provenance 与永久回归，production parent 为 accepted main。
 
 没有改变 canonical spec、PRD/EDD、B manifest/oracle/fixtures、validators、security、writer、publisher routing、dependencies、golden artifact、extension 或 CI。PRD §3 的原始 TeX/上下标保留与 EDD §2.4–2.5 的 normalization/方言边界是已有正确期待。
@@ -52,7 +52,9 @@ A 实际 dependency snapshot 只在外部临时目录，由 Git objects 导出�
 
 三个原 `.mathjax-tex` text 从 raw DOM 读取，不把 chat 转义文本或生产 output 当 source oracle。Defuddle 首先把 `_` 转义为 `\_`；随后 legacy delimiter normalization 恢复 `$...$` 和 `\rm` font switch，却保留合法 literal escape guard。最终 `${903}\_{-111}^{+72}$` 等失去 source subscript operator。正确期待独立保留 original TeX/attachment，只接受已有 `\rm` → `\mathrm` presentation normalization。
 
-修复在 footnote marker association 判定后，复用同文件已有 `protectCaptionMath()`，让 typed placeholders 经过 Defuddle，再由 `normalizeMath(converted, { inlineMath: protectedMath.math })` 恢复原 TeX。原 `_` 没有进入 Markdown text escaping，原合法 `\_` 也保留；没有全局 unescape。其余 table cell处理与所有 guards 保持。
+修复在 footnote marker association 判定后，复用同文件已有 `protectCaptionMath()`，让 typed placeholders 经过 Defuddle；原 `\[...\]` / `$$...$$` 对应 `semanticMath.displayMath`，其余现有 inline 角色对应 `semanticMath.inlineMath`，再由 `normalizeMath(converted, semanticMath)` 恢复原 TeX。原 `_` 没有进入 Markdown text escaping，原合法 `\_` 也保留；没有全局 unescape。其余 table cell处理与所有 guards 保持。
+
+对已改变路径的精确 review 控制发现，最初将全部 typed records当 inline 会改变合法 display节点的角色。用同一明确 synthetic non-scholarly literal-text cells分别运行 unchanged `4783291` 与初始修复：`\[\text{literal display}\]` 和 `$$\text{literal display}$$` 在 baseline均 valid/displayCount1/inline0，初始修复变成 valid/display0/inline1；`\(\text{literal inline}\)` baseline与修复均 inline1/display0。这些控制不算真实 source/admission，不改真实 fixture。先提交 role regression `7a1c4bebe4e5c40b106cf4c457977229be81673d`，3 tests为1 PASS / 2 FAIL；再只在 `tableCellMarkdown()`按原完整 delimiter pair分配既有 typed records。最终两个 display角色均保持 display1/inline0，inline保持inline1/display0；内容只经过已有 math/cell whitespace presentation。`display-control-report.json`保留 baseline/final结果和 baseline生产 Git bytes SHA-256 `8860d32e3f727b3f5944fc79a6af4a383282c3d555c1c597252badfbe0a379ef`，`display-initial-fix-red.json`另保存初始差异。
 
 ## 确切验证与限制
 
@@ -63,11 +65,13 @@ Runtime：Windows / Node `v24.14.1`。日志、原 source audit/helper snapshots
 | 外部 `node preflight.mjs <own-worktree>`，`e0a341f` 未改实现 | exit1；raw/source/rights/3 TD prehash/recipe/重复/幂等 PASS；3 cells × 3 dialects 全 9 FAIL |
 | 同 command，accepted `4783291` 未改实现 | exit1；同 9 FAIL；未消费 pending main；`preflight-478-red.json` / `.log` 保存 |
 | `node --test test/nature-table-mathjax.test.mjs`，未改 production | exit1；16 tests，3 PASS / 13 FAIL / 0 skip；9 source children、3 failing parents、1合法 literal TeX escape case失败。输入/署名、plain underscore/code、determinism controls通过 |
-| 同 permanent regression，修复后 | exit0；16/16 PASS，0 fail/skip；9 source cases、literal `\_`、plain underscore/code、6 notes/7 markers/三方言 identifiers、raw HTML/structure/crossref validators、verified math fragments、A→literal→A deterministic output PASS |
+| `node --test --test-name-pattern='synthetic .* retains its original MathJax role' test/nature-table-mathjax.test.mjs`，角色修复前 | exit1；3 tests，1 PASS / 2 FAIL，0 skip；两个 display角色确实因displayCount0失败 |
+| `node --test test/nature-table-mathjax.test.mjs`，最终修复后 | exit0；19/19 PASS，0 fail/skip；9 source cases、literal `\_`、plain underscore/code、3 source delimiter role controls、6 notes/7 markers/三方言 identifiers、raw HTML/structure/crossref validators、verified math fragments、A→literal→A deterministic output PASS |
+| 外部 `node display-control.mjs <own-worktree>`，unchanged `4783291`与最终修复 | exit0；同 synthetic display/inline source与最终类型/计数一致；两种display1/inline0，一种inline1/display0；全部valid |
 | 原外部 `node preflight.mjs <own-worktree>`，修复后 | exit0；9/9 actual final source expressions PASS；原 unit/note association保持 |
 | `npm ci` | exit0；65 packages，0 vulnerabilities |
-| `node --test test/nature-table-mathjax.test.mjs test/nature-table-notes.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs test/nature-caption-citations.test.mjs` | exit0；81/81 PASS，0 fail/skip |
-| `npm test` | exit0；310/310 PASS，0 fail/skip/todo/cancel，86.740s；`full-tests-green.log` |
+| `node --test test/nature-table-mathjax.test.mjs test/nature-table-notes.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs test/nature-caption-citations.test.mjs` | 最终 role修复后 exit0；84/84 PASS，0 fail/skip；`affected-final-green.log` |
+| `npm test` | 最终 role修复后 exit0；313/313 PASS，0 fail/skip/todo/cancel，86.701s；`full-tests-final-green.log` |
 | `npm run build` | exit0；仅生成 ignored `dist/extension` |
 | `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0；13 display equations、50 references；math/scientificFragments/structure/raw HTML/crossrefs 全 valid；golden只读 |
 | `git diff --check` / `git diff --cached --check` / tracked filenames / index-vs-checkout excerpt hash / `git status --short` | PASS；delivery严格 owned文件；无capture/credentials/额外helper，最终clean状态与exact head由PR/交接消息记录 |
