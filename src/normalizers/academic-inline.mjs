@@ -102,9 +102,99 @@ function isEscaped(value, index) {
   return backslashes % 2 === 1;
 }
 
+function expandLeadingTabs(value, column = 0) {
+  return value.replace(/^[ \t]*/u, prefix => [...prefix].map(character => {
+    const width = character === '\t' ? 4 - column % 4 : 1;
+    column += width;
+    return ' '.repeat(width);
+  }).join(''));
+}
+
+function quotePrefix(value, column) {
+  const prefix = value.match(/^ {0,3}>/u)?.[0];
+  if (!prefix) return null;
+  const content = expandLeadingTabs(value.slice(prefix.length), column + prefix.length);
+  const padding = content.startsWith(' ') ? 1 : 0;
+  return { content: content.slice(padding), column: column + prefix.length + padding };
+}
+
+function blockCodeRanges(value) {
+  // Locate block code before the prose pass; its contents remain opaque.
+  const ranges = new Map();
+  let active = null;
+  let containers = [];
+  let paragraph = false;
+  for (const line of value.matchAll(/[^\n]*(?:\n|$)/gu)) {
+    if (!line[0]) continue;
+    const start = line.index;
+    const end = start + line[0].length;
+    let content = expandLeadingTabs(line[0].replace(/\r?\n$/u, ''));
+    let column = 0;
+    const continued = [];
+    // Consume existing quote/list prefixes in their original nesting order.
+    for (const container of containers) {
+      if (container.kind === 'quote') {
+        const quote = quotePrefix(content, column);
+        if (!quote) break;
+        ({ content, column } = quote);
+      } else {
+        if (content.trim() && !content.startsWith(' '.repeat(container.width))) break;
+        content = content.slice(container.width);
+        column += container.width;
+      }
+      continued.push(container);
+    }
+    const sameContainer = continued.length === containers.length;
+    const blank = !content.trim();
+    if (active) {
+      if (sameContainer && (active.kind === 'fenced' || blank || content.startsWith('    '))) {
+        ranges.set(active.start, end);
+        const closing = content.match(/^ {0,3}(`{3,}|~{3,})[ \t]*$/u);
+        if (active.kind === 'fenced' && closing?.[1][0] === active.character && closing[1].length >= active.length) active = null;
+        paragraph = false;
+        continue;
+      }
+      active = null;
+      paragraph = false;
+    }
+    if (!sameContainer) paragraph = false;
+    containers = continued;
+    while (true) {
+      const quote = quotePrefix(content, column);
+      if (quote) {
+        ({ content, column } = quote);
+        containers.push({ kind: 'quote' });
+        paragraph = false;
+        continue;
+      }
+      const marker = content.match(/^ {0,3}([-+*]|\d{1,9}[.)])(?=[ \t]|$)/u);
+      if (!marker) break;
+      const tail = expandLeadingTabs(content.slice(marker[0].length), column + marker[0].length);
+      if (paragraph && (!tail.trim() || (/^\d/u.test(marker[1]) && !/^1[.)]$/u.test(marker[1])))) break;
+      const padding = tail.match(/^ */u)[0].length;
+      const contentPadding = padding > 4 || padding === 0 ? 1 : padding;
+      const width = marker[0].length + contentPadding;
+      containers.push({ kind: 'list', width });
+      content = tail.slice(contentPadding);
+      column += width;
+      paragraph = false;
+    }
+    const opening = content.match(/^ {0,3}(`{3,}|~{3,})([^\n]*)$/u);
+    if (opening && (opening[1][0] !== '`' || !opening[2].includes('`'))) {
+      active = { kind: 'fenced', start, character: opening[1][0], length: opening[1].length };
+    } else if (!paragraph && content.startsWith('    ')) {
+      active = { kind: 'indented', start };
+    }
+    if (active) ranges.set(start, end);
+    paragraph = !active && Boolean(content.trim())
+      && !/^ {0,3}(?:#{1,6}(?:\s|$)|(?:=+|-+)[ \t]*$|(?:\*[ \t]*){3,}$|(?:-[ \t]*){3,}$|(?:_[ \t]*){3,}$)/u.test(content);
+  }
+  return ranges;
+}
+
 function literalProtectedEnd(value, start) {
   const character = value[start];
-  if (!/[$`~]/u.test(character) || isEscaped(value, start)) return null;
+  if (!/[$`]/u.test(character) || isEscaped(value, start)) return null;
   if (character === '$') {
     const delimiter = value.startsWith('$$', start) ? '$$' : '$';
     let closing = start + delimiter.length;
@@ -115,22 +205,7 @@ function literalProtectedEnd(value, start) {
     return value.length;
   }
 
-  const run = value.slice(start).match(/^(?:`+|~+)/u)[0];
-  const lineStart = value.lastIndexOf('\n', start - 1) + 1;
-  const lineEnd = value.indexOf('\n', start);
-  const restOfLine = value.slice(start + run.length, lineEnd < 0 ? value.length : lineEnd);
-  const fenced = run.length >= 3 && /^ {0,3}$/u.test(value.slice(lineStart, start))
-    && (character !== '`' || !restOfLine.includes('`'));
-  if (fenced) {
-    const fences = /(?:^|\n) {0,3}(`{3,}|~{3,})[ \t]*\r?(?=\n|$)/gu;
-    fences.lastIndex = start + run.length;
-    let match;
-    while ((match = fences.exec(value))) {
-      if (match[1][0] === character && match[1].length >= run.length) return fences.lastIndex;
-    }
-    return value.length;
-  }
-  if (character !== '`') return null;
+  const run = value.slice(start).match(/^`+/u)[0];
   const runs = /`+/gu;
   runs.lastIndex = start + run.length;
   let match;
@@ -143,10 +218,11 @@ function literalProtectedEnd(value, start) {
 function combineLiteralPowers(value) {
   let output = '';
   let cursor = 0;
+  const codeRanges = blockCodeRanges(value);
   while (cursor < value.length) {
     // This pass only repairs prose attachments. Existing math and code remain
     // opaque, including source examples that happen to contain orphan syntax.
-    const end = literalProtectedEnd(value, cursor);
+    const end = codeRanges.get(cursor) ?? literalProtectedEnd(value, cursor);
     if (end !== null) {
       output += value.slice(cursor, end);
       cursor = end;
