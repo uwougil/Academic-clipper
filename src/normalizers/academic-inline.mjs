@@ -92,6 +92,189 @@ function subscriptValue(content) {
   return value;
 }
 
+// Recognize complete unit tokens, never an arbitrary word's terminal letters.
+// The non-SI tokens cover common astronomical, chemical and rate notation.
+const UNIT_SYMBOL = /^(?:(?:[fpnumcdhkMGT]|[µμ])?(?:m|s|g|l|L|Hz|A|K|mol|cd|eV)|Å|erg|pc|Jy|yr|min|h|d|day|atom)$/u;
+
+function isEscaped(value, index) {
+  let backslashes = 0;
+  for (let cursor = index - 1; cursor >= 0 && value[cursor] === '\\'; cursor -= 1) backslashes += 1;
+  return backslashes % 2 === 1;
+}
+
+function expandLeadingTabs(value, column = 0) {
+  return value.replace(/^[ \t]*/u, prefix => [...prefix].map(character => {
+    const width = character === '\t' ? 4 - column % 4 : 1;
+    column += width;
+    return ' '.repeat(width);
+  }).join(''));
+}
+
+function quotePrefix(value, column) {
+  const prefix = value.match(/^ {0,3}>/u)?.[0];
+  if (!prefix) return null;
+  const content = expandLeadingTabs(value.slice(prefix.length), column + prefix.length);
+  const padding = content.startsWith(' ') ? 1 : 0;
+  return { content: content.slice(padding), column: column + prefix.length + padding };
+}
+
+function isThematicBreak(value) {
+  return /^ {0,3}(?:(?:\*[ \t]*){3,}|(?:-[ \t]*){3,}|(?:_[ \t]*){3,})$/u.test(value);
+}
+
+function blockCodeRanges(value) {
+  // Locate block code before the prose pass; its contents remain opaque.
+  const ranges = new Map();
+  let active = null;
+  let containers = [];
+  let paragraph = false;
+  let opaqueEnd = 0;
+  for (const line of value.matchAll(/[^\n]*(?:\n|$)/gu)) {
+    if (!line[0]) continue;
+    const start = line.index;
+    const end = start + line[0].length;
+    // Existing math and inline code cannot open or close block-code state.
+    if (start < opaqueEnd) continue;
+    let content = expandLeadingTabs(line[0].replace(/\r?\n$/u, ''));
+    let column = 0;
+    const continued = [];
+    // Consume existing quote/list prefixes in their original nesting order.
+    for (const container of containers) {
+      if (container.kind === 'quote') {
+        const quote = quotePrefix(content, column);
+        if (!quote) break;
+        ({ content, column } = quote);
+      } else {
+        if (content.trim() && !content.startsWith(' '.repeat(container.width))) break;
+        content = content.slice(container.width);
+        column += container.width;
+      }
+      continued.push(container);
+    }
+    const sameContainer = continued.length === containers.length;
+    const blank = !content.trim();
+    if (active) {
+      if (sameContainer && (active.kind === 'fenced' || blank || content.startsWith('    '))) {
+        ranges.set(active.start, end);
+        const closing = content.match(/^ {0,3}(`{3,}|~{3,})[ \t]*$/u);
+        if (active.kind === 'fenced' && closing?.[1][0] === active.character && closing[1].length >= active.length) active = null;
+        paragraph = false;
+        continue;
+      }
+      active = null;
+      paragraph = false;
+    }
+    if (!sameContainer) paragraph = false;
+    containers = continued;
+    while (true) {
+      const quote = quotePrefix(content, column);
+      if (quote) {
+        ({ content, column } = quote);
+        containers.push({ kind: 'quote' });
+        paragraph = false;
+        continue;
+      }
+      // A thematic break takes precedence over a sequence of list markers.
+      if (isThematicBreak(content)) break;
+      const marker = content.match(/^ {0,3}([-+*]|\d{1,9}[.)])(?=[ \t]|$)/u);
+      if (!marker) break;
+      const tail = expandLeadingTabs(content.slice(marker[0].length), column + marker[0].length);
+      if (paragraph && (!tail.trim() || (/^\d/u.test(marker[1]) && !/^1[.)]$/u.test(marker[1])))) break;
+      const padding = tail.match(/^ */u)[0].length;
+      const contentPadding = padding > 4 || padding === 0 ? 1 : padding;
+      const width = marker[0].length + contentPadding;
+      containers.push({ kind: 'list', width });
+      content = tail.slice(contentPadding);
+      column += width;
+      paragraph = false;
+    }
+    const opening = content.match(/^ {0,3}(`{3,}|~{3,})([^\n]*)$/u);
+    if (opening && (opening[1][0] !== '`' || !opening[2].includes('`'))) {
+      active = { kind: 'fenced', start, character: opening[1][0], length: opening[1].length };
+    } else if (!paragraph && content.startsWith('    ')) {
+      active = { kind: 'indented', start };
+    }
+    if (active) ranges.set(start, end);
+    const setextHeading = paragraph && /^ {0,3}(?:=+|-+)[ \t]*$/u.test(content);
+    paragraph = !active && Boolean(content.trim())
+      && !setextHeading && !isThematicBreak(content) && !/^ {0,3}#{1,6}(?:\s|$)/u.test(content);
+    if (!active) {
+      for (const match of line[0].matchAll(/[$`]/gu)) {
+        const index = start + match.index;
+        if (index < opaqueEnd) continue;
+        const protectedEnd = literalProtectedEnd(value, index);
+        if (protectedEnd !== null) opaqueEnd = protectedEnd;
+      }
+    }
+  }
+  return ranges;
+}
+
+function literalProtectedEnd(value, start) {
+  const character = value[start];
+  if (!/[$`]/u.test(character) || isEscaped(value, start)) return null;
+  if (character === '$') {
+    const delimiter = value.startsWith('$$', start) ? '$$' : '$';
+    let closing = start + delimiter.length;
+    while ((closing = value.indexOf(delimiter, closing)) >= 0) {
+      if (!isEscaped(value, closing)) return closing + delimiter.length;
+      closing += delimiter.length;
+    }
+    return value.length;
+  }
+
+  const run = value.slice(start).match(/^`+/u)[0];
+  const runs = /`+/gu;
+  runs.lastIndex = start + run.length;
+  let match;
+  while ((match = runs.exec(value))) {
+    if (match[0].length === run.length) return runs.lastIndex;
+  }
+  return value.length;
+}
+
+function combineLiteralPowers(value) {
+  let output = '';
+  let cursor = 0;
+  const codeRanges = blockCodeRanges(value);
+  while (cursor < value.length) {
+    // This pass only repairs prose attachments. Existing math and code remain
+    // opaque, including source examples that happen to contain orphan syntax.
+    const end = codeRanges.get(cursor) ?? literalProtectedEnd(value, cursor);
+    if (end !== null) {
+      output += value.slice(cursor, end);
+      cursor = end;
+      continue;
+    }
+
+    const token = value.slice(cursor).match(/^(?:\p{L}+|\d+(?:\.\d+)?)/u)?.[0];
+    if (token) {
+      const tokenEnd = cursor + token.length;
+      const before = value[cursor - 1] || '';
+      const fragment = mathFragmentAt(value, tokenEnd);
+      const numericBase = /^\d+(?:\.\d+)?$/u.test(token);
+      if (!/[\p{L}\p{N}_*$]/u.test(before)
+        && (numericBase || UNIT_SYMBOL.test(token))
+        && fragment?.kind === '^'
+        && /^[−+\-]?\d+$/u.test(fragment.content)
+        // A leading isotope attaches to the following element, not a prior
+        // number/unit. Do not consume forms such as ppm <sup>1</sup>H.
+        && !/[\p{L}\p{N}_]/u.test(value[fragment.end] || '')) {
+        const base = numericBase ? token : `\\mathrm{${token}}`;
+        output += `$${base}^{${fragment.content}}$`;
+        cursor = fragment.end;
+      } else {
+        output += token;
+        cursor = tokenEnd;
+      }
+      continue;
+    }
+    output += value[cursor];
+    cursor += 1;
+  }
+  return output;
+}
+
 function combineScientificRuns(value) {
   let output = '';
   let cursor = 0;
@@ -141,7 +324,7 @@ function normalizeAcademicAdjacency(value) {
 }
 
 export function normalizeAcademicInline(markdown) {
-  const converted = renderRange(String(markdown || '')).output;
+  const converted = combineLiteralPowers(renderRange(String(markdown || '')).output);
   // Nature often represents a scientific variable as adjacent italic base and
   // sub/sup nodes. Rejoin the complete semantic run so P + sub(spin) + sup(-1)
   // becomes one math expression, while chemical formulas such as Mn + sub(3)
