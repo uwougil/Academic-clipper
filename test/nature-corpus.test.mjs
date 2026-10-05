@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
-import { test } from 'node:test';
+import { readFile, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { isAbsolute, relative, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { after, test } from 'node:test';
 import { JSDOM } from 'jsdom';
 import { clipNature, referencesBib } from '../src/clip.mjs';
 import { assertionRegistry, auditSourceOracle, compareArticleResult, DIALECTS, expectationCoverage,
@@ -15,6 +18,37 @@ const request = url => ({ url,method:'GET',redirect:'manual' });
 const resolution = () => ({ hostname:'www.nature.com',all:true,verbatim:true });
 const cache = new Map();
 let preflight;
+
+// Optional external evidence reuses this run's baseline entries; it never clips again.
+after(async()=>{
+  const requested=process.env.ACADEMIC_CLIPPER_CORPUS_RECEIPT_PREFIX;
+  if(!requested)return;
+  const prefix=resolve(requested),inside=(root,target)=>{
+    const child=relative(resolve(root),target);
+    return child!==''&&!child.startsWith(`..${process.platform==='win32'?'\\':'/'}`)&&child!=='..'&&!isAbsolute(child);
+  };
+  assert.ok(inside(tmpdir(),prefix),'Receipt prefix must be within the external temporary directory');
+  assert.ok(!inside(fileURLToPath(new URL('../',import.meta.url)),prefix),'Receipt must remain outside the repository');
+  const records=[],missing=[],errors=[],keys=[];
+  for(const article of manifest.articles)for(const citationStyle of DIALECTS){
+    const key=`${article.articleId}/${citationStyle}`;keys.push(key);
+    if(!cache.has(key)){missing.push(key);continue;}
+    let entry;
+    try{
+      entry=await cache.get(key);
+      assert.equal(entry.article.articleId,article.articleId);assert.equal(entry.result.citationStyle,citationStyle);
+      assert.deepEqual(entry.comparison.expectations.map(e=>({id:e.id,assertionId:e.assertionId})),article.expectations.map(e=>({id:e.id,assertionId:e.assertionId})));
+    }catch(error){errors.push({key,message:String(error.message)});continue;}
+    records.push({...entry.comparison,ledger:entry.ledger});
+    await writeFile(`${prefix}.${article.articleId}.${citationStyle}.comparison.json`,JSON.stringify(entry.comparison,null,2)+'\n');
+    await writeFile(`${prefix}.${article.articleId}.${citationStyle}.md`,entry.result.markdown);
+  }
+  const unexpected=[...cache.keys()].filter(key=>!keys.includes(key));
+  await writeFile(`${prefix}.comparisons.json`,JSON.stringify(records,null,2)+'\n');
+  await writeFile(`${prefix}-receipt-status.json`,JSON.stringify({complete:!missing.length&&!errors.length&&!unexpected.length,records:records.length,orderedKeys:keys,missing,errors,unexpected},null,2)+'\n');
+  assert.deepEqual({missing,errors,unexpected},{missing:[],errors:[],unexpected:[]},'Receipt cannot omit or fabricate a baseline entry');
+  assert.equal(records.length,keys.length);
+});
 
 async function execute(article,citationStyle,resourcesOverride) {
   preflight ||= verifyManifestFixtures(manifest,corpusRoot,{ assertionRegistry });
