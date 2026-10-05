@@ -274,3 +274,28 @@ test('synthetic standalone equals remain a paragraph with a prose unit continuat
   assert.equal(normalizeAcademicInline('===\n    cm<sup>2</sup>'), expected);
   assert.equal(normalizeAcademicInline(expected), expected);
 });
+
+for (const [name, math] of [
+  ['fence-looking line in display math', '$$\n~~~ x\n$$'],
+  ['fence-looking line in aligned math', ['$$', String.raw`\begin{aligned}`, String.raw`~~~ x &= 1 \\`, String.raw`\end{aligned}`, '$$'].join('\n')],
+  ['ordinary display math before code', '$$\nx+1\n$$'],
+  ['code without preceding math', ''],
+]) {
+  test(`synthetic ${name} preserves both math and code before the following unit`, () => {
+    const prefix = math ? `${math}\n\n` : '';
+    const code = '~~~\nm$^{3}$\n~~~';
+    const expected = `${prefix}${code}\n\n$\\mathrm{cm}^{2}$`;
+    const result = normalizeAcademicInline(`${prefix}${code}\n\ncm<sup>2</sup>`);
+    assert.equal(result, expected);
+    assert.equal(normalizeAcademicInline(result), expected);
+  });
+}
+
+test('synthetic code dollars do not start math or hide subsequent prose units', () => {
+  for (const code of ['~~~\n$$\n~~~', '    $$', '> ~~~\n> $$\n> ~~~', '- ~~~\n  $$\n  ~~~']) {
+    const expected = `${code}\n\n$\\mathrm{cm}^{2}$`;
+    const result = normalizeAcademicInline(`${code}\n\ncm<sup>2</sup>`);
+    assert.equal(result, expected);
+    assert.equal(normalizeAcademicInline(result), expected);
+  }
+});
