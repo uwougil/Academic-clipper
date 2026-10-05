@@ -9,6 +9,7 @@ import { withDomGlobals } from '../src/dom-runtime.mjs';
 import { defuddleToMarkdown } from '../src/markdown.mjs';
 import { normalizeAnchorMarkers } from '../src/normalizers/citations.mjs';
 import { outputPolicy } from '../src/renderers/output-policy.mjs';
+import { normalizeFigureCaptions, renderFigure } from '../src/normalizers/figures.mjs';
 
 const fixtures = new URL('./fixtures/nature-caption-citations/', import.meta.url);
 const cases = new Map(await Promise.all(['scientific-reports', 'section-links', 'internal-links'].map(async (name) => {
@@ -72,15 +73,24 @@ for (const citationStyle of ['markdown', 'links', 'quarto']) {
     assert.deepEqual(result.figures.map((figure) => figure.natureId), ['Fig1', 'Fig2', 'Fig3', 'Fig4']);
     assert.equal(result.references.length, 74);
     const finalText = readable(result.markdown, result.references);
+    const positionText = finalText.replace(/\s/gu, '');
     for (const [index, expected] of provenance.figures.entries()) {
       const figure = result.figures[index];
       assert.equal(readable(figure.captionMarkdown, result.references), clean(`${expected.label} ${expected.descriptionText}`));
+      assert.equal(finalText.split(expected.descriptionText).length - 1, 1, `${expected.id} complete caption body rendered once`);
       assert.equal(finalText.split(expected.captionStart).length - 1, 1, `${expected.id} caption start rendered once`);
-      assert.equal(finalText.split(expected.captionEnd).length - 1, 1, `${expected.id} caption end rendered once`);
+      const sourceTailCount = provenance.figures.reduce((count, caption) => count + caption.descriptionText.split(expected.captionEnd).length - 1, 0);
+      assert.equal(finalText.split(expected.captionEnd).length - 1, sourceTailCount, `${expected.id} caption tail retains its source multiplicity`);
       assert.deepEqual(Array.from(figure.captionMarkdown.matchAll(/\*\*([a-z])\*\*/gu), (match) => match[1]), expected.boldLetters);
-      const figurePosition = finalText.indexOf(expected.captionStart);
-      if (expected.previousText) assert.ok(finalText.indexOf(expected.previousText.slice(0, 70)) < figurePosition, `${expected.id} follows source paragraph`);
-      if (expected.nextText) assert.ok(figurePosition < finalText.indexOf(expected.nextText.slice(0, 70)), `${expected.id} precedes source paragraph`);
+      const figurePosition = positionText.indexOf(expected.captionStart.replace(/\s/gu, ''));
+      if (expected.previousText) {
+        const previousPosition = positionText.indexOf(expected.previousText.slice(0, 70).replace(/\s/gu, ''));
+        assert.ok(previousPosition >= 0 && previousPosition < figurePosition, `${expected.id} follows source paragraph`);
+      }
+      if (expected.nextText) {
+        const nextPosition = positionText.indexOf(expected.nextText.slice(0, 70).replace(/\s/gu, ''));
+        assert.ok(nextPosition >= 0 && figurePosition < nextPosition, `${expected.id} precedes source paragraph`);
+      }
       assert.ok(result.markdown.includes(`![${figure.alt}](${figure.imageUrl})`), 'original remote image fallback remains');
     }
     assert.equal(result.debug.rawHtmlValidation.valid, true, JSON.stringify(result.debug.rawHtmlValidation.violations));
@@ -135,6 +145,10 @@ for (const citationStyle of ['markdown', 'links', 'quarto']) {
 
 test('real quantum numeric internal links remain links through Defuddle and retain closing punctuation', async () => {
   const { html, provenance } = cases.get('internal-links');
+  const source = new JSDOM(html);
+  const sourceFigureLinks = Array.from(source.window.document.querySelectorAll('a[href]'))
+    .filter((anchor) => /#Fig[1-6]$/u.test(anchor.getAttribute('href')))
+    .map((anchor) => ({ label: anchor.textContent, id: anchor.getAttribute('href').split('#')[1] }));
   const page = parseNaturePage(html, provenance.url);
   const converted = await withDomGlobals(page.dom, () => defuddleToMarkdown(page.document, provenance.url));
   assert.doesNotMatch(converted.markdown, /^\[\^\d+\]:/mu, 'figure/table targets must not become prose footnote definitions');
@@ -142,7 +156,8 @@ test('real quantum numeric internal links remain links through Defuddle and reta
   assert.match(converted.markdown, /see Table \[1\]\([^\n]+\)\)\./u);
   assert.match(converted.markdown, /see Table \[1\)\]\([^\n]+\)\./u);
   for (const style of ['markdown', 'links', 'quarto']) {
-    const body = normalizeAnchorMarkers(converted.markdown, page.semantic.crossReferences.values(), { policy: outputPolicy(style) });
+    const policy = outputPolicy(style);
+    const body = normalizeAnchorMarkers(converted.markdown, page.semantic.crossReferences.values(), { policy });
     if (style === 'markdown') {
       assert.match(body, /\(see Table 1\)\./u);
       assert.doesNotMatch(body, /\]\(#(?:figure|table)-/u);
@@ -151,9 +166,21 @@ test('real quantum numeric internal links remain links through Defuddle and reta
       assert.match(body, new RegExp(`\\(see Table \\[1\\]\\(#${prefix}table-1\\)\\)\\.`, 'u'));
       assert.match(body, new RegExp(`\\(see Table \\[1\\)\\]\\(#${prefix}table-1\\)\\.`, 'u'));
       const figurePrefix = style === 'quarto' ? 'fig-' : '';
-      assert.ok(body.includes(`[1](#${figurePrefix}figure-1)`), 'retained quantum Fig1 target');
-      assert.ok(body.includes(`[6](#${figurePrefix}figure-6)`), 'retained quantum Fig6 target');
+      for (const { label, id } of sourceFigureLinks) {
+        assert.ok(body.includes(`[${label}](#${figurePrefix}${page.semantic.crossReferences.get(id).anchor})`), `${id} retains the actual source link label`);
+      }
+    }
+    await normalizeFigureCaptions(page.figures, provenance.url, {
+      semantic: page.semantic, references: page.references, policy, headingContext: converted.markdown,
+    });
+    for (const id of ['Fig1', 'Fig6']) {
+      const figure = page.figures.find((item) => item.natureId === id);
+      assert.ok(converted.markdown.includes(`ACADEMICCLIPPERFIGURE${figure.anchor}X`), `${id} retains its source position`);
+      const rendered = renderFigure(figure, figure.imageUrl, policy);
+      if (style === 'links') assert.ok(rendered.includes(`<a id="${figure.anchor}"></a>`));
+      if (style === 'quarto') assert.ok(rendered.includes(`{#fig-${figure.anchor}}`));
     }
   }
+  source.window.close();
   page.dom.window.close();
 });
