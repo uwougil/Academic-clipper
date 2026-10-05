@@ -217,9 +217,9 @@ async function tableCellMarkdown(cell, url, noteMarkers) {
     readableMarker.textContent = marker;
     sup.replaceWith(readableMarker);
   }
-  const html = normalizeHtmlUrls(contents.innerHTML, url);
-  let converted = await markdownFragment(html, url);
-  converted = normalizeMath(converted);
+  const protectedMath = protectCaptionMath(contents.innerHTML, url);
+  let converted = await markdownFragment(protectedMath.html, url);
+  converted = normalizeMath(converted, { inlineMath: protectedMath.math });
   return cellTextForMarkdown(normalizeAcademicInline(converted));
 }
 
