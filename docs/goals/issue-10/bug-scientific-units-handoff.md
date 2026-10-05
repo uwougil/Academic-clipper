@@ -1,6 +1,6 @@
 # Issue #48 — 科学单位修复交接
 
-状态：修复已实现，local source/focused/full/build/golden 验证通过；待 fresh PR CI、Secret scan 与 exact-head 独立 review。独立合同：[Issue #48](https://github.com/uwougil/Academic-clipper/issues/48)，type `bug`，delivery [PR #50](https://github.com/uwougil/Academic-clipper/pull/50)，Work Contract 尚未完成。本 bug 是 Issue #10 的 parser 前置条件，不承担其 corpus infrastructure 最终交付；PR 只使用 `Refs #48`，不使用 `Refs #10`。
+状态：单位重接及独立 review 的 code-opacity 修正已实现；最新本地验证见下文，待 fresh PR CI、Secret scan 与新 exact-head 独立 review。独立合同：[Issue #48](https://github.com/uwougil/Academic-clipper/issues/48)，type `bug`，delivery [PR #50](https://github.com/uwougil/Academic-clipper/pull/50)，Work Contract 尚未完成。本 bug 是 Issue #10 的 parser 前置条件，不承担其 corpus infrastructure 最终交付；PR 只使用 `Refs #48`，不使用 `Refs #10`。
 
 Branch `codex/issue-10-bug-scientific-units`，managed worktree `C:/Users/guoli/.codex/worktrees/issue-10-bug-scientific-units/academic-clipper`。启动 accepted base `e85b1b809b56242b89b6313ce5d1165c745466bb` 已经 fetch 核验；Main CI `37182993143`、Secret scan `37182993093` 均 success。Node `v24.14.1`，`npm ci` exit 0：65 packages、0 vulnerabilities。
 
@@ -56,6 +56,41 @@ PR 首次 head `d94631ccf4720a4f8383a7ce1fb161bdc6e786e0` 的自查另发现新�
 最新 source/focused 验证命令加入 accepted caption regression：`node --test test/nature-scientific-units.test.mjs test/nature-table-notes.test.mjs test/nature-caption-citations.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs`，**76 pass / 0 fail/skip/todo/cancel，exit 0**，包含本 bug 全部 11 tests 和两个源的三方言四 validators/scientificFragments。`npm run build` 和同一 golden validate 命令均 exit 0，golden 13 displays / 50 references / 四 validators 和 scientificFragments valid。新 logs 使用外部 B TEMP 的 `units-478-focused-green.log`、`units-478-full-tests.log`、`units-478-build.log`、`units-478-golden.log`；不提交 logs 或完整 captures。
 
 新基线完整 `npm test` **305 pass / 0 fail/skip/todo/cancel，exit 0，70241 ms**。最终 tracked filename / `git diff --check` / staged check / status 审计限于上述本 bug 的 10 个文件，生产路径只有 `src/normalizers/academic-inline.mjs`；没有修改 validators/security/golden/intent/B source 或 oracle。Fresh PR head CI 和 Secret scan 尚需在 push 后重新成功，旧 `14d35c0` 检查不能替代。
+
+## 独立 review 的 code-opacity P2 与新修正
+
+SAME reviewer 对 exact `b3fc93282da1de505dbaba51419c39048e8a8305` 独立发现一个 blocking P2，root 暂停合并。旧 head 虽然 76 focused / 305 full / build / golden 全通过，仍不能满足 #48 的 code negative-control criterion：四空格或 tab 的缩进代码、blockquote/list 内的 tilde fence 中，原字面 `m$^{3}$` 被新增 pass 改写成数学单位；list closing fence 又被误当未闭合的新 opener，使块外 `cm²` 继续孤立。Accepted `4783291` 对这些合法 code bytes 均保持原样，其块外孤立单位是本合同原缺陷。
+
+这些输入明确是 synthetic legal-Markdown controls，不伪称来自 Nature raw，不增加真实 source admission。永久四项回归先在 unchanged b3fc production 实际执行 **4 tests / 0 pass / 4 fail，exit 1**，log `units-review-code-opacity-red-b3fc.log`。随后补足与同一 code boundary 相邻的 nested quote/list、ordered/empty/tab-padded list、container 结束与普通缩进正文 controls。初版保护自查另发现 list→blockquote、setext heading 后缩进代码和 quote prefix 后 tab 正文三项边界，补充测试先实际 **0 pass / 3 fail，exit 1**（`units-review-adjacent-code-red.log`），随后修正同一 owned pass，没有改学术 unit 识别规则。
+
+最终新增 **14** 个 code-boundary tests（13 个完整 code bytes + 块外 unit attachment cases、1 个普通正文/不同代码块分隔 controls test）在原 b3fc normalizer 上再次实际 **0 pass / 14 fail，exit 1**，log `units-review-code-opacity-red-final-b3fc.log`。Red tests commits `04029b3`、`d569d76` 均保留旧 b3fc 的生产代码，因此永久 red checkpoint 可独立重建；原 source-red / unit fix / first opacity fix / accepted dependency merge 的 SHAs 全保持。
+
+修正 commit `0a676d581df4fb5ccd99128d37b7f78ee4eb1749` 仅改 `src/normalizers/academic-inline.mjs`：在新增 prose pass 前定位块代码的原 spans，按其有序 quote/list prefix、tab columns、段落与 fence 状态识别边界，再逐字复制跨度。此扫描只决定 opacity，不转换 code 内容、不增加 scholarly parser/API/依赖；原 escaped-dollar 与 inline backtick 规则保留。块外已知 unit/明确数值基底仍重接，普通缩进段落不因空格或 tab 被误当 code。既有 styled/chemistry normalization 和全部 validators 未改。
+
+原 **3 excerpts / provenance** 对 b3fc 的 diff 为零，source powers/完整 creators/rights/recipe/positions 不变。三个 untouched raw SHA-256 再次直接重算匹配，永久 source-integrity test通过；reviewer 已独立核验原 A helper blob、重建 recipe/repeat/idempotence、全部原位置及 FRB 7 cell markers/6 notes 的三方言 association，本次不以新输出改来源。再次用 accepted `4783291` 原 normalizer 运行原11个 source/negative/positive controls，实际 **2 pass / 9 fail，exit 1**；六个真实 source×dialect 均失败于源 base-power attachment 缺失，source identity/negative controls仍通过（`units-review-source-red-478.log`）。只临时替换 owned normalizer，`finally` 按 SHA-256 核验 fixed bytes 完整复原；baseline normalizer SHA-256 `b60d40974b8052f57f148407537eba5711b109054b8b6582a959dadbb7089a42`。
+
+最终新 unit suite 为 **25** tests；新增 boundary tests 不算 Nature coverage。所有下面检查使用相同最终生产与 tests，不使用旧 b3fc 的 green 或 CI 代替：
+
+| Exact command | Result / external log |
+| --- | --- |
+| `npm ci` | exit 0，65 packages，0 vulnerabilities |
+| `node --test test/nature-scientific-units.test.mjs test/nature-table-notes.test.mjs test/nature-caption-citations.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs` | exit 0，90/90，0 fail/skip/todo/cancel，4383 ms；`units-review-focused-final-green.log` |
+| `npm test` | exit 0，319/319，0 fail/skip/todo/cancel，68550 ms；`units-review-final-full-tests.log`（0a676d5 checkpoint，不能代替下次 accepted-base 验证） |
+| `npm run build` | exit 0，ignored dist；`units-review-final-build.log` |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit 0，13 displays / 50 references / 四 validators 和 scientificFragments valid；`units-review-final-golden.log` |
+| `git diff --check` / staged check / filename and status audit | owner scope，source inputs不变；docs checkpoint 前最终重核 |
+
+原 initial candidate 的 88 focused / 317 full 通过记录保留为诊断历史，不能替代最终容器边界修正的检查。External logs 位于 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-b/`，不提交 logs/raw。Fresh exact-head 三平台 CI、Gitleaks 与独立 re-review 尚需 push 后核验；root 决定合并，本 agent 不 merge。旧 b3fc review/CI 不能用于新 head。
+
+另一个 sparse-alt 任务使用独立 worktree `C:/Users/guoli/.codex/worktrees/issue-10-bug-sparse-figure-alt/academic-clipper`，当前 clean accepted478；其来源预检和待冻结合同独立保存 external TEMP。本次 Units 修复没有混入其代码、fixture 或 Issue。
+
+## Checkpoint pre-review 的 block precedence 修正
+
+Reviewer 的 `0a676d5` 独立 pre-review（非 published final-head review）确认原四失败已绿、28 scientific/negative controls 保持，并发现四个同一 code-opacity P2：`- - -` / `* * *` / quoted thematic break 先被当 list markers 消费，下一行 code 错入 prose pass；独立 `===` 被无条件当 setext heading，随后四空格 paragraph continuation 错当 code。已完整读取 reviewer packet `pr50-0a676d5-pre-review.md` 与 executable controls；[CommonMark thematic-break priority](https://spec.commonmark.org/0.31.2/#thematic-breaks)、[setext headings 的前置 paragraph](https://spec.commonmark.org/0.31.2/#setext-headings)、[indented code 不能 interrupt paragraph](https://spec.commonmark.org/0.31.2/#indented-code-blocks) 是这些 synthetic controls 的语法依据，不是 Nature source admission。
+
+新四项永久 controls 在 unchanged `0a676d5` production 上先实际 **4 tests / 0 pass / 4 fail，exit 1**（`units-review-precedence-red-0a676d5.log`），red commit `41401cb`；随后最小修正 commit `60c48dc` 在同一 block-opacity scanner 中先识别 thematic break 再考虑 list marker，并且仅在前一行已形成 paragraph 时认可 setext underline。原科学 unit/numeric recognition、三 excerpts、provenance、validator 及其它生产文件不变。20 个 code/math boundary tests 实际全绿，完整 suite 将在下面新 accepted base dependency merge 后重跑；0a 的319 green 不是最终验收。
+
+新的 accepted main `e2d32e9ec819692a1f08075636c3a168f15ad20b`（#51 / PR #52）已自行 fetch 核验：Main CI `37278003744` 三 jobs `111659280091` / `111659279964` / `111659280101` success；Secret scan `37278003787` / Gitleaks `111659279634` success；finalizer `37278762752` success；Issue #51 于 `2026-10-05T07:37:25Z` completed。接下来的 dependency merge 保留所有 red/fix authored SHAs；不使用旧 b3fc 或 0a 的 CI/review 批准新 final head。
 
 ## 其它来源的同机制与独立边界
 
