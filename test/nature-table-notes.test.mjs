@@ -234,6 +234,14 @@ for (const [context, html, marker] of [
   ['unit after a label', 'Volume mol<sup>a</sup>', 'a'],
   ['chemical formula', 'H<sub>2</sub>O<sup>a</sup>', 'a'],
   ['ionic charge', 'Fe<sup>3+</sup>', '3+'],
+  ['styled product', 'Mean value (<i>ab</i> <i>cd</i>)<sup>a</sup>', 'a'],
+  ['styled indexed product', 'Mean value (<i>ab</i><sub>2</sub> <i>cd</i><sub>3</sub>)<sup>a</sup>', 'a'],
+  ['plain indexed product', 'Mean value (ab<sub>2</sub> cd<sub>3</sub>)<sup>a</sup>', 'a'],
+  ['emphasized product', 'Mean value (<em>ab</em> <strong>cd</strong>)<sup>a</sup>', 'a'],
+  ['literal indexed product', 'Mean value (ab2 cd3)<sup>a</sup>', 'a'],
+  ['styled variables with unit names', 'Mean value (<i>pc</i> <i>cm</i><sup>−3</sup>)<sup>a</sup>', 'a'],
+  ['non-mass solar variable', 'Mean value (<i>x</i><sub>⊙</sub>)<sup>a</sup>', 'a'],
+  ['indexed mass product', 'Mean value (<i>M</i><sub>2</sub> yr<sup>−1</sup>)<sup>a</sup>', 'a'],
 ]) {
   test(`synthetic matching footer marker preserves the ${context} superscript`, async () => {
     // Explicitly synthetic boundary examples, not scholarly source excerpts.
