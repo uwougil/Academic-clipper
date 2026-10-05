@@ -222,3 +222,28 @@ test('synthetic numeric footer marker cannot turn unit or numeric powers into no
   assert.equal((tables[0].markdown.match(/\^\{3\}/gu) || []).length, 2);
   assert.match(tables[0].notes[0].markdown, /^\*\*3\*\* /u);
 });
+
+for (const [context, html, marker] of [
+  ['indexed variable', 'x<sub>i</sub><sup>a</sup>', 'a'],
+  ['Greek variable', 'λ<sup>a</sup>', 'a'],
+  ['wrapped variable', '<span>x</span><sup>a</sup>', 'a'],
+  ['wrapped indexed variable', '<span><i>x</i><sub>i</sub></span><sup>a</sup>', 'a'],
+  ['parenthesized expression', '(x<sub>i</sub> + y<sub>i</sub>)<sup>a</sup>', 'a'],
+  ['unit after a label', 'Volume mol<sup>a</sup>', 'a'],
+  ['chemical formula', 'H<sub>2</sub>O<sup>a</sup>', 'a'],
+  ['ionic charge', 'Fe<sup>3+</sup>', '3+'],
+]) {
+  test(`synthetic matching footer marker preserves the ${context} superscript`, async () => {
+    // Explicitly synthetic boundary examples, not scholarly source excerpts.
+    // A matching footer must not change the meaning of any scientific base.
+    const dom = new JSDOM('');
+    opened.push(dom);
+    const tables = [{
+      tableHtml:`<table><tr><td>${html}</td></tr></table>`,
+      notes:[{ marker, html:`<sup>${marker}</sup>synthetic boundary` }],
+    }];
+    await withDomGlobals(dom, () => normalizeTableContents(tables, cases[0].provenance.article.url));
+    assert.ok(tables[0].markdown.includes(`^{${marker}}`), `${context} must retain its exponent or charge`);
+    assert.ok(!tables[0].markdown.includes(`**${marker}**`), 'Marker equality alone is not a note association');
+  });
+}
