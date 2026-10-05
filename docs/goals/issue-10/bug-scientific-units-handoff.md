@@ -108,10 +108,35 @@ Reviewer 的 `0a676d5` 独立 pre-review（非 published final-head review）确
 
 所有 authored/red checkpoints与两次accepted dependency merges依次可用文末 first-parent command重建；没有rebase、forcepush、调整source来迎合输出，没有提交fullraw/日志/凭据。最终docs commit只记录以上实际结果。Push后的new exact head需要fresh三平台CI/Gitleaks与SAME independent re-review；旧b3fc/0a/任何earlier head checks不替代，root持有最终merge权限。
 
+## Exact 581 review 的 math/code role 状态修正
+
+独立最终 reviewer 在 exact `5810fc29bb5562338bc6290b28ad7b4553108ce8` 发现一个 blocking P2；原113focused / 342full / build / golden与 fresh CI `37280016925` 三平台、Secrets `37280016942` 全success仍不能解除此阻塞。已完整读取 external `pr50-5810fc2-review.md` 与 `pr50-math-code-state-5810fc2.mjs/.json/.test.mjs`，没有使用旧green替代新反例。
+
+该 synthetic输入的已有 display math含 `~~~ x`（另一个control在 `aligned` 表达式内），随后是实际tilde fenced code `m$^{3}$` 与块外 `cm<sup>2</sup>`。预计算的 `blockCodeRanges()` 没有尊重既有math范围：math内的tilde成为虚假code opener，后面的真code opener被当closer，真code内容被改写、最后真closer又遮住正文单位。Accepted e2保持全部math/code bytes；其块外orphan属于原#48缺陷。该反例是明确的 synthetic opacity控制，不宣称来自Nature，也不增加source/公式coverage。
+
+新增永久四项reviewer-equivalent controls加一个reverse-role control在 unchanged581 production上真实 **5tests /3pass2fail，exit1**，两项display/aligned exactly失败于code内容变化与outside unit孤立，ordinary display/code与code中dollars控制通过。Log `units-review-math-code-red-5810fc2.log`，独立red commit `6ee1709b1f733c7392efb6e217f631b2e62f6a32` 保持581 production不变。
+
+最小修正 commit `e4c8ce58957fe023500b1d6db7f989542c5e5e4c` 仅向owned normalizer增加11行：代码范围扫描复用已有 `literalProtectedEnd()` 获取非block-code内容的opaque spans；既有math/inline-code内部物理行不再进入fence/container状态。Block code优先保持opaque，代码内dollars不启动math状态。原unit whitelist、strictnumeric/signedpower规则、math delimiter识别、styled/chemical处理与validators均未改，没有新parser/API/依赖或其它production paths。五项新controls绿，前面的全部code边界继续保护；现unit suite **34tests**，source admission仍为SR7/FRB12powers。
+
+直接replay三个独立reviewer packets：**18**个opaque/math/code/prose controls exact/idempotent PASS，**28**scientific/math/isotope/citation/unknown controls仍等accepted输出，原actual Defuddle quoted-code也PASS（`units-review-math-code-controls.json`）。再次用未改e2 normalizer运行原11 source/negative/positive tests，**2pass9fail /exit1**，source六cases仍因attachment缺失失败；仅owned normalizer暂替并用finally重核byte完整复原。所有7个fixture-directory resources与原source-red/b3fc/581均相同，原raw三SHA再次直接重算匹配；source/provenance未调整。
+
+Latest origin/main自行fetch仍为accepted `e2d32e9ec819692a1f08075636c3a168f15ad20b`，保留现dependency merge，不增加未接受base。新验证：
+
+| Exact command | Actual result / external log |
+| --- | --- |
+| `npm ci` | exit0，65 packages /0 vulnerabilities |
+| `node --test test/nature-scientific-units.test.mjs test/nature-table-notes.test.mjs test/nature-table-mathjax.test.mjs test/nature-caption-citations.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs` | exit0，**118/118**，0fail/skip/todo/cancel，11873ms；`units-review-math-code-focused-green.log` |
+| `npm test` | exit0，**347/347**，0fail/skip/todo/cancel，84156ms；`units-review-math-code-full-tests.log` |
+| `npm run build` | exit0，ignored dist；`units-review-math-code-build.log` |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0，13displays /50references，四validators和scientificFragments valid；`units-review-math-code-golden.log` |
+| Diff / source byte identity / status | 相对accepted e2仍10ownedpaths，只有academic-inline生产diff；全部来源输入不变，finalcommit前后重核 |
+
+外部logs仍在原unit TEMP，不写reviewer材料。旧581 CI/review不可用于下一个head，必须fresh CI/Gitleaks、新exact-head独立review零阻塞后由root决定merge；本agent不merge。Sparse-alt独立worktree继续冻结，本次没有写被Issue53owner持有的 `nature.mjs`。
+
 ## 其它来源的同机制与独立边界
 
 对 untouched source 的 typed fragment 做只读诊断，未提交额外 captures、未将其计入 passing corpus coverage。AlphaFold 原 Å²（Main p5，`e1303eacd7a9fb18e9a873f835d611c3dc7795b50fea4dee5b3ebdb16ca41035`）、COVID ml⁻¹（Methods p1，`ad4da67f7dbb1f0c6fce335ebc795c09590b3f2f81bda469b70f0561c3ed22ae`）、materials atom⁻¹（Main p2，`13879004c6bdfc0f8919bf4aae21b7c2dcbf3e057ca85daf77174f2c6b717687`）及 day⁻¹（Methods p39，`395116f5ff2c4c95feb071fe51106cdbbf66a150a9db3de7a2a97d975d6aadad`）、chemistry Å³（Results p0，`146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c`）均符合相同完整 unit token rule。Paragraph index 在各原 node 最近 section 的原 `querySelectorAll('p')` 中零起算，hash 为 A serializer 的原 paragraph；它不是 C reduced block 的 paragraph index。
 
 实际未覆盖的独立 source boundaries 已报 root：materials `r<sup>2</sup>SCAN`（上列 Main p2），`mScm<sup>−1</sup>`（Methods p42，`7f1338d170c587581f6886da41018abd505a2e25e2522e988d6348aa9c3b2eb4`），FRB Methods p22 的 `(5/60)<sup>2</sup>` / `(0.19/60/60)<sup>2</sup>`（`4fe682650c4c464c1d6341c364241d29e154f18ecf7c8565de908b840c9a6fe5`）。它们需要 identifier/compound-unit/complex-base 语义，不可宽匹配猜成 simple units。Literal [O III]、leading isotope、materials styled adjacency、caption/citation/crossrefs 和 sparse alt 同样独立。
 
-最终 authored commits 用 `git log --first-parent --reverse --format="%H %s" e0a341fc97ff845a250c2f016dcb2363e10ed49e..HEAD` 重建；最终窄 diff 用 `git diff 4783291dcb8a5d0ac62dc2e5d314ba91f6c6d9e2..HEAD` 核验。最终 PR 必须等 fresh exact-head 三平台 CI、Secret scan 和独立 review 无 blocking 后由 root 执行 merge；本 agent 不 merge。合并只接纳代码，只有 merged commit Main CI success 才完成 Work Contract。
+最终 authored commits 用 `git log --first-parent --reverse --format="%H %s" e0a341fc97ff845a250c2f016dcb2363e10ed49e..HEAD` 重建；最终窄 diff 用 `git diff e2d32e9ec819692a1f08075636c3a168f15ad20b..HEAD` 核验。最终 PR 必须等 fresh exact-head 三平台 CI、Secret scan 和独立 review 无 blocking 后由 root 执行 merge；本 agent 不 merge。合并只接纳代码，只有 merged commit Main CI success 才完成 Work Contract。
