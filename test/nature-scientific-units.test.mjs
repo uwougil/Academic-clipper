@@ -240,10 +240,12 @@ for (const [name, code] of [
   ['blockquoted indented code', '>     m$^{3}$'],
   ['list indented code', '- Prose\n\n      m$^{3}$'],
   ['nested quote/list fence', '> - ~~~text\n>   m$^{3}$\n>   ~~~'],
+  ['list-contained quote fence', '- > ~~~text\n  > m$^{3}$\n  > ~~~'],
   ['ordered list fence', '12. ~~~text\n    m$^{3}$\n    ~~~'],
   ['empty list item with indented code', '- \n      m$^{3}$'],
   ['tab-padded list item with indented code', '-\tProse\n\n\t\tm$^{3}$'],
   ['blockquoted fence ending with its container', '> ~~~text\n> m$^{3}$'],
+  ['indented code following a setext heading', 'Heading\n=======\n    m$^{3}$'],
 ]) {
   test(`synthetic ${name} preserves code bytes and repairs the following prose unit`, () => {
     const expected = `${code}\n\n$\\mathrm{cm}^{2}$`;
@@ -258,6 +260,7 @@ test('synthetic indented prose and list paragraphs still attach their unit power
     ['Prose continues\n    cm<sup>2</sup>', 'Prose continues\n    $\\mathrm{cm}^{2}$'],
     ['- Prose\n\n    cm<sup>2</sup>', '- Prose\n\n    $\\mathrm{cm}^{2}$'],
     ['> Prose continues\n>     cm<sup>2</sup>', '> Prose continues\n>     $\\mathrm{cm}^{2}$'],
+    ['> \t cm<sup>2</sup>', '> \t $\\mathrm{cm}^{2}$'],
     ['-\tProse\n\n      cm<sup>2</sup>', '-\tProse\n\n      $\\mathrm{cm}^{2}$'],
     ['    m$^{3}$\n\ncm<sup>2</sup>\n\n    s$^{-1}$', '    m$^{3}$\n\n$\\mathrm{cm}^{2}$\n\n    s$^{-1}$'],
   ]) assert.equal(normalizeAcademicInline(input), expected);
