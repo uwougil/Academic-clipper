@@ -118,6 +118,10 @@ function quotePrefix(value, column) {
   return { content: content.slice(padding), column: column + prefix.length + padding };
 }
 
+function isThematicBreak(value) {
+  return /^ {0,3}(?:(?:\*[ \t]*){3,}|(?:-[ \t]*){3,}|(?:_[ \t]*){3,})$/u.test(value);
+}
+
 function blockCodeRanges(value) {
   // Locate block code before the prose pass; its contents remain opaque.
   const ranges = new Map();
@@ -167,6 +171,8 @@ function blockCodeRanges(value) {
         paragraph = false;
         continue;
       }
+      // A thematic break takes precedence over a sequence of list markers.
+      if (isThematicBreak(content)) break;
       const marker = content.match(/^ {0,3}([-+*]|\d{1,9}[.)])(?=[ \t]|$)/u);
       if (!marker) break;
       const tail = expandLeadingTabs(content.slice(marker[0].length), column + marker[0].length);
@@ -186,8 +192,9 @@ function blockCodeRanges(value) {
       active = { kind: 'indented', start };
     }
     if (active) ranges.set(start, end);
+    const setextHeading = paragraph && /^ {0,3}(?:=+|-+)[ \t]*$/u.test(content);
     paragraph = !active && Boolean(content.trim())
-      && !/^ {0,3}(?:#{1,6}(?:\s|$)|(?:=+|-+)[ \t]*$|(?:\*[ \t]*){3,}$|(?:-[ \t]*){3,}$|(?:_[ \t]*){3,}$)/u.test(content);
+      && !setextHeading && !isThematicBreak(content) && !/^ {0,3}#{1,6}(?:\s|$)/u.test(content);
   }
   return ranges;
 }
