@@ -1,0 +1,2 @@
+# Exact source whitespace and fixture hashes must survive Windows checkout.
+*.html text eol=lf whitespace=-blank-at-eol
