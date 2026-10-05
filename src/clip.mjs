@@ -292,13 +292,18 @@ export async function clipArticle(options) {
 
 async function finishClip(parsedPage, { url, rawHtml, citationStyle, policy, articleId }) {
   const converted = await withDomGlobals(parsedPage.dom, async () => {
-    await normalizeFigureCaptions(parsedPage.figures, url);
-    await normalizeTableContents(parsedPage.tables, url);
-
     const { parsed, markdown } = await defuddleToMarkdown(parsedPage.document, url);
+    const bodyMarkdown = parsedPage.bodyHtml === undefined ? markdown : await htmlToMarkdown(parsedPage.bodyHtml, url);
+    await normalizeFigureCaptions(parsedPage.figures, url, {
+      semantic: parsedPage.semantic,
+      references: parsedPage.references,
+      policy,
+      headingContext: bodyMarkdown,
+    });
+    await normalizeTableContents(parsedPage.tables, url);
     return {
       parsed,
-      markdown: parsedPage.bodyHtml === undefined ? markdown : await htmlToMarkdown(parsedPage.bodyHtml, url),
+      markdown: bodyMarkdown,
       referencesMarkdown: await referencesMarkdown(parsedPage.references, url, policy),
     };
   });

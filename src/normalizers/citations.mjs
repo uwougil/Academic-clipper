@@ -28,10 +28,15 @@ export function normalizeAnchorMarkers(markdown, crossReferences = [], options =
   let result = String(markdown || '');
   const policy = options.policy || outputPolicy(options.style);
   for (const target of crossReferences) {
+    result = result.replaceAll(
+      `](#${semanticMarker('CROSSREFERENCE', target.anchor)})`,
+      `](#${target.anchor})`,
+    );
     const sectionMarker = semanticMarker('SECTIONANCHOR', target.anchor);
     if (target.type === 'section') {
-      const hasHeading = result.includes(sectionMarker)
-        || new RegExp(`^#{1,6}\\s+.*\\b${escapeRegExp(target.anchor.replace(/-/g, '[-\\s]'))}`, 'imu').test(result);
+      const headingContext = options.headingContext === undefined ? result : String(options.headingContext);
+      const hasHeading = headingContext.includes(sectionMarker)
+        || new RegExp(`^#{1,6}\\s+.*\\b${escapeRegExp(target.anchor.replace(/-/g, '[-\\s]'))}`, 'imu').test(headingContext);
       if (policy.dialect === 'quarto') {
         if (hasHeading) {
           const markerPattern = new RegExp(

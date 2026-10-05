@@ -2,6 +2,7 @@ import { JSDOM } from 'jsdom';
 import { htmlToMarkdown } from '../markdown.mjs';
 import { normalizeAcademicInline } from './academic-inline.mjs';
 import { normalizeMath } from './math.mjs';
+import { normalizeAnchorMarkers, normalizeCitations } from './citations.mjs';
 
 function extractMathSource(value) {
   const text = String(value || '').trim();
@@ -62,7 +63,7 @@ function markdownFragment(html, url) {
     : htmlToMarkdown(`<p>${html}</p>`, url);
 }
 
-export async function normalizeFigureCaptions(figures, url) {
+export async function normalizeFigureCaptions(figures, url, options = {}) {
   for (const figure of figures) {
     if (!figure.captionHtml) {
       figure.captionMarkdown = figure.caption;
@@ -71,10 +72,11 @@ export async function normalizeFigureCaptions(figures, url) {
     const protectedCaption = protectCaptionMath(figure.captionHtml, url);
     const protectedDirections = protectCaptionDirections(protectedCaption.html);
     let converted = await markdownFragment(protectedDirections.html, url);
-    converted = normalizeMath(converted);
+    converted = normalizeMath(converted, options.semantic);
     for (const { marker, tex } of protectedCaption.math) converted = converted.replaceAll(marker, `$${tex}$`);
     for (const { marker, value } of protectedDirections.directions) converted = converted.replaceAll(marker, value);
-    figure.captionMarkdown = normalizeAcademicInline(converted)
+    converted = normalizeCitations(normalizeAcademicInline(converted), options.semantic?.citations, options);
+    figure.captionMarkdown = normalizeAnchorMarkers(converted, options.semantic?.crossReferences?.values(), options)
       .replace(/\r\n/g, '\n')
       .replace(/[ \t]+\n/g, '\n')
       .trim();
