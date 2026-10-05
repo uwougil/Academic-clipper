@@ -328,6 +328,13 @@ function assertCrossrefs(context, e, c) {
     const expectedTarget = target?.anchor;
     if (v.targetRetained) c.truth(`internal[${i}].identity`,!!target,'Retained source identity must have a semantic target');
     if (v.targetRetained && target) {
+      const node=context.sourceDocument.getElementById(original);
+      const sourceType=node?.closest('.c-article-equation')?'equation'
+        :node?.closest('.c-article-table,.c-article-table__figcaption')?'table'
+          :node?.closest('figure,.js-c-reading-companion-figures-item')?'figure'
+            :node?.matches('h2,h3,h4,h5,h6')?'section':null;
+      c.truth(`internal[${i}].sourceIdentity`,!!node && !!sourceType,'Retained target must have an original typed source identity');
+      c.equal(`internal[${i}].sourceType`,target.type,sourceType);
       const prefix = { figure:'fig', table:'tbl', equation:'eq', section:'sec' }[target.type];
       const renderedTarget = context.citationStyle === 'quarto' ? `${prefix}-${expectedTarget}` : expectedTarget;
       if (context.citationStyle === 'markdown' && target.type !== 'section') c.truth(`internal[${i}].degraded`, !result.markdown.includes(`](#${expectedTarget})`), 'Markdown semantic refs must not target missing anchors');

@@ -121,6 +121,9 @@ test('source assertions reject lost target, changed scientific attachment, reord
   const semantic={...entry.result.semantic,crossReferences:new Map(entry.result.semantic.crossReferences)};
   semantic.crossReferences.delete('Fig1');
   assert.ok(find({...entry.result,semantic},'source-crossrefs-v1').some(f=>f.path.endsWith('.identity')));
+  const wrongType=new Map(entry.result.semantic.crossReferences);
+  wrongType.set('Fig1',{...wrongType.get('Fig1'),type:'equation'});
+  assert.ok(find({...entry.result,semantic:{...entry.result.semantic,crossReferences:wrongType}},'source-crossrefs-v1').some(f=>f.path.endsWith('.sourceType')));
   const equations=entry.result.markdown.replaceAll('M_{s}','M_{wrong}');
   assert.notEqual(equations,entry.result.markdown);
   assert.ok(find({...entry.result,markdown:equations},'source-inline-v1').some(f=>f.path.endsWith('.baseAndAttachment')));
