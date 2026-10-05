@@ -223,10 +223,19 @@ function assertFigures(context, e, c) {
     const start = result.markdown.indexOf(image), next = result.markdown.indexOf('\n![', start + image.length);
     const renderedCaption = result.markdown.slice(start + image.length, next < 0 ? undefined : next).split(/^## /mu)[0];
     const withoutLabel = f.captionText.replace(/^(?:Extended Data )?Fig(?:ure)?\.?\s*\d+\s*[:.]?\s*/iu, '');
+    // The renderer puts the caption directly after its own image. The independently
+    // source-checked model gives the paragraph frame, not the expected payload.
+    const captionBlocks=(actual.captionMarkdown || '').trim().split(/\n\s*\n/u).filter(Boolean).length;
+    const framed=renderedCaption.replace(/^\{#fig-[^}]+\}/u,'').trim().split(/\n\s*\n/u).slice(0,captionBlocks).join('\n\n');
+    const labelPrefix=`**${label}.**`;
+    c.truth(`figures[${i}].renderedCaptionLabel`,framed.startsWith(labelPrefix),'Source figure label must start the caption attached to its image');
+    sameProse(c,`figures[${i}].completeRenderedCaptionPayload`,framed.slice(labelPrefix.length).trim(),withoutLabel,result);
     c.truth(`figures[${i}].captionStart`, readable(renderedCaption, result).includes(sourceReadable(withoutLabel.slice(0, 80))), 'Complete caption start must follow its image');
     c.truth(`figures[${i}].captionEnd`, readable(renderedCaption, result).includes(sourceReadable(f.captionEnd)), 'Complete caption end must follow its image');
     const bold = Array.from((actual.captionMarkdown || '').matchAll(/\*\*([a-z])\*\*|\\mathbf\{([a-z])\}/gu)).map(m=>m[1] || m[2]);
     c.equal(`figures[${i}].boldSingleLetterSequence`, bold, f.boldSingleLetterSequence);
+    const renderedBold=Array.from(framed.matchAll(/\*\*([a-z])\*\*|\\mathbf\{([a-z])\}/gu)).map(m=>m[1] || m[2]);
+    c.equal(`figures[${i}].renderedBoldSingleLetterSequence`,renderedBold,f.boldSingleLetterSequence);
     const captionPlain = readable(result.markdown, result), sentinel = sourceReadable(withoutLabel.slice(0, 72));
     c.equal(`figures[${i}].captionOccurrences`, captionPlain.split(sentinel).length - 1, 1);
     if (actual.source === 'inline figure') {
@@ -314,13 +323,21 @@ function assertInline(context, e, c) {
 function assertCrossrefs(context, e, c) {
   const { result, bibliography } = context;
   const positions = new Map();
+  const labels=new Set(e.value.internal.map(v=>sourceReadable(v.text).replace(/\s/gu,'')));
+  const renderedLinks=Array.from(result.markdown.matchAll(/\[([^\]\n]+)\]\(([^)\n]+)\)/gu)).filter(m=>labels.has(compactProse(m[1],result))).map(m=>({
+    text:compactProse(m[1],result),href:m[2],position:m.index,
+    before:compactProse(result.markdown.slice(0,m.index),result),
+    after:compactProse(result.markdown.slice(m.index+m[0].length),result),
+  }));
+  const consumedLinks=new Set();
   for (const [i, v] of e.value.internal.entries()) {
     const sourceKey = `${v.blockIds.join(',')}\u0000${v.href}\u0000${v.text}`, position = positions.get(sourceKey) || 0;
     positions.set(sourceKey,position+1);
     const source = retainedNodes(context,'a[href]',v.blockIds).filter(n=>n.getAttribute('href')===v.href && sourceText(n.textContent)===v.text)[position];
     c.truth(`internal[${i}].source`,!!source,'Internal link must retain its source occurrence');
+    const neighbors=source ? sourceNeighbors(source) : {before:'',after:''};
     if (source) {
-      const { before,after } = sourceNeighbors(source);
+      const { before,after } = neighbors;
       c.truth(`internal[${i}].readableContext`,compactProse(result.markdown,result).includes(`${before}${sourceReadable(v.text).replace(/\s/gu,'')}${after}`),
         'Internal reference text must survive in its original source context');
     }
@@ -337,8 +354,16 @@ function assertCrossrefs(context, e, c) {
       c.equal(`internal[${i}].sourceType`,target.type,sourceType);
       const prefix = { figure:'fig', table:'tbl', equation:'eq', section:'sec' }[target.type];
       const renderedTarget = context.citationStyle === 'quarto' ? `${prefix}-${expectedTarget}` : expectedTarget;
-      if (context.citationStyle === 'markdown' && target.type !== 'section') c.truth(`internal[${i}].degraded`, !result.markdown.includes(`](#${expectedTarget})`), 'Markdown semantic refs must not target missing anchors');
-      else c.truth(`internal[${i}].target`, result.markdown.includes(`](#${renderedTarget})`), 'Retained internal reference must use the dialect target');
+      const occurrences=source ? renderedLinks.filter(link=>!consumedLinks.has(link.position)
+        && link.text===sourceReadable(v.text).replace(/\s/gu,'')
+        && link.before.endsWith(neighbors.before) && link.after.startsWith(neighbors.after)) : [];
+      if (context.citationStyle === 'markdown' && target.type !== 'section') {
+        c.equal(`internal[${i}].degraded`,occurrences.map(link=>link.href),[]);
+      } else {
+        const occurrence=occurrences[0];
+        c.truth(`internal[${i}].renderedOccurrence`,!!occurrence,'The source reference must have its own rendered link in its original context');
+        if(occurrence){consumedLinks.add(occurrence.position);c.equal(`internal[${i}].target`,occurrence.href,`#${renderedTarget}`);}
+      }
     } else if (!v.targetRetained) c.truth(`internal[${i}].noDangling`, !result.markdown.includes(`](#${original})`), 'Omitted target must not emit a dangling local reference');
   }
   for (const [i, v] of e.value.externalFragments.entries()) c.truth(`externalFragments[${i}]`,

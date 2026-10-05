@@ -119,9 +119,7 @@ test('source assertions reject lost target, changed scientific attachment, reord
   const compare = result=>compareArticleResult(article,result,{sourceHtml:entry.html});
   const find = (result,id)=>compare(result).expectations.find(e=>e.id===id).failures;
   for(const id of ['source-crossrefs-v1','source-inline-v1','source-citations-v1','source-figures-v1'])assert.deepEqual(find(entry.result,id),[],`Mutation consumer baseline must pass: ${id}`);
-  // The truthful footer defect still blocks the aggregate table consumer. Its cell
-  // predicate passes independently and must become a failure after the cell mutation.
-  assert.ok(!find(entry.result,'source-tables-v1').some(f=>f.path.includes('.renderedCell[')));
+  assert.deepEqual(find(entry.result,'source-tables-v1'),[],'Accepted table prerequisite must restore the real table baseline');
   assert.deepEqual(compare(entry.result).warnings.unexpected,[]);
   assert.deepEqual(compare(entry.result).warnings.missing,[]);
   const semantic={...entry.result.semantic,crossReferences:new Map(entry.result.semantic.crossReferences)};
@@ -153,6 +151,50 @@ test('source assertions reject lost target, changed scientific attachment, reord
   const addedWarning=compare({...entry.result,debug:{...entry.result.debug,warnings:[...entry.result.debug.warnings,'UNDECLARED WARNING']}});
   assert.deepEqual(addedWarning.warnings.unexpected,['UNDECLARED WARNING']);
   assert.equal(addedWarning.pass,false);
+});
+
+for(const dialect of DIALECTS)test(`source figures reject loss of an interior word only in the final rendered caption/${dialect}`,async()=>{
+  const article=manifest.articles[0],entry=await run(article,dialect);
+  const comparison=result=>compareArticleResult(article,result,{sourceHtml:entry.html});
+  assert.equal(comparison(entry.result).expectations.find(e=>e.id==='source-figures-v1').status,'pass');
+  const figure=entry.result.figures[0],image=`![${figure.alt}](${figure.imageUrl})`;
+  const start=entry.result.markdown.indexOf(image)+image.length,next=entry.result.markdown.indexOf('\n![',start);
+  const caption=entry.result.markdown.slice(start,next),word='dimensionality',offset=caption.indexOf(word);
+  assert.ok(offset>0);assert.equal(caption.indexOf(word,offset+word.length),-1);
+  assert.ok(figure.caption.includes('spin dimensionality (collinearity/coplanarity)'));
+  const absolute=start+offset,markdown=entry.result.markdown.slice(0,absolute)+entry.result.markdown.slice(absolute+word.length);
+  const result={...entry.result,markdown};assert.strictEqual(result.figures,entry.result.figures);
+  assert.notEqual(markdown,entry.result.markdown);
+  for(const validator of Object.values(runProductionValidators(result)))assert.equal(validator.valid,true);
+  assert.equal(comparison(result).expectations.find(e=>e.id==='source-figures-v1').status,'failure');
+  const unbolded={...entry.result,markdown:entry.result.markdown.replace('**a**, Distinct magnetic geometries','a, Distinct magnetic geometries')};
+  assert.notEqual(unbolded.markdown,entry.result.markdown);
+  const panelFailure=comparison(unbolded).expectations.find(e=>e.id==='source-figures-v1').failures;
+  assert.ok(panelFailure.some(f=>f.path==='figures[0].renderedBoldSingleLetterSequence'));
+});
+
+for(const dialect of ['links','quarto'])test(`source crossrefs reject a wrong target at one real occurrence despite other correct links/${dialect}`,async()=>{
+  const article=manifest.articles[0],entry=await run(article,dialect);
+  const comparison=result=>compareArticleResult(article,result,{sourceHtml:entry.html});
+  assert.equal(comparison(entry.result).expectations.find(e=>e.id==='source-crossrefs-v1').status,'pass');
+  const prefix=dialect==='quarto'?'fig-':'';
+  const original=`[1a](#${prefix}figure-1)`,wrong=`[1a](#${prefix}figure-2)`;
+  const markdown=entry.result.markdown.replace(original,wrong);
+  assert.notEqual(markdown,entry.result.markdown);assert.ok(markdown.includes(original),'Other correct target occurrences remain');
+  const result={...entry.result,markdown};assert.strictEqual(result.semantic,entry.result.semantic);
+  for(const validator of Object.values(runProductionValidators(result)))assert.equal(validator.valid,true);
+  assert.equal(comparison(result).expectations.find(e=>e.id==='source-crossrefs-v1').status,'failure');
+});
+
+test('default source crossrefs reject relinking a degraded figure occurrence to a valid unrelated section',async()=>{
+  const article=manifest.articles[0],entry=await run(article,'markdown');
+  const comparison=result=>compareArticleResult(article,result,{sourceHtml:entry.html});
+  assert.equal(comparison(entry.result).expectations.find(e=>e.id==='source-crossrefs-v1').status,'pass');
+  const markdown=entry.result.markdown.replace('Figure  1a shows','Figure  [1a](#methods) shows');
+  assert.notEqual(markdown,entry.result.markdown);
+  const result={...entry.result,markdown};assert.strictEqual(result.semantic,entry.result.semantic);
+  for(const validator of Object.values(runProductionValidators(result)))assert.equal(validator.valid,true);
+  assert.ok(comparison(result).expectations.find(e=>e.id==='source-crossrefs-v1').failures.some(f=>f.path.endsWith('.degraded')));
 });
 
 for(const dialect of DIALECTS) test(`mocked full-clip table failure and redirect contracts/${dialect}`,async t=>{
