@@ -1,6 +1,6 @@
 # Issue #53 — literal brackets delivery handoff
 
-状态：`PR_READY_CI_PENDING`。两个真实来源 × 三方言的 literal boundary / phantom display 缺陷已由永久 RED→GREEN 验证，本地 required checks 全通过。完整 FRB/chemistry 的 unit/leading-isotope math validators 仍有独立失败，不声明完整 corpus 通过。独立 [Issue #53](https://github.com/uwougil/Academic-clipper/issues/53) 为一个窄 Work Contract，不分摊 #10 的普通交付责任。一个 final delivery PR 使用精确独立 `Refs #53` 行；root 负责独立 review/merge，merged-commit Main CI 成功才完成 Issue。
+状态：`PR_READY_FRESH_CI_PENDING`。[PR #54](https://github.com/uwougil/Academic-clipper/pull/54) 的独立 P2 已追加永久 RED→GREEN 修复，新增完整 clip 控制覆盖 `kbd/samp` 及 opaque `code/pre`；本地 required checks 全通过。两个真实来源 × 三方言的 literal boundary / phantom display 行为保持，source excerpts/provenance 与原 RED commit 逐字节一致。完整 FRB/chemistry 的 unit/leading-isotope math validators 仍有独立失败，不声明完整 corpus 通过。独立 [Issue #53](https://github.com/uwougil/Academic-clipper/issues/53) 为一个窄 Work Contract，不分摊 #10 的普通交付责任。一个 final delivery PR 使用精确独立 `Refs #53` 行；root 负责独立 review/merge，merged-commit Main CI 成功才完成 Issue。
 
 ## 基线、文件与范围
 
@@ -41,9 +41,9 @@ Implementation bug：PRD §3 要求保留 source 科学语义/上下标、优先
 
 ## 最小修复 / 验收映射
 
-仅 `src/adapters/nature.mjs` 既有 `replaceScientificBracketText()`，production **5 additions / 6 deletions**：保留 tree walker、marker storage/return、typed `literalText` API 与 parser 顺序；numeric-only pattern 改为对 source text 的 `/(?<!\\)[\[\]]/gu` bracket edges，明确 source `\[` / `\]` 继续 legacy path；existing MathJax/equation/reference DOM guard 保留，并排除 `code, pre, kbd, samp, a[data-test="citation-ref"], a[href*="#ref-CR"]`，与原 supported citation selectors 一致。没有 normalizer、figures、inline parser、transport 或全局 Markdown unescape/禁用 legacy 的变化。Root已串行确认该最小函数的文件所有权，永久RED commit先于实现。
+仅 `src/adapters/nature.mjs` 既有 `replaceScientificBracketText()`，production **5 additions / 6 deletions**：保留 tree walker、marker storage/return、typed `literalText` API 与 parser 顺序；numeric-only pattern 改为对 source text 的 `/(?<!\\)[\[\]]/gu` bracket edges，明确 source `\[` / `\]` 继续 legacy path；existing MathJax/equation/reference DOM guard 保留，并排除 `code, pre, a[data-test="citation-ref"], a[href*="#ref-CR"]`，与原 supported citation selectors 一致。`kbd/samp` 经 Defuddle 渲染为普通文本，继续使用 literal markers，而不按 opaque code 排除。没有 normalizer、figures、inline parser、transport 或全局 Markdown unescape/禁用 legacy 的变化。Root已串行确认该最小函数的文件所有权，两个永久RED commits都先于对应实现。
 
-永久 tests 在完整 clipNature/Defuddle/normalizers/renderers/全部 production validators 上核验 2 源 × 3 方言：FRB 5 个 label、8 原 equation typed payload/ID/order/number/rows/inline math、Methods targets；chemistry 两处 literal boundaries/mass/compound label 顺序/0 display，不把 standalone leading sup 当正确 attachment。Synthetic 控制明确标记且不算来源 admission：typed MathJax、明确 legacy `\[...\]`/`$$...$$`/inline、escaped source delimiters、numeric crystal directions、code/pre/kbd/samp DOM、bracket citation range/ordered references/known section targets。
+永久 tests 在完整 clipNature/Defuddle/normalizers/renderers/全部 production validators 上核验 2 源 × 3 方言：FRB 5 个 label、8 原 equation typed payload/ID/order/number/rows/inline math、Methods targets；chemistry 两处 literal boundaries/mass/compound label 顺序/0 display，不把 standalone leading sup 当正确 attachment。Synthetic 控制明确标记且不算来源 admission：typed MathJax、明确 legacy `\[...\]`/`$$...$$`/inline、escaped source delimiters、numeric crystal directions、bracket citation range/ordered references/known section targets；新增 `kbd/samp/code/pre` × 三方言完整 clip model、最终 Markdown、零 inline/display 与全部 validators，不再以 `kbd/samp` adapter DOM 未改来推断最终表达正确。
 
 最终来源 clip 实测：FRB 三方言 display 均为 **8**，5 个原 label完整保留；chemistry 三方言均为 **0**，两literal边界/mass/compound labels保持。FRB原8equations typed payload、number association/order/rows与两个原inline MathJax完整；零新增 delimiter issues/raw HTML/cross-reference/structure failures。8 FRB单位及6 chemistry scientific-isolatedSuperscript issues仍被原validator拒绝（包括两leading isotope），来源与正确attachment expectations未改。这是独立窄行为验收，不是 whole-article math PASS。
 
@@ -53,11 +53,14 @@ Implementation bug：PRD §3 要求保留 source 科学语义/上下标、优先
 | --- | --- |
 | 1 | `37f10500db7a362617ecf4de98fa087fca87e1f8`：原e2生产未改，ownlawfulfixtures/provenance/12永久tests与RED handoff；6原source cases真FAIL。 |
 | 2 | `437fe52f21d55ac2b657071b7741cc25f9500ab9`：仅Nature函数最小typed fix、测试对source equation number trim与更强final顺序/编号关联；没有改source/oracle科学内容。 |
-| 3 | Final本文receipt；精确 SHA 用 `git log -1 --format=%H -- docs/goals/issue-10/bug-literal-brackets-handoff.md` 重建，PR exact head固定在此提交。 |
+| 3 | `375361f768dc5fb8b85fa732123517987234438f`：原本文/source verification receipt；该头标准检查与 CI 通过，仍被独立 `kbd/samp` P2 阻塞。 |
+| 4 | `37cb22cb51bd5e39afa173daedb54674d8028113`：tests-only P2 RED checkpoint；生产与375一致，24tests中仅6个 `kbd/samp` × 三方言 FAIL，source6例/opaque code6例保持通过。 |
+| 5 | `e27d80be6311af5fd147b8e0b9dfd046060a216f`：同函数一行 guard 移除 `kbd, samp`，恢复其 literal protection；code/pre/math/ref/citation guards不变。 |
+| 6 | 本次 final handoff receipt；精确 SHA 用 `git log -1 --format=%H -- docs/goals/issue-10/bug-literal-brackets-handoff.md` 重建，PR body/CI 提供此最新 exact head。 |
 
 首次GREEN阶段，FRB旧测试把source number DOM缩进空白直接拿来查Markdown。独立观察source number `(1)…(8)` 与原accepted输出一致后，测试仅trim周围空白并加强 final TeX后邻number/order，不改originalTeX/number provenance。最终tests再次在e2原adapter/clip Git模块snapshot上执行，只有 import URL/fixture URL改为外部路径：12 tests仍6pass/6fail；same最终tests在fix上12pass。Baseline adapter Git blob `7757ed87fb64573c8e1bd706fbee4aaa041dea7c`、43112bytes、SHA `d3fb165544bd87bed5c6dc37b1653ba2aed1ecd4561ab78b83d414371b96f4c8`；clip blob `13e08d222ebc894c4e42e3de723c76691bcc5b93`、38116bytes、SHA `38c8278a0f070f3008b27b88f8c3d0a546da3c4b3aa7fc250853fced3d4cef47`。没有生产复刻parser、global patch或临时source科学变体。
 
-## 实际命令与结果
+## 原375检查记录（P2之前）
 
 External reports root：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-literal-brackets-preflight`。Source scripts 只读 Git objects/原 raw/production，不 fetch/writer。完整 raw 仍只在 B external TEMP。
 
@@ -82,4 +85,24 @@ External reports root：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-lite
 
 可恢复 external packet 包含 source-audit/reproduce/freeze/causality scripts、A实际dependency blobs、源审计/初始与accepted e2 RED/clone因果报告、原 own excerpt bytes、独立 leading isotope失效context、Issue body和 `proposed-nature.diff`。Setup 修正诚实记录：首次 Git manifest读超过 spawnSync 默认buffer；首次 stage脚本误用 Nature未提供的 `bodyHtml`；修正为有界buffer与现有document/defuddle production路径后才得到上表有效诊断。Synthetic legacy-subscript无typed保护的转义属于既有独立限制，compat控制使用普通变量验证正确display/inline role，不以该限制扩大本合同。
 
-PR fresh three-platform CI/Gitleaks、独立review及merged-commit Main CI 尚待外部结果，本文不制造已成功receipt。PR body/CIcards提供exact final head 的fresh证据；root只在其独立门槛满足后merge。作者不自行merge或关闭Issue，不声明Issue #10 complete。
+## 独立 P2 与追加 RED→GREEN
+
+独立 reviewer 在 exact `375361f768dc5fb8b85fa732123517987234438f` 找到一个 P2：新的排除 guard 把 `kbd/samp` 当 opaque code，但 Defuddle 把它们渲染为普通 text，`[100]` 的转义因此再次进入 legacy display normalization。Accepted e2 的完整 clip 输出为 `# Untitled\n\n[100]\n`、0 display；375 输出为 `# Untitled\n\n$$\n100\n$$\n`、1 display。两标签 × 三方言全部真实回归；`code/pre` 同样输入保持原 code 表达且 0 display。这些是 synthetic compatibility controls，不是科学来源或新文章 admission。
+
+最小 HTML：`<!doctype html><html><body><div class="c-article-body"><p><kbd>[100]</kbd></p></div></body></html>`；用 `samp` 替换 `kbd` 同样。新增永久测试先在生产375 unchanged上取得24tests/18pass/6fail，之后才提交一行 guard 修复。原 adapter-only 控制中 `kbd/samp` 的 opaque 前提被完整 clip 回归替代，code/pre/ref/citation guards的控制继续保留。原科学 fixture/originalTeX/attachment/counts/right/creator/provenance assertions没有变化。
+
+独立旧头 packet 位于 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-review/pr54-375361f-review.md` / `pr54-kbd-samp-375361f.test.mjs` / `.test.log` / `.json`。Raw/A actual helper/137 retained blocks/35+9 creators/CC rights/raw-vs-frozen correction/8 equation-number空白/source semantics已独立核验；source四文件仍与原37f Git blobs相同，因此复用该有效审计。旧375的绿色标准检查及CI不能替代新头 review。
+
+| 新命令（own worktree） | Actual result / external receipt |
+| --- | --- |
+| `node --test test/nature-literal-brackets.test.mjs`（P2 RED，375 unchanged生产） | **exit1**，24tests / 18pass / 6fail，0skip/todo/cancel；仅kbd/samp × 三方言display 1≠0，source六例与code/pre六例通过；`p2-permanent-375361f-red.log`，tests-only37cb checkpoint。 |
+| `node --test test/nature-literal-brackets.test.mjs`（P2 fix） | exit0，24/24pass，0skip/todo/cancel，1988.4033ms；`p2-focused-green.log`。 |
+| `npm ci` | exit0，65packages，0vulnerabilities，原lockfile不变；`p2-npm-ci.log`。 |
+| `node --test test/nature-literal-brackets.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs test/nature-table-notes.test.mjs test/nature-caption-citations.test.mjs test/nature-table-mathjax.test.mjs` | exit0，108/108pass，0skip/todo/cancel，16160.5582ms；`p2-affected-green.log`。 |
+| `npm test` | exit0，337/337pass，0skip/todo/cancel，92570.1979ms；`p2-full-green.log`。不改launcher/timeouts，没有以旧325测试receipt冒充新头。 |
+| `npm run build` | exit0，ignored dist正常生成；`p2-build-green.log`。 |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0，原golden13display/50refs，全部validators/scientificFragments valid，golden不变；`p2-golden-green.log`。 |
+| `node <external>/p2-compatibility-proof.mjs <own-worktree>` | exit0；从exact e2/375 Git Nature+clip modules仅重定位imports，12 synthetic controls的fixed完整Markdown全部与accepted相同，旧375只有6个kbd/samp回归；再检查6真实source cases为8/0，仍保留独立unit/isotopeissues。4 source文件Git-byte-identical于37f；fetch/DNS/HTTP/HTTPS/net/TLS traps记录0 attempts，无writer；`p2-compatibility-proof.json` / `.log`。 |
+| `git diff --check` / staged checks / owned filenames / protected paths / clean status | 通过；P2只增test、同一Natureguard行及本文；source fixtures/provenance/oracles不变，旧52仍b493 clean。 |
+
+上述追加本地检查的生产/test内容固定于e27；最终仅本文receipt追加，PR body/CIcards提供最新 exact clean head 的fresh三平台CI/Gitleaks。新独立review及merged-commit Main CI尚待外部结果，本文不制造已成功receipt。Root只在其独立门槛满足后merge。作者不自行merge或关闭Issue，不声明Issue #10 complete。
