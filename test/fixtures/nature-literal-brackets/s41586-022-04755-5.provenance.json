@@ -1,0 +1,2113 @@
+{
+  "evidenceVersion": "nature-literal-brackets-regression/1.0.0",
+  "sourceContractCommit": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330",
+  "source": {
+    "url": "https://www.nature.com/articles/s41586-022-04755-5",
+    "canonical": "https://www.nature.com/articles/s41586-022-04755-5",
+    "doi": "10.1038/s41586-022-04755-5",
+    "title": "A repeating fast radio burst associated with a persistent radio source",
+    "journal": "Nature",
+    "observedAt": "2026-10-03T16:48:03.040Z",
+    "bytes": 545450,
+    "sourceSha256": "190a270027c69a816b2647d2fdc6f1777cdf669695506fa40f2fe3cab8801ace",
+    "publicAccess": {
+      "articleLabel": "Article Open access Published: 08 June 2022",
+      "jsonLdIsAccessibleForFree": true,
+      "jsonLdSameAs": "https://doi.org/10.1038/s41586-022-04755-5"
+    },
+    "bodyCharacters": 89409,
+    "dns": [
+      {
+        "host": "www.nature.com",
+        "addresses": [
+          {
+            "address": "151.101.192.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.0.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.64.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.128.95",
+            "family": 4
+          }
+        ]
+      },
+      {
+        "host": "idp.nature.com",
+        "addresses": [
+          {
+            "address": "151.101.0.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.64.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.128.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.192.95",
+            "family": 4
+          }
+        ]
+      }
+    ],
+    "redirectLedger": [
+      {
+        "url": "https://www.nature.com/articles/s41586-022-04755-5",
+        "status": 303,
+        "contentType": "text/html",
+        "cookiesSent": false,
+        "cookiesSet": 0,
+        "redirect": "https://idp.nature.com/authorize"
+      },
+      {
+        "url": "https://idp.nature.com/authorize",
+        "status": 302,
+        "contentType": "",
+        "cookiesSent": false,
+        "cookiesSet": 3,
+        "redirect": "https://idp.nature.com/transit"
+      },
+      {
+        "url": "https://idp.nature.com/transit",
+        "status": 302,
+        "contentType": "",
+        "cookiesSent": true,
+        "cookiesSet": 0,
+        "redirect": "https://www.nature.com/articles/s41586-022-04755-5"
+      },
+      {
+        "url": "https://www.nature.com/articles/s41586-022-04755-5",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "cookiesSent": true,
+        "cookiesSet": 3,
+        "redirect": null
+      }
+    ]
+  },
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41586-022-04755-5",
+    "sourceObservedAt": "2026-10-03T16:48:03.040Z",
+    "sourceSha256": "190a270027c69a816b2647d2fdc6f1777cdf669695506fa40f2fe3cab8801ace",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Niu, C.-H.",
+      "Aggarwal, K.",
+      "Li, D.",
+      "Zhang, X.",
+      "Chatterjee, S.",
+      "Tsai, C.-W.",
+      "Yu, W.",
+      "Law, C. J.",
+      "Burke-Spolaor, S.",
+      "Cordes, J. M.",
+      "Zhang, Y.-K.",
+      "Ocker, S. K.",
+      "Yao, J.-M.",
+      "Wang, P.",
+      "Feng, Y.",
+      "Niino, Y.",
+      "Bochenek, C.",
+      "Cruces, M.",
+      "Connor, L.",
+      "Jiang, J.-A.",
+      "Dai, S.",
+      "Luo, R.",
+      "Li, G.-D.",
+      "Miao, C.-C.",
+      "Niu, J.-R.",
+      "Anna-Thomas, R.",
+      "Sydnor, J.",
+      "Stern, D.",
+      "Wang, W.-Y.",
+      "Yuan, M.",
+      "Yue, Y.-L.",
+      "Zhou, D.-J.",
+      "Yan, Z.",
+      "Zhu, W.-W.",
+      "Zhang, B."
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [
+      {
+        "resourceId": "table-1",
+        "sourceUrl": "https://www.nature.com/articles/s41586-022-04755-5/tables/1",
+        "sourceSha256": "97eaaa31a6f3443e63ad7cf2cef66776d72d61c6b0f0d2956d87cd43b39485a2",
+        "observedTableLicenseLinks": [],
+        "attributionSource": "https://www.nature.com/articles/s41586-022-04755-5",
+        "licenseEvidenceLocation": "sourceRights.notices in this article source-evidence.json",
+        "basis": "The table is an excerpt of this article. The article rights notice is recorded separately; an absent table-page license link is not claimed as an observed link."
+      }
+    ],
+    "technicalTransformations": "Recipe-selected excerpts and original ancestors, A sanitizer 1.1.0, deterministic serialization and LF normalization. Advertising, navigation, executable content and unselected source blocks are omitted as recorded in the manifest/handoff. Retained scholarly prose, TeX, captions, authors, citation data and table cells are preserved; image binaries and full live captures are not included.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "observedRawArticleRightsMetadata": [
+    {
+      "name": "dc.copyright",
+      "content": "2022 The Author(s)",
+      "sourceSubtreeSha256": "dd9a58c4136d6e7b203874aede921246fd444c3edd0da9feca9f9e1f59928748"
+    },
+    {
+      "name": "dc.rights",
+      "content": "2022 The Author(s)",
+      "sourceSubtreeSha256": "f8733546cc4a158d58a0adf7d06b2410d0aa177abe09163c551bdb47d2da5dbd"
+    },
+    {
+      "name": "prism.copyright",
+      "content": "2022 The Author(s)",
+      "sourceSubtreeSha256": "6d1f30ed5d6d87ebbf9c99e3e21ef1ff39406fbf56e25dfc8de7d320363884c3"
+    }
+  ],
+  "scope": "真实Fig2完整前邻块、Main p5与后邻块、原8display wrappers和相应heading/referenceprefix。不是完整article/corpus验收。",
+  "fixture": {
+    "path": "s41586-022-04755-5.article.excerpt.html",
+    "bytes": 50135,
+    "sha256": "7182c8625529cbba2e04fc9fda540aed5a33bfde74a6621ddc8a2ae4e88b6469",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41586-022-04755-5-literal-brackets-minimal",
+      "articleUrl": "https://www.nature.com/articles/s41586-022-04755-5",
+      "blocks": [
+        {
+          "id": "a-meta-11",
+          "selector": "head > meta[name=\"dc.title\"][content=\"A repeating fast radio burst associated with a persistent radio source\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-36",
+          "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-40",
+          "selector": "head > meta[name=\"citation_title\"][content=\"A repeating fast radio burst associated with a persistent radio source\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-41",
+          "selector": "head > meta[name=\"citation_volume\"][content=\"606\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-42",
+          "selector": "head > meta[name=\"citation_issue\"][content=\"7916\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-43",
+          "selector": "head > meta[name=\"citation_publication_date\"][content=\"2022/06\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-44",
+          "selector": "head > meta[name=\"citation_online_date\"][content=\"2022/06/08\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-45",
+          "selector": "head > meta[name=\"citation_firstpage\"][content=\"873\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-46",
+          "selector": "head > meta[name=\"citation_lastpage\"][content=\"877\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-50",
+          "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41586-022-04755-5\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-53",
+          "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41586-022-04755-5\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-146",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Niu, C.-H.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-148",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Aggarwal, K.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-151",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Li, D.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-155",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Zhang, X.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-158",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Chatterjee, S.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-160",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Tsai, C.-W.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-162",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Yu, W.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-164",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Law, C. J.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-167",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Burke-Spolaor, S.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-171",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Cordes, J. M.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-173",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Zhang, Y.-K.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-176",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Ocker, S. K.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-178",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Yao, J.-M.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-180",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Wang, P.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-182",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Feng, Y.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-186",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Niino, Y.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-189",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Bochenek, C.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-191",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Cruces, M.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-193",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Connor, L.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-195",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Jiang, J.-A.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-197",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Dai, S.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-200",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Luo, R.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-202",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Li, G.-D.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-205",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Miao, C.-C.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-208",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Niu, J.-R.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-211",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Anna-Thomas, R.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-214",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Sydnor, J.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-217",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Stern, D.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-219",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Wang, W.-Y.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-222",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Yuan, M.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-225",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Yue, Y.-L.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-227",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Zhou, D.-J.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-230",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Yan, Z.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-232",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Zhu, W.-W.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-234",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Zhang, B.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-243",
+          "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41586-022-04755-5\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-244",
+          "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-246",
+          "selector": "head > meta[property=\"og:title\"][content=\"A repeating fast radio burst associated with a persistent radio source - Nature\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-canonical",
+          "selector": "link[rel=\"canonical\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-jsonld",
+          "selector": "script[type=\"application/ld+json\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-title",
+          "selector": "h1.c-article-title",
+          "role": "title"
+        },
+        {
+          "id": "literal-brackets-block-0",
+          "selector": "#figure-2",
+          "role": "literal-brackets-adjacent-source"
+        },
+        {
+          "id": "literal-brackets-block-1",
+          "selector": "#Sec1-content > p:has(a[id=\"ref-link-section-d99382980e1976\"])",
+          "role": "literal-brackets-source"
+        },
+        {
+          "id": "literal-brackets-block-2",
+          "selector": "#Sec1-content > p:has(a[id=\"ref-link-section-d99382980e2099\"])",
+          "role": "literal-brackets-adjacent-source"
+        },
+        {
+          "id": "source-section-heading",
+          "selector": "#Sec1",
+          "role": "heading"
+        },
+        {
+          "id": "source-methods-heading",
+          "selector": "#Sec2",
+          "role": "heading"
+        },
+        {
+          "id": "source-Equ1",
+          "selector": "#Equ1",
+          "role": "display-equation"
+        },
+        {
+          "id": "source-Equ2",
+          "selector": "#Equ2",
+          "role": "display-equation"
+        },
+        {
+          "id": "source-Equ3",
+          "selector": "#Equ3",
+          "role": "display-equation"
+        },
+        {
+          "id": "source-Equ4",
+          "selector": "#Equ4",
+          "role": "display-equation"
+        },
+        {
+          "id": "source-Equ5",
+          "selector": "#Equ5",
+          "role": "display-equation"
+        },
+        {
+          "id": "source-Equ6",
+          "selector": "#Equ6",
+          "role": "display-equation"
+        },
+        {
+          "id": "source-Equ7",
+          "selector": "#Equ7",
+          "role": "display-equation"
+        },
+        {
+          "id": "source-Equ8",
+          "selector": "#Equ8",
+          "role": "display-equation"
+        },
+        {
+          "id": "source-reference-1",
+          "selector": "li:has(#ref-CR1)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-2",
+          "selector": "li:has(#ref-CR2)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-3",
+          "selector": "li:has(#ref-CR3)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-4",
+          "selector": "li:has(#ref-CR4)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-5",
+          "selector": "li:has(#ref-CR5)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-6",
+          "selector": "li:has(#ref-CR6)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-7",
+          "selector": "li:has(#ref-CR7)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-8",
+          "selector": "li:has(#ref-CR8)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-9",
+          "selector": "li:has(#ref-CR9)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-10",
+          "selector": "li:has(#ref-CR10)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-11",
+          "selector": "li:has(#ref-CR11)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-12",
+          "selector": "li:has(#ref-CR12)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-13",
+          "selector": "li:has(#ref-CR13)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-14",
+          "selector": "li:has(#ref-CR14)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-15",
+          "selector": "li:has(#ref-CR15)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-16",
+          "selector": "li:has(#ref-CR16)",
+          "role": "ordered-reference-prefix"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "helperDependencies": [
+      {
+        "file": "scripts/lib/nature-corpus-infrastructure.mjs",
+        "commit": "3754d3a781459635e719859353fe3cbdf8741897",
+        "gitBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+        "bytes": 34946,
+        "sha256": "a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c"
+      },
+      {
+        "file": "test/corpus/corpus-schema.json",
+        "commit": "3754d3a781459635e719859353fe3cbdf8741897",
+        "gitBlob": "3edf568bc82f9b0302f737acb5e0b19295cb927b",
+        "bytes": 12843,
+        "sha256": "7f0563889be154bcb91633ee48d5ce1218d9b8aa6c46614a07bf461bd3e03915"
+      }
+    ],
+    "retainedBlocks": [
+      {
+        "id": "a-meta-11",
+        "selector": "head > meta[name=\"dc.title\"][content=\"A repeating fast radio burst associated with a persistent radio source\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "85c50ec07b6f329ee94e1160a4540853df4216d3e550d9b3853619a5a8350311"
+      },
+      {
+        "id": "a-meta-36",
+        "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "d624cd945018592d96ac7b5f06c775fab966979552e03ab8f4185895ea0af853"
+      },
+      {
+        "id": "a-meta-40",
+        "selector": "head > meta[name=\"citation_title\"][content=\"A repeating fast radio burst associated with a persistent radio source\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "23cd0b5004cab7afe85fc07ef4c5572ff2bdd07f88f8ae217a612c8c8d80d4fc"
+      },
+      {
+        "id": "a-meta-41",
+        "selector": "head > meta[name=\"citation_volume\"][content=\"606\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "cdfce06ae1be9ab0f5f99596d3b78d9a968389f42041baba8f59f6e0fb6c9937"
+      },
+      {
+        "id": "a-meta-42",
+        "selector": "head > meta[name=\"citation_issue\"][content=\"7916\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "adcbb85908f000f4b484352517a624a6a2b8fb014075f170d0bdbd1be86a380f"
+      },
+      {
+        "id": "a-meta-43",
+        "selector": "head > meta[name=\"citation_publication_date\"][content=\"2022/06\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "ced8ea3ec4cae52524f19d57feda067bb744f3287ab4b4272fa7ca4b3cc52d21"
+      },
+      {
+        "id": "a-meta-44",
+        "selector": "head > meta[name=\"citation_online_date\"][content=\"2022/06/08\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "6483fb94c39472f4b674d873dd835551d56190fb64ed046bc0287a7cd2f65cc4"
+      },
+      {
+        "id": "a-meta-45",
+        "selector": "head > meta[name=\"citation_firstpage\"][content=\"873\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "9a954f32f8ada09600a360878d5c49ede1ec1550e135afb1cb77984a61039153"
+      },
+      {
+        "id": "a-meta-46",
+        "selector": "head > meta[name=\"citation_lastpage\"][content=\"877\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "873306e832a41c137ebf1f43785e4bc0058cc434251ec28a6302ba175ae44936"
+      },
+      {
+        "id": "a-meta-50",
+        "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41586-022-04755-5\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "69e8bab22c066c4f5c5839522417eafb17a5d16095b0ac86804b3c8273ad8dfc"
+      },
+      {
+        "id": "a-meta-53",
+        "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41586-022-04755-5\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "d8d18c5aa8ae8b2563611fec2bed90c2918a1b68221332ebfd8c98e0400f145b"
+      },
+      {
+        "id": "a-meta-146",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Niu, C.-H.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "87885731efc65495b910d513d829aba0f6a2513564a266ae026bc2f5d9f201b7"
+      },
+      {
+        "id": "a-meta-148",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Aggarwal, K.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "b0e5f8b890ad691a231436be71b1fd85921ce5717e0f31fbf04f29db491f749f"
+      },
+      {
+        "id": "a-meta-151",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Li, D.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "1ab74be7197fb0d3ebe01146d17abaa041945f5365aa461e121df3cdb79e5d59"
+      },
+      {
+        "id": "a-meta-155",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zhang, X.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "785ed4c3e389d1f98ecfa53435ca224ac2433d05008693aca3120abe662e75f9"
+      },
+      {
+        "id": "a-meta-158",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Chatterjee, S.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "3e3d91e1498c325ebb724b01f8889e4f46aae422461107f03d42f43ae300adf9"
+      },
+      {
+        "id": "a-meta-160",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Tsai, C.-W.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "c488f5d2d5af34ae225259faf8b95e64925ecbc94c554842e5e90ae75c440542"
+      },
+      {
+        "id": "a-meta-162",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Yu, W.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "2c279e632b3ea39c196ac3896c14ad1ff3dfa983cd0a9569bfb50c40e7a4f94d"
+      },
+      {
+        "id": "a-meta-164",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Law, C. J.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "6905f821b25de5b381174ffa8b3201514488331b9d7593927d3a6d12d45d73a8"
+      },
+      {
+        "id": "a-meta-167",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Burke-Spolaor, S.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "03e993f4fbc8fabe5a058395c783b38181795eec3ecfc1813b76068afa47eeaf"
+      },
+      {
+        "id": "a-meta-171",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Cordes, J. M.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "b4b82417f30f1cebf7e0480976d378719777f2027cf9f637899bb4b723fc85ce"
+      },
+      {
+        "id": "a-meta-173",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zhang, Y.-K.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "b10988ae81fbee8cc5f820159768d23d99ffa62db4fbf001f7c02368e7666a35"
+      },
+      {
+        "id": "a-meta-176",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Ocker, S. K.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "e5fbae74c8747ac27fb567c22063817dbe5a9c3ffc860eb68bc5e4d5ea1c85ef"
+      },
+      {
+        "id": "a-meta-178",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Yao, J.-M.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "124660cc62fd00c7eff915c3ece5aa404e8ba5fdd7ab7b815898acd7d53bdf82"
+      },
+      {
+        "id": "a-meta-180",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Wang, P.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "b2a5044816f27727d1fd4f533167cb589902811560c09a24edb0128d1278acde"
+      },
+      {
+        "id": "a-meta-182",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Feng, Y.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "e20a7729fcc054fee0b31dd8e4f359cc5a8a5e6adf29dd0230ab85908b8fdd68"
+      },
+      {
+        "id": "a-meta-186",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Niino, Y.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "7ce516b031ce5d115465f51bb2315f0fca1ed69524ead3afe7354985a63edf16"
+      },
+      {
+        "id": "a-meta-189",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Bochenek, C.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "8048a3fc6d2c8b399e412afa32e587b78a31faf61c65f9184b59e68b35c999cc"
+      },
+      {
+        "id": "a-meta-191",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Cruces, M.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "74c13b3df01781363056407b9d2987765c6718119b8e4273a7a4476e811a95f1"
+      },
+      {
+        "id": "a-meta-193",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Connor, L.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "cfbb37a104be935fa8b0512d47198e4eacc47b62cfd92ea8646981ac9bca2845"
+      },
+      {
+        "id": "a-meta-195",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Jiang, J.-A.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "d69afb57de613dac6adff30776029348cb9a4d1deb8e7078048d573d9cd4b3a6"
+      },
+      {
+        "id": "a-meta-197",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Dai, S.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "eb4cad728de52a8eda0e8a305aca97dd211cf52cb2e5c4e730b5aa83641ba299"
+      },
+      {
+        "id": "a-meta-200",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Luo, R.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "1e63f7e2b50b8e6bbe1e1e75cdbd4433a58c2924bf44e8acbeacb9d7c01f8b6c"
+      },
+      {
+        "id": "a-meta-202",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Li, G.-D.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "4103d9d70693c0d19334d0ce8fb04def6646e5d8f808ee973ac48c7430fd06bf"
+      },
+      {
+        "id": "a-meta-205",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Miao, C.-C.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "0bd78d93192dbc5b9bb9b8ab1e43dd85b1cdb81d4adac9e2318ff25231ec4893"
+      },
+      {
+        "id": "a-meta-208",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Niu, J.-R.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "c919dbc283e32d4949fb796964581789d745ad57b5b7eea1ea151b816859f358"
+      },
+      {
+        "id": "a-meta-211",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Anna-Thomas, R.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "9c483c4aa0120ec46b2f5840ba072f936d007840246690c9061f103c59561349"
+      },
+      {
+        "id": "a-meta-214",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Sydnor, J.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "e113e813b31c6c3c91fcb7bc3e0e93044b9d57300bcaaa9b00114204d4060b4a"
+      },
+      {
+        "id": "a-meta-217",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Stern, D.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "e8bccd52e93381ca3919854906546e6ed52b61fecf9b91c3ee92df7c529f3e82"
+      },
+      {
+        "id": "a-meta-219",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Wang, W.-Y.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "33ca71fcd33c6abeb90a0a19929467a686cdc917033ad0634d7d701d449de8ac"
+      },
+      {
+        "id": "a-meta-222",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Yuan, M.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "1526d2ff8f81623591b360a66d9233f38e1ed2f46c9f701d57dbe988656173c6"
+      },
+      {
+        "id": "a-meta-225",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Yue, Y.-L.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "894d37401d6f15f306f0db79fcfac3edc88f6c28ab1c2268e065cad332a41726"
+      },
+      {
+        "id": "a-meta-227",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zhou, D.-J.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "4fa5b4f9e417cf6ae6c475a0796569394ef2d228d3d076e5328bd33d535632b8"
+      },
+      {
+        "id": "a-meta-230",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Yan, Z.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "10a20657b9092d446b420d0c132455c42a84cde04e48f3f84aa5a168c58394aa"
+      },
+      {
+        "id": "a-meta-232",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zhu, W.-W.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "957b9c20f259cde98cd88249dda770c9181f0610c3c18d6d3d011553509378c0"
+      },
+      {
+        "id": "a-meta-234",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zhang, B.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "dcecc290329c30bed8cecb48b33143d39037dd342bb7e676493f535597928645"
+      },
+      {
+        "id": "a-meta-243",
+        "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41586-022-04755-5\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "3d9c3c949ade8929d67a454d088224af0e417b9d839e8256dc7be2c97dcb1b5f"
+      },
+      {
+        "id": "a-meta-244",
+        "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "e2a47d03efa7114d4bc8e65c0fba2e84722b49e6e718eb787898c3c61ac5bcc9"
+      },
+      {
+        "id": "a-meta-246",
+        "selector": "head > meta[property=\"og:title\"][content=\"A repeating fast radio burst associated with a persistent radio source - Nature\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "6561434a520cc5330e8ec38a3f0e70bc2197a2f3cbec1a817c1665600ed221d2"
+      },
+      {
+        "id": "a-canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "18f01b32880f9f6cffc641d7e98ef957dd7c8cdc1fd2773a9f3fc95da60db5ea"
+      },
+      {
+        "id": "a-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "7ff68b286e0bf0b22f9206306248f5161f904ae606fd1e4b5d09ffaf8b836831"
+      },
+      {
+        "id": "a-title",
+        "selector": "h1.c-article-title",
+        "role": "title",
+        "sourceSubtreeSha256": "96090bc3be6bffd0f8a5e49d5b9fce6162da11a8bb94338d5b2cacb6e30380fd"
+      },
+      {
+        "id": "literal-brackets-block-0",
+        "selector": "#figure-2",
+        "role": "literal-brackets-adjacent-source",
+        "sourceSubtreeSha256": "ccf52b0f3e2414b6ec560f24b231a0f8607ffaa78beccf16a2f3e081b8447297"
+      },
+      {
+        "id": "literal-brackets-block-1",
+        "selector": "#Sec1-content > p:has(a[id=\"ref-link-section-d99382980e1976\"])",
+        "role": "literal-brackets-source",
+        "sourceSubtreeSha256": "1c3434cc6f2c022b8461aec0c726db8969900df75c44727b09e04a05a718dc8b"
+      },
+      {
+        "id": "literal-brackets-block-2",
+        "selector": "#Sec1-content > p:has(a[id=\"ref-link-section-d99382980e2099\"])",
+        "role": "literal-brackets-adjacent-source",
+        "sourceSubtreeSha256": "2b2da477cb21f9bc15405af18693ca45a777bb275a6de933737db549d9d2e271"
+      },
+      {
+        "id": "source-section-heading",
+        "selector": "#Sec1",
+        "role": "heading",
+        "sourceSubtreeSha256": "09f8778f43dc62a0f59cf52aa9b5d47329480bff79dd9e53c7c544aeb548aac7"
+      },
+      {
+        "id": "source-methods-heading",
+        "selector": "#Sec2",
+        "role": "heading",
+        "sourceSubtreeSha256": "53446b73dabbfd56cb9dc4b91d44bbdd4a8f16f73a1ee6a206afc0e62ab5733d"
+      },
+      {
+        "id": "source-Equ1",
+        "selector": "#Equ1",
+        "role": "display-equation",
+        "sourceSubtreeSha256": "c849b3843805d4b62329075685435bf4a3b0967529229608aaef1ceb9de06149"
+      },
+      {
+        "id": "source-Equ2",
+        "selector": "#Equ2",
+        "role": "display-equation",
+        "sourceSubtreeSha256": "88412ec9f4040fcddb732b5557cc1c41905817e3ef13e4d8bc3918cbbffbabb1"
+      },
+      {
+        "id": "source-Equ3",
+        "selector": "#Equ3",
+        "role": "display-equation",
+        "sourceSubtreeSha256": "5f37531fe6001a10b39f7bc377b9b4b9c1b95f5f1074827ffb42e71ba82af689"
+      },
+      {
+        "id": "source-Equ4",
+        "selector": "#Equ4",
+        "role": "display-equation",
+        "sourceSubtreeSha256": "39ef0da5fdda345cff236600f55bd9b1184f17104e76a3dd88a9a25ac7e1111f"
+      },
+      {
+        "id": "source-Equ5",
+        "selector": "#Equ5",
+        "role": "display-equation",
+        "sourceSubtreeSha256": "fa7fcb570c3f15195bbe6d0d321f57ce3d72e41276e3a16ff5cb9f0550afc67e"
+      },
+      {
+        "id": "source-Equ6",
+        "selector": "#Equ6",
+        "role": "display-equation",
+        "sourceSubtreeSha256": "47f78ba160eec842e576251856b636bad107a2e44f1e4821fe06ee2ef57b25dd"
+      },
+      {
+        "id": "source-Equ7",
+        "selector": "#Equ7",
+        "role": "display-equation",
+        "sourceSubtreeSha256": "d9d357438d16e240b5a7b5cb9c6d39d77845bbd9b1435157de16fae4ce967dfc"
+      },
+      {
+        "id": "source-Equ8",
+        "selector": "#Equ8",
+        "role": "display-equation",
+        "sourceSubtreeSha256": "905775606db35fc2de613057a41c1f532a3d06e73d5b97536ebe6b98f7247b80"
+      },
+      {
+        "id": "source-reference-1",
+        "selector": "li:has(#ref-CR1)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "7427aa55fa250a9acc830f2301d4f8e41784055687ce1032a32a1d2894fcfeb1"
+      },
+      {
+        "id": "source-reference-2",
+        "selector": "li:has(#ref-CR2)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "811b6ed2ec7d456aa0d69fd62cd05c9d70c82987a58ac42e771e3c534da46b76"
+      },
+      {
+        "id": "source-reference-3",
+        "selector": "li:has(#ref-CR3)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "e0145fdfe6627c20094ce1830a147c2ff0ec2e114b34f94379adfe98672e043c"
+      },
+      {
+        "id": "source-reference-4",
+        "selector": "li:has(#ref-CR4)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "284888eb9c4e3268447872994e092277f26edfeebbec275187d048159aac080f"
+      },
+      {
+        "id": "source-reference-5",
+        "selector": "li:has(#ref-CR5)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "d5a8d4c888af9319d8fda0c4f3afdb414794701e0050a2d57ee15b813d5e2821"
+      },
+      {
+        "id": "source-reference-6",
+        "selector": "li:has(#ref-CR6)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "91891b95f3f8cf412fb3f9ff4454206c1a6e35c64215ef134a3f5d20c1e76b21"
+      },
+      {
+        "id": "source-reference-7",
+        "selector": "li:has(#ref-CR7)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "17b72117c5291a2203fb4d1876bc52c740aa8b580b4fbcc8f057d4f944bc12f2"
+      },
+      {
+        "id": "source-reference-8",
+        "selector": "li:has(#ref-CR8)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "2353373f26cae78404700adbac0fd4920e7555cb14dbe3974ca0750b570a8268"
+      },
+      {
+        "id": "source-reference-9",
+        "selector": "li:has(#ref-CR9)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "581205c673511ea685441c5a80d068ef6868a70887878ff99eb2c5d8db758318"
+      },
+      {
+        "id": "source-reference-10",
+        "selector": "li:has(#ref-CR10)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "5079154c97224398d58fa15663d10ac9954f0310863309493a461d6e66ece0a5"
+      },
+      {
+        "id": "source-reference-11",
+        "selector": "li:has(#ref-CR11)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "1455652e6af9e28d8b58e57c59cb65beff873ac8adc40799314785660e465336"
+      },
+      {
+        "id": "source-reference-12",
+        "selector": "li:has(#ref-CR12)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "07bc464424815aed6819bc98615f6b7ca4bed6c405b9cabd3a4a2eb506a2bed6"
+      },
+      {
+        "id": "source-reference-13",
+        "selector": "li:has(#ref-CR13)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "b626585760e0ba1c70f3de7db4d7ebade6bda791096c801ad78c6d7647df52bc"
+      },
+      {
+        "id": "source-reference-14",
+        "selector": "li:has(#ref-CR14)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "7dab8e5e960d399a19ee77d9f9de6fe749d7e6865c49f4e4be3c2637d3f0b62c"
+      },
+      {
+        "id": "source-reference-15",
+        "selector": "li:has(#ref-CR15)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "051f8b45e9b57d74e577e6410df535d15671ac608c9cdf2156ba8c32c0e94283"
+      },
+      {
+        "id": "source-reference-16",
+        "selector": "li:has(#ref-CR16)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "24c3e61fcafa95d9fe18ede7a3acdf02d7afa296343c092b6b1728867b1573df"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 81
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "trim-json-ld-to-article-object",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 301
+      },
+      {
+        "operation": "sanitize-resource-urls",
+        "count": 12
+      }
+    ],
+    "recipeSha256": "f61a0c8d76b16472abffe9d9b52e37ad018052cc97ada71c19e668accbaf9d1e",
+    "signatures": {
+      "projectionVersion": "nature-corpus-projection/1.0.0",
+      "serializerVersion": "nature-corpus-subtree/1.0.0",
+      "recipeSha256": "f61a0c8d76b16472abffe9d9b52e37ad018052cc97ada71c19e668accbaf9d1e",
+      "structureSha256": "115c51074db15d3fd28a79e47cdd8caa99f0b9d30fc943a6ecbf1ad4bf6497f3",
+      "payloadSha256": "89a43db808eb26d406d5ce24db9fd537d6e45976f8683354170a2e0af2a95ae9"
+    },
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true,
+    "omittedContent": [
+      "未选择的正文/图/表/author-information/UI；不覆盖完整article。",
+      "navigation、analytics、执行脚本、tracking/access/session attributes按A原sanitizer转换删除；原JSON-LD article metadata保留。",
+      "完整原raw捕获与binary不提交；来源credit/原CC BY4.0 rights完整记录，本记录不以仓库code license重新许可科学摘录。"
+    ],
+    "regeneration": "从B已保留untouched anonymous raw body读取；执行A 3754d3a actual helper/schema Git blobs与本recipe。没有写科学HTML、pretty-print inline nodes或全局collapse whitespace。"
+  },
+  "paragraph": {
+    "selector": "#Sec1-content > p:has(a[id=\"ref-link-section-d99382980e1976\"])",
+    "sourceSection": "Main",
+    "sourceParagraphIndex": 5,
+    "rawPreSanitizationSha256": "1c3434cc6f2c022b8461aec0c726db8969900df75c44727b09e04a05a718dc8b",
+    "frozenParagraphSha256": "6c4a2d899f9bfa7a2cd7c4263e7f0e67dbc70a9623fe3560254b8502fadeb3d6",
+    "reportedDigestCorrection": "C handoff先前将frozen paragraph digest标作raw prehash；原Buffer/source hash和科学内容相同，真正raw prehash因data-track attributes不同。两者明确分开，不改B/C oracle。",
+    "sourceText": "We obtained an optical spectrum at the location of the FRB with the Double Spectrograph on the Palomar 200-inch Hale Telescope, which reveals the redshift of the putative host to be z = 0.241 ± 0.001 based on a detection of strong Hα, [O III] 4,859 Å and [O III] 5,007 Å lines (Methods). A follow-up observation with the Low Resolution Imaging Spectrometer (LRIS) at the Keck I Telescope covering both the FRB location and the nearby Subaru J-band source along the extended R′-band structure indicates that the R′-band structure is dominated by the [O III] emission at the same redshift of z = 0.241. The Hα luminosity LHα = 7.4 ± 0.2 × 1040 erg s−1 after extinction correction implies a star-formation rate of about 0.41 M⊙ yr−1. On the basis of the J-band magnitude, we estimate the stellar mass of the host galaxy to be about 6 × 108 M⊙. Thus, we characterize J160204.31−111718.5 as a dwarf galaxy with a relatively high star-formation rate for its stellar mass compared with local Sloan Digital Sky Survey (SDSS) galaxies14. At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of L3GHz = 3 × 1029 erg s−1 Hz−1.",
+    "orderedScientificNodes": [
+      {
+        "tag": "I",
+        "text": "z"
+      },
+      {
+        "tag": "SPAN",
+        "text": "III"
+      },
+      {
+        "tag": "SPAN",
+        "text": "III"
+      },
+      {
+        "tag": "SPAN",
+        "text": "III"
+      },
+      {
+        "tag": "I",
+        "text": "z"
+      },
+      {
+        "tag": "I",
+        "text": "L"
+      },
+      {
+        "tag": "SUB",
+        "text": "Hα"
+      },
+      {
+        "tag": "SUP",
+        "text": "40"
+      },
+      {
+        "tag": "SUP",
+        "text": "−1"
+      },
+      {
+        "tag": "I",
+        "text": "M"
+      },
+      {
+        "tag": "SUB",
+        "text": "⊙"
+      },
+      {
+        "tag": "SUP",
+        "text": "−1"
+      },
+      {
+        "tag": "SUP",
+        "text": "8"
+      },
+      {
+        "tag": "I",
+        "text": "M"
+      },
+      {
+        "tag": "SUB",
+        "text": "⊙"
+      },
+      {
+        "tag": "SUP",
+        "text": "14"
+      },
+      {
+        "tag": "I",
+        "text": "L"
+      },
+      {
+        "tag": "SUB",
+        "text": "3GHz"
+      },
+      {
+        "tag": "SUP",
+        "text": "29"
+      },
+      {
+        "tag": "SUP",
+        "text": "−1"
+      },
+      {
+        "tag": "SUP",
+        "text": "−1"
+      }
+    ]
+  },
+  "expected": {
+    "displayCount": 8,
+    "literalLabel": "[O III]",
+    "literalOccurrences": 5,
+    "boundaryMeaning": "[O III]是原正文与caption的literal emission label，不是TeX/display。",
+    "equations": [
+      {
+        "id": "Equ1",
+        "originalTeX": [
+          "$${\\mathscr{W}}=\\frac{k}{\\lambda }{\\left(\\frac{\\delta }{\\lambda }\\right)}^{k-1}{{\\rm{e}}}^{-{(\\delta /\\lambda )}^{k}},$$"
+        ],
+        "number": "\n                    (1)\n                ",
+        "sourceRows": [
+          0
+        ],
+        "renderedTeX": [
+          "{\\mathscr{W}}=\\frac{k}{\\lambda }{\\left(\\frac{\\delta }{\\lambda }\\right)}^{k-1}{\\mathrm{e}}^{-{(\\delta /\\lambda )}^{k}},"
+        ]
+      },
+      {
+        "id": "Equ2",
+        "originalTeX": [
+          "$$E={10}^{39}{\\rm{erg}}\\times \\frac{4{\\rm{\\pi }}}{1+z}{\\left(\\frac{{D}_{{\\rm{L}}}}{{10}^{28}{\\rm{cm}}}\\right)}^{2}\\left(\\frac{{F}_{\\nu }}{{\\rm{Jy}}\\,{\\rm{ms}}}\\right)\\left(\\frac{{\\nu }_{{\\rm{c}}}}{{\\rm{GHz}}}\\right),$$"
+        ],
+        "number": "\n                    (2)\n                ",
+        "sourceRows": [
+          0
+        ],
+        "renderedTeX": [
+          "E={10}^{39}\\mathrm{erg}\\times \\frac{4\\mathrm{\\pi }}{1+z}{\\left(\\frac{{D}_{\\mathrm{L}}}{{10}^{28}\\mathrm{cm}}\\right)}^{2}\\left(\\frac{{F}_{\\nu }}{\\mathrm{Jy}\\,\\mathrm{ms}}\\right)\\left(\\frac{{\\nu }_{\\mathrm{c}}}{\\mathrm{GHz}}\\right),"
+        ]
+      },
+      {
+        "id": "Equ3",
+        "originalTeX": [
+          "$${{\\rm{DM}}}_{{\\rm{obs}}}={{\\rm{DM}}}_{{\\rm{MW}}}+{{\\rm{DM}}}_{{\\rm{MW}},{\\rm{halo}}}+{{\\rm{DM}}}_{{\\rm{IGM}}}+{{\\rm{DM}}}_{{\\rm{host}}}$$"
+        ],
+        "number": "\n                    (3)\n                ",
+        "sourceRows": [
+          0
+        ],
+        "renderedTeX": [
+          "{\\mathrm{DM}}_{\\mathrm{obs}}={\\mathrm{DM}}_{\\mathrm{MW}}+{\\mathrm{DM}}_{\\mathrm{MW},\\mathrm{halo}}+{\\mathrm{DM}}_{\\mathrm{IGM}}+{\\mathrm{DM}}_{\\mathrm{host}}"
+        ]
+      },
+      {
+        "id": "Equ4",
+        "originalTeX": [
+          "$${{\\rm{DM}}}_{{\\rm{IGM}}}(z)=\\frac{3c{H}_{0}{{\\Omega }}_{{\\rm{b}}}{f}_{{\\rm{IGM}}}}{8{\\rm{\\pi }}G{m}_{{\\rm{p}}}}{\\int }_{0}^{z}\\frac{\\chi (z)(1+z){\\rm{d}}z}{{[{{\\Omega }}_{{\\rm{m}}}{(1+z)}^{3}+{{\\Omega }}_{{\\Lambda }}]}^{\\frac{1}{2}}},$$"
+        ],
+        "number": "\n                    (4)\n                ",
+        "sourceRows": [
+          0
+        ],
+        "renderedTeX": [
+          "{\\mathrm{DM}}_{\\mathrm{IGM}}(z)=\\frac{3c{H}_{0}{{\\Omega }}_{\\mathrm{b}}{f}_{\\mathrm{IGM}}}{8\\mathrm{\\pi }G{m}_{\\mathrm{p}}}{\\int }_{0}^{z}\\frac{\\chi (z)(1+z)\\mathrm{d}z}{{[{{\\Omega }}_{\\mathrm{m}}{(1+z)}^{3}+{{\\Omega }}_{{\\Lambda }}]}^{\\frac{1}{2}}},"
+        ]
+      },
+      {
+        "id": "Equ5",
+        "originalTeX": [
+          "$${{\\rm{DM}}}_{{\\rm{IGM}}}(z)\\approx 978\\,{\\rm{pc}}\\,{{\\rm{cm}}}^{-3}\\,{f}_{{\\rm{IGM}}}{\\int }_{0}^{z}\\frac{(1+z){\\rm{d}}z}{{[{{\\Omega }}_{{\\rm{m}}}{(1+z)}^{3}+{{\\Omega }}_{{\\Lambda }}]}^{\\frac{1}{2}}},$$"
+        ],
+        "number": "\n                    (5)\n                ",
+        "sourceRows": [
+          0
+        ],
+        "renderedTeX": [
+          "{\\mathrm{DM}}_{\\mathrm{IGM}}(z)\\approx 978\\,\\mathrm{pc}\\,{\\mathrm{cm}}^{-3}\\,{f}_{\\mathrm{IGM}}{\\int }_{0}^{z}\\frac{(1+z)\\mathrm{d}z}{{[{{\\Omega }}_{\\mathrm{m}}{(1+z)}^{3}+{{\\Omega }}_{{\\Lambda }}]}^{\\frac{1}{2}}},"
+        ]
+      },
+      {
+        "id": "Equ6",
+        "originalTeX": [
+          "$${{\\rm{EM}}}_{{\\rm{s}}}=2.75\\,{\\rm{pc}}\\,{{\\rm{cm}}}^{-6}{T}_{4}^{0.9}S{({\\rm{H}}{\\rm{\\alpha }})}_{{\\rm{s}}}\\approx 616\\pm 7\\,{\\rm{pc}}\\,{{\\rm{cm}}}^{-6}\\times {T}_{4}^{0.9}\\,\\left[\\frac{S{({\\rm{H}}{\\rm{\\alpha }})}_{{\\rm{s}}}}{224\\pm 3\\,{\\rm{R}}}\\right],$$"
+        ],
+        "number": "\n                    (6)\n                ",
+        "sourceRows": [
+          0
+        ],
+        "renderedTeX": [
+          "{\\mathrm{EM}}_{\\mathrm{s}}=2.75\\,\\mathrm{pc}\\,{\\mathrm{cm}}^{-6}{T}_{4}^{0.9}S{(\\mathrm{H}\\mathrm{\\alpha })}_{\\mathrm{s}}\\approx 616\\pm 7\\,\\mathrm{pc}\\,{\\mathrm{cm}}^{-6}\\times {T}_{4}^{0.9}\\,\\left[\\frac{S{(\\mathrm{H}\\mathrm{\\alpha })}_{\\mathrm{s}}}{224\\pm 3\\,\\mathrm{R}}\\right],"
+        ]
+      },
+      {
+        "id": "Equ7",
+        "originalTeX": [
+          "$${{\\rm{DM}}}_{{\\rm{s}}}\\approx 392\\pm 3\\,{\\rm{pc}}\\,{{\\rm{cm}}}^{-3}\\times {T}_{4}^{0.45}\\,{\\left(\\frac{L}{5{\\rm{kpc}}}\\right)}^{1/2}\\,{\\left[\\frac{f/0.1}{\\zeta (1+{{\\epsilon }}^{2})/2}\\right]}^{1/2}\\,{\\left[\\frac{S{({\\rm{H}}{\\rm{\\alpha }})}_{{\\rm{s}}}}{224\\pm 3{\\rm{R}}}\\right]}^{1/2},$$"
+        ],
+        "number": "\n                    (7)\n                ",
+        "sourceRows": [
+          0
+        ],
+        "renderedTeX": [
+          "{\\mathrm{DM}}_{\\mathrm{s}}\\approx 392\\pm 3\\,\\mathrm{pc}\\,{\\mathrm{cm}}^{-3}\\times {T}_{4}^{0.45}\\,{\\left(\\frac{L}{5\\mathrm{kpc}}\\right)}^{1/2}\\,{\\left[\\frac{f/0.1}{\\zeta (1+{{\\epsilon }}^{2})/2}\\right]}^{1/2}\\,{\\left[\\frac{S{(\\mathrm{H}\\mathrm{\\alpha })}_{\\mathrm{s}}}{224\\pm 3\\mathrm{R}}\\right]}^{1/2},"
+        ]
+      },
+      {
+        "id": "Equ8",
+        "originalTeX": [
+          "$$\\tau ({\\rm{DM}},\\nu ,z)\\approx 48.03\\,{\\rm{\\mu }}{\\rm{s}}\\times \\frac{\\tilde{F}{G}_{{\\rm{scatt}}}{{\\rm{DM}}}_{{\\rm{l}}}^{2}}{{(1+{z}_{{\\rm{l}}})}^{3}{\\nu }^{4}},$$"
+        ],
+        "number": "\n                    (8)\n                ",
+        "sourceRows": [
+          0
+        ],
+        "renderedTeX": [
+          "\\tau (\\mathrm{DM},\\nu ,z)\\approx 48.03\\,\\mathrm{\\mu }\\mathrm{s}\\times \\frac{\\tilde{F}{G}_{\\mathrm{scatt}}{\\mathrm{DM}}_{\\mathrm{l}}^{2}}{{(1+{z}_{\\mathrm{l}})}^{3}{\\nu }^{4}},"
+        ]
+      }
+    ],
+    "inlineMath": [
+      {
+        "originalTeX": "\\({{\\rm{DM}}}_{{\\rm{IGM}}}\\,=\\)",
+        "renderedTeX": "{\\mathrm{DM}}_{\\mathrm{IGM}}\\,="
+      },
+      {
+        "originalTeX": "\\({{\\rm{DM}}}_{{\\rm{FRB}}}-{{\\rm{DM}}}_{{\\rm{host}}}-{{\\rm{DM}}}_{{\\rm{MW}}}\\)",
+        "renderedTeX": "{\\mathrm{DM}}_{\\mathrm{FRB}}-{\\mathrm{DM}}_{\\mathrm{host}}-{\\mathrm{DM}}_{\\mathrm{MW}}"
+      }
+    ],
+    "referencePrefix": 16,
+    "sourceRecords": [
+      {
+        "blockId": "literal-brackets-block-0",
+        "selector": "#figure-2",
+        "text": "Fig. 2: Optical, infrared and radio images of the field of FRB 20190520B.Full size imageIn each case, the box is 40″ in size and the 2″ crosshairs indicate the best FRB position at RA = 16 h 02 min 04.272 s, dec. = −11° 17′ 17.32″ (J2000). North is up and east is to the left. a, An optical R′-band image obtained by CFHT MegaCam covers 5,427–7,041 Å, including redshifted Hβ 4,861 Å, [O III]4.959 Å and [O III]5,007 Å emission lines from the host galaxy. The bright streak in the lower left is an artefact caused by a bright star outside the field of view. The inset shows the host galaxy in a 5″ region centred on the FRB position, as indicated by the yellow circle (0.1″ radius, corresponding to the 1σ position uncertainty). b, The infrared J-band image by Subaru/MOIRCS shows emission only at the location of the peak of the optical light profile of the host galaxy. The inset is a 5″ region matching the inset in a. c, The radio VLA image (2–4 GHz) shows a compact persistent source at the FRB location. The synthesized beam is shown as an ellipse of size (0.92″ × 0.47″) in the left corner.",
+        "citations": []
+      },
+      {
+        "blockId": "literal-brackets-block-1",
+        "selector": "#Sec1-content > p:has(a[id=\"ref-link-section-d99382980e1976\"])",
+        "text": "We obtained an optical spectrum at the location of the FRB with the Double Spectrograph on the Palomar 200-inch Hale Telescope, which reveals the redshift of the putative host to be z = 0.241 ± 0.001 based on a detection of strong Hα, [O III] 4,859 Å and [O III] 5,007 Å lines (Methods). A follow-up observation with the Low Resolution Imaging Spectrometer (LRIS) at the Keck I Telescope covering both the FRB location and the nearby Subaru J-band source along the extended R′-band structure indicates that the R′-band structure is dominated by the [O III] emission at the same redshift of z = 0.241. The Hα luminosity LHα = 7.4 ± 0.2 × 1040 erg s−1 after extinction correction implies a star-formation rate of about 0.41 M⊙ yr−1. On the basis of the J-band magnitude, we estimate the stellar mass of the host galaxy to be about 6 × 108 M⊙. Thus, we characterize J160204.31−111718.5 as a dwarf galaxy with a relatively high star-formation rate for its stellar mass compared with local Sloan Digital Sky Survey (SDSS) galaxies14. At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of L3GHz = 3 × 1029 erg s−1 Hz−1.",
+        "citations": [
+          [
+            14
+          ]
+        ]
+      },
+      {
+        "blockId": "literal-brackets-block-2",
+        "selector": "#Sec1-content > p:has(a[id=\"ref-link-section-d99382980e2099\"])",
+        "text": "The redshift of an FRB source is often estimated from the DM attributed to the intergalactic medium (IGM), \\({{\\rm{DM}}}_{{\\rm{IGM}}}\\,=\\) \\({{\\rm{DM}}}_{{\\rm{FRB}}}-{{\\rm{DM}}}_{{\\rm{host}}}-{{\\rm{DM}}}_{{\\rm{MW}}}\\), where MW is Milky Way. Theoretical calculations15 and observations1 have independently estimated the IGM contribution to FRB DM as a function of redshift (Fig. 3). For a DM contribution from the Milky Way of 113 ± 17 pc cm−3 (including a ±40% range for the NE2001 model estimate16 of the disk contribution and a uniform halo distribution from 25 pc cm−3 to 80 pc cm−3) combined with an assumed host-galaxy DM of only 50 pc cm−3, the implied redshift range for FRB 20190520B is z ≈ 2.2 to z ≈ 0.9 for baryon fractions fIGM of 0.6 to 1 for the ionized IGM, much larger than the measured value (Methods).",
+        "citations": [
+          [
+            15
+          ],
+          [
+            1
+          ],
+          [
+            16
+          ]
+        ]
+      }
+    ]
+  },
+  "baseline": {
+    "acceptedMain": "e2d32e9ec819692a1f08075636c3a168f15ad20b",
+    "previousVerifiedRedBase": "4783291dcb8a5d0ac62dc2e5d314ba91f6c6d9e2",
+    "runtime": "Windows / Node v24.14.1",
+    "classification": "Implementation bug：PRD §3保留科学语义、优先原TeX、不伪造公式；EDD §2.3–2.5 publisher semantic/normalizer职责。",
+    "reproduction": "node --test test/nature-literal-brackets.test.mjs",
+    "noLiveOperations": true,
+    "results": [
+      {
+        "dialect": "markdown",
+        "displayCount": 11,
+        "expectedDisplayCount": 8,
+        "displayCountPass": false,
+        "validators": {
+          "math": {
+            "valid": false,
+            "inlineMathCount": 21,
+            "displayMathCount": 11,
+            "issues": [
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 64,
+                "column": 107,
+                "delimiter": "$",
+                "context": "…ssion at the same redshift of *z*  = 0.241. The Hα luminosity $L_{Hα}$ = 7.4 ± 0.2 × $10^{40}$ erg s$^{−1}$ after extinction correction implies a star-formation rate of about 0.41 $M_{⊙}$ yr$^{−1}$. O…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 64,
+                "column": 197,
+                "delimiter": "$",
+                "context": "…40}$ erg s$^{−1}$ after extinction correction implies a star-formation rate of about 0.41 $M_{⊙}$ yr$^{−1}$. On the basis of the J-band magnitude, we estimate the stellar mass of the host galaxy to be…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 64,
+                "column": 675,
+                "delimiter": "$",
+                "context": "… (SDSS) galaxies[^14]. At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of $L_{3GHz}$ = 3 × $10^{29}$ erg s$^{−1}$  Hz$^{−1}$.",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 64,
+                "column": 686,
+                "delimiter": "$",
+                "context": "… (SDSS) galaxies[^14]. At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of $L_{3GHz}$ = 3 × $10^{29}$ erg s$^{−1}$  Hz$^{−1}$.",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 66,
+                "column": 519,
+                "delimiter": "$",
+                "context": "…e.com/articles/s41586-022-04755-5#Fig3)). For a DM contribution from the Milky Way of 113 ± 17 pc cm$^{−3}$ (including a ±40% range for the NE2001 model estimate[^16] of the disk contribution and a un…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 66,
+                "column": 656,
+                "delimiter": "$",
+                "context": "…he NE2001 model estimate[^16] of the disk contribution and a uniform halo distribution from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the imp…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 66,
+                "column": 675,
+                "delimiter": "$",
+                "context": "…imate[^16] of the disk contribution and a uniform halo distribution from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the implied redshift range…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 66,
+                "column": 740,
+                "delimiter": "$",
+                "context": "…on from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the implied redshift range for FRB 20190520B is *z*  ≈ 2.2 to *z*  ≈ 0.9 for baryon fractio…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ],
+            "scientificFragments": {
+              "valid": false,
+              "counts": {
+                "isolatedSubscript": 0,
+                "isolatedSuperscript": 8,
+                "boldThenSubscript": 0,
+                "italicThenSuperscript": 0
+              },
+              "issues": [
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 64,
+                  "column": 107,
+                  "delimiter": "$",
+                  "context": "…ssion at the same redshift of *z*  = 0.241. The Hα luminosity $L_{Hα}$ = 7.4 ± 0.2 × $10^{40}$ erg s$^{−1}$ after extinction correction implies a star-formation rate of about 0.41 $M_{⊙}$ yr$^{−1}$. O…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 64,
+                  "column": 197,
+                  "delimiter": "$",
+                  "context": "…40}$ erg s$^{−1}$ after extinction correction implies a star-formation rate of about 0.41 $M_{⊙}$ yr$^{−1}$. On the basis of the J-band magnitude, we estimate the stellar mass of the host galaxy to be…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 64,
+                  "column": 675,
+                  "delimiter": "$",
+                  "context": "… (SDSS) galaxies[^14]. At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of $L_{3GHz}$ = 3 × $10^{29}$ erg s$^{−1}$  Hz$^{−1}$.",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 64,
+                  "column": 686,
+                  "delimiter": "$",
+                  "context": "… (SDSS) galaxies[^14]. At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of $L_{3GHz}$ = 3 × $10^{29}$ erg s$^{−1}$  Hz$^{−1}$.",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 66,
+                  "column": 519,
+                  "delimiter": "$",
+                  "context": "…e.com/articles/s41586-022-04755-5#Fig3)). For a DM contribution from the Milky Way of 113 ± 17 pc cm$^{−3}$ (including a ±40% range for the NE2001 model estimate[^16] of the disk contribution and a un…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 66,
+                  "column": 656,
+                  "delimiter": "$",
+                  "context": "…he NE2001 model estimate[^16] of the disk contribution and a uniform halo distribution from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the imp…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 66,
+                  "column": 675,
+                  "delimiter": "$",
+                  "context": "…imate[^16] of the disk contribution and a uniform halo distribution from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the implied redshift range…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 66,
+                  "column": 740,
+                  "delimiter": "$",
+                  "context": "…on from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the implied redshift range for FRB 20190520B is *z*  ≈ 2.2 to *z*  ≈ 0.9 for baryon fractio…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                }
+              ]
+            },
+            "states": {
+              "TEXT": 7612,
+              "INLINE_MATH": 250,
+              "DISPLAY_MATH": 1774,
+              "INLINE_CODE": 0,
+              "FENCED_CODE": 0
+            }
+          },
+          "rawHtml": {
+            "valid": true,
+            "violations": []
+          },
+          "structure": {
+            "valid": true,
+            "citationStyle": "markdown",
+            "sections": {
+              "references": {
+                "headingCount": 1,
+                "itemCount": 16,
+                "definitionCount": 16,
+                "anchorCount": 0,
+                "issues": []
+              },
+              "tables": {
+                "headingCount": 0,
+                "itemCount": 0,
+                "tableCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              }
+            },
+            "issues": []
+          },
+          "crossReferences": {
+            "valid": true,
+            "issues": [],
+            "targets": [
+              "a-repeating-fast-radio-burst-associated-with-a-persistent-radio-source",
+              "main",
+              "methods",
+              "references"
+            ],
+            "links": [
+              {
+                "label": "Methods",
+                "target": "methods",
+                "category": "section",
+                "index": 2523
+              },
+              {
+                "label": "Methods",
+                "target": "methods",
+                "category": "section",
+                "index": 4441
+              }
+            ]
+          }
+        },
+        "warnings": []
+      },
+      {
+        "dialect": "links",
+        "displayCount": 11,
+        "expectedDisplayCount": 8,
+        "displayCountPass": false,
+        "validators": {
+          "math": {
+            "valid": false,
+            "inlineMathCount": 21,
+            "displayMathCount": 11,
+            "issues": [
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 65,
+                "column": 107,
+                "delimiter": "$",
+                "context": "…ssion at the same redshift of *z*  = 0.241. The Hα luminosity $L_{Hα}$ = 7.4 ± 0.2 × $10^{40}$ erg s$^{−1}$ after extinction correction implies a star-formation rate of about 0.41 $M_{⊙}$ yr$^{−1}$. O…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 65,
+                "column": 197,
+                "delimiter": "$",
+                "context": "…40}$ erg s$^{−1}$ after extinction correction implies a star-formation rate of about 0.41 $M_{⊙}$ yr$^{−1}$. On the basis of the J-band magnitude, we estimate the stellar mass of the host galaxy to be…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 65,
+                "column": 683,
+                "delimiter": "$",
+                "context": "…galaxies[14](#ref-14). At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of $L_{3GHz}$ = 3 × $10^{29}$ erg s$^{−1}$  Hz$^{−1}$.",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 65,
+                "column": 694,
+                "delimiter": "$",
+                "context": "…galaxies[14](#ref-14). At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of $L_{3GHz}$ = 3 × $10^{29}$ erg s$^{−1}$  Hz$^{−1}$.",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 67,
+                "column": 534,
+                "delimiter": "$",
+                "context": "…e.com/articles/s41586-022-04755-5#Fig3)). For a DM contribution from the Milky Way of 113 ± 17 pc cm$^{−3}$ (including a ±40% range for the NE2001 model estimate[16](#ref-16) of the disk contribution …",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 67,
+                "column": 679,
+                "delimiter": "$",
+                "context": "…1 model estimate[16](#ref-16) of the disk contribution and a uniform halo distribution from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the imp…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 67,
+                "column": 698,
+                "delimiter": "$",
+                "context": "…](#ref-16) of the disk contribution and a uniform halo distribution from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the implied redshift range…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 67,
+                "column": 763,
+                "delimiter": "$",
+                "context": "…on from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the implied redshift range for FRB 20190520B is *z*  ≈ 2.2 to *z*  ≈ 0.9 for baryon fractio…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ],
+            "scientificFragments": {
+              "valid": false,
+              "counts": {
+                "isolatedSubscript": 0,
+                "isolatedSuperscript": 8,
+                "boldThenSubscript": 0,
+                "italicThenSuperscript": 0
+              },
+              "issues": [
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 65,
+                  "column": 107,
+                  "delimiter": "$",
+                  "context": "…ssion at the same redshift of *z*  = 0.241. The Hα luminosity $L_{Hα}$ = 7.4 ± 0.2 × $10^{40}$ erg s$^{−1}$ after extinction correction implies a star-formation rate of about 0.41 $M_{⊙}$ yr$^{−1}$. O…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 65,
+                  "column": 197,
+                  "delimiter": "$",
+                  "context": "…40}$ erg s$^{−1}$ after extinction correction implies a star-formation rate of about 0.41 $M_{⊙}$ yr$^{−1}$. On the basis of the J-band magnitude, we estimate the stellar mass of the host galaxy to be…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 65,
+                  "column": 683,
+                  "delimiter": "$",
+                  "context": "…galaxies[14](#ref-14). At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of $L_{3GHz}$ = 3 × $10^{29}$ erg s$^{−1}$  Hz$^{−1}$.",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 65,
+                  "column": 694,
+                  "delimiter": "$",
+                  "context": "…galaxies[14](#ref-14). At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of $L_{3GHz}$ = 3 × $10^{29}$ erg s$^{−1}$  Hz$^{−1}$.",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 67,
+                  "column": 534,
+                  "delimiter": "$",
+                  "context": "…e.com/articles/s41586-022-04755-5#Fig3)). For a DM contribution from the Milky Way of 113 ± 17 pc cm$^{−3}$ (including a ±40% range for the NE2001 model estimate[16](#ref-16) of the disk contribution …",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 67,
+                  "column": 679,
+                  "delimiter": "$",
+                  "context": "…1 model estimate[16](#ref-16) of the disk contribution and a uniform halo distribution from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the imp…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 67,
+                  "column": 698,
+                  "delimiter": "$",
+                  "context": "…](#ref-16) of the disk contribution and a uniform halo distribution from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the implied redshift range…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 67,
+                  "column": 763,
+                  "delimiter": "$",
+                  "context": "…on from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the implied redshift range for FRB 20190520B is *z*  ≈ 2.2 to *z*  ≈ 0.9 for baryon fractio…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                }
+              ]
+            },
+            "states": {
+              "TEXT": 8112,
+              "INLINE_MATH": 250,
+              "DISPLAY_MATH": 1774,
+              "INLINE_CODE": 0,
+              "FENCED_CODE": 0
+            }
+          },
+          "rawHtml": {
+            "valid": true,
+            "violations": []
+          },
+          "structure": {
+            "valid": true,
+            "citationStyle": "links",
+            "sections": {
+              "references": {
+                "headingCount": 1,
+                "itemCount": 16,
+                "anchorCount": 16,
+                "issues": []
+              },
+              "tables": {
+                "headingCount": 0,
+                "itemCount": 0,
+                "tableCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              }
+            },
+            "issues": []
+          },
+          "crossReferences": {
+            "valid": true,
+            "issues": [],
+            "targets": [
+              "figure-1",
+              "equation-1",
+              "equation-2",
+              "equation-3",
+              "equation-4",
+              "equation-5",
+              "equation-6",
+              "equation-7",
+              "equation-8",
+              "ref-1",
+              "ref-2",
+              "ref-3",
+              "ref-4",
+              "ref-5",
+              "ref-6",
+              "ref-7",
+              "ref-8",
+              "ref-9",
+              "ref-10",
+              "ref-11",
+              "ref-12",
+              "ref-13",
+              "ref-14",
+              "ref-15",
+              "ref-16",
+              "a-repeating-fast-radio-burst-associated-with-a-persistent-radio-source",
+              "main",
+              "methods",
+              "references"
+            ],
+            "links": [
+              {
+                "label": "Methods",
+                "target": "methods",
+                "category": "section",
+                "index": 2545
+              },
+              {
+                "label": "14",
+                "target": "ref-14",
+                "category": "reference",
+                "index": 3346
+              },
+              {
+                "label": "15",
+                "target": "ref-15",
+                "category": "reference",
+                "index": 3818
+              },
+              {
+                "label": "1",
+                "target": "ref-1",
+                "category": "reference",
+                "index": 3848
+              },
+              {
+                "label": "16",
+                "target": "ref-16",
+                "category": "reference",
+                "index": 4134
+              },
+              {
+                "label": "Methods",
+                "target": "methods",
+                "category": "section",
+                "index": 4494
+              }
+            ]
+          }
+        },
+        "warnings": []
+      },
+      {
+        "dialect": "quarto",
+        "displayCount": 11,
+        "expectedDisplayCount": 8,
+        "displayCountPass": false,
+        "validators": {
+          "math": {
+            "valid": false,
+            "inlineMathCount": 21,
+            "displayMathCount": 11,
+            "issues": [
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 65,
+                "column": 107,
+                "delimiter": "$",
+                "context": "…ssion at the same redshift of *z*  = 0.241. The Hα luminosity $L_{Hα}$ = 7.4 ± 0.2 × $10^{40}$ erg s$^{−1}$ after extinction correction implies a star-formation rate of about 0.41 $M_{⊙}$ yr$^{−1}$. O…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 65,
+                "column": 197,
+                "delimiter": "$",
+                "context": "…40}$ erg s$^{−1}$ after extinction correction implies a star-formation rate of about 0.41 $M_{⊙}$ yr$^{−1}$. On the basis of the J-band magnitude, we estimate the stellar mass of the host galaxy to be…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 65,
+                "column": 687,
+                "delimiter": "$",
+                "context": "…xies[@Brinchmann2004]. At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of $L_{3GHz}$ = 3 × $10^{29}$ erg s$^{−1}$  Hz$^{−1}$.",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 65,
+                "column": 698,
+                "delimiter": "$",
+                "context": "…xies[@Brinchmann2004]. At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of $L_{3GHz}$ = 3 × $10^{29}$ erg s$^{−1}$  Hz$^{−1}$.",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 67,
+                "column": 536,
+                "delimiter": "$",
+                "context": "…e.com/articles/s41586-022-04755-5#Fig3)). For a DM contribution from the Milky Way of 113 ± 17 pc cm$^{−3}$ (including a ±40% range for the NE2001 model estimate[@Cordes2002] of the disk contribution …",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 67,
+                "column": 681,
+                "delimiter": "$",
+                "context": "…1 model estimate[@Cordes2002] of the disk contribution and a uniform halo distribution from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the imp…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 67,
+                "column": 700,
+                "delimiter": "$",
+                "context": "…ordes2002] of the disk contribution and a uniform halo distribution from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the implied redshift range…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 67,
+                "column": 765,
+                "delimiter": "$",
+                "context": "…on from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the implied redshift range for FRB 20190520B is *z*  ≈ 2.2 to *z*  ≈ 0.9 for baryon fractio…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ],
+            "scientificFragments": {
+              "valid": false,
+              "counts": {
+                "isolatedSubscript": 0,
+                "isolatedSuperscript": 8,
+                "boldThenSubscript": 0,
+                "italicThenSuperscript": 0
+              },
+              "issues": [
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 65,
+                  "column": 107,
+                  "delimiter": "$",
+                  "context": "…ssion at the same redshift of *z*  = 0.241. The Hα luminosity $L_{Hα}$ = 7.4 ± 0.2 × $10^{40}$ erg s$^{−1}$ after extinction correction implies a star-formation rate of about 0.41 $M_{⊙}$ yr$^{−1}$. O…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 65,
+                  "column": 197,
+                  "delimiter": "$",
+                  "context": "…40}$ erg s$^{−1}$ after extinction correction implies a star-formation rate of about 0.41 $M_{⊙}$ yr$^{−1}$. On the basis of the J-band magnitude, we estimate the stellar mass of the host galaxy to be…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 65,
+                  "column": 687,
+                  "delimiter": "$",
+                  "context": "…xies[@Brinchmann2004]. At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of $L_{3GHz}$ = 3 × $10^{29}$ erg s$^{−1}$  Hz$^{−1}$.",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 65,
+                  "column": 698,
+                  "delimiter": "$",
+                  "context": "…xies[@Brinchmann2004]. At the luminosity distance of 1,218 Mpc implied by the redshift, the radio continuum counterpart has a spectral luminosity of $L_{3GHz}$ = 3 × $10^{29}$ erg s$^{−1}$  Hz$^{−1}$.",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 67,
+                  "column": 536,
+                  "delimiter": "$",
+                  "context": "…e.com/articles/s41586-022-04755-5#Fig3)). For a DM contribution from the Milky Way of 113 ± 17 pc cm$^{−3}$ (including a ±40% range for the NE2001 model estimate[@Cordes2002] of the disk contribution …",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 67,
+                  "column": 681,
+                  "delimiter": "$",
+                  "context": "…1 model estimate[@Cordes2002] of the disk contribution and a uniform halo distribution from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the imp…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 67,
+                  "column": 700,
+                  "delimiter": "$",
+                  "context": "…ordes2002] of the disk contribution and a uniform halo distribution from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the implied redshift range…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 67,
+                  "column": 765,
+                  "delimiter": "$",
+                  "context": "…on from 25 pc cm$^{−3}$ to 80 pc cm$^{−3}$) combined with an assumed host-galaxy DM of only 50 pc cm$^{−3}$, the implied redshift range for FRB 20190520B is *z*  ≈ 2.2 to *z*  ≈ 0.9 for baryon fractio…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                }
+              ]
+            },
+            "states": {
+              "TEXT": 4533,
+              "INLINE_MATH": 250,
+              "DISPLAY_MATH": 1774,
+              "INLINE_CODE": 0,
+              "FENCED_CODE": 0
+            }
+          },
+          "rawHtml": {
+            "valid": true,
+            "violations": []
+          },
+          "structure": {
+            "valid": true,
+            "citationStyle": "quarto",
+            "sections": {
+              "references": {
+                "headingCount": 1,
+                "itemCount": 0,
+                "definitionCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              },
+              "tables": {
+                "headingCount": 0,
+                "itemCount": 0,
+                "tableCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              }
+            },
+            "issues": []
+          },
+          "crossReferences": {
+            "valid": true,
+            "issues": [],
+            "targets": [
+              "fig-figure-1",
+              "sec-methods",
+              "eq-equation-1",
+              "eq-equation-2",
+              "eq-equation-3",
+              "eq-equation-4",
+              "eq-equation-5",
+              "eq-equation-6",
+              "eq-equation-7",
+              "eq-equation-8",
+              "refs",
+              "a-repeating-fast-radio-burst-associated-with-a-persistent-radio-source",
+              "main",
+              "methods",
+              "references"
+            ],
+            "links": [
+              {
+                "label": "Methods",
+                "target": "sec-methods",
+                "category": "section",
+                "index": 2569
+              },
+              {
+                "label": "Methods",
+                "target": "sec-methods",
+                "category": "section",
+                "index": 4528
+              }
+            ]
+          }
+        },
+        "warnings": []
+      }
+    ],
+    "rootCause": "非numeric、跨inline-element的原literal brackets缺少Nature typed literalText保护；Defuddle转义后legacy delimiter恢复失去来源身份。原MathJax source TeX仍有typed保护。",
+    "independentDefects": [
+      "原unit孤立superscripts属于#48；本excerpt三方言仍有8条，完整FRB不声明通过。"
+    ]
+  }
+}
