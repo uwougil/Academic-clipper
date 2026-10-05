@@ -188,12 +188,16 @@ function isTableNoteReferenceContext(sup, cell) {
     if (proseLabel(text) || /^[+−-]?\d+(?:\.\d+)?\s*±\s*\d+(?:\.\d+)?$/u.test(text)) return true;
   }
   const annotation = text.match(/^(.*\S)\s+\(([^()]*)\)$/u);
-  if (!annotation || !/^[A-Za-z]{1,3}⊙?(?:[+−-]?\d+)?(?:\s+[A-Za-z]{1,3}(?:[+−-]?\d+)?)*$/u.test(annotation[2])) return false;
-  // A lone indexed symbol in parentheses is still an expression. Require a
-  // solar-unit symbol or multiple unit tokens for this inference.
-  if (!annotation[2].includes('⊙') && (annotation[2].match(/[A-Za-z]{2,3}/gu) || []).length < 2) return false;
-  if ([...before.querySelectorAll('sub')].some(node => !/^(?:⊙|\d+)$/u.test(node.textContent.trim()))
+  // Only source-backed physical unit forms establish this context. Unknown
+  // letter products and numeric subscripts are not evidence of units.
+  if (!annotation || !/^(?:pc cm[−-]3|M⊙(?: yr[−-]1)?)$/u.test(annotation[2])) return false;
+  if ([...before.querySelectorAll('sub')].some(node => node.textContent.trim() !== '⊙')
     || [...before.querySelectorAll('sup')].some(node => !/^[+−-]?\d+$/u.test(node.textContent.trim()))) return false;
+  for (const styled of before.querySelectorAll('i, b, em, strong')) {
+    let next = styled.nextSibling;
+    while (next?.nodeType === 3 && !next.textContent.trim()) next = next.nextSibling;
+    if (styled.textContent.trim() !== 'M' || next?.tagName !== 'SUB' || next.textContent.trim() !== '⊙') return false;
+  }
   if (proseLabel(annotation[1])) return true;
   const mathLabels = before.querySelectorAll('.mathjax-tex');
   return mathLabels.length === 1 && annotation[1] === mathLabels[0].textContent.trim()

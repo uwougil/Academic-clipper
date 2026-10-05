@@ -1,6 +1,6 @@
 # Nature 表格脚注 bug — 独立交接
 
-Work Contract：[Issue #45](https://github.com/uwougil/Academic-clipper/issues/45)，交付 [PR #46](https://github.com/uwougil/Academic-clipper/pull/46)。这是 Issue #10 必需表格角色的前置 parser 修复，不承担 Issue #10 的普通部分交付；本 PR 只使用独立行 `Refs #45`。独立 review 在旧 head `5a02ceccd29680493ac58d88f0fc9599ecf2f9a3` 发现一个 P2：相同 footer marker 会误改 indexed / Greek / wrapped scientific superscripts。此版修正该边界并重新完成本地核验，仍需新 head 的 fresh CI / Secret scan 和同一独立 reviewer 重审。此 agent 不合并 PR，不宣称 bug 已被主线接纳或 Issue #10 完成。
+Work Contract：[Issue #45](https://github.com/uwougil/Academic-clipper/issues/45)，交付 [PR #46](https://github.com/uwougil/Academic-clipper/pull/46)。这是 Issue #10 必需表格角色的前置 parser 修复，不承担 Issue #10 的普通部分交付；本 PR 只使用独立行 `Refs #45`。独立 review 在 `5a02ceccd29680493ac58d88f0fc9599ecf2f9a3` 发现 indexed / Greek / wrapped superscripts 被误改；后续 `23ffa22e6a6ea498bd9133fe71ba7088a0272339` 修正这四例，但仍有一个 P2：任意短字母 / numeric-index products 被误认成 unit annotation。此版去除该推断，仍需新 head 的 fresh CI / Secret scan 和同一独立 reviewer 重审。此 agent 不合并 PR，不宣称 bug 已被主线接纳或 Issue #10 完成。
 
 ## 基线、分支与 commits
 
@@ -12,6 +12,8 @@ Work Contract：[Issue #45](https://github.com/uwougil/Academic-clipper/issues/4
 - `107375674ee0443dd9a2c2bac3f898529b56e7d9`：durable evidence / source attribution。
 - `5a02ceccd29680493ac58d88f0fc9599ecf2f9a3`：原 rights / copyright notices；此 head 被独立 P2 review 阻止接纳。
 - `be2855e07563da0e84b8af41f358ba76d72162da`：在上述生产代码上先提交 scientific-marker 失败回归。
+- `23ffa22e6a6ea498bd9133fe71ba7088a0272339`：第一次科学上标边界修正；后续独立 review 阻止此 head 的任意 parenthesized-product unit 推断。
+- `70aaf1cfd4f4fce1e7ae77d0d5ca31427bc179b9`：第二次先提交三项独立 reviewer 反例和相近 styled / numeric-index / non-mass solar 边界的永久红回归。
 - 本交接和来源署名补充 commit 的 SHA：`git log -1 --format=%H -- docs/goals/issue-10/bug-table-footer-handoff.md`。完整顺序：`git log --reverse --format="%H %s" e85b1b809b56242b89b6313ce5d1165c745466bb..HEAD`。
 
 独立分支没有 cherry-pick A/B bulk infrastructure 或 corpus；只包含本 bug 的 6 个小型 source-backed HTML excerpts、3 份 provenance、scoped LF/whitespace 属性、一个回归 test、本交接和两个必要生产文件。未改变 canonical、PRD/EDD、golden、dependencies、writer、CI matrix、security 或 publisher routing。
@@ -50,7 +52,7 @@ Implementation bug：`hydrateNatureTables()` 原来只保存 `tableElement.outer
 
 最小 additive 中间模型：`table.notes = [{ html, marker, markdown? }]`。Nature adapter 从所属 table container capture 完整 note；inline figure path 同样支持；在无 cells 时仍 capture note。现有 `hydrateNatureTables(tables, articleUrl, {fetchImpl, resolveHostname})` / `normalizeTableContents(tables,url)` / `renderTables(tables,policy)` 签名和 exports 不变。
 
-Normalizer 用既有 Defuddle、math / academic-inline 处理 note；首个 source superscript marker 渲染为可读 `**a**` 等，科学 `λ⁰` 保持完整关联。Cells 对匹配 footer 的非数字 marker 还要求明确上下文：marker 位于 paragraph / cell 末尾，前面是纯 prose label、单个带 `±` 的数值误差项，或 prose / MathJax label 后的 parenthesized unit annotation；unit 路径要求 solar-unit 符号或多个字母 unit tokens，并排除非数值 / solar 的 subscript 和非数值 superscript。没有这些证据则保留原 `<sup>`，交由现有 scientific normalization / validators 处理。未把 marker equality 当作独立关联证据，不改源 HTML，也不修补既有 unit normalization。Renderer 在对应 table 后按源序写出每条 note 一次，默认 / Quarto zero HTML、links 维持既有 strict anchor。原 cells / spans / URL / identifier / statuses 保持。
+Normalizer 用既有 Defuddle、math / academic-inline 处理 note；首个 source superscript marker 渲染为可读 `**a**` 等，科学 `λ⁰` 保持完整关联。Cells 对匹配 footer 的非数字 marker 还要求明确上下文：marker 位于 paragraph / cell 末尾，前面是纯 prose label、单个带 `±` 的数值误差项，或 prose / MathJax label 后的已知 parenthesized physical-unit annotation。该最后路径只支持源已证明的 `pc cm−3`、`M⊙`、`M⊙ yr−1` 形式（minus 同时接受 ASCII `-`）；不以字母长度 / token 数量或数字下标推断单位。Subscript 只接受 solar `⊙`；styled DOM 只接受 `M` 后紧邻该 solar subscript，其余 italic / bold variables 不构成 unit 证据。没有这些证据则保留原 `<sup>`，交由现有 scientific normalization / validators 处理。未把 marker equality 当作独立关联证据，不改源 HTML，也不修补既有 unit normalization。Renderer 在对应 table 后按源序写出每条 note 一次，默认 / Quarto zero HTML、links 维持既有 strict anchor。原 cells / spans / URL / identifier / statuses 保持。
 
 此次修正保护 indexed、Unicode / Greek、透明 wrapper、parenthesized expression、化学式、ionic charge 和单位后的上标；真实 FRB 七处 source-associated note marker 仍独立核对到原 row / cell。未锚定的 publisher superscript 本身有歧义，此推断刻意保守；新源布局若不满足这些上下文，不擅自猜作脚注，也不承诺所有未来 Nature marker 形式都已覆盖。
 
@@ -61,16 +63,18 @@ Normalizer 用既有 Defuddle、math / academic-inline 处理 note；首个 sour
 - `npm ci`：exit 0，65 packages，0 vulnerabilities，Node 24.14.1；lockfile 未变。
 - 修复前 `node --test test/nature-table-notes.test.mjs`：exit 1，6 tests / 1 pass / 5 fail。三个真实 case 首次断言为 `0 !== 1` / `0 !== 2` / `0 !== 6`；错误原因就是源 note 丢失。测试先提交在 `bf879f1`，不是由当前 output 反推 expected。
 - P2 修正前先在旧生产代码上增加 boundary tests：初次提交 `be2855e` 为 17 tests / 11 pass / 6 fail，补 wrapped Greek 后为 18 / 11 / 7。最终 19 个测试再对 `git show 5a02ceccd29680493ac58d88f0fc9599ecf2f9a3:src/normalizers/figures.mjs` 的外部临时副本运行：exit 1，19 / 11 / 8；只改 import URLs 以定位依赖，旧生产函数未改。精确命令：`node --test C:/Users/guoli/AppData/Local/Temp/issue-10-table-footer-agent/review-boundary-red-all.test.mjs`。失败均为科学指数被错误改成 footer marker；ionic charge / chemical formula 对照保持通过。
-- 修正后 `node --test test/nature-table-notes.test.mjs`：exit 0，最终 19 / 19，0 skipped / failures；真实 source cases 每种 `markdown` / `quarto` / `links` 精确验证完整 note 的语义、原序 / 出现一次、七个 source cell markers、golden `λ⁰`、source shapes / spans、URL / identifier / exact warning。
-- `node --test test/nature-table-notes.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs test/infrastructure-hardening.test.mjs test/network-boundaries.test.mjs`：新修正代码上 exit 0，73 / 73，0 skipped / failures。
-- `npm test`：新修正代码上 exit 0，275 / 275，0 failures / cancelled / skipped / todo。旧 head 的 265 次 green 不作为此修正的证明；A infrastructure / B corpus 不在此独立分支，测试总数不能与带 A 的 B 288 次旧结果混用。
+- 第二个 P2 的永久 red commit `70aaf1c`，生产代码仍为被 review 的 `23ffa22`：`node --test test/nature-table-notes.test.mjs` exit 1，27 tests / 20 pass / 7 fail。三项 exact reviewer products 与 emphasized product、literal numeric-index product、styled variables using unit names、non-mass solar variable 均保留真实失败；indexed mass product 对照原来已经通过。没有将这些 synthetic 内容当新 source article 或 admission。
+- 修正后 `node --test test/nature-table-notes.test.mjs`：exit 0，最终 27 / 27，0 skipped / failures；真实 source cases 每种 `markdown` / `quarto` / `links` 精确验证完整 note 的语义、原序 / 出现一次、七个 source cell markers、golden `λ⁰`、source shapes / spans、URL / identifier / exact warning。
+- `node --test test/nature-table-notes.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs test/infrastructure-hardening.test.mjs test/network-boundaries.test.mjs`：新修正代码上 exit 0，81 / 81，0 skipped / failures。
+- `npm test`：新修正代码上 exit 0，283 / 283，0 failures / cancelled / skipped / todo。旧 heads 的 265 / 275 次 green 不作为此修正的证明；A infrastructure / B corpus 不在此独立分支，测试总数不能与带 A 的 B 288 次旧结果混用。
 - `npm run build`：exit 0。
 - `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto`：exit 0，valid，13 display equations、50 reference definitions，全部 math / scientificFragments / structure / raw HTML / crossref validators valid。
 - `node C:/Users/guoli/AppData/Local/Temp/issue-10-table-footer-agent/review-boundary-check.mjs`：exit 0，四个独立 reviewer 反例加三个 scientific controls 的 cell Markdown 与其 accepted-base probe 逐字一致。独立旧 packet 为 `$env:TEMP/academic-clipper-issue10-review/pr46-5a02cecc-review.md`；本命令不写 reviewer artifacts。
+- `node C:/Users/guoli/AppData/Local/Temp/issue-10-table-footer-agent/review-boundary-check-23.mjs`：exit 0，第二个 packet 的全部 19 项 scientific contexts，与各自 matching synthetic footer 通过实际 normalizer 后，cell Markdown 逐字等于 accepted-base production。参考 evidence `$env:TEMP/academic-clipper-issue10-review/boundary-probe-23ffa22.json`；完整独立 review `$env:TEMP/academic-clipper-issue10-review/pr46-23ffa22-review.md` 保持只读。不是为了通过 validator 删除指数，也没有覆盖 reviewer 的 artifact。
 - `node C:/Users/guoli/AppData/Local/Temp/issue-10-table-footer-agent/source-audit.mjs`：exit 0，3 sources / 6 excerpts / 21778 bytes，1 / 2 / 6 原 notes，7 原 cell markers。只复制 reviewer 的只读审计程序并改 owner/output 路径，重新核对原 raw bytes / source positions / every note HTML/text/hash / cells/spans / 作者和 rights / license / copyright notices / A repeat / idempotence；没有更改 inputs。6 committed Git blob hashes / sizes / LF 另行 PASS。普通回归不读取外部 raw、不访问真实 DNS / HTTP、不调用 writer、不修改 global fetch / DNS；replay 另行断言 ledger，不能吞异常当通过。
 - `git diff --check` / `git diff --cached --check`：exit 0；tracked filenames / protected-file diff 审计通过。Golden / canonical / PRD/EDD / security / CI / dependencies / writer / routing diff 为空。最终提交后要求 `git status --short` 为空。
 
-Supplemental topology / marker tests 明确标 synthetic：追加另一个 unchanged source table container 不混注释、source container 的 inline relocation 无 fetch、A → B → A byte determinism、未知 / scientific / citation marker、numeric marker 与真实 unit/power 区分。新增十项 scientific boundary examples 包括独立 reviewer 的全部四例，并保留 styled / MathJax controls。这些不是额外真实 article / source layout 的 admission。
+Supplemental topology / marker tests 明确标 synthetic：追加另一个 unchanged source table container 不混注释、source container 的 inline relocation 无 fetch、A → B → A byte determinism、未知 / scientific / citation marker、numeric marker 与真实 unit/power 区分。新增十八项 scientific boundary examples 包括两轮独立 reviewer 的全部反例，并保留 styled / MathJax / source physical-unit controls。这些不是额外真实 article / source layout 的 admission。
 
 准备 helper 初次使用 Windows absolute import 而非 `file:///` URL 导致 `ERR_UNSUPPORTED_ESM_URL_SCHEME`，修正后实际运行成功；未把这次环境错误当 parser defect。最初的 shell `rg` 路径 glob 在 PowerShell 被当 literal，改用 `-g` 进行路径审计。工具设置失败没有计入 source 或测试通过。
 
