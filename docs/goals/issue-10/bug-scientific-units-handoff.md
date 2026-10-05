@@ -92,6 +92,22 @@ Reviewer 的 `0a676d5` 独立 pre-review（非 published final-head review）确
 
 新的 accepted main `e2d32e9ec819692a1f08075636c3a168f15ad20b`（#51 / PR #52）已自行 fetch 核验：Main CI `37278003744` 三 jobs `111659280091` / `111659279964` / `111659280101` success；Secret scan `37278003787` / Gitleaks `111659279634` success；finalizer `37278762752` success；Issue #51 于 `2026-10-05T07:37:25Z` completed。接下来的 dependency merge 保留所有 red/fix authored SHAs；不使用旧 b3fc 或 0a 的 CI/review 批准新 final head。
 
+实际 dependency merge `e0c6cd6eb44fd86bafda15a818ac3cba22e5b632` 无冲突完成；accepted table MathJax 代码与 tests直接来自 main，未自行修改。再次以 e2 原 normalizer 运行原11个 source/negative/positive tests，**exit 1，2 pass / 9 fail**，source六cases仍准确失败于 attachment缺失（`units-review-source-red-e2.log`）；该 normalizer与478相同，SHA-256仍为上述 `b60d4097…`，fixed bytes经 `finally`完整复原。28个 reviewer scientific/math/isotope/citation/unknown controls逐一等 accepted implementation，两个 reviewer packets 的14个 opaque/code/prose边界及原真实 Defuddle quoted-code control全部通过；结果保存在 `units-review-e2-controls.json`，没有写 reviewer packet 或借其旧输出宣称新 head pass。该 own replay 初次使用不存在的 `.markdown` field 导致 harness assertion，纠正为实际 `.defuddleMarkdown` 和独立记录的 expected attachment 后通过，未改 production/tests/source。
+
+最新 unit suite为 **29** tests（原11 + 18 synthetic code boundary controls）；source admission仍只上述SR7/FRB12powers。最终 accepted-e2 验证：
+
+| Exact command | Actual result / external log |
+| --- | --- |
+| `npm ci` | exit 0，65 packages，0 vulnerabilities |
+| `node --test test/nature-scientific-units.test.mjs test/nature-table-notes.test.mjs test/nature-table-mathjax.test.mjs test/nature-caption-citations.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs` | exit 0，**113/113**，0 fail/skip/todo/cancel，12052 ms；`units-review-e2-focused-green.log` |
+| `npm test` | exit 0，**342/342**，0 fail/skip/todo/cancel，84971 ms；`units-review-e2-full-tests.log` |
+| `npm run build` | exit 0，ignored dist；`units-review-e2-build.log` |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit 0，13 displays / 50 references / 四 validators + scientificFragments valid；`units-review-e2-golden.log` |
+| Source integrity / fixture diff / raw byte hashes | 3excerpts、2provenance对原 red/b3fc完全相同，三个原raw SHA重算匹配；原creators/notice/recipe/positions/19powers检查通过 |
+| Diff / staged checks / filenames / status | 相对 accepted e2仍限于10ownedpaths，唯一production path `src/normalizers/academic-inline.mjs`；final docs commit前后重核 |
+
+所有 authored/red checkpoints与两次accepted dependency merges依次可用文末 first-parent command重建；没有rebase、forcepush、调整source来迎合输出，没有提交fullraw/日志/凭据。最终docs commit只记录以上实际结果。Push后的new exact head需要fresh三平台CI/Gitleaks与SAME independent re-review；旧b3fc/0a/任何earlier head checks不替代，root持有最终merge权限。
+
 ## 其它来源的同机制与独立边界
 
 对 untouched source 的 typed fragment 做只读诊断，未提交额外 captures、未将其计入 passing corpus coverage。AlphaFold 原 Å²（Main p5，`e1303eacd7a9fb18e9a873f835d611c3dc7795b50fea4dee5b3ebdb16ca41035`）、COVID ml⁻¹（Methods p1，`ad4da67f7dbb1f0c6fce335ebc795c09590b3f2f81bda469b70f0561c3ed22ae`）、materials atom⁻¹（Main p2，`13879004c6bdfc0f8919bf4aae21b7c2dcbf3e057ca85daf77174f2c6b717687`）及 day⁻¹（Methods p39，`395116f5ff2c4c95feb071fe51106cdbbf66a150a9db3de7a2a97d975d6aadad`）、chemistry Å³（Results p0，`146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c`）均符合相同完整 unit token rule。Paragraph index 在各原 node 最近 section 的原 `querySelectorAll('p')` 中零起算，hash 为 A serializer 的原 paragraph；它不是 C reduced block 的 paragraph index。
