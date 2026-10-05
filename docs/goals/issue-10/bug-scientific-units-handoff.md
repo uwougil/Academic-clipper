@@ -32,7 +32,7 @@ Root 明确释放 `src/normalizers/academic-inline.mjs` 给本 agent：仅在红
 
 PR 首次 head `d94631ccf4720a4f8383a7ce1fb161bdc6e786e0` 的自查另发现新增 pass 的 opaque boundary 错误：`$\text{cost \$5}$ cm<sup>2</sup>` 的 escaped dollar 被误当 closing delimiter，` ``a``` m$^{3}$`` ` 的较长 run 被误当 inline-code closing delimiter，两者后面的 `cm²` 都未重接。此 head 的 CI 和 Secret scan 不能用于修正后的 head；root 已暂停合并，独立 review 未开始。两个最终 synthetic regression tests 在该 head 上重新执行，**2 tests / 0 pass / 2 fail，exit 1**，log `units-opacity-red-final-tests.log`。
 
-修正仍仅在 `academic-inline.mjs` 内：数学 closing delimiter 核验连续反斜杠奇偶；inline code 只接受同长度的完整 backtick run；fenced code 只在适当 line position 用相同 character 的足够长 closing fence 结束。已有跨度 byte-for-byte 保留，unclosed fenced content 保守保持；跨度之外的源 unit attachment 仍完成。Synthetic controls 明确覆盖 escaped currency、inline/display math、even backslashes、短/长 nested backtick runs、backtick/tilde fences 与较长/过短/缺失 closing fence。没有改 validator、math normalizer、unit 白名单或独立 source boundaries。最新 fetch 的 accepted main 仍为 `e0a341fc97ff845a250c2f016dcb2363e10ed49e`。
+修正仍仅在 `academic-inline.mjs` 内：数学 closing delimiter 核验连续反斜杠奇偶；inline code 只接受同长度的完整 backtick run；fenced code 只在适当 line position 用相同 character 的足够长 closing fence 结束。已有跨度 byte-for-byte 保留，unclosed fenced content 保守保持；跨度之外的源 unit attachment 仍完成。Synthetic controls 明确覆盖 escaped currency、inline/display math、even backslashes、短/长 nested backtick runs、backtick/tilde fences 与较长/过短/缺失 closing fence。没有改 validator、math normalizer、unit 白名单或独立 source boundaries。此修复初次 checkpoint `14d35c0e47d69f5834277d2c25f0f947453d9959` 的 base 是 `e0a341fc97ff845a250c2f016dcb2363e10ed49e`；CI `37272060435` 三平台和 Secret scan `37272060536` 均 success，但不能替代下面更新后的 head 验证。
 
 | Exact command | Result |
 | --- | --- |
@@ -43,7 +43,19 @@ PR 首次 head `d94631ccf4720a4f8383a7ce1fb161bdc6e786e0` 的自查另发现新�
 | `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit 0，13 displays / 50 references / scientificFragments 和四 validators valid |
 | `git diff --check`、`git status --short`、diff/tracked filename audit | owned scope only；最终 commit 前重跑 |
 
-最新 logs 只在外部 B TEMP 的 `units-opacity-focused-green.log`、`units-opacity-full-tests.log`、`units-opacity-build.log`、`units-opacity-golden.log`；先前 red/green logs 也保留。本 bug 的 frozen source/dialect attachment 合同通过，不代表完整 C 85×3 corpus 验收；C 须等其它独立修复被 accepted 后恢复 SAME C。
+上述初次 checkpoint logs 只在外部 B TEMP 的 `units-opacity-focused-green.log`、`units-opacity-full-tests.log`、`units-opacity-build.log`、`units-opacity-golden.log`；先前 red/green logs 也保留。本 bug 的 frozen source/dialect attachment 合同通过，不代表完整 C 85×3 corpus 验收；C 须等其它独立修复被 accepted 后恢复 SAME C。
+
+## 更新到最新 accepted main
+
+本 agent 自行 fetch 并核验 accepted `4783291dcb8a5d0ac62dc2e5d314ba91f6c6d9e2`（#47 / PR #49）：Main CI `37272529095` 的 Ubuntu Node 20 / Ubuntu Node 24 / Windows Node 24 jobs `111642385891` / `111642385902` / `111642385793` 均 success；Secret scan `37272529070` / Gitleaks `111642385712`、finalizer `37273099892` 均 success；Issue #47 于 `2026-10-05T06:34:34Z` closed/completed。
+
+使用 `git merge --no-ff 4783291dcb8a5d0ac62dc2e5d314ba91f6c6d9e2` 生成 dependency merge `d8023b4f770fd76edd1bbcb4d1b458c4bf1687d8`，无冲突、没有 force push。原 source-red `12874177091badf820157706fb482400f3227942`、unit fix `d94631ccf4720a4f8383a7ce1fb161bdc6e786e0`、opacity fix `14d35c0e47d69f5834277d2c25f0f947453d9959` 均按原 SHA 保留为 ancestors，无 SHA 映射改写。相对 accepted `4783291` 的唯一 production diff 仍是 `academic-inline.mjs`；其它新增文件仅本 bug 的 tests、fixtures、provenance 和本 handoff。Accepted caption 实现直接来自 main，没有本 bug 的额外修改。
+
+再次用 accepted `4783291` 原版 normalizer 执行同一最终 11 tests，实际 **exit 1，2 pass / 9 fail，0 skip/todo/cancel**：source identity 与 negative controls 通过，6 个真实 source × dialect cases 均失败于缺少 base-power attachment，3 个 synthetic positive cases 失败。Log `units-red-478-final-tests.log`。临时恢复只限 owner normalizer，`finally` 用 SHA-256 核验 fixed bytes 完整复原。原 SR/table raw hashes再次直接重算一致，fixtures/provenance/tests/normalizer 与 `14d35c0` 的 byte diff 为零，完整 ordered creators / 原 notices / recipe / positions / power pairs 检查通过。
+
+最新 source/focused 验证命令加入 accepted caption regression：`node --test test/nature-scientific-units.test.mjs test/nature-table-notes.test.mjs test/nature-caption-citations.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs`，**76 pass / 0 fail/skip/todo/cancel，exit 0**，包含本 bug 全部 11 tests 和两个源的三方言四 validators/scientificFragments。`npm run build` 和同一 golden validate 命令均 exit 0，golden 13 displays / 50 references / 四 validators 和 scientificFragments valid。新 logs 使用外部 B TEMP 的 `units-478-focused-green.log`、`units-478-full-tests.log`、`units-478-build.log`、`units-478-golden.log`；不提交 logs 或完整 captures。
+
+新基线完整 `npm test` **305 pass / 0 fail/skip/todo/cancel，exit 0，70241 ms**。最终 tracked filename / `git diff --check` / staged check / status 审计限于上述本 bug 的 10 个文件，生产路径只有 `src/normalizers/academic-inline.mjs`；没有修改 validators/security/golden/intent/B source 或 oracle。Fresh PR head CI 和 Secret scan 尚需在 push 后重新成功，旧 `14d35c0` 检查不能替代。
 
 ## 其它来源的同机制与独立边界
 
@@ -51,4 +63,4 @@ PR 首次 head `d94631ccf4720a4f8383a7ce1fb161bdc6e786e0` 的自查另发现新�
 
 实际未覆盖的独立 source boundaries 已报 root：materials `r<sup>2</sup>SCAN`（上列 Main p2），`mScm<sup>−1</sup>`（Methods p42，`7f1338d170c587581f6886da41018abd505a2e25e2522e988d6348aa9c3b2eb4`），FRB Methods p22 的 `(5/60)<sup>2</sup>` / `(0.19/60/60)<sup>2</sup>`（`4fe682650c4c464c1d6341c364241d29e154f18ecf7c8565de908b840c9a6fe5`）。它们需要 identifier/compound-unit/complex-base 语义，不可宽匹配猜成 simple units。Literal [O III]、leading isotope、materials styled adjacency、caption/citation/crossrefs 和 sparse alt 同样独立。
 
-最终 authored commits 用 `git log --reverse --format="%H %s" e0a341fc97ff845a250c2f016dcb2363e10ed49e..HEAD` 重建。最终 PR 必须等 fresh exact-head 三平台 CI、Secret scan 和独立 review 无 blocking 后由 root 执行 merge；本 agent 不 merge。合并只接纳代码，只有 merged commit Main CI success 才完成 Work Contract。
+最终 authored commits 用 `git log --first-parent --reverse --format="%H %s" e0a341fc97ff845a250c2f016dcb2363e10ed49e..HEAD` 重建；最终窄 diff 用 `git diff 4783291dcb8a5d0ac62dc2e5d314ba91f6c6d9e2..HEAD` 核验。最终 PR 必须等 fresh exact-head 三平台 CI、Secret scan 和独立 review 无 blocking 后由 root 执行 merge；本 agent 不 merge。合并只接纳代码，只有 merged commit Main CI success 才完成 Work Contract。
