@@ -1,0 +1,2 @@
+# Preserve publisher whitespace and deterministic excerpt hashes on Windows.
+*.html text eol=lf whitespace=-blank-at-eol
