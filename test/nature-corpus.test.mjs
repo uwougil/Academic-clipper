@@ -197,6 +197,42 @@ test('default source crossrefs reject relinking a degraded figure occurrence to 
   assert.ok(comparison(result).expectations.find(e=>e.id==='source-crossrefs-v1').failures.some(f=>f.path.endsWith('.degraded')));
 });
 
+for(const dialect of DIALECTS)test(`source figures frame a label-only source heading without following body prose/${dialect}`,async()=>{
+  const article=manifest.articles.find(a=>a.articleId==='s41598-018-38309-5'),entry=await run(article,dialect);
+  const figures=result=>compareArticleResult(article,result,{sourceHtml:entry.html}).expectations.find(e=>e.id==='source-figures-v1');
+  assert.ok(entry.result.figures.every(f=>f.captionMarkdown.startsWith(`${f.label}\n\n`)));
+  assert.equal(figures(entry.result).status,'pass','The complete source captions survive when the renderer joins the standalone label to their description');
+  const figure=entry.result.figures[0],image=`![${figure.alt}](${figure.imageUrl})`,start=entry.result.markdown.indexOf(image)+image.length;
+  const next=entry.result.markdown.indexOf('\n![',start),caption=entry.result.markdown.slice(start,next),word='topography',offset=caption.indexOf(word);
+  assert.ok(offset>0);assert.equal(caption.indexOf(word,offset+word.length),-1);
+  const absolute=start+offset,result={...entry.result,markdown:entry.result.markdown.slice(0,absolute)+entry.result.markdown.slice(absolute+word.length)};
+  assert.strictEqual(result.figures,entry.result.figures);
+  assert.ok(figures(result).failures.some(f=>f.path==='figures[0].completeRenderedCaptionPayload'),'Deleting an interior source word still fails the final caption predicate');
+  const captionStart=entry.result.markdown.indexOf(`**${figure.label}.**`,start),captionEnd=entry.result.markdown.indexOf('\n\n',captionStart);
+  const sourceFigure=article.expectations.find(e=>e.id==='source-figures-v1').value.ordered[0];
+  const insertedBody={...entry.result,markdown:entry.result.markdown.slice(0,captionEnd)+` ${sourceFigure.nextParagraph}`+entry.result.markdown.slice(captionEnd)};
+  assert.ok(figures(insertedBody).failures.some(f=>f.path==='figures[0].completeRenderedCaptionPayload'),'Body prose inserted into the final caption is not source caption payload');
+  const duplicate={...entry.result,markdown:entry.result.markdown.slice(0,captionEnd)+'\n\n'+entry.result.markdown.slice(captionStart,captionEnd)+entry.result.markdown.slice(captionEnd)};
+  assert.ok(figures(duplicate).failures.some(f=>f.path==='figures[0].captionOccurrences'),'An additional caption copy is rejected even when its original remains complete');
+});
+
+for(const dialect of DIALECTS)test(`source inline cases use the complete source paragraph context beyond a common introductory word/${dialect}`,async()=>{
+  const article=manifest.articles.find(a=>a.articleId==='s41534-023-00746-0'),entry=await run(article,dialect);
+  const inline=result=>compareArticleResult(article,result,{sourceHtml:entry.html}).expectations.find(e=>e.id==='source-inline-v1');
+  const sourceCase=article.expectations.find(e=>e.id==='source-inline-v1').value.cases[16],tex=sourceCase.text.slice(2,-2);
+  assert.ok(entry.result.markdown.includes(`$${tex}$`),'The exact source TeX is already present in the true source paragraph');
+  assert.equal(inline(entry.result).status,'pass','Other paragraphs containing where do not invalidate the preserved source paragraph');
+  const changedTex=tex.replace('^{\\pm }','^{+}');assert.notEqual(changedTex,tex);
+  const result={...entry.result,markdown:entry.result.markdown.replace(tex,changedTex)};
+  assert.strictEqual(result.semantic,entry.result.semantic);assert.notEqual(result.markdown,entry.result.markdown);
+  assert.ok(inline(result).failures.some(f=>f.path==='cases[16].sourceTeX'),'A changed scientific exponent is rejected in final output despite an unchanged semantic model');
+  const missing={...entry.result,markdown:entry.result.markdown.replace(tex,'')};
+  assert.ok(inline(missing).failures.some(f=>f.path==='cases[16].sourceTeX'),'Deleting the interior source TeX is rejected');
+  const paragraphs=entry.result.markdown.split(/\n\s*\n/u).filter(p=>p.includes(`$${tex}$`));assert.equal(paragraphs.length,1);
+  const duplicate={...entry.result,markdown:entry.result.markdown.replace(paragraphs[0],`${paragraphs[0]}\n\n${paragraphs[0]}`)};
+  assert.ok(inline(duplicate).failures.some(f=>f.path==='cases[16].paragraphContext'),'Duplicating the true scientific paragraph is rejected');
+});
+
 for(const dialect of DIALECTS) test(`mocked full-clip table failure and redirect contracts/${dialect}`,async t=>{
   const article=manifest.articles[0],real=(await loadReplayResources(article,corpusRoot))[0];
   const scenarios=[

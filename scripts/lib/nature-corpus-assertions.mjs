@@ -225,7 +225,11 @@ function assertFigures(context, e, c) {
     const withoutLabel = f.captionText.replace(/^(?:Extended Data )?Fig(?:ure)?\.?\s*\d+\s*[:.]?\s*/iu, '');
     // The renderer puts the caption directly after its own image. The independently
     // source-checked model gives the paragraph frame, not the expected payload.
-    const captionBlocks=(actual.captionMarkdown || '').trim().split(/\n\s*\n/u).filter(Boolean).length;
+    const modelBlocks=(actual.captionMarkdown || '').trim().split(/\n\s*\n/u).filter(Boolean);
+    // A standalone source label is joined to the first description paragraph.
+    // It contributes no separate rendered paragraph; all source payload stays checked.
+    const labelOnlyBlock=readable(modelBlocks[0] || '',result)===label;
+    const captionBlocks=Math.max(1,modelBlocks.length-(labelOnlyBlock?1:0));
     const framed=renderedCaption.replace(/^\{#fig-[^}]+\}/u,'').trim().split(/\n\s*\n/u).slice(0,captionBlocks).join('\n\n');
     const labelPrefix=`**${label}.**`;
     c.truth(`figures[${i}].renderedCaptionLabel`,framed.startsWith(labelPrefix),'Source figure label must start the caption attached to its image');
@@ -297,8 +301,12 @@ function assertInline(context, e, c) {
     // Compare complete source paragraph prose and all literal scientific attachments,
     // rather than merely checking that a symbol exists somewhere in the document.
     const paragraph = sourceText(node.closest('p')?.textContent);
-    const contextStart = paragraph.split(/\\\(|\$\$/u)[0].slice(0,36);
-    const candidates = result.markdown.split(/\n\s*\n/u).filter(p=>compactProse(p,result).includes(contextStart.replace(/\s/gu,'')));
+    const sourceContext=sourceReadable(paragraph).replace(/\s/gu,'');
+    const contextStart=sourceContext.slice(0,96),contextEnd=sourceContext.slice(-96);
+    const candidates = result.markdown.split(/\n\s*\n/u).filter(p=>{
+      const rendered=compactProse(p,result);
+      return rendered.includes(contextStart)&&rendered.includes(contextEnd);
+    });
     c.truth(`cases[${i}].paragraphContext`, candidates.length === 1, 'Scientific case must remain in its unique source paragraph');
     const output = candidates[0] || '';
     const compact = value => readable(value,result).replace(/\s/gu,'');
