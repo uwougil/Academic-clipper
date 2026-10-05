@@ -62,9 +62,16 @@ for (const record of records) {
       if (record.id === ids[0]) {
         assert.equal(result.markdown.split(expected.literalLabel).length - 1, expected.literalOccurrences);
         assert.doesNotMatch(result.markdown, /\$\$\s*O III|\$O III\$/u);
+        let previousEquationPosition = -1;
         for (const equation of expected.equations) {
-          for (const tex of equation.renderedTeX) assert.equal(result.markdown.split(`$$\n${tex}\n$$`).length - 1, 1, `${equation.id}: original TeX and display identity`);
-          assert.ok(result.markdown.includes(equation.number));
+          for (const tex of equation.renderedTeX) {
+            const display = `$$\n${tex}\n$$`;
+            assert.equal(result.markdown.split(display).length - 1, 1, `${equation.id}: original TeX and display identity`);
+            const position = result.markdown.indexOf(display);
+            assert.ok(position > previousEquationPosition, 'Original equation order');
+            previousEquationPosition = position;
+            assert.equal(result.markdown.slice(position + display.length).match(/\(\d+\)/u)?.[0], equation.number.trim(), `${equation.id}: source equation number association`);
+          }
           if (dialect === 'quarto') assert.ok(result.markdown.includes(`{#eq-equation-${equation.id.slice(3)}}`));
         }
         assert.deepEqual(result.debug.crossReferenceMap.filter(target => target.type === 'equation').map(target => target.natureId), expected.equations.map(equation => equation.id));

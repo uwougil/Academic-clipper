@@ -797,13 +797,12 @@ function replaceScientificRuns(body, inlineMath) {
 function replaceScientificBracketText(body) {
   const values = [];
   const walker = body.ownerDocument.createTreeWalker(body, 4);
-  // These are plain Nature text nodes, not MathJax. Protect every numeric
-  // bracket expression before Defuddle can serialize it as \\[...\\]. This
-  // covers crystallographic directions such as [100], [210] and [001], as
-  // well as the [111]-strained form, without hard-coding an article string.
-  const pattern = /\[(\d+(?:[,\s−+\-]\d+)*)\]/gu;
+  // Literal bracket edges can span styled Nature inline nodes. Preserve
+  // their source-text identity before Defuddle escapes them as TeX fences;
+  // backslash-prefixed delimiters continue through the legacy math path.
+  const pattern = /(?<!\\)[\[\]]/gu;
   for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-    if (node.parentElement?.closest('.mathjax-tex, .c-article-equation, ol.c-article-references, ol.c-article-references__list')) continue;
+    if (node.parentElement?.closest('.mathjax-tex, .c-article-equation, code, pre, kbd, samp, ol.c-article-references, ol.c-article-references__list, a[data-test="citation-ref"], a[href*="#ref-CR"]')) continue;
     const next = node.textContent.replace(pattern, (match) => {
       const marker = semanticMarker('LITERALTEXT', values.length);
       values.push({ marker, text: match });
