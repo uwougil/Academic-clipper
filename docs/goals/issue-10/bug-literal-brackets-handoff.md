@@ -1,11 +1,12 @@
 # Issue #53 — literal brackets delivery handoff
 
-状态：`PR_READY_FRESH_CI_PENDING`。[PR #54](https://github.com/uwougil/Academic-clipper/pull/54) 的独立 P2 已追加永久 RED→GREEN 修复，新增完整 clip 控制覆盖 `kbd/samp` 及 opaque `code/pre`；本地 required checks 全通过。两个真实来源 × 三方言的 literal boundary / phantom display 行为保持，source excerpts/provenance 与原 RED commit 逐字节一致。完整 FRB/chemistry 的 unit/leading-isotope math validators 仍有独立失败，不声明完整 corpus 通过。独立 [Issue #53](https://github.com/uwougil/Academic-clipper/issues/53) 为一个窄 Work Contract，不分摊 #10 的普通交付责任。一个 final delivery PR 使用精确独立 `Refs #53` 行；root 负责独立 review/merge，merged-commit Main CI 成功才完成 Issue。
+状态：`PR_READY_FRESH_CI_PENDING`。[PR #54](https://github.com/uwougil/Academic-clipper/pull/54) 的独立 P2 已追加永久 RED→GREEN 修复，并 non-destructive merge 最新 accepted unit prerequisite；完整 clip 控制覆盖 `kbd/samp` 及 opaque `code/pre`。两个真实来源 × 三方言的 literal boundary / phantom display 行为保持，source excerpts/provenance 与原 RED commit 逐字节一致。组合后的 own FRB excerpt 剩余 math issues 为0，chemistry仍有2个独立 leading-isotope attachment失败；不声明完整 articles/corpus 通过。独立 [Issue #53](https://github.com/uwougil/Academic-clipper/issues/53) 为一个窄 Work Contract，不分摊 #10 的普通交付责任。一个 final delivery PR 使用精确独立 `Refs #53` 行；root 负责独立 review/merge，merged-commit Main CI 成功才完成 Issue。
 
 ## 基线、文件与范围
 
 - Initial accepted/source audit base：`4783291dcb8a5d0ac62dc2e5d314ba91f6c6d9e2`。两个原来源 × 三方言均真实 RED。
-- 最新 accepted base：`e2d32e9ec819692a1f08075636c3a168f15ad20b`。重新 fetch 核验 [Main CI 37278003744](https://github.com/uwougil/Academic-clipper/actions/runs/37278003744) 三 jobs `111659279964` / `111659280091` / `111659280101`、[Secrets 37278003787](https://github.com/uwougil/Academic-clipper/actions/runs/37278003787)、[finalizer 37278762752](https://github.com/uwougil/Academic-clipper/actions/runs/37278762752) success；#51 于 `2026-10-05T07:37:25Z` closed/completed 后才 fast-forward 到此 base。Source excerpt bytes 保持。
+- 原 P2 修复 accepted base：`e2d32e9ec819692a1f08075636c3a168f15ad20b`。重新 fetch 核验 [Main CI 37278003744](https://github.com/uwougil/Academic-clipper/actions/runs/37278003744) 三 jobs `111659279964` / `111659280091` / `111659280101`、[Secrets 37278003787](https://github.com/uwougil/Academic-clipper/actions/runs/37278003787)、[finalizer 37278762752](https://github.com/uwougil/Academic-clipper/actions/runs/37278762752) success；#51 于 `2026-10-05T07:37:25Z` closed/completed 后才 fast-forward 到此 base。Source excerpt bytes 保持。
+- 最新 accepted base：`6b90413d806f7e611b00559c8208f6b95b31dd1e`（独立 #48 / PR #50 unit fix）。Actual fetched main与该SHA一致；[Main CI 37323651988](https://github.com/uwougil/Academic-clipper/actions/runs/37323651988) jobs `111808767556` / `111808767880` / `111808768068` 全success；[Secrets 37323651876](https://github.com/uwougil/Academic-clipper/actions/runs/37323651876) / Gitleaks `111808766995` success；#48 `2026-10-05T14:25:28Z` closed/completed 已独立核验。Merge commit `35aad9bf2dbd46b74fb74551d7a339333fdb5690` 保留全部既有RED/fix SHAs且无conflict，不把unit实现变成本Issue的diff。
 - 新 managed worktree：`C:/Users/guoli/.codex/worktrees/issue-10-bug-literal-brackets/academic-clipper`；branch：`codex/issue-10-bug-literal-brackets`。旧 #52 author branch/worktree 保持 clean `b493ac7842a6c03b4a12732edc1495bcf00dcfd1`，没有把新工作塞入 #51/#52。
 - Owned 文件：`src/adapters/nature.mjs` 仅 `replaceScientificBracketText()`、`test/nature-literal-brackets.test.mjs`、`test/fixtures/nature-literal-brackets/.gitattributes`、该目录两源各自 `article.excerpt.html` / `provenance.json`、本文。没有 B/C oracle、manifest、validator/security/deps/golden/spec/intent 或其它生产改动。
 - B 原始 source contract：`b718fa8b826c2abeb45c2dd30cd5414b3d6d8330`；C 最新只读 packet：`79ae944ce55bcdf753ade1851587688463a865be`；D latest source preflight/handoff：`e204dedf`（table fix 后 72/85、仍 `DEPENDENCY_PENDING`）。它们不是本 bug delivery 的 copies。
@@ -45,7 +46,7 @@ Implementation bug：PRD §3 要求保留 source 科学语义/上下标、优先
 
 永久 tests 在完整 clipNature/Defuddle/normalizers/renderers/全部 production validators 上核验 2 源 × 3 方言：FRB 5 个 label、8 原 equation typed payload/ID/order/number/rows/inline math、Methods targets；chemistry 两处 literal boundaries/mass/compound label 顺序/0 display，不把 standalone leading sup 当正确 attachment。Synthetic 控制明确标记且不算来源 admission：typed MathJax、明确 legacy `\[...\]`/`$$...$$`/inline、escaped source delimiters、numeric crystal directions、bracket citation range/ordered references/known section targets；新增 `kbd/samp/code/pre` × 三方言完整 clip model、最终 Markdown、零 inline/display 与全部 validators，不再以 `kbd/samp` adapter DOM 未改来推断最终表达正确。
 
-最终来源 clip 实测：FRB 三方言 display 均为 **8**，5 个原 label完整保留；chemistry 三方言均为 **0**，两literal边界/mass/compound labels保持。FRB原8equations typed payload、number association/order/rows与两个原inline MathJax完整；零新增 delimiter issues/raw HTML/cross-reference/structure failures。8 FRB单位及6 chemistry scientific-isolatedSuperscript issues仍被原validator拒绝（包括两leading isotope），来源与正确attachment expectations未改。这是独立窄行为验收，不是 whole-article math PASS。
+原e2上的来源 clip 实测：FRB 三方言 display 均为 **8**，5 个原 label完整保留；chemistry 三方言均为 **0**，两literal边界/mass/compound labels保持。FRB原8equations typed payload、number association/order/rows与两个原inline MathJax完整；零新增 delimiter issues/raw HTML/cross-reference/structure failures。原8 FRB单位及6 chemistry scientific-isolatedSuperscript issues由原validator拒绝（包括两leading isotope）；accepted6b单位修复合入后变为0与2，来源与正确attachment expectations未改。这是独立窄行为验收，不是 whole-article math PASS。
 
 ## Ordered commits
 
@@ -56,7 +57,9 @@ Implementation bug：PRD §3 要求保留 source 科学语义/上下标、优先
 | 3 | `375361f768dc5fb8b85fa732123517987234438f`：原本文/source verification receipt；该头标准检查与 CI 通过，仍被独立 `kbd/samp` P2 阻塞。 |
 | 4 | `37cb22cb51bd5e39afa173daedb54674d8028113`：tests-only P2 RED checkpoint；生产与375一致，24tests中仅6个 `kbd/samp` × 三方言 FAIL，source6例/opaque code6例保持通过。 |
 | 5 | `e27d80be6311af5fd147b8e0b9dfd046060a216f`：同函数一行 guard 移除 `kbd, samp`，恢复其 literal protection；code/pre/math/ref/citation guards不变。 |
-| 6 | 本次 final handoff receipt；精确 SHA 用 `git log -1 --format=%H -- docs/goals/issue-10/bug-literal-brackets-handoff.md` 重建，PR body/CI 提供此最新 exact head。 |
+| 6 | `d159eb35102bedb36d96056df61ac976d4eb5a90`：P2 final receipt；24focused/108affected/337full与source byte/network证明对应此旧base头。 |
+| 7 | `35aad9bf2dbd46b74fb74551d7a339333fdb5690`：non-destructive merge accepted6b，父提交d159与6b；本Issue source/test/production不变，无conflict。 |
+| 8 | 本次组合后的 final handoff receipt；精确 SHA 用 `git log -1 --format=%H -- docs/goals/issue-10/bug-literal-brackets-handoff.md` 重建，PR body/CI 提供此最新 exact head。 |
 
 首次GREEN阶段，FRB旧测试把source number DOM缩进空白直接拿来查Markdown。独立观察source number `(1)…(8)` 与原accepted输出一致后，测试仅trim周围空白并加强 final TeX后邻number/order，不改originalTeX/number provenance。最终tests再次在e2原adapter/clip Git模块snapshot上执行，只有 import URL/fixture URL改为外部路径：12 tests仍6pass/6fail；same最终tests在fix上12pass。Baseline adapter Git blob `7757ed87fb64573c8e1bd706fbee4aaa041dea7c`、43112bytes、SHA `d3fb165544bd87bed5c6dc37b1653ba2aed1ecd4561ab78b83d414371b96f4c8`；clip blob `13e08d222ebc894c4e42e3de723c76691bcc5b93`、38116bytes、SHA `38c8278a0f070f3008b27b88f8c3d0a546da3c4b3aa7fc250853fced3d4cef47`。没有生产复刻parser、global patch或临时source科学变体。
 
@@ -106,3 +109,25 @@ External reports root：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-lite
 | `git diff --check` / staged checks / owned filenames / protected paths / clean status | 通过；P2只增test、同一Natureguard行及本文；source fixtures/provenance/oracles不变，旧52仍b493 clean。 |
 
 上述追加本地检查的生产/test内容固定于e27；最终仅本文receipt追加，PR body/CIcards提供最新 exact clean head 的fresh三平台CI/Gitleaks。新独立review及merged-commit Main CI尚待外部结果，本文不制造已成功receipt。Root只在其独立门槛满足后merge。作者不自行merge或关闭Issue，不声明Issue #10 complete。
+
+## Accepted #48 dependency 组合与新头验证
+
+仅在 #48 完成、6b Main CI 三平台与Secrets成功并独立fetch确认后，执行 `git merge --no-ff 6b90413d806f7e611b00559c8208f6b95b31dd1e -m "Merge accepted unit fix for literal bracket composition"`。Merge35aad保留原source RED37f/P2 RED37cb/fix437fe52/e27，ownNature函数、永久24tests、4source文件与d159全相同。相对于最新accepted6b，PR仍只有原8个ownedpaths；academic-inline/units fixtures/tests属于已accepted dependency，无本Issue新增修改。
+
+此次全量重测由accepted生产base变化触发。只执行一次full；向root发送start/terminal安排本机CPU串行，未修改launcher/timeout，没有docs-only全量重跑。以下命令的code/test树固定于merge `35aad9bf2dbd46b74fb74551d7a339333fdb5690`，随后最终只追加本文receipt：
+
+| Command | Actual composition result / external receipt |
+| --- | --- |
+| `node --test test/nature-literal-brackets.test.mjs` | exit0，24/24pass，0skip/todo/cancel，2157.9558ms；`composition-6b-focused-green.log`。原6source cases与6kbd/samp fullmodel/finalMarkdown控制及6opaque code/pre控制通过，source/oracle assertions未改。 |
+| `npm ci` | exit0，65packages / 0vulnerabilities，原lockfile不变；`composition-6b-npm-ci.log`。 |
+| `node --test test/nature-literal-brackets.test.mjs test/nature-adapter.test.mjs test/output-quality.test.mjs test/nature-table-notes.test.mjs test/nature-caption-citations.test.mjs test/nature-table-mathjax.test.mjs test/nature-scientific-units.test.mjs` | exit0，142/142pass，0skip/todo/cancel，14201.5999ms；`composition-6b-affected-green.log`。包含原notes/caption/tabletypedmath与accepted unit/code-opacity guards。 |
+| `npm test` | exit0，371/371pass，0skip/todo/cancel，92880.6421ms；`composition-6b-full-green.log`。 |
+| `npm run build` | exit0，ignored dist正常生成；`composition-6b-build-green.log`。 |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0，原golden13display/50refs，四validators/scientificFragments valid；`composition-6b-golden-green.log`。 |
+| `node <external>/composition-6b-compatibility-proof.mjs <own-worktree>` | exit0，12synthetic controls fixed完整Markdown全部与accepted6b相同，旧375仅6kbd/samp失败；6真实source在accepted6b仍11/1 display RED，组合后8/0 GREEN；4source files与原37f Git-byte-identical；fetch/DNS/HTTP/HTTPS/net/TLS traps记录0 attempts，无writer。`composition-6b-compatibility-proof.json` / `.log`。 |
+| `git diff d159eb35102bedb36d96056df61ac976d4eb5a90 35aad9bf2dbd46b74fb74551d7a339333fdb5690 -- src/adapters/nature.mjs test/nature-literal-brackets.test.mjs test/fixtures/nature-literal-brackets` | empty。 |
+| `git diff 37f10500db7a362617ecf4de98fa087fca87e1f8 -- test/fixtures/nature-literal-brackets` / diffcheck / protected paths / clean status | source Git bytes全不变、checks通过；复用有效137blocks/rights/35+9creators/Arecipe独立rawaudit，未重复采集或生成source。 |
+
+Actual accepted `src/normalizers/academic-inline.mjs` dependency blob `a63eba2cacf0bc0a43552d1c16ec41e91b2cf0bc`，13076bytes，SHA-256 `4d5baa998adb27d6c76567133b1c226082736254dc74d160a24eff8390b59a0d`，组合HEAD与6b Git bytes/实际imported module一致。比较用6b/375原Nature+clip Git modules只重定位imports，均使用已accepted的同一dependency；未复制生产parser或patch source。完整stage objects/Markdown/counts与零网络记录在externalJSON。
+
+组合后 FRB own excerpt 三方言均8display、0math issues；chemistry均0display、仍2个source-leading-isotope `scientific-isolatedSuperscript`，原`[ $^{3}$ H]`缺陷继续被validator拒绝，不能当正确attachment。旧base的8/6单位诊断降为0/2是独立#48accepted变化，原scientifictruth/TeX/equation identity/附件/creators/rights未改。不据此声明完整FRB/chemistry或Issue10验收通过。PR body/CIcards承载组合后最新clean head的freshCI/Gitleaks；root继续独立review/十门槛与MainCI完成门槛，作者不自行merge。
