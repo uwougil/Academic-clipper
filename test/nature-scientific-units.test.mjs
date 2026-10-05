@@ -246,6 +246,9 @@ for (const [name, code] of [
   ['tab-padded list item with indented code', '-\tProse\n\n\t\tm$^{3}$'],
   ['blockquoted fence ending with its container', '> ~~~text\n> m$^{3}$'],
   ['indented code following a setext heading', 'Heading\n=======\n    m$^{3}$'],
+  ['indented code after a hyphen thematic break', '- - -\n    m$^{3}$'],
+  ['indented code after an asterisk thematic break', '* * *\n    m$^{3}$'],
+  ['quoted indented code after a thematic break', '> - - -\n>     m$^{3}$'],
 ]) {
   test(`synthetic ${name} preserves code bytes and repairs the following prose unit`, () => {
     const expected = `${code}\n\n$\\mathrm{cm}^{2}$`;
@@ -264,4 +267,10 @@ test('synthetic indented prose and list paragraphs still attach their unit power
     ['-\tProse\n\n      cm<sup>2</sup>', '-\tProse\n\n      $\\mathrm{cm}^{2}$'],
     ['    m$^{3}$\n\ncm<sup>2</sup>\n\n    s$^{-1}$', '    m$^{3}$\n\n$\\mathrm{cm}^{2}$\n\n    s$^{-1}$'],
   ]) assert.equal(normalizeAcademicInline(input), expected);
+});
+
+test('synthetic standalone equals remain a paragraph with a prose unit continuation', () => {
+  const expected = '===\n    $\\mathrm{cm}^{2}$';
+  assert.equal(normalizeAcademicInline('===\n    cm<sup>2</sup>'), expected);
+  assert.equal(normalizeAcademicInline(expected), expected);
 });
