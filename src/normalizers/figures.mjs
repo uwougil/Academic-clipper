@@ -63,13 +63,29 @@ function markdownFragment(html, url) {
     : htmlToMarkdown(`<p>${html}</p>`, url);
 }
 
+async function protectCaptionCode(html, url) {
+  const dom = new JSDOM(`<div>${html || ''}</div>`);
+  const root = dom.window.document.body.firstElementChild;
+  const code = [];
+  for (const element of Array.from(root.querySelectorAll('pre, code'))) {
+    if (element.parentElement?.closest('pre, code')) continue;
+    const marker = `ACADEMICCLIPPERTABLECODE${code.length}X`;
+    code.push({ marker, markdown: await markdownFragment(element.outerHTML, url) });
+    element.replaceWith(root.ownerDocument.createTextNode(marker));
+  }
+  return { html: root.innerHTML, code };
+}
+
 export async function normalizeFigureCaptions(figures, url, options = {}) {
   for (const figure of figures) {
     if (!figure.captionHtml) {
       figure.captionMarkdown = figure.caption;
       continue;
     }
-    const protectedCaption = protectCaptionMath(figure.captionHtml, url);
+    const protectedCode = options.protectCaptionCode
+      ? await protectCaptionCode(figure.captionHtml, url)
+      : { html: figure.captionHtml, code: [] };
+    const protectedCaption = protectCaptionMath(protectedCode.html, url);
     const protectedDirections = protectCaptionDirections(protectedCaption.html);
     let converted = await markdownFragment(protectedDirections.html, url);
     converted = normalizeMath(converted, options.semantic);
@@ -80,6 +96,7 @@ export async function normalizeFigureCaptions(figures, url, options = {}) {
       .replace(/\r\n/g, '\n')
       .replace(/[ \t]+\n/g, '\n')
       .trim();
+    for (const { marker, markdown } of protectedCode.code) figure.captionMarkdown = figure.captionMarkdown.replaceAll(marker, markdown);
   }
   return figures;
 }
@@ -138,7 +155,7 @@ export function renderTables(tables, policy = { dialect: 'markdown' }) {
   if (!tables.length) return '';
   const lines = ['## Tables', ''];
   for (const table of tables) {
-    const body = String(table.caption || '')
+    const body = String(table.captionMarkdown || table.caption || '')
       .replace(/^(?:Extended Data )?Table\s*\d+\s*(?:[:|.-]\s*|\s+)/i, '')
       .trim();
     const caption = `**${table.label}.**${body ? ` ${body}` : ''}`;
@@ -297,7 +314,8 @@ async function tableNoteMarkdown(note, url) {
   return normalizeAcademicInline(normalizeMath(converted)).replace(/\r\n/gu, '\n').trim();
 }
 
-export async function normalizeTableContents(tables, url) {
+export async function normalizeTableContents(tables, url, options = {}) {
+  await normalizeFigureCaptions(tables, url, { ...options, protectCaptionCode: true });
   for (const table of tables) {
     for (const note of table.notes || []) {
       note.markdown = await tableNoteMarkdown(note, table.tableContentUrl || url);

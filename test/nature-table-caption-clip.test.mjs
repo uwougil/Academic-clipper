@@ -127,8 +127,8 @@ for (const style of styles) {
       assert.deepEqual(result.tables.map(table=>table.natureId),ids);
       assert.deepEqual(result.tables.map(table=>table.anchor),['table-1','table-2']);
       for (const [index,table] of result.tables.entries()) {
-        assert.equal(table.captionMarkdown,'Table 1 ' + (index?'SECOND_CONTROL':'FIRST_CONTROL') + ' $' + (index?'b_i':'a_i') + '$.');
-        assert.equal(result.markdown.split(index?'SECOND_CONTROL':'FIRST_CONTROL').length-1,1);
+        assert.equal(table.captionMarkdown,'Table 1 ' + (index?'SECOND\\_CONTROL':'FIRST\\_CONTROL') + ' $' + (index?'b_i':'a_i') + '$.');
+        assert.equal(result.markdown.split(index?'SECOND\\_CONTROL':'FIRST\\_CONTROL').length-1,1);
       }
       assert.equal(result.debug.mathValidation.displayMathCount,0);
       assert.equal(result.debug.mathValidation.inlineMathCount,2);
@@ -156,18 +156,23 @@ for (const style of styles) {
       assert.equal(result.debug.mathValidation.valid,true);
     });
   }
-  test('synthetic caption preserves explicit legacy roles, numeric brackets and plain underscore (' + style + ')',async () => {
+  test('unadmitted pure-text legacy table boundary follows existing figure policy; source meaning is diagnostic (' + style + ')',async (t) => {
     const payload = String.raw`Table 1 Before \(L_i\) then \[D_i\] then $$E_i$$; [100] and literal_name.`;
     const result = await clipNature({html:syntheticHtml('<figure><figcaption data-test="table-caption">' + payload + '</figcaption>' + emptyTable + '</figure>'),url,citationStyle:style});
     const caption = result.tables[0].captionMarkdown;
     assert.equal(typeof caption,'string');
-    assert.ok(caption.includes('$L_i$'));
-    assert.ok(caption.includes('$$\nD_i\n$$'));
-    assert.ok(caption.includes('$$E_i$$'));
+    assert.ok(result.tables[0].captionHtml.includes(String.raw`\(L_i\) then \[D_i\] then $$E_i$$`),'Original unresolved legacy source is not silently changed');
+    const sourceRolePassed = ['$L_i$','$$\nD_i\n$$','$$E_i$$'].every(fragment=>caption.includes(fragment));
+    // This unadmitted control guards parity with the unchanged figure policy.
+    // It allows a future independent legacy repair. Direct scientific meaning
+    // remains an explicit diagnostic, not an assertion that corruption is good
+    // or a claim that the constructed test gate represents writer admission.
+    const figureHtml = syntheticHtml('<figure><figcaption data-test="figure-caption-text">' + payload.replace(/^Table 1/u,'Figure 1') + '</figcaption><img src="https://www.nature.com/control.png"></figure>');
+    const figureResult = await clipNature({html:figureHtml,url,citationStyle:style});
+    assert.equal(caption.replace(/^Table 1/u,''),figureResult.figures[0].captionMarkdown.replace(/^Figure 1/u,''),'Table legacy path adds no corruption beyond the existing figure-caption policy');
+    t.diagnostic(JSON.stringify({scope:'Unadmitted pure-text legacy: boundary parity PASS is not source admission',sourceMeaningPassed:sourceRolePassed,productionMathValid:result.debug.mathValidation.valid}));
     assert.ok(caption.includes('[100]'));
     assert.ok(caption.includes('literal\\_name'));
-    assert.equal(result.debug.mathValidation.displayMathCount,2);
-    assert.equal(result.debug.mathValidation.inlineMathCount,1);
   });
   test('synthetic caption preserves opaque code and original literal TeX underscore (' + style + ')',async () => {
     const payload = String.raw`Table 1 <code>\(CODE_i\) [100] literal_name</code> and <span class="mathjax-tex">\(M_{\text{literal\_name}}\)</span>.`;
@@ -180,6 +185,23 @@ for (const style of styles) {
     assert.equal(validation.displayMathCount,0);
     assert.equal(validation.inlineMathCount,1);
   });
+  for (const [name,literal] of [
+    ['plain','ACADEMICCLIPPERTABLECODE0X'],
+    ['entity decoded','&#65;CADEMICCLIPPERTABLECODE0X'],
+  ]) {
+    test('synthetic opaque-code token cannot replace source literal text (' + name + ', ' + style + ')',async () => {
+      const payload = 'Table 1 Literal ' + literal + ' then <code>CODE_CONTENT_CONTROL</code> end.';
+      const result = await clipNature({html:syntheticHtml('<figure><figcaption data-test="table-caption">' + payload + '</figcaption>' + emptyTable + '</figure>'),url,citationStyle:style});
+      const caption = result.tables[0].captionMarkdown;
+      assert.equal(typeof caption,'string');
+      assert.equal(caption.split('ACADEMICCLIPPERTABLECODE0X').length-1,1,'Original decoded literal stays present exactly once');
+      assert.equal(caption.split('CODE_CONTENT_CONTROL').length-1,1,'Opaque source code is not duplicated into prose');
+      assert.ok(caption.includes('Literal ACADEMICCLIPPERTABLECODE0X then'));
+      assert.ok(caption.includes('then ' + String.fromCharCode(96) + 'CODE_CONTENT_CONTROL' + String.fromCharCode(96) + ' end.'));
+      // This deliberate original marker-looking literal is not a promise of
+      // validator admission. Its source text must not collide with new tokens.
+    });
+  }
 }
 
 test('synthetic plain-record fallback works without caption HTML',async () => {
