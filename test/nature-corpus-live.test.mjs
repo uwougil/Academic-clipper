@@ -253,6 +253,96 @@ test('a passing comparison provider cannot omit, reorder or replace required exe
   }
 });
 
+test('comparison boundary enforces complete facts and preserves coherent negative results', async t => {
+  const failure = { path: 'synthetic.required', expected: 'pass', actual: 'failure' };
+  const cases = [
+    { name: 'coherent pass', change: () => {}, cause: 'EXPECTED_WARNING', requests: 1 },
+    { name: 'coherent required failure', change: comparison => {
+      Object.assign(comparison.expectations[0], { status: 'failure', failures: [failure] }); comparison.pass = false;
+    }, cause: 'PARSER_REGRESSION' },
+    ...['math', 'structure', 'rawHtml', 'crossReferences'].map(key => ({ name: `coherent ${key} failure`,
+      change: comparison => { comparison.validators[key].valid = false; comparison.pass = false; }, cause: 'PARSER_REGRESSION' })),
+    { name: 'coherent unexpected warning', change: comparison => {
+      comparison.warnings.actual.push('Explicit synthetic unexpected warning.');
+      comparison.warnings.unexpected.push('Explicit synthetic unexpected warning.'); comparison.pass = false;
+    }, cause: 'PARSER_REGRESSION' },
+    { name: 'coherent missing warning', change: comparison => {
+      comparison.warnings.expected.push('Explicit synthetic missing warning.');
+      comparison.warnings.missing.push('Explicit synthetic missing warning.'); comparison.pass = false;
+    }, cause: 'PARSER_REGRESSION' },
+    { name: 'coherent warning order failure', change: comparison => {
+      comparison.warnings.expected.reverse(); comparison.pass = false;
+    }, cause: 'PARSER_REGRESSION' },
+    { name: 'required failure cannot claim pass', change: comparison => {
+      Object.assign(comparison.expectations[0], { status: 'failure', failures: [failure] });
+    } },
+    { name: 'missing status', change: comparison => { delete comparison.expectations[0].status; } },
+    { name: 'unknown status', change: comparison => { comparison.expectations[0].status = 'failed'; } },
+    { name: 'missing failures', change: comparison => { delete comparison.expectations[0].failures; } },
+    { name: 'non-array failures', change: comparison => { comparison.expectations[0].failures = {}; } },
+    { name: 'malformed failure fact', change: comparison => {
+      Object.assign(comparison.expectations[0], { status: 'failure', failures: [null] }); comparison.pass = false;
+    } },
+    { name: 'passing record contains failure', change: comparison => { comparison.expectations[0].failures = [failure]; } },
+    { name: 'failure record has no failure fact', change: comparison => {
+      comparison.expectations[0].status = 'failure'; comparison.pass = false;
+    } },
+    { name: 'missing aggregate pass', change: comparison => { delete comparison.pass; } },
+    { name: 'non-boolean aggregate pass', change: comparison => { comparison.pass = 'true'; } },
+    { name: 'aggregate false contradicts complete passing facts', change: comparison => { comparison.pass = false; } },
+    { name: 'missing validators', change: comparison => { delete comparison.validators; } },
+    { name: 'empty validators', change: comparison => { comparison.validators = {}; } },
+    { name: 'null validators', change: comparison => { comparison.validators = null; } },
+    ...['math', 'structure', 'rawHtml', 'crossReferences'].flatMap(key => [
+      { name: `missing ${key} validator`, change: comparison => { delete comparison.validators[key]; } },
+      { name: `${key} failure cannot claim pass`, change: comparison => { comparison.validators[key].valid = false; } },
+      { name: `non-boolean ${key} validation`, change: comparison => { comparison.validators[key].valid = 'true'; } },
+    ]),
+    { name: 'missing warnings', change: comparison => { delete comparison.warnings; } },
+    ...['expected', 'actual', 'unexpected', 'missing'].map(key => ({ name: `missing warnings.${key}`,
+      change: comparison => { delete comparison.warnings[key]; } })),
+    { name: 'non-string warning', change: comparison => { comparison.warnings.expected.push(null); } },
+    { name: 'warning facts omit an actual unexpected warning', change: comparison => {
+      comparison.warnings.actual.push('Explicit synthetic unexpected warning.');
+    } },
+    { name: 'warning facts omit an actual missing warning', change: comparison => {
+      comparison.warnings.expected.push('Explicit synthetic missing warning.');
+    } },
+    { name: 'warning actual facts differ from parsed warnings', change: comparison => {
+      comparison.warnings.actual = []; comparison.warnings.expected = [];
+    } },
+    { name: 'actual unexpected warning cannot claim pass', change: comparison => {
+      comparison.warnings.actual.push('Explicit synthetic unexpected warning.');
+      comparison.warnings.unexpected.push('Explicit synthetic unexpected warning.');
+    } },
+    { name: 'incorrect article identity', change: comparison => { comparison.articleId = 'synthetic-other'; } },
+    { name: 'incorrect dialect identity', change: comparison => { comparison.citationStyle = 'quarto'; } },
+    { name: 'missing summary', change: comparison => { delete comparison.summary; } },
+    { name: 'undefined comparison', change: () => undefined, empty: true },
+  ];
+  for (const { name, change, cause = 'FIXTURE_INTEGRITY_FAILURE', requests = 0, empty } of cases) {
+    await t.test(name, async t => {
+      const context = await controllerFixture(t), transport = captureReplay(t);
+      const report = await runVerifier(defaultOptions, { ...context, transport, comparisonApi: {
+        ...syntheticComparison,
+        compareArticleResult(...args) {
+          const comparison = syntheticComparison.compareArticleResult(...args);
+          change(comparison); return empty ? undefined : comparison;
+        },
+      } });
+      const entry = report.results[0], ledger = transport.ledger();
+      t.diagnostic(JSON.stringify({ name, cause: entry.cause, phase: entry.phase, exitCode: report.exitCode,
+        requests: ledger.requests.length, resolutions: ledger.resolutions.length, unexpected: ledger.unexpected }));
+      assert.equal(entry.cause, cause); assert.equal(report.exitCode, requests ? 0 : 1);
+      assert.equal(entry.phase, requests ? 'live-comparison' : 'offline-assertions');
+      assert.equal(ledger.requests.length, requests); assert.equal(ledger.resolutions.length, requests);
+      if (cause === 'PARSER_REGRESSION' && name === 'coherent required failure') {
+        assert.deepEqual(entry.failedAssertions[0].failures, [failure]);
+      }
+    });
+  }
+});
+
 test('mock successful full/projection parse yields EXPECTED_WARNING and leaves every artifact unchanged', async t => {
   const context = await controllerFixture(t), transport = captureReplay(t);
   const before = await readFile(path.join(context.corpusRoot, context.article.fixturePath));
@@ -307,6 +397,94 @@ test('access/challenge pages and idp redirects are incomplete and never retried 
     assert.equal(transport.ledger().requests.length, 1); assert.equal(transport.ledger().resolutions.length, 1);
     assert.doesNotMatch(JSON.stringify(report), /DO-NOT-REPORT|\?code=/u);
   }
+});
+
+test('captured access evidence precedes transient HTTP retry without bypassing body guards', async t => {
+  const challenge = '<form id="challenge-form">Explicit synthetic challenge; verify you are human.</form>';
+  const bodies = [
+    { name: 'challenge', body: challenge, access: true },
+    { name: 'structured restriction', body: syntheticHtml.replace('"isAccessibleForFree":true', '"isAccessibleForFree":false'), access: true },
+    { name: 'preview', body: '<main data-test="subscription-preview">Explicit synthetic preview</main>', access: true },
+    { name: 'generic short error', body: '<main>Explicit synthetic temporary server error.</main>', access: false },
+    { name: 'navigation login', body: syntheticHtml.replace('<body>', '<body><nav><a href="/login">Log in</a></nav>'), access: false },
+  ];
+  for (const { name, body, access } of bodies) for (const status of [429, 503]) {
+    await t.test(`${name} HTTP ${status}`, async t => {
+      const context = await controllerFixture(t), transport = captureReplay(t, body, { status, headers: { 'retry-after': '0' } }), waits = [];
+      assert.equal(inspectSource(body, context.article).accessSignals.length > 0, access);
+      const report = await runVerifier(defaultOptions, { ...context, comparisonApi: syntheticComparison, transport,
+        sleep: async milliseconds => { waits.push(milliseconds); } });
+      const entry = report.results[0], ledger = transport.ledger();
+      t.diagnostic(JSON.stringify({ name, status, cause: entry.cause, requests: ledger.requests.length, waits }));
+      assert.equal(entry.cause, access ? 'ACCESS_BLOCKED' : 'NETWORK_FAILURE'); assert.equal(report.exitCode, 2);
+      assert.equal(ledger.requests.length, access ? 1 : 3); assert.equal(ledger.resolutions.length, access ? 1 : 3);
+      assert.equal(entry.attempts.length, access ? 1 : 3); assert.equal(waits.length, access ? 0 : 2);
+      assert.ok(entry.transport.exchanges.every(exchange => exchange.status === status));
+      if (access) assert.ok(entry.transport.exchanges[0].accessSignals.length);
+    });
+  }
+  for (const { name, body, access } of bodies.filter(value => value.name !== 'generic short error')) {
+    await t.test(`${name} HTTP 200`, async t => {
+      const context = await controllerFixture(t), transport = captureReplay(t, body);
+      const report = await runVerifier(defaultOptions, { ...context, comparisonApi: syntheticComparison, transport,
+        sleep() { assert.fail('A successful capture must not retry'); } });
+      assert.equal(report.results[0].cause, access ? 'ACCESS_BLOCKED' : 'EXPECTED_WARNING');
+      assert.equal(transport.ledger().requests.length, 1); assert.equal(report.results[0].attempts.length, 1);
+    });
+  }
+  for (const mode of ['content-type', 'declared-size', 'partial-body-timeout']) {
+    await t.test(`challenge behind ${mode} guard`, async t => {
+      const context = await controllerFixture(t), transport = captureReplay(t), waits = [];
+      let cancelled = 0;
+      const report = await runVerifier({ ...defaultOptions, timeoutMs: 20 }, { ...context, comparisonApi: syntheticComparison,
+        sleep: async milliseconds => { waits.push(milliseconds); }, transport: { ...transport,
+          fetchImpl: async (...args) => {
+            await transport.fetchImpl(...args);
+            if (mode === 'partial-body-timeout') return new Response(new ReadableStream({
+              start(controller) { controller.enqueue(Buffer.from(challenge)); },
+              pull: () => new Promise(() => {}), cancel() { cancelled += 1; },
+            }), { status: 503, headers: { 'content-type': 'text/html', 'retry-after': '0' } });
+            return new Response(challenge, { status: 503, headers: {
+              'content-type': mode === 'content-type' ? 'application/json' : 'text/html',
+              ...(mode === 'declared-size' ? { 'content-length': String(25 * 1024 * 1024 + 1) } : {}),
+            } });
+          },
+        } });
+      const entry = report.results[0], attempts = mode === 'partial-body-timeout' ? 3 : 1;
+      assert.equal(entry.cause, 'NETWORK_FAILURE'); assert.equal(entry.attempts.length, attempts);
+      assert.equal(transport.ledger().requests.length, attempts); assert.equal(waits.length, attempts - 1);
+      assert.equal(cancelled, mode === 'partial-body-timeout' ? 3 : 0);
+      assert.ok(entry.transport.exchanges.every(exchange => !exchange.accessSignals?.length));
+      assert.ok(entry.transport.exchanges.every(exchange => exchange.error.code ===
+        (mode === 'content-type' ? 'CONTENT_TYPE' : mode === 'declared-size' ? 'BODY_TOO_LARGE' : 'BODY_TIMEOUT')));
+    });
+  }
+});
+
+test('captured table access evidence stops retries through the same bounded reader', async t => {
+  const url = `${syntheticUrl}/tables/1`;
+  const html = syntheticHtml.replace('</main>', `<figure id="Tab1"><figcaption><span data-test="table-caption">Table 1 Synthetic transport case.</span></figcaption><a data-test="table-link" href="${url}">Full table</a></figure></main>`);
+  for (const status of [429, 503]) await t.test(`HTTP ${status}`, async t => {
+    const context = await controllerFixture(t, html), waits = [];
+    context.article.resources = [{ id: 'synthetic-table-1', kind: 'table', url, method: 'GET', redirect: 'manual',
+      responseMocked: true, status: 200, contentType: 'text/html',
+      body: '<table><tr><th>Synthetic transport</th></tr><tr><td>Declared</td></tr></table>' }];
+    const transport = createReplay({ resources: [
+      { url: syntheticUrl, method: 'GET', redirect: 'manual', responseMocked: true, status: 200,
+        headers: { 'content-type': 'text/html' }, bodyBytes: Buffer.from(html) },
+      { url, method: 'GET', redirect: 'manual', responseMocked: true, status,
+        headers: { 'content-type': 'text/html', 'retry-after': '0' },
+        bodyBytes: Buffer.from('<form id="challenge-form">Explicit synthetic table challenge; verify you are human.</form>') },
+    ], dns: publicDns });
+    t.after(() => transport.assertClean());
+    const report = await runVerifier(defaultOptions, { ...context, comparisonApi: syntheticComparison, transport,
+      sleep: async milliseconds => { waits.push(milliseconds); } });
+    const entry = report.results[0];
+    t.diagnostic(JSON.stringify({ status, cause: entry.cause, requests: transport.ledger().requests.length, waits }));
+    assert.equal(entry.cause, 'ACCESS_BLOCKED'); assert.equal(report.exitCode, 2);
+    assert.equal(entry.tableAttempts.length, 1); assert.equal(transport.ledger().requests.length, 2); assert.deepEqual(waits, []);
+    assert.equal(entry.transport.exchanges.at(-1).status, status); assert.ok(entry.transport.exchanges.at(-1).accessSignals.length);
+  });
 });
 
 test('DNS guard rejects a private answer before HTTP without retry or live DNS', async t => {
