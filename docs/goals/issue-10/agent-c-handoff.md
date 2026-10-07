@@ -1,6 +1,10 @@
 # Agent C — 来源核验与离线回归检查点
 
-状态：`DEPENDENCY_PENDING`，2026-10-07。生产基线固定为 accepted `0de5c8b5c4c51a9231f250c336216598c10f27ae`。原 a9 / helper55a 的完整检查真实结果为 380 tests：330 PASS / 50 FAIL，source 238/255 PASS / 17 FAIL，27 same-run receipts complete；原文件和日志未覆盖。随后 ec53 / helper e3ff 只复验 Materials、Chemistry 六个组合：六个真实 baseline 与60个指定 mutation全部通过，54 source records为48 PASS / 6 FAIL；receipt因缺少其余21组合如实 hard FAIL。本文85行是这六份局部实测与机制未改的原记录归并：241 PASS / 14 FAIL、80条 `EXECUTABLE_NOW` / 5条 `BLOCKED_BY_PARSER_DEFECT`，**不是新 helper 的完整380 run**。481个 source citation clusters只有两处 plain literal punctuation context进入新路径；其余479处及全部其他consumer未改。Source/production/validators保持原样；新 e3ff helper独立review尚待完成，D不得将旧55a审计视作新blob clearance。没有 skip、known-failure-as-pass或 Issue #10完成声明。
+状态：`DEPENDENCY_PENDING`，2026-10-07。当前生产基线为 accepted `ac86b2fa509653dfeb43b968472ce6280a51de2c`。ec53 / helper e3ff 已独立审查，零 implementation blockers；API `1.0.0` 不变。
+
+本轮仅复验 Quantum、Pangenome、Chemistry 三篇 × 三方言：84 条 source 期待为 79 PASS / 5 FAIL，9 个 repeat 全部 PASS，9 套 validators / warnings 完整留存。实际 TAP 为 112 tests：94 PASS / 18 FAIL，0 skip / todo / cancel；18 包括 parser、validator、parent failures 及 receipt 缺 18 个组合的硬 FAIL。Pangenome 三方言 source / validators / warnings 全部 PASS；Chemistry source 全部 PASS，但每方言仍有 16 个 math issues。Quantum 最终输出缺 source citation cluster[59] 的 `[58]`，table-caption Equ7 / Equ15 occurrence 仍失败，每方言还有 43 个 math issues。
+
+85 行 registry 将新 84 条 ac86 实测与 171 条明确标注旧 0de 基线的记录归并为 247 PASS / 8 FAIL、82 `EXECUTABLE_NOW` / 3 `BLOCKED_BY_PARSER_DEFECT`。**这不是 ac86 全部 255 条或完整 suite 的验收。** 原 full 380 = 330 PASS / 50 FAIL、source 238 / 17，以及 ec53 六组合归并的 241 / 14 均保留为历史证据。本轮没有完整 27 / 380 重跑、60 mutants 重跑、来源重采或科学输入修改；未采用 pending styled branch `92f`。
 
 ## 基线、依赖与提交选择
 
@@ -9,9 +13,10 @@
 - 前一恢复接入 accepted `4783291dcb8a5d0ac62dc2e5d314ba91f6c6d9e2`（PR #49 / Issue #47 caption/citation/crossrefs）：Main CI `37272529095` 的同一 head，Windows24 job `111642385793`、Ubuntu20 `111642385891`、Ubuntu24 `111642385902` 均 success；Secrets `37272529070` / finalizer `37273099892` success。Dependency merge `1b423c37d926d74edc1248e85336f266ebc24a70`。
 - 前一检查点在478完整batch结束且root通知accepted后接入 `e2d32e9ec819692a1f08075636c3a168f15ad20b`（PR #52 / Issue #51 table MathJax）：Main CI `37278003744` 的同一 head，Ubuntu24 job `111659279964`、Ubuntu20 `111659280091`、Windows24 `111659280101` 均 success；Secrets `37278003787` success。Dependency merge `23f32e75a54c9585984954a6171010b6e36007f4`。没有消费未 accepted 的 bug branch。B source/oracle 和 production validators 均未改；C 只修来源定位/脚注遮蔽误判，没有放宽 scientific payload/identity/attachment。
 - 后续恢复先接入 accepted `6b90413d806f7e611b00559c8208f6b95b31dd1e`（PR #50 / Issue #48 simple unit/numeric powers + code/math opacity）：C independently `gh run view` 验证 Main `37323651988` 同一 head 的 Ubuntu24 `111808767556`、Windows24 `111808767880`、Ubuntu20 `111808768068` 全 completed/success；Secrets `37323651876` success。Dependency merge `6c952d9eeed7b5bfb36d4cfcdfb06c4e699ec88b`。没有重复一轮6b完整known-red，而是等待literal accepted后统一执行。
-- 本轮最新 accepted `0de5c8b5c4c51a9231f250c336216598c10f27ae`（PR #54 / Issue #53 literal brackets）：root accepted notice后，C independently readback Main `37329109194` 同一 head Ubuntu24 `111827337448`、Ubuntu20 `111827337770`、Windows24 `111827337830` 全 completed/success；Secrets `37329109169` success。Dependency merge `b0cee6620a2aa8ae63bddea9e5c7cbdca78c9c78`。Issue53 finalizer在root acceptance notice时尚未关闭，accepted main使用依据为同一merged head Main/Secrets成功，没有将OPEN状态当未通过CI。
+- 前轮 accepted `0de5c8b5c4c51a9231f250c336216598c10f27ae`（PR #54 / Issue #53 literal brackets）：root accepted notice后，C independently readback Main `37329109194` 同一 head Ubuntu24 `111827337448`、Ubuntu20 `111827337770`、Windows24 `111827337830` 全 completed/success；Secrets `37329109169` success。Dependency merge `b0cee6620a2aa8ae63bddea9e5c7cbdca78c9c78`。Issue53 finalizer在root acceptance notice时尚未关闭，accepted main使用依据为同一merged head Main/Secrets成功，没有将OPEN状态当未通过CI。
 - Branch：`codex/issue-10-agent-c`。
 - Worktree：`C:/Users/guoli/.codex/worktrees/issue-10-offline/academic-clipper`。
+- 当前accepted `ac86b2fa509653dfeb43b968472ce6280a51de2c`（PR58/Issue55 sparse-alt与PR59/Issue56 citation eligibility）：C independently readback Main `37681190063` 的Windows24 `112997400634`、Ubuntu24 `112997400858`、Ubuntu20 `112997401004` 全SUCCESS，Secrets `37681189875`同head SUCCESS。Dependency-only merge `889eb55c613e606a634ce0dfd41dee78f26fd8cd`；不重写原authored SHAs。
 - Runtime：Windows / Node `v24.14.1`；没有代替最终 Ubuntu Node 20/24、Windows Node 24 CI。
 - C 自己编写的文件只有 `scripts/lib/nature-corpus-assertions.mjs`、`test/nature-corpus.test.mjs`、`test/golden-paper.test.mjs`、本 handoff。没有修改 canonical spec、B oracle/HTML、生产 parser/security、golden artifact、PRD/EDD、dependencies 或 CI。
 
@@ -31,6 +36,7 @@
 | accepted main `e2d32e9ec819692a1f08075636c3a168f15ad20b` | dependency merge `23f32e75a54c9585984954a6171010b6e36007f4` | table MathJax attachment；不选择此 merge 为 C authored delivery |
 | accepted main `6b90413d806f7e611b00559c8208f6b95b31dd1e` | dependency merge `6c952d9eeed7b5bfb36d4cfcdfb06c4e699ec88b` | simple unit/numeric powers；不选择此 merge 为 C authored delivery |
 | accepted main `0de5c8b5c4c51a9231f250c336216598c10f27ae` | dependency merge `b0cee6620a2aa8ae63bddea9e5c7cbdca78c9c78` | literal brackets；不选择此 merge 为 C authored delivery |
+| accepted main `ac86b2fa509653dfeb43b968472ce6280a51de2c` | dependency merge `889eb55c613e606a634ce0dfd41dee78f26fd8cd` | sparse-alt / citation eligibility；不选择此merge为C authored delivery |
 
 B source originals 由 integrator 选择：`bee3910240c83789dcb6f8ae530c233289fda737`、`61e19e0981d4e82a5a6fb2d8f3c5dd9a0578fc2e`、`f4cafa32274bf0b1ab427c82c950457feb68fa78`、`cd176742ef8733b31c6e6d60814183e0a5eb9eb0`、`143fc77ebdc4bf15dd1cdca63afcddb91e6b55f5`、上述 attribution-only commit。
 
@@ -48,7 +54,8 @@ C authored delivery 顺序：
 10. `bc81a28d8edf05bbba06b1a82cdedcde3d6f8ac6` — accepted e2 的 380/255实际execution、85行map与source packets；只包含本文件。SAME reviewer对55a actual helper独立复验零阻塞，详见下文。
 11. `a9b6287a282bb9854e625168d787947754f0f782` — test-only optional external receipt，重用同一full执行的真实27cache；默认不写、不加生产clip、不改原assertion/execute/helper/API。只改 `test/nature-corpus.test.mjs`。
 12. `ec53d6578c3103a95c9334f71f5ef14ef597303b` — 仅 source citation literal `_` / `*` 邻居投影及六个来源回归；只改 helper、corpus test。API仍1.0.0；实际范围、旧RED/新partial和mutation证据见下文。
-13. 本次 handoff receipt commit；其准确 SHA 由 `git log -1 --format=%H -- docs/goals/issue-10/agent-c-handoff.md` 取得，并在交接消息报告。该 commit 只包含本文件。
+13. `3006f0f7381ba843efc3c17b98370194b0a04017` — 前一accepted0de/e3ff scoped241/14与来源角色handoff；独立review已clear。只包含本文件。
+14. 本次acceptedac86定点handoff commit；其准确 SHA 由 `git log -1 --format=%H -- docs/goals/issue-10/agent-c-handoff.md` 取得，并在交接消息报告。该 commit 只包含本文件。
 
 ## 实际接口
 
@@ -63,7 +70,7 @@ A schema/recipe `1.0.0`，sanitizer `nature-corpus-sanitizer/1.1.0`，serializer
 | `semanticSummary(result)` | 有序 scholarly metadata/figures/equations/citations/references/tables/warnings/validators；排除时间和 Defuddle word count |
 | `expectationCoverage(manifest, { transportSeamAvailable, parserDefects })` | 显式枚举每一条期待；本检查点 D seam 已可用，实际状态清单见下表 |
 
-D 应在 SAME independent reviewer 对新 delta clearance之后消费 `ec53d6578c3103a95c9334f71f5ef14ef597303b` 的实际 helper。Git blob `e3ff08708d0aee6f364e44a881e98207f6dc6a7b`，50,693 Git bytes，SHA-256 `ab23fa7ef25b0a24240929d8428d37300c24979ad15ad9ec1e4a5cb75d1150ff`。Corpus test blob `248bc4caa2006ba29100fc2b1bd889c61608c27e`，27,493 Git bytes，SHA-256 `985d91b25994c6c524791cf1a1b812c743e4cc6fa9b810b0d5e5fadca64d61e1`。Exports / schema / ASSERTION_VERSION仍1.0.0。此前 reviewed55a（48,884 bytes / SHA256 `0a2198958bc9405cddf003b99ae2c72388c55b921e871608cb92ffa12953b3bf`）仅是历史来源；不能用其旧review覆盖新blob。Frozen/live-retained comparison须给对应immutable projection；完整live validators单独执行。原完整27组合中只有golden/COVID/SR各三个组合通过全部期待、validators、warnings；其余六篇仍阻止live。本轮局部复验不改变这些validator结果或整体gate。Root负责在review后将实际blob交D。
+D已可消费并实际采用 `ec53d6578c3103a95c9334f71f5ef14ef597303b` helper。Git blob `e3ff08708d0aee6f364e44a881e98207f6dc6a7b`，50,693 Git bytes，SHA256 `ab23fa7ef25b0a24240929d8428d37300c24979ad15ad9ec1e4a5cb75d1150ff`；test blob `248bc4caa2006ba29100fc2b1bd889c61608c27e`、27,493bytes/SHA256 `985d91b25994c6c524791cf1a1b812c743e4cc6fa9b810b0d5e5fadca64d61e1`。Exports/schema/version仍1.0.0；本轮helper/test字节完全未变。SAME independent packet `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-review/c-ec53d65-3006f0f-review.md`（15416 bytes/SHA256 `448aa60401be67c205974b6a10e69367be45534dcd053e32d2deea0a2a94a0aa`）零implementation blockers，独立真实6GREEN/旧55a6RED、60mutants、481clusters/2source windows、12receipt guards及原255/27/partial6/85rows全部对账。此clearance不代表corpus全部通过。D的ac86九篇Markdown摘要仅作scope提示，未当本轮C验收或完整cache；不得补跑D9以制造记录。
 
 ## 独立来源核验
 
@@ -95,117 +102,117 @@ Fixture 总计 `1,577,502` bytes（13 files）。本分支原 B 输入的 Git tr
 
 ## 每条期待与三个方言的实际执行状态
 
-下表85行来自逐项 reconciliation。`F` = 原 accepted0de + a9 / 55a 完整 run的实测记录，相关机制未改；`R` = ec53 / e3ff 六组合局部重新执行的真实 comparison，不能声称整套新full已通过。Materials/Chemistry各9条期待×3都标R，其余21个组合标F。原始 full238/17保留；此scope归并241/14、80EXECUTABLE/5BLOCKED。`BLOCKED_BY_D_TRANSPORT_SEAM = 0`、`BLOCKED_BY_SPEC_QUESTION = 0`；必需FAIL仍实际执行。Source pointer指向未改B manifest，其blockIds/nested locators给出源位置。
+下表85行按证据base与scope逐条区分。`AC86_NEW` = 本轮三篇九组合84条真实来源断言；`F0DE` = 原a9/55a full的0de历史记录；`P0DE` = ec53/e3ff scoped0de partial历史记录。后两类171条没有在ac86复验，production adapter有接受增量，不能将其PASS或旧validator count冒称ac86实测。合成247/8、82EXECUTABLE/3BLOCKED只是已知registry状态；D或integrator freshgate仍须相应base的真实运行。`BLOCKED_BY_D_TRANSPORT_SEAM=0`、`BLOCKED_BY_SPEC_QUESTION=0`；source/schema消费完整，必需FAIL不改warning或skip。
 
 | Article | Expectation ID | Assertion ID | Source pointer (`articles[i].expectations[j]`) | markdown | links | quarto | State | Record scope | 阻塞证据 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| s41586-026-10401-1 | source-metadata-v1 | nature-source-metadata-v1 | [0][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-026-10401-1 | source-abstract-v1 | nature-source-abstract-v1 | [0][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-026-10401-1 | source-headings-v1 | nature-source-headings-v1 | [0][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-026-10401-1 | source-equations-v1 | nature-source-equations-v1 | [0][3] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-026-10401-1 | source-figures-v1 | nature-source-figures-v1 | [0][4] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-026-10401-1 | source-citations-v1 | nature-source-citations-v1 | [0][5] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-026-10401-1 | source-inline-v1 | nature-source-inline-v1 | [0][6] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-026-10401-1 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [0][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-026-10401-1 | source-ui-v1 | nature-source-ui-v1 | [0][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-026-10401-1 | source-tables-v1 | nature-source-tables-v1 | [0][9] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41534-023-00746-0 | source-metadata-v1 | nature-source-metadata-v1 | [1][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41534-023-00746-0 | source-abstract-v1 | nature-source-abstract-v1 | [1][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41534-023-00746-0 | source-headings-v1 | nature-source-headings-v1 | [1][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41534-023-00746-0 | source-equations-v1 | nature-source-equations-v1 | [1][3] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41534-023-00746-0 | source-figures-v1 | nature-source-figures-v1 | [1][4] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41534-023-00746-0 | source-citations-v1 | nature-source-citations-v1 | [1][5] | FAIL | FAIL | FAIL | BLOCKED_BY_PARSER_DEFECT | F ×3 | 独立citation37/57被吞入math；table-caption未normalize |
-| s41534-023-00746-0 | source-inline-v1 | nature-source-inline-v1 | [1][6] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41534-023-00746-0 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [1][7] | PASS | FAIL | FAIL | BLOCKED_BY_PARSER_DEFECT | F ×3 | table-caption Equ7/15 source occurrence缺links/quarto target |
-| s41534-023-00746-0 | source-ui-v1 | nature-source-ui-v1 | [1][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41534-023-00746-0 | source-tables-v1 | nature-source-tables-v1 | [1][9] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-021-03819-2 | source-metadata-v1 | nature-source-metadata-v1 | [2][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-021-03819-2 | source-abstract-v1 | nature-source-abstract-v1 | [2][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-021-03819-2 | source-headings-v1 | nature-source-headings-v1 | [2][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-021-03819-2 | source-equations-v1 | nature-source-equations-v1 | [2][3] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-021-03819-2 | source-figures-v1 | nature-source-figures-v1 | [2][4] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-021-03819-2 | source-citations-v1 | nature-source-citations-v1 | [2][5] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-021-03819-2 | source-inline-v1 | nature-source-inline-v1 | [2][6] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-021-03819-2 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [2][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-021-03819-2 | source-ui-v1 | nature-source-ui-v1 | [2][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-020-2012-7 | source-metadata-v1 | nature-source-metadata-v1 | [3][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-020-2012-7 | source-abstract-v1 | nature-source-abstract-v1 | [3][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-020-2012-7 | source-headings-v1 | nature-source-headings-v1 | [3][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-020-2012-7 | source-equations-v1 | nature-source-equations-v1 | [3][3] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-020-2012-7 | source-figures-v1 | nature-source-figures-v1 | [3][4] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-020-2012-7 | source-citations-v1 | nature-source-citations-v1 | [3][5] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-020-2012-7 | source-inline-v1 | nature-source-inline-v1 | [3][6] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-020-2012-7 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [3][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-020-2012-7 | source-ui-v1 | nature-source-ui-v1 | [3][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-020-2012-7 | source-tables-v1 | nature-source-tables-v1 | [3][9] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-023-05896-x | source-metadata-v1 | nature-source-metadata-v1 | [4][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-023-05896-x | source-abstract-v1 | nature-source-abstract-v1 | [4][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-023-05896-x | source-headings-v1 | nature-source-headings-v1 | [4][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-023-05896-x | source-equations-v1 | nature-source-equations-v1 | [4][3] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-023-05896-x | source-figures-v1 | nature-source-figures-v1 | [4][4] | FAIL | FAIL | FAIL | BLOCKED_BY_PARSER_DEFECT | F ×3 | 原Figure3/4/5的shortAlt变为2/3/4 |
-| s41586-023-05896-x | source-citations-v1 | nature-source-citations-v1 | [4][5] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-023-05896-x | source-inline-v1 | nature-source-inline-v1 | [4][6] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-023-05896-x | source-crossrefs-v1 | nature-source-crossrefs-v1 | [4][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-023-05896-x | source-ui-v1 | nature-source-ui-v1 | [4][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-023-06735-9 | source-metadata-v1 | nature-source-metadata-v1 | [5][0] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41586-023-06735-9 | source-abstract-v1 | nature-source-abstract-v1 | [5][1] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41586-023-06735-9 | source-headings-v1 | nature-source-headings-v1 | [5][2] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41586-023-06735-9 | source-equations-v1 | nature-source-equations-v1 | [5][3] | FAIL | FAIL | FAIL | BLOCKED_BY_PARSER_DEFECT | R ×3 | 源italic数字邻接产生额外 $$ display |
-| s41586-023-06735-9 | source-figures-v1 | nature-source-figures-v1 | [5][4] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41586-023-06735-9 | source-citations-v1 | nature-source-citations-v1 | [5][5] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41586-023-06735-9 | source-inline-v1 | nature-source-inline-v1 | [5][6] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41586-023-06735-9 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [5][7] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41586-023-06735-9 | source-ui-v1 | nature-source-ui-v1 | [5][8] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41467-023-44030-3 | source-metadata-v1 | nature-source-metadata-v1 | [6][0] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41467-023-44030-3 | source-abstract-v1 | nature-source-abstract-v1 | [6][1] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41467-023-44030-3 | source-headings-v1 | nature-source-headings-v1 | [6][2] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41467-023-44030-3 | source-equations-v1 | nature-source-equations-v1 | [6][3] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41467-023-44030-3 | source-figures-v1 | nature-source-figures-v1 | [6][4] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41467-023-44030-3 | source-citations-v1 | nature-source-citations-v1 | [6][5] | FAIL | FAIL | FAIL | BLOCKED_BY_PARSER_DEFECT | R ×3 | cluster40独立33/34被吞入compound2 exponent；cluster49误判已解除 |
-| s41467-023-44030-3 | source-inline-v1 | nature-source-inline-v1 | [6][6] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41467-023-44030-3 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [6][7] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41467-023-44030-3 | source-ui-v1 | nature-source-ui-v1 | [6][8] | PASS | PASS | PASS | EXECUTABLE_NOW | R ×3 | — |
-| s41586-022-04755-5 | source-metadata-v1 | nature-source-metadata-v1 | [7][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-022-04755-5 | source-abstract-v1 | nature-source-abstract-v1 | [7][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-022-04755-5 | source-headings-v1 | nature-source-headings-v1 | [7][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-022-04755-5 | source-equations-v1 | nature-source-equations-v1 | [7][3] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-022-04755-5 | source-figures-v1 | nature-source-figures-v1 | [7][4] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-022-04755-5 | source-citations-v1 | nature-source-citations-v1 | [7][5] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-022-04755-5 | source-inline-v1 | nature-source-inline-v1 | [7][6] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-022-04755-5 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [7][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-022-04755-5 | source-ui-v1 | nature-source-ui-v1 | [7][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41586-022-04755-5 | source-tables-v1 | nature-source-tables-v1 | [7][9] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41598-018-38309-5 | source-metadata-v1 | nature-source-metadata-v1 | [8][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41598-018-38309-5 | source-abstract-v1 | nature-source-abstract-v1 | [8][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41598-018-38309-5 | source-headings-v1 | nature-source-headings-v1 | [8][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41598-018-38309-5 | source-equations-v1 | nature-source-equations-v1 | [8][3] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41598-018-38309-5 | source-figures-v1 | nature-source-figures-v1 | [8][4] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41598-018-38309-5 | source-citations-v1 | nature-source-citations-v1 | [8][5] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41598-018-38309-5 | source-inline-v1 | nature-source-inline-v1 | [8][6] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41598-018-38309-5 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [8][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
-| s41598-018-38309-5 | source-ui-v1 | nature-source-ui-v1 | [8][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F ×3 | — |
+| s41586-026-10401-1 | source-metadata-v1 | nature-source-metadata-v1 | [0][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-026-10401-1 | source-abstract-v1 | nature-source-abstract-v1 | [0][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-026-10401-1 | source-headings-v1 | nature-source-headings-v1 | [0][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-026-10401-1 | source-equations-v1 | nature-source-equations-v1 | [0][3] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-026-10401-1 | source-figures-v1 | nature-source-figures-v1 | [0][4] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-026-10401-1 | source-citations-v1 | nature-source-citations-v1 | [0][5] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-026-10401-1 | source-inline-v1 | nature-source-inline-v1 | [0][6] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-026-10401-1 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [0][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-026-10401-1 | source-ui-v1 | nature-source-ui-v1 | [0][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-026-10401-1 | source-tables-v1 | nature-source-tables-v1 | [0][9] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41534-023-00746-0 | source-metadata-v1 | nature-source-metadata-v1 | [1][0] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41534-023-00746-0 | source-abstract-v1 | nature-source-abstract-v1 | [1][1] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41534-023-00746-0 | source-headings-v1 | nature-source-headings-v1 | [1][2] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41534-023-00746-0 | source-equations-v1 | nature-source-equations-v1 | [1][3] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41534-023-00746-0 | source-figures-v1 | nature-source-figures-v1 | [1][4] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41534-023-00746-0 | source-citations-v1 | nature-source-citations-v1 | [1][5] | FAIL | FAIL | FAIL | BLOCKED_BY_PARSER_DEFECT | AC86_NEW ×3 | AC86：source cluster59 ref58未在最终caption按citation输出 |
+| s41534-023-00746-0 | source-inline-v1 | nature-source-inline-v1 | [1][6] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41534-023-00746-0 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [1][7] | PASS | FAIL | FAIL | BLOCKED_BY_PARSER_DEFECT | AC86_NEW ×3 | AC86：caption Equ7/15 internal43/44缺本occurrence links/quarto目标 |
+| s41534-023-00746-0 | source-ui-v1 | nature-source-ui-v1 | [1][8] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41534-023-00746-0 | source-tables-v1 | nature-source-tables-v1 | [1][9] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41586-021-03819-2 | source-metadata-v1 | nature-source-metadata-v1 | [2][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-021-03819-2 | source-abstract-v1 | nature-source-abstract-v1 | [2][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-021-03819-2 | source-headings-v1 | nature-source-headings-v1 | [2][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-021-03819-2 | source-equations-v1 | nature-source-equations-v1 | [2][3] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-021-03819-2 | source-figures-v1 | nature-source-figures-v1 | [2][4] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-021-03819-2 | source-citations-v1 | nature-source-citations-v1 | [2][5] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-021-03819-2 | source-inline-v1 | nature-source-inline-v1 | [2][6] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-021-03819-2 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [2][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-021-03819-2 | source-ui-v1 | nature-source-ui-v1 | [2][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-020-2012-7 | source-metadata-v1 | nature-source-metadata-v1 | [3][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-020-2012-7 | source-abstract-v1 | nature-source-abstract-v1 | [3][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-020-2012-7 | source-headings-v1 | nature-source-headings-v1 | [3][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-020-2012-7 | source-equations-v1 | nature-source-equations-v1 | [3][3] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-020-2012-7 | source-figures-v1 | nature-source-figures-v1 | [3][4] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-020-2012-7 | source-citations-v1 | nature-source-citations-v1 | [3][5] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-020-2012-7 | source-inline-v1 | nature-source-inline-v1 | [3][6] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-020-2012-7 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [3][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-020-2012-7 | source-ui-v1 | nature-source-ui-v1 | [3][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-020-2012-7 | source-tables-v1 | nature-source-tables-v1 | [3][9] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-023-05896-x | source-metadata-v1 | nature-source-metadata-v1 | [4][0] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41586-023-05896-x | source-abstract-v1 | nature-source-abstract-v1 | [4][1] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41586-023-05896-x | source-headings-v1 | nature-source-headings-v1 | [4][2] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41586-023-05896-x | source-equations-v1 | nature-source-equations-v1 | [4][3] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41586-023-05896-x | source-figures-v1 | nature-source-figures-v1 | [4][4] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41586-023-05896-x | source-citations-v1 | nature-source-citations-v1 | [4][5] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41586-023-05896-x | source-inline-v1 | nature-source-inline-v1 | [4][6] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41586-023-05896-x | source-crossrefs-v1 | nature-source-crossrefs-v1 | [4][7] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41586-023-05896-x | source-ui-v1 | nature-source-ui-v1 | [4][8] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41586-023-06735-9 | source-metadata-v1 | nature-source-metadata-v1 | [5][0] | PASS | PASS | PASS | EXECUTABLE_NOW | P0DE ×3 | — |
+| s41586-023-06735-9 | source-abstract-v1 | nature-source-abstract-v1 | [5][1] | PASS | PASS | PASS | EXECUTABLE_NOW | P0DE ×3 | — |
+| s41586-023-06735-9 | source-headings-v1 | nature-source-headings-v1 | [5][2] | PASS | PASS | PASS | EXECUTABLE_NOW | P0DE ×3 | — |
+| s41586-023-06735-9 | source-equations-v1 | nature-source-equations-v1 | [5][3] | FAIL | FAIL | FAIL | BLOCKED_BY_PARSER_DEFECT | P0DE ×3 | 旧0de：styled adjacency phantom display；pending57不作accepted结果 |
+| s41586-023-06735-9 | source-figures-v1 | nature-source-figures-v1 | [5][4] | PASS | PASS | PASS | EXECUTABLE_NOW | P0DE ×3 | — |
+| s41586-023-06735-9 | source-citations-v1 | nature-source-citations-v1 | [5][5] | PASS | PASS | PASS | EXECUTABLE_NOW | P0DE ×3 | — |
+| s41586-023-06735-9 | source-inline-v1 | nature-source-inline-v1 | [5][6] | PASS | PASS | PASS | EXECUTABLE_NOW | P0DE ×3 | — |
+| s41586-023-06735-9 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [5][7] | PASS | PASS | PASS | EXECUTABLE_NOW | P0DE ×3 | — |
+| s41586-023-06735-9 | source-ui-v1 | nature-source-ui-v1 | [5][8] | PASS | PASS | PASS | EXECUTABLE_NOW | P0DE ×3 | — |
+| s41467-023-44030-3 | source-metadata-v1 | nature-source-metadata-v1 | [6][0] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41467-023-44030-3 | source-abstract-v1 | nature-source-abstract-v1 | [6][1] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41467-023-44030-3 | source-headings-v1 | nature-source-headings-v1 | [6][2] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41467-023-44030-3 | source-equations-v1 | nature-source-equations-v1 | [6][3] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41467-023-44030-3 | source-figures-v1 | nature-source-figures-v1 | [6][4] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41467-023-44030-3 | source-citations-v1 | nature-source-citations-v1 | [6][5] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41467-023-44030-3 | source-inline-v1 | nature-source-inline-v1 | [6][6] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41467-023-44030-3 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [6][7] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41467-023-44030-3 | source-ui-v1 | nature-source-ui-v1 | [6][8] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41586-022-04755-5 | source-metadata-v1 | nature-source-metadata-v1 | [7][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-022-04755-5 | source-abstract-v1 | nature-source-abstract-v1 | [7][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-022-04755-5 | source-headings-v1 | nature-source-headings-v1 | [7][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-022-04755-5 | source-equations-v1 | nature-source-equations-v1 | [7][3] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-022-04755-5 | source-figures-v1 | nature-source-figures-v1 | [7][4] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-022-04755-5 | source-citations-v1 | nature-source-citations-v1 | [7][5] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-022-04755-5 | source-inline-v1 | nature-source-inline-v1 | [7][6] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-022-04755-5 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [7][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-022-04755-5 | source-ui-v1 | nature-source-ui-v1 | [7][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41586-022-04755-5 | source-tables-v1 | nature-source-tables-v1 | [7][9] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41598-018-38309-5 | source-metadata-v1 | nature-source-metadata-v1 | [8][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41598-018-38309-5 | source-abstract-v1 | nature-source-abstract-v1 | [8][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41598-018-38309-5 | source-headings-v1 | nature-source-headings-v1 | [8][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41598-018-38309-5 | source-equations-v1 | nature-source-equations-v1 | [8][3] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41598-018-38309-5 | source-figures-v1 | nature-source-figures-v1 | [8][4] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41598-018-38309-5 | source-citations-v1 | nature-source-citations-v1 | [8][5] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41598-018-38309-5 | source-inline-v1 | nature-source-inline-v1 | [8][6] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41598-018-38309-5 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [8][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
+| s41598-018-38309-5 | source-ui-v1 | nature-source-ui-v1 | [8][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 
 原 a9完整 run 的27 clips和每次重复 clip均使用真实 adapter → Defuddle → normalizers → renderer，明确注入 A fresh replay。13 resource recipes在 preflight验证；每次 GET/manual 与 hostname/all/verbatim ledger均逐个核对，零 unexpected操作。没有 global fetch/DNS patch，没有 live DNS/HTTP。
 
 所有 27 个重复输入 tests 通过：Markdown、referencesBib、semantic summary、ledger一致。三个方言 A → B → A（golden → pangenome → golden）首尾结果一致。每个方言另有四个明确 mocked table场景：HTTP503、无HTMLcells、同article302redirect、逃离article scope302rejection；12个子场景全部通过。Unknown request即使被hydrator catch也由ledger失败，绝不计为fallback通过。
 
-四 production validators在原same-run27 comparisons中全部计算，没有用math assertion早失败遮蔽其他validators。下面为accepted0de实际结果；ec53六份partial的validators、warnings、summary、ledger及Markdown bytes与对应原full逐字/逐值相等。
+下表按actual comparison标base：Quantum/Pangenome/Chemistry为本轮ac86 ×3，其余为0de历史count，**没有本轮新27/fullvalidators**。每个新组合全部四validators均在comparison计算保存，TAP的math early failure不掩盖其余validators。
 
-| Article | Math / scientificFragments | structure | rawHtml | crossReferences | 严格 warnings（每个方言） |
-| --- | --- | --- | --- | --- | --- |
-| s41586-026-10401-1 | PASS ×3 | PASS ×3 | PASS ×3 | PASS ×3 | none |
-| s41534-023-00746-0 | FAIL ×3；43 issues | PASS ×3 | PASS ×3 | PASS ×3 | none |
-| s41586-021-03819-2 | FAIL ×3；4 issues | PASS ×3 | PASS ×3 | PASS ×3 | `No equation nodes were detected.` |
-| s41586-020-2012-7 | PASS ×3 | PASS ×3 | PASS ×3 | PASS ×3 | `No equation nodes were detected.`；`Extended Data Table 1: The full-size Nature page did not expose HTML table cells; retained the absolute URL.` |
-| s41586-023-05896-x | PASS ×3 | PASS ×3 | PASS ×3 | PASS ×3 | `No equation nodes were detected.` |
-| s41586-023-06735-9 | FAIL ×3；14 issues | PASS ×3 | markdown / quarto PASS；links FAIL（ref2字面 `<x`） | PASS ×3 | none |
-| s41467-023-44030-3 | FAIL ×3；16 issues | PASS ×3 | PASS ×3 | PASS ×3 | `No equation nodes were detected.` |
-| s41586-022-04755-5 | FAIL ×3；14 issues | PASS ×3 | PASS ×3 | PASS ×3 | none |
-| s41598-018-38309-5 | PASS ×3 | PASS ×3 | PASS ×3 | PASS ×3 | none |
+| Article | Evidence base | Math / scientificFragments | structure | rawHtml | crossReferences | 精确warnings |
+| --- | --- | --- | --- | --- | --- | --- |
+| s41586-026-10401-1 | 0de历史 | PASS ×3 | PASS ×3 | PASS ×3 | PASS ×3 | none |
+| s41534-023-00746-0 | AC86_NEW | FAIL ×3；43 issues | PASS ×3 | PASS ×3 | PASS ×3 | none |
+| s41586-021-03819-2 | 0de历史 | FAIL ×3；4 issues | PASS ×3 | PASS ×3 | PASS ×3 | `No equation nodes were detected.` |
+| s41586-020-2012-7 | 0de历史 | PASS ×3 | PASS ×3 | PASS ×3 | PASS ×3 | `No equation nodes were detected.`；`Extended Data Table 1: The full-size Nature page did not expose HTML table cells; retained the absolute URL.` |
+| s41586-023-05896-x | AC86_NEW | PASS ×3 | PASS ×3 | PASS ×3 | PASS ×3 | `No equation nodes were detected.` |
+| s41586-023-06735-9 | 0de历史 | FAIL ×3；14 issues | PASS ×3 | links FAIL（ref2字面<x）；其他PASS | PASS ×3 | none |
+| s41467-023-44030-3 | AC86_NEW | FAIL ×3；16 issues | PASS ×3 | PASS ×3 | PASS ×3 | `No equation nodes were detected.` |
+| s41586-022-04755-5 | 0de历史 | FAIL ×3；14 issues | PASS ×3 | PASS ×3 | PASS ×3 | none |
+| s41598-018-38309-5 | 0de历史 | PASS ×3 | PASS ×3 | PASS ×3 | PASS ×3 | none |
 
-合计：math 12 PASS / 15 FAIL，structure 27 PASS，rawHtml 26 PASS / 1 FAIL，crossReferences 27 PASS；27 warnings准确文本/顺序/重数均PASS。Golden、Quantum、COVID、FRB各一个真实table-1 GET/manual和www.nature.com DNS(all=true,verbatim=true)，其余article无resource requests。COVID声明no-cells并保留absolute URL，另外三个table成功；fresh replay的unexpected/实际HTTP/DNS均为零。27 repeats、三个方言A→B→A、12 mock resource场景和只读golden均在原full PASS，不是这次另跑。
+本轮只计新9套：math3PASS/6FAIL，structure/rawHtml/crossReferences各9PASS，warnings9准确文本/顺序/重数PASS。Quantum每baseline/repeat使用声明table-1 GET/manual及www.nature.com DNS(all=true,verbatim=true)，另两篇无resource；全部fresh replay unexpected=[]、无实际HTTP/DNS。9repeat的Markdown/Bib/semantic summary/ledger均PASS。只有Pangenome三个组合整体source+validator+warning PASS；Chemistry source全PASS不能覆盖16math issues，Quantum仍两类source FAIL。原27repeat、A→B→A、12resource scenarios和golden保持前轮历史，不声称本轮额外执行。
 
-完整 committed golden只读检查通过：6 authors、3 main/4 Extended Data figures、13 display equations、50 ordered references、Table1、7 local image files、四 validators/scientificFragments、read前后bytes未改。Source mutations明确证明：删除 retained Fig1 target、更改Fig1 target.type、改变 M_s attachment、交换citationclusters、移除原citation邻近词、丢失caption、更改source short alt、丢失最终rendered table cell、增加undeclared warning均被断言拒绝。Mutation前显式断言golden/quarto的crossrefs/inline/citations/figures/tables五个consumer完整通过；accepted footer 修复后 table aggregate 也真正通过。Warning基线亦无missing/unexpected。没有制造scientific baseline或依赖已有失败充当mutation成功。
+原 full 的完整 committed golden 只读检查通过：6 authors、3 main/4 Extended Data figures、13 display equations、50 ordered references、Table1、7 local image files、四 validators/scientificFragments、read前后bytes未改。Source mutations明确证明：删除 retained Fig1 target、更改Fig1 target.type、改变 M_s attachment、交换citationclusters、移除原citation邻近词、丢失caption、更改source short alt、丢失最终rendered table cell、增加undeclared warning均被断言拒绝。Mutation前显式断言golden/quarto的crossrefs/inline/citations/figures/tables五个consumer完整通过；accepted footer 修复后 table aggregate 也真正通过。Warning基线亦无missing/unexpected。没有制造scientific baseline或依赖已有失败充当mutation成功。
 
 独立 reviewer 的两个 P2 已先在未改 helper 上固化为真实失败 regression：golden/quarto 原完整 figure/crossref consumer baseline PASS，只删最终 Fig1 caption 内部唯一 `dimensionality` 或只把第一个 `[1a](#fig-figure-1)` 改成 `[1a](#fig-figure-2)`，model 与其他正确 links 保持原对象，四 validators 仍 PASS，而旧 consumer 错误接受。新 helper 在各自 image 后的 paragraph frame 比对完整 source caption，另比对最终 bold panel 顺序；crossrefs 将源 occurrence 的邻近正文、text 与该 occurrence 的 target 同时绑定，不能借别处正确链接通过。新增 caption deletion 在三方言、wrong-target 在 links/quarto、default figure错误 relink 到 `#methods`、最终 panel bold 删除均从真实 passing baseline 转为 failure。没有扩展 readable stripping 来容忍不同内容。
 
@@ -215,10 +222,10 @@ Fixture 总计 `1,577,502` bytes（13 files）。本分支原 B 输入的 Git tr
 - Quantum `source-inline-v1.cases[16]`，Results `a-section-2` p1：原始段落 prehash `112e070cd72763f916e87827ed488d4a0f34479997a3b267167db696761e1e4e`，frozen paragraph digest `d369697f5a057c051c701a02901278551c1f0f876999bd703ddc22b5d8f018ce`。源 `C` codeword 的完整 TeX 已逐字保留，旧 locator 仅以共同开头 `where` 找段落，误报多个候选；现在同时绑定独立原段落首尾各 96 个 prose 字符。SourceTeX 和 base/attachment 判据未放宽。真实三方言 inline consumer baseline 通过后，更改 `^{\\pm }` 为 `^{+}`、删除内部原 TeX、重复原段落都须失败。
 - FRB `source-citations-v1.clusters[50]`，Methods `a-section-2` p33：原始段落 prehash `371f108c174313f206e98179ddf991f351210037820203bf922d4c452480a0dc`，frozen digest `b74d66e6db3feb6e923be8ca79005364a643dd49a4d91c83ce48b928689c2d2b`。原 source ref17 及后面的冒号，在 markdown 输出行262真实完整保留为 `following equation (9) of ref. [^17]:`；旧 C unanchored footnote-definition mask 删除句中该 token。只把 definition 遮蔽锚定行首，维持真正 definition 遮蔽及 ordered clusters/context predicates。三方言 citation consumer passing baseline 之后，将该 occurrence 邻近 `equation` 改坏必须失败。旧 markdown RED、links/quarto PASS 的结果独立保留。
 
-这些前轮helper changes的focused/full run见历史命令表。SAME reviewer在 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-review/c-bc81a28-review.md` 独立确认旧actual55a zero blockers：28focused PASS、旧机制9cases中7meaningfulRED/2PASS、原两个P2精准拒绝且四validators仍PASS、85rows/255records与旧e2 full303/77一致。本轮ec53/e3ff literal-neighbor变化和a9 receipt delta另须独立审查，旧review不覆盖新blob；本检查点不重复旧28focused。原source/rights科学审计复用、B data未改；D由root在newreview clearance后转交实际blob。
+这些前轮 helper changes 的 focused / full run 见历史命令表。SAME reviewer 在 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-review/c-bc81a28-review.md` 独立确认旧 actual55a zero blockers：28 focused PASS、旧机制 9 cases 中 7 meaningful RED / 2 PASS、原两个 P2 精准拒绝且四 validators 仍 PASS、85 rows / 255 records 与旧 e2 full 303 / 77 一致。ec53 / e3ff literal-neighbor 与 a9 receipt delta 随后的独立审查也已通过，准确新 blob 和 packet 见“实际接口”；没有借用旧审查覆盖新代码。本轮未重复旧 28 focused 或来源审计；D 已实际采用 reviewed e3ff。
 
 
-### 本检查点 literal citation neighbor 修正与scope
+### 历史 ec53 literal citation neighbor 修正与 scope
 
 Materials cluster60 / ordered39：Methods a-section-6 p27，raw prehash `07c5846d67c3e10985b8dc918eb1535b2b0bf60e5a8e0accfa2983d25cb653ef`、frozen digest `6a6630230dc0644968c0718da83e804619724accc107ea11dab671948d19260f`。源普通text含 `compare_structures`，实际MD `compare\_structures`。Chemistry cluster49 / ordered43：Results a-section-2 p6，raw `77668daf030a601bae26e46af3b5352e4334073e3dbb2d5ed4648cc1a128a975`、frozen `a65361c9ac6dceb63aef8ccedf9b90fc9848ba893b35dfb9046c7cc4fa5bd7b9`；源 `pH*`，实际MD `pH\*`。这两处原source punctuation真实保留，55a旧readable删裸符号但残留escaped反斜线，导致假context failure，不能归为parser缺陷。
 
@@ -226,11 +233,44 @@ Source before/after分别由原Range的32个normalized字符绑定：Materials `
 
 先在旧55a固化真实6 RED（0PASS/6FAIL）；初始方案6 GREEN不冒充最终窄化验证。最终ec53实际6case全部通过，每个case的10个mutants均准确拒绝指定sourceContext：删除underscore/star、换成math operator/escaped TeX/legacy inline或display TeX/code、增加反斜线、改原左/右邻词、错citationidentity，semantic对象保持原件。Materials complete citations consumer三方言PASS；Chemistry只cluster49特定predicate有真实passing baseline，原cluster40/ordered33/34生产缺陷继续FAIL，不能用一个已失败aggregate充mutation baseline。
 
-Final partial显式a9 temp receipt保存6个实际cache记录，21missing、errors=[]、unexpected=[]，`complete=false`，after硬FAIL；7tests=6PASS/1FAIL、0skip/todo/cancel，112111.9953ms。它是局部证据与fail-closed guard的真实结果，不能称完整suite PASS。Default无env的初始focused run exit0，没有receipt writer；a9 hook只收集cache不额外clip，默认零写入、未知/missing/rejected/身份不符不能补造记录。Source/input、helper/API以外的生产代码不变；本轮不再重复27clips。完整source/range/oldRED/newpartial/raw位置在外部temp，repo只保存本handoff和严格tests。
+前轮Final partial显式a9 temp receipt保存6个实际cache记录，21missing、errors=[]、unexpected=[]，`complete=false`，after硬FAIL；7tests=6PASS/1FAIL、0skip/todo/cancel，112111.9953ms。它是局部证据与fail-closed guard的真实结果，不能称完整suite PASS。Default无env的初始focused run exit0，没有receipt writer；a9 hook只收集cache不额外clip，默认零写入、未知/missing/rejected/身份不符不能补造记录。Source/input、helper/API以外的生产代码不变；本轮不再重复27clips。完整source/range/oldRED/newpartial/raw位置在外部temp，repo只保存本handoff和严格tests。
 
-Reconciler独立验证六份实际MD bytes、validators、warnings、semantic summary、ledger与原full相等；期待failures唯一差异是Materials60与Chem49 context消除。Partial54 source records48PASS/6FAIL；与mechanism未改的旧201条source执行记录得到241PASS/14FAIL、80EXECUTABLE/5BLOCKED。新helper完整380尚未执行，独立review未clear，不用旧55a审计替代。
+Reconciler独立验证六份实际MD bytes、validators、warnings、semantic summary、ledger与原full相等；期待failures唯一差异是Materials60与Chem49 context消除。Partial54 source records48PASS/6FAIL；与mechanism未改的旧201条source执行记录得到241PASS/14FAIL、80EXECUTABLE/5BLOCKED。该ec53检查点未执行完整380；独立review后来已clear，见实际接口。此旧partial仍仅是0de历史记录。
+
+
+### Accepted ac86 新来源状态与定点scope
+
+Pangenome source-label、shortAlt原Figure1/3/4/5已随PR58/Issue55恢复，三方言27条source期待、完整figure payload/source位置、4validators/精确warning全PASS。下面历史shortAlt failure和原wrapper hashes仍保留来源证据，不代表本轮output。Quantum clusters37/57与Chemistry cluster40的独立citation superscripts已随PR59/Issue56恢复原语义身份/order/finaltokens；Chemistry完整citation consumer和全部source期待三方言PASS，16 scientific issues仍明确FAIL。没有修改B values或Chelper。
+
+本轮固定正向name filter只选这三篇三方言的`every source expectation through the complete production chain`及`repeat Markdown, bibliography, semantics and replay operations`，执行前静态核9+9title/84期待。现有a9 hook无变更，保存同一次actualcache的9 comparisons（完整metadata/figures/equations/citations/references/tables summary、各期望failures、四validators及math scientificFragments、warnings、ledger）与9MD，不是post-run另clip；不声称保留了未被semanticSummary导出的全Defuddle DOM/result对象。18其余combos missing、errors=[]、unexpected=[]，completefalse，after硬FAIL。84source TAP与9actual records逐项相同；原171历史条目只带0de scope引用，不据此推导new fullPASS。
+
+### Quantum remaining final citation / table-caption
+
+本轮三方言source/semantic均77 ordered clusters，final只76；序列LCS的唯一缺失是`source-citations-v1.clusters[59].numbers = [58]`，不新增或丢失其他cluster。原位置为a-section-3 / `#Tab1 a#ref-link-section-d102805164e14011`（sup位于caption内，anchor href`/articles/s41534-023-00746-0#ref-CR58`）。`#Tab1` untouched raw serializerprehash `f3b0491bc1cce00b208266b23277279d4f368fa7a2752e104b2fb2e0c6a19249`、frozen digest `23d81f6b93cdfdbfe357c9726209878bf28a55c0952dd19c4ce0290cb90806fc`；与旧有效source packet相同。Actual三方言line481仍在table-caption中输出裸58、原12legacyinlineMathJax delimiter及无dialect目标的Equ7/15：`source-crossrefs-v1.internal[43].renderedOccurrence` / `[44].renderedOccurrence` links/quarto FAIL，markdown按源规则degraded文本PASS。
+
+这证明source cluster59的final citation遗漏与table-caption原位置一致，交source-only Work Contract60对应生命周期分析；不是由semantic77或其他位置正确[58]推定成功，也不先猜内部因果。`accepted-ac86-delta-quantum-source-delta.json`保存三方言缺失index/原supanchor/同run caption整行及typed源码primitive；repo中上述selector/manifest/block/hash能直接从冻结input重建。
+
+### Quantum remaining 43 math issue roles
+
+同一次运行的每方言 43 个 math issues 分为 table-caption 的 24 个 legacy delimiters、17 个 Greek isolatedSubscript、2 个 split numeric-power isolatedSuperscript。17 个原 Greek attachments 全在 Methods `a-section-4` / `section[data-title="Methods"]`：真实原形分别为 `Γ<sub><i>b</i></sub>`、`Γ<sub><i>a</i></sub>`、`Ω<sub>0</sub>`、`Ω<sub><i>i</i></sub>`。实际输出对应 `Γ$_{b}$`、`Γ$_{a}$`、`Ω$_{0}$`、`Ω$_{i}$`，下标被拆成独立 inline math。下表 paragraph index 为原 block 内零起算位置；行号来自本轮保存的 Quarto MD。
+
+| Source paragraph / Greek count / actual Quarto line | Raw paragraph prehash | Frozen paragraph digest |
+| --- | --- | --- |
+| a-section-4 p4 / 2 / 283 | d4b9cd5027373869e427abe3a356010ce137ee71232ba6fe10fa326e619e4636 | 74a9ca9392ba1e49f63b27c7dd139332ab694b2c99d96345da9bbca9654e8a0a |
+| a-section-4 p5 / 1 / 291 | 7917cafd5d18cb35e336b2dc2f3a83ea9c35d2e81f9e5e8c8ea513825b5ca19a | 3605d4ae2cb313d0f68293ec7698dfc605544315b6d02dabc6a2050bf3b75aff |
+| a-section-4 p6 / 2 / 297 | 6b5529fa2fc0f7054db8ddff9f5845f04f47dc09a92c9b6c84c6e402cd3af866 | f7f86bf155d5aa1ce3e2adc5f646839344901c4c2aa29ee7ecfa7289a32a0062 |
+| a-section-4 p7 / 7 / 299 | 41fe93f90327d2058184f53f70b106f365fec54bac3569302d2621b4e6b379a7 | 1399a9b8f93b285f03f15b8d51e9cbc5cae6c3d6205a0888e98881557c151fa4 |
+| a-section-4 p9 / 2 / 309 | 4df3e18987d23972b091c9e456138caf31e752848220bd87f716839e8bf298ad | 629a487989b7da126377e8b992c13abc2c89cd839b807066ab0144fa0d02fd6c |
+| a-section-4 p13 / 2 / 335 | a5560c83a39e0275742a9c3d0dd8c0830be4cfc503882f9def1a6c06a13ac969 | 28ea00ca891ecb94f15283d49e5fe2bee14c7a92e22a065cb6f735986288fc8e |
+| a-section-4 p15 / 1 / 351 | 71d264e4fec89fd459f23ccf020b4a263bfee0b83e3a37ef201f6437a89f3fda | d614ce67b9f636f349b500a929acaf960a7000a57efed1329d546ae35a8f8b2e |
+
+Split-power独立于Greek和leading-isotope61：Results a-section-2 p33原`~10<sup>−</sup><sup>15</sup>`，两个相邻SUP组成原同一exponent；rawparagraphprehash`76701dc7ea4f491570f57d3ae1329c472eb812a2454237392b6f0d99c8a55435`、frozen`d9fd04d9e40ad364d1c122769be3e2f4d318ea429dfc158c9bcd66575c02c3a4`。Actual三方言line207是`~10$^{−}$ $^{15}$`；科学正关系是原负号与15属于10的同一exponent，不改原两个SUP来迎合assembler。Results p37同源positivecontrol为单一`10<sup>−15</sup>`，raw`28e06f2eac7ed32e9dca4b87991c85cc120323782c2dbe1c980cdaa669af9f64`、frozen`db986d752212798179907747abd707b3a96a2aa6fa5f9a33569798f8bba453b1`，actual line221正确`$10^{−15}$`。故不重报旧48简单数值幂，不并入61isotope scope。
+
+Greek scripts与split negative-power各标`INDEPENDENT_BUG`来源机制，交root分窄owner；C不修Nature/normalizers/validators，也不fabricateexpected TeX。Chemistry current16issues与前轮角色定位完全一致（3 trailing compound-subscript、13 sup其中11 leading-mass/2 Δbondlabels），本轮actual同runMD保留Methods四个measurement错误mass attachment；既有raw/frozen位置及61source契约复用，不重新source acquisition。Alpha4/FRB14/Materials旧0de14/reference2 role packets保持历史，Materials57 pending92f未采为accepted且本轮无补clip。
 
 ## Parser defect packets
+
+下列既有 packets 保留历史原 source / output 证据，未经再次 clip。涉及已经 accepted 修复的当前状态以顶部 85 行 scope 和上面的 ac86 定点 packet 为准：Pangenome short-alt、Quantum clusters[37]/[57]、Chemistry clusters[40]/[49] 已解除；Materials styled case 尚未采用 pending 修复。旧计数、旧错误输出和旧 wrapper hashes 不代表 ac86 本轮结果。
 
 下列 prehash 均为实际 A `serializeSubtree` 对 untouched source DOM 的 SHA-256；新 occurrence packet 另明确列出 sanitizer 后的 frozen paragraph digest，不能混用两者。Paragraph index从该 block的`querySelectorAll('p')`按零起算，table row/cell也从零起算。完整源数据仍位于外部临时目录；reproducer使用冻结的真实摘录与声明table resources。不得修改input让现有parser通过。
 
@@ -269,7 +309,7 @@ COVID caption section links：`source-crossrefs-v1.internal[4]`/`[17]`，block`a
 
 这些真实 figure identity 不是文献 citation number。Accepted 478 后，上表各 crossref occurrence 在全部三方言 PASS；pangenome 仅 source-shortAlt、materials 仍 equations/citations、SR 仍 scientific validator 失败，所以不能报整篇 PASS。外部 `accepted-table-new-crossref-packets.json` 保留旧原始 anchor HTML、source context、raw/frozen digests 与旧 Quarto matching links；同一本 handoff 的当前完整 map 给出各 dialect 最新状态。
 
-### Quantum table caption / 相邻 citation superscript — 当前独立 packet
+### Quantum table caption / 相邻 citation superscript — 历史 0de packet
 
 同一 untouched raw article SHA-256 `6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e`。新的原始 source / frozen 段落位置及 digests 独立核验如下；不是根据当前 parser 定义期待。
 
@@ -279,15 +319,15 @@ COVID caption section links：`source-crossrefs-v1.internal[4]`/`[17]`，block`a
 | source-citations-v1 cluster37，ordered58/64 | a-section-2 `section[data-title="Results"]` p18 | 9461453468d164c47c8d6b64843c5578c260bf0251b713796d45fb36cbd74963 | b226cfc00f5f696516b68092ae4701b4222124e54ea965f7ec5bed543af3df16 | 独立 citation sup 被吞入 scientific `${\alpha}^{{\prime}}^{58,64}$`；三个方言都缺原 ordered citation tokens |
 | source-citations-v1 cluster57，ordered42/58 | a-section-3 `section[data-title="Discussion"]` p1 | 697d3fbbdcb78ca7ee69c7d85b72b370e185ec3bb260def1aa04aa4962b1c6e4 | 9e6e99e09e8e4cd9e96b870d4c245f5ffb96a2a504c17d8ad5036e8d3b0975e8 | 独立 citation sup 被吞入 `${J}_{m}=\sqrt{\bar{n}}{\kappa}_{2}/2\epsilon^{42,58}$`；三个方言都缺原 ordered citation tokens |
 
-Quantum 源有 77 ordered clusters，当前 semantic 为75；最终 tokens 亦有 table-caption normalization 缺失。完整 expected numbers/order 与 original TeX 都没有改。`accepted-caption-tablemath-remaining-source-packets.json` 保存这些最小源 anchors、准确上下文、raw/frozen身份和实际 table-caption 行；可从冻结 fixture、正常声明 table resource 和实际 `clipNature` 重现。建议将 table-caption scholarly normalization 与相邻独立 citation sup 分别立窄 Work Contract；不由 C 修生产输入/输出。
+Quantum 源有 77 ordered clusters；该历史 0de 记录的 semantic 为 75，最终 tokens 亦有 table-caption normalization 缺失。ac86 新实测 semantic 已恢复 77，final 仍为 76，唯一缺失 source cluster[59] 见上面的新 packet。完整 expected numbers/order 与 original TeX 都没有改。`accepted-caption-tablemath-remaining-source-packets.json` 保留最小原 anchors、准确上下文、raw/frozen 身份和旧 caption 行。独立 citation eligibility 已随 Issue #56 accepted；table-caption 仍交 Issue #60 对应生命周期，不由 C 修生产输入/输出。
 
-### 其余 citation / rawHtml 实际失败位置
+### 历史 citation / rawHtml 失败位置
 
 Materials cluster60与Chemistry cluster49在本轮确认为上节 C literal punctuation误判，ec53 scoped复验解除，不能继续列为生产citation缺陷。Chemistry cluster40（ordered33/34）仍位于Results a-section-2 p2；raw `40052f20434e9ebfb090e55429d3a20e47553d31afe92b047c485808ba6e64a3`、frozen `74e0d28852386fd8165404fa8a38afcb94b49979f2c5dd9f9f3cb457bb3df00e`，source compound粗体2和独立citation33/34真实分开，实际 `\mathbf{2}^{33,34}` 吞掉citation role。Quantum clusters37/57同类源角色证据见上表；交各自citation contract，不改oracle。
 
 Materials links 方言 production rawHtml validator 另报 `unpermitted-html-tag x`，line411/column72。实际源码是原 reference2 title 的字面 `(0<x<-1)`，block `a-reference-2` / `ol.c-article-references > li:nth-child(2)`，raw prehash `0e255b91a472bfacada32b8041e736dbe7ccbae15e28f00a75db89cb113217cb`，frozen digest `9892d49c445a2e6e0321a3c4865b1fd7c52de6e379be2ac212ba1f34ed7c3f7f`。C没有修改原 title、reference期待或 validator；保留该 FAIL 和证据，交独立 parser/validator 归因。外部 `accepted-caption-tablemath-final-remaining-citation-source.json` 记录这些 untouched raw Buffer身份、original HTML、whole source paragraph及每方言真实 failure；FRB cluster50证据也在同文件，但其失败已按上节认定为 C definition mask误判，而不是 production bug。
 
-### Pangenome short-alt identity
+### Pangenome short-alt identity — 原失败证据，本轮已解除
 
 `s41586-023-05896-x/source-figures-v1`：admitted main figure原IDs为`Fig1, Fig3, Fig4, Fig5`，原标签明确Figure1/3/4/5；actual semantic label正确，actual alt却变成顺序Figure1/2/3/4。后三个`shortAlt`在全部三方言失败。源wrapper locators / prehash：
 
@@ -298,7 +338,7 @@ Materials links 方言 production rawHtml validator 另报 `unpermitted-html-tag
 | Fig4 / a-section-3 | #figure-4 | ef1abb9b5ba8717a76a24d4bc31b39cbc884bdba0280508cb3aebef94f86b0d4 |
 | Fig5 / a-section-3 | #figure-5 | 7ec9deb70e1b659a58c27b09ae5a9173c62cdeecdbdb00c85ea34bc8480e04b3 |
 
-### 当前scientific边界：分清已解除与typed-role剩余
+### Scientific 边界：既有来源角色与本轮计数
 
 - accepted0de literal repair已消除FRB [O III] phantom displays（source8→actual8）和Chemistry [3H] phantom display（source0→actual0）；相关equations/完整captions期待本轮PASS。旧raw/frozen identity分别为FRB Main p5 raw `1c3434cc6f2c022b8461aec0c726db8969900df75c44727b09e04a05a718dc8b` / frozen `6c4a2d899f9bfa7a2cd7c4263e7f0e67dbc70a9623fe3560254b8502fadeb3d6`；Chem Results p0 raw `146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c` / frozen `1d03f1991268ca7b64f42caa0f4a5e348594a8d2c129ce9cd756ff5ca7b1359f`。这些身份标签已区分，原科学值未变。
 - AlphaFold当前4个isolatedSubscript均在Main a-section-1 p2，source原 `r.m.s.d.<sub>95</sub>` 四次，actualQuarto line60四次 `r.m.s.d.$_{95}$`。这是非unit缩写与原subscript attachment；source期待皆PASS不代替math validator。
@@ -306,7 +346,7 @@ Materials links 方言 production rawHtml validator 另报 `unpermitted-html-tag
 - Chemistry当前16 scientific issues为3 isolatedSubscript（Results p2 `Pb(OAc)<sub>4</sub>`，p5 `Fe2(ox)<sub>3</sub>`，Methods p0 `(CD3)<sub>2</sub>CO`）、13 isolatedSuperscript（11 leading isotope mass +2原 `Δ<sup>12,13</sup>`）。ActualQuarto source位置对应lines48/52/60/62/64/70/98/114/126；3H/19F/1H/13C属于后面元素，不得当trailing numeric power。Compound chemical grouping、Δbond-position label、leading isotope须按typed role分别审。
 - Chemistry Methods a-section-3 p0还暴露4个validator未检出的mass误挂：source `2.05 <sup>1</sup>H`、`206.26 <sup>13</sup>C`、`3.31 <sup>1</sup>H`、`49.00 <sup>13</sup>C`，untouched raw/frozen同为 `e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a`。原e2 savedMD是孤立sup，accepted6b+0de实际line126变成 `$2.05^{1}$ H` / `$206.26^{13}$ C` / `$3.31^{1}$ H` / `$49.00^{13}$ C`；数字是measurement而非isotope base。它们不在当前16issues，语法valid不能证明科学attachment正确；交独立leading-isotope契约，C未修改source或validator。
 - Materials当前14 issues：Methods a-section-6 p37原 `128<i>x</i>0<i>e</i> +64<i>x</i>1<i>x</i> +32<i>x</i>2<i>e</i>`，绝非sup/sub shorthand；actualline244相邻 `$128x$$0e$` 导致4个delimiter issues/source display1→2。rawprehash `6be13b1e3db2cd07f5fc81dfef06fed2ea163e8e64be100b6c958479d74c0dd9`、frozen `606a4dbc6f17d727f95d873d015c680a39155c48d9d5e7f2fe8dc9f04264b364`。其余9处identifier `r<sup>2</sup>SCAN`（actuallines32/70/78/196/280）和一处compound unit `mScm<sup>−1</sup>`（Methods p42、line264）另有typed roles；styled adjacency是已交独立contract的机制，不把已解cue39上下文当生产bug。
-- Quantum当前43 math issues包括table-caption24个legacy delimiters未normalize、17个正文Greek subscript fragments、原嵌套10−15变两个isolatedsuperscript（actualline207）。Table-caption源Equ7/15、citation58、原12inlineMathJax及独立citation37/57的证据已在上节；修同一source caption lifecycle与citation角色须由相应独立contract，不靠放宽C期待。
+- Quantum 当前 43 个 math issues 为 table-caption 的 24 个 legacy delimiters、17 个正文 Greek subscript fragments、Results p33 原 `~10<sup>−</sup><sup>15</sup>` 的两个相邻 SUP 被输出为独立 superscripts（actual line207）。原形是 sibling SUP，不是嵌套。table-caption 交独立 Issue #60；Greek 和 split-power 分别为 `INDEPENDENT_BUG`，详见新来源 packet。独立 citation clusters[37]/[57] 已随 Issue #56 accepted，不能继续报告为当前缺陷。
 
 以下仅对已保存immutable raw/frozen读取定位和typed primitive，不重新clip。源位置/哈希与same-run27实际MD/validator arrays一起保存在外部 `accepted-units-literals-remaining-source-positions.json`。机制列表是来源证据与Work Contract拆分候选，不宣称上述不同roles必然同根因，不创建重复48/53任务。
 
@@ -336,7 +376,50 @@ Materials links 方言 production rawHtml validator 另报 `unpermitted-html-tag
 
 在上列Cworktree执行，外部logs目录为 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c`。
 
-当前固定accepted0de/a9 full与ec53 partial命令如下；下面前轮e0/478/e2记录明确为历史，不代表新helper完整run。
+本轮新增实际命令/结果（下面0de/e2表均为保留历史）：
+
+| Current accepted-ac86 command | Actual result |
+| --- | --- |
+| `gh run view 37681190063 --json headSha,status,conclusion,jobs`；`gh run view 37681189875 --json headSha,status,conclusion` | exactac86三matrix jobs与Secrets SUCCESS；jobs见依赖段 |
+| `git merge --no-ff ac86b2fa509653dfeb43b968472ce6280a51de2c -m "chore(corpus): adopt accepted sparse figure and citation prerequisites"` | exit0、dependency-only889eb55、原commits未重写 |
+| `node <TEMP>/accepted-delta-inventory.mjs <C-worktree> <TEMP>/accepted-ac86-delta s41534-023-00746-0 s41586-023-05896-x s41467-023-44030-3` | finalexit0；29corpus objects/helper/test/golden与3006相同、85registry/10consumer/API1、准确9+9title/84expectfilter；原84external evidencehash留存 |
+| `node --test --test-name-pattern $cDeltaPattern test/nature-corpus.test.mjs`；env receipt-prefix`<TEMP>/accepted-ac86-delta` | **exit1**；112=94PASS/18FAIL，0skip/todo/cancel，70864.2066ms；84source79PASS/5FAIL，9repeatPASS，9receipt/18missing硬FAIL；`accepted-ac86-delta.log`，session15007 terminal |
+| `node <TEMP>/accepted-delta-receipt.mjs <C-worktree> <TEMP>/accepted-ac86-delta <TEMP>/accepted-units-literals-context-partial` | exit0；全部84TAP/9comparison逐条一致、strictwarnings/ledger clean，85map247/8混basehistorical标签（不是newfull）；`-execution.json` / `-receipt.json` |
+| `node <TEMP>/accepted-citation-delta-source.mjs <C-worktree> <B-raw-directory> <TEMP>/accepted-ac86-delta` | finalexit0；只读same-run9/rawQuantum，准确source59缺58、17Greekprimitive/p33split/p37control/raw-frozenhash；无新clip/网络/输入修改；`-quantum-source-delta.json` |
+| `git diff --check`；`git diff --cached --check`；`git diff --cached --name-only` | 本轮仅doc authored delta；dependencymerge与author-owned分开；cleanpush结果交root |
+
+`$cDeltaPattern`精确来自inventory.pattern：`^(?:s41534-023-00746-0|s41586-023-05896-x|s41467-023-44030-3)/(?:markdown|links|quarto): (?:every source expectation through the complete production chain|repeat Markdown, bibliography, semantics and replay operations)$`。PowerShell先赋property值至该variable，再传native参数。第一次错误插值property的启动0source/0clips，仅receipt27missing硬FAIL，已另名`accepted-ac86-filter-launch-empty.log` /0comparisons/status保存；不是验收、也未重复真实clips。Inventory externalgit Buffer首次默认1MiB不足，只有external harness maxBuffer修4MiB后通过。没有source/production/test修正或覆盖旧log。
+
+新9actualcomparison/per-comboJSON/MD、math+scientificFragments/semantic summary/ledger与receiptstatus全部在`<TEMP>/accepted-ac86-delta.*`；`accepted-ac86-delta-evidence.json`保存每文件bytes/SHA256、固定codehead/helper/source身份、独立reviewpacket身份和旧evidence未覆盖证明。不是fullparsedDefuddleDOM或D9cache；完整raw仍外部B只读目录，不commitcapture。Core保持ec53/e3ff，本轮无新helper/test delta，accepted-main已有CI/golden/build证据复用；未为docs或known-red另跑full/npmtest/build。
+
+
+### 本轮外部证据身份
+
+所有文件位于上文 TEMP，均为同一次实际运行的外部证据。以下 SHA256 从 unchanged bytes 核对；固定 code head 为 dependency merge `889eb55c613e606a634ce0dfd41dee78f26fd8cd`，helper / test 身份见“实际接口”。旧 84 份 external evidence 的原 hash 未变。
+
+| External filename | Bytes | SHA256 |
+| --- | ---: | --- |
+| accepted-ac86-delta.log | 171346 | 9f71134e86539d27c498c05cd3b8335218c76b6248021b18500da0830a571c1b |
+| accepted-ac86-delta.comparisons.json | 917842 | 71bd2ab711cba571ca16ee513c00f979b703b875dfaf3bbd1e64ba0eb36c1894 |
+| accepted-ac86-delta-receipt-status.json | 1612 | 94e45b35a61f794393b1c54333db8d0aa41d94352c019fecf7970c90d4e75113 |
+| accepted-ac86-delta-receipt.json | 103520 | 4778458d28a50eb7cf3cccba46f73ef50c22ccc3a5f35d7e3dfd930a3e6357ca |
+| accepted-ac86-delta-quantum-source-delta.json | 36206 | 2a306f392a17ae9edd8e4964dcb1aae236861030de4074650179982774b2154f |
+
+每个组合文件名为 `accepted-ac86-delta.<articleId>.<dialect>.comparison.json` 和同前缀 `.md`；下表分别记录完整 comparison 和 Markdown 的 bytes / SHA256。
+
+| Article / dialect | Comparison bytes / SHA256 | MD bytes / SHA256 |
+| --- | --- | --- |
+| s41467-023-44030-3.links | 103160 / b95ae4813dddf91f922f6c1dba761ac768f6ce25d9a6d248cf8f09ecb6cd3f79 | 53160 / 540f37e8a3eeccb82a074b095e852bb782708f8d08c1e73e060227a1372c51be |
+| s41467-023-44030-3.markdown | 65990 / 300a8bb1bc4a1ae08350fa611de677c6a7d15f7f3c7dcba77c1fb310a2766291 | 50962 / 8ae7b29a7301dd79fedf270227a964ae19cb31589e22c96fc5a3a61d2b0a782b |
+| s41467-023-44030-3.quarto | 75805 / 3cb21faf389854e9a86528f7ded6fa94a4c936e1e5d602ae035c78023fcfbc2b | 40866 / ed589c8b5af667dc811a415bc302f90e0a167c42fff7a55483906d6632f1c596 |
+| s41534-023-00746-0.links | 187286 / 9b6877a693ed63805009407552cc775e1cbdf1d7f3db20fec6e23fdf6d8e8ede | 95659 / 470fc3ee186a65318a64b903712e53a5aa71b9236a968be3059d43305e30e435 |
+| s41534-023-00746-0.markdown | 121013 / b473dc39834d4606e30e40fc3b6ce7ab874de635c89a988e447aa9e567eecebb | 91042 / ac8386022f0578e119765800829563b4df773ccc4ff4775f6712a3a0106a79dc |
+| s41534-023-00746-0.quarto | 144957 / 642b59d6be9c8678d5f2bc2583d7175450274af7d26fe9450d09db145f1da9e7 | 83494 / b2d2d6db3db481e8b4281ca778fa3db77e30d0265ed3e2356a9dbc396e50e83b |
+| s41586-023-05896-x.links | 71582 / d2319239eeb068c611ae69f56ded78abab1e6ebe3c30cd9bc210a4705db426f3 | 62732 / 7101952ce010d1d8f7e33ef1d958b7acf45cfc29008fe852fa9e9a4e8e7e8977 |
+| s41586-023-05896-x.markdown | 44841 / 406717cef56212f827b5a0039aceeeafe223f08abaeda99575c249c7c2275ea5 | 60876 / db1674e31791cc77fd67ae660d99959f074508396a61c8b6cc3e0177983575e2 |
+| s41586-023-05896-x.quarto | 54197 / 08c82833dd73b7c6755f7c268db2cd88cfb682c7191407b7dea04bc9bc8d5067 | 52879 / ef06b4a7af906d37cbe62a61c089936de25fdf5dad89ebb2faa6794a58a329a3 |
+
+以下 accepted0de / a9 full 与 ec53 partial 命令全部为历史；更早 e0 / 478 / e2 记录亦为历史，不代表 ac86 full run。
 
 | Current command | Actual result |
 | --- | --- |
@@ -397,14 +480,14 @@ Materials links 方言 production rawHtml validator 另报 `unpermitted-html-tag
 | `git diff bff2f2a90731914194f8dd081f9267a1bb8d8e11 -- test/corpus papers docs/specs docs/PRD.md docs/EDD.md` | empty；C没有改B输入/golden/意图 |
 | `git diff --cached --name-only` | 本轮core commit严格helper/test两个ownedfiles；handoff receipt严格本文件 |
 
-External source/rights审计此前13raw/85oracle全部valid并复用，本轮没有重做或live reacquire。Ordinary tests使用未改frozenexcerpt/replay，不依赖raw文件；只有显式external-temp env才收集实际cache/MD，不额外clip/writer/network。原 `accepted-units-literals-execution.json` / `-receipt.json` 完整255/27 records保留，scoped `accepted-units-literals-context-partial-reconciled-receipt.json`与本文85rows一一对应。所有full/raw/source/Markdown/comparison logs仅留外部temp，不提交capture或snapshot。
+External source / rights 审计此前 13 raw / 85 oracle 全部 valid，本轮复用未变 Git 身份，没有重做或 live reacquire。Ordinary tests 使用 frozen excerpt / replay，不依赖 raw 文件；只有显式 external-temp env 收集实际 cache / MD，不额外 clip。原 `accepted-units-literals-execution.json` / `-receipt.json` 的完整 255 / 27 records，以及 ec53 的 `accepted-units-literals-context-partial-reconciled-receipt.json` 均保留；本次 `accepted-ac86-delta-receipt.json` 才与当前 85 行 scope 逐条对应。所有 raw / Markdown / comparison logs 仅留外部 temp，不提交 capture 或 snapshot。
 
-没有声称`npm test`或Issue #10最终CI已通过本检查点。`npm run build`与golden验证已在本轮通过，完整C suite按真实known parser失败exit1；不再重复同一known-red suite来制造绿灯。最终integrator须在parser prerequisites accepted后运行spec§9全部checks和CI matrix。
+本次没有执行 `npm test`、build、golden 或完整 C suite。它们的历史结果已标明基线，accepted ac86 的 Main CI 提供依赖检查证据，不能替代最终 corpus 验收。最终 integrator 仍须在 parser prerequisites accepted 后运行 canonical §9 全部 checks 和 CI matrix。
 
 ## 恢复 C / D / integrator 的解除阻塞条件
 
-1. Integrator选择原A/B/D及C authored commits，B b718fa8 attribution独立增量；不重复选择C只读dependency snapshot/merges。C生产receipt固定0de，未将随后accepted b886（PR58/Issue55）插入本轮测试树；root另行安排下一恢复接入，禁止用后来的main冒充这些logs的base。
-2. Tablefooter、caption旧crossrefs、tableMathJax、simpleunits/numericpowers、literalbrackets均已消费acceptedmain。Remaining source FAIL五条和validator-only typed roles/source-title证据按上文保留；pangenome shortAlt、Quantumtablecaption、独立citation sup与Materials styled adjacency由相应窄contract/mainCI接纳，再恢复SAME C，不修改B科学输入。
-3. SAME reviewer定点审ec53/e3ff新helper/test及a9receipt delta、481scope、旧6RED/最终6baseline60mutants、完整原255/27 reconciliation和partial6/21missing硬失败。旧55a审计不替代新blob；未clear前D不消费它。D只有对应source comparison/全部validators/warnings真实通过才获livegate。
-4. 新helper未跑完整380，本文件241/14是清晰标scope的实际归并，不称全suite通过。后续root协调一次适当的85×3、27validators/warnings/repeat/isolation/replay/golden完整verification，保留失败和zero-network证据；不因known-red反复同full或制造green。
-5. Integrator在最终真实requiredchecks/三平台CI通过后交单一Issue10deliveryPR；记录最终corpus真实bytes/size review。Canonical/PRD/EDD无修改，无新spec semantics提案。本checkpoint DEPENDENCY_PENDING，非C验收完成、非Issue10完成。
+1. Integrator采用原A/B/D和C authored SHAs，B b718fa8 attribution独立metadata；不要把C dependency-only889eb55等merge作为author delivery重选。当前receiptbase固定acceptedac86，pendingstyled92f/PR62未采用；后续accepted通知后再安排必要Materials增量。
+2. 本轮Pangenome27 source/全部validators/精确warnings、Chemistry27source恢复；Quantum缺captioncitation59/ref58及Equ7/15 source occurrence、24legacydelimiter交独立60 lifecycle。17Greek、splitnumeric exponent、其余科学roles保留`INDEPENDENT_BUG`packets，由root分窄contract；61leadingisotope不得吸收Greek或splitpower。所有5篇knownmath失败仍canonical必须PASS，不能softwarning、skip或改source。
+3. 新helper e3ff独立审查已clear，D实际消费不需要C改helper来使controller通过；D两个controllerP2属其owner。C85rows标AC86_NEW84与历史0de171；D/最终integrator只按相应base的真实source+四validators/warnings/replaygate取结果，不能借混base247/255建立fullgreen。
+4. Root在新的acceptedprerequisites实际改变失败后恢复SAME C执行适当scope；最终验收仍需完整85×3、27validators/warnings/repeat/isolation/resource/golden及canonical§9所有checks。此轮无newfull，不重复13raw/85source审计、旧60mutation或已验证生产full来浪费劳动；原证据与最新exact身份持续保留。
+5. 记录最终corpus真实bytes/size review、单一Issue10deliveryPR及三平台CI。Canonical/PRD/EDD/B scientificoracle/production/validators均未由C改动；无spec语义修订提案。本checkpoint仍DEPENDENCY_PENDING，非C验收完成、非Issue10完成。
