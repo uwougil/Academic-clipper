@@ -194,6 +194,12 @@ export function createBoundedTransport({ fetchImpl = globalThis.fetch, resolveHo
         const bytes = await boundedBytes(response, time.signal, maxBytes);
         facts.bytes = bytes.length;
         facts.bodySha256 = sha256Bytes(bytes);
+        // HTTP failures can contain a positive access challenge. Inspect only
+        // fully bounded HTML, using the same access gate as successful articles.
+        if (response.status >= 400) {
+          const { accessSignals } = inspectSource(new TextDecoder().decode(bytes), { url: String(url), doi: '' });
+          if (accessSignals.length) facts.accessSignals = accessSignals;
+        }
         captures.set(String(url), { bytes, status: response.status, contentType });
         return new Response([204, 205, 304].includes(response.status) ? null : bytes,
           { status: response.status, headers: response.headers });
@@ -305,7 +311,7 @@ function unexpectedWarnings(actual, expected) {
 }
 
 function transportProblem(facts, tables = []) {
-  const access = facts.exchanges.find(exchange => [401, 403].includes(exchange.status)
+  const access = facts.exchanges.find(exchange => exchange.accessSignals?.length || [401, 403].includes(exchange.status)
     || exchange.location && /(?:idp\.|login|authorize|consent|challenge|subscribe)/iu.test(`${exchange.location.origin}${exchange.location.pathname}`));
   if (access) return { cause: 'ACCESS_BLOCKED', evidence: access };
   const failed = facts.exchanges.find(exchange => exchange.error || exchange.status >= 400)
@@ -378,6 +384,41 @@ export function classifyLive({ comparison, fullValidators, changes, projectionEr
   return comparison.warnings.actual.length ? 'EXPECTED_WARNING' : 'PASS';
 }
 
+function validateComparison(comparison, article, parsed, options) {
+  const record = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+  if (!record(comparison) || comparison.version !== '1.0.0' || !Array.isArray(comparison.expectations)
+    || !comparison.expectations.every(record) || stableJson(comparison.expectations.map(item => [item.id, item.assertionId]))
+      !== stableJson(article.expectations.map(item => [item.id, item.assertionId]))) {
+    throw new CorpusIntegrityError('C comparison must execute every declared source expectation in order.');
+  }
+  if (comparison.articleId !== article.articleId || comparison.citationStyle !== options.citationStyle
+    || typeof comparison.pass !== 'boolean' || !record(comparison.summary)
+    || comparison.expectations.some(item => !['pass', 'failure'].includes(item.status) || !Array.isArray(item.failures)
+      || item.failures.some(failure => !record(failure) || typeof failure.path !== 'string')
+      || (item.status === 'pass') !== (item.failures.length === 0))) {
+    throw new CorpusIntegrityError('C comparison has malformed identity, required execution facts or aggregate status.');
+  }
+  const requiredValidators = ['math', 'structure', 'rawHtml', 'crossReferences'];
+  if (!record(comparison.validators) || Object.keys(comparison.validators).length !== requiredValidators.length
+    || requiredValidators.some(key => !record(comparison.validators[key]) || typeof comparison.validators[key].valid !== 'boolean')) {
+    throw new CorpusIntegrityError('C comparison must include all four production validation results.');
+  }
+  const warnings = comparison.warnings;
+  if (!record(warnings) || ['expected', 'actual', 'unexpected', 'missing'].some(key => !Array.isArray(warnings[key])
+    || warnings[key].some(value => typeof value !== 'string'))
+    || stableJson(warnings.actual) !== stableJson(parsed.debug.warnings)
+    || stableJson(warnings.unexpected) !== stableJson(unexpectedWarnings(warnings.actual, warnings.expected))
+    || stableJson(warnings.missing) !== stableJson(unexpectedWarnings(warnings.expected, warnings.actual))) {
+    throw new CorpusIntegrityError('C comparison must retain complete and consistent warning facts.');
+  }
+  const passed = comparison.expectations.every(item => item.status === 'pass')
+    && requiredValidators.every(key => comparison.validators[key].valid)
+    && !warnings.unexpected.length && !warnings.missing.length
+    && stableJson(warnings.actual) === stableJson(warnings.expected);
+  if (comparison.pass !== passed) throw new CorpusIntegrityError('C aggregate pass contradicts its required assertion, validation or warning facts.');
+  return passed;
+}
+
 async function compareClip(article, html, resources, options, comparisonApi, clipImpl) {
   const replay = createReplay({ resources, dns: DNS });
   const source = new JSDOM(html, { url: article.url });
@@ -389,11 +430,8 @@ async function compareClip(article, html, resources, options, comparisonApi, cli
       comparison = comparisonApi.compareArticleResult(article, parsed, { sourceDocument: source.window.document,
         citationStyle: options.citationStyle });
     } catch (error) { throw new ComparisonExecutionError(error); }
-    if (comparison?.version !== '1.0.0' || !Array.isArray(comparison.expectations) || stableJson(comparison.expectations.map(item => [item.id, item.assertionId]))
-      !== stableJson(article.expectations.map(item => [item.id, item.assertionId]))) {
-      throw new CorpusIntegrityError('C comparison must execute every declared source expectation in order.');
-    }
-    return { comparison, parsed, ledger: replay.ledger() };
+    const passed = validateComparison(comparison, article, parsed, options);
+    return { comparison, passed, parsed, ledger: replay.ledger() };
   } finally {
     source.window.close();
     replay.assertClean();
@@ -433,7 +471,7 @@ export async function runVerifier(options, { manifest, corpusRoot = defaultCorpu
       const html = new TextDecoder('utf-8', { fatal: true }).decode(bytes);
       const resources = await loadReplayResources(article, corpusRoot);
       const offline = await compareClip(article, html, resources, options, comparisonApi, clipImpl);
-      if (!offline.comparison.pass) {
+      if (!offline.passed) {
         report.results.push(result(article, 'offline-assertions', 'PARSER_REGRESSION', {
           failedAssertions: assertionFailures(offline.comparison), validators: offline.comparison.validators,
           warnings: offline.comparison.warnings, summary: offline.comparison.summary, ledger: offline.ledger }));
