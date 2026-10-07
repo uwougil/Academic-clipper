@@ -1,0 +1,849 @@
+{
+  "evidenceVersion": "nature-scientific-citation-regression/1.0.0",
+  "articleId": "s41467-023-44030-3",
+  "url": "https://www.nature.com/articles/s41467-023-44030-3",
+  "title": "C5 methylation confers accessibility, stability and selectivity to picrotoxinin",
+  "journal": "Nature Communications",
+  "doi": "10.1038/s41467-023-44030-3",
+  "observedAt": "2026-10-03T16:44:25.253Z",
+  "sourceSha256": "a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d",
+  "sourceBytes": 460171,
+  "fixtureSha256": "a98b1bc64cb0b86e90225ea4d3a0d1071da3fe195d53ad54c1fdf86ad9693b98",
+  "fixtureBytes": 59993,
+  "retainedReferencePrefix": 35,
+  "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+  "serializerVersion": "nature-corpus-subtree/1.0.0",
+  "recipeSha256": "a4f32deeb5682b7a48a7d883af6b9bfaed8a2738a788a0f270977b58da9c1c97",
+  "recipe": {
+    "version": "1.0.0",
+    "id": "s41467-023-44030-3-scientific-citation-v1",
+    "articleUrl": "https://www.nature.com/articles/s41467-023-44030-3",
+    "blocks": [
+      {
+        "id": "a-meta-11",
+        "selector": "head > meta[name=\"dc.title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-36",
+        "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature Communications\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-40",
+        "selector": "head > meta[name=\"citation_title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-41",
+        "selector": "head > meta[name=\"citation_volume\"][content=\"14\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-42",
+        "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-43",
+        "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/12/14\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-44",
+        "selector": "head > meta[name=\"citation_firstpage\"][content=\"8308\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-45",
+        "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-49",
+        "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41467-023-44030-3\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-52",
+        "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41467-023-44030-3\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-122",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Tong, Guanghu\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-124",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Griffin, Samantha\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-126",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Sader, Avery\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-128",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Crowell, Anna B.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-130",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Beavers, Ken\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-132",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Watson, Jerry\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-134",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Buchan, Zachary\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-136",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Shuming\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-138",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Shenvi, Ryan A.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-147",
+        "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41467-023-44030-3\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-148",
+        "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-150",
+        "selector": "head > meta[property=\"og:title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin - Nature Communications\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-title",
+        "selector": "h1.c-article-title",
+        "role": "title"
+      },
+      {
+        "id": "a-references-heading",
+        "selector": "#Bib1",
+        "role": "heading"
+      },
+      {
+        "id": "a-reference-1",
+        "selector": "ol.c-article-references > li:nth-child(1)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-2",
+        "selector": "ol.c-article-references > li:nth-child(2)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-3",
+        "selector": "ol.c-article-references > li:nth-child(3)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-4",
+        "selector": "ol.c-article-references > li:nth-child(4)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-5",
+        "selector": "ol.c-article-references > li:nth-child(5)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-6",
+        "selector": "ol.c-article-references > li:nth-child(6)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-7",
+        "selector": "ol.c-article-references > li:nth-child(7)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-8",
+        "selector": "ol.c-article-references > li:nth-child(8)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-9",
+        "selector": "ol.c-article-references > li:nth-child(9)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-10",
+        "selector": "ol.c-article-references > li:nth-child(10)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-11",
+        "selector": "ol.c-article-references > li:nth-child(11)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-12",
+        "selector": "ol.c-article-references > li:nth-child(12)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-13",
+        "selector": "ol.c-article-references > li:nth-child(13)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-14",
+        "selector": "ol.c-article-references > li:nth-child(14)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-15",
+        "selector": "ol.c-article-references > li:nth-child(15)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-16",
+        "selector": "ol.c-article-references > li:nth-child(16)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-17",
+        "selector": "ol.c-article-references > li:nth-child(17)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-18",
+        "selector": "ol.c-article-references > li:nth-child(18)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-19",
+        "selector": "ol.c-article-references > li:nth-child(19)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-20",
+        "selector": "ol.c-article-references > li:nth-child(20)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-21",
+        "selector": "ol.c-article-references > li:nth-child(21)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-22",
+        "selector": "ol.c-article-references > li:nth-child(22)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-23",
+        "selector": "ol.c-article-references > li:nth-child(23)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-24",
+        "selector": "ol.c-article-references > li:nth-child(24)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-25",
+        "selector": "ol.c-article-references > li:nth-child(25)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-26",
+        "selector": "ol.c-article-references > li:nth-child(26)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-27",
+        "selector": "ol.c-article-references > li:nth-child(27)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-28",
+        "selector": "ol.c-article-references > li:nth-child(28)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-29",
+        "selector": "ol.c-article-references > li:nth-child(29)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-30",
+        "selector": "ol.c-article-references > li:nth-child(30)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-31",
+        "selector": "ol.c-article-references > li:nth-child(31)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-32",
+        "selector": "ol.c-article-references > li:nth-child(32)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-33",
+        "selector": "ol.c-article-references > li:nth-child(33)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-34",
+        "selector": "ol.c-article-references > li:nth-child(34)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-35",
+        "selector": "ol.c-article-references > li:nth-child(35)",
+        "role": "reference"
+      },
+      {
+        "id": "source-cluster-40",
+        "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d76734419e929)",
+        "role": "paragraph"
+      },
+      {
+        "id": "source-heading-Sec2",
+        "selector": "#Sec2",
+        "role": "heading"
+      }
+    ],
+    "removeSelectors": []
+  },
+  "retainedBlocks": [
+    {
+      "id": "a-meta-11",
+      "selector": "head > meta[name=\"dc.title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "89db2f0d3246994e1a44edd43109c208c2b0ac221113b0be77fe06c9adb9cca5"
+    },
+    {
+      "id": "a-meta-36",
+      "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature Communications\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "fed763f4c00b78f71837e14baaf5d5e95f1b9ce6b9c51a9fb8932d9fe1dfc53e"
+    },
+    {
+      "id": "a-meta-40",
+      "selector": "head > meta[name=\"citation_title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "70bc2481e88c2723d5a5b9ddb40bcbffccab958163b942a06f6d46da288a28ff"
+    },
+    {
+      "id": "a-meta-41",
+      "selector": "head > meta[name=\"citation_volume\"][content=\"14\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "df7ba09daa145ad4a25ade2d52ff2b2aa60f10c6d3ff0ec8ea7eee10a4c4b76c"
+    },
+    {
+      "id": "a-meta-42",
+      "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ed1801e512cd04c79001567258d9938bff6132aa5dd4e064b95179536e4cdde8"
+    },
+    {
+      "id": "a-meta-43",
+      "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/12/14\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "04ffee8d1f7ef090c9c55f1b2cefd36445629ff757ceba710e185a95b474771a"
+    },
+    {
+      "id": "a-meta-44",
+      "selector": "head > meta[name=\"citation_firstpage\"][content=\"8308\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "327d6354e424e1b372c5cf859e4e71c01fba89c99aa0532638ae05a4b597706d"
+    },
+    {
+      "id": "a-meta-45",
+      "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "aeb52796a9a520993fee49b41ab2b5460c5dcfe24a657aaee093d4618fd9e1c6"
+    },
+    {
+      "id": "a-meta-49",
+      "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41467-023-44030-3\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "4b5ed9045a8b237706c58230af1168cf11fcf944aa46f36b7659a8f27447a1fe"
+    },
+    {
+      "id": "a-meta-52",
+      "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41467-023-44030-3\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a43975239627809fec074e4b85f732c950b59d1f06c82ccc9cc70210f51e70e1"
+    },
+    {
+      "id": "a-meta-122",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Tong, Guanghu\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "806be7997770aebcef77a6124b104e5522fb38409183d1101e0edceff06312be"
+    },
+    {
+      "id": "a-meta-124",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Griffin, Samantha\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "9af41c7634e2f21d5f15bf578bac918d6b573d25fa695f3ecb4b15d7534ff43a"
+    },
+    {
+      "id": "a-meta-126",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Sader, Avery\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "0f6ffba52b0322bdfd051bffca4f09737438cacdf8ea4f46c2e294f0206a44c6"
+    },
+    {
+      "id": "a-meta-128",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Crowell, Anna B.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "bcfc4b60e96ce8d5f26936774b04eb576d9f366001107694718d6a187ef7fc45"
+    },
+    {
+      "id": "a-meta-130",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Beavers, Ken\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "421a4580a5ff93c9f4c3810b0bd31bd49aec65e108a9ab0155a5622cd8940a63"
+    },
+    {
+      "id": "a-meta-132",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Watson, Jerry\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b4dc454c3dbaceba761ac555f8ea07c791306137bdb9c8a68bc28601cb8b6799"
+    },
+    {
+      "id": "a-meta-134",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Buchan, Zachary\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "645106cfca35b972290f9b146feae464b737280384e824748c38f8a49d643d99"
+    },
+    {
+      "id": "a-meta-136",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Shuming\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "18394fb72ba21888387f57680034102ae01909e733b72a15d34a302fd81b5c29"
+    },
+    {
+      "id": "a-meta-138",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Shenvi, Ryan A.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "f09a470328c892187e516be0e6653b5a413bcf60d066a237324729d75715026e"
+    },
+    {
+      "id": "a-meta-147",
+      "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41467-023-44030-3\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "63828a01686594198ae673064205e58c81617de414846b8fdb16772b0533e8b7"
+    },
+    {
+      "id": "a-meta-148",
+      "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e2a47d03efa7114d4bc8e65c0fba2e84722b49e6e718eb787898c3c61ac5bcc9"
+    },
+    {
+      "id": "a-meta-150",
+      "selector": "head > meta[property=\"og:title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin - Nature Communications\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "db6a311bdcbcf0112f05d142f737f1b8c1b91da85c48fb912ad88f5c6739276b"
+    },
+    {
+      "id": "a-canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "9ee97a163f3fbc8b42ef3c4a9fb68f3b832c2d8b19bca58f330b9e86b6e4bed2"
+    },
+    {
+      "id": "a-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a3752c408c06d02bf6a1668852de8f8e44f2c1694ca143a62c3d0d9014c4c8c3"
+    },
+    {
+      "id": "a-title",
+      "selector": "h1.c-article-title",
+      "role": "title",
+      "sourceSubtreeSha256": "a98982a1c165f4924e6d23554e44a9dc64032b627fe31feced742de881f52c0a"
+    },
+    {
+      "id": "a-references-heading",
+      "selector": "#Bib1",
+      "role": "heading",
+      "sourceSubtreeSha256": "af92342e8974526976997242004de48e6fcf9aef95e778bf2972d4199120887d"
+    },
+    {
+      "id": "a-reference-1",
+      "selector": "ol.c-article-references > li:nth-child(1)",
+      "role": "reference",
+      "sourceSubtreeSha256": "d68b1d66d538fda5924669267c747cc115233e1e0d88eb6da2da3b18dad02e97"
+    },
+    {
+      "id": "a-reference-2",
+      "selector": "ol.c-article-references > li:nth-child(2)",
+      "role": "reference",
+      "sourceSubtreeSha256": "8f24c1c4ce020ddf8a62ef0e68908e8f67fb26d62c62045d6d5a5d2a556a4250"
+    },
+    {
+      "id": "a-reference-3",
+      "selector": "ol.c-article-references > li:nth-child(3)",
+      "role": "reference",
+      "sourceSubtreeSha256": "195f1b6be41b4fcb77b01849b5f90589239b9f8a81fb93d25392b2dc5e0e719a"
+    },
+    {
+      "id": "a-reference-4",
+      "selector": "ol.c-article-references > li:nth-child(4)",
+      "role": "reference",
+      "sourceSubtreeSha256": "bcf9e562953769e5cf2e9b2b67012cdc6f43abba116fbb608d671b7c2fbcb9b9"
+    },
+    {
+      "id": "a-reference-5",
+      "selector": "ol.c-article-references > li:nth-child(5)",
+      "role": "reference",
+      "sourceSubtreeSha256": "058a3e4c6b01d703aa71149d468d8fde4bc91695982fc8ad7a007d4ad0976212"
+    },
+    {
+      "id": "a-reference-6",
+      "selector": "ol.c-article-references > li:nth-child(6)",
+      "role": "reference",
+      "sourceSubtreeSha256": "656c1bed0790acfe4e6e6d943b89fcb32dfc99e7e697d273e752aad9ebe8f827"
+    },
+    {
+      "id": "a-reference-7",
+      "selector": "ol.c-article-references > li:nth-child(7)",
+      "role": "reference",
+      "sourceSubtreeSha256": "1517429a4dd28ae8aa9c2d593d06c93d884a28df77efd2b73be9c74fa712a6b5"
+    },
+    {
+      "id": "a-reference-8",
+      "selector": "ol.c-article-references > li:nth-child(8)",
+      "role": "reference",
+      "sourceSubtreeSha256": "48126da1818c00716f8942f91174a3d3f53a8d658dff5e153ae7e96a738e94a4"
+    },
+    {
+      "id": "a-reference-9",
+      "selector": "ol.c-article-references > li:nth-child(9)",
+      "role": "reference",
+      "sourceSubtreeSha256": "8aaf096adb73cfe8ccaec2bb427b0de59dc55400881e0f35cf62a95e126d0c07"
+    },
+    {
+      "id": "a-reference-10",
+      "selector": "ol.c-article-references > li:nth-child(10)",
+      "role": "reference",
+      "sourceSubtreeSha256": "a4ded140e2258e5cbb9d11facb2d751da7c2515767f3e50601eaa1b28fcf7c8a"
+    },
+    {
+      "id": "a-reference-11",
+      "selector": "ol.c-article-references > li:nth-child(11)",
+      "role": "reference",
+      "sourceSubtreeSha256": "65cb24a07e6ba56fc65567a1c1118f90227adc9acf407895d1e9ce8735619990"
+    },
+    {
+      "id": "a-reference-12",
+      "selector": "ol.c-article-references > li:nth-child(12)",
+      "role": "reference",
+      "sourceSubtreeSha256": "04444a8d8505275041bbb5ea0e862a81d7c3cb29b957b5e70657c7eb798dc994"
+    },
+    {
+      "id": "a-reference-13",
+      "selector": "ol.c-article-references > li:nth-child(13)",
+      "role": "reference",
+      "sourceSubtreeSha256": "3b7c7541d05f1736c52c131a69b400fc907837b8a9fe4873ef0c70c84a6dd74b"
+    },
+    {
+      "id": "a-reference-14",
+      "selector": "ol.c-article-references > li:nth-child(14)",
+      "role": "reference",
+      "sourceSubtreeSha256": "d41405bedc94841bd4c76e03816f944aee0cae985120f6bb04fac78a84e34109"
+    },
+    {
+      "id": "a-reference-15",
+      "selector": "ol.c-article-references > li:nth-child(15)",
+      "role": "reference",
+      "sourceSubtreeSha256": "e9eb9630bf2be6b20faacf902204a4f2a96e534289545d5151e646111bd4c123"
+    },
+    {
+      "id": "a-reference-16",
+      "selector": "ol.c-article-references > li:nth-child(16)",
+      "role": "reference",
+      "sourceSubtreeSha256": "2685d6568bfd882d040fd83791d8df48c21bf578b9d53741d0d770b4d8928b65"
+    },
+    {
+      "id": "a-reference-17",
+      "selector": "ol.c-article-references > li:nth-child(17)",
+      "role": "reference",
+      "sourceSubtreeSha256": "50ed5b79c0357ddbcf2c11e57384486d2d8400766b013a3976a8aa0a2b67ce10"
+    },
+    {
+      "id": "a-reference-18",
+      "selector": "ol.c-article-references > li:nth-child(18)",
+      "role": "reference",
+      "sourceSubtreeSha256": "e3f4d32db13c9e9f3011877a8353abf5b448b3bf299f086be320ffbb494d2663"
+    },
+    {
+      "id": "a-reference-19",
+      "selector": "ol.c-article-references > li:nth-child(19)",
+      "role": "reference",
+      "sourceSubtreeSha256": "93ae20496b2307f5a6cf31a5aa929691b1f5d23b78e4de37848c7dca0f0037f8"
+    },
+    {
+      "id": "a-reference-20",
+      "selector": "ol.c-article-references > li:nth-child(20)",
+      "role": "reference",
+      "sourceSubtreeSha256": "056fdcf21b4ebf1ae4aa6deca789ee4f6a11d6423106d69c308546a5d281013a"
+    },
+    {
+      "id": "a-reference-21",
+      "selector": "ol.c-article-references > li:nth-child(21)",
+      "role": "reference",
+      "sourceSubtreeSha256": "49031960d161717fb98328cd637a4ebe57f1b7ef11e038f28aaba3e2ffaa606d"
+    },
+    {
+      "id": "a-reference-22",
+      "selector": "ol.c-article-references > li:nth-child(22)",
+      "role": "reference",
+      "sourceSubtreeSha256": "7e812d4411301b63a14d08fce913895cde97bcf24ec8cecc943307a94d80785b"
+    },
+    {
+      "id": "a-reference-23",
+      "selector": "ol.c-article-references > li:nth-child(23)",
+      "role": "reference",
+      "sourceSubtreeSha256": "5e5903ed0c38da46f59b083a72714bff4c0a9968d463f9e4596a6a45601d3ae9"
+    },
+    {
+      "id": "a-reference-24",
+      "selector": "ol.c-article-references > li:nth-child(24)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b978651a18abceff351f31a76d6e8292d07c1606ad98ecd6bc6011826e27bb45"
+    },
+    {
+      "id": "a-reference-25",
+      "selector": "ol.c-article-references > li:nth-child(25)",
+      "role": "reference",
+      "sourceSubtreeSha256": "874a338c0f0f8667416c75a8f8fd4dd6932c18331ffe9622df2975edee972815"
+    },
+    {
+      "id": "a-reference-26",
+      "selector": "ol.c-article-references > li:nth-child(26)",
+      "role": "reference",
+      "sourceSubtreeSha256": "f6dff6343371585375991473945979d20927824fa28c015488f13ea1c29636fe"
+    },
+    {
+      "id": "a-reference-27",
+      "selector": "ol.c-article-references > li:nth-child(27)",
+      "role": "reference",
+      "sourceSubtreeSha256": "f63a5111b2add91d93c546843d76d9b9872a12637b0dc8e719ce1ac4a44b80e4"
+    },
+    {
+      "id": "a-reference-28",
+      "selector": "ol.c-article-references > li:nth-child(28)",
+      "role": "reference",
+      "sourceSubtreeSha256": "0644a2ff578c9f4a77026fc786c875033b4ae8dc1d5a8846132cd218a97599b5"
+    },
+    {
+      "id": "a-reference-29",
+      "selector": "ol.c-article-references > li:nth-child(29)",
+      "role": "reference",
+      "sourceSubtreeSha256": "235b0e0edc5da14512dfabaa2b2fd8befdea99d3f134f7f0c0d922996c694043"
+    },
+    {
+      "id": "a-reference-30",
+      "selector": "ol.c-article-references > li:nth-child(30)",
+      "role": "reference",
+      "sourceSubtreeSha256": "8c4bad5fd32f0705e99bf759a19f0e9811b006c185385fcd18499d6c36d3d113"
+    },
+    {
+      "id": "a-reference-31",
+      "selector": "ol.c-article-references > li:nth-child(31)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b586f275194f1f628cb70556193427ae6bf647e3e9d97087a225829123de91d7"
+    },
+    {
+      "id": "a-reference-32",
+      "selector": "ol.c-article-references > li:nth-child(32)",
+      "role": "reference",
+      "sourceSubtreeSha256": "0c5a3f07f6fe6cb807f83e5968bb246802954a529c9795a196d7721253cf80e0"
+    },
+    {
+      "id": "a-reference-33",
+      "selector": "ol.c-article-references > li:nth-child(33)",
+      "role": "reference",
+      "sourceSubtreeSha256": "e232a49bef1c5dbce8317456591f219140afb88ab455b6e3221bb4d7acb0ee8e"
+    },
+    {
+      "id": "a-reference-34",
+      "selector": "ol.c-article-references > li:nth-child(34)",
+      "role": "reference",
+      "sourceSubtreeSha256": "353eeac0256fb70ddf1564afee1bb739e10c72f9c7f5ec0a34cdd7054e711d66"
+    },
+    {
+      "id": "a-reference-35",
+      "selector": "ol.c-article-references > li:nth-child(35)",
+      "role": "reference",
+      "sourceSubtreeSha256": "65e3f71440c821415454ce0cbd51018b938158d7c563d1b0a9ca6a222483b34f"
+    },
+    {
+      "id": "source-cluster-40",
+      "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d76734419e929)",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "40052f20434e9ebfb090e55429d3a20e47553d31afe92b047c485808ba6e64a3"
+    },
+    {
+      "id": "source-heading-Sec2",
+      "selector": "#Sec2",
+      "role": "heading",
+      "sourceSubtreeSha256": "b05d837b4acc0107b3277337c107f65be4a18c0bd31c2db268b4ce350058bb02"
+    }
+  ],
+  "transformations": [
+    {
+      "operation": "select-complete-source-blocks-with-ancestors",
+      "count": 63
+    },
+    {
+      "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+      "count": 1
+    },
+    {
+      "operation": "trim-json-ld-to-article-object",
+      "count": 1
+    },
+    {
+      "operation": "remove-attributes",
+      "count": 755
+    },
+    {
+      "operation": "sanitize-resource-urls",
+      "count": 33
+    }
+  ],
+  "omittedContent": [
+    "All unselected source paragraphs, figures, tables, equations and UI; this is a focused body-paragraph regression, not a whole article capture.",
+    "Complete original reference prefix through the highest retained citation is preserved without renumbering.",
+    "No image/PDF/table binaries or full raw HTTP captures are committed."
+  ],
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41467-023-44030-3",
+    "sourceObservedAt": "2026-10-03T16:44:25.253Z",
+    "sourceSha256": "a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Tong, Guanghu",
+      "Griffin, Samantha",
+      "Sader, Avery",
+      "Crowell, Anna B.",
+      "Beavers, Ken",
+      "Watson, Jerry",
+      "Buchan, Zachary",
+      "Chen, Shuming",
+      "Shenvi, Ryan A."
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "84ab88094d2cd6f87d0a2a8abbb091db26a34a50a7701aa2a706a9a1a4b4dafd",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [],
+    "technicalTransformations": "This regression selects the complete original paragraphs containing scientific-adjacent citation superscripts, their original headings/ancestors, article metadata and a complete reference prefix. Recorded sanitizer 1.1.0 removes tracking/executable/UI material and serializes UTF-8 LF. Source prose, typed citation nodes, scientific MathJax/bold/sub/sup, creators and node order are preserved; no scientific content is authored or relabeled.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "repeatByteEqual": true,
+  "idempotent": true,
+  "cases": [
+    {
+      "clusterIndexInBOracle": 40,
+      "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d76734419e929)",
+      "rawParagraphSha256": "40052f20434e9ebfb090e55429d3a20e47553d31afe92b047c485808ba6e64a3",
+      "sourceSection": "Results",
+      "sourceSectionParagraphIndex": 2,
+      "sourceNumbers": [
+        33,
+        34
+      ],
+      "clusterSourceSha256": "eab4d2e756c645a00c71f4a79ee923e07f97fd8719ec73000c5778d9bd19972d",
+      "sourceAnchors": [
+        {
+          "id": "ref-link-section-d76734419e929",
+          "href": "/articles/s41467-023-44030-3#ref-CR33",
+          "label": "33",
+          "dataTest": "citation-ref"
+        },
+        {
+          "id": "ref-link-section-d76734419e932",
+          "href": "/articles/s41467-023-44030-3#ref-CR34",
+          "label": "34",
+          "dataTest": "citation-ref"
+        }
+      ],
+      "scientificBase": {
+        "tag": "B",
+        "text": "2",
+        "sourceSha256": "6e784353ea75228d9d65f28d704f77c2b294757ae6d8ca74ae74a459de564cfa",
+        "tex": null
+      },
+      "afterCitationText": ", but only hydrogenation of corresponding cyclopropane (",
+      "paragraphCitationClusters": [
+        [
+          21,
+          28,
+          29
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33,
+          34
+        ],
+        [
+          35
+        ]
+      ],
+      "fixtureParagraphSha256": "74e0d28852386fd8165404fa8a38afcb94b49979f2c5dd9f9f3cb457bb3df00e"
+    }
+  ]
+}
