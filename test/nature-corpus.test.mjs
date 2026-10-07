@@ -262,6 +262,40 @@ for(const dialect of DIALECTS)test(`source citations preserve a body citation fo
   assert.ok(citations(result).failures.some(f=>f.path==='clusters[50].sourceContext'),'Changing the text next to the same citation still fails its source context predicate');
 });
 
+for(const dialect of DIALECTS)for(const sourceCase of [
+  {articleId:'s41586-023-06735-9',cluster:60,number:39,literal:'compare\\_structures',without:'comparestructures',math:'compare$_{structures}$',before:'XtalFinder',after:'using'},
+  {articleId:'s41467-023-44030-3',cluster:49,number:43,literal:'pH\\*',without:'pH',math:'pH$*$',before:'120',after:'fast'},
+])test(`source citation contexts retain literal Markdown punctuation/${sourceCase.articleId}/${dialect}`,async()=>{
+  const article=manifest.articles.find(a=>a.articleId===sourceCase.articleId),entry=await run(article,dialect);
+  const citations=result=>compareArticleResult(article,result,{sourceHtml:entry.html}).expectations.find(e=>e.id==='source-citations-v1');
+  const path=`clusters[${sourceCase.cluster}].sourceContext`,baseline=citations(entry.result);
+  assert.equal(baseline.failures.some(f=>f.path===path),false,'The actual escaped source punctuation retains its original citation context');
+  assert.equal(baseline.failures.some(f=>f.path===`clusters[${sourceCase.cluster}].rendered`),false,'This actual source citation cluster is rendered before testing its context');
+  if(sourceCase.articleId==='s41586-023-06735-9')assert.equal(baseline.status,'pass','The complete source citation consumer has a true passing baseline');
+  const paragraphs=entry.result.markdown.split(/\n\s*\n/u).filter(p=>p.includes(sourceCase.literal));assert.equal(paragraphs.length,1);
+  const paragraph=paragraphs[0],key=entry.result.references[sourceCase.number-1].citationKey;
+  const cue=dialect==='markdown'?`[^${sourceCase.number}]`:dialect==='links'?`[${sourceCase.number}](#ref-${sourceCase.number})`:`[@${key}]`;
+  assert.ok(paragraph.includes(cue));
+  const mutations=[
+    ['missing literal punctuation',paragraph.replace(sourceCase.literal,sourceCase.without)],
+    ['literal punctuation changed into math syntax',paragraph.replace(sourceCase.literal,sourceCase.math)],
+    ['literal escape changed into TeX',paragraph.replace(sourceCase.literal,sourceCase.literal.replace('\\',' $\\')+'$')],
+    ['literal escape changed into legacy inline TeX',paragraph.replace(sourceCase.literal,'\\('+sourceCase.literal+'\\)')],
+    ['literal escape changed into legacy display TeX',paragraph.replace(sourceCase.literal,'\\['+sourceCase.literal+'\\]')],
+    ['literal punctuation changed into code',paragraph.replace(sourceCase.literal,'`'+sourceCase.literal+'`')],
+    ['additional source-absent backslash',paragraph.replace(sourceCase.literal,sourceCase.literal.replace('\\','\\\\'))],
+    ['changed original preceding neighbor',paragraph.replace(sourceCase.before,'LOST_BEFORE_CONTEXT')],
+    ['changed original following neighbor',paragraph.replace(sourceCase.after,'LOST_AFTER_CONTEXT')],
+    ['different citation identity at this occurrence',paragraph.replace(cue,'LOST_CITATION_IDENTITY')],
+  ];
+  for(const [label,changed]of mutations){
+    assert.notEqual(changed,paragraph,label);
+    const result={...entry.result,markdown:entry.result.markdown.replace(paragraph,changed)};
+    assert.strictEqual(result.semantic,entry.result.semantic);
+    assert.ok(citations(result).failures.some(f=>f.path===path),label);
+  }
+});
+
 for(const dialect of DIALECTS)test(`source inline cases use the complete source paragraph context beyond a common introductory word/${dialect}`,async()=>{
   const article=manifest.articles.find(a=>a.articleId==='s41534-023-00746-0'),entry=await run(article,dialect);
   const inline=result=>compareArticleResult(article,result,{sourceHtml:entry.html}).expectations.find(e=>e.id==='source-inline-v1');

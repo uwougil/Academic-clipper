@@ -122,14 +122,36 @@ function retainedNodes(context, selector, blockIds = context.article.retainedBlo
   const roots = blockIds.map(id => blockNode(context, id)).filter(Boolean);
   return Array.from(context.sourceDocument.querySelectorAll(selector)).filter(node => roots.some(root => root === node || root.contains(node)));
 }
-function sourceNeighbors(node, length = 32) {
+function sourceNeighbors(node, length = 32, project = range => sourceReadable(range.toString())) {
   const root = node.closest('p,figcaption,[data-test="bottom-caption"]') || node.parentElement;
   if (!root) return { before:'',after:'' };
   const before = node.ownerDocument.createRange(), after = node.ownerDocument.createRange();
   before.selectNodeContents(root); before.setEndBefore(node);
   after.selectNodeContents(root); after.setStartAfter(node);
-  return { before:sourceReadable(before.toString()).slice(-length).replace(/\s/gu,''),
-    after:sourceReadable(after.toString()).slice(0,length).replace(/\s/gu,'') };
+  return { before:project(before).slice(-length).replace(/\s/gu,''),
+    after:project(after).slice(0,length).replace(/\s/gu,'') };
+}
+
+const citationLiteral = Object.freeze({ '_':'\uE000', '*':'\uE001' });
+function citationSourceNeighbor(range) {
+  const fragment=range.cloneContents(),walker=range.startContainer.ownerDocument.createTreeWalker(fragment,4);
+  assert.doesNotMatch(fragment.textContent,/[\uE000\uE001]/u,'Source must not collide with citation projection markers');
+  let node;
+  while((node=walker.nextNode()))if(!node.parentElement?.closest('.mathjax-tex,code,pre'))
+    node.data=node.data.replace(/[_*]/gu,character=>citationLiteral[character]);
+  return sourceReadable(fragment.textContent);
+}
+function citationContextBody(value,result) {
+  assert.doesNotMatch(value,/[\uE000\uE001]/u,'Output must not collide with citation projection markers');
+  // Preserve literal prose punctuation through readable(), without interpreting
+  // TeX escapes or code as Markdown presentation escapes.
+  const opaque=/(`+)[\s\S]*?\1|(~{3,})[\s\S]*?\2|(?<!\\)\$\$[\s\S]*?(?<!\\)\$\$|(?<!\\)\$(?:\\[\s\S]|[^$\\\n])*(?<!\\)\$|(?<!\\)\\\([\s\S]*?(?<!\\)\\\)|(?<!\\)\\\[[\s\S]*?(?<!\\)\\\]/gu;
+  const protect=text=>text.replace(/(?<!\\)\\([_*])/gu,(_,character)=>citationLiteral[character]);
+  let cursor=0,projected='';
+  for(const match of value.matchAll(opaque)){
+    projected+=protect(value.slice(cursor,match.index))+match[0];cursor=match.index+match[0].length;
+  }
+  return compactProse(projected+protect(value.slice(cursor)),result);
 }
 
 function assertMetadata(context, e, c) {
@@ -262,6 +284,8 @@ function assertCitations(context, e, c) {
   const bibKeys = Array.from(bibliography.matchAll(/^@\w+\{([^,]+),/gmu)).map(m => m[1]);
   c.equal('bibliography.orderedKeys', bibKeys, keys);
   const body = result.markdown.split(/^## References\s*$/mu)[0];
+  const contextBody=compactProse(body,result);
+  let literalContextBody;
   const keyNumbers = new Map(result.references.map(r=>[r.citationKey,r.number]));
   const renderedClusters = context.citationStyle === 'quarto'
     ? Array.from(body.matchAll(/\[@([^\]]+)\]/gu)).map(m=>m[1].split(/;\s*@?/u).map(k=>keyNumbers.get(k)))
@@ -278,8 +302,11 @@ function assertCitations(context, e, c) {
         : cluster.orderedNumbers.map(n => `[^${n}]`).join('');
     c.truth(`clusters[${i}].rendered`, body.includes(expected), `Ordered source citation cluster ${cluster.text} must be rendered`);
     if (sourceClusters[i]) {
-      const { before,after } = sourceNeighbors(sourceClusters[i]);
-      c.truth(`clusters[${i}].sourceContext`,compactProse(body,result).includes(`${before}${compactProse(expected,result)}${after}`),
+      const literalNeighbors=sourceNeighbors(sourceClusters[i],32,citationSourceNeighbor);
+      const hasLiteral=/[\uE000\uE001]/u.test(literalNeighbors.before+literalNeighbors.after);
+      const { before,after }=hasLiteral?literalNeighbors:sourceNeighbors(sourceClusters[i]);
+      const renderedContext=hasLiteral?(literalContextBody??=citationContextBody(body,result)):contextBody;
+      c.truth(`clusters[${i}].sourceContext`,renderedContext.includes(`${before}${compactProse(expected,result)}${after}`),
         'Citation cluster must remain between its original neighboring source text');
     }
   }
