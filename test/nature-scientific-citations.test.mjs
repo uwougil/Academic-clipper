@@ -84,7 +84,7 @@ async function assertRenderedCitation(t, html, fixture, item, citationStyle) {
     if (citationStyle === 'quarto') {
       const bibliography = referencesBib(result.references);
       for (const number of item.sourceNumbers) assert.ok(bibliography.includes(`{${references.get(number).citationKey},`));
-      assert.equal(result.referencesMarkdown, '');
+      assert.equal(result.referencesMarkdown, '## References\n\n::: {#refs}\n:::');
     } else {
       const pattern = citationStyle === 'markdown' ? /^\[\^(\d+)\]:/gmu : /^(\d+)\. .*<a id="ref-\d+"><\/a>/gmu;
       assert.deepEqual(Array.from(result.referencesMarkdown.matchAll(pattern), (match) => Number(match[1])), Array.from({ length: provenance.retainedReferencePrefix }, (_value, index) => index + 1));
