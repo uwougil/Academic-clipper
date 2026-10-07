@@ -744,7 +744,7 @@ function collectNumericSuperscriptRun(parent, startIndex) {
   };
 }
 
-function collectTextAndStyledSymbolRun(parent, startIndex) {
+function collectTextAndStyledSymbolRun(parent, startIndex, inlineMathByMarker, displayMath) {
   const node = parent.childNodes[startIndex];
   if (!isElement(node, new Set(['I', 'B']))) return null;
   const previous = parent.childNodes[startIndex - 1];
@@ -753,8 +753,16 @@ function collectTextAndStyledSymbolRun(parent, startIndex) {
   if (!match || match.index === undefined) return null;
   const token = previous.textContent.slice(match.index);
   if (!/^(?:∞|[−+\-]?\d+)(?:\/)?$/u.test(token)) return null;
+  const canExtend = (styled) => {
+    if (styled.firstElementChild) return false;
+    // MathJax children have already become text markers. Keep their typed role
+    // at this boundary, including markers embedded in other styled text.
+    const text = styled.textContent;
+    for (const marker of inlineMathByMarker.keys()) if (text.includes(marker)) return false;
+    return !displayMath.some(({ marker }) => text.includes(marker));
+  };
   let endNode = node;
-  if (!node.firstElementChild) {
+  if (canExtend(node)) {
     let index = startIndex + 1;
     while (index + 1 < parent.childNodes.length) {
       const digits = parent.childNodes[index];
@@ -762,7 +770,7 @@ function collectTextAndStyledSymbolRun(parent, startIndex) {
       // Keep contiguous source digit/style pairs in one range. A whitespace,
       // operator, wrapper or typed marker is a boundary, not a missing exponent.
       if (digits.nodeType !== 3 || !/^\d+$/u.test(digits.textContent)
-        || !isElement(styled, SCIENTIFIC_BASE_TAGS) || styled.firstElementChild) break;
+        || !isElement(styled, SCIENTIFIC_BASE_TAGS) || !canExtend(styled)) break;
       let next = styled.nextSibling;
       while (next?.nodeType === 3 && /^[ \t\r\n\u00a0\u2009]*$/u.test(next.textContent)) next = next.nextSibling;
       // A genuine attachment belongs to this styled base and must remain for
@@ -778,7 +786,7 @@ function collectTextAndStyledSymbolRun(parent, startIndex) {
   };
 }
 
-function replaceScientificRuns(body, inlineMath) {
+function replaceScientificRuns(body, inlineMath, displayMath) {
   const values = [];
   const inlineMathByMarker = new Map(inlineMath.map((item) => [item.marker, item]));
   const parents = Array.from(body.querySelectorAll('p, li, h1, h2, h3, h4, h5, h6, figcaption'));
@@ -790,7 +798,7 @@ function replaceScientificRuns(body, inlineMath) {
         ? collectDelimitedScientificRun(parent, index)
           || collectMathMarkerRun(parent, index, inlineMathByMarker)
         : collectStyledRun(parent, index)
-          || collectTextAndStyledSymbolRun(parent, index)
+          || collectTextAndStyledSymbolRun(parent, index, inlineMathByMarker, displayMath)
           || collectNumericAttachmentRun(parent, index)
           || collectNumericSuperscriptRun(parent, index)
           || collectDetachedSuperscriptRun(parent, index);
@@ -949,7 +957,7 @@ function insertAnchorMarker(parent, marker) {
 function prepareSemanticNodes(body, url, figures, tables) {
   const displayMath = replaceDisplayMath(body);
   const inlineMath = replaceInlineMath(body);
-  const scientificRuns = replaceScientificRuns(body, inlineMath);
+  const scientificRuns = replaceScientificRuns(body, inlineMath, displayMath);
   const literalText = replaceScientificBracketText(body);
   const citations = replaceCitations(body);
   const crossReferences = buildCrossReferences(body, figures, tables);
