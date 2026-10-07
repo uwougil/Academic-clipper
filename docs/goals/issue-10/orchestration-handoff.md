@@ -23,10 +23,10 @@
 | C assertion framework / oracle audit | DONE for implementation | e3ff helper，19e095 handoff；current source acceptance remains BLOCKED_BY_PARSER_DEFECT，不能称255通过 |
 | D seam / controller review | DONE for implementation | exact4649 independent zero blockers；最终真实source-controller acceptance DEPENDENCY_PENDING |
 | Footer45、caption47、units48、tableMathJax51、literal53、sparse55、citation56 | DONE | 各独立PR与成功mergedMain receipts见后续历史；accepted mainac86 |
-| styled-adjacency57 / PR62 | DEPENDENCY_PENDING mergedMain | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523尚待成功 |
-| table-caption60 | PENDING production | source-only5c9dd2；必须先57 mergedMain成功；新implementation/projection review未执行 |
+| styled-adjacency57 / PR62 | DONE | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523与Secrets成功、57 automation completed |
+| table-caption60 | RUNNING production | source-only5c9dd2独立105+1 projection已清关；SAME owner获3889 accepted gate；未来implementation exact-head审查仍未执行 |
 | leading-isotope61 | PENDING production | source-onlyb78c39；Nature ownership按57→60→61串行；未获implementation授权 |
-| Greek / split-power source contracts | RUNNING | greek_source_recovery / split_power_source各隔离新branch；只source-only，无production gate |
+| Greek / split-power source contracts | RUNNING / DONE respectively | Greek64 source59cf359待doc-only收尾；split63 clean4376aa8；均未获production gate，未来independentprojection审核必需 |
 | Other mandatory scientific / Ref2 roles | PENDING | C冻结历史source evidence；需各独立窄合同/正确覆盖，不计现有PASS |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
@@ -389,3 +389,17 @@ Root发现PRbody仍旧92f/28/460/oldCI，实际修改metadata并回读为183ec4/
 执行 `gh pr merge 62 --repo uwougil/Academic-clipper --squash --match-head-commit 183ec43428dfbbd0fdfdf184fa68bbdfb06d8e1c` exit0。PR62 mergedAt2026-10-07T21:45:14Z，squash3889f7396eab99060bec88fc8b0dcd3e6712024e；fetch核origin/main same。Main37691610523/Secrets37691610455实际queued handles已确认；在Main成功前acceptedbase仍ac86，不释放60生产gate、不冻结pendingfixturecontract。Issue57不手动close，Issue10不claimcomplete。
 
 复用已terminal recovery reviewer恢复只读60-source新投影审核，独立105-block Arecipe/raw/science/rights/6authors71refs/repeatidem是尚未完成的必要工作；不重复原9componentRED/C9/27/sourceacquisition/full。它不写60作者workspace，不接触Nature生产文件，不给未来implementationclearance。Greek actualsource拓扑已纠正：Methods p6是Fig5caption；p15是Equ25后的普通段落；p13引用Fig6，保留真实targetwrapper但其context不计新增17-role。Split-source初步62651bytes/76blocks只属作者freeze，待其permanentRED/合同/handoff与未来独立projection审核，未冒称source acceptance。
+
+## 3889 Main 接纳与 source gates（2026-10-07 21:57 UTC）
+
+Main37691610523实际completedSUCCESS21:56:12Z，same3889f7396eab99060bec88fc8b0dcd3e6712024e；U20job113032907666 completed21:53:44Z/U24job113032907843 21:51:53Z/Win24job113032907867 21:56:12Z均SUCCESS。Secrets37691610455sameSHA SUCCESS。Fetch确认latestorigin/main仍3889；57已由automation CLOSED/COMPLETED21:56:25Z，root未手动close。此时acceptedmain更新到3889，不将earlierqueued状态用于freeze。
+
+Root全文读issue60-source-review.md（10529bytes/SHA c760d97f582592891e664e63880c7058307d84314adcc9925c4ea7c68025605a；manifest11495/SHAa1743d81f9bba2e779de08c4aff307eaf24119e55ee3fb9d0040dec53e035eda），SOURCE_PROJECTION_CLEAR/零blocking来源问题。ActualA Githelper+schema、raw两个buffer、105article+1tableprehash/原recipe重生成/transform/signatures/repeatidem/12TeX/cite58/Equ7&15/6authors71refs/3×3cell/CCrights全部独立PASS。初次helper缺relative schema在regeneration前失败；prefixaudit第80行假定tablecanonical而停，必要prefixassertions已成功，剩余tail-only补验不重复sanitize。Table无canonical/无独立license links均保持真实，以declaredURL/原tablelink/articlebacklinks及所属articleCCnotice证明关联；不制造metadata/license。原9componentRED/旧C同runcaption证据只读复用，未新clip/full。正确actualcaptionline为markdown578/links584/quarto481。
+
+真正恢复SAME C agent_c（toolfollowup成功且list_agents actualrunning，非replacement），clean19e095先只读preflight。其正向exactfilter精确3source-parent+3repeat，Materials九期待×三方言27 records；e3ff/helper/test/manifest/golden bytes unchanged，prefixaccepted-3889-materials-delta不存在旧结果。3889 Main成功后root实际send release，允许一次真实3combos+3repeat及same-run完整缓存，24missing afterhook HARD FAIL保持。其它knownREDpapers不为状态补跑，no new full255声明。
+
+SAME60 owner bug_table_mathjax actualfollowup恢复original5c9dd2工作区/branch，旧51branch保持；root传递newaccepted3889/sourceprojectionclear/completecaption-boundary-first矩阵与单次必要full规则，释放其唯一Nature/figures/clip minimalimplementation。Figure/table source与A/B/C保持；no newparser/transport/securityAPI、no source调整迎合输出；61/63/64生产继续锁。未来60实际code仍须newfocused/affected/full/build/golden/freshCI/Secrets/independent exactheadreview及root10gates。
+
+Split63独立OPENbug已readback，clean/pushed b3cda21b2456c08f036abc7ef0aa6fe632c0e4d2→4376aa816ee2fe6b91bbf0840f463cf649904653。Root全文读完整handoff，6ownedfiles，final62731bytes/SHAdc1136a1c70a66e63cce9bbe696b9cd790eb8eefbad3b499cce04dc140b16ad0、77blocks/6creators/refs1–58/Fig4/CCnotice/footer，canonical原block补入，原p33/p37科学nodes unchanged。永久9tests6PASS3sourceFAIL0skip1470.1774ms，actualmath2orphans每方言/other3validatorsPASS，唯一warningNoequation；stages一次savedcache复用，未改变production/重clipC。前期helper CRLF/hashdomain、selector/canonical/rights/citation/code-construction/diagnostic输入等harness失误如实保留，不计真实parserFAIL或重复已完成regeneration。新projection仍需独立source review，本source-only不是63或Issue10complete。
+
+Greek64独立OPENbug已rootreadback；source59cf3591d4af1f5d043b6b4852a0353951a9231f（5files）90784bytes/SHA227a626f70825f2484e94754cdda3a1a6a6608f4b94f6bbe4c6ff206be9f08b7，7原paragraph/17roles/8equations/Fig5+Fig6targets/6creators/refs1–76/CCnotice。永久27tests3PASS24FAIL0skip2022.2597ms，each17orphans/other3validatorsPASS/warnings[]。15body+2Fig5captionsource节点都survive adapter/Defuddle，academicrender首次orphan；protected captionHtml在scientificRuns后recapture，现有ηpred marker已能通过Fig5chain，未来17角色可以复用原语义保护而不复制60caption infrastructure。尚待doc-only最后commit/独立sourceaudit；无production/full/PR。
