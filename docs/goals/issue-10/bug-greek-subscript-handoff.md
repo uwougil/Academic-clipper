@@ -37,7 +37,7 @@ Methods / `a-section-4` / `section[data-title="Methods"] p` 的 paragraph index 
 
 Exact roles/order：p4 Γb/Γa；p5 Γb；p6 Γa/Γb；p7 Γb/Γb/Γb/Γa/Γb/Γa/Γb；p9 Γb/Γa；p13 Ω0/Ωi；p15 Ωi。Provenance 记录各 SUB 原 index/html、相邻 text-node 原 meaningful whitespace、完整 paragraphs、全部 i/b/sub/sup/MathJax nodes，而不是指定 parser 的当前错误输出为期待。
 
-120 个原 complete blocks + necessary ancestors：21 metadata/title-related blocks、全部6作者、Methods/Sec9 headings、7完整段落（含Fig5图注）、完整 `figure-5` / `figure-6` wrappers、Equ6/16/18/19/20/22/23/25、真实 Supplementary target context、原 References prefix 1–76、rights/footer。Reference76 是 p4 原引用，因此不能为缩小 fixture 重编号或删 prefix。所有 selected blocks 的 raw prehash、recipe 和 operations 保存于 provenance。Soft article target20–150KiB 与256KiB上限均满足；这是独立 bug excerpt，不改变9篇 corpus admission/count。
+120 个原 complete blocks + necessary ancestors：21 metadata blocks 和1个原title、全部6作者、Methods/Sec9 headings、7完整段落（含Fig5图注）、完整 `figure-5` / `figure-6` wrappers、Equ6/16/18/19/20/22/23/25、真实 Supplementary target context、原 References prefix 1–76、rights/footer。Reference76 是 p4 原引用，因此不能为缩小 fixture 重编号或删 prefix。所有 selected blocks 的 raw prehash、recipe 和 operations 保存于 provenance。Soft article target20–150KiB 与256KiB上限均满足；这是独立 bug excerpt，不改变9篇 corpus admission/count。
 
 转换只执行 A 原 deterministic selection/sanitizer：固定 UTF8无BOM/LF/scaffold/attribute ordering，保留原科学节点、拓扑、顺序、IDs/classes/JSON-LD article metadata；删除未选正文、无关 UI/executable/tracking，JSON-LD 仅相关 article object。未选其他图、Table1、split-SUP p33、无关 sections；没有图片/PDF binaries 或 full raw body入Git。重复从 untouched raw生成与再次 sanitizer bytes 相同。完整 Fig5/Fig6 context 没有压成 prose 或编写新 DOM。
 
