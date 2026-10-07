@@ -15,6 +15,21 @@
 
 ## DAG / 文件所有权
 
+当前 checkpoint（2026-10-07 21:43 UTC；以下 startup 表为历史）：
+
+| Node | State | Exact checkpoint / remaining dependency |
+| --- | --- | --- |
+| A / B immutable source inputs | DONE | A reviewed actual e56 interface；B b718fa8 source-only；nine articles/four resources/85 expectations |
+| C assertion framework / oracle audit | DONE for implementation | e3ff helper，19e095 handoff；current source acceptance remains BLOCKED_BY_PARSER_DEFECT，不能称255通过 |
+| D seam / controller review | DONE for implementation | exact4649 independent zero blockers；最终真实source-controller acceptance DEPENDENCY_PENDING |
+| Footer45、caption47、units48、tableMathJax51、literal53、sparse55、citation56 | DONE | 各独立PR与成功mergedMain receipts见后续历史；accepted mainac86 |
+| styled-adjacency57 / PR62 | DEPENDENCY_PENDING mergedMain | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523尚待成功 |
+| table-caption60 | PENDING production | source-only5c9dd2；必须先57 mergedMain成功；新implementation/projection review未执行 |
+| leading-isotope61 | PENDING production | source-onlyb78c39；Nature ownership按57→60→61串行；未获implementation授权 |
+| Greek / split-power source contracts | RUNNING | greek_source_recovery / split_power_source各隔离新branch；只source-only，无production gate |
+| Other mandatory scientific / Ref2 roles | PENDING | C冻结历史source evidence；需各独立窄合同/正确覆盖，不计现有PASS |
+| Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
+
 当前 host 并发上限为 4（含 orchestrator）。优先同时运行 C、D、table-footer bug；其余节点在名额空出并满足 dependency 后启动，重复恢复同一 C / D child。
 
 | Node | State at startup | Owner / isolated branch | Dependencies / scope |
@@ -364,3 +379,13 @@ C clean19e095只新增handoff，889eb55 dependency-only接入acceptedac86；help
 57同PR62 final183ec4只doc变化，code079af451654d42bfe17d3e4d593eb2faf5fa6298/testa67a717 frozen。原source96recipe与source测试相对92f字节不变；新资格guard复用inline/display records，初始与candidate I/B均不得跨typedmath。55/55focused、184affected、唯一487/487full86305.7395ms、build/golden actuallogs已落盘；full64268bytes/SHA617904982e94bb75a2493679749deca0a4c2d8a1d2b636dc1089a16e608c6c19，src tree5da155e582c0ee59bc544c6d8776716fe9ed1436/teste2a1a2c7237e81af52586c7a7c5a4ea8310f747b。FreshCI37688712339 exact183ec4三个jobs113023094471U20/113023094710U24/113023094165Win24全SUCCESS，Secrets37688712202/Gitleaks113023093596SUCCESS。尚缺新head independent terminal review，不能merge。原reviewer handle已消失，按goal failure recovery创建独立replacement `review_styled_recovery`，只复审92f→183ec4及原反例/55controls/log-treeidentity，不重跑96source或487full、不触碰旧reviewcheckout。
 
 Greek前次dispatch在当前真实worktree/Issue列表无交付，恢复child `greek_source_recovery`先查已有文件再新source-only工作；split numeric-power独立child `split_power_source`同样仅source-only。各自全新隔离branch/worktree，复用B原raw与A实际serializer/C既有缓存，分别17Greek Methods七完整paragraph及p33两个原SUP/p37同源positive；不改production/fixtures/oracles，先独立bug合同、truthful excerpt/provenance/永久RED/窄proposal。Nature production gate仍57→60→61串行；source-only研究可以并行，不能提前implementation/full/PR。Integrator startgate未达，Issue10仍active。
+
+## PR62 独立纠正清关与合并（2026-10-07 21:45 UTC）
+
+Root全文读取 recovery reviewer `pr62-review-183ec4.md`（9210bytes/SHAbbcde09edb441ae7025bd3e9abe3c7a5a0adb784f3430ad3dd0955a3d2f79a46）与manifest11291bytes/SHA9d877afda183737de0a2ca892df0b36823094cb929ebe34ba951ca8e285f00ef。结论CLEAR/零阻断项；own55/55PASS10926.2749ms，四原P2新headclips与frozenaccepted形状完全一致/4PASS1510.1582ms，原nestedmath仍FAIL；没有重跑旧baseline、96source、184/full/build/golden。七source文件Git/physical hashes与本57投影旧独立96-block audit逐一相同，八新作者日志/treeidentity均实际核验。没有把syntheticboundary当新Nature来源、没有all-green语义伪报。
+
+Root发现PRbody仍旧92f/28/460/oldCI，实际修改metadata并回读为183ec4/55/487/currentCISecrets，head未改变；独立reviewer再次核currentbody/唯一Refs57/noautoclose。Root自身回读真实focused55/affected184/full487终态、build/golden完整report、src/testfrozenidentity、079→183 protectedpaths不变、author/remoteheadclean183ec4、freshCI三个jobs和Gitleaks全部SUCCESS。源真实regression/full/build/golden/freshchecks/indreview/narrowscope/headidentity十门槛全满足；未为doc/body重跑full。
+
+执行 `gh pr merge 62 --repo uwougil/Academic-clipper --squash --match-head-commit 183ec43428dfbbd0fdfdf184fa68bbdfb06d8e1c` exit0。PR62 mergedAt2026-10-07T21:45:14Z，squash3889f7396eab99060bec88fc8b0dcd3e6712024e；fetch核origin/main same。Main37691610523/Secrets37691610455实际queued handles已确认；在Main成功前acceptedbase仍ac86，不释放60生产gate、不冻结pendingfixturecontract。Issue57不手动close，Issue10不claimcomplete。
+
+复用已terminal recovery reviewer恢复只读60-source新投影审核，独立105-block Arecipe/raw/science/rights/6authors71refs/repeatidem是尚未完成的必要工作；不重复原9componentRED/C9/27/sourceacquisition/full。它不写60作者workspace，不接触Nature生产文件，不给未来implementationclearance。Greek actualsource拓扑已纠正：Methods p6是Fig5caption；p15是Equ25后的普通段落；p13引用Fig6，保留真实targetwrapper但其context不计新增17-role。Split-source初步62651bytes/76blocks只属作者freeze，待其permanentRED/合同/handoff与未来独立projection审核，未冒称source acceptance。
