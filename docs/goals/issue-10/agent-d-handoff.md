@@ -1,6 +1,6 @@
 # Agent D — transport / live verifier handoff
 
-状态：`DEPENDENCY_PENDING`。最小完整链路 table replay seam、verifier 与 mocked transport/CLI checkpoint 已可供独立审查。当前 latest consumed accepted main 为 `ac86b2f`，reviewed C helper `ec53d65` 的实际 blob 仍为 `e3ff087`。固定 b88653a 的 69 个 D/transport/security tests 全通过；随后仅在 accepted ac86b2f 定点复跑 markdown 九篇 classification，85 个 source expectations 为 83 pass / 2 fail，5 篇 frozen parser/validator failure，另 4 篇完成 source-backed mocked comparison（2 PASS / 2 EXPECTED_WARNING）。这些 test passes 证明失败被保留，不表示 corpus gate 通过。本轮没有更新三 dialect 255-case 全量验收，不宣称 Agent D 最终验收或 Issue #10 完成。
+状态：`DEPENDENCY_PENDING`，D 修复新头尚待独立复审。Latest consumed accepted main 为 `ac86b2f`，reviewed C helper `ec53d65` 实际 blob 仍为 `e3ff087`。独立 reviewer 在旧 D controller 找到两项 P2；本轮先冻结 source-free RED matrix，再以 authored `4287b05` 修正完整 comparison 消费和 captured access 优先级，一次新头必要验收 139/139 PASS。真实 source 最后一次检查仍是修复前 ac86 的 markdown 九篇：83/85 source PASS、2 FAIL、5 篇 parser/validator 阻断、4 篇 mocked comparison（2 PASS / 2 EXPECTED_WARNING）；没有把这份旧 source receipt 当新 controller 验收或完整 C cache。未重复九篇/27 styles/全 repo suite，不宣称 D 最终验收或 Issue #10 完成。
 
 ## 基线与 transport 审计
 
@@ -60,7 +60,10 @@ Integrator 选择 D authored commits：
 | 4 | `e204dedf1b5b5f1dfe237f8f6417c77de89ee110` | Historical e2d32e9 / C 6c38ad8 resume evidence。 |
 | 5 | `81179335fde0ca982377a608a6d53ab1e10c8c39` | 仅 D tests：拒绝 passing provider 的错误 version / 缺失、重排、替换 execution records；从既有一次九篇实际 C comparison 收集 TAP receipt，不额外执行 corpus。 |
 | 6 | `54ed8f52f16ec2ad2bb9b38382b0c4fcf98264df` | Doc-only 固定 b88653a / C ec53d65 evidence，先于后续 ac86 dependency merge commit/push。 |
-| 7 | 本文更新 commit：`git log -1 --format=%H -- docs/goals/issue-10/agent-d-handoff.md` | Doc-only accepted ac86b2f 定点 receipt；精确 SHA 同时提供给 parent。 |
+| 7 | `72cafdbf3002d650613e8bf68bbd3344252f0ee9` | Doc-only accepted ac86b2f 定点 receipt；当时 D controller 未修两项后续 review P2。 |
+| 8 | `dd75938f882423ec93627e2d769516a18789280e` | Tests-only 冻结 49 provider / 17 article access / 2 table access synthetic 正负矩阵。 |
+| 9 | `4287b05ebd9326efaa8da383f1b1e4e717cc2e95` | 仅 D verifier，45 add / 7 del；完整 comparison contract/coherent readiness、bounded non-success HTML access facts 优先。 |
+| 10 | 本文更新 commit：`git log -1 --format=%H -- docs/goals/issue-10/agent-d-handoff.md` | Doc-only P2 RED / fixed head / exact selection / 旧 source receipt 限制；精确 SHA 同时提供给 parent。 |
 
 不重复选择 D 的 dependency copies：A 原件上述四个 SHA 对应 copies `ca8f64ae4b097d484b9a7697da04caf4c848df28` → `8b8edd305f07424ab5be6b361ba641e63d5c351d` → `cdddb39caba4d3c7a08ce7c12c041b4b4fcec536` → `0abc0da4c3901f9cf85dc079587ef64efd5d35a4`。B final `143fc77ebdc4bf15dd1cdca63afcddb91e6b55f5` 原样 snapshot 是 `9d45a5e3fe1a0cd707cab52cecc13a787b222727`，只消费 B-owned manifest、fixtures、corpus guide、B handoff。没有修改 source input。
 
@@ -72,9 +75,9 @@ Historical resume 消费 reviewed strict C authored helper `6c38ad8156c6f5e3a1b7
 
 C packet 的旧完整三 dialect 基线是 238/255 pass、17 fail；新 helper 只重跑六个 Materials/Chemistry combinations，合并未变范围后是 241 pass / 14 fail，`newFullRun=false`。这些是 C 在其 recorded production base 上的历史/局部结果，不是本轮 b88653a 的完整 255-case acceptance。D 不复跑 C 的 13 source audits、cache hook 或 27 full clips，也不把其中 failed consumers 改为 warning。
 
-Accepted-main dependency merge commits：`aebdc46f793d61f50f7468e714cf0f0ffbc92f7f`（4783291）、`ceb290cc82483feff020bed9a002abce45dfa48f`（e2d32e9）、`3d9b74b24f33a031341fcad4e9198d21e5d3f565`（b88653a）与 `7707cd5878f9d38e1d87e1356338faab09400ea9`（ac86b2f）。Integrator 不选择上述 C copies 或 main merge copies；从最新 accepted main 选择 D authored commits 与 C 原件。`git diff ac86b2f -- src/clip.mjs src/adapters/nature.mjs src/security.mjs src/article-fetch.mjs` 仍只有原始 clip 两行 seam。D verifier 没有 migration delta；只增加上述 D test/receipt。
+Accepted-main dependency merge commits：`aebdc46f793d61f50f7468e714cf0f0ffbc92f7f`（4783291）、`ceb290cc82483feff020bed9a002abce45dfa48f`（e2d32e9）、`3d9b74b24f33a031341fcad4e9198d21e5d3f565`（b88653a）与 `7707cd5878f9d38e1d87e1356338faab09400ea9`（ac86b2f）。Integrator 不选择上述 C copies 或 main merge copies；从最新 accepted main 选择 D authored commits 与 C 原件。`git diff ac86b2f -- src/clip.mjs src/adapters/nature.mjs src/security.mjs src/article-fetch.mjs` 仍只有原始 clip 两行 seam。Migration 本身没有 D verifier delta；后续两项 P2 修复仅属上述 `4287b05`，不是 C/B 或 accepted production 改动。
 
-C `ASSERTION_VERSION='1.0.0'`，10 个 strict registry consumers / 85 source expectations；API `compareArticleResult`、`semanticSummary`、`runProductionValidators`、`auditSourceOracle` 等保持。调用实际 `compareArticleResult(article,result,{sourceDocument,citationStyle})`，bibliography 采用 C 自身默认的 `referencesBib(result.references)`；sourceDocument 是独立、只读 retained projection DOM，绝非 result.cleanedHtml。检查返回 version 与每个 ordered `[id,assertionId]`，失败 facts 全部保留。C exception 是 `UNCLASSIFIED_FAILURE`；错误 version / 缺失、重排、替换执行记录是 `FIXTURE_INTEGRITY_FAILURE`，两者都在离线阶段以 exit 1 阻断、零 live operations。A sanitizer/hash/replay、C assertions 不重复实现或修改。
+C `ASSERTION_VERSION='1.0.0'`，10 个 strict registry consumers / 85 source expectations；API `compareArticleResult`、`semanticSummary`、`runProductionValidators`、`auditSourceOracle` 等保持。调用实际 `compareArticleResult(article,result,{sourceDocument,citationStyle})`，bibliography 采用 C 自身默认的 `referencesBib(result.references)`；sourceDocument 是独立、只读 retained projection DOM，绝非 result.cleanedHtml。Private boundary validator 现核对 version / ordered `[id,assertionId]`、article/dialect identity、合法 `pass` / `failure` records 与 failure arrays、全部四种 boolean validation、完整 warnings 与 parsed warnings/精确多重集差异、C aggregate boolean 与推导事实一致。正常完整且合法的 negative comparison 继续是 `PARSER_REGRESSION`，保留原 failed facts；malformed/contradictory provider 为 `FIXTURE_INTEGRITY_FAILURE`，C exception 为 `UNCLASSIFIED_FAILURE`。均在离线以 exit 1 阻断、零 live operations。A sanitizer/hash/replay、C assertions 不重复实现或修改。
 
 ## Verifier / deadline / retry behavior
 
@@ -172,7 +175,7 @@ Live-controller mock ledger 依次为 golden article + `/tables/1`、COVID artic
 
 外部 TAP log：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-D-b886-e3ff-20261007.tap`，20583 bytes，SHA-256 `8ceedfc77d766a54bf4a6e18443b9b07a876e6ff996c09aff2fa56174d747f4d`，mtime `2026-10-07T20:25:06.063Z`。包含同轮 85 execution counts、九篇分类/failed paths/invalid validators、完整 declared warning facts 和 ledger JSON。Node v24.14.1；69 pass / 0 fail / 0 skip / 0 cancelled，46244.0566 ms；40 个 D tests + 29 个既有 tests。
 
-待独立审查的 D verifier 文件仍为原始 authored implementation：Git blob `0855d3292d2805e736b5006442c757f6fe604e99`，34634 Git bytes，SHA-256 `621ee516c0b548800b02cb23405a1f8c473e56d27999f9c91246fa6ac20ac7f2`。本轮 D test commit `8117933` 的 Git blob `16aacbda29b1ff3858ddbbbf5d5ec7146d371f49`，54826 Git bytes，SHA-256 `d3b96f2aa2ac4f841a35392413eeee4ab01ca96f72b8754899b0f0d33b982801`。Hash 使用 `git show HEAD:<path>` 的 bytes；不混用工作树 CRLF bytes。本轮核验文件身份和执行证据，D 完整实现尚未经过独立 reviewer 验收。
+以上历史 receipt 的 D verifier 是原始 authored implementation：Git blob `0855d3292d2805e736b5006442c757f6fe604e99`，34634 Git bytes，SHA-256 `621ee516c0b548800b02cb23405a1f8c473e56d27999f9c91246fa6ac20ac7f2`。当时 D test commit `8117933` 的 Git blob `16aacbda29b1ff3858ddbbbf5d5ec7146d371f49`，54826 Git bytes，SHA-256 `d3b96f2aa2ac4f841a35392413eeee4ab01ca96f72b8754899b0f0d33b982801`。Hash 使用 `git show <recorded-head>:<path>` 的 bytes；不混用工作树 CRLF bytes。后续独立审查发现真实 P2，详见下面；旧绿与旧文件身份不替代修复新头。
 
 ## 追加定点 receipt：accepted ac86b2f + 相同实际 C ec53d65
 
@@ -190,6 +193,36 @@ Actual markdown executions 为 **83/85 pass、2 fail**，controller business exi
 没有为 remaining rendered-order failure 猜测根因或改 expected data。其余 source records、四篇通过者 full/projection comparison、所有九篇 declared warning facts/数量与 b886 上表一致；unexpected/missing 为空。Mock ledger 仍按相同顺序只有 6 HTTP / 6 DNS、unexpected []；五篇失败 article 没有 live-controller requests，verifier fresh/ordinary Nature DNS/HTTP 和 writer calls 为零。独立 C 后续正式 255-case 全量 results 仍是最终 gate，不能由这一次 markdown diagnostic 替代。
 
 外部追加 TAP log：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-D-ac86-e3ff-20261007.tap`，4720 bytes，SHA-256 `0f21668f97ba0ad74dbce474ce8d308cadd3add91e91cded4b7438948406f400`，mtime `2026-10-07T20:32:44.511Z`。日志保留同轮九篇 classifications/failed paths/validators、完整 warnings 和 ledger；不是更换 base 后沿用旧 receipt。
+
+仅从该既存 TAP 原样提取（零新 clip）的外部摘要：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-D-ac86-receipts/actual-markdown-controller-summary.json`，4305 bytes，SHA-256 `16ce4d434b5427564d5ce87a7f15373c29a72ef8d0b6f1300196c59c55f1ce81`。配套 `identity-and-limitations.json` 位于同目录，21398 bytes，SHA-256 `7940ebab890f7c9541b5ce800c83ec52cd48618d30185b6830e1c3a5529af3ac`；固定 executed commit `7707cd5` / accepted ac86 / actual C ec53 / source B original143fc77，列明每篇 article/dialect、13 fixture Git blobs 与声明的 source/fixture hashes、七个执行模块 Git bytes/hash、seam arguments / sourceDocument / default bibliography / mocks。初次 metadata extraction 因 Node execFileSync 默认 stdout buffer 不足失败，未生成文件/执行 clip；仅把本地 Git metadata read buffer 改为 32 MiB 后完成。
+
+**限制：没有持久化完整 C comparison JSON、parsed result、Markdown 或 bibliography bytes。** Test 中的完整 comparison 对象只在已终止进程内用于计数；上述文件只有实际 controller summary，不能重建或冒称 C cache，不能替代 mandatory source/validator/mutation suite，也不是修复新 controller 的 proof。C 可独立核对身份后用作历史核对材料；本轮未为补缓存再跑九篇或 27 clips。
+
+## 两项独立 P2：真实 RED、最小修正与新头必要验收
+
+独立 blocking packet：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-review/d-7707cd5-blocking-review.md`，15374 bytes，SHA-256 `ed0be5840bcab623f5d8f3a16f94e322aebb8656cca5af179ee0d8cdd107f6cb`。已全文读回；其 exact old review head 为 `7707cd5878f9d38e1d87e1356338faab09400ea9`，旧 controller 只核 version/IDs 并信任 aggregate pass；正 challenge body 的 429/503 只按 transient status 重试。Reviewer 的真实原反例/RED 位于同目录 `d-adversarial-7707cd5.mjs/.json/.log` 与 `.test.mjs/.test.log`，0 PASS / 2 FAIL、exit 1；各 hash 由 packet 保存。原 69 green 无法给该旧实现 clearance，两项缺陷不是 canonical/spec 更改。
+
+D 在自己 worktree 的 tests-only `dd75938` 固定三组矩阵：49 provider cases、17 article access/generic/guards cases、2 table access cases。正对照包括合法 pass、合法 required/四 validators/warning mismatch 的 false、HTTP200 正 access、普通短 server error / login navigation、原 MIME / 25 MiB / body timeout；其他为 malformed/矛盾 provider 或429/503正 access。单次 RED command：
+
+```text
+node --test --test-reporter=tap --test-name-pattern='^(comparison boundary|captured access evidence|captured table access evidence)' test/nature-corpus-live.test.mjs
+```
+
+相同 accepted ac86 / C e3ff，controller 仍 old0855。68 children + 3 parent = 71 tests：21 PASS / 50 FAIL、0 skip/cancel、exit 1，7251.2793 ms。外部 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-D-p2-matrix-red-72caf-20261007.tap`，70155 bytes，SHA-256 `0502b3e2289c4bccfe92d33b10f43e4cb323af7bc3930e6d3a43da8bc7ad25e8`；每个 case 的实际 cause/phase/requests 等进入 TAP。所有数据明确 synthetic，只是 controller/transport evidence。
+
+随后仅 authored `4287b05` 改 verifier（45 add / 7 del），没有改 matrix、C helper、B/A inputs 或生产 parser/seam/guards。P2 #1 private validator 核对 C 实际 complete contract 与 aggregate 一致；readiness 使用推导的 `passed`，正常合法 false 的 taxonomy/facts 不变。P2 #2 只在已有 reader 完成 MIME / declared+streamed cap / headers+body deadline 后，对非成功 HTML 使用原 `inspectSource` 提取固定 `accessSignals`，加入该 exchange facts；`transportProblem` 优先该 positive evidence，因此 article/table 429/503 challenge/preview/structured restriction 都停止 retry，HTTP status 不改。不存在 positive access 的普通429/503仍最多三 attempts；普通 login navigation / 短 error 不误判。200 article access 仍走原 identity gate；guard rejection/partial timed-out body 不进行 access 解读。
+
+修正 exact code SHA：`4287b05ebd9326efaa8da383f1b1e4e717cc2e95`。Verifier blob `2eae64e843696bc39dec1aa8b17ee649a314b6bb`，37469 Git bytes，SHA-256 `945c6cc096768a906df10976ca196017b4cee1bab7bb66b7af111fbbe2854b10`；tests blob `180d8b96af159c891ad020c6e1554e7442814491`，67964 Git bytes，SHA-256 `1ecc8642e92795c7d5aad293da5a1ba1598d985d84821fe56267b71bc7cc6f02`。C helper 仍 exact e3ff /50693/ab23，无 API/schema/version 改动。
+
+固定新头后一次必要 acceptance：同四个 D/network/infrastructure/bridge test files，正向选择全部71个 top-level names，明确排除唯一 `frozen-source integration...`。加68 matrix children共 **139 PASS / 0 FAIL / 0 skip/cancel/todo / exit 0**，13708.3251 ms。新头只有这一次验收，没有迭代 full、真实九篇或 C27；TAP 独立检查没有 frozen-source subtest / sourceExecutions。Exact args、正向 regex、71 names、唯一 excluded name 与执行 Node 路径完整保存于 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-D-p2-fixed-selection-4287b05.json`，12128 bytes，SHA-256 `fdf8c60dd9d51e8b91923adb2b5ff94d60b78dcd4389295b237d0c8e0bb5745e`。
+
+选择算法从四个 committed test files 的 `^test\('([^']+)'` 提取 top-level names，去掉 exact frozen-source test 名；将每个 name 的 regex metacharacters 转义，组合为 `^(?:<71 names>)(?:$|\s)`，以一个 structured Node argument 传 `--test-name-pattern=<pattern>`（不采用已证明不可靠的 negative filter）。其余 exact arguments 为 `--test --test-reporter=tap` 加上述四个 paths。实际 command args 在 selection JSON，future integrator 可按 committed test names 重建。
+
+新头 TAP：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-D-p2-fixed-4287b05-20261007.tap`，35367 bytes，SHA-256 `37b1788618dae0c84a5904d36874eead8ebb1aaf1bc80bed5198881809c14565`。矩阵全部绿色：malformed/矛盾 provider 以 integrity failure在offline零 live；合法 false 保持 PARSER_REGRESSION/原 facts/零 live；HTTP429/503正 access 各1 article request/0 sleep，table各1 hydration attempt（article+table共2 requests）/0 sleep；普通429/503仍3 requests/2 bounded sleeps。既有 taxonomy/default equivalence、zero verifier writer/fresh Nature network、fallback后unknown ledger failure、DNS/redirect/MIME/timeout/cap/cancel/Retry-After/CLI controls 同轮全过。Writer regression tests仍仅自己的临时目录，不是 verifier writer。
+
+新头 syntax 与 Git proof：`node --check scripts/verify-nature-corpus-live.mjs` / `node --check test/nature-corpus-live.test.mjs`、unstaged/staged `git diff --check` 均 exit 0；`git diff --name-only 72cafdb -- scripts/lib/nature-corpus-assertions.mjs scripts/lib/nature-corpus-infrastructure.mjs test/corpus/corpus-manifest.json test/corpus/fixtures src/clip.mjs` 空。`git diff --name-only ac86b2f -- AGENTS.md docs/PRD.md docs/EDD.md docs/specs/issue-10-nature-corpus.md package.json package-lock.json src/security.mjs src/adapters/nature.mjs src/article-fetch.mjs src/writer.mjs papers .github` 空；`git diff ac86b2f -- src/clip.mjs src/adapters/nature.mjs src/security.mjs src/article-fetch.mjs` 仍只有已 review 的 clip two-line seam。没有 defaults/global fetch/DNS/security architecture/writer API 或 source contract 变更，没有 adapter 扩张。Actual helper hash、139 log 与 selection hash 独立从 bytes 核对；本文提及的50个 Git object IDs 均用 `git cat-file -t` 验证存在。
+
+新 code/tests 已 clean commit/push，**独立 SAME reviewer 的 actual 新头复审仍未完成**；这份 authored evidence 不能代替 reviewer clearance。最终真实 source classification 在 remaining parser prerequisites 全部 accepted 后统一重跑固定 base，不能把每次文档/小 bug checkpoint 当作重复九篇/255的理由。
 
 ## Exact checks 与 unblocking
 
@@ -249,7 +282,7 @@ for (const citationStyle of ['markdown', 'quarto', 'links']) {
 
 Exact executed diagnostic 用相同 import/resource/control loop，stdout 仅缩减 report 为 article/phase/cause/failed expectation paths/invalid validators 和 ledger；上述三种 report.exitCode=1 是业务结果，diagnostic process exit=0 / clean replay。这不是 live CLI 的 exit=0 或 source acceptance。
 
-最新 b88653a / ec53d65 的 exact checks：
+Historical 固定 b88653a / ec53d65 的 exact checks：
 
 | Command | Result |
 | --- | --- |
@@ -270,4 +303,4 @@ Accepted ac86 的追加 exact checks：上述单个 `--test-name-pattern` 命令
 
 Live Nature acquisition 未运行；没有使用 Nature cookie/private session/account access，没有 tracked full captures、credentials、generated output、golden 或 corpus fixture changes。D tests 使用 BOTH injected fetch/resolver 与 A declaration/ledger，不发生 ordinary DNS/HTTP；writer import/call audit、fixture/golden bytes 和 output directory unchanged checks 通过。现有 writer tests 仅在自己的临时目录检查原 behavior。
 
-C/integrator unblocking：先完成独立 parser prerequisites，并在 accepted main 获得成功 Main CI；再消费 exact final A/B/C interfaces、resume SAME D 审查/复验。全部 85 source expectations × 三 dialect 必须执行/通过，required consumers/coverage 无 blocked；D 再验证完整真实 source-backed clip/projection 的所有 article results 为 PASS/EXPECTED_WARNING，guard/replay ledgers clean。D 完整实现的首次独立审查仍待 reviewer 对原 seam/verifier、`8117933` tests 及此 head 执行，不能只审 migration delta；之后独立审查最终 integration，执行 repository required commands、CI matrix 与 Secret scan。Opt-in live availability 单列，不替代 gates。D 没有 ordinary Issue #10 PR 或 merge。
+C/integrator unblocking：先完成独立 parser prerequisites，并在 accepted main 获得成功 Main CI；再消费 exact final A/B/C interfaces、resume SAME D 审查/复验。全部 85 source expectations × 三 dialect 必须执行/通过，required consumers/coverage 无 blocked；D 再验证完整真实 source-backed clip/projection 的所有 article results 为 PASS/EXPECTED_WARNING，guard/replay ledgers clean。SAME reviewer 须在 exact 新 code/test/doc head 重审完整 D 与两项 P2 修正/实际 C 消费，不能用旧 69/旧 source receipt 给新头 clearance；之后独立审查最终 integration，执行 repository required commands、CI matrix 与 Secret scan。Opt-in live availability 单列，不替代 gates。D 没有 ordinary Issue #10 PR 或 merge。
