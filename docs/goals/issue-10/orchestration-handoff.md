@@ -20,13 +20,14 @@
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
 | A / B immutable source inputs | DONE | A reviewed actual e56 interface；B b718fa8 source-only；nine articles/four resources/85 expectations |
-| C assertion framework / oracle audit | DONE for implementation | e3ff helper，19e095 handoff；current source acceptance remains BLOCKED_BY_PARSER_DEFECT，不能称255通过 |
+| C assertion framework / oracle audit | DONE for implementation | e3ff helper，3d533fb handoff；3889仅27source/3repeatPASS，mandatory validators与全255验收仍未通过 |
 | D seam / controller review | DONE for implementation | exact4649 independent zero blockers；最终真实source-controller acceptance DEPENDENCY_PENDING |
 | Footer45、caption47、units48、tableMathJax51、literal53、sparse55、citation56 | DONE | 各独立PR与成功mergedMain receipts见后续历史；accepted mainac86 |
 | styled-adjacency57 / PR62 | DONE | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523与Secrets成功、57 automation completed |
 | table-caption60 | RUNNING production | source-only5c9dd2独立105+1 projection已清关；SAME owner获3889 accepted gate；未来implementation exact-head审查仍未执行 |
-| leading-isotope61 | PENDING production | source-onlyb78c39；Nature ownership按57→60→61串行；未获implementation授权 |
-| Greek / split-power source contracts | RUNNING / DONE respectively | Greek64 source59cf359待doc-only收尾；split63 clean4376aa8；均未获production gate，未来independentprojection审核必需 |
+| leading-isotope61 | RUNNING source coverage extension | owncc83c89 dependency3889；真实15roles/old9缺6，保留旧source新增最终all15 projection；Nature生产gate仍锁60→61 |
+| Greek / split-power source contracts | DONE for source inputs | Greek64 cleanfcb116e / split63 clean4376aa8；两新projection独立CLEAR，production gate仍锁 |
+| reference2 literal inequality | RUNNING source preflight | reference_literal_source新隔离branch；原Materials raw/frozen/ref2与C3889缓存；不改生产 |
 | Other mandatory scientific / Ref2 roles | PENDING | C冻结历史source evidence；需各独立窄合同/正确覆盖，不计现有PASS |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
@@ -415,3 +416,17 @@ C ownclean dependency-only0a52908f36a161ccc6fe9495bf5505263cbc69f6，无新docch
 Greek64 clean/pushed最终59cf3591d4af1f5d043b6b4852a0353951a9231f→de24c9082e22bd44a31496423518ec875b3af64d→fcb116e7d4a3e57d4efff3da8dd14590280d42ed。Root全文读最终handoff，120blocks/90784bytes/sourcecanonical/title/21metadatablocks/6creators/7paragraph17roles/8equations/Fig5Fig6targets/refs1–76/rights/footer，orderedsource/subscriptroles与raw/frozen原digests清楚。末尾metadata/title count仅doc一行校正，原fixture/source science不变。原harness selector/recipe/CRLF/rights/code期待/等价表达式sourceoracle诊断日志保留，不能把24sourceRED降成warning或算PASS；未来sourceindependentreview与productiongate仍未解除。63 sourceonlyfinal4376aa8同样不merge，futureprojection审查待SAMEreviewer实际完成。
 
 Remaining source validator roles都继续保留：Materials9identifier r²SCAN+1compound unit、literalreference2；Alpha4r.m.s.d.95；FRB2complexbase+12fractionalunit；Chem3trailingcompound+13SUP（61目前9leadingmass最小source契约仅部分角色）。每个必要角色须来源合同和真正validator/semantic通过；不能因27source通过而丢掉这些。Root已查旧C冻结prehash与新comparison精确Ref2，未来窄source-onlytask复用它，不重新抓取或重跑整篇。Integrator startgate仍未达；无Issue10 deliveryPR/complete声明，无spec/security/许可人工决定。
+
+## 22:54 独立来源清关、C 收尾与完整 isotope 覆盖
+
+Root全文读两个新projection独立packet并实际核byte/hash：63 issue63-source-review.md 4802bytes/SHA124d4443e2165a7df99b164d6636c155e16daa466af343d932a2a99a82b51fa5，manifest36653/SHA97c3c3ba3c8f9675c7894184ed03849f8698976e8028942690b0ffc342b8e0d0；64packet5334/SHA8c33d7ba35f38fabd352ca376d29dfe89e7833500ea090190c63df2d03f6bcef，manifest67736/SHA628be3bf139544503f38b17614489a42e8ec95dfd43c1007c80a33753b84e0cd。各SOURCE_PROJECTION_CLEAR/零blocking来源发现，仅对63exact4376aa8的77blocks、64exactfcb116e的120blocks生效，不是production验收。ActualAhelper/schema/sharedraw身份、原science顺序/allcreators/rights/refs1–58或1–76/targets/signatures/transform/repeatidem独立匹配；sourceoracle与equivalentTeX角色来自原nodes，不来自currentoutput。原RED9或27及三方言cache/hash只读核验，未重clip/test/full/sourceacquisition。独立harness LI/P ref-locator误判初次失败保留，63 completed regeneration结果复用；两process总raw读两次如实记录，恢复后共享一次buffer，没有重做已完成63sanitize。
+
+C clean/pushed3d533fb15115ad670e30b52b11ac6435d654c53a onlyauthoredhandoff，docblobf7672008f57ff2b820bee285d7b478f9d192ce2d /99920Gitbytes/SHA87e7e3247ac21ecba5fb1a1e63da2d1bd1b5cf6a86d87effce07e104b1014deb。Root读取current新增scope/Materials/sourcehash表与topselectedcommits，helper e3ff/tests/Bcorpus/goldentest相对19e095实际diff为空；0a52908仅dependency merge不选为Cdelivery。27source M3889_NEW/84AC86_NEW/144F0DE组成known250PASS5FAIL、83EXECUTABLE2BLOCKED；明确非3889full255。实际session20692/result3missing24/4validators/strictwarnings/ledger0与原cache保持。Newsourcepacket34429bytes/SHA84d93cc4261471a9c5ce20df73a214d8078be5d8d78e0c85211e07436a54ec35，sourceEqu1逐字TeX恢复、frozen625515…不冒充rawEqu1hash，原Methodsblockprehashdc1d4c…复用；9identifier+1unit各完整来源hash/精确三方言issue和Ref2比对已固化。Singlelog33702SHA5b3332abda0ba32ee475b0d928214be734255226a27ddc44fdc849a83ea9a822/3comparisons251194SHAf576a182f7c4f9871f4188bdfbf9bd2f586e7b27deec55a0f32c7e62bff6e0fa未另执行。C终态释放slot；没有新C实现代码，旧interface独立审查按unchangedbytes复用。
+
+释放slot后启动reference_literal_source窄source-only：真实Materials reference2原(0<x<-1)、raw0e255…/frozen9892…/linksline411col72 xHTML，canonical/strictlinksanchor不改，不能纠正原出版文字来迎合validator。新合法excerpt/refs完整prefix/metadata/allcreators/rights/原markup、独立bug合同、真实RED/首失效诊断与UNAPPLIED参考文献输出escape proposal；无production/full/PR或C整篇重跑。
+
+恢复SAME isotope61 owner先静态审旧9与真实全部isotope源角色，实际raw核15 = 11orphan +4measurements误挂。旧9缺6：Results p5两个19→F，p6一个1→H，p7完整Fig3caption一个1→H，p20两个3→H。原p4 Δ12,13 bondlabels、Å³、10⁵ trailingpowers排除；不按validator16issue数推断总源角色。Owner ownbranchdependency-onlycc83c89180875299f362ff6e09bbad7328b1fad5接accepted3889，保留原9fixture/provenance/testbytes不变，新增最终all15 lawful projection+6新真实永久RED+完整15matrix，SAME61 WorkContract扩大真实coverage而非重复建bug。最终新recipe唯一独立审查在hash冻结后执行，不先审旧9再无效替换；无Nature生产授权。
+
+60当前newpermanentRED0e2e2b27a397d7762296e80899293affc93f35c5/38FAIL于unchanged3889保留；scope-threefileNature/clip/figures最小caption保护已使真实9source行为与旧9组件GREEN。Boundary47/regressionPASS与真实scientificsourcePASS分列：puretextlegacy三constructedcontrols与普通figure旧policy一样source meaningFAIL/validatorvalidtrue，原inputs/外部semanticRED保留，永久boundary只保护table-vsfigurepolicybyteparity、原captionHtml及literal/citation/code，不强制future必须继续坏、不用tautologicalfinalAdmission假装验收。Root实际读159–176/test与三productionfilediff后才允许affected+未来一次full；ordinaryfigure9diagnostic先后同SHAa5ed0b9f7accaec34640f63143f5f3a913fb6ffe89c8a5b82d068f857cf00413、source/oracle未改，legacy未admit。
+
+Root提前指出NEW predictableTABLECODE marker+replaceAll可能替换原caption literal（包含entitydecoded拼写）这一具体boundary，要求当前patch真实repro/来源含literal+opaque代码保持，再最小deterministiccollisionguard；其余旧figuremathmarker机制不扩修。Full尚未执行，先冻结完整边界可减少后续independentreviewer发现P2再full返工。不能把测试文件存在/口头计划当运行终态；最终60新head仍需fresh完整十门槛与独立审查。Issue10仍active，integrator startgate未达。
