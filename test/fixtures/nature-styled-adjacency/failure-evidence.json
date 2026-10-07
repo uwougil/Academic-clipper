@@ -1,0 +1,234 @@
+{
+  "version": "nature-styled-adjacency-failure-observations/1.0.0",
+  "baseSha": "6b90413d806f7e611b00559c8208f6b95b31dd1e",
+  "fixtureSha256": "2a0e006ed9a5f0e55c2b18bf8ae4ed71ff8a689d45dcdf20a507173b481697d7",
+  "issue": 57,
+  "notOracle": "Actual production stage observations, kept separate from original source-derived expected meaning.",
+  "sourceModelHtml": "128<i>x</i>0<i>e</i> + 64<i>x</i>1<i>x</i> + 32<i>x</i>2<i>e</i>",
+  "sourceParagraphRawSha256": "6be13b1e3db2cd07f5fc81dfef06fed2ea163e8e64be100b6c958479d74c0dd9",
+  "sourceParagraphFrozenSha256": "606a4dbc6f17d727f95d873d015c680a39155c48d9d5e7f2fe8dc9f04264b364",
+  "stages": [
+    {
+      "citationStyle": "markdown",
+      "sourceDisplayCount": 1,
+      "scientificRanges": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "0e",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "tex": "64x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "tex": "1x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+          "tex": "32x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+          "tex": "2e",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "defuddleMarkers": " ACADEMICCLIPPERSCIENTIFICRUN0XACADEMICCLIPPERSCIENTIFICRUN1X + ACADEMICCLIPPERSCIENTIFICRUN2XACADEMICCLIPPERSCIENTIFICRUN3X + ACADEMICCLIPPERSCIENTIFICRUN4XACADEMICCLIPPERSCIENTIFICRUN5X",
+      "firstDollarRestoration": " $128x$$0e$ + $64x$$1x$ + $32x$$2e$",
+      "mathNormalized": " $128x$$0e$ + $64x$$1x$ + $32x$$2e$",
+      "academicNormalized": " $128x$$0e$ + $64x$$1x$ + $32x$$2e$",
+      "finalModelContext": "*  = 2 tensors (all even irreducible representations only, $128x$$0e$ + $64x$$1x$ + $32x$$2e$), as well as an edge-irreducible representation of $0e$ + $1e$ + $2e$. We use a radial cutoff of 5 Å and embed interatomic distances $r_{ij}$ in a basis of eight Bessel functions, which is multiplied by the XPLOR cutoff function, as defined in HOOMD-blue (ref. [^67]), using an inner cutoff of 4.5 Å. We use a radial MLP *R* (*r*) with ",
+      "validators": {
+        "math": {
+          "valid": false,
+          "displayMathCount": 2,
+          "issueTypes": [
+            "inline-display-switch",
+            "single-dollar-in-display",
+            "single-dollar-in-display",
+            "inline-math-crosses-line"
+          ]
+        },
+        "structure": {
+          "valid": true
+        },
+        "rawHtml": {
+          "valid": true,
+          "violations": []
+        },
+        "crossReferences": {
+          "valid": true
+        }
+      },
+      "warnings": [
+        "No Nature figures were detected."
+      ],
+      "resources": {
+        "figures": 0,
+        "tables": 0,
+        "references": 68
+      }
+    },
+    {
+      "citationStyle": "links",
+      "sourceDisplayCount": 1,
+      "scientificRanges": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "0e",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "tex": "64x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "tex": "1x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+          "tex": "32x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+          "tex": "2e",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "defuddleMarkers": " ACADEMICCLIPPERSCIENTIFICRUN0XACADEMICCLIPPERSCIENTIFICRUN1X + ACADEMICCLIPPERSCIENTIFICRUN2XACADEMICCLIPPERSCIENTIFICRUN3X + ACADEMICCLIPPERSCIENTIFICRUN4XACADEMICCLIPPERSCIENTIFICRUN5X",
+      "firstDollarRestoration": " $128x$$0e$ + $64x$$1x$ + $32x$$2e$",
+      "mathNormalized": " $128x$$0e$ + $64x$$1x$ + $32x$$2e$",
+      "academicNormalized": " $128x$$0e$ + $64x$$1x$ + $32x$$2e$",
+      "finalModelContext": "*  = 2 tensors (all even irreducible representations only, $128x$$0e$ + $64x$$1x$ + $32x$$2e$), as well as an edge-irreducible representation of $0e$ + $1e$ + $2e$. We use a radial cutoff of 5 Å and embed interatomic distances $r_{ij}$ in a basis of eight Bessel functions, which is multiplied by the XPLOR cutoff function, as defined in HOOMD-blue (ref. [67](#ref-67)), using an inner cutoff of 4.5 Å. We use a radial MLP *R* (*r",
+      "validators": {
+        "math": {
+          "valid": false,
+          "displayMathCount": 2,
+          "issueTypes": [
+            "inline-display-switch",
+            "single-dollar-in-display",
+            "single-dollar-in-display",
+            "inline-math-crosses-line"
+          ]
+        },
+        "structure": {
+          "valid": true
+        },
+        "rawHtml": {
+          "valid": false,
+          "violations": [
+            {
+              "tag": "x",
+              "line": 41,
+              "column": 72,
+              "context": "<x<-1): a new cathode material for batteries of high energy density. Mater. Res. Bull. 15, 783–789 (1980). [doi:10.1016/0025-5408(80)90012-4](https://doi.org/10.1016/0025-5408(80)90012-4) <a id=\"ref-2\">",
+              "type": "unpermitted-html-tag"
+            }
+          ]
+        },
+        "crossReferences": {
+          "valid": true
+        }
+      },
+      "warnings": [
+        "No Nature figures were detected."
+      ],
+      "resources": {
+        "figures": 0,
+        "tables": 0,
+        "references": 68
+      }
+    },
+    {
+      "citationStyle": "quarto",
+      "sourceDisplayCount": 1,
+      "scientificRanges": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "0e",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "tex": "64x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "tex": "1x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+          "tex": "32x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+          "tex": "2e",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "defuddleMarkers": " ACADEMICCLIPPERSCIENTIFICRUN0XACADEMICCLIPPERSCIENTIFICRUN1X + ACADEMICCLIPPERSCIENTIFICRUN2XACADEMICCLIPPERSCIENTIFICRUN3X + ACADEMICCLIPPERSCIENTIFICRUN4XACADEMICCLIPPERSCIENTIFICRUN5X",
+      "firstDollarRestoration": " $128x$$0e$ + $64x$$1x$ + $32x$$2e$",
+      "mathNormalized": " $128x$$0e$ + $64x$$1x$ + $32x$$2e$",
+      "academicNormalized": " $128x$$0e$ + $64x$$1x$ + $32x$$2e$",
+      "finalModelContext": "*  = 2 tensors (all even irreducible representations only, $128x$$0e$ + $64x$$1x$ + $32x$$2e$), as well as an edge-irreducible representation of $0e$ + $1e$ + $2e$. We use a radial cutoff of 5 Å and embed interatomic distances $r_{ij}$ in a basis of eight Bessel functions, which is multiplied by the XPLOR cutoff function, as defined in HOOMD-blue (ref. [@Anderson2020]), using an inner cutoff of 4.5 Å. We use a radial MLP *R* (",
+      "validators": {
+        "math": {
+          "valid": false,
+          "displayMathCount": 2,
+          "issueTypes": [
+            "inline-display-switch",
+            "single-dollar-in-display",
+            "single-dollar-in-display",
+            "inline-math-crosses-line"
+          ]
+        },
+        "structure": {
+          "valid": true
+        },
+        "rawHtml": {
+          "valid": true,
+          "violations": []
+        },
+        "crossReferences": {
+          "valid": true
+        }
+      },
+      "warnings": [
+        "No Nature figures were detected."
+      ],
+      "resources": {
+        "figures": 0,
+        "tables": 0,
+        "references": 68
+      }
+    }
+  ],
+  "firstInvalidMarkdownStage": "normalizeMath independently restores adjacent scientific markers as $...$, creating adjacent delimiters. Nature range segmentation loses the contiguous source-run boundary before Defuddle, but Defuddle preserves markers. normalizeBlockMath does not alter this source run."
+}

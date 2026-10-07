@@ -1,0 +1,161 @@
+{
+  "evidenceVersion": "nature-scientific-citation-delivery/1.0.0",
+  "issue": 56,
+  "status": "IMPLEMENTED_LOCAL_VERIFIED_PENDING_PR_CI_REVIEW",
+  "sourceOnlyCheckpoint": "b71478eb42115cc09792782edeb2aa6cd38bcecc",
+  "acceptedBase": {
+    "commit": "b88653a4be3dcf30cd487365d033f1e7a7c3da0a",
+    "mainCi": "37670512607",
+    "mainJobs": [
+      "112960767643",
+      "112960767857",
+      "112960768046"
+    ],
+    "secrets": "37670512896",
+    "conclusion": "success"
+  },
+  "dependencyMerge": "507d12f5ade93832e4291b640944cefd762d35dd",
+  "testedCodeAndTestCommit": "80b3392018b33145fb69a6f6e7dbcff164a8901c",
+  "codeAndTestBlobs": {
+    "src/adapters/nature.mjs": "12a025056059720e4a608f47ea054472a241b15d",
+    "test/nature-scientific-citations.test.mjs": "5bc9df521eaded0523bca67cd7079a6256a8a426",
+    "test/nature-scientific-citation-boundaries.test.mjs": "1984d3dafaffc2c6fdaafa2ffe7c5adb198e11f6"
+  },
+  "immutableSources": {
+    "quantum.excerpt.html": "5f2f891442e4f16edbecea86f5bcf12817926b49",
+    "chemistry.excerpt.html": "cc4f3e9f1481fe3e68fb8da5575156abd0c3d321",
+    "quantum.provenance.json": "4c8955e612419dbf5cdc56e174153d1cec959aad",
+    "chemistry.provenance.json": "3dd165e681df07af525fd087521175508769b3c6",
+    "checkpoint-evidence.json": "2d2ce76632479bde4eb77d36132795c42e5be3ba",
+    "independent-chemical-base-packet.json": "96857953b785fc54170c8d7f156883a19cab9832"
+  },
+  "sourceAuditReused": {
+    "receipt": "test/fixtures/nature-scientific-citations/checkpoint-evidence.json",
+    "unchangedRightsRecipesRawHashesAndExcerptBytes": true,
+    "rawAcquisitionRepeated": false,
+    "wholeSourceAuditRepeated": false,
+    "provenanceOrBOracleEdits": false
+  },
+  "productionRepair": {
+    "file": "src/adapters/nature.mjs",
+    "mechanism": "Existing scientific eligibility excludes SUP containing either current citation anchor cue. The original later citation extraction handles source anchors, ranges and fallback.",
+    "selector": "a[data-test=\"citation-ref\"], a[href*=\"#ref-CR\"]",
+    "changesToPassOrderRendererNormalizerValidatorSecurityOrWriter": false
+  },
+  "sourceRed": {
+    "log": "red-accepted-b886-source41.log",
+    "command": "node --test --test-reporter=tap test/nature-scientific-citations.test.mjs",
+    "exitCode": 1,
+    "tests": 41,
+    "pass": 5,
+    "fail": 36,
+    "skipped": 0,
+    "sha256": "ede8b9427e167a687c561f093c563fedd5b960e36a448142c92859bcda73454c",
+    "bytes": 58791
+  },
+  "boundaryRed": {
+    "log": "red-accepted-b886-boundaries.log",
+    "command": "node --test --test-reporter=tap test/nature-scientific-citation-boundaries.test.mjs",
+    "exitCode": 1,
+    "tests": 10,
+    "pass": 3,
+    "fail": 7,
+    "skipped": 0,
+    "sha256": "254e6f2fafc22d194908d9eada38bef55d2665645501b5cf6ad3d804434b6daa",
+    "bytes": 14353
+  },
+  "latentTestBug": {
+    "log": "green-accepted-b886-focused.log",
+    "command": "node --test --test-reporter=tap test/nature-scientific-citations.test.mjs test/nature-scientific-citation-boundaries.test.mjs",
+    "exitCode": 1,
+    "tests": 51,
+    "pass": 42,
+    "fail": 9,
+    "skipped": 0,
+    "sha256": "b44c959e125c29eef3d72a37b2124de27d3492bf49fcc2e6ff9d9b1f7088268c",
+    "bytes": 32296,
+    "correctConclusionDespiteFilename": "FAIL; 42/9 is preserved, not reported as GREEN.",
+    "firstInvalidAssertion": "Own preflight test expected quarto referencesMarkdown to be empty. It contradicted the already accepted renderer/test/validator citeproc target.",
+    "expectedExistingContract": "## References\n\n::: {#refs}\n:::",
+    "independentProof": [
+      "6b90413 and b88653a src/clip.mjs:151 returns the native refs target.",
+      "Existing test/output-quality.test.mjs:124 requires the native refs target.",
+      "src/validators/markdown-structure.mjs:78 requires a Quarto citeproc target."
+    ],
+    "correction": "Only the own assertion changed to exact native target. Source numbers/base/context/refs/Bib and all production code outside the eligibility guard remain unchanged.",
+    "originalCitationSourceRedRemainsValid": "All old source REDs fail earlier at independently proven citation identity loss. No repeated old-base run was required after correcting this downstream own assertion."
+  },
+  "focused": {
+    "log": "green-accepted-b886-focused-final.log",
+    "command": "node --test --test-reporter=tap test/nature-scientific-citations.test.mjs test/nature-scientific-citation-boundaries.test.mjs",
+    "exitCode": 0,
+    "tests": 51,
+    "pass": 51,
+    "fail": 0,
+    "skipped": 0,
+    "sha256": "c2d575c8ef11e2e67d324c508607344ef274ea462a157360eaf96aa5d2d5c9cc",
+    "bytes": 23477
+  },
+  "full": {
+    "log": "green-accepted-b886-full.log",
+    "command": "npm test",
+    "exitCode": 0,
+    "tests": 432,
+    "pass": 432,
+    "fail": 0,
+    "skipped": 0,
+    "sha256": "995f523e2a11ab19bfc324d46ae4aa1b6f88a6886c0bc5d4a010e80a1755e09b",
+    "bytes": 50986,
+    "durationMs": 77381.5813,
+    "fullExecutions": 1,
+    "largerAffectedSubsetRepeated": false,
+    "testTreeChangedAfterRun": false
+  },
+  "build": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "log": "green-accepted-b886-build.log",
+    "sha256": "93f3adefe0ad7fe6d73073c47595d93ff6b3c3a676477730e2f1efb6d4777807"
+  },
+  "golden": {
+    "command": "npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto",
+    "exitCode": 0,
+    "log": "green-accepted-b886-golden.log",
+    "sha256": "49fe118cfcf91bcbef91e1ec9ffad67f8807589431c6179ffc5cd1a8f8a36498",
+    "mathValid": true,
+    "scientificFragments": true,
+    "markdownStructure": true,
+    "rawHtmlValidation": true,
+    "crossReferenceValidation": true,
+    "committedArtifactChanged": false
+  },
+  "dependencyInstall": {
+    "node": "v24.14.1",
+    "npm": "11.11.0",
+    "priorNpmCi": "PASS at accepted e2; 65 packages, zero vulnerabilities.",
+    "packageLockGitBlob": "c4883d68e0a71a4abbbab9c01b7f219c9731c08f",
+    "packageJsonGitBlob": "8a5035e829dc6f3c7d1c597144e2cc59a7f47f17",
+    "unchangedAt6bAndB886": true,
+    "npmCiRepeatedLocally": false,
+    "freshCiWillInstallCommittedLockfile": true
+  },
+  "independentFailure": {
+    "packet": "test/fixtures/nature-scientific-citations/independent-chemical-base-packet.json",
+    "source": "Pb(OAc)<sub>4</sub>",
+    "output": "Pb(OAc)$_{4}$",
+    "productionValidator": "scientific-isolatedSubscript",
+    "sameFailureReportedBeforeCitationAssertions": true,
+    "wholeChemistryParagraphClaimedValid": false,
+    "bundledRepair": false
+  },
+  "delivery": {
+    "exactStandaloneIssueLine": "Refs #56",
+    "finalPrCount": 1,
+    "authorMayMerge": false,
+    "requiredNext": [
+      "Exact-head fresh three-platform CI and Secrets.",
+      "Independent exact-head zero-blocking review.",
+      "Root alone decides merge; successful merged Main CI completes the Issue."
+    ]
+  }
+}
