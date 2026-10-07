@@ -1,6 +1,43 @@
-# Issue #56 — 科学表达式旁 citation SUP 的 source-only handoff
+# Issue #56 — 科学表达式旁 citation SUP 的 handoff
 
-状态：`SOURCE_ONLY_RED_NOT_FIXED`。独立 Work Contract 为 [Issue #56](https://github.com/uwougil/Academic-clipper/issues/56)，type `bug`，仍 open。此检查点只交付源摘录、永久 RED、因果诊断及未应用提案；不是最终 delivery PR，也不完成 Issue #10。下一生产写入须由 root 释放 Nature gate，目前按 #53 → #55 串行。
+状态：实施与本机验证完成，等待最终 PR 的 fresh CI / Secrets 和 independent exact-head review。独立 Work Contract 为 [Issue #56](https://github.com/uwougil/Academic-clipper/issues/56)，type `bug`，仍 open；作者不 merge，不完成 Issue #10。本页下方保留 `b71478e` source-only 原始记录和当时未应用提案，历史 gate / RED 状态不代表本轮当前实施。
+
+## 2026-10-07 实施与本机验证
+
+root 已核验 accepted `b88653a4be3dcf30cd487365d033f1e7a7c3da0a` 的 Main CI `37670512607`：Windows24 job `112960767643`、Ubuntu24 `112960767857`、Ubuntu20 `112960768046` 全 success；Secrets `37670512896` 同 head success。Issue #55 由既有 automation completed 后，Nature 生产 gate 释放给 #56，table-caption / styled 相邻机制仍单独 source-only。Own clean `b71478eb42115cc09792782edeb2aa6cd38bcecc` 非破坏合入 accepted b886，dependency merge `507d12f5ade93832e4291b640944cefd762d35dd`。
+
+固定 code/test commit 为 `80b3392018b33145fb69a6f6e7dbcff164a8901c`。唯一生产修改是 `src/adapters/nature.mjs` 的 existing scientific eligibility：包含任一 existing citation anchor cue 的 SUP 结束 scientific range，留下原 anchors 供 later citation pass 消费。没有改变 pass order、scientific TeX serializer、Defuddle、normalizers、validators、安全或 writer；ordinary SUP、opaque original MathJax、原 intrinsic prime 继续原路径。三实际 source clusters 在全部方言恢复原身份、顺序、scientific base 与后续原文邻接，定义/Bib保持；Quantum scientific validators 通过。
+
+Source 两 HTML、两 provenance、checkpoint/independent packet 的 Git blobs 与 b714 完全相同，前述 raw/rights/recipe/A actual helper audit 复用，没有重采集/生成或更改 B/C。源码 phase receipt [checkpoint-evidence.json](../../../test/fixtures/nature-scientific-citations/checkpoint-evidence.json) 是 b714 的历史快照；本轮命令、logs SHA、fixed tree blobs、Git identity、独立错误与验收结果见 [delivery evidence](bug-scientific-citation-delivery-evidence.json)。源码 snapshot 中原 testedFileSha 指 b714 版本；本轮仅修正下面已证明的 own Quarto assertion。
+
+| 验证 | 实际结果 / 覆盖 |
+| --- | --- |
+| 新 accepted base 原 41 RED | `node --test --test-reporter=tap test/nature-scientific-citations.test.mjs`，5 PASS / 36 FAIL / 0 skip，exit1，12.812s；源 identity loss 与历史合法 RED 相同 |
+| 写生产前新增最小 boundary RED | `node --test --test-reporter=tap test/nature-scientific-citation-boundaries.test.mjs`，10 = 3 PASS / 7 FAIL / 0 skip，exit1。明确 laboratory variants，不新增真实 publisher rows：href fragment/absolute、ASCII/NBSP、italic label、href-only range、empty-label fallback、ordinary SUP whitespace/ordinary nonreference anchor、original MathJax exact TeX |
+| 首次 post-guard focused | 51 = 42 PASS / 9 FAIL，exit1；log `green-accepted-b886-focused.log` 的文件名不等于结论。来源引用/附件断言已通过，九项均是 below 的同一个 own test bug |
+| corrected focused | 两个上述文件一起执行，51 PASS / 0 FAIL / 0 skip，exit0，5.058s；原41恢复、10新增 boundary皆通过 |
+| 唯一作者 full | `npm test` on 80b3392，432 PASS / 0 FAIL / 0 skip，exit0，77.382s。复用 suite 内现有 citation ranges/malformed visibility、scientific symmetry/opaque math、code/URL、literal brackets、figures/fallback、security/writer/other accepted compatibility checks；不再重复 large affected subset |
+| build | `npm run build` exit0；dist仅 ignored generated output |
+| committed golden | `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` exit0；math + scientificFragments、Markdown structure、rawHtml、crossReferences均 valid，committed `papers/s41586-026-10401-1` diff空 |
+| setup / diff | Node v24.14.1 / npm11.11.0 与既有有效 npmci相同；package/lock从6b至b886 blobs未变，未重复本机 npmci；fresh CI依committed lock重新安装。`git diff --check` PASS、tracked additions/source Git identity 已核验，production delta仅Nature guard；fixture全离线无资源 fetch |
+
+### Own Quarto assertion 的独立纠正
+
+原 b714 test L87 错误断言 `referencesMarkdown === ''`，被更早真实 citation loss 断言遮蔽。guard 恢复 source citations 后，这个 test bug 成为九条 Quarto FAIL；没有新的生产 invalid stage。独立 proof：accepted 6b 和 b886 的 `src/clip.mjs:151` 均为 Quarto 返回 exact `## References\n\n::: {#refs}\n:::`；existing `test/output-quality.test.mjs:124` 要求该 native citeproc target；`src/validators/markdown-structure.mjs:78` 也强制该目标。PRD正文引用/References、EDD native Quarto与这个 target一致，空串会违反已有结构契约。
+
+只将 own assertion 改为 exact native References target，严格排除附加手写 refs。原 numbers/base/context、definitions/Bib、source bytes、production renderer/validator不改；42/9失败日志和上述 proof永久记录在 delivery evidence。历史5/36在更早来源引用丢失处失败，仍是真实 source RED；按人类增量规则没有重复旧 base，仅纠正断言后的定点51和必要一次full。
+
+### 完整 caller / compatibility 边界
+
+统一 eligibility 覆盖 styled attachment/whitespace/lookahead、MathJax-marker attachment、delimited scientific runs、numeric/detached SUP collectors；原局部 data-test guard之外，href-only也在同一边界受到保护。`collectTextAndStyledSymbolRun` 仅I/B资格保持；`scientificTex` / Range serializer未改。新增10实验边界与原24 cue variants/4真实source负控形成一次矩阵，不依SUP含A或numericlabel猜引用。Original MathJax源TeX逐个exact匹配；ordinary nonreference anchor仍允许源e^{-2r}，不会把所有anchor-SUP禁作science。现有 code/math/URLs/ranges compatibility由唯一full实际PASS，不另叠重复数据。
+
+Chemistry source complete paragraph 的 `Pb(OAc)$_{4}$` 仍由 production `scientific-isolatedSubscript` 报 FAIL（markdown/links line25 column464，quarto line26）；51 focused和full都会打印独立诊断，未当作 whole paragraph有效，未删 source/放松validator/捆别的chemical-base repair。Leading isotope、adjacent styled-run、Quantum table caption、materials context/rawHtml、whole-corpus其他失败均不在本合同。
+
+代码/test树在上述full/build/golden之后未改变；后续只有本 handoff、fixture README、delivery evidence和PR prose变更，不触发重复作者full。最终一个 PR 使用 exact standalone `Refs #56`，fresh exact-head三平台CI/Secrets和独立review gate由PR记录；rootalone决定merge，成功merged Main CI才由automation完成Issue。
+
+## b71478e source-only 原始记录（2026-10-05）
+
+当时状态为 `SOURCE_ONLY_RED_NOT_FIXED`，只交付源摘录、永久 RED、因果诊断和未应用提案；下方属于保留的原始 checkpoint，未重新审计或用后续GREEN覆盖历史FAIL。
 
 ## Checkout 与权威边界
 

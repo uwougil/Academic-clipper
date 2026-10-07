@@ -1,6 +1,6 @@
 # Nature 科学表达式旁 citation SUP 的原文摘录
 
-本目录服务于独立 [Issue #56](https://github.com/uwougil/Academic-clipper/issues/56) 的 source-only RED。两个 HTML 是完整原段落的最小保留投影，不是编写的论文、完整 raw capture 或 B/C corpus 的替换输入。`checkpoint-evidence.json` 记录 accepted base、合法 RED、因果 trace、实际 helper/Git identity 和复用边界；`independent-chemical-base-packet.json` 仅保留另一独立 attachment 问题的证据。
+本目录服务于独立 [Issue #56](https://github.com/uwougil/Academic-clipper/issues/56) 的真实源回归。两个 HTML 是完整原段落的最小保留投影，不是编写的论文、完整 raw capture 或 B/C corpus 的替换输入。`checkpoint-evidence.json` 保留 b714 source-only RED 的历史 accepted base、因果 trace、实际 helper/Git identity 和复用边界；[delivery evidence](../../../docs/goals/issue-10/bug-scientific-citation-delivery-evidence.json) 记录后续最小 guard、独立 own test纠正和RED→GREEN。`independent-chemical-base-packet.json` 仅保留另一独立 attachment 问题的证据。
 
 | 文件 | 原文章与有序作者 | 保留内容 |
 | --- | --- | --- |
@@ -13,4 +13,4 @@
 
 真实源回归来自两个 frozen HTML。测试中 `data-test-only` / `href-only` 是仅移除已有 anchor 一个属性的边界变体，保留源文字、numbers、href（href-only）、base 和顺序；这些变体不充当 publisher source evidence。真实非 citation 负控 `<i>e</i><sup>−2<i>r</i></sup>` 来自同一 Quantum 完整段落。HTML 的 `.gitattributes` 仅为原 inline whitespace 固定 LF 和局部 `blank-at-eol` 处理，不重写科学 source bytes。
 
-没有提交原 HTTP capture、图片/PDF/table binaries、生产补丁、token/cookie/config 或网络 acquisition 代码。`Pb(OAc)4` 完整原化学 base 的独立孤立 subscript 失败仍由未修改的 production validator 报告，本目录不宣称 chemistry whole paragraph 已通过验证。
+本目录没有原 HTTP capture、图片/PDF/table binaries、token/cookie/config 或网络 acquisition 代码。独立生产修复只在 Nature existing scientific eligibility guard；本目录的 source/rights/provenance bytes保持。`Pb(OAc)4` 完整原化学 base 的独立孤立 subscript 失败仍由未修改的 production validator 报告，本目录不宣称 chemistry whole paragraph 已通过验证。
