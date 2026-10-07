@@ -1,4 +1,50 @@
-# Issue #57 — Materials styled-adjacency source-only checkpoint
+# Issue #57 — Materials styled-adjacency delivery handoff
+
+当前状态：`IMPLEMENTED_LOCAL_GREEN / REVIEW_PENDING`，2026-10-07。独立 [Issue #57](https://github.com/uwougil/Academic-clipper/issues/57) 的最小实现与回归已交付；独立 exact-head review、fresh PR CI / Secrets 和 root merge gate 尚待完成。本 agent 不 merge 或宣称 Work Contract / Issue #10 完成。以下本轮结果优先；后面的 2026-10-05 source-only 记录保留为原 RED / 来源 / 未应用提案的历史证据。
+
+## 2026-10-07 实现、基线与验证
+
+新的 accepted implementation base：`ac86b2fa509653dfeb43b968472ce6280a51de2c`。Root 明确核验 [Main CI 37681190063](https://github.com/uwougil/Academic-clipper/actions/runs/37681190063) 在 `2026-10-07T20:28:26Z` 成功，Windows Node 24 job `112997400634`、Ubuntu Node 24 `112997400858`、Ubuntu Node 20 `112997401004` 全 SUCCESS；[Secrets 37681189875](https://github.com/uwougil/Academic-clipper/actions/runs/37681189875) / job `112997360655` SUCCESS。Issue #56 automation 在 `20:28:37Z` completed 后，root 明确释放本 #57 的 Nature 生产文件 gate；#60/#61 继续锁。Pending 时本 owner 只做静态读取，没有冻结 pending base、生产写入、重采来源或重复原审计。
+
+Own worktree / branch 仍为下文的独立 `issue-10-bug-styled-adjacency`。`05be27e158b9e2de35ffc777a04f05326296e951` clean checkpoint 非破坏 merge accepted ac86，merge commit `78d0eb981a5117fd98aaf2355b59e8f50bf6826d`；原 source commits、摘录、provenance、recipe、observed failure / 16-row matrix 全保留。没有改 A/B/C corpus、oracle、canonical spec、intent、安全、writer、normalizers、validators、dependencies、golden 或 CI。
+
+实现 commit：`7fc1cb20af05014c20b3738719728fa4775fdb05`。Production 只改 `src/adapters/nature.mjs::collectTextAndStyledSymbolRun()` 的 21 行 diff（20 additions / 1 deletion），延长同 parent 中零空白连续的完整 digits + pure I/B source pairs，将原 `128x0e` / `64x1x` / `32x2e` 各置于一个既有 scientific DOM range。既有 `scientificTex()` 仍逐原节点读取数字与 italic/bold style，不添加 SUP/SUB/times，不按最终 dollar strings 推断/合并。遇 whitespace、operator、wrapper、opaque typed marker/code 就停止。若候选 styled base 紧随真正 SUP/SUB（包括间隔原 whitespace），留给既有 attachment collector；reference SUP 沿用 accepted #56 的 `isElement()` 两种 citation cue 保护。
+
+新增永久边界回归：`test/nature-styled-adjacency-boundaries.test.mjs`，复用原 16-row matrix，加 4 个明确 synthetic tail SUP/SUB / zero-gap / whitespace controls。Constructed controls 仅作用 disposable clone，不是 scholarly source；source assertions 仍来自原完整 p37 / Equ1。新的 20-row baseline 是 17 PASS / 3 真正分组 RED；#56 已恢复 citation identity，但该 control 的相邻 dollars 在 #57 修复前仍 RED。最小 patch 后 20/20 PASS，原完整真实 source 8/8 PASS。
+
+修复后的 actual source model：`$128x0e$ + $64x1x$ + $32x2e$`。保留全部有序数字、六个原 italic letters、source zero gaps、原 U+2009 / plus 分隔，未猜 exponent/乘号。三方言 math valid=true、source/actual display 1/1，原 `Equ1` identity / exact semantic TeX / 既有 allowed font rendering、indexed distance、真实 powers、独立 terms、全部 ordered citations / 68 refs、warnings/resources 保持。
+
+| 当前 actual dialect | source/actual display | math | structure | raw HTML | crossrefs |
+| --- | --- | --- | --- | --- | --- |
+| markdown | 1 / 1 | PASS | PASS | PASS | PASS |
+| links | 1 / 1 | PASS | PASS | FAIL，独立原 Ref2 literal `<` | PASS |
+| quarto | 1 / 1 | PASS | PASS | PASS | PASS |
+
+原 Ref2 links HTML audit FAIL 未隐藏或重写，Materials source-citations context row 仍独立；不能把 #57 的 GREEN 声称为完整材料论文 / corpus 全部通过。原相邻两个 synthetic opaque MathJax inline 仍有独立 malformed dollar state，永久 boundary test 只保护两项 typed identity / 原 TeX，不断言该独立缺陷已解决，实际 math=false 明确输出 diagnostic。这不是 admitted scholarly source、没有放宽 validator；本实现不负责缺少真实来源的新 generic adjacency bug。
+
+当前 actual commands / results（external logs 仍在下文目录）：
+
+| 命令 | 结果 / log |
+| --- | --- |
+| `npm ci` | exit0；65 packages，沿用 committed lockfile；`npm-ci-ac86.log` |
+| `node --test test/nature-styled-adjacency.test.mjs`（新 base、未改 production） | exit1；原 8 tests，5 PASS / 3 source RED；`focused-red-ac86-original8.log` |
+| `node --test test/nature-styled-adjacency-boundaries.test.mjs`（未改 production） | 最终 exit1；20 tests，17 PASS / 3 RED；`boundaries-red-ac86-final.log` |
+| `node --test test/nature-styled-adjacency.test.mjs test/nature-styled-adjacency-boundaries.test.mjs` | exit0；28/28 PASS；`focused-green-ac86.log` |
+| `node --test test/nature-adapter.test.mjs test/nature-scientific-citations.test.mjs test/nature-scientific-citation-boundaries.test.mjs test/nature-literal-brackets.test.mjs test/nature-scientific-units.test.mjs test/nature-caption-citations.test.mjs test/nature-table-mathjax.test.mjs test/nature-table-notes.test.mjs test/nature-sparse-figure-alt.test.mjs` | exit0；184/184 PASS；`affected-green-ac86.log` |
+| `npm test` | 唯一 full session `65796` actual terminal exit0；460/460 PASS、0 skip/todo/cancel、`77138.9269ms`；`full-green-ac86.log` |
+| `npm run build` | exit0；extension build PASS；`build-ac86.log` |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0；committed golden 只读 PASS；`golden-ac86.log` |
+| `git diff --check` / cached check / status / filenames / protected paths | PASS；仅单函数生产修改、独立来源/测试/交接，原来源 bytes 未变 |
+
+所有 tests 无 skip/todo/cancel。Boundary 首次 baseline 的两个 assertions 漏保留 opaque source 的单 `$` 外层（实际 semantic raw TeX 是 `$e^{0}$` / `$x$` / `$e$`）；首轮 `boundaries-red-ac86.log` 保留。只更正了 test 的原 source-identity expectations，未改 source/parser/validator，再形成上表有效 17/3 RED。没有把 harness 错误当新 parser defect。
+
+`npm ci` 同时报告原 accepted dependencies 的一项新的外部 high advisory；独立 `npm audit --json` exit1 / `npm-audit-ac86.json` 指向 transitive `source-map-js` / [GHSA-68fv-2mgg-jv7q](https://github.com/advisories/GHSA-68fv-2mgg-jv7q)，affected `>=1.0.0 <1.2.2`、indexed source-map section offsets event-loop denial of service、fixAvailable。原 package/lockfile 与 ac86 完全相同，已交 root 独立处理，本 #57 没有修改依赖或隐瞒 audit；上述 test/build/golden PASS 不代表该 advisory 已解除。
+
+Ordered owner commits：原 `e0425efa412cf72391a9bc04b0c0c1a485fd768f` → `05be27e158b9e2de35ffc777a04f05326296e951` → accepted-main merge `78d0eb9...` → production / boundary `7fc1cb20af05014c20b3738719728fa4775fdb05` → 包含本更新的交接 commit。最终消息/PR metadata 给精确 pushed head 与 fresh PR CI / Secrets run IDs；本手册不自引用最终 commit SHA。一个独立 final PR 使用唯一 standalone `Refs #57`，没有 `Refs #10` 或自动关闭关键字；任何后继独立 review findings 要求同 owner 在同 PR 修复、fresh exact-head checks，作者不 merge。
+
+Agent C 解除本 row 的条件仍然严格：生产修复经 root review / fresh CI 门槛接纳且 merged Main CI 成功后，C 自己对同 truthful Materials source / oracle 跑三方言 source-equations consumer，确认唯一真实 display / original Equ1 与有效 math / source symbols 后，才解除 `ADJACENT_INLINE_DOLLARS`。其它 Materials citation-context / links Ref2、不同机制以及整体 Issue #10 不由本窄修复完成。Spec changes：无。
+
+## 2026-10-05 source-only 历史记录
 
 状态：`SOURCE_ONLY_RED`，2026-10-05。独立 [Issue #57](https://github.com/uwougil/Academic-clipper/issues/57) 已建立并回读为 OPEN / bug。仅来源摘录、严格失败回归、诊断观察与未应用提案；没有生产修复、实现 PR、merge、Issue completion 或 Issue #10 完成声明。
 
