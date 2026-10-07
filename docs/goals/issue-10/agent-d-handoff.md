@@ -1,6 +1,6 @@
 # Agent D — transport / live verifier handoff
 
-状态：`DEPENDENCY_PENDING`。最小完整链路 table replay seam、verifier 与 mocked transport/CLI checkpoint 已可供独立审查。最新本轮基线为 accepted main `b88653a` + reviewed C helper `ec53d65` 的实际 blob `e3ff087`。一次 markdown 九篇检查执行全部 85 个 source expectations：82 pass / 3 fail；5 篇 frozen parser/validator failure，另 4 篇完成 source-backed mocked comparison（2 PASS / 2 EXPECTED_WARNING）。69 个 D/transport/security tests 通过，证明失败被保留，不表示 corpus gate 通过。此轮没有更新三 dialect 255-case 全量验收，不宣称 Agent D 最终验收或 Issue #10 完成。
+状态：`DEPENDENCY_PENDING`。最小完整链路 table replay seam、verifier 与 mocked transport/CLI checkpoint 已可供独立审查。当前 latest consumed accepted main 为 `ac86b2f`，reviewed C helper `ec53d65` 的实际 blob 仍为 `e3ff087`。固定 b88653a 的 69 个 D/transport/security tests 全通过；随后仅在 accepted ac86b2f 定点复跑 markdown 九篇 classification，85 个 source expectations 为 83 pass / 2 fail，5 篇 frozen parser/validator failure，另 4 篇完成 source-backed mocked comparison（2 PASS / 2 EXPECTED_WARNING）。这些 test passes 证明失败被保留，不表示 corpus gate 通过。本轮没有更新三 dialect 255-case 全量验收，不宣称 Agent D 最终验收或 Issue #10 完成。
 
 ## 基线与 transport 审计
 
@@ -9,7 +9,8 @@
 - Branch：`codex/issue-10-agent-d`；worktree：`C:/Users/guoli/.codex/worktrees/issue-10-live/academic-clipper`。
 - Resume accepted base：`4783291dcb8a5d0ac62dc2e5d314ba91f6c6d9e2`（PR #46/#49 prerequisites）。[Main CI 37272529095](https://github.com/uwougil/Academic-clipper/actions/runs/37272529095) 和 [Secret scan 37272529070](https://github.com/uwougil/Academic-clipper/actions/runs/37272529070) completed/success，D 已独立复查。
 - Historical resume main：`e2d32e9ec819692a1f08075636c3a168f15ad20b`（PR #52 table MathJax）。开始 resume 时该 Main CI pending，D 未采用；收到 parent acceptance notice 并独立核对 [Main CI 37278003744](https://github.com/uwougil/Academic-clipper/actions/runs/37278003744) 三 jobs `111659279964` / `111659280091` / `111659280101` 与 [Secret scan 37278003787](https://github.com/uwougil/Academic-clipper/actions/runs/37278003787) 全部 success 后才采用。当时未消费尚未 accepted 的 Unit #48 修复。
-- Latest consumed accepted main：`b88653a4be3dcf30cd487365d033f1e7a7c3da0a`（后续 accepted scientific-units / literal-brackets / sparse figure alt prerequisites）。D 独立核对 [Main CI 37670512607](https://github.com/uwougil/Academic-clipper/actions/runs/37670512607) 的三个 jobs `112960767643` / `112960767857` / `112960768046` 与 [Secret scan 37670512896](https://github.com/uwougil/Academic-clipper/actions/runs/37670512896) 全部 completed/success。后续 PR #59 虽已 merge 为 `ac86b2fa509653dfeb43b968472ce6280a51de2c`，本轮测试时 Main CI 尚未 accepted，因此未采用或重启本轮检查。
+- Fixed 69-test scope base：`b88653a4be3dcf30cd487365d033f1e7a7c3da0a`（后续 accepted scientific-units / literal-brackets / sparse figure alt prerequisites）。D 独立核对 [Main CI 37670512607](https://github.com/uwougil/Academic-clipper/actions/runs/37670512607) 的三个 jobs `112960767643` / `112960767857` / `112960768046` 与 [Secret scan 37670512896](https://github.com/uwougil/Academic-clipper/actions/runs/37670512896) 全部 completed/success。PR #59 的 Main CI 当时尚未 accepted，因此没有插入或重启该固定检查。
+- Latest consumed accepted main：`ac86b2fa509653dfeb43b968472ce6280a51de2c`（PR #59 / Issue #56 scientific citation）。b886 receipt 已独立 commit/push 后才采用；D 独立 `gh run view` 复查 [Main CI 37681190063](https://github.com/uwougil/Academic-clipper/actions/runs/37681190063) 的 jobs `112997400634` / `112997400858` / `112997401004` 与 [Secret scan 37681189875](https://github.com/uwougil/Academic-clipper/actions/runs/37681189875) / Gitleaks `112997360655`，均 same ac86 SHA、completed/success。只追加九篇 markdown source classification；未重复 69 mocks/security 或 C 27 styles。
 - Base 包含 planning PR #27 commit `5971ebfbe288e0efed4abef21469f41e2cabb05f`（`git merge-base --is-ancestor` exit 0）、v0.3.2 release `b489e381620c44b4b3c9e520deca99e154d39f77` 与 Undici update `45c2b5e7de73af648543130decf5c2b573f0aeb4`。历史 release [Main CI 37035169455](https://github.com/uwougil/Academic-clipper/actions/runs/37035169455) 已成功；启动时仍以最新 accepted main 的 CI 为准。
 - A 原始依赖按 `20b48328114f195974e92827583b6bf5875beb27` → `4e0aec64f996a0090a7c74c14edd8ab5051d9639` → `3754d3a781459635e719859353fe3cbdf8741897` → `8f8a3dbf5d83c1475c41a197bcdfd1bf73834679` 原样选择。Schema/recipe `1.0.0`，sanitizer `nature-corpus-sanitizer/1.1.0`，serializer `nature-corpus-subtree/1.0.0`，projection `nature-corpus-projection/1.0.0`。Integrator 不重复选择 D 的 dependency copies。
 
@@ -58,7 +59,8 @@ Integrator 选择 D authored commits：
 | 3 | `3de7c52c42c59d9b86dce57c04a516f19d0c0e43` | Initial durable handoff。 |
 | 4 | `e204dedf1b5b5f1dfe237f8f6417c77de89ee110` | Historical e2d32e9 / C 6c38ad8 resume evidence。 |
 | 5 | `81179335fde0ca982377a608a6d53ab1e10c8c39` | 仅 D tests：拒绝 passing provider 的错误 version / 缺失、重排、替换 execution records；从既有一次九篇实际 C comparison 收集 TAP receipt，不额外执行 corpus。 |
-| 6 | 本文更新 commit：`git log -1 --format=%H -- docs/goals/issue-10/agent-d-handoff.md` | Doc-only b88653a / C ec53d65 evidence；精确 SHA 同时提供给 parent。 |
+| 6 | `54ed8f52f16ec2ad2bb9b38382b0c4fcf98264df` | Doc-only 固定 b88653a / C ec53d65 evidence，先于后续 ac86 dependency merge commit/push。 |
+| 7 | 本文更新 commit：`git log -1 --format=%H -- docs/goals/issue-10/agent-d-handoff.md` | Doc-only accepted ac86b2f 定点 receipt；精确 SHA 同时提供给 parent。 |
 
 不重复选择 D 的 dependency copies：A 原件上述四个 SHA 对应 copies `ca8f64ae4b097d484b9a7697da04caf4c848df28` → `8b8edd305f07424ab5be6b361ba641e63d5c351d` → `cdddb39caba4d3c7a08ce7c12c041b4b4fcec536` → `0abc0da4c3901f9cf85dc079587ef64efd5d35a4`。B final `143fc77ebdc4bf15dd1cdca63afcddb91e6b55f5` 原样 snapshot 是 `9d45a5e3fe1a0cd707cab52cecc13a787b222727`，只消费 B-owned manifest、fixtures、corpus guide、B handoff。没有修改 source input。
 
@@ -70,7 +72,7 @@ Historical resume 消费 reviewed strict C authored helper `6c38ad8156c6f5e3a1b7
 
 C packet 的旧完整三 dialect 基线是 238/255 pass、17 fail；新 helper 只重跑六个 Materials/Chemistry combinations，合并未变范围后是 241 pass / 14 fail，`newFullRun=false`。这些是 C 在其 recorded production base 上的历史/局部结果，不是本轮 b88653a 的完整 255-case acceptance。D 不复跑 C 的 13 source audits、cache hook 或 27 full clips，也不把其中 failed consumers 改为 warning。
 
-Accepted-main dependency merge commits：`aebdc46f793d61f50f7468e714cf0f0ffbc92f7f`（4783291）、`ceb290cc82483feff020bed9a002abce45dfa48f`（e2d32e9）与 `3d9b74b24f33a031341fcad4e9198d21e5d3f565`（b88653a）。Integrator 不选择上述 C copies 或 main merge copies；从最新 accepted main 选择 D authored commits 与 C 原件。`git diff b88653a -- src/clip.mjs src/adapters/nature.mjs src/security.mjs src/article-fetch.mjs` 仍只有原始 clip 两行 seam。D verifier 没有 migration delta；只增加上述 D test/receipt。
+Accepted-main dependency merge commits：`aebdc46f793d61f50f7468e714cf0f0ffbc92f7f`（4783291）、`ceb290cc82483feff020bed9a002abce45dfa48f`（e2d32e9）、`3d9b74b24f33a031341fcad4e9198d21e5d3f565`（b88653a）与 `7707cd5878f9d38e1d87e1356338faab09400ea9`（ac86b2f）。Integrator 不选择上述 C copies 或 main merge copies；从最新 accepted main 选择 D authored commits 与 C 原件。`git diff ac86b2f -- src/clip.mjs src/adapters/nature.mjs src/security.mjs src/article-fetch.mjs` 仍只有原始 clip 两行 seam。D verifier 没有 migration delta；只增加上述 D test/receipt。
 
 C `ASSERTION_VERSION='1.0.0'`，10 个 strict registry consumers / 85 source expectations；API `compareArticleResult`、`semanticSummary`、`runProductionValidators`、`auditSourceOracle` 等保持。调用实际 `compareArticleResult(article,result,{sourceDocument,citationStyle})`，bibliography 采用 C 自身默认的 `referencesBib(result.references)`；sourceDocument 是独立、只读 retained projection DOM，绝非 result.cleanedHtml。检查返回 version 与每个 ordered `[id,assertionId]`，失败 facts 全部保留。C exception 是 `UNCLASSIFIED_FAILURE`；错误 version / 缺失、重排、替换执行记录是 `FIXTURE_INTEGRITY_FAILURE`，两者都在离线阶段以 exit 1 阻断、零 live operations。A sanitizer/hash/replay、C assertions 不重复实现或修改。
 
@@ -148,7 +150,7 @@ Source oracle/provenance、13 retained hashes、coverage roles 与原始 DOM pos
 
 每次只有两次声明的 mocked HTTP：article `s41586-026-10401-1` 与其 `/tables/1`，对应两次 mocked DNS `{hostname:'www.nature.com',all:true,verbatim:true}`，unexpected []。其他 8 篇 live ledger 为零；ordinary/fresh DNS/HTTP 全为零，writer 调用为零。没有把 matches 的 expected warnings 当作覆盖 source/validator failure 的理由。
 
-## 最新单轮 receipt：accepted b88653a + 实际 C ec53d65
+## 固定单轮 receipt：accepted b88653a + 实际 C ec53d65
 
 2026-10-07 固定上述 base/helper，只跑一次下述 focused command。既有九篇 integration test 包装实际 `compareArticleResult` 以保存原返回值，不替换 assertions 或 validators；其最先九次调用按 manifest 顺序执行 85 个 source expectations。Markdown 为 82 pass / 3 fail，controller business exit 1；这是 **9 篇 / markdown 一种 dialect**，不代替 C 的 **85 × 3 = 255** required suite。测试进程 exit 0 表示分类/阻断符合规范，不表示 source failures 通过。
 
@@ -170,7 +172,24 @@ Live-controller mock ledger 依次为 golden article + `/tables/1`、COVID artic
 
 外部 TAP log：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-D-b886-e3ff-20261007.tap`，20583 bytes，SHA-256 `8ceedfc77d766a54bf4a6e18443b9b07a876e6ff996c09aff2fa56174d747f4d`，mtime `2026-10-07T20:25:06.063Z`。包含同轮 85 execution counts、九篇分类/failed paths/invalid validators、完整 declared warning facts 和 ledger JSON。Node v24.14.1；69 pass / 0 fail / 0 skip / 0 cancelled，46244.0566 ms；40 个 D tests + 29 个既有 tests。
 
-Reviewed D verifier 文件仍为原始 authored implementation：Git blob `0855d3292d2805e736b5006442c757f6fe604e99`，34634 Git bytes，SHA-256 `621ee516c0b548800b02cb23405a1f8c473e56d27999f9c91246fa6ac20ac7f2`。本轮 D test commit `8117933` 的 Git blob `16aacbda29b1ff3858ddbbbf5d5ec7146d371f49`，54826 Git bytes，SHA-256 `d3b96f2aa2ac4f841a35392413eeee4ab01ca96f72b8754899b0f0d33b982801`。Hash 使用 `git show HEAD:<path>` 的 bytes；不混用工作树 CRLF bytes。
+待独立审查的 D verifier 文件仍为原始 authored implementation：Git blob `0855d3292d2805e736b5006442c757f6fe604e99`，34634 Git bytes，SHA-256 `621ee516c0b548800b02cb23405a1f8c473e56d27999f9c91246fa6ac20ac7f2`。本轮 D test commit `8117933` 的 Git blob `16aacbda29b1ff3858ddbbbf5d5ec7146d371f49`，54826 Git bytes，SHA-256 `d3b96f2aa2ac4f841a35392413eeee4ab01ca96f72b8754899b0f0d33b982801`。Hash 使用 `git show HEAD:<path>` 的 bytes；不混用工作树 CRLF bytes。本轮核验文件身份和执行证据，D 完整实现尚未经过独立 reviewer 验收。
+
+## 追加定点 receipt：accepted ac86b2f + 相同实际 C ec53d65
+
+独立确认 ac86 Main CI / Secret scan success 后，仅执行 `node --test --test-reporter=tap --test-name-pattern='^frozen-source integration consumes actual C API' test/nature-corpus-live.test.mjs`，仍由相同实际 helper 执行九篇 markdown source consumers，再对 ready entries 做同 frozen projection 的明确 HTTP mock comparison。D verifier/test/C helper/B/A inputs 相对 authored `8117933` 全部未变。Filtered test 为 1 pass / 0 fail / 0 skip / exit 0，29386.8732 ms；没有运行其余 D mocks/security、C mandatory tests 或任何 fresh live capture。
+
+Actual markdown executions 为 **83/85 pass、2 fail**，controller business exit **1**，五篇 offline PARSER_REGRESSION 与四篇 mocked live-comparison（2 PASS / 2 EXPECTED_WARNING）数量未变。剩余 source failures：
+
+| Article | Actual source failure paths / gate |
+| --- | --- |
+| `s41534-023-00746-0` | 仅 `source-citations-v1` 的 `rendered.orderedSourceClusters` 仍 FAIL；先前 semantic ordered clusters 和 individual clusters 37,57 已 PASS。Math validator 仍 FAIL，article 未放行。 |
+| `s41586-023-06735-9` | `source-equations-v1` 的 `rendered.displayMath.count` 与 `equations[0].renderedTeX` 仍 FAIL；math validator 仍 FAIL。 |
+| `s41467-023-44030-3` | Source citations / 所有 source expectations 已 PASS；math validator 仍 FAIL，article 仍离线阻断。 |
+| `s41586-021-03819-2`、`s41586-022-04755-5` | Source expectations 全 PASS；各自 math validator 仍 FAIL，article 仍离线阻断。 |
+
+没有为 remaining rendered-order failure 猜测根因或改 expected data。其余 source records、四篇通过者 full/projection comparison、所有九篇 declared warning facts/数量与 b886 上表一致；unexpected/missing 为空。Mock ledger 仍按相同顺序只有 6 HTTP / 6 DNS、unexpected []；五篇失败 article 没有 live-controller requests，verifier fresh/ordinary Nature DNS/HTTP 和 writer calls 为零。独立 C 后续正式 255-case 全量 results 仍是最终 gate，不能由这一次 markdown diagnostic 替代。
+
+外部追加 TAP log：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-D-ac86-e3ff-20261007.tap`，4720 bytes，SHA-256 `0f21668f97ba0ad74dbce474ce8d308cadd3add91e91cded4b7438948406f400`，mtime `2026-10-07T20:32:44.511Z`。日志保留同轮九篇 classifications/failed paths/validators、完整 warnings 和 ledger；不是更换 base 后沿用旧 receipt。
 
 ## Exact checks 与 unblocking
 
@@ -243,10 +262,12 @@ Exact executed diagnostic 用相同 import/resource/control loop，stdout 仅缩
 | `git diff --name-only b88653a -- AGENTS.md docs/PRD.md docs/EDD.md docs/specs/issue-10-nature-corpus.md package.json package-lock.json src/security.mjs src/adapters/nature.mjs src/article-fetch.mjs src/writer.mjs papers .github` | 空，禁止边界与 accepted main 一致。 |
 | `git push origin codex/issue-10-agent-d` | Code/test checkpoint `81179335fde0ca982377a608a6d53ab1e10c8c39` 已成功 push；doc-only commit 另行 push。 |
 
+Accepted ac86 的追加 exact checks：上述单个 `--test-name-pattern` 命令与注明的新 TAP receipt；`gh run view 37681190063 --repo uwougil/Academic-clipper --json headSha,status,conclusion,jobs` 和 `gh run view 37681189875 --repo uwougil/Academic-clipper --json headSha,status,conclusion,jobs`（`--jq` 仅缩减为 head/status/conclusion/job ID/name/result），same SHA/success；`git diff ac86b2f -- src/clip.mjs src/adapters/nature.mjs src/security.mjs src/article-fetch.mjs` 只有原 clip two-line seam；`git diff --name-only 8117933 -- scripts/lib/nature-corpus-assertions.mjs scripts/verify-nature-corpus-live.mjs test/nature-corpus-live.test.mjs test/corpus/corpus-manifest.json test/corpus/fixtures scripts/lib/nature-corpus-infrastructure.mjs` 空。提交前 diff/status/tracked-file checks 另照常执行，无重新 clip。
+
 本轮未重跑 `npm test`、build、golden validation 或 27 real-source style combinations；此前结果仅是上面明确标出的历史基线，后续 integrator 仍需在所有 prerequisites accepted 后执行 required suite。Doc-only 新 head 不重跑已固定的 69-test scope。
 
 这些 pass 验证 verifier 正确保留失败，绝非 85 source assertions 已通过。D 只消费 C helper，没有搬 C 的 mandatory test/nature-corpus.test.mjs / golden semantic tests；integrator 必须消费完整 C authored delivery 并执行真实 required suite，不能用 D mocks 替代。
 
 Live Nature acquisition 未运行；没有使用 Nature cookie/private session/account access，没有 tracked full captures、credentials、generated output、golden 或 corpus fixture changes。D tests 使用 BOTH injected fetch/resolver 与 A declaration/ledger，不发生 ordinary DNS/HTTP；writer import/call audit、fixture/golden bytes 和 output directory unchanged checks 通过。现有 writer tests 仅在自己的临时目录检查原 behavior。
 
-C/integrator unblocking：先完成独立 parser prerequisites，并在 accepted main 获得成功 Main CI；再消费 exact final A/B/C interfaces、resume SAME D 审查/复验。全部 85 source expectations × 三 dialect 必须执行/通过，required consumers/coverage 无 blocked；D 再验证完整真实 source-backed clip/projection 的所有 article results 为 PASS/EXPECTED_WARNING，guard/replay ledgers clean。最后独立 reviewer 审查 D/integration，执行 repository required commands、CI matrix 与 Secret scan。Opt-in live availability 单列，不替代 gates。D 没有 ordinary Issue #10 PR 或 merge。
+C/integrator unblocking：先完成独立 parser prerequisites，并在 accepted main 获得成功 Main CI；再消费 exact final A/B/C interfaces、resume SAME D 审查/复验。全部 85 source expectations × 三 dialect 必须执行/通过，required consumers/coverage 无 blocked；D 再验证完整真实 source-backed clip/projection 的所有 article results 为 PASS/EXPECTED_WARNING，guard/replay ledgers clean。D 完整实现的首次独立审查仍待 reviewer 对原 seam/verifier、`8117933` tests 及此 head 执行，不能只审 migration delta；之后独立审查最终 integration，执行 repository required commands、CI matrix 与 Secret scan。Opt-in live availability 单列，不替代 gates。D 没有 ordinary Issue #10 PR 或 merge。
