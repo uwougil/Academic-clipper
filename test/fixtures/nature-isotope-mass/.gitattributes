@@ -1,0 +1,2 @@
+# The source serializer preserves publisher whitespace and hashes UTF-8 LF bytes.
+*.html text eol=lf whitespace=-blank-at-eol
