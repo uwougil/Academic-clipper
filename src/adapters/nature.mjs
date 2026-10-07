@@ -753,9 +753,28 @@ function collectTextAndStyledSymbolRun(parent, startIndex) {
   if (!match || match.index === undefined) return null;
   const token = previous.textContent.slice(match.index);
   if (!/^(?:∞|[−+\-]?\d+)(?:\/)?$/u.test(token)) return null;
+  let endNode = node;
+  if (!node.firstElementChild) {
+    let index = startIndex + 1;
+    while (index + 1 < parent.childNodes.length) {
+      const digits = parent.childNodes[index];
+      const styled = parent.childNodes[index + 1];
+      // Keep contiguous source digit/style pairs in one range. A whitespace,
+      // operator, wrapper or typed marker is a boundary, not a missing exponent.
+      if (digits.nodeType !== 3 || !/^\d+$/u.test(digits.textContent)
+        || !isElement(styled, SCIENTIFIC_BASE_TAGS) || styled.firstElementChild) break;
+      let next = styled.nextSibling;
+      while (next?.nodeType === 3 && /^[ \t\r\n\u00a0\u2009]*$/u.test(next.textContent)) next = next.nextSibling;
+      // A genuine attachment belongs to this styled base and must remain for
+      // collectStyledRun; reference superscripts are excluded by isElement.
+      if (isElement(next, SCIENTIFIC_ATTACHMENT_TAGS)) break;
+      endNode = styled;
+      index += 2;
+    }
+  }
   return {
     start: { node: previous, offset: match.index },
-    end: { node, after: true },
+    end: { node: endNode, after: true },
   };
 }
 
