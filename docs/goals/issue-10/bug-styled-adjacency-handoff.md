@@ -1,8 +1,56 @@
 # Issue #57 — Materials styled-adjacency delivery handoff
 
-当前状态：`IMPLEMENTED_LOCAL_GREEN / REVIEW_PENDING`，2026-10-07。独立 [Issue #57](https://github.com/uwougil/Academic-clipper/issues/57) 的最小实现与回归已交付；独立 exact-head review、fresh PR CI / Secrets 和 root merge gate 尚待完成。本 agent 不 merge 或宣称 Work Contract / Issue #10 完成。以下本轮结果优先；后面的 2026-10-05 source-only 记录保留为原 RED / 来源 / 未应用提案的历史证据。
+当前状态：`REVIEW_CORRECTION_LOCAL_GREEN / SAME_REVIEW_PENDING`，2026-10-07。同一 [Issue #57](https://github.com/uwougil/Academic-clipper/issues/57) / [PR #62](https://github.com/uwougil/Academic-clipper/pull/62) 的独立审查阻止了旧 head `92f45822…`；本次已纠正其中一个 blocking P2，尚待 SAME reviewer 在新 immutable head 复审、fresh 三平台 CI / Secrets 与 root merge gate。本 agent 不 merge、自动关闭或宣称 Work Contract / Issue #10 完成。以下纠正结果优先；后面的旧实现及 2026-10-05 source-only 记录保留为历史证据。
 
-## 2026-10-07 实现、基线与验证
+## 2026-10-07 独立审查后的 typed math 边界纠正
+
+Accepted base 仍为 `ac86b2fa509653dfeb43b968472ce6280a51de2c`，没有采用任何 pending main、触碰别的 owner 分支或旧 #45 工作区。独立 reviewer 的 `pr62-review-92f.md` 冻结 packet（10309 bytes / SHA-256 `3f62d510f3041d2fd99e486ab0d48b3c737b137a472d3397b53437bcc1184c46`）判定旧 head **BLOCKED：一个 P2**。旧 460 tests / CI `37683666562` / Secrets `37683666726` 全 GREEN 仍不能解除该 finding，也不能覆盖新 head。
+
+Review 的明确 synthetic control `128<i><span class="mathjax-tex">$x$</span></i>0<i>e</i>` 经过 `replaceInlineMath()` 后，I 中只有 marker text，`firstElementChild` 为空。旧新增 extension 误认为这是 pure styled text，将 accepted 两项 scientific TeX `128$x$` / `0e` 合为 `128$x$0e`。最终 `$128$x$0e$` 的所有 guards 虽 PASS，原 x 已丢失数学身份；accepted 原 `$128$x$$0e$` 的旧 nested-math 状态会 FAIL。Candidate I/B 中藏有 marker 也误扩展。这是本 PR 新引入的边界回归，不要求顺便修复旧 nested/adjacent MathJax 机制。
+
+Actual call order 是 `replaceDisplayMath` → `replaceInlineMath` → `replaceScientificRuns`，其中 element 先尝试 `collectStyledRun` 再尝试 `collectTextAndStyledSymbolRun`；literal/citation/crossreference pass 在其后。修复只增加 pure eligibility：没有 element child，且文字不包含**已有** inline/display math record 的 marker，才可使用新增的 multi-node extension。逐个 exact substring 检查包括 mixed text、多个 markers；复用 existing `inlineMathByMarker` 及 `displayMath` records，没有新 marker registry、regex parser 或公开 API。仍返回旧 single-node fallback；既有 collectors、scientificTex、normalizers、validators、source oracle 均不变。
+
+Prepared `SCIENTIFICRUN` 在此 pass 只插入指定 p/li/h1–h6/figcaption 的 direct Text child，而不是 I/B leaf 内。Marker sibling 不满足 extension 的纯 digits predicate；I/B 如含被处理的 descendant parent 仍保留 element child，被既有 wrapper boundary 排除。因此这里没有可达的 typed scientific marker leaf 路径；没有假造 publisher marker DOM 来声称来源覆盖。永久 synthetic earlier-scientific / earlier-inline sibling controls 验证 marker 不能吞入下一 pure run，也不会阻止一个合法的后续 run。
+
+永久矩阵保留原 source 8 / boundary 20，集中增加 27 个明确 synthetic controls：12 个 I/B initial/candidate inline（sole、prefix+suffix、multiple），4 个 typed display，2 个纯多字母 styled text，2 个 earlier typed/scientific sibling，1 个 href citation tail，6 个 initial/candidate 完整 clip（三方言）。Unknown wrapper、code、source whitespace/operators、legacy math、引用身份与真正 tail SUP/SUB 原 controls 全保留。只修改 disposable clones，不把它们称为 Nature 来源。
+
+在 unchanged `92f45822…` production 上最终 RED 是 **55 tests，33 PASS / 22 genuine typed-range FAIL**；12 inline + 4 display + 6 full-clip 各到 range contract assertion。首次 display harness 假定 synthetic paragraph 在 Equ1 后，实际 DOM 在前；只纠正四个 typed-record order expectations，保留 initial log，未改 source/production/validator。最终 RED commit `a67a71791f44c11ec6c1706cec84a53feba7d8cf` 只含 tests。最小 fix commit `079af451654d42bfe17d3e4d593eb2faf5fa6298` 只含 Nature，14 additions / 6 deletions（包含私有参数传递）。
+
+Fix 后 **55/55 focused PASS**，六个 full-clip controls 都保留 accepted 原两个 ranges / inline source TeX / rendered fragment，math guard 继续 FAIL，未产生新的错误接受。Synthetic nested display 的旧 unresolved marker 状态也仍如实暴露；不是本 Issue 声称解决的来源。真实完整 source 仍输出 `$128x0e$ + $64x1x$ + $32x2e$`，三方言 display 1/1、math/structure/crossrefs PASS。原 Equ1、原 no-SUP/SUB/times、有序 style/tokens、indexed distance、真实 powers、五次 citations、68 refs、warnings/resources 保持。`links` 原 Ref2 literal `<` HTML FAIL 和独立 opaque malformed 状态仍保留。
+
+本次没有重新 acquisition / raw96审计。`git diff --quiet 92f45822e65f37048fc5bc74afa252923d975229 -- test/fixtures/nature-styled-adjacency test/nature-styled-adjacency.test.mjs` exit0，全部原 fixture/provenance/recipe/rights/source test bytes 相同；复用 reviewer 自行从 untouched raw / actual A helper重生成的 96 retained-block prehash、payload/structure、repeat/idempotence PASS receipt。Raw `6be13b…` / frozen `606a4d…` 标签继续分列，不修改 B/C 或 input/oracle。
+
+以下都是 **new fixed code** 实际终态；外部日志在 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-styled-adjacency`：
+
+| 命令 | 结果 / 日志 |
+| --- | --- |
+| `node --test test/nature-styled-adjacency.test.mjs test/nature-styled-adjacency-boundaries.test.mjs`，未修 production | exit1，55=33 PASS / 22 RED；`typed-roles-red-92f.final.log` |
+| 同一 focused 命令，fix 后 | exit0，55/55 PASS；`typed-roles-green.log` |
+| 下节完整 9 个既有 Nature suite 命令 | exit0，184/184 PASS；`typed-roles-affected-green.log` |
+| `npm ci` | fresh exit0，committed lockfile / 65 packages；`typed-roles-npm-ci.log`；原 high advisory仍报告，未改依赖 |
+| `npm test` | 唯一 new full session `3630` actual terminal exit0，487/487 PASS、0 skip/todo/cancel、86305.7395 ms；`typed-roles-full-green.log` |
+| `npm run build` | exit0，extension build PASS；`typed-roles-build.log` |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0，committed golden valid=true/display13/全部 guards PASS；`typed-roles-golden.log` |
+| `node --check` 两个 changed modules / `git diff --check` / source/protected paths | PASS；只有授权 Nature implementation、永久 boundary tests 与本交接改变 |
+
+| 日志 | bytes / SHA-256 |
+| --- | --- |
+| `typed-roles-red-92f.initial.log` | 35969 / `5e76a48debece77f3069846b3436faafc33a0269a5a9f3c3ab2e1ae634681ad9` |
+| `typed-roles-red-92f.final.log` | 32580 / `be89a1313c825abe41d18a8d9148eaf515ba34121b865d2bc146f483f5d5acd0` |
+| `typed-roles-green.log` | 13352 / `346ea231ceb874c286fdfb33a945ca8e26020c5d6c5e8de18fde02531fd8a0aa` |
+| `typed-roles-affected-green.log` | 29973 / `043a8b2b063aa0971819817f4e711caf3b342028e1aaa585cc86ec7f4b8bb0e8` |
+| `typed-roles-npm-ci.log` | 234 / `e472a562a339cea6f6db291f5e12155bcd654704bfd63d44ab5b448c2daecb60` |
+| `typed-roles-full-green.log` | 64268 / `617904982e94bb75a2493679749deca0a4c2d8a1d2b636dc1089a16e608c6c19` |
+| `typed-roles-build.log` | 173 / `af348561cf79a969d89071a9d31c9e5ea7034569b66ed654cb642b606a364c72` |
+| `typed-roles-golden.log` | 3018 / `49fe118cfcf91bcbef91e1ec9ffad67f8807589431c6179ffc5cd1a8f8a36498` |
+
+本轮 fixed code 的 src Git tree `5da155e582c0ee59bc544c6d8776716fe9ed1436`、test tree `e2a1a2c7237e81af52586c7a7c5a4ea8310f747b` 在测试开始前冻结，后继只更新此 handoff。用这两个 tree identities与 `git diff --quiet 079af451… -- src test package.json package-lock.json papers .github` 核验最终 doc-only head 的有效测试树；不为文档再跑 full。最终 pushed head / fresh 三平台 CI与Secrets handles记录在同一 PR #62 description，由 `gh pr view 62 --json headRefOid` 重建，不能把旧head GREEN当新head证明。
+
+有序 own commits：`e0425efa412cf72391a9bc04b0c0c1a485fd768f` source → `05be27e158b9e2de35ffc777a04f05326296e951` source handoff → `78d0eb981a5117fd98aaf2355b59e8f50bf6826d` accepted ac86 merge → `7fc1cb20af05014c20b3738719728fa4775fdb05` initial fix → `92f45822e65f37048fc5bc74afa252923d975229` blocked-head handoff → `a67a71791f44c11ec6c1706cec84a53feba7d8cf` typed-role RED tests → `079af451654d42bfe17d3e4d593eb2faf5fa6298` minimal guard → 本 handoff-only commit（精确 SHA 见 PR description / `git log`，避免自引用）。保持独立审查 blocked history，未 amend/rewrite 或另开 delivery PR。
+
+Release：本机 fullslot 已 terminal并交回 root。Merge 仍须 SAME reviewer 对新 immutable exact head 的独立 zero-blocker packet、该 head 的 fresh Ubuntu20/24/Windows24及 Gitleaks SUCCESS 与 root 所有 gate；作者不能 merge。Successful merged Main CI才由 automation完成 #57。C解除 Materials source-equations blocker仍需 accepted fix 后自己在同 truthful input/oracle上复跑；Ref2/citation其他独立行及 Issue #10 整体不因此完成。PRD/EDD/canonical spec无变化，无 proposed spec change。
+
+## 2026-10-07 旧 head 实现、基线与验证（92f 独立审查 BLOCKED）
 
 新的 accepted implementation base：`ac86b2fa509653dfeb43b968472ce6280a51de2c`。Root 明确核验 [Main CI 37681190063](https://github.com/uwougil/Academic-clipper/actions/runs/37681190063) 在 `2026-10-07T20:28:26Z` 成功，Windows Node 24 job `112997400634`、Ubuntu Node 24 `112997400858`、Ubuntu Node 20 `112997401004` 全 SUCCESS；[Secrets 37681189875](https://github.com/uwougil/Academic-clipper/actions/runs/37681189875) / job `112997360655` SUCCESS。Issue #56 automation 在 `20:28:37Z` completed 后，root 明确释放本 #57 的 Nature 生产文件 gate；#60/#61 继续锁。Pending 时本 owner 只做静态读取，没有冻结 pending base、生产写入、重采来源或重复原审计。
 
