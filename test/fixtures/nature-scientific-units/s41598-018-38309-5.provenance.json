@@ -1,0 +1,2053 @@
+{
+  "version": "nature-scientific-units-provenance/1.0.0",
+  "articleId": "s41598-018-38309-5",
+  "url": "https://www.nature.com/articles/s41598-018-38309-5",
+  "title": "Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States",
+  "doi": "10.1038/s41598-018-38309-5",
+  "journal": "Scientific Reports",
+  "observedAt": "2026-10-04T06:56:41.242Z",
+  "captureMode": "guarded-http",
+  "sourceContractSha": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330",
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41598-018-38309-5",
+    "sourceObservedAt": "2026-10-04T06:56:41.242Z",
+    "sourceSha256": "a1a135395d984fcda4548aacd0d6eabe0d41bb22c16cc31f4c8f16f8eaf49d51",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Al-Yaari, A.",
+      "Ducharne, A.",
+      "Cheruy, F.",
+      "Crow, W. T.",
+      "Wigneron, J.-P."
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [],
+    "technicalTransformations": "Recipe-selected excerpts and original ancestors, A sanitizer 1.1.0, deterministic serialization and LF normalization. Advertising, navigation, executable content and unselected source blocks are omitted as recorded in the manifest/handoff. Retained scholarly prose, TeX, captions, authors, citation data and table cells are preserved; image binaries and full live captures are not included.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "article": {
+    "fixturePath": "s41598-018-38309-5.article.excerpt.html",
+    "fixtureBytes": 95395,
+    "fixtureSha256": "807d7374ec6c1add4a26b5a7860e7ca6ae5053a740d7dcde6544ce27899e988a",
+    "rawBytes": 487190,
+    "sourceSha256": "a1a135395d984fcda4548aacd0d6eabe0d41bb22c16cc31f4c8f16f8eaf49d51",
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "recipeSha256": "ac1b073ed13770e880d66a7552e457eae43ce328558f3d659c20724b2c8b18fe",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41598-018-38309-5-units-bug-article-v1",
+      "articleUrl": "https://www.nature.com/articles/s41598-018-38309-5",
+      "blocks": [
+        {
+          "id": "metadata-0",
+          "selector": "meta[name=\"citation_journal_title\"][content=\"Scientific Reports\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "metadata-1",
+          "selector": "meta[name=\"citation_title\"][content=\"Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "metadata-2",
+          "selector": "meta[name=\"citation_online_date\"][content=\"2019/02/07\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "metadata-3",
+          "selector": "meta[name=\"citation_doi\"][content=\"10.1038/s41598-018-38309-5\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "metadata-4",
+          "selector": "meta[name=\"citation_author\"][content=\"Al-Yaari, A.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "metadata-5",
+          "selector": "meta[name=\"citation_author\"][content=\"Ducharne, A.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "metadata-6",
+          "selector": "meta[name=\"citation_author\"][content=\"Cheruy, F.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "metadata-7",
+          "selector": "meta[name=\"citation_author\"][content=\"Crow, W. T.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "metadata-8",
+          "selector": "meta[name=\"citation_author\"][content=\"Wigneron, J.-P.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "article-jsonld",
+          "selector": "script[type=\"application/ld+json\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "article-title",
+          "selector": "h1.c-article-title",
+          "role": "title"
+        },
+        {
+          "id": "methods-heading",
+          "selector": "#Sec7",
+          "role": "heading"
+        },
+        {
+          "id": "smos-unit-paragraph",
+          "selector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d152458983e1213)",
+          "role": "scientific-units"
+        },
+        {
+          "id": "cci-unit-paragraph",
+          "selector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d152458983e1228)",
+          "role": "scientific-units"
+        },
+        {
+          "id": "cmip-unit-paragraph",
+          "selector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d152458983e1302)",
+          "role": "scientific-units"
+        },
+        {
+          "id": "reference-1",
+          "selector": "ol.c-article-references li:has(#ref-CR1)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-2",
+          "selector": "ol.c-article-references li:has(#ref-CR2)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-3",
+          "selector": "ol.c-article-references li:has(#ref-CR3)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-4",
+          "selector": "ol.c-article-references li:has(#ref-CR4)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-5",
+          "selector": "ol.c-article-references li:has(#ref-CR5)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-6",
+          "selector": "ol.c-article-references li:has(#ref-CR6)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-7",
+          "selector": "ol.c-article-references li:has(#ref-CR7)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-8",
+          "selector": "ol.c-article-references li:has(#ref-CR8)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-9",
+          "selector": "ol.c-article-references li:has(#ref-CR9)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-10",
+          "selector": "ol.c-article-references li:has(#ref-CR10)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-11",
+          "selector": "ol.c-article-references li:has(#ref-CR11)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-12",
+          "selector": "ol.c-article-references li:has(#ref-CR12)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-13",
+          "selector": "ol.c-article-references li:has(#ref-CR13)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-14",
+          "selector": "ol.c-article-references li:has(#ref-CR14)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-15",
+          "selector": "ol.c-article-references li:has(#ref-CR15)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-16",
+          "selector": "ol.c-article-references li:has(#ref-CR16)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-17",
+          "selector": "ol.c-article-references li:has(#ref-CR17)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-18",
+          "selector": "ol.c-article-references li:has(#ref-CR18)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-19",
+          "selector": "ol.c-article-references li:has(#ref-CR19)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-20",
+          "selector": "ol.c-article-references li:has(#ref-CR20)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-21",
+          "selector": "ol.c-article-references li:has(#ref-CR21)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-22",
+          "selector": "ol.c-article-references li:has(#ref-CR22)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-23",
+          "selector": "ol.c-article-references li:has(#ref-CR23)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-24",
+          "selector": "ol.c-article-references li:has(#ref-CR24)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-25",
+          "selector": "ol.c-article-references li:has(#ref-CR25)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-26",
+          "selector": "ol.c-article-references li:has(#ref-CR26)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-27",
+          "selector": "ol.c-article-references li:has(#ref-CR27)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-28",
+          "selector": "ol.c-article-references li:has(#ref-CR28)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-29",
+          "selector": "ol.c-article-references li:has(#ref-CR29)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-30",
+          "selector": "ol.c-article-references li:has(#ref-CR30)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-31",
+          "selector": "ol.c-article-references li:has(#ref-CR31)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-32",
+          "selector": "ol.c-article-references li:has(#ref-CR32)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-33",
+          "selector": "ol.c-article-references li:has(#ref-CR33)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-34",
+          "selector": "ol.c-article-references li:has(#ref-CR34)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-35",
+          "selector": "ol.c-article-references li:has(#ref-CR35)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-36",
+          "selector": "ol.c-article-references li:has(#ref-CR36)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-37",
+          "selector": "ol.c-article-references li:has(#ref-CR37)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-38",
+          "selector": "ol.c-article-references li:has(#ref-CR38)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-39",
+          "selector": "ol.c-article-references li:has(#ref-CR39)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-40",
+          "selector": "ol.c-article-references li:has(#ref-CR40)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-41",
+          "selector": "ol.c-article-references li:has(#ref-CR41)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-42",
+          "selector": "ol.c-article-references li:has(#ref-CR42)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-43",
+          "selector": "ol.c-article-references li:has(#ref-CR43)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-44",
+          "selector": "ol.c-article-references li:has(#ref-CR44)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-45",
+          "selector": "ol.c-article-references li:has(#ref-CR45)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-46",
+          "selector": "ol.c-article-references li:has(#ref-CR46)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-47",
+          "selector": "ol.c-article-references li:has(#ref-CR47)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-48",
+          "selector": "ol.c-article-references li:has(#ref-CR48)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-49",
+          "selector": "ol.c-article-references li:has(#ref-CR49)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-50",
+          "selector": "ol.c-article-references li:has(#ref-CR50)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-51",
+          "selector": "ol.c-article-references li:has(#ref-CR51)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-52",
+          "selector": "ol.c-article-references li:has(#ref-CR52)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-53",
+          "selector": "ol.c-article-references li:has(#ref-CR53)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-54",
+          "selector": "ol.c-article-references li:has(#ref-CR54)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-55",
+          "selector": "ol.c-article-references li:has(#ref-CR55)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-56",
+          "selector": "ol.c-article-references li:has(#ref-CR56)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-57",
+          "selector": "ol.c-article-references li:has(#ref-CR57)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-58",
+          "selector": "ol.c-article-references li:has(#ref-CR58)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-59",
+          "selector": "ol.c-article-references li:has(#ref-CR59)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-60",
+          "selector": "ol.c-article-references li:has(#ref-CR60)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-61",
+          "selector": "ol.c-article-references li:has(#ref-CR61)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-62",
+          "selector": "ol.c-article-references li:has(#ref-CR62)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-63",
+          "selector": "ol.c-article-references li:has(#ref-CR63)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-64",
+          "selector": "ol.c-article-references li:has(#ref-CR64)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-65",
+          "selector": "ol.c-article-references li:has(#ref-CR65)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-66",
+          "selector": "ol.c-article-references li:has(#ref-CR66)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-67",
+          "selector": "ol.c-article-references li:has(#ref-CR67)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-68",
+          "selector": "ol.c-article-references li:has(#ref-CR68)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-69",
+          "selector": "ol.c-article-references li:has(#ref-CR69)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-70",
+          "selector": "ol.c-article-references li:has(#ref-CR70)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-71",
+          "selector": "ol.c-article-references li:has(#ref-CR71)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-72",
+          "selector": "ol.c-article-references li:has(#ref-CR72)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "reference-73",
+          "selector": "ol.c-article-references li:has(#ref-CR73)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "article-rights",
+          "selector": "section[data-title=\"Rights and permissions\"] p:has(a[href*=\"creativecommons.org/licenses/\"])",
+          "role": "original-rights-notice"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "retainedBlocks": [
+      {
+        "id": "metadata-0",
+        "selector": "meta[name=\"citation_journal_title\"][content=\"Scientific Reports\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "98690953751af7cff1c083fa0df99a10c67e65b471c141ee2bda9c4ffae15810"
+      },
+      {
+        "id": "metadata-1",
+        "selector": "meta[name=\"citation_title\"][content=\"Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "bf7228cc04939f81663cd753a70efa6b47fbb7b7234e67fb3a34fee76273716e"
+      },
+      {
+        "id": "metadata-2",
+        "selector": "meta[name=\"citation_online_date\"][content=\"2019/02/07\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "69e1dd744dce3c1e6631939e00b528225e96893397fde94cdc0140195aadacb3"
+      },
+      {
+        "id": "metadata-3",
+        "selector": "meta[name=\"citation_doi\"][content=\"10.1038/s41598-018-38309-5\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "96a7057b707b6c5d6c2aef592d8bbba62a2ecd4c492ca99372a2ef4524d47cc3"
+      },
+      {
+        "id": "metadata-4",
+        "selector": "meta[name=\"citation_author\"][content=\"Al-Yaari, A.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "2f9de5a29009642e53a99b6299a5480bd0869cba5d23135251cc997a88ae0670"
+      },
+      {
+        "id": "metadata-5",
+        "selector": "meta[name=\"citation_author\"][content=\"Ducharne, A.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "96238196850ed4b4911e9cee1e332aa9a8c4e8c4a8ebb67deff59fb23fadf381"
+      },
+      {
+        "id": "metadata-6",
+        "selector": "meta[name=\"citation_author\"][content=\"Cheruy, F.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "91a55fb2636df73a6a7965ef3b4b380296ab511af5a01f9dcbea6cee061ad11b"
+      },
+      {
+        "id": "metadata-7",
+        "selector": "meta[name=\"citation_author\"][content=\"Crow, W. T.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "c96ee9a5f716232b343e7043ad9cc35a41974c6aaf0b6c09a6878d08629b596d"
+      },
+      {
+        "id": "metadata-8",
+        "selector": "meta[name=\"citation_author\"][content=\"Wigneron, J.-P.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "986e47601dc0c9a340123fff77df80bf901b5d91605cb70a5aef5453312a9c26"
+      },
+      {
+        "id": "article-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "15b7ca0851a66d943eb0f77371c743d1f79a3f9284aa15169a43ada49aaf8ad9"
+      },
+      {
+        "id": "article-title",
+        "selector": "h1.c-article-title",
+        "role": "title",
+        "sourceSubtreeSha256": "dee29887d3a98765cb87cf1fef3c659e0ea3ae687f6d5005c0e6cbbaa9a6251f"
+      },
+      {
+        "id": "methods-heading",
+        "selector": "#Sec7",
+        "role": "heading",
+        "sourceSubtreeSha256": "958964e6d5c6777099cbc0ed1c36cd043eee08340e218b741bf954bcdef17caf"
+      },
+      {
+        "id": "smos-unit-paragraph",
+        "selector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d152458983e1213)",
+        "role": "scientific-units",
+        "sourceSubtreeSha256": "ef1666f31fc9d5ef91d05932f6f75a271d01f93a2cd60b3ee08a43acefffd60c"
+      },
+      {
+        "id": "cci-unit-paragraph",
+        "selector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d152458983e1228)",
+        "role": "scientific-units",
+        "sourceSubtreeSha256": "4f25e8ac9e1426554014e17329318e7b3fc1c25116f9e1ab0f48e57f3bcb9633"
+      },
+      {
+        "id": "cmip-unit-paragraph",
+        "selector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d152458983e1302)",
+        "role": "scientific-units",
+        "sourceSubtreeSha256": "af263d53c19f9fca7054d08994038c3d287dcebcf705f9ba94e6d86d96b3e186"
+      },
+      {
+        "id": "reference-1",
+        "selector": "ol.c-article-references li:has(#ref-CR1)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "2792962bb1ab2d69c91834dcf6cc83d24e6922e9a5e431519e91b9a1d817d6e1"
+      },
+      {
+        "id": "reference-2",
+        "selector": "ol.c-article-references li:has(#ref-CR2)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "4db72e9b8ebc00e621ff7827b528155247962bdb3cb208a00431255e8f8a1bb6"
+      },
+      {
+        "id": "reference-3",
+        "selector": "ol.c-article-references li:has(#ref-CR3)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "a38de499b8ab34c6766469db6cdd5693604a5734d3d6fd34e3cf6cbe11a36463"
+      },
+      {
+        "id": "reference-4",
+        "selector": "ol.c-article-references li:has(#ref-CR4)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "b66c4ba085a3d530fb5ec6859e663d364d7d047b36c0ab73dab42d6d272aec17"
+      },
+      {
+        "id": "reference-5",
+        "selector": "ol.c-article-references li:has(#ref-CR5)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "b008ad29c344d11755ea7bd7a7269dfaa9d95f053e6940a9578a06923ef684ec"
+      },
+      {
+        "id": "reference-6",
+        "selector": "ol.c-article-references li:has(#ref-CR6)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "1e5574a197727a2ad3e4e6d2434e958afc12e770d35f3f89ea21da87b7426727"
+      },
+      {
+        "id": "reference-7",
+        "selector": "ol.c-article-references li:has(#ref-CR7)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "c7334774126226a6eace319388ab12060e4e7d069d4da62accf2da2d4c5bd548"
+      },
+      {
+        "id": "reference-8",
+        "selector": "ol.c-article-references li:has(#ref-CR8)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "b01cef5ac622a64ca93b8ec69d5f1e8c31397df25f8abeb4bb12fb9e36d2183c"
+      },
+      {
+        "id": "reference-9",
+        "selector": "ol.c-article-references li:has(#ref-CR9)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "fa71e49f30f080aa9f3027ab2602f88cd692e33e5ee8646f2bec10b77529978e"
+      },
+      {
+        "id": "reference-10",
+        "selector": "ol.c-article-references li:has(#ref-CR10)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "ad64553baee5d0486fcb3fbea79c635522f480b433c75e94fa282f1b7e844764"
+      },
+      {
+        "id": "reference-11",
+        "selector": "ol.c-article-references li:has(#ref-CR11)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "199951f29bb56b3c26ed55135831c2a2952d8cca2b43fa77cfe45a3c4693d295"
+      },
+      {
+        "id": "reference-12",
+        "selector": "ol.c-article-references li:has(#ref-CR12)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "c8ad35898950c3cfd09bddbb9e210eed1611a1bec57df5d3aeed5829763e8595"
+      },
+      {
+        "id": "reference-13",
+        "selector": "ol.c-article-references li:has(#ref-CR13)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "cdd03dff9f515ca563d74cdd797010dc59011b16c66e1815f20ef6d31a0a0bca"
+      },
+      {
+        "id": "reference-14",
+        "selector": "ol.c-article-references li:has(#ref-CR14)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "21179d713e1f3ebebed026b8aef9fac7e37c8a9bbc15485780524ead5e67ecaa"
+      },
+      {
+        "id": "reference-15",
+        "selector": "ol.c-article-references li:has(#ref-CR15)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "8cc91f0854801ecff22008d1098cef9604c18c37b0746622b0d363c332a7c067"
+      },
+      {
+        "id": "reference-16",
+        "selector": "ol.c-article-references li:has(#ref-CR16)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "f409a401521ef1fc266c3ae3f178f58ba56abb28940459805f1f913cce2e2660"
+      },
+      {
+        "id": "reference-17",
+        "selector": "ol.c-article-references li:has(#ref-CR17)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "1334e182c52368f072fc4328c31fd733ba40cf35b032d84a8640da5c5646a6ea"
+      },
+      {
+        "id": "reference-18",
+        "selector": "ol.c-article-references li:has(#ref-CR18)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "ad2ae015adc8d8d05f18feb6717604f2e81eca412339081b13976f906bc70449"
+      },
+      {
+        "id": "reference-19",
+        "selector": "ol.c-article-references li:has(#ref-CR19)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "6f0bc7c7dce5f06c28b1be65290c63643513e8cc136a7280ef9b7dd8f8228ceb"
+      },
+      {
+        "id": "reference-20",
+        "selector": "ol.c-article-references li:has(#ref-CR20)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "566bb34b217c9c3d5780580a764ea1667732b46ad2a04cdb752750506e55abde"
+      },
+      {
+        "id": "reference-21",
+        "selector": "ol.c-article-references li:has(#ref-CR21)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "cb92cf2794062892fc9e8c2dfe50d286000b85900d63109241653c3b5c16b27c"
+      },
+      {
+        "id": "reference-22",
+        "selector": "ol.c-article-references li:has(#ref-CR22)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "b563a8334cde18410f1cc78800bf5b6d3f3007fa72d32367aa025e7e7c88dc50"
+      },
+      {
+        "id": "reference-23",
+        "selector": "ol.c-article-references li:has(#ref-CR23)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "9a1a2116c1e335b94f2b5471028556c4713bc6ce689f6d3741a0a91d983eee6f"
+      },
+      {
+        "id": "reference-24",
+        "selector": "ol.c-article-references li:has(#ref-CR24)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "d231cef2cabfc2ba9c74fe23e451b6b80d7646c5d1d51d6f5a5198a6b59bbcf1"
+      },
+      {
+        "id": "reference-25",
+        "selector": "ol.c-article-references li:has(#ref-CR25)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "a403b6743f152c450cd07cca6268c034ba9c1b558da8e9e9ebbd65c03ef64511"
+      },
+      {
+        "id": "reference-26",
+        "selector": "ol.c-article-references li:has(#ref-CR26)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "7e36d44129dc97686fa9e80c7833fd57e0605e65ca1a854b7ed8a9bd2e4e45f7"
+      },
+      {
+        "id": "reference-27",
+        "selector": "ol.c-article-references li:has(#ref-CR27)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "17b3230bb8bf2365862149e1c4a63e234e08208d55e4106a2bdc8f1bf51e4bd6"
+      },
+      {
+        "id": "reference-28",
+        "selector": "ol.c-article-references li:has(#ref-CR28)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "8df593e43b14e44bed7f126756780b36801c6f316c81d49f45ebe3f5fcbf3249"
+      },
+      {
+        "id": "reference-29",
+        "selector": "ol.c-article-references li:has(#ref-CR29)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "3521ddd6332a5d71a10d37d572a0a5d338792e04fe610b9d2c3a38b1fb386d5c"
+      },
+      {
+        "id": "reference-30",
+        "selector": "ol.c-article-references li:has(#ref-CR30)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "6597f774676a45b77dfde5729d815dfd7ea6a8754e4fdaa042a100dc86af0184"
+      },
+      {
+        "id": "reference-31",
+        "selector": "ol.c-article-references li:has(#ref-CR31)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "535d7d5e5dd140458c64a6e15f3d929712a539bb5cd55c460d60dafc2f3af9af"
+      },
+      {
+        "id": "reference-32",
+        "selector": "ol.c-article-references li:has(#ref-CR32)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "c30169498113e3bff12a9bde94eb4965ef4a93f5859a5e302f1ea692af4ef11c"
+      },
+      {
+        "id": "reference-33",
+        "selector": "ol.c-article-references li:has(#ref-CR33)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "76096a9a86ab3dec4a4dfdf6f476f5d699e3ecdeaaeff46ed537050fd291238d"
+      },
+      {
+        "id": "reference-34",
+        "selector": "ol.c-article-references li:has(#ref-CR34)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "e8f7c63b100054de921aa2622f7e8a36032bc3d3c57d33a017bf82e52ea785bf"
+      },
+      {
+        "id": "reference-35",
+        "selector": "ol.c-article-references li:has(#ref-CR35)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "00340203fc94e66a291bed8d7423356920777fff5903dc7a9150682bcac8b620"
+      },
+      {
+        "id": "reference-36",
+        "selector": "ol.c-article-references li:has(#ref-CR36)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "1255c5f0027143989274e7f797bfa067b763b34ea38065ef6c917f2be2573ff6"
+      },
+      {
+        "id": "reference-37",
+        "selector": "ol.c-article-references li:has(#ref-CR37)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "eb2b0b355af014cd0fae6652ed9229178aea94a463ee9dea3ddc978f9a21dfb3"
+      },
+      {
+        "id": "reference-38",
+        "selector": "ol.c-article-references li:has(#ref-CR38)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "507942d395157c88319c55bbdcb8b42f1fbd20ebb537f591e191d5ee03c8d1d1"
+      },
+      {
+        "id": "reference-39",
+        "selector": "ol.c-article-references li:has(#ref-CR39)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "4a5159c1c5353e9a799dd315ebbfa5753d231a89940aa106f57159e8783f68d9"
+      },
+      {
+        "id": "reference-40",
+        "selector": "ol.c-article-references li:has(#ref-CR40)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "33ed4788317adb6d52ab1cb11eac02348368c0cf3f0b55d251e157cf70441857"
+      },
+      {
+        "id": "reference-41",
+        "selector": "ol.c-article-references li:has(#ref-CR41)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "4e772c7d3167d10de7d5e5650c32d0e5b7ea74fec770cdf67c9d09a596b5c14a"
+      },
+      {
+        "id": "reference-42",
+        "selector": "ol.c-article-references li:has(#ref-CR42)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "bcc2af76eddc51c597234cf95e98cf1895dbda30798f81039bcc6b354e88d81b"
+      },
+      {
+        "id": "reference-43",
+        "selector": "ol.c-article-references li:has(#ref-CR43)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "aa920c9237c14084c1dfec00cf3d864db8088b5e99bedf59399315e2e7be0487"
+      },
+      {
+        "id": "reference-44",
+        "selector": "ol.c-article-references li:has(#ref-CR44)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "49048a2202aa16b8d442e02d33f3de5239d2bfc326b01d7d0f45d7d8d2eb574d"
+      },
+      {
+        "id": "reference-45",
+        "selector": "ol.c-article-references li:has(#ref-CR45)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "ee0ee0d6b078c1e76feb39691d25ea8fe09a904d15de3043809c08393df7c21c"
+      },
+      {
+        "id": "reference-46",
+        "selector": "ol.c-article-references li:has(#ref-CR46)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "fd5b19f2bb60df0cbb6b07a8508c8f242ec76f6e8b5c1fbd0f4da3905c92d4f9"
+      },
+      {
+        "id": "reference-47",
+        "selector": "ol.c-article-references li:has(#ref-CR47)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "72903375e02fa44d24d42f7edb5c635586334b778a08199bd03d98751d7ac382"
+      },
+      {
+        "id": "reference-48",
+        "selector": "ol.c-article-references li:has(#ref-CR48)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "39f713615ccbc81389a8d48d98e10c20146724f806653d5474f01f736eadf4a0"
+      },
+      {
+        "id": "reference-49",
+        "selector": "ol.c-article-references li:has(#ref-CR49)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "b3d0da7f9f89224692cc783ca5a4bba2986a8cfc7a4ef769cd2a8d4c22e471ed"
+      },
+      {
+        "id": "reference-50",
+        "selector": "ol.c-article-references li:has(#ref-CR50)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "a9a9101c48c3f58f510ede15611c0f609b1b01a769790999e6456f6aba684c90"
+      },
+      {
+        "id": "reference-51",
+        "selector": "ol.c-article-references li:has(#ref-CR51)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "dbcaa8cc2c80e41d703884ac979a5b3e4560661b593019b7d95ed40c10e48f98"
+      },
+      {
+        "id": "reference-52",
+        "selector": "ol.c-article-references li:has(#ref-CR52)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "936ae54e00f888a0ae10953b61450e42edff794e420b06be8b4fc5b2f343155e"
+      },
+      {
+        "id": "reference-53",
+        "selector": "ol.c-article-references li:has(#ref-CR53)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "52f59f454fcfb1dde5c8ea06d903aac2330cdb5099baecf0718f432da651624e"
+      },
+      {
+        "id": "reference-54",
+        "selector": "ol.c-article-references li:has(#ref-CR54)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "7d18ffa181006812f91bb62ac9debd51c2acfd614a0cffe39654983b4b8eb22c"
+      },
+      {
+        "id": "reference-55",
+        "selector": "ol.c-article-references li:has(#ref-CR55)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "a3f5577d1c235ea7242f11ed12774a928087ecdeac6c4a4d4a139cda58c15947"
+      },
+      {
+        "id": "reference-56",
+        "selector": "ol.c-article-references li:has(#ref-CR56)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "b17576ee50629b3afbc0927ced117c92ac5de1cb2153b8253252033f4a13b941"
+      },
+      {
+        "id": "reference-57",
+        "selector": "ol.c-article-references li:has(#ref-CR57)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "e4620d5ac25e66e78d55469b47137079f250e3e74256de64a34fe578c404dd84"
+      },
+      {
+        "id": "reference-58",
+        "selector": "ol.c-article-references li:has(#ref-CR58)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "5cdf7316668358bb8b89c9a802cf7c26f66e9df27d17ca1e74815a6d08b9d32e"
+      },
+      {
+        "id": "reference-59",
+        "selector": "ol.c-article-references li:has(#ref-CR59)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "bfa810c9ff373587601bcb7297d53eae2adaa3f5098533d8765b782ae51669cc"
+      },
+      {
+        "id": "reference-60",
+        "selector": "ol.c-article-references li:has(#ref-CR60)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "bb32831a0e5eeee8524ccbeb1407287c96f75e9afcac68405835535cbc381869"
+      },
+      {
+        "id": "reference-61",
+        "selector": "ol.c-article-references li:has(#ref-CR61)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "d359f8ed032665767c6b6f51ed0981cea8c55d5ba70bae645e63fd2b932826d4"
+      },
+      {
+        "id": "reference-62",
+        "selector": "ol.c-article-references li:has(#ref-CR62)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "063f3fb27c15910df0deffa33e5a779f9998436bb8b526efd0a0a468922e5890"
+      },
+      {
+        "id": "reference-63",
+        "selector": "ol.c-article-references li:has(#ref-CR63)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "528e5678cb1973e335f25660a3b82e105bd8df7af7eb12a70468905a18ee88d9"
+      },
+      {
+        "id": "reference-64",
+        "selector": "ol.c-article-references li:has(#ref-CR64)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "173c8dfc159bf79de3a9fbe5f38779c28ebc963fae08ad912a7bd4b6337e7a0a"
+      },
+      {
+        "id": "reference-65",
+        "selector": "ol.c-article-references li:has(#ref-CR65)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "9273e80c5f760195f987d1b230b73b81a0bbee1a84072f15624eb9b4cd0ea59f"
+      },
+      {
+        "id": "reference-66",
+        "selector": "ol.c-article-references li:has(#ref-CR66)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "9596dcaad55a922e458dd3230ba5da3e5c8e0cc5729070afbf8e8bc99e4fdd5d"
+      },
+      {
+        "id": "reference-67",
+        "selector": "ol.c-article-references li:has(#ref-CR67)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "a3f1b9331da2a0eb699f7f6053034ddbd99e01dc5d2f19d6840019ed4d00ce29"
+      },
+      {
+        "id": "reference-68",
+        "selector": "ol.c-article-references li:has(#ref-CR68)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "bc5093d840c47003354bd042fbc1d3e3d0dc3ef113a2e813f9bdc29940cc336f"
+      },
+      {
+        "id": "reference-69",
+        "selector": "ol.c-article-references li:has(#ref-CR69)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "4b8eec7fefc4e3353476b8b6da92966216cdc82210fd66c26027d7b02a2d62a0"
+      },
+      {
+        "id": "reference-70",
+        "selector": "ol.c-article-references li:has(#ref-CR70)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "ebb3f0fffde8c7bbace7e06151ef34bc04a0e341aa2e90c7e4a85b216f7f1b3d"
+      },
+      {
+        "id": "reference-71",
+        "selector": "ol.c-article-references li:has(#ref-CR71)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "5f77ca5620c07c14ea7c210912d2c0dd0f3163342be255dc099f656df3ae98f0"
+      },
+      {
+        "id": "reference-72",
+        "selector": "ol.c-article-references li:has(#ref-CR72)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "15e903245b45ca0d9cb4997f47cf05947996a3e6df1bb563682476f58d9e841b"
+      },
+      {
+        "id": "reference-73",
+        "selector": "ol.c-article-references li:has(#ref-CR73)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "00be57b3cf8a901dd51ecc8e09819767e8c490b7016f7e9c92047c5a13961384"
+      },
+      {
+        "id": "article-rights",
+        "selector": "section[data-title=\"Rights and permissions\"] p:has(a[href*=\"creativecommons.org/licenses/\"])",
+        "role": "original-rights-notice",
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69"
+      }
+    ],
+    "sourcePositions": [
+      {
+        "id": "metadata-0",
+        "selector": "meta[name=\"citation_journal_title\"][content=\"Scientific Reports\"]",
+        "sourceId": null,
+        "sourceTag": "META",
+        "sectionTitle": null,
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 65,
+        "sourceSubtreeSha256": "98690953751af7cff1c083fa0df99a10c67e65b471c141ee2bda9c4ffae15810"
+      },
+      {
+        "id": "metadata-1",
+        "selector": "meta[name=\"citation_title\"][content=\"Satellite-based soil moisture provides missing link between summertime precipitation and surface temperature biases in CMIP5 simulations over conterminous United States\"]",
+        "sourceId": null,
+        "sourceTag": "META",
+        "sectionTitle": null,
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 207,
+        "sourceSubtreeSha256": "bf7228cc04939f81663cd753a70efa6b47fbb7b7234e67fb3a34fee76273716e"
+      },
+      {
+        "id": "metadata-2",
+        "selector": "meta[name=\"citation_online_date\"][content=\"2019/02/07\"]",
+        "sourceId": null,
+        "sourceTag": "META",
+        "sectionTitle": null,
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 55,
+        "sourceSubtreeSha256": "69e1dd744dce3c1e6631939e00b528225e96893397fde94cdc0140195aadacb3"
+      },
+      {
+        "id": "metadata-3",
+        "selector": "meta[name=\"citation_doi\"][content=\"10.1038/s41598-018-38309-5\"]",
+        "sourceId": null,
+        "sourceTag": "META",
+        "sectionTitle": null,
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 63,
+        "sourceSubtreeSha256": "96a7057b707b6c5d6c2aef592d8bbba62a2ecd4c492ca99372a2ef4524d47cc3"
+      },
+      {
+        "id": "metadata-4",
+        "selector": "meta[name=\"citation_author\"][content=\"Al-Yaari, A.\"]",
+        "sourceId": null,
+        "sourceTag": "META",
+        "sectionTitle": null,
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 52,
+        "sourceSubtreeSha256": "2f9de5a29009642e53a99b6299a5480bd0869cba5d23135251cc997a88ae0670"
+      },
+      {
+        "id": "metadata-5",
+        "selector": "meta[name=\"citation_author\"][content=\"Ducharne, A.\"]",
+        "sourceId": null,
+        "sourceTag": "META",
+        "sectionTitle": null,
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 52,
+        "sourceSubtreeSha256": "96238196850ed4b4911e9cee1e332aa9a8c4e8c4a8ebb67deff59fb23fadf381"
+      },
+      {
+        "id": "metadata-6",
+        "selector": "meta[name=\"citation_author\"][content=\"Cheruy, F.\"]",
+        "sourceId": null,
+        "sourceTag": "META",
+        "sectionTitle": null,
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 50,
+        "sourceSubtreeSha256": "91a55fb2636df73a6a7965ef3b4b380296ab511af5a01f9dcbea6cee061ad11b"
+      },
+      {
+        "id": "metadata-7",
+        "selector": "meta[name=\"citation_author\"][content=\"Crow, W. T.\"]",
+        "sourceId": null,
+        "sourceTag": "META",
+        "sectionTitle": null,
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 51,
+        "sourceSubtreeSha256": "c96ee9a5f716232b343e7043ad9cc35a41974c6aaf0b6c09a6878d08629b596d"
+      },
+      {
+        "id": "metadata-8",
+        "selector": "meta[name=\"citation_author\"][content=\"Wigneron, J.-P.\"]",
+        "sourceId": null,
+        "sourceTag": "META",
+        "sectionTitle": null,
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 55,
+        "sourceSubtreeSha256": "986e47601dc0c9a340123fff77df80bf901b5d91605cb70a5aef5453312a9c26"
+      },
+      {
+        "id": "article-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "sourceId": null,
+        "sourceTag": "SCRIPT",
+        "sectionTitle": null,
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 4252,
+        "sourceSubtreeSha256": "15b7ca0851a66d943eb0f77371c743d1f79a3f9284aa15169a43ada49aaf8ad9"
+      },
+      {
+        "id": "article-title",
+        "selector": "h1.c-article-title",
+        "sourceId": null,
+        "sourceTag": "H1",
+        "sectionTitle": null,
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 249,
+        "sourceSubtreeSha256": "dee29887d3a98765cb87cf1fef3c659e0ea3ae687f6d5005c0e6cbbaa9a6251f"
+      },
+      {
+        "id": "methods-heading",
+        "selector": "#Sec7",
+        "sourceId": "Sec7",
+        "sourceTag": "H2",
+        "sectionTitle": "Methods",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 113,
+        "sourceSubtreeSha256": "958964e6d5c6777099cbc0ed1c36cd043eee08340e218b741bf954bcdef17caf"
+      },
+      {
+        "id": "smos-unit-paragraph",
+        "selector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d152458983e1213)",
+        "sourceId": null,
+        "sourceTag": "P",
+        "sectionTitle": "Methods",
+        "sourceParagraphIndex": 8,
+        "sourceSerializedBytes": 2724,
+        "sourceSubtreeSha256": "ef1666f31fc9d5ef91d05932f6f75a271d01f93a2cd60b3ee08a43acefffd60c"
+      },
+      {
+        "id": "cci-unit-paragraph",
+        "selector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d152458983e1228)",
+        "sourceId": null,
+        "sourceTag": "P",
+        "sectionTitle": "Methods",
+        "sourceParagraphIndex": 9,
+        "sourceSerializedBytes": 2715,
+        "sourceSubtreeSha256": "4f25e8ac9e1426554014e17329318e7b3fc1c25116f9e1ab0f48e57f3bcb9633"
+      },
+      {
+        "id": "cmip-unit-paragraph",
+        "selector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d152458983e1302)",
+        "sourceId": null,
+        "sourceTag": "P",
+        "sectionTitle": "Methods",
+        "sourceParagraphIndex": 12,
+        "sourceSerializedBytes": 3840,
+        "sourceSubtreeSha256": "af263d53c19f9fca7054d08994038c3d287dcebcf705f9ba94e6d86d96b3e186"
+      },
+      {
+        "id": "reference-1",
+        "selector": "ol.c-article-references li:has(#ref-CR1)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1438,
+        "sourceSubtreeSha256": "2792962bb1ab2d69c91834dcf6cc83d24e6922e9a5e431519e91b9a1d817d6e1"
+      },
+      {
+        "id": "reference-2",
+        "selector": "ol.c-article-references li:has(#ref-CR2)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1979,
+        "sourceSubtreeSha256": "4db72e9b8ebc00e621ff7827b528155247962bdb3cb208a00431255e8f8a1bb6"
+      },
+      {
+        "id": "reference-3",
+        "selector": "ol.c-article-references li:has(#ref-CR3)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1964,
+        "sourceSubtreeSha256": "a38de499b8ab34c6766469db6cdd5693604a5734d3d6fd34e3cf6cbe11a36463"
+      },
+      {
+        "id": "reference-4",
+        "selector": "ol.c-article-references li:has(#ref-CR4)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 466,
+        "sourceSubtreeSha256": "b66c4ba085a3d530fb5ec6859e663d364d7d047b36c0ab73dab42d6d272aec17"
+      },
+      {
+        "id": "reference-5",
+        "selector": "ol.c-article-references li:has(#ref-CR5)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 316,
+        "sourceSubtreeSha256": "b008ad29c344d11755ea7bd7a7269dfaa9d95f053e6940a9578a06923ef684ec"
+      },
+      {
+        "id": "reference-6",
+        "selector": "ol.c-article-references li:has(#ref-CR6)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2195,
+        "sourceSubtreeSha256": "1e5574a197727a2ad3e4e6d2434e958afc12e770d35f3f89ea21da87b7426727"
+      },
+      {
+        "id": "reference-7",
+        "selector": "ol.c-article-references li:has(#ref-CR7)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1982,
+        "sourceSubtreeSha256": "c7334774126226a6eace319388ab12060e4e7d069d4da62accf2da2d4c5bd548"
+      },
+      {
+        "id": "reference-8",
+        "selector": "ol.c-article-references li:has(#ref-CR8)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2873,
+        "sourceSubtreeSha256": "b01cef5ac622a64ca93b8ec69d5f1e8c31397df25f8abeb4bb12fb9e36d2183c"
+      },
+      {
+        "id": "reference-9",
+        "selector": "ol.c-article-references li:has(#ref-CR9)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 901,
+        "sourceSubtreeSha256": "fa71e49f30f080aa9f3027ab2602f88cd692e33e5ee8646f2bec10b77529978e"
+      },
+      {
+        "id": "reference-10",
+        "selector": "ol.c-article-references li:has(#ref-CR10)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2431,
+        "sourceSubtreeSha256": "ad64553baee5d0486fcb3fbea79c635522f480b433c75e94fa282f1b7e844764"
+      },
+      {
+        "id": "reference-11",
+        "selector": "ol.c-article-references li:has(#ref-CR11)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1567,
+        "sourceSubtreeSha256": "199951f29bb56b3c26ed55135831c2a2952d8cca2b43fa77cfe45a3c4693d295"
+      },
+      {
+        "id": "reference-12",
+        "selector": "ol.c-article-references li:has(#ref-CR12)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1961,
+        "sourceSubtreeSha256": "c8ad35898950c3cfd09bddbb9e210eed1611a1bec57df5d3aeed5829763e8595"
+      },
+      {
+        "id": "reference-13",
+        "selector": "ol.c-article-references li:has(#ref-CR13)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1557,
+        "sourceSubtreeSha256": "cdd03dff9f515ca563d74cdd797010dc59011b16c66e1815f20ef6d31a0a0bca"
+      },
+      {
+        "id": "reference-14",
+        "selector": "ol.c-article-references li:has(#ref-CR14)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2870,
+        "sourceSubtreeSha256": "21179d713e1f3ebebed026b8aef9fac7e37c8a9bbc15485780524ead5e67ecaa"
+      },
+      {
+        "id": "reference-15",
+        "selector": "ol.c-article-references li:has(#ref-CR15)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 595,
+        "sourceSubtreeSha256": "8cc91f0854801ecff22008d1098cef9604c18c37b0746622b0d363c332a7c067"
+      },
+      {
+        "id": "reference-16",
+        "selector": "ol.c-article-references li:has(#ref-CR16)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1958,
+        "sourceSubtreeSha256": "f409a401521ef1fc266c3ae3f178f58ba56abb28940459805f1f913cce2e2660"
+      },
+      {
+        "id": "reference-17",
+        "selector": "ol.c-article-references li:has(#ref-CR17)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2072,
+        "sourceSubtreeSha256": "1334e182c52368f072fc4328c31fd733ba40cf35b032d84a8640da5c5646a6ea"
+      },
+      {
+        "id": "reference-18",
+        "selector": "ol.c-article-references li:has(#ref-CR18)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2104,
+        "sourceSubtreeSha256": "ad2ae015adc8d8d05f18feb6717604f2e81eca412339081b13976f906bc70449"
+      },
+      {
+        "id": "reference-19",
+        "selector": "ol.c-article-references li:has(#ref-CR19)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2276,
+        "sourceSubtreeSha256": "6f0bc7c7dce5f06c28b1be65290c63643513e8cc136a7280ef9b7dd8f8228ceb"
+      },
+      {
+        "id": "reference-20",
+        "selector": "ol.c-article-references li:has(#ref-CR20)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1506,
+        "sourceSubtreeSha256": "566bb34b217c9c3d5780580a764ea1667732b46ad2a04cdb752750506e55abde"
+      },
+      {
+        "id": "reference-21",
+        "selector": "ol.c-article-references li:has(#ref-CR21)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2487,
+        "sourceSubtreeSha256": "cb92cf2794062892fc9e8c2dfe50d286000b85900d63109241653c3b5c16b27c"
+      },
+      {
+        "id": "reference-22",
+        "selector": "ol.c-article-references li:has(#ref-CR22)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2026,
+        "sourceSubtreeSha256": "b563a8334cde18410f1cc78800bf5b6d3f3007fa72d32367aa025e7e7c88dc50"
+      },
+      {
+        "id": "reference-23",
+        "selector": "ol.c-article-references li:has(#ref-CR23)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2133,
+        "sourceSubtreeSha256": "9a1a2116c1e335b94f2b5471028556c4713bc6ce689f6d3741a0a91d983eee6f"
+      },
+      {
+        "id": "reference-24",
+        "selector": "ol.c-article-references li:has(#ref-CR24)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2051,
+        "sourceSubtreeSha256": "d231cef2cabfc2ba9c74fe23e451b6b80d7646c5d1d51d6f5a5198a6b59bbcf1"
+      },
+      {
+        "id": "reference-25",
+        "selector": "ol.c-article-references li:has(#ref-CR25)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 609,
+        "sourceSubtreeSha256": "a403b6743f152c450cd07cca6268c034ba9c1b558da8e9e9ebbd65c03ef64511"
+      },
+      {
+        "id": "reference-26",
+        "selector": "ol.c-article-references li:has(#ref-CR26)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1940,
+        "sourceSubtreeSha256": "7e36d44129dc97686fa9e80c7833fd57e0605e65ca1a854b7ed8a9bd2e4e45f7"
+      },
+      {
+        "id": "reference-27",
+        "selector": "ol.c-article-references li:has(#ref-CR27)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2304,
+        "sourceSubtreeSha256": "17b3230bb8bf2365862149e1c4a63e234e08208d55e4106a2bdc8f1bf51e4bd6"
+      },
+      {
+        "id": "reference-28",
+        "selector": "ol.c-article-references li:has(#ref-CR28)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2045,
+        "sourceSubtreeSha256": "8df593e43b14e44bed7f126756780b36801c6f316c81d49f45ebe3f5fcbf3249"
+      },
+      {
+        "id": "reference-29",
+        "selector": "ol.c-article-references li:has(#ref-CR29)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1009,
+        "sourceSubtreeSha256": "3521ddd6332a5d71a10d37d572a0a5d338792e04fe610b9d2c3a38b1fb386d5c"
+      },
+      {
+        "id": "reference-30",
+        "selector": "ol.c-article-references li:has(#ref-CR30)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 617,
+        "sourceSubtreeSha256": "6597f774676a45b77dfde5729d815dfd7ea6a8754e4fdaa042a100dc86af0184"
+      },
+      {
+        "id": "reference-31",
+        "selector": "ol.c-article-references li:has(#ref-CR31)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 934,
+        "sourceSubtreeSha256": "535d7d5e5dd140458c64a6e15f3d929712a539bb5cd55c460d60dafc2f3af9af"
+      },
+      {
+        "id": "reference-32",
+        "selector": "ol.c-article-references li:has(#ref-CR32)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2082,
+        "sourceSubtreeSha256": "c30169498113e3bff12a9bde94eb4965ef4a93f5859a5e302f1ea692af4ef11c"
+      },
+      {
+        "id": "reference-33",
+        "selector": "ol.c-article-references li:has(#ref-CR33)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 608,
+        "sourceSubtreeSha256": "76096a9a86ab3dec4a4dfdf6f476f5d699e3ecdeaaeff46ed537050fd291238d"
+      },
+      {
+        "id": "reference-34",
+        "selector": "ol.c-article-references li:has(#ref-CR34)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 427,
+        "sourceSubtreeSha256": "e8f7c63b100054de921aa2622f7e8a36032bc3d3c57d33a017bf82e52ea785bf"
+      },
+      {
+        "id": "reference-35",
+        "selector": "ol.c-article-references li:has(#ref-CR35)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 905,
+        "sourceSubtreeSha256": "00340203fc94e66a291bed8d7423356920777fff5903dc7a9150682bcac8b620"
+      },
+      {
+        "id": "reference-36",
+        "selector": "ol.c-article-references li:has(#ref-CR36)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1949,
+        "sourceSubtreeSha256": "1255c5f0027143989274e7f797bfa067b763b34ea38065ef6c917f2be2573ff6"
+      },
+      {
+        "id": "reference-37",
+        "selector": "ol.c-article-references li:has(#ref-CR37)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1935,
+        "sourceSubtreeSha256": "eb2b0b355af014cd0fae6652ed9229178aea94a463ee9dea3ddc978f9a21dfb3"
+      },
+      {
+        "id": "reference-38",
+        "selector": "ol.c-article-references li:has(#ref-CR38)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 657,
+        "sourceSubtreeSha256": "507942d395157c88319c55bbdcb8b42f1fbd20ebb537f591e191d5ee03c8d1d1"
+      },
+      {
+        "id": "reference-39",
+        "selector": "ol.c-article-references li:has(#ref-CR39)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2073,
+        "sourceSubtreeSha256": "4a5159c1c5353e9a799dd315ebbfa5753d231a89940aa106f57159e8783f68d9"
+      },
+      {
+        "id": "reference-40",
+        "selector": "ol.c-article-references li:has(#ref-CR40)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1809,
+        "sourceSubtreeSha256": "33ed4788317adb6d52ab1cb11eac02348368c0cf3f0b55d251e157cf70441857"
+      },
+      {
+        "id": "reference-41",
+        "selector": "ol.c-article-references li:has(#ref-CR41)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2129,
+        "sourceSubtreeSha256": "4e772c7d3167d10de7d5e5650c32d0e5b7ea74fec770cdf67c9d09a596b5c14a"
+      },
+      {
+        "id": "reference-42",
+        "selector": "ol.c-article-references li:has(#ref-CR42)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2282,
+        "sourceSubtreeSha256": "bcc2af76eddc51c597234cf95e98cf1895dbda30798f81039bcc6b354e88d81b"
+      },
+      {
+        "id": "reference-43",
+        "selector": "ol.c-article-references li:has(#ref-CR43)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 714,
+        "sourceSubtreeSha256": "aa920c9237c14084c1dfec00cf3d864db8088b5e99bedf59399315e2e7be0487"
+      },
+      {
+        "id": "reference-44",
+        "selector": "ol.c-article-references li:has(#ref-CR44)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2016,
+        "sourceSubtreeSha256": "49048a2202aa16b8d442e02d33f3de5239d2bfc326b01d7d0f45d7d8d2eb574d"
+      },
+      {
+        "id": "reference-45",
+        "selector": "ol.c-article-references li:has(#ref-CR45)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1563,
+        "sourceSubtreeSha256": "ee0ee0d6b078c1e76feb39691d25ea8fe09a904d15de3043809c08393df7c21c"
+      },
+      {
+        "id": "reference-46",
+        "selector": "ol.c-article-references li:has(#ref-CR46)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2524,
+        "sourceSubtreeSha256": "fd5b19f2bb60df0cbb6b07a8508c8f242ec76f6e8b5c1fbd0f4da3905c92d4f9"
+      },
+      {
+        "id": "reference-47",
+        "selector": "ol.c-article-references li:has(#ref-CR47)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2041,
+        "sourceSubtreeSha256": "72903375e02fa44d24d42f7edb5c635586334b778a08199bd03d98751d7ac382"
+      },
+      {
+        "id": "reference-48",
+        "selector": "ol.c-article-references li:has(#ref-CR48)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1988,
+        "sourceSubtreeSha256": "39f713615ccbc81389a8d48d98e10c20146724f806653d5474f01f736eadf4a0"
+      },
+      {
+        "id": "reference-49",
+        "selector": "ol.c-article-references li:has(#ref-CR49)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2124,
+        "sourceSubtreeSha256": "b3d0da7f9f89224692cc783ca5a4bba2986a8cfc7a4ef769cd2a8d4c22e471ed"
+      },
+      {
+        "id": "reference-50",
+        "selector": "ol.c-article-references li:has(#ref-CR50)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 908,
+        "sourceSubtreeSha256": "a9a9101c48c3f58f510ede15611c0f609b1b01a769790999e6456f6aba684c90"
+      },
+      {
+        "id": "reference-51",
+        "selector": "ol.c-article-references li:has(#ref-CR51)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1640,
+        "sourceSubtreeSha256": "dbcaa8cc2c80e41d703884ac979a5b3e4560661b593019b7d95ed40c10e48f98"
+      },
+      {
+        "id": "reference-52",
+        "selector": "ol.c-article-references li:has(#ref-CR52)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2043,
+        "sourceSubtreeSha256": "936ae54e00f888a0ae10953b61450e42edff794e420b06be8b4fc5b2f343155e"
+      },
+      {
+        "id": "reference-53",
+        "selector": "ol.c-article-references li:has(#ref-CR53)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1945,
+        "sourceSubtreeSha256": "52f59f454fcfb1dde5c8ea06d903aac2330cdb5099baecf0718f432da651624e"
+      },
+      {
+        "id": "reference-54",
+        "selector": "ol.c-article-references li:has(#ref-CR54)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1974,
+        "sourceSubtreeSha256": "7d18ffa181006812f91bb62ac9debd51c2acfd614a0cffe39654983b4b8eb22c"
+      },
+      {
+        "id": "reference-55",
+        "selector": "ol.c-article-references li:has(#ref-CR55)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2139,
+        "sourceSubtreeSha256": "a3f5577d1c235ea7242f11ed12774a928087ecdeac6c4a4d4a139cda58c15947"
+      },
+      {
+        "id": "reference-56",
+        "selector": "ol.c-article-references li:has(#ref-CR56)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1921,
+        "sourceSubtreeSha256": "b17576ee50629b3afbc0927ced117c92ac5de1cb2153b8253252033f4a13b941"
+      },
+      {
+        "id": "reference-57",
+        "selector": "ol.c-article-references li:has(#ref-CR57)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1981,
+        "sourceSubtreeSha256": "e4620d5ac25e66e78d55469b47137079f250e3e74256de64a34fe578c404dd84"
+      },
+      {
+        "id": "reference-58",
+        "selector": "ol.c-article-references li:has(#ref-CR58)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2075,
+        "sourceSubtreeSha256": "5cdf7316668358bb8b89c9a802cf7c26f66e9df27d17ca1e74815a6d08b9d32e"
+      },
+      {
+        "id": "reference-59",
+        "selector": "ol.c-article-references li:has(#ref-CR59)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2016,
+        "sourceSubtreeSha256": "bfa810c9ff373587601bcb7297d53eae2adaa3f5098533d8765b782ae51669cc"
+      },
+      {
+        "id": "reference-60",
+        "selector": "ol.c-article-references li:has(#ref-CR60)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 361,
+        "sourceSubtreeSha256": "bb32831a0e5eeee8524ccbeb1407287c96f75e9afcac68405835535cbc381869"
+      },
+      {
+        "id": "reference-61",
+        "selector": "ol.c-article-references li:has(#ref-CR61)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 415,
+        "sourceSubtreeSha256": "d359f8ed032665767c6b6f51ed0981cea8c55d5ba70bae645e63fd2b932826d4"
+      },
+      {
+        "id": "reference-62",
+        "selector": "ol.c-article-references li:has(#ref-CR62)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2161,
+        "sourceSubtreeSha256": "063f3fb27c15910df0deffa33e5a779f9998436bb8b526efd0a0a468922e5890"
+      },
+      {
+        "id": "reference-63",
+        "selector": "ol.c-article-references li:has(#ref-CR63)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1995,
+        "sourceSubtreeSha256": "528e5678cb1973e335f25660a3b82e105bd8df7af7eb12a70468905a18ee88d9"
+      },
+      {
+        "id": "reference-64",
+        "selector": "ol.c-article-references li:has(#ref-CR64)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 538,
+        "sourceSubtreeSha256": "173c8dfc159bf79de3a9fbe5f38779c28ebc963fae08ad912a7bd4b6337e7a0a"
+      },
+      {
+        "id": "reference-65",
+        "selector": "ol.c-article-references li:has(#ref-CR65)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1980,
+        "sourceSubtreeSha256": "9273e80c5f760195f987d1b230b73b81a0bbee1a84072f15624eb9b4cd0ea59f"
+      },
+      {
+        "id": "reference-66",
+        "selector": "ol.c-article-references li:has(#ref-CR66)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 406,
+        "sourceSubtreeSha256": "9596dcaad55a922e458dd3230ba5da3e5c8e0cc5729070afbf8e8bc99e4fdd5d"
+      },
+      {
+        "id": "reference-67",
+        "selector": "ol.c-article-references li:has(#ref-CR67)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1947,
+        "sourceSubtreeSha256": "a3f1b9331da2a0eb699f7f6053034ddbd99e01dc5d2f19d6840019ed4d00ce29"
+      },
+      {
+        "id": "reference-68",
+        "selector": "ol.c-article-references li:has(#ref-CR68)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2137,
+        "sourceSubtreeSha256": "bc5093d840c47003354bd042fbc1d3e3d0dc3ef113a2e813f9bdc29940cc336f"
+      },
+      {
+        "id": "reference-69",
+        "selector": "ol.c-article-references li:has(#ref-CR69)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 342,
+        "sourceSubtreeSha256": "4b8eec7fefc4e3353476b8b6da92966216cdc82210fd66c26027d7b02a2d62a0"
+      },
+      {
+        "id": "reference-70",
+        "selector": "ol.c-article-references li:has(#ref-CR70)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1586,
+        "sourceSubtreeSha256": "ebb3f0fffde8c7bbace7e06151ef34bc04a0e341aa2e90c7e4a85b216f7f1b3d"
+      },
+      {
+        "id": "reference-71",
+        "selector": "ol.c-article-references li:has(#ref-CR71)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 1849,
+        "sourceSubtreeSha256": "5f77ca5620c07c14ea7c210912d2c0dd0f3163342be255dc099f656df3ae98f0"
+      },
+      {
+        "id": "reference-72",
+        "selector": "ol.c-article-references li:has(#ref-CR72)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 2041,
+        "sourceSubtreeSha256": "15e903245b45ca0d9cb4997f47cf05947996a3e6df1bb563682476f58d9e841b"
+      },
+      {
+        "id": "reference-73",
+        "selector": "ol.c-article-references li:has(#ref-CR73)",
+        "sourceId": null,
+        "sourceTag": "LI",
+        "sectionTitle": "References",
+        "sourceParagraphIndex": null,
+        "sourceSerializedBytes": 644,
+        "sourceSubtreeSha256": "00be57b3cf8a901dd51ecc8e09819767e8c490b7016f7e9c92047c5a13961384"
+      },
+      {
+        "id": "article-rights",
+        "selector": "section[data-title=\"Rights and permissions\"] p:has(a[href*=\"creativecommons.org/licenses/\"])",
+        "sourceId": null,
+        "sourceTag": "P",
+        "sectionTitle": "Rights and permissions",
+        "sourceParagraphIndex": 0,
+        "sourceSerializedBytes": 941,
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 89
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "trim-json-ld-to-article-object",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 1235
+      },
+      {
+        "operation": "sanitize-resource-urls",
+        "count": 53
+      }
+    ],
+    "retainedProjection": {
+      "projectionVersion": "nature-corpus-projection/1.0.0",
+      "serializerVersion": "nature-corpus-subtree/1.0.0",
+      "recipeSha256": "ac1b073ed13770e880d66a7552e457eae43ce328558f3d659c20724b2c8b18fe",
+      "structureSha256": "84fe99a5da248a136f65b06bee2c41f34194e541dbd68d421731f60a18725954",
+      "payloadSha256": "3bd082925d28aa9f9e6bc66c26cc9fccaba8a2ed9397355c4e380be09a1bc162"
+    },
+    "repeatedBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "omittedContent": [
+    "Unselected body paragraphs/figures/equations and unrelated page UI",
+    "Affiliations and author-information sections",
+    "Image/binary resources and complete raw captures"
+  ],
+  "reproduction": "Regenerate each resource with the existing A sanitizeNatureHtml helper and its recorded recipe from the verified untouched external raw body; repeated and idempotent bytes must match. No live acquisition is needed.",
+  "sourceUnitPowers": [
+    {
+      "blockId": "smos-unit-paragraph",
+      "sourceParagraphIndex": 8,
+      "pairs": [
+        [
+          "m",
+          "3"
+        ],
+        [
+          "m",
+          "3"
+        ]
+      ]
+    },
+    {
+      "blockId": "cci-unit-paragraph",
+      "sourceParagraphIndex": 9,
+      "pairs": [
+        [
+          "m",
+          "3"
+        ],
+        [
+          "m",
+          "3"
+        ]
+      ]
+    },
+    {
+      "blockId": "cmip-unit-paragraph",
+      "sourceParagraphIndex": 12,
+      "pairs": [
+        [
+          "m",
+          "−2"
+        ],
+        [
+          "s",
+          "−1"
+        ],
+        [
+          "m",
+          "2"
+        ]
+      ]
+    }
+  ],
+  "sourceCitationClusters": [
+    [
+      62,
+      63
+    ],
+    [
+      64
+    ],
+    [
+      34,
+      65,
+      66,
+      67
+    ],
+    [
+      36,
+      71
+    ],
+    [
+      72
+    ],
+    [
+      73
+    ],
+    [
+      71
+    ]
+  ],
+  "referencePrefix": 73
+}
