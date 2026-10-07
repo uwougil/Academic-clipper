@@ -7,7 +7,7 @@ import { test } from 'node:test';
 import { clipNature } from '../src/clip.mjs';
 import { hydrateNatureTables } from '../src/adapters/nature.mjs';
 import { createReplay, sanitizeNatureHtml, sha256Bytes } from '../scripts/lib/nature-corpus-infrastructure.mjs';
-import { runProductionValidators, semanticSummary, assertionRegistry, compareArticleResult } from '../scripts/lib/nature-corpus-assertions.mjs';
+import { ASSERTION_VERSION, runProductionValidators, semanticSummary, assertionRegistry, compareArticleResult } from '../scripts/lib/nature-corpus-assertions.mjs';
 import { fileURLToPath } from 'node:url';
 import { classifyLive, createBoundedTransport, exitCode, inspectSource, parseOptions, retryAfterMs,
   runVerifier, UsageError, MAX_RETRY_AFTER_MS } from '../scripts/verify-nature-corpus-live.mjs';
@@ -225,6 +225,32 @@ test('comparison API execution errors stay unclassified and forbid live requests
   assert.equal(report.results[0].phase, 'offline-assertions');
   assert.match(report.results[0].error, /C source comparison failed/u);
   assert.deepEqual(transport.ledger(), { requests: [], resolutions: [], unexpected: [] });
+});
+
+test('a passing comparison provider cannot omit, reorder or replace required execution records', async t => {
+  for (const corruption of ['version', 'missing', 'reordered', 'replaced']) {
+    const context = await controllerFixture(t), transport = captureReplay(t);
+    context.article.expectations.push({ ...context.article.expectations[0], id: 'synthetic-title-second' });
+    const report = await runVerifier(defaultOptions, { ...context, transport, comparisonApi: {
+      assertionRegistry: syntheticRegistry,
+      compareArticleResult(article, parsed) {
+        const comparison = syntheticComparison.compareArticleResult(article, parsed);
+        comparison.expectations = article.expectations.map(expectation => ({
+          ...comparison.expectations[0], id: expectation.id, assertionId: expectation.assertionId,
+        }));
+        if (corruption === 'version') comparison.version = 'unreviewed';
+        if (corruption === 'missing') comparison.expectations.pop();
+        if (corruption === 'reordered') comparison.expectations.reverse();
+        if (corruption === 'replaced') comparison.expectations[0].assertionId = 'unreviewed-consumer';
+        return comparison;
+      },
+    } });
+    assert.equal(report.exitCode, 1, corruption);
+    assert.equal(report.results[0].cause, 'FIXTURE_INTEGRITY_FAILURE', corruption);
+    assert.equal(report.results[0].phase, 'offline-assertions', corruption);
+    assert.match(report.results[0].error, /every declared source expectation in order/u);
+    assert.deepEqual(transport.ledger(), { requests: [], resolutions: [], unexpected: [] }, corruption);
+  }
 });
 
 test('mock successful full/projection parse yields EXPECTED_WARNING and leaves every artifact unchanged', async t => {
@@ -690,7 +716,23 @@ test('frozen-source integration consumes actual C API and records all9 entries w
     headers: { 'content-type': resource.contentType }, bodyBytes: await readFile(path.join(corpusRoot, resource.fixturePath)) });
   const transport = createReplay({ resources, dns: publicDns });
   t.after(() => transport.assertClean());
-  const report = await runVerifier(defaultOptions, { manifest, corpusRoot, comparisonApi: { assertionRegistry, compareArticleResult }, transport });
+  const comparisons = [];
+  const report = await runVerifier(defaultOptions, { manifest, corpusRoot, comparisonApi: {
+    assertionRegistry,
+    compareArticleResult(...args) {
+      const comparison = compareArticleResult(...args);
+      comparisons.push(comparison);
+      return comparison;
+    },
+  }, transport });
+  assert.equal(ASSERTION_VERSION, '1.0.0');
+  assert.equal(assertionRegistry.size, 10);
+  // These are the actual helper's first nine calls, before any ready article's
+  // projected comparison. Collect a receipt without running the corpus twice.
+  const offlineComparisons = comparisons.slice(0, manifest.articles.length);
+  assert.deepEqual(offlineComparisons.map(comparison => comparison.articleId), manifest.articles.map(article => article.articleId));
+  const executions = offlineComparisons.flatMap(comparison => comparison.expectations);
+  assert.equal(executions.length, manifest.articles.reduce((count, article) => count + article.expectations.length, 0));
   assert.equal(report.results.length, 9);
   const reported = report.results.filter(result => result.articleId).map(result => result.articleId).sort();
   assert.deepEqual(reported, manifest.articles.map(article => article.articleId).sort());
@@ -702,4 +744,13 @@ test('frozen-source integration consumes actual C API and records all9 entries w
   }
   // No required failing C source expectation is converted into a passing result.
   assert.equal(report.exitCode, exitCode(report.results));
+  const invalidValidators = (validators, prefix = '') => Object.entries(validators).flatMap(([key, value]) =>
+    'valid' in value ? value.valid ? [] : [`${prefix}${key}`] : invalidValidators(value, `${prefix}${key}.`));
+  t.diagnostic(JSON.stringify({ assertionVersion: ASSERTION_VERSION, consumers: assertionRegistry.size,
+    citationStyle: report.citationStyle, sourceExecutions: executions.length,
+    sourcePass: executions.filter(execution => execution.status === 'pass').length,
+    sourceFailure: executions.filter(execution => execution.status !== 'pass').length,
+    exitCode: report.exitCode, results: report.results.map(entry => ({ articleId: entry.articleId, phase: entry.phase, cause: entry.cause,
+      failedAssertions: entry.failedAssertions.map(execution => ({ id: execution.id, paths: execution.failures.map(failure => failure.path) })),
+      invalidValidators: invalidValidators(entry.validators), warnings: entry.warnings })), ledger: transport.ledger() }));
 });
