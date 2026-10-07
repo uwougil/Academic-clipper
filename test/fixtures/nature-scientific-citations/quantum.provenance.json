@@ -1,0 +1,1183 @@
+{
+  "evidenceVersion": "nature-scientific-citation-regression/1.0.0",
+  "articleId": "s41534-023-00746-0",
+  "url": "https://www.nature.com/articles/s41534-023-00746-0",
+  "title": "Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits",
+  "journal": "npj Quantum Information",
+  "doi": "10.1038/s41534-023-00746-0",
+  "observedAt": "2026-10-03T16:44:08.251Z",
+  "sourceSha256": "6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e",
+  "sourceBytes": 511799,
+  "fixtureSha256": "3fdd325ba36f107ecdcdbc4643e3bda22350091565de75bf9b169ea36df6f277",
+  "fixtureBytes": 65179,
+  "retainedReferencePrefix": 64,
+  "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+  "serializerVersion": "nature-corpus-subtree/1.0.0",
+  "recipeSha256": "bd9ba9eda06a44dd7a617ea5c2adecff9bb0003395d04e2bed860a0a1e25b393",
+  "recipe": {
+    "version": "1.0.0",
+    "id": "s41534-023-00746-0-scientific-citation-v1",
+    "articleUrl": "https://www.nature.com/articles/s41534-023-00746-0",
+    "blocks": [
+      {
+        "id": "a-meta-11",
+        "selector": "head > meta[name=\"dc.title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-36",
+        "selector": "head > meta[name=\"citation_journal_title\"][content=\"npj Quantum Information\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-40",
+        "selector": "head > meta[name=\"citation_title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-41",
+        "selector": "head > meta[name=\"citation_volume\"][content=\"9\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-42",
+        "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-43",
+        "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/08/03\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-44",
+        "selector": "head > meta[name=\"citation_firstpage\"][content=\"78\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-45",
+        "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-49",
+        "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41534-023-00746-0\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-52",
+        "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41534-023-00746-0\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-140",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Xu, Qian\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-142",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zheng, Guo\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-144",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Wang, Yu-Xin\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-146",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zoller, Peter\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-149",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Clerk, Aashish A.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-151",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Jiang, Liang\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-160",
+        "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41534-023-00746-0\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-161",
+        "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-163",
+        "selector": "head > meta[property=\"og:title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits - npj Quantum Information\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-title",
+        "selector": "h1.c-article-title",
+        "role": "title"
+      },
+      {
+        "id": "a-references-heading",
+        "selector": "#Bib1",
+        "role": "heading"
+      },
+      {
+        "id": "a-reference-1",
+        "selector": "ol.c-article-references > li:nth-child(1)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-2",
+        "selector": "ol.c-article-references > li:nth-child(2)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-3",
+        "selector": "ol.c-article-references > li:nth-child(3)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-4",
+        "selector": "ol.c-article-references > li:nth-child(4)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-5",
+        "selector": "ol.c-article-references > li:nth-child(5)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-6",
+        "selector": "ol.c-article-references > li:nth-child(6)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-7",
+        "selector": "ol.c-article-references > li:nth-child(7)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-8",
+        "selector": "ol.c-article-references > li:nth-child(8)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-9",
+        "selector": "ol.c-article-references > li:nth-child(9)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-10",
+        "selector": "ol.c-article-references > li:nth-child(10)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-11",
+        "selector": "ol.c-article-references > li:nth-child(11)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-12",
+        "selector": "ol.c-article-references > li:nth-child(12)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-13",
+        "selector": "ol.c-article-references > li:nth-child(13)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-14",
+        "selector": "ol.c-article-references > li:nth-child(14)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-15",
+        "selector": "ol.c-article-references > li:nth-child(15)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-16",
+        "selector": "ol.c-article-references > li:nth-child(16)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-17",
+        "selector": "ol.c-article-references > li:nth-child(17)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-18",
+        "selector": "ol.c-article-references > li:nth-child(18)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-19",
+        "selector": "ol.c-article-references > li:nth-child(19)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-20",
+        "selector": "ol.c-article-references > li:nth-child(20)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-21",
+        "selector": "ol.c-article-references > li:nth-child(21)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-22",
+        "selector": "ol.c-article-references > li:nth-child(22)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-23",
+        "selector": "ol.c-article-references > li:nth-child(23)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-24",
+        "selector": "ol.c-article-references > li:nth-child(24)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-25",
+        "selector": "ol.c-article-references > li:nth-child(25)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-26",
+        "selector": "ol.c-article-references > li:nth-child(26)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-27",
+        "selector": "ol.c-article-references > li:nth-child(27)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-28",
+        "selector": "ol.c-article-references > li:nth-child(28)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-29",
+        "selector": "ol.c-article-references > li:nth-child(29)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-30",
+        "selector": "ol.c-article-references > li:nth-child(30)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-31",
+        "selector": "ol.c-article-references > li:nth-child(31)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-32",
+        "selector": "ol.c-article-references > li:nth-child(32)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-33",
+        "selector": "ol.c-article-references > li:nth-child(33)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-34",
+        "selector": "ol.c-article-references > li:nth-child(34)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-35",
+        "selector": "ol.c-article-references > li:nth-child(35)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-36",
+        "selector": "ol.c-article-references > li:nth-child(36)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-37",
+        "selector": "ol.c-article-references > li:nth-child(37)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-38",
+        "selector": "ol.c-article-references > li:nth-child(38)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-39",
+        "selector": "ol.c-article-references > li:nth-child(39)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-40",
+        "selector": "ol.c-article-references > li:nth-child(40)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-41",
+        "selector": "ol.c-article-references > li:nth-child(41)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-42",
+        "selector": "ol.c-article-references > li:nth-child(42)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-43",
+        "selector": "ol.c-article-references > li:nth-child(43)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-44",
+        "selector": "ol.c-article-references > li:nth-child(44)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-45",
+        "selector": "ol.c-article-references > li:nth-child(45)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-46",
+        "selector": "ol.c-article-references > li:nth-child(46)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-47",
+        "selector": "ol.c-article-references > li:nth-child(47)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-48",
+        "selector": "ol.c-article-references > li:nth-child(48)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-49",
+        "selector": "ol.c-article-references > li:nth-child(49)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-50",
+        "selector": "ol.c-article-references > li:nth-child(50)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-51",
+        "selector": "ol.c-article-references > li:nth-child(51)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-52",
+        "selector": "ol.c-article-references > li:nth-child(52)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-53",
+        "selector": "ol.c-article-references > li:nth-child(53)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-54",
+        "selector": "ol.c-article-references > li:nth-child(54)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-55",
+        "selector": "ol.c-article-references > li:nth-child(55)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-56",
+        "selector": "ol.c-article-references > li:nth-child(56)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-57",
+        "selector": "ol.c-article-references > li:nth-child(57)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-58",
+        "selector": "ol.c-article-references > li:nth-child(58)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-59",
+        "selector": "ol.c-article-references > li:nth-child(59)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-60",
+        "selector": "ol.c-article-references > li:nth-child(60)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-61",
+        "selector": "ol.c-article-references > li:nth-child(61)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-62",
+        "selector": "ol.c-article-references > li:nth-child(62)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-63",
+        "selector": "ol.c-article-references > li:nth-child(63)",
+        "role": "reference"
+      },
+      {
+        "id": "a-reference-64",
+        "selector": "ol.c-article-references > li:nth-child(64)",
+        "role": "reference"
+      },
+      {
+        "id": "source-cluster-37",
+        "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d102805164e7515)",
+        "role": "paragraph"
+      },
+      {
+        "id": "source-heading-Sec2",
+        "selector": "#Sec2",
+        "role": "heading"
+      },
+      {
+        "id": "source-cluster-57",
+        "selector": "section[data-title=\"Discussion\"] p:has(#ref-link-section-d102805164e12550)",
+        "role": "paragraph"
+      },
+      {
+        "id": "source-heading-Sec7",
+        "selector": "#Sec7",
+        "role": "heading"
+      }
+    ],
+    "removeSelectors": []
+  },
+  "retainedBlocks": [
+    {
+      "id": "a-meta-11",
+      "selector": "head > meta[name=\"dc.title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e0d4beaaaa87eec85fa146464f916c7c8f5703b2c0f81dbec687c66de50702e1"
+    },
+    {
+      "id": "a-meta-36",
+      "selector": "head > meta[name=\"citation_journal_title\"][content=\"npj Quantum Information\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ed88053f1288a4dc68b6da4c8f4eaabf3424ec7cb616aa1d0c723a9d274b1aa2"
+    },
+    {
+      "id": "a-meta-40",
+      "selector": "head > meta[name=\"citation_title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ecf37d16d7270373d42e8accffe6ecef46eaf6d1d60b242576020d3a02aab695"
+    },
+    {
+      "id": "a-meta-41",
+      "selector": "head > meta[name=\"citation_volume\"][content=\"9\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "287b7c72329f2a716ae7cb52dc7abc0eb6cd915eca14d157d41b0f1610bc7a56"
+    },
+    {
+      "id": "a-meta-42",
+      "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ed1801e512cd04c79001567258d9938bff6132aa5dd4e064b95179536e4cdde8"
+    },
+    {
+      "id": "a-meta-43",
+      "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/08/03\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "5f3278f3f500a9005cd3955db04616b14e5c43c933f19b05749e5a9e9e4947dc"
+    },
+    {
+      "id": "a-meta-44",
+      "selector": "head > meta[name=\"citation_firstpage\"][content=\"78\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "de244358874ddb6179096cda6c5efb375858a93dbdfca6cfb120fabce8340377"
+    },
+    {
+      "id": "a-meta-45",
+      "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "aeb52796a9a520993fee49b41ab2b5460c5dcfe24a657aaee093d4618fd9e1c6"
+    },
+    {
+      "id": "a-meta-49",
+      "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41534-023-00746-0\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "29a0a9417afec2e6db9c624241c317ea47b8954abae9b55c414aff8de98cf924"
+    },
+    {
+      "id": "a-meta-52",
+      "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41534-023-00746-0\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b9936a9e2953f4d42f767a5fb5edc8c92306f7e5aa10e4d9b7d55d6679c10200"
+    },
+    {
+      "id": "a-meta-140",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Xu, Qian\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "140c45e64f6916f2fc4d259bdb484474d5efcc8905bfb175bc9167f6466e24e0"
+    },
+    {
+      "id": "a-meta-142",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Zheng, Guo\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a5c721d0d06bc27f6e4a4ecc2a5418fac2bbd9b4c8d8e0646cd773d86607ff5e"
+    },
+    {
+      "id": "a-meta-144",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Wang, Yu-Xin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d0a369cbd1c1d8153babc145c5dbb0592db314fd4f63437c2289bfe0e0ae3a54"
+    },
+    {
+      "id": "a-meta-146",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Zoller, Peter\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "058404d464b506847d521e9d16f225c57f842690d89e3588e5504ba27e544459"
+    },
+    {
+      "id": "a-meta-149",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Clerk, Aashish A.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "f67cdd4dc2539cf492df6cbcb9c3f7d4aa74cc7684af44f18032ccdd83b56e58"
+    },
+    {
+      "id": "a-meta-151",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Jiang, Liang\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "391b875ffdf08da1d48fa5be4c13c307c35881d5988917e5465a797b4299cb93"
+    },
+    {
+      "id": "a-meta-160",
+      "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41534-023-00746-0\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "fc4177be945599466fdddfac68db535aa9cedb409758a5a1a58d9cff15c8dc64"
+    },
+    {
+      "id": "a-meta-161",
+      "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e2a47d03efa7114d4bc8e65c0fba2e84722b49e6e718eb787898c3c61ac5bcc9"
+    },
+    {
+      "id": "a-meta-163",
+      "selector": "head > meta[property=\"og:title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits - npj Quantum Information\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "64a66f6ef0a2bd2abcf91192b2d45a18014a9937864a8d21780cda209d19cd00"
+    },
+    {
+      "id": "a-canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c43c8acd8c08fb8377a3edef39fe8361076bd5da6b782ec20da729349bb3c0a2"
+    },
+    {
+      "id": "a-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "55fd311e8bb6f50f9068e873af6eb72bdd01db59996a87d928640920c2f931ec"
+    },
+    {
+      "id": "a-title",
+      "selector": "h1.c-article-title",
+      "role": "title",
+      "sourceSubtreeSha256": "b9b00030d89a629955e6a0ce9dc70bb185226b6b2f3e5441d443342c571fe8a6"
+    },
+    {
+      "id": "a-references-heading",
+      "selector": "#Bib1",
+      "role": "heading",
+      "sourceSubtreeSha256": "af92342e8974526976997242004de48e6fcf9aef95e778bf2972d4199120887d"
+    },
+    {
+      "id": "a-reference-1",
+      "selector": "ol.c-article-references > li:nth-child(1)",
+      "role": "reference",
+      "sourceSubtreeSha256": "f6e3ab681f25646ff4977c679cfd5869d3cd2734de392909c88529b40d1905bf"
+    },
+    {
+      "id": "a-reference-2",
+      "selector": "ol.c-article-references > li:nth-child(2)",
+      "role": "reference",
+      "sourceSubtreeSha256": "55fa4e01c7eac518984948854a28404860c9fba082c7c5506ddc80f42de11769"
+    },
+    {
+      "id": "a-reference-3",
+      "selector": "ol.c-article-references > li:nth-child(3)",
+      "role": "reference",
+      "sourceSubtreeSha256": "acd53f6390fe3b0b9fb32ff4a15dec61ff6685c1304eb227b11edba975df1791"
+    },
+    {
+      "id": "a-reference-4",
+      "selector": "ol.c-article-references > li:nth-child(4)",
+      "role": "reference",
+      "sourceSubtreeSha256": "8f1fb630ca7680ba2b910c3e392e22c7f031b3914398be8d7cd9292427b22643"
+    },
+    {
+      "id": "a-reference-5",
+      "selector": "ol.c-article-references > li:nth-child(5)",
+      "role": "reference",
+      "sourceSubtreeSha256": "3204ff6b0d808a04bffec1a619bc1b8f41f37a076b1bc007e961fb359004bcfd"
+    },
+    {
+      "id": "a-reference-6",
+      "selector": "ol.c-article-references > li:nth-child(6)",
+      "role": "reference",
+      "sourceSubtreeSha256": "05d380fc956b357bc46f07c76f5af0ad7552a4341172c96f3681345019624128"
+    },
+    {
+      "id": "a-reference-7",
+      "selector": "ol.c-article-references > li:nth-child(7)",
+      "role": "reference",
+      "sourceSubtreeSha256": "0db6c03461e22a6bd3c3463ef8ca8ef60df78a0f6572b9356f6df53e44d512bc"
+    },
+    {
+      "id": "a-reference-8",
+      "selector": "ol.c-article-references > li:nth-child(8)",
+      "role": "reference",
+      "sourceSubtreeSha256": "a284c60112e13225f88b281e68ba18e7405d0822f7f61b622c64ba6d49ff9b59"
+    },
+    {
+      "id": "a-reference-9",
+      "selector": "ol.c-article-references > li:nth-child(9)",
+      "role": "reference",
+      "sourceSubtreeSha256": "9555d5501c755611f5a88af39d1bb5b5f1cb9f5c964c613adc7c85f5b5418f51"
+    },
+    {
+      "id": "a-reference-10",
+      "selector": "ol.c-article-references > li:nth-child(10)",
+      "role": "reference",
+      "sourceSubtreeSha256": "1a538b4795a50acb5cc0c64f6f5b203dc25bb309944635422df9d43802dd85ad"
+    },
+    {
+      "id": "a-reference-11",
+      "selector": "ol.c-article-references > li:nth-child(11)",
+      "role": "reference",
+      "sourceSubtreeSha256": "c99a7c2f99a412334bb516c81608c120de571dca035322ff23f773b149e7a54d"
+    },
+    {
+      "id": "a-reference-12",
+      "selector": "ol.c-article-references > li:nth-child(12)",
+      "role": "reference",
+      "sourceSubtreeSha256": "5b25495b08873ebcb2350af31cc9b949ad4f680e88fd9c932a4427833ad090d4"
+    },
+    {
+      "id": "a-reference-13",
+      "selector": "ol.c-article-references > li:nth-child(13)",
+      "role": "reference",
+      "sourceSubtreeSha256": "6e514b5edf03bc106f50585711763e5dbe65a57c28bb6dd535bbe8a4b1be6b70"
+    },
+    {
+      "id": "a-reference-14",
+      "selector": "ol.c-article-references > li:nth-child(14)",
+      "role": "reference",
+      "sourceSubtreeSha256": "51e51da51b8b371759b1bbe5897842c4b82dd306d064167de4b6a34e64bdb2e8"
+    },
+    {
+      "id": "a-reference-15",
+      "selector": "ol.c-article-references > li:nth-child(15)",
+      "role": "reference",
+      "sourceSubtreeSha256": "111d45f80a74beaefc03d3ff2c8bead569b0e62ac6ee724b6877057d86d2fffd"
+    },
+    {
+      "id": "a-reference-16",
+      "selector": "ol.c-article-references > li:nth-child(16)",
+      "role": "reference",
+      "sourceSubtreeSha256": "cb79c49c7a0fee0af6066198990fb146bfdcd6cd4feacec8c466fe21cc5b1028"
+    },
+    {
+      "id": "a-reference-17",
+      "selector": "ol.c-article-references > li:nth-child(17)",
+      "role": "reference",
+      "sourceSubtreeSha256": "2655c6db42776ead10da8851a46b64bfcc0d4f2f2e5960671fe34e23540fe62a"
+    },
+    {
+      "id": "a-reference-18",
+      "selector": "ol.c-article-references > li:nth-child(18)",
+      "role": "reference",
+      "sourceSubtreeSha256": "cbdf5c6803bf8ce1855a297b1b526853823be17b02dbc3dbb485f6a64514e6be"
+    },
+    {
+      "id": "a-reference-19",
+      "selector": "ol.c-article-references > li:nth-child(19)",
+      "role": "reference",
+      "sourceSubtreeSha256": "fcb0da9f2c941794ffcf9f6869d28de73e56ae8530b156c587369853053deed2"
+    },
+    {
+      "id": "a-reference-20",
+      "selector": "ol.c-article-references > li:nth-child(20)",
+      "role": "reference",
+      "sourceSubtreeSha256": "9ef2a15c5dee4894e93e2aae695b23812b31bfaa725468d2038f67bdb54be05a"
+    },
+    {
+      "id": "a-reference-21",
+      "selector": "ol.c-article-references > li:nth-child(21)",
+      "role": "reference",
+      "sourceSubtreeSha256": "bf02b64c7fd772129b4d46b7ee718975aacdd4b3b53251940de88aa41d921c14"
+    },
+    {
+      "id": "a-reference-22",
+      "selector": "ol.c-article-references > li:nth-child(22)",
+      "role": "reference",
+      "sourceSubtreeSha256": "f8c75d824ec88e1efa91379731c88e86d53be1a54d01e57b4541775eb99c77b5"
+    },
+    {
+      "id": "a-reference-23",
+      "selector": "ol.c-article-references > li:nth-child(23)",
+      "role": "reference",
+      "sourceSubtreeSha256": "8b58779e4443cd91358f88d73c8b9292c3a7934a5ea7d689e0c3300c99828f01"
+    },
+    {
+      "id": "a-reference-24",
+      "selector": "ol.c-article-references > li:nth-child(24)",
+      "role": "reference",
+      "sourceSubtreeSha256": "0be5eebb615c4396f75f91c8c607a8450b8fac383847e46f259c881e4de87cc6"
+    },
+    {
+      "id": "a-reference-25",
+      "selector": "ol.c-article-references > li:nth-child(25)",
+      "role": "reference",
+      "sourceSubtreeSha256": "7d6d083f4f10be65edb7f3d026c110142e79d005999176e959c1f3efcd1e2639"
+    },
+    {
+      "id": "a-reference-26",
+      "selector": "ol.c-article-references > li:nth-child(26)",
+      "role": "reference",
+      "sourceSubtreeSha256": "4c070da976d6b49aa19f35a2fc99306fd4e23d213eefda910551ca70c54bca52"
+    },
+    {
+      "id": "a-reference-27",
+      "selector": "ol.c-article-references > li:nth-child(27)",
+      "role": "reference",
+      "sourceSubtreeSha256": "267db9015dfc153e5aed8fd8642a9dd7812fa5d9c7c2f04362adeaabb00ea2b2"
+    },
+    {
+      "id": "a-reference-28",
+      "selector": "ol.c-article-references > li:nth-child(28)",
+      "role": "reference",
+      "sourceSubtreeSha256": "80b0b02428979cd4c5ae5c8414a1d49d6eadf6945560cb79b5aecc9c162f4dd3"
+    },
+    {
+      "id": "a-reference-29",
+      "selector": "ol.c-article-references > li:nth-child(29)",
+      "role": "reference",
+      "sourceSubtreeSha256": "4d65ae72765f49de544d8a92407a6c9112c7bfe1aae79d22156c12241397c3dc"
+    },
+    {
+      "id": "a-reference-30",
+      "selector": "ol.c-article-references > li:nth-child(30)",
+      "role": "reference",
+      "sourceSubtreeSha256": "65fd6e30bbf8284dd96b608044f68e623c157621d615bedfedfa5572f9d164d1"
+    },
+    {
+      "id": "a-reference-31",
+      "selector": "ol.c-article-references > li:nth-child(31)",
+      "role": "reference",
+      "sourceSubtreeSha256": "c79571e340313d5e49fb8649e07232b5e952b0fd6bc93ac62f3fc19a6d7356d3"
+    },
+    {
+      "id": "a-reference-32",
+      "selector": "ol.c-article-references > li:nth-child(32)",
+      "role": "reference",
+      "sourceSubtreeSha256": "cb1c1a139bb616a789d4b9bf4068a43d470a0239bd985ad0c368184a29543eed"
+    },
+    {
+      "id": "a-reference-33",
+      "selector": "ol.c-article-references > li:nth-child(33)",
+      "role": "reference",
+      "sourceSubtreeSha256": "375079272093db900f183110aa70586f448cd4c1e65b68bb98b3d148098e19f7"
+    },
+    {
+      "id": "a-reference-34",
+      "selector": "ol.c-article-references > li:nth-child(34)",
+      "role": "reference",
+      "sourceSubtreeSha256": "e356f081f8124530461b2363533f6584b1c9951d6327117f80526a8d349fe559"
+    },
+    {
+      "id": "a-reference-35",
+      "selector": "ol.c-article-references > li:nth-child(35)",
+      "role": "reference",
+      "sourceSubtreeSha256": "ee745614636edbfdd5e1a0653682467c5b6c622e641aec7b4df0794af2d49b59"
+    },
+    {
+      "id": "a-reference-36",
+      "selector": "ol.c-article-references > li:nth-child(36)",
+      "role": "reference",
+      "sourceSubtreeSha256": "2e6c1dd205920233463203592ad0bc0cd6a4825b975c354366d3d42fa027cc5b"
+    },
+    {
+      "id": "a-reference-37",
+      "selector": "ol.c-article-references > li:nth-child(37)",
+      "role": "reference",
+      "sourceSubtreeSha256": "7975a944a16a096952d06d9581d55c55701099fba973d37b437d3069a02d6142"
+    },
+    {
+      "id": "a-reference-38",
+      "selector": "ol.c-article-references > li:nth-child(38)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b19552672b16c5efcdd116f6b34a645a3eac566a3302c880100470efd8617c58"
+    },
+    {
+      "id": "a-reference-39",
+      "selector": "ol.c-article-references > li:nth-child(39)",
+      "role": "reference",
+      "sourceSubtreeSha256": "84dc2b1c4add88a65dd3b3fe2f09d236c88e48adcbc3fd6284229921f23eab77"
+    },
+    {
+      "id": "a-reference-40",
+      "selector": "ol.c-article-references > li:nth-child(40)",
+      "role": "reference",
+      "sourceSubtreeSha256": "4e7e515d26dda03a2b71f0bff2c7d94e612910e32a7f9a916258245490d0eae9"
+    },
+    {
+      "id": "a-reference-41",
+      "selector": "ol.c-article-references > li:nth-child(41)",
+      "role": "reference",
+      "sourceSubtreeSha256": "65fb53ae0e79d7bb2d9b4a3839cdc36bfabeb604af2821072950e9977765374c"
+    },
+    {
+      "id": "a-reference-42",
+      "selector": "ol.c-article-references > li:nth-child(42)",
+      "role": "reference",
+      "sourceSubtreeSha256": "87ca3b1f65f31d38e0d420eb20fd37bb396a5bf488e6450efed486645cdcf172"
+    },
+    {
+      "id": "a-reference-43",
+      "selector": "ol.c-article-references > li:nth-child(43)",
+      "role": "reference",
+      "sourceSubtreeSha256": "62534db8a11b3b2fb1891a522b65f6b3c779de21c317a10c7ff81db1657f84cb"
+    },
+    {
+      "id": "a-reference-44",
+      "selector": "ol.c-article-references > li:nth-child(44)",
+      "role": "reference",
+      "sourceSubtreeSha256": "c12f34b45951659b4b20e098b368193bb83064781b43fc5dbb25d4a1a91afad3"
+    },
+    {
+      "id": "a-reference-45",
+      "selector": "ol.c-article-references > li:nth-child(45)",
+      "role": "reference",
+      "sourceSubtreeSha256": "192b4021ae3d64fb7fe49f11887a5130a37a9842a816657d5aad6261144ece22"
+    },
+    {
+      "id": "a-reference-46",
+      "selector": "ol.c-article-references > li:nth-child(46)",
+      "role": "reference",
+      "sourceSubtreeSha256": "de79967fd03d633bd8777b5521d090a306312d67c4cec692c6fefd151896c235"
+    },
+    {
+      "id": "a-reference-47",
+      "selector": "ol.c-article-references > li:nth-child(47)",
+      "role": "reference",
+      "sourceSubtreeSha256": "2a13d1b421039631f3b050f66323fcaff53fd316b6730b77cef2c1eb69235e67"
+    },
+    {
+      "id": "a-reference-48",
+      "selector": "ol.c-article-references > li:nth-child(48)",
+      "role": "reference",
+      "sourceSubtreeSha256": "fa309e1119a29ea1b314d4fd9fc5a57966357e1c0ae0c5b5efd2e584467b3355"
+    },
+    {
+      "id": "a-reference-49",
+      "selector": "ol.c-article-references > li:nth-child(49)",
+      "role": "reference",
+      "sourceSubtreeSha256": "88b9b557aeb9fbcb5128325551fbaa8a6a3ae3960f5600daa2e5af55ea596002"
+    },
+    {
+      "id": "a-reference-50",
+      "selector": "ol.c-article-references > li:nth-child(50)",
+      "role": "reference",
+      "sourceSubtreeSha256": "91dd01a899c17ece913eeaf05d3a65c4d2464e66d2434e86acb224b09a7c938e"
+    },
+    {
+      "id": "a-reference-51",
+      "selector": "ol.c-article-references > li:nth-child(51)",
+      "role": "reference",
+      "sourceSubtreeSha256": "7e9cf265c7cba3d666ca57bd3aaeed74029edd097ba541d4167032887c765f41"
+    },
+    {
+      "id": "a-reference-52",
+      "selector": "ol.c-article-references > li:nth-child(52)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b0e5fabd645e5685e65d07c3e813b15c49e3f5ff602ca346862c265519ae7221"
+    },
+    {
+      "id": "a-reference-53",
+      "selector": "ol.c-article-references > li:nth-child(53)",
+      "role": "reference",
+      "sourceSubtreeSha256": "9007ecf26ba6e61bbe64ab2daa1683e1f4d8e478ca1cf162c31508174172f1e5"
+    },
+    {
+      "id": "a-reference-54",
+      "selector": "ol.c-article-references > li:nth-child(54)",
+      "role": "reference",
+      "sourceSubtreeSha256": "482d3d3cb4521aa5699c9187f137e64dd8273ffb6bf9826a42f641647d8a618b"
+    },
+    {
+      "id": "a-reference-55",
+      "selector": "ol.c-article-references > li:nth-child(55)",
+      "role": "reference",
+      "sourceSubtreeSha256": "07e55d22e4d2324e4974f726a8cc8ab4a78fde3374eb7a41ddeea4d10d02b884"
+    },
+    {
+      "id": "a-reference-56",
+      "selector": "ol.c-article-references > li:nth-child(56)",
+      "role": "reference",
+      "sourceSubtreeSha256": "c8876c6312293da9baee27ecce5dd2802575f18081e61a9124116de1e9a139e1"
+    },
+    {
+      "id": "a-reference-57",
+      "selector": "ol.c-article-references > li:nth-child(57)",
+      "role": "reference",
+      "sourceSubtreeSha256": "67effb793dfe19bfa474b17985f9628ab6da6d1dfece5fd0e1173a9f657adec3"
+    },
+    {
+      "id": "a-reference-58",
+      "selector": "ol.c-article-references > li:nth-child(58)",
+      "role": "reference",
+      "sourceSubtreeSha256": "5b733179af01ee38366ba3b3e08b20f8796f39612969429357cfc6486327c836"
+    },
+    {
+      "id": "a-reference-59",
+      "selector": "ol.c-article-references > li:nth-child(59)",
+      "role": "reference",
+      "sourceSubtreeSha256": "40c689204d92020e18d9ebc3fcf0109b5de5cb85c879fef3f37d4b288165a2a3"
+    },
+    {
+      "id": "a-reference-60",
+      "selector": "ol.c-article-references > li:nth-child(60)",
+      "role": "reference",
+      "sourceSubtreeSha256": "1851f8cd938fed521ef5ffa59f799b64bfc02b810e540508e37aa125d6f8badd"
+    },
+    {
+      "id": "a-reference-61",
+      "selector": "ol.c-article-references > li:nth-child(61)",
+      "role": "reference",
+      "sourceSubtreeSha256": "eda19e0803798c03b676847051ddc114a9f2bd4a3701717c2114e94bdb1da31c"
+    },
+    {
+      "id": "a-reference-62",
+      "selector": "ol.c-article-references > li:nth-child(62)",
+      "role": "reference",
+      "sourceSubtreeSha256": "491eca47aab0bb0a614086d6463f870d88d47dfa2cdac30e2854c53148c4b62c"
+    },
+    {
+      "id": "a-reference-63",
+      "selector": "ol.c-article-references > li:nth-child(63)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b23519fccf91e29068da93a94b1b59323bb8d7af27c0b4be73cde32bc1b901e3"
+    },
+    {
+      "id": "a-reference-64",
+      "selector": "ol.c-article-references > li:nth-child(64)",
+      "role": "reference",
+      "sourceSubtreeSha256": "499a90464847b75a8326076920fa6815d85c1786f8061130d76bc56280db647f"
+    },
+    {
+      "id": "source-cluster-37",
+      "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d102805164e7515)",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "9461453468d164c47c8d6b64843c5578c260bf0251b713796d45fb36cbd74963"
+    },
+    {
+      "id": "source-heading-Sec2",
+      "selector": "#Sec2",
+      "role": "heading",
+      "sourceSubtreeSha256": "b05d837b4acc0107b3277337c107f65be4a18c0bd31c2db268b4ce350058bb02"
+    },
+    {
+      "id": "source-cluster-57",
+      "selector": "section[data-title=\"Discussion\"] p:has(#ref-link-section-d102805164e12550)",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "697d3fbbdcb78ca7ee69c7d85b72b370e185ec3bb260def1aa04aa4962b1c6e4"
+    },
+    {
+      "id": "source-heading-Sec7",
+      "selector": "#Sec7",
+      "role": "heading",
+      "sourceSubtreeSha256": "b10538220d4938b5634f0cb6109c9433f16e266d9be31bfff5bc630702e2098c"
+    }
+  ],
+  "transformations": [
+    {
+      "operation": "select-complete-source-blocks-with-ancestors",
+      "count": 91
+    },
+    {
+      "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+      "count": 1
+    },
+    {
+      "operation": "trim-json-ld-to-article-object",
+      "count": 1
+    },
+    {
+      "operation": "remove-attributes",
+      "count": 652
+    },
+    {
+      "operation": "sanitize-resource-urls",
+      "count": 57
+    }
+  ],
+  "omittedContent": [
+    "All unselected source paragraphs, figures, tables, equations and UI; this is a focused body-paragraph regression, not a whole article capture.",
+    "Complete original reference prefix through the highest retained citation is preserved without renumbering.",
+    "No image/PDF/table binaries or full raw HTTP captures are committed."
+  ],
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41534-023-00746-0",
+    "sourceObservedAt": "2026-10-03T16:44:08.251Z",
+    "sourceSha256": "6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Xu, Qian",
+      "Zheng, Guo",
+      "Wang, Yu-Xin",
+      "Zoller, Peter",
+      "Clerk, Aashish A.",
+      "Jiang, Liang"
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [],
+    "technicalTransformations": "This regression selects the complete original paragraphs containing scientific-adjacent citation superscripts, their original headings/ancestors, article metadata and a complete reference prefix. Recorded sanitizer 1.1.0 removes tracking/executable/UI material and serializes UTF-8 LF. Source prose, typed citation nodes, scientific MathJax/bold/sub/sup, creators and node order are preserved; no scientific content is authored or relabeled.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "repeatByteEqual": true,
+  "idempotent": true,
+  "cases": [
+    {
+      "clusterIndexInBOracle": 37,
+      "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d102805164e7515)",
+      "rawParagraphSha256": "9461453468d164c47c8d6b64843c5578c260bf0251b713796d45fb36cbd74963",
+      "sourceSection": "Results",
+      "sourceSectionParagraphIndex": 18,
+      "sourceNumbers": [
+        58,
+        64
+      ],
+      "clusterSourceSha256": "2bd93a6892beb5904bedc32314d5b4406e931d6a08b22280904c96cc45bb15aa",
+      "sourceAnchors": [
+        {
+          "id": "ref-link-section-d102805164e7515",
+          "href": "/articles/s41534-023-00746-0#ref-CR58",
+          "label": "58",
+          "dataTest": "citation-ref"
+        },
+        {
+          "id": "ref-link-section-d102805164e7518",
+          "href": "/articles/s41534-023-00746-0#ref-CR64",
+          "label": "64",
+          "dataTest": "citation-ref"
+        }
+      ],
+      "scientificBase": {
+        "tag": "SPAN",
+        "text": "\\({\\alpha }^{{\\prime} }\\)",
+        "sourceSha256": "73ed36866848e28e458057b377eee703b3c361c5e59728dcbb7cdd1955a08671",
+        "tex": "{\\alpha }^{{\\prime} }"
+      },
+      "afterCitationText": ". The loss and the heating contribute to ",
+      "paragraphCitationClusters": [
+        [
+          63
+        ],
+        [
+          58,
+          64
+        ],
+        [
+          30
+        ]
+      ],
+      "fixtureParagraphSha256": "b226cfc00f5f696516b68092ae4701b4222124e54ea965f7ec5bed543af3df16"
+    },
+    {
+      "clusterIndexInBOracle": 57,
+      "selector": "section[data-title=\"Discussion\"] p:has(#ref-link-section-d102805164e12550)",
+      "rawParagraphSha256": "697d3fbbdcb78ca7ee69c7d85b72b370e185ec3bb260def1aa04aa4962b1c6e4",
+      "sourceSection": "Discussion",
+      "sourceSectionParagraphIndex": 1,
+      "sourceNumbers": [
+        42,
+        58
+      ],
+      "clusterSourceSha256": "396ec88b526ea1a7174f23b4335f1780fb68bd9a04c71f2307fb3b8860ed64b2",
+      "sourceAnchors": [
+        {
+          "id": "ref-link-section-d102805164e12550",
+          "href": "/articles/s41534-023-00746-0#ref-CR42",
+          "label": "42",
+          "dataTest": "citation-ref"
+        },
+        {
+          "id": "ref-link-section-d102805164e12553",
+          "href": "/articles/s41534-023-00746-0#ref-CR58",
+          "label": "58",
+          "dataTest": "citation-ref"
+        }
+      ],
+      "scientificBase": {
+        "tag": "SPAN",
+        "text": "\\({J}_{m}=\\sqrt{\\bar{n}}{\\kappa }_{2}/2\\epsilon\\)",
+        "sourceSha256": "0f478b75c5cd7df1b4cbe2fe4990f7d919168db943c3e4bbf3d570a4a7f58c96",
+        "tex": "{J}_{m}=\\sqrt{\\bar{n}}{\\kappa }_{2}/2\\epsilon"
+      },
+      "afterCitationText": ". For the SC, as shown in the Methods, the maximum nonlinear coupling strength is given by ",
+      "paragraphCitationClusters": [
+        [
+          42,
+          58
+        ]
+      ],
+      "fixtureParagraphSha256": "9e6e99e09e8e4cd9e96b870d4c245f5ffb96a2a504c17d8ad5036e8d3b0975e8"
+    }
+  ]
+}

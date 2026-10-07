@@ -253,6 +253,7 @@ function extractFigures(body, url) {
 
     const id = figure.id || figure.querySelector('[id^="Fig"]')?.id || '';
     const number = figures.length + 1;
+    const label = figureLabel(caption, `Figure ${number}`);
     const identity = `inline-figure-${number}`;
     figure.setAttribute(FIGURE_IDENTITY_ATTR, identity);
     figures.push({
@@ -260,10 +261,10 @@ function extractFigures(body, url) {
       id,
       natureId: id,
       anchor: `figure-${number}`,
-      label: figureLabel(caption, `Figure ${number}`),
+      label,
       caption,
       captionHtml: captionData.html,
-      alt: `Figure ${number}`,
+      alt: `Figure ${figureNumber(label, number)}`,
       imageUrl,
       source: 'inline figure',
     });
@@ -473,7 +474,11 @@ const SCIENTIFIC_ATTACHMENT_TAGS = new Set(['SUB', 'SUP']);
 const INLINE_MATH_MARKER = /^ACADEMICCLIPPERINLINEMATH\d+X$/;
 
 function isElement(node, tags = SCIENTIFIC_TAGS) {
-  return node?.nodeType === 1 && tags.has(node.tagName);
+  // Keep typed reference superscripts available to the later citation pass.
+  // Both existing citation anchor cues end a scientific range.
+  return node?.nodeType === 1 && tags.has(node.tagName)
+    && !(node.tagName === 'SUP'
+      && node.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]'));
 }
 
 function inlineMathValue(text, inlineMathByMarker) {
