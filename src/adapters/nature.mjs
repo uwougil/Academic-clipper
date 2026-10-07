@@ -253,6 +253,7 @@ function extractFigures(body, url) {
 
     const id = figure.id || figure.querySelector('[id^="Fig"]')?.id || '';
     const number = figures.length + 1;
+    const label = figureLabel(caption, `Figure ${number}`);
     const identity = `inline-figure-${number}`;
     figure.setAttribute(FIGURE_IDENTITY_ATTR, identity);
     figures.push({
@@ -260,10 +261,10 @@ function extractFigures(body, url) {
       id,
       natureId: id,
       anchor: `figure-${number}`,
-      label: figureLabel(caption, `Figure ${number}`),
+      label,
       caption,
       captionHtml: captionData.html,
-      alt: `Figure ${number}`,
+      alt: `Figure ${figureNumber(label, number)}`,
       imageUrl,
       source: 'inline figure',
     });
