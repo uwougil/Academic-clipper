@@ -67,9 +67,13 @@ async function protectCaptionCode(html, url) {
   const dom = new JSDOM(`<div>${html || ''}</div>`);
   const root = dom.window.document.body.firstElementChild;
   const code = [];
+  // Inspect the complete decoded source before removing any opaque nodes.
+  // Tokens must also avoid literal text/URLs and code restored in later slots.
+  const source = root.textContent + root.innerHTML;
   for (const element of Array.from(root.querySelectorAll('pre, code'))) {
     if (element.parentElement?.closest('pre, code')) continue;
-    const marker = `ACADEMICCLIPPERTABLECODE${code.length}X`;
+    let marker = `ACADEMICCLIPPERTABLECODE${code.length}X`;
+    while (source.includes(marker)) marker += 'X';
     code.push({ marker, markdown: await markdownFragment(element.outerHTML, url) });
     element.replaceWith(root.ownerDocument.createTextNode(marker));
   }
