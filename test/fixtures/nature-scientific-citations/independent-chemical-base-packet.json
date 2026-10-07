@@ -1,0 +1,68 @@
+{
+  "evidenceVersion": "nature-independent-chemical-base-packet/1.0.0",
+  "issue56Scope": false,
+  "articleId": "s41467-023-44030-3",
+  "url": "https://www.nature.com/articles/s41467-023-44030-3",
+  "sourceSha256": "a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d",
+  "fixtureSha256": "a98b1bc64cb0b86e90225ea4d3a0d1071da3fe195d53ad54c1fdf86ad9693b98",
+  "positions": [
+    {
+      "stage": "raw",
+      "paragraphSelector": "section[data-title=\"Results\"] p:has(#ref-link-section-d76734419e929)",
+      "paragraphSha256": "40052f20434e9ebfb090e55429d3a20e47553d31afe92b047c485808ba6e64a3",
+      "baseTextNodeChildIndex": 12,
+      "baseTextNodeOffset": 74,
+      "subChildIndex": 13,
+      "sourceSequenceIndexInParagraphText": 378,
+      "matchingSequenceCount": 1,
+      "sequenceHtml": "Pb(OAc)<sub>4</sub>",
+      "sequenceSha256": "3321e536f10a05c67e23e8f618214d0490c189f141bb4913895283db96af9424",
+      "subHtml": "<sub>4</sub>",
+      "subSha256": "434bb0e29512b0d2713621b156811d15313a1da74b72e5ddfb0ab617346b04f3"
+    },
+    {
+      "stage": "frozen",
+      "paragraphSelector": "section[data-title=\"Results\"] p:has(#ref-link-section-d76734419e929)",
+      "paragraphSha256": "74e0d28852386fd8165404fa8a38afcb94b49979f2c5dd9f9f3cb457bb3df00e",
+      "baseTextNodeChildIndex": 12,
+      "baseTextNodeOffset": 74,
+      "subChildIndex": 13,
+      "sourceSequenceIndexInParagraphText": 378,
+      "matchingSequenceCount": 1,
+      "sequenceHtml": "Pb(OAc)<sub>4</sub>",
+      "sequenceSha256": "3321e536f10a05c67e23e8f618214d0490c189f141bb4913895283db96af9424",
+      "subHtml": "<sub>4</sub>",
+      "subSha256": "434bb0e29512b0d2713621b156811d15313a1da74b72e5ddfb0ab617346b04f3"
+    }
+  ],
+  "expectedSourceRoles": {
+    "base": "Pb(OAc)",
+    "attachment": {
+      "tag": "SUB",
+      "text": "4"
+    },
+    "relation": "The original SUB numeral 4 stays attached to its complete chemical text base Pb(OAc); one scientific expression. No output TeX spelling is prescribed by this packet."
+  },
+  "observedOnAcceptedMain": {
+    "commit": "6b90413d806f7e611b00559c8208f6b95b31dd1e",
+    "log": "red-accepted-6b-matrix.log",
+    "markdown": "Pb(OAc)$_{4}$",
+    "validator": "scientific-isolatedSubscript",
+    "positions": {
+      "markdown": {
+        "line": 25,
+        "column": 464
+      },
+      "links": {
+        "line": 25,
+        "column": 464
+      },
+      "quarto": {
+        "line": 26,
+        "column": 464
+      }
+    },
+    "valid": false
+  },
+  "boundary": "Independent complex chemical text-base attachment failure, not a citation-SUP selector failure. It remains reported by unmodified production scientificFragments validation and is not repaired or accepted as valid in Issue #56."
+}

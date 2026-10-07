@@ -253,6 +253,7 @@ function extractFigures(body, url) {
 
     const id = figure.id || figure.querySelector('[id^="Fig"]')?.id || '';
     const number = figures.length + 1;
+    const label = figureLabel(caption, `Figure ${number}`);
     const identity = `inline-figure-${number}`;
     figure.setAttribute(FIGURE_IDENTITY_ATTR, identity);
     figures.push({
@@ -260,10 +261,10 @@ function extractFigures(body, url) {
       id,
       natureId: id,
       anchor: `figure-${number}`,
-      label: figureLabel(caption, `Figure ${number}`),
+      label,
       caption,
       captionHtml: captionData.html,
-      alt: `Figure ${number}`,
+      alt: `Figure ${figureNumber(label, number)}`,
       imageUrl,
       source: 'inline figure',
     });
@@ -473,7 +474,11 @@ const SCIENTIFIC_ATTACHMENT_TAGS = new Set(['SUB', 'SUP']);
 const INLINE_MATH_MARKER = /^ACADEMICCLIPPERINLINEMATH\d+X$/;
 
 function isElement(node, tags = SCIENTIFIC_TAGS) {
-  return node?.nodeType === 1 && tags.has(node.tagName);
+  // Keep typed reference superscripts available to the later citation pass.
+  // Both existing citation anchor cues end a scientific range.
+  return node?.nodeType === 1 && tags.has(node.tagName)
+    && !(node.tagName === 'SUP'
+      && node.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]'));
 }
 
 function inlineMathValue(text, inlineMathByMarker) {
@@ -797,13 +802,12 @@ function replaceScientificRuns(body, inlineMath) {
 function replaceScientificBracketText(body) {
   const values = [];
   const walker = body.ownerDocument.createTreeWalker(body, 4);
-  // These are plain Nature text nodes, not MathJax. Protect every numeric
-  // bracket expression before Defuddle can serialize it as \\[...\\]. This
-  // covers crystallographic directions such as [100], [210] and [001], as
-  // well as the [111]-strained form, without hard-coding an article string.
-  const pattern = /\[(\d+(?:[,\s−+\-]\d+)*)\]/gu;
+  // Literal bracket edges can span styled Nature inline nodes. Preserve
+  // their source-text identity before Defuddle escapes them as TeX fences;
+  // backslash-prefixed delimiters continue through the legacy math path.
+  const pattern = /(?<!\\)[\[\]]/gu;
   for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-    if (node.parentElement?.closest('.mathjax-tex, .c-article-equation, ol.c-article-references, ol.c-article-references__list')) continue;
+    if (node.parentElement?.closest('.mathjax-tex, .c-article-equation, code, pre, ol.c-article-references, ol.c-article-references__list, a[data-test="citation-ref"], a[href*="#ref-CR"]')) continue;
     const next = node.textContent.replace(pattern, (match) => {
       const marker = semanticMarker('LITERALTEXT', values.length);
       values.push({ marker, text: match });

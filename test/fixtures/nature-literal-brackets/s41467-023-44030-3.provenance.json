@@ -1,0 +1,1694 @@
+{
+  "evidenceVersion": "nature-literal-brackets-regression/1.0.0",
+  "sourceContractCommit": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330",
+  "source": {
+    "url": "https://www.nature.com/articles/s41467-023-44030-3",
+    "canonical": "https://www.nature.com/articles/s41467-023-44030-3",
+    "doi": "10.1038/s41467-023-44030-3",
+    "title": "C5 methylation confers accessibility, stability and selectivity to picrotoxinin",
+    "journal": "Nature Communications",
+    "observedAt": "2026-10-03T16:44:25.253Z",
+    "bytes": 460171,
+    "sourceSha256": "a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d",
+    "publicAccess": {
+      "articleLabel": "Article Open access Published: 14 December 2023",
+      "jsonLdIsAccessibleForFree": true,
+      "jsonLdSameAs": "https://doi.org/10.1038/s41467-023-44030-3"
+    },
+    "bodyCharacters": 57021,
+    "dns": [
+      {
+        "host": "www.nature.com",
+        "addresses": [
+          {
+            "address": "151.101.192.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.0.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.64.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.128.95",
+            "family": 4
+          }
+        ]
+      },
+      {
+        "host": "idp.nature.com",
+        "addresses": [
+          {
+            "address": "151.101.64.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.128.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.192.95",
+            "family": 4
+          },
+          {
+            "address": "151.101.0.95",
+            "family": 4
+          }
+        ]
+      }
+    ],
+    "redirectLedger": [
+      {
+        "url": "https://www.nature.com/articles/s41467-023-44030-3",
+        "status": 303,
+        "contentType": "text/html",
+        "cookiesSent": false,
+        "cookiesSet": 0,
+        "redirect": "https://idp.nature.com/authorize"
+      },
+      {
+        "url": "https://idp.nature.com/authorize",
+        "status": 302,
+        "contentType": "",
+        "cookiesSent": false,
+        "cookiesSet": 3,
+        "redirect": "https://idp.nature.com/transit"
+      },
+      {
+        "url": "https://idp.nature.com/transit",
+        "status": 302,
+        "contentType": "",
+        "cookiesSent": true,
+        "cookiesSet": 0,
+        "redirect": "https://www.nature.com/articles/s41467-023-44030-3"
+      },
+      {
+        "url": "https://www.nature.com/articles/s41467-023-44030-3",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "cookiesSent": true,
+        "cookiesSet": 3,
+        "redirect": null
+      }
+    ]
+  },
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41467-023-44030-3",
+    "sourceObservedAt": "2026-10-03T16:44:25.253Z",
+    "sourceSha256": "a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Tong, Guanghu",
+      "Griffin, Samantha",
+      "Sader, Avery",
+      "Crowell, Anna B.",
+      "Beavers, Ken",
+      "Watson, Jerry",
+      "Buchan, Zachary",
+      "Chen, Shuming",
+      "Shenvi, Ryan A."
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "84ab88094d2cd6f87d0a2a8abbb091db26a34a50a7701aa2a706a9a1a4b4dafd",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [],
+    "technicalTransformations": "Recipe-selected excerpts and original ancestors, A sanitizer 1.1.0, deterministic serialization and LF normalization. Advertising, navigation, executable content and unselected source blocks are omitted as recorded in the manifest/handoff. Retained scholarly prose, TeX, captions, authors, citation data and table cells are preserved; image binaries and full live captures are not included.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "observedRawArticleRightsMetadata": [
+    {
+      "name": "dc.copyright",
+      "content": "2023 The Author(s)",
+      "sourceSubtreeSha256": "e81e3995c3ad7b32c7b69ed7d4f2fc726b492adba03ec988f532a05fd6cbb91f"
+    },
+    {
+      "name": "dc.rights",
+      "content": "2023 The Author(s)",
+      "sourceSubtreeSha256": "47b461ef0638028e90e7de128b921665bb1ba9e20417a0c9b2ce6f10eaf66f44"
+    },
+    {
+      "name": "prism.copyright",
+      "content": "2023 The Author(s)",
+      "sourceSubtreeSha256": "e4a7967d6c475c4d6964e2d990fc05f071ac3f84c7b191891a8ff61998f10343"
+    }
+  ],
+  "scope": "真实Results heading、前邻h3、p0与后邻p1、原referenceprefix。不是完整article/corpus验收。",
+  "fixture": {
+    "path": "s41467-023-44030-3.article.excerpt.html",
+    "bytes": 50263,
+    "sha256": "f655fd7f928149ee683f0e4781cde3c5ef1dbe515a30461358db88aa40a6d500",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41467-023-44030-3-literal-brackets-minimal",
+      "articleUrl": "https://www.nature.com/articles/s41467-023-44030-3",
+      "blocks": [
+        {
+          "id": "a-meta-11",
+          "selector": "head > meta[name=\"dc.title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-36",
+          "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature Communications\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-40",
+          "selector": "head > meta[name=\"citation_title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-41",
+          "selector": "head > meta[name=\"citation_volume\"][content=\"14\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-42",
+          "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-43",
+          "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/12/14\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-44",
+          "selector": "head > meta[name=\"citation_firstpage\"][content=\"8308\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-45",
+          "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-49",
+          "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41467-023-44030-3\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-52",
+          "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41467-023-44030-3\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-122",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Tong, Guanghu\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-124",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Griffin, Samantha\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-126",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Sader, Avery\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-128",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Crowell, Anna B.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-130",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Beavers, Ken\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-132",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Watson, Jerry\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-134",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Buchan, Zachary\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-136",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Shuming\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-138",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Shenvi, Ryan A.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-147",
+          "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41467-023-44030-3\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-148",
+          "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-150",
+          "selector": "head > meta[property=\"og:title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin - Nature Communications\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-canonical",
+          "selector": "link[rel=\"canonical\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-jsonld",
+          "selector": "script[type=\"application/ld+json\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-title",
+          "selector": "h1.c-article-title",
+          "role": "title"
+        },
+        {
+          "id": "literal-brackets-block-0",
+          "selector": "#Sec3",
+          "role": "literal-brackets-adjacent-source"
+        },
+        {
+          "id": "literal-brackets-block-1",
+          "selector": "#Sec2-content > p:has(a[id=\"ref-link-section-d76734419e713\"])",
+          "role": "literal-brackets-source"
+        },
+        {
+          "id": "literal-brackets-block-2",
+          "selector": "#Sec2-content > p:has(a[id=\"ref-link-section-d76734419e773\"])",
+          "role": "literal-brackets-adjacent-source"
+        },
+        {
+          "id": "source-section-heading",
+          "selector": "#Sec2",
+          "role": "heading"
+        },
+        {
+          "id": "source-reference-1",
+          "selector": "li:has(#ref-CR1)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-2",
+          "selector": "li:has(#ref-CR2)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-3",
+          "selector": "li:has(#ref-CR3)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-4",
+          "selector": "li:has(#ref-CR4)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-5",
+          "selector": "li:has(#ref-CR5)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-6",
+          "selector": "li:has(#ref-CR6)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-7",
+          "selector": "li:has(#ref-CR7)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-8",
+          "selector": "li:has(#ref-CR8)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-9",
+          "selector": "li:has(#ref-CR9)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-10",
+          "selector": "li:has(#ref-CR10)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-11",
+          "selector": "li:has(#ref-CR11)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-12",
+          "selector": "li:has(#ref-CR12)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-13",
+          "selector": "li:has(#ref-CR13)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-14",
+          "selector": "li:has(#ref-CR14)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-15",
+          "selector": "li:has(#ref-CR15)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-16",
+          "selector": "li:has(#ref-CR16)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-17",
+          "selector": "li:has(#ref-CR17)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-18",
+          "selector": "li:has(#ref-CR18)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-19",
+          "selector": "li:has(#ref-CR19)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-20",
+          "selector": "li:has(#ref-CR20)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-21",
+          "selector": "li:has(#ref-CR21)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-22",
+          "selector": "li:has(#ref-CR22)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-23",
+          "selector": "li:has(#ref-CR23)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-24",
+          "selector": "li:has(#ref-CR24)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-25",
+          "selector": "li:has(#ref-CR25)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-26",
+          "selector": "li:has(#ref-CR26)",
+          "role": "ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-27",
+          "selector": "li:has(#ref-CR27)",
+          "role": "ordered-reference-prefix"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "helperDependencies": [
+      {
+        "file": "scripts/lib/nature-corpus-infrastructure.mjs",
+        "commit": "3754d3a781459635e719859353fe3cbdf8741897",
+        "gitBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+        "bytes": 34946,
+        "sha256": "a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c"
+      },
+      {
+        "file": "test/corpus/corpus-schema.json",
+        "commit": "3754d3a781459635e719859353fe3cbdf8741897",
+        "gitBlob": "3edf568bc82f9b0302f737acb5e0b19295cb927b",
+        "bytes": 12843,
+        "sha256": "7f0563889be154bcb91633ee48d5ce1218d9b8aa6c46614a07bf461bd3e03915"
+      }
+    ],
+    "retainedBlocks": [
+      {
+        "id": "a-meta-11",
+        "selector": "head > meta[name=\"dc.title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "89db2f0d3246994e1a44edd43109c208c2b0ac221113b0be77fe06c9adb9cca5"
+      },
+      {
+        "id": "a-meta-36",
+        "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature Communications\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "fed763f4c00b78f71837e14baaf5d5e95f1b9ce6b9c51a9fb8932d9fe1dfc53e"
+      },
+      {
+        "id": "a-meta-40",
+        "selector": "head > meta[name=\"citation_title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "70bc2481e88c2723d5a5b9ddb40bcbffccab958163b942a06f6d46da288a28ff"
+      },
+      {
+        "id": "a-meta-41",
+        "selector": "head > meta[name=\"citation_volume\"][content=\"14\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "df7ba09daa145ad4a25ade2d52ff2b2aa60f10c6d3ff0ec8ea7eee10a4c4b76c"
+      },
+      {
+        "id": "a-meta-42",
+        "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "ed1801e512cd04c79001567258d9938bff6132aa5dd4e064b95179536e4cdde8"
+      },
+      {
+        "id": "a-meta-43",
+        "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/12/14\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "04ffee8d1f7ef090c9c55f1b2cefd36445629ff757ceba710e185a95b474771a"
+      },
+      {
+        "id": "a-meta-44",
+        "selector": "head > meta[name=\"citation_firstpage\"][content=\"8308\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "327d6354e424e1b372c5cf859e4e71c01fba89c99aa0532638ae05a4b597706d"
+      },
+      {
+        "id": "a-meta-45",
+        "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "aeb52796a9a520993fee49b41ab2b5460c5dcfe24a657aaee093d4618fd9e1c6"
+      },
+      {
+        "id": "a-meta-49",
+        "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41467-023-44030-3\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "4b5ed9045a8b237706c58230af1168cf11fcf944aa46f36b7659a8f27447a1fe"
+      },
+      {
+        "id": "a-meta-52",
+        "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41467-023-44030-3\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "a43975239627809fec074e4b85f732c950b59d1f06c82ccc9cc70210f51e70e1"
+      },
+      {
+        "id": "a-meta-122",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Tong, Guanghu\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "806be7997770aebcef77a6124b104e5522fb38409183d1101e0edceff06312be"
+      },
+      {
+        "id": "a-meta-124",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Griffin, Samantha\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "9af41c7634e2f21d5f15bf578bac918d6b573d25fa695f3ecb4b15d7534ff43a"
+      },
+      {
+        "id": "a-meta-126",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Sader, Avery\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "0f6ffba52b0322bdfd051bffca4f09737438cacdf8ea4f46c2e294f0206a44c6"
+      },
+      {
+        "id": "a-meta-128",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Crowell, Anna B.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "bcfc4b60e96ce8d5f26936774b04eb576d9f366001107694718d6a187ef7fc45"
+      },
+      {
+        "id": "a-meta-130",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Beavers, Ken\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "421a4580a5ff93c9f4c3810b0bd31bd49aec65e108a9ab0155a5622cd8940a63"
+      },
+      {
+        "id": "a-meta-132",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Watson, Jerry\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "b4dc454c3dbaceba761ac555f8ea07c791306137bdb9c8a68bc28601cb8b6799"
+      },
+      {
+        "id": "a-meta-134",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Buchan, Zachary\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "645106cfca35b972290f9b146feae464b737280384e824748c38f8a49d643d99"
+      },
+      {
+        "id": "a-meta-136",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Shuming\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "18394fb72ba21888387f57680034102ae01909e733b72a15d34a302fd81b5c29"
+      },
+      {
+        "id": "a-meta-138",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Shenvi, Ryan A.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "f09a470328c892187e516be0e6653b5a413bcf60d066a237324729d75715026e"
+      },
+      {
+        "id": "a-meta-147",
+        "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41467-023-44030-3\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "63828a01686594198ae673064205e58c81617de414846b8fdb16772b0533e8b7"
+      },
+      {
+        "id": "a-meta-148",
+        "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "e2a47d03efa7114d4bc8e65c0fba2e84722b49e6e718eb787898c3c61ac5bcc9"
+      },
+      {
+        "id": "a-meta-150",
+        "selector": "head > meta[property=\"og:title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin - Nature Communications\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "db6a311bdcbcf0112f05d142f737f1b8c1b91da85c48fb912ad88f5c6739276b"
+      },
+      {
+        "id": "a-canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "9ee97a163f3fbc8b42ef3c4a9fb68f3b832c2d8b19bca58f330b9e86b6e4bed2"
+      },
+      {
+        "id": "a-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "a3752c408c06d02bf6a1668852de8f8e44f2c1694ca143a62c3d0d9014c4c8c3"
+      },
+      {
+        "id": "a-title",
+        "selector": "h1.c-article-title",
+        "role": "title",
+        "sourceSubtreeSha256": "a98982a1c165f4924e6d23554e44a9dc64032b627fe31feced742de881f52c0a"
+      },
+      {
+        "id": "literal-brackets-block-0",
+        "selector": "#Sec3",
+        "role": "literal-brackets-adjacent-source",
+        "sourceSubtreeSha256": "8e9e4ba08df87bee44def5d8f5380a25fc78287d76f0e49fb9929e313dfb4753"
+      },
+      {
+        "id": "literal-brackets-block-1",
+        "selector": "#Sec2-content > p:has(a[id=\"ref-link-section-d76734419e713\"])",
+        "role": "literal-brackets-source",
+        "sourceSubtreeSha256": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c"
+      },
+      {
+        "id": "literal-brackets-block-2",
+        "selector": "#Sec2-content > p:has(a[id=\"ref-link-section-d76734419e773\"])",
+        "role": "literal-brackets-adjacent-source",
+        "sourceSubtreeSha256": "04e0946eb8a89ea5b3b8f558a2b4217f6fd8fb40d22506238831cb44858d9168"
+      },
+      {
+        "id": "source-section-heading",
+        "selector": "#Sec2",
+        "role": "heading",
+        "sourceSubtreeSha256": "b05d837b4acc0107b3277337c107f65be4a18c0bd31c2db268b4ce350058bb02"
+      },
+      {
+        "id": "source-reference-1",
+        "selector": "li:has(#ref-CR1)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "d68b1d66d538fda5924669267c747cc115233e1e0d88eb6da2da3b18dad02e97"
+      },
+      {
+        "id": "source-reference-2",
+        "selector": "li:has(#ref-CR2)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "8f24c1c4ce020ddf8a62ef0e68908e8f67fb26d62c62045d6d5a5d2a556a4250"
+      },
+      {
+        "id": "source-reference-3",
+        "selector": "li:has(#ref-CR3)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "195f1b6be41b4fcb77b01849b5f90589239b9f8a81fb93d25392b2dc5e0e719a"
+      },
+      {
+        "id": "source-reference-4",
+        "selector": "li:has(#ref-CR4)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "bcf9e562953769e5cf2e9b2b67012cdc6f43abba116fbb608d671b7c2fbcb9b9"
+      },
+      {
+        "id": "source-reference-5",
+        "selector": "li:has(#ref-CR5)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "058a3e4c6b01d703aa71149d468d8fde4bc91695982fc8ad7a007d4ad0976212"
+      },
+      {
+        "id": "source-reference-6",
+        "selector": "li:has(#ref-CR6)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "656c1bed0790acfe4e6e6d943b89fcb32dfc99e7e697d273e752aad9ebe8f827"
+      },
+      {
+        "id": "source-reference-7",
+        "selector": "li:has(#ref-CR7)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "1517429a4dd28ae8aa9c2d593d06c93d884a28df77efd2b73be9c74fa712a6b5"
+      },
+      {
+        "id": "source-reference-8",
+        "selector": "li:has(#ref-CR8)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "48126da1818c00716f8942f91174a3d3f53a8d658dff5e153ae7e96a738e94a4"
+      },
+      {
+        "id": "source-reference-9",
+        "selector": "li:has(#ref-CR9)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "8aaf096adb73cfe8ccaec2bb427b0de59dc55400881e0f35cf62a95e126d0c07"
+      },
+      {
+        "id": "source-reference-10",
+        "selector": "li:has(#ref-CR10)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "a4ded140e2258e5cbb9d11facb2d751da7c2515767f3e50601eaa1b28fcf7c8a"
+      },
+      {
+        "id": "source-reference-11",
+        "selector": "li:has(#ref-CR11)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "65cb24a07e6ba56fc65567a1c1118f90227adc9acf407895d1e9ce8735619990"
+      },
+      {
+        "id": "source-reference-12",
+        "selector": "li:has(#ref-CR12)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "04444a8d8505275041bbb5ea0e862a81d7c3cb29b957b5e70657c7eb798dc994"
+      },
+      {
+        "id": "source-reference-13",
+        "selector": "li:has(#ref-CR13)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "3b7c7541d05f1736c52c131a69b400fc907837b8a9fe4873ef0c70c84a6dd74b"
+      },
+      {
+        "id": "source-reference-14",
+        "selector": "li:has(#ref-CR14)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "d41405bedc94841bd4c76e03816f944aee0cae985120f6bb04fac78a84e34109"
+      },
+      {
+        "id": "source-reference-15",
+        "selector": "li:has(#ref-CR15)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "e9eb9630bf2be6b20faacf902204a4f2a96e534289545d5151e646111bd4c123"
+      },
+      {
+        "id": "source-reference-16",
+        "selector": "li:has(#ref-CR16)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "2685d6568bfd882d040fd83791d8df48c21bf578b9d53741d0d770b4d8928b65"
+      },
+      {
+        "id": "source-reference-17",
+        "selector": "li:has(#ref-CR17)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "50ed5b79c0357ddbcf2c11e57384486d2d8400766b013a3976a8aa0a2b67ce10"
+      },
+      {
+        "id": "source-reference-18",
+        "selector": "li:has(#ref-CR18)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "e3f4d32db13c9e9f3011877a8353abf5b448b3bf299f086be320ffbb494d2663"
+      },
+      {
+        "id": "source-reference-19",
+        "selector": "li:has(#ref-CR19)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "93ae20496b2307f5a6cf31a5aa929691b1f5d23b78e4de37848c7dca0f0037f8"
+      },
+      {
+        "id": "source-reference-20",
+        "selector": "li:has(#ref-CR20)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "056fdcf21b4ebf1ae4aa6deca789ee4f6a11d6423106d69c308546a5d281013a"
+      },
+      {
+        "id": "source-reference-21",
+        "selector": "li:has(#ref-CR21)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "49031960d161717fb98328cd637a4ebe57f1b7ef11e038f28aaba3e2ffaa606d"
+      },
+      {
+        "id": "source-reference-22",
+        "selector": "li:has(#ref-CR22)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "7e812d4411301b63a14d08fce913895cde97bcf24ec8cecc943307a94d80785b"
+      },
+      {
+        "id": "source-reference-23",
+        "selector": "li:has(#ref-CR23)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "5e5903ed0c38da46f59b083a72714bff4c0a9968d463f9e4596a6a45601d3ae9"
+      },
+      {
+        "id": "source-reference-24",
+        "selector": "li:has(#ref-CR24)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "b978651a18abceff351f31a76d6e8292d07c1606ad98ecd6bc6011826e27bb45"
+      },
+      {
+        "id": "source-reference-25",
+        "selector": "li:has(#ref-CR25)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "874a338c0f0f8667416c75a8f8fd4dd6932c18331ffe9622df2975edee972815"
+      },
+      {
+        "id": "source-reference-26",
+        "selector": "li:has(#ref-CR26)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "f6dff6343371585375991473945979d20927824fa28c015488f13ea1c29636fe"
+      },
+      {
+        "id": "source-reference-27",
+        "selector": "li:has(#ref-CR27)",
+        "role": "ordered-reference-prefix",
+        "sourceSubtreeSha256": "f63a5111b2add91d93c546843d76d9b9872a12637b0dc8e719ce1ac4a44b80e4"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 56
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "trim-json-ld-to-article-object",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 595
+      },
+      {
+        "operation": "sanitize-resource-urls",
+        "count": 25
+      }
+    ],
+    "recipeSha256": "07003a6c114dca584950b5f6e3af46b50eccc9fef997747d022aa3ec470a8f61",
+    "signatures": {
+      "projectionVersion": "nature-corpus-projection/1.0.0",
+      "serializerVersion": "nature-corpus-subtree/1.0.0",
+      "recipeSha256": "07003a6c114dca584950b5f6e3af46b50eccc9fef997747d022aa3ec470a8f61",
+      "structureSha256": "1bfd69ebb799054ffce425ffdec38141c05cb70f03b8040fb8819cb8ff47a687",
+      "payloadSha256": "10f43b0dad91401da84666f6e2c8a68a9f5c759208eeaf3376827161835f11ee"
+    },
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true,
+    "omittedContent": [
+      "未选择的正文/图/表/author-information/UI；不覆盖完整article。",
+      "navigation、analytics、执行脚本、tracking/access/session attributes按A原sanitizer转换删除；原JSON-LD article metadata保留。",
+      "完整原raw捕获与binary不提交；来源credit/原CC BY4.0 rights完整记录，本记录不以仓库code license重新许可科学摘录。"
+    ],
+    "regeneration": "从B已保留untouched anonymous raw body读取；执行A 3754d3a actual helper/schema Git blobs与本recipe。没有写科学HTML、pretty-print inline nodes或全局collapse whitespace。"
+  },
+  "paragraph": {
+    "selector": "#Sec2-content > p:has(a[id=\"ref-link-section-d76734419e713\"])",
+    "sourceSection": "Results",
+    "sourceParagraphIndex": 0,
+    "rawPreSanitizationSha256": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+    "frozenParagraphSha256": "1d03f1991268ca7b64f42caa0f4a5e348594a8d2c129ce9cd756ff5ca7b1359f",
+    "reportedDigestCorrection": "C handoff先前将frozen paragraph digest标作raw prehash；原Buffer/source hash和科学内容相同，真正raw prehash因data-track attributes不同。两者明确分开，不改B/C oracle。",
+    "sourceText": "The 5 rings, 8 stereocenters, and 6 oxygens of PXN comprise a Böttcher complexity (Cm)22,23 of 467.61 mcbits packaged into 228 Å3, to give a density of 2.05 mcbits/Å3. Its small volume allows PXN to fit into the narrow space near the desensitization gate24 of GABAA receptors24 (largest pore radius ca. 3 Å in α1β3γ2L)25. Methylation of C5 increases the Cm to 480.1 ( + 3%), the ligand volume by 14 Å3 ( + 6%), maintains the information density (1.98 mcbits/Å3) and appears to access a hydrophobic pocket defined by residues L259/ T256 (β3 subunit) and T261 (α1 subunit)25,26. In a preliminary screen, we found that 5MePXN competed with [3H]-t-butylbicycloorthobenzoate ([3H]TBOB) for binding to rat cerebral cortex with an IC50 of 2.1 ± 0.3 μM21, corresponding to a 10-fold loss in potency from PXN. We wondered if this potency loss at mammalian receptors could serve as an advantage if the 5Me series bound invertebrate receptors with greater affinity, broadening the selectivity index of PXN analogs between mammals and insects.",
+    "orderedScientificNodes": [
+      {
+        "tag": "SUB",
+        "text": "m"
+      },
+      {
+        "tag": "SUP",
+        "text": "22,23"
+      },
+      {
+        "tag": "SUP",
+        "text": "3"
+      },
+      {
+        "tag": "SUP",
+        "text": "3"
+      },
+      {
+        "tag": "SUP",
+        "text": "24"
+      },
+      {
+        "tag": "SUB",
+        "text": "A"
+      },
+      {
+        "tag": "SUP",
+        "text": "24"
+      },
+      {
+        "tag": "I",
+        "text": "ca"
+      },
+      {
+        "tag": "SUP",
+        "text": "25"
+      },
+      {
+        "tag": "SUB",
+        "text": "m"
+      },
+      {
+        "tag": "SUP",
+        "text": "3"
+      },
+      {
+        "tag": "SUP",
+        "text": "3"
+      },
+      {
+        "tag": "SUP",
+        "text": "25,26"
+      },
+      {
+        "tag": "SUP",
+        "text": "3"
+      },
+      {
+        "tag": "I",
+        "text": "t"
+      },
+      {
+        "tag": "SUP",
+        "text": "3"
+      },
+      {
+        "tag": "SUB",
+        "text": "50"
+      },
+      {
+        "tag": "SUP",
+        "text": "21"
+      }
+    ]
+  },
+  "expected": {
+    "displayCount": 0,
+    "literalOccurrences": 2,
+    "boundaryMeaning": "两个source [3H]的方括号是literal isotope-label边界；sup3/H attachment是独立secondary缺陷，本文没有把孤立superscript当正确attachment。",
+    "equations": [],
+    "inlineMath": [],
+    "referencePrefix": 27,
+    "sourceRecords": [
+      {
+        "blockId": "literal-brackets-block-0",
+        "selector": "#Sec3",
+        "text": "The design and synthesis of picrotoxinin analogs",
+        "citations": []
+      },
+      {
+        "blockId": "literal-brackets-block-1",
+        "selector": "#Sec2-content > p:has(a[id=\"ref-link-section-d76734419e713\"])",
+        "text": "The 5 rings, 8 stereocenters, and 6 oxygens of PXN comprise a Böttcher complexity (Cm)22,23 of 467.61 mcbits packaged into 228 Å3, to give a density of 2.05 mcbits/Å3. Its small volume allows PXN to fit into the narrow space near the desensitization gate24 of GABAA receptors24 (largest pore radius ca. 3 Å in α1β3γ2L)25. Methylation of C5 increases the Cm to 480.1 ( + 3%), the ligand volume by 14 Å3 ( + 6%), maintains the information density (1.98 mcbits/Å3) and appears to access a hydrophobic pocket defined by residues L259/ T256 (β3 subunit) and T261 (α1 subunit)25,26. In a preliminary screen, we found that 5MePXN competed with [3H]-t-butylbicycloorthobenzoate ([3H]TBOB) for binding to rat cerebral cortex with an IC50 of 2.1 ± 0.3 μM21, corresponding to a 10-fold loss in potency from PXN. We wondered if this potency loss at mammalian receptors could serve as an advantage if the 5Me series bound invertebrate receptors with greater affinity, broadening the selectivity index of PXN analogs between mammals and insects.",
+        "citations": [
+          [
+            22,
+            23
+          ],
+          [
+            24
+          ],
+          [
+            24
+          ],
+          [
+            25
+          ],
+          [
+            25,
+            26
+          ],
+          [
+            21
+          ]
+        ]
+      },
+      {
+        "blockId": "literal-brackets-block-2",
+        "selector": "#Sec2-content > p:has(a[id=\"ref-link-section-d76734419e773\"])",
+        "text": "The high oxidation state, lack of modifiable functional groups and complex structure of PXN obstructed functionalization in prior studies5. Moreover, interactions between PXN and GABAA receptor in the narrow pore do not allow expansive derivatization of the PXN scaffold: e.g. acylation of the C6 hydroxyl or C15 bridge lactone opening ablates binding5. Thus, we pursued analogs based on previous computational18 and experimental25,26 models that 1) minimized volume and conformational changes using single atom replacements1, 2) probed lipophilic modification at C12 to avoid the reported inactivity of picrotin (PTN, 10) at RDL27, and 3) explored hydrogen bond network disruption (de-epoxidation, hydroxylation or fluorination27; Fig. 1b).",
+        "citations": [
+          [
+            5
+          ],
+          [
+            5
+          ],
+          [
+            18
+          ],
+          [
+            25,
+            26
+          ],
+          [
+            1
+          ],
+          [
+            27
+          ],
+          [
+            27
+          ]
+        ]
+      }
+    ]
+  },
+  "baseline": {
+    "acceptedMain": "e2d32e9ec819692a1f08075636c3a168f15ad20b",
+    "previousVerifiedRedBase": "4783291dcb8a5d0ac62dc2e5d314ba91f6c6d9e2",
+    "runtime": "Windows / Node v24.14.1",
+    "classification": "Implementation bug：PRD §3保留科学语义、优先原TeX、不伪造公式；EDD §2.3–2.5 publisher semantic/normalizer职责。",
+    "reproduction": "node --test test/nature-literal-brackets.test.mjs",
+    "noLiveOperations": true,
+    "results": [
+      {
+        "dialect": "markdown",
+        "displayCount": 1,
+        "expectedDisplayCount": 0,
+        "displayCountPass": false,
+        "validators": {
+          "math": {
+            "valid": false,
+            "inlineMathCount": 10,
+            "displayMathCount": 1,
+            "issues": [
+              {
+                "type": "single-dollar-in-display",
+                "line": 29,
+                "column": 700,
+                "delimiter": "$",
+                "context": "… and T261 (α1 subunit)[^25][^26]. In a preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with an IC$…",
+                "message": "A single dollar appeared inside display math; use escaped literal text or a valid TeX expression."
+              },
+              {
+                "type": "single-dollar-in-display",
+                "line": 29,
+                "column": 703,
+                "delimiter": "$",
+                "context": "…d T261 (α1 subunit)[^25][^26]. In a preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with an IC$_{5…",
+                "message": "A single dollar appeared inside display math; use escaped literal text or a valid TeX expression."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 29,
+                "column": 139,
+                "delimiter": "$",
+                "context": "…ygens of PXN comprise a Böttcher complexity (C$_{m}$)[^22][^23] of 467.61 mcbits packaged into 228 Å$^{3}$, to give a density of 2.05 mcbits/Å$^{3}$. Its small volume allows PXN to fit into the narrow…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 29,
+                "column": 181,
+                "delimiter": "$",
+                "context": "…y (C$_{m}$)[^22][^23] of 467.61 mcbits packaged into 228 Å$^{3}$, to give a density of 2.05 mcbits/Å$^{3}$. Its small volume allows PXN to fit into the narrow space near the desensitization gate[^24] …",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 29,
+                "column": 442,
+                "delimiter": "$",
+                "context": "…n α1β3γ2L)[^25]. Methylation of C5 increases the C$_{m}$ to 480.1 ( + 3%), the ligand volume by 14 Å$^{3}$ ( + 6%), maintains the information density (1.98 mcbits/Å$^{3}$) and appears to access a hydr…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 29,
+                "column": 506,
+                "delimiter": "$",
+                "context": "…1 ( + 3%), the ligand volume by 14 Å$^{3}$ ( + 6%), maintains the information density (1.98 mcbits/Å$^{3}$) and appears to access a hydrophobic pocket defined by residues L259/ T256 (β3 subunit) and T…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 29,
+                "column": 695,
+                "delimiter": "$",
+                "context": "…unit) and T261 (α1 subunit)[^25][^26]. In a preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with a…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 29,
+                "column": 739,
+                "delimiter": "$",
+                "context": "…preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with an IC$_{50}$ of 2.1 ± 0.3 μM[^21], correspond…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ],
+            "scientificFragments": {
+              "valid": false,
+              "counts": {
+                "isolatedSubscript": 0,
+                "isolatedSuperscript": 6,
+                "boldThenSubscript": 0,
+                "italicThenSuperscript": 0
+              },
+              "issues": [
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 29,
+                  "column": 139,
+                  "delimiter": "$",
+                  "context": "…ygens of PXN comprise a Böttcher complexity (C$_{m}$)[^22][^23] of 467.61 mcbits packaged into 228 Å$^{3}$, to give a density of 2.05 mcbits/Å$^{3}$. Its small volume allows PXN to fit into the narrow…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 29,
+                  "column": 181,
+                  "delimiter": "$",
+                  "context": "…y (C$_{m}$)[^22][^23] of 467.61 mcbits packaged into 228 Å$^{3}$, to give a density of 2.05 mcbits/Å$^{3}$. Its small volume allows PXN to fit into the narrow space near the desensitization gate[^24] …",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 29,
+                  "column": 442,
+                  "delimiter": "$",
+                  "context": "…n α1β3γ2L)[^25]. Methylation of C5 increases the C$_{m}$ to 480.1 ( + 3%), the ligand volume by 14 Å$^{3}$ ( + 6%), maintains the information density (1.98 mcbits/Å$^{3}$) and appears to access a hydr…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 29,
+                  "column": 506,
+                  "delimiter": "$",
+                  "context": "…1 ( + 3%), the ligand volume by 14 Å$^{3}$ ( + 6%), maintains the information density (1.98 mcbits/Å$^{3}$) and appears to access a hydrophobic pocket defined by residues L259/ T256 (β3 subunit) and T…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 29,
+                  "column": 695,
+                  "delimiter": "$",
+                  "context": "…unit) and T261 (α1 subunit)[^25][^26]. In a preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with a…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 29,
+                  "column": 739,
+                  "delimiter": "$",
+                  "context": "…preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with an IC$_{50}$ of 2.1 ± 0.3 μM[^21], correspond…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                }
+              ]
+            },
+            "states": {
+              "TEXT": 8418,
+              "INLINE_MATH": 49,
+              "DISPLAY_MATH": 43,
+              "INLINE_CODE": 0,
+              "FENCED_CODE": 0
+            }
+          },
+          "rawHtml": {
+            "valid": true,
+            "violations": []
+          },
+          "structure": {
+            "valid": true,
+            "citationStyle": "markdown",
+            "sections": {
+              "references": {
+                "headingCount": 1,
+                "itemCount": 27,
+                "definitionCount": 27,
+                "anchorCount": 0,
+                "issues": []
+              },
+              "tables": {
+                "headingCount": 0,
+                "itemCount": 0,
+                "tableCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              }
+            },
+            "issues": []
+          },
+          "crossReferences": {
+            "valid": true,
+            "issues": [],
+            "targets": [
+              "c5-methylation-confers-accessibility-stability-and-selectivity-to-picrotoxinin",
+              "results",
+              "the-design-and-synthesis-of-picrotoxinin-analogs",
+              "references"
+            ],
+            "links": []
+          }
+        },
+        "warnings": [
+          "No Nature figures were detected.",
+          "No equation nodes were detected."
+        ]
+      },
+      {
+        "dialect": "links",
+        "displayCount": 1,
+        "expectedDisplayCount": 0,
+        "displayCountPass": false,
+        "validators": {
+          "math": {
+            "valid": false,
+            "inlineMathCount": 10,
+            "displayMathCount": 1,
+            "issues": [
+              {
+                "type": "single-dollar-in-display",
+                "line": 29,
+                "column": 760,
+                "delimiter": "$",
+                "context": "…nit)[25](#ref-25), [26](#ref-26). In a preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with an IC$…",
+                "message": "A single dollar appeared inside display math; use escaped literal text or a valid TeX expression."
+              },
+              {
+                "type": "single-dollar-in-display",
+                "line": 29,
+                "column": 763,
+                "delimiter": "$",
+                "context": "…)[25](#ref-25), [26](#ref-26). In a preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with an IC$_{5…",
+                "message": "A single dollar appeared inside display math; use escaped literal text or a valid TeX expression."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 29,
+                "column": 157,
+                "delimiter": "$",
+                "context": "…ise a Böttcher complexity (C$_{m}$)[22](#ref-22), [23](#ref-23) of 467.61 mcbits packaged into 228 Å$^{3}$, to give a density of 2.05 mcbits/Å$^{3}$. Its small volume allows PXN to fit into the narrow…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 29,
+                "column": 199,
+                "delimiter": "$",
+                "context": "…ef-22), [23](#ref-23) of 467.61 mcbits packaged into 228 Å$^{3}$, to give a density of 2.05 mcbits/Å$^{3}$. Its small volume allows PXN to fit into the narrow space near the desensitization gate[24](#…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 29,
+                "column": 484,
+                "delimiter": "$",
+                "context": "…L)[25](#ref-25). Methylation of C5 increases the C$_{m}$ to 480.1 ( + 3%), the ligand volume by 14 Å$^{3}$ ( + 6%), maintains the information density (1.98 mcbits/Å$^{3}$) and appears to access a hydr…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 29,
+                "column": 548,
+                "delimiter": "$",
+                "context": "…1 ( + 3%), the ligand volume by 14 Å$^{3}$ ( + 6%), maintains the information density (1.98 mcbits/Å$^{3}$) and appears to access a hydrophobic pocket defined by residues L259/ T256 (β3 subunit) and T…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 29,
+                "column": 755,
+                "delimiter": "$",
+                "context": "… subunit)[25](#ref-25), [26](#ref-26). In a preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with a…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 29,
+                "column": 799,
+                "delimiter": "$",
+                "context": "…preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with an IC$_{50}$ of 2.1 ± 0.3 μM[21](#ref-21), co…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ],
+            "scientificFragments": {
+              "valid": false,
+              "counts": {
+                "isolatedSubscript": 0,
+                "isolatedSuperscript": 6,
+                "boldThenSubscript": 0,
+                "italicThenSuperscript": 0
+              },
+              "issues": [
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 29,
+                  "column": 157,
+                  "delimiter": "$",
+                  "context": "…ise a Böttcher complexity (C$_{m}$)[22](#ref-22), [23](#ref-23) of 467.61 mcbits packaged into 228 Å$^{3}$, to give a density of 2.05 mcbits/Å$^{3}$. Its small volume allows PXN to fit into the narrow…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 29,
+                  "column": 199,
+                  "delimiter": "$",
+                  "context": "…ef-22), [23](#ref-23) of 467.61 mcbits packaged into 228 Å$^{3}$, to give a density of 2.05 mcbits/Å$^{3}$. Its small volume allows PXN to fit into the narrow space near the desensitization gate[24](#…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 29,
+                  "column": 484,
+                  "delimiter": "$",
+                  "context": "…L)[25](#ref-25). Methylation of C5 increases the C$_{m}$ to 480.1 ( + 3%), the ligand volume by 14 Å$^{3}$ ( + 6%), maintains the information density (1.98 mcbits/Å$^{3}$) and appears to access a hydr…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 29,
+                  "column": 548,
+                  "delimiter": "$",
+                  "context": "…1 ( + 3%), the ligand volume by 14 Å$^{3}$ ( + 6%), maintains the information density (1.98 mcbits/Å$^{3}$) and appears to access a hydrophobic pocket defined by residues L259/ T256 (β3 subunit) and T…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 29,
+                  "column": 755,
+                  "delimiter": "$",
+                  "context": "… subunit)[25](#ref-25), [26](#ref-26). In a preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with a…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 29,
+                  "column": 799,
+                  "delimiter": "$",
+                  "context": "…preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with an IC$_{50}$ of 2.1 ± 0.3 μM[21](#ref-21), co…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                }
+              ]
+            },
+            "states": {
+              "TEXT": 8999,
+              "INLINE_MATH": 49,
+              "DISPLAY_MATH": 43,
+              "INLINE_CODE": 0,
+              "FENCED_CODE": 0
+            }
+          },
+          "rawHtml": {
+            "valid": true,
+            "violations": []
+          },
+          "structure": {
+            "valid": true,
+            "citationStyle": "links",
+            "sections": {
+              "references": {
+                "headingCount": 1,
+                "itemCount": 27,
+                "anchorCount": 27,
+                "issues": []
+              },
+              "tables": {
+                "headingCount": 0,
+                "itemCount": 0,
+                "tableCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              }
+            },
+            "issues": []
+          },
+          "crossReferences": {
+            "valid": true,
+            "issues": [],
+            "targets": [
+              "ref-1",
+              "ref-2",
+              "ref-3",
+              "ref-4",
+              "ref-5",
+              "ref-6",
+              "ref-7",
+              "ref-8",
+              "ref-9",
+              "ref-10",
+              "ref-11",
+              "ref-12",
+              "ref-13",
+              "ref-14",
+              "ref-15",
+              "ref-16",
+              "ref-17",
+              "ref-18",
+              "ref-19",
+              "ref-20",
+              "ref-21",
+              "ref-22",
+              "ref-23",
+              "ref-24",
+              "ref-25",
+              "ref-26",
+              "ref-27",
+              "c5-methylation-confers-accessibility-stability-and-selectivity-to-picrotoxinin",
+              "results",
+              "the-design-and-synthesis-of-picrotoxinin-analogs",
+              "references"
+            ],
+            "links": [
+              {
+                "label": "22",
+                "target": "ref-22",
+                "category": "reference",
+                "index": 714
+              },
+              {
+                "label": "23",
+                "target": "ref-23",
+                "category": "reference",
+                "index": 729
+              },
+              {
+                "label": "24",
+                "target": "ref-24",
+                "category": "reference",
+                "index": 915
+              },
+              {
+                "label": "24",
+                "target": "ref-24",
+                "category": "reference",
+                "index": 952
+              },
+              {
+                "label": "25",
+                "target": "ref-25",
+                "category": "reference",
+                "index": 1008
+              },
+              {
+                "label": "25",
+                "target": "ref-25",
+                "category": "reference",
+                "index": 1286
+              },
+              {
+                "label": "26",
+                "target": "ref-26",
+                "category": "reference",
+                "index": 1301
+              },
+              {
+                "label": "21",
+                "target": "ref-21",
+                "category": "reference",
+                "index": 1504
+              },
+              {
+                "label": "5",
+                "target": "ref-5",
+                "category": "reference",
+                "index": 1941
+              },
+              {
+                "label": "5",
+                "target": "ref-5",
+                "category": "reference",
+                "index": 2170
+              },
+              {
+                "label": "18",
+                "target": "ref-18",
+                "category": "reference",
+                "index": 2239
+              },
+              {
+                "label": "25",
+                "target": "ref-25",
+                "category": "reference",
+                "index": 2269
+              },
+              {
+                "label": "26",
+                "target": "ref-26",
+                "category": "reference",
+                "index": 2284
+              },
+              {
+                "label": "1",
+                "target": "ref-1",
+                "category": "reference",
+                "index": 2387
+              },
+              {
+                "label": "27",
+                "target": "ref-27",
+                "category": "reference",
+                "index": 2506
+              },
+              {
+                "label": "27",
+                "target": "ref-27",
+                "category": "reference",
+                "index": 2616
+              }
+            ]
+          }
+        },
+        "warnings": [
+          "No Nature figures were detected.",
+          "No equation nodes were detected."
+        ]
+      },
+      {
+        "dialect": "quarto",
+        "displayCount": 1,
+        "expectedDisplayCount": 0,
+        "displayCountPass": false,
+        "validators": {
+          "math": {
+            "valid": false,
+            "inlineMathCount": 10,
+            "displayMathCount": 1,
+            "issues": [
+              {
+                "type": "single-dollar-in-display",
+                "line": 28,
+                "column": 759,
+                "delimiter": "$",
+                "context": "…unit)[@Hibbs2011; @Masiulis2019]. In a preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with an IC$…",
+                "message": "A single dollar appeared inside display math; use escaped literal text or a valid TeX expression."
+              },
+              {
+                "type": "single-dollar-in-display",
+                "line": 28,
+                "column": 762,
+                "delimiter": "$",
+                "context": "…t)[@Hibbs2011; @Masiulis2019]. In a preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with an IC$_{5…",
+                "message": "A single dollar appeared inside display math; use escaped literal text or a valid TeX expression."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 28,
+                "column": 158,
+                "delimiter": "$",
+                "context": "…se a Böttcher complexity (C$_{m}$)[@Bottcher2016; @Demoret2020] of 467.61 mcbits packaged into 228 Å$^{3}$, to give a density of 2.05 mcbits/Å$^{3}$. Its small volume allows PXN to fit into the narrow…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 28,
+                "column": 200,
+                "delimiter": "$",
+                "context": "…er2016; @Demoret2020] of 467.61 mcbits packaged into 228 Å$^{3}$, to give a density of 2.05 mcbits/Å$^{3}$. Its small volume allows PXN to fit into the narrow space near the desensitization gate[@Giel…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 28,
+                "column": 484,
+                "delimiter": "$",
+                "context": "…2L)[@Hibbs2011]. Methylation of C5 increases the C$_{m}$ to 480.1 ( + 3%), the ligand volume by 14 Å$^{3}$ ( + 6%), maintains the information density (1.98 mcbits/Å$^{3}$) and appears to access a hydr…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 28,
+                "column": 548,
+                "delimiter": "$",
+                "context": "…1 ( + 3%), the ligand volume by 14 Å$^{3}$ ( + 6%), maintains the information density (1.98 mcbits/Å$^{3}$) and appears to access a hydrophobic pocket defined by residues L259/ T256 (β3 subunit) and T…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 28,
+                "column": 754,
+                "delimiter": "$",
+                "context": "…1 subunit)[@Hibbs2011; @Masiulis2019]. In a preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with a…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 28,
+                "column": 798,
+                "delimiter": "$",
+                "context": "…preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with an IC$_{50}$ of 2.1 ± 0.3 μM[@Crossley2020], …",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ],
+            "scientificFragments": {
+              "valid": false,
+              "counts": {
+                "isolatedSubscript": 0,
+                "isolatedSuperscript": 6,
+                "boldThenSubscript": 0,
+                "italicThenSuperscript": 0
+              },
+              "issues": [
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 28,
+                  "column": 158,
+                  "delimiter": "$",
+                  "context": "…se a Böttcher complexity (C$_{m}$)[@Bottcher2016; @Demoret2020] of 467.61 mcbits packaged into 228 Å$^{3}$, to give a density of 2.05 mcbits/Å$^{3}$. Its small volume allows PXN to fit into the narrow…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 28,
+                  "column": 200,
+                  "delimiter": "$",
+                  "context": "…er2016; @Demoret2020] of 467.61 mcbits packaged into 228 Å$^{3}$, to give a density of 2.05 mcbits/Å$^{3}$. Its small volume allows PXN to fit into the narrow space near the desensitization gate[@Giel…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 28,
+                  "column": 484,
+                  "delimiter": "$",
+                  "context": "…2L)[@Hibbs2011]. Methylation of C5 increases the C$_{m}$ to 480.1 ( + 3%), the ligand volume by 14 Å$^{3}$ ( + 6%), maintains the information density (1.98 mcbits/Å$^{3}$) and appears to access a hydr…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 28,
+                  "column": 548,
+                  "delimiter": "$",
+                  "context": "…1 ( + 3%), the ligand volume by 14 Å$^{3}$ ( + 6%), maintains the information density (1.98 mcbits/Å$^{3}$) and appears to access a hydrophobic pocket defined by residues L259/ T256 (β3 subunit) and T…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 28,
+                  "column": 754,
+                  "delimiter": "$",
+                  "context": "…1 subunit)[@Hibbs2011; @Masiulis2019]. In a preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with a…",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSuperscript",
+                  "line": 28,
+                  "column": 798,
+                  "delimiter": "$",
+                  "context": "…preliminary screen, we found that 5MePXN competed with $$^{3}$ H$- *t* -butylbicycloorthobenzoate ($$^{3}$ H$TBOB) for binding to rat cerebral cortex with an IC$_{50}$ of 2.1 ± 0.3 μM[@Crossley2020], …",
+                  "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+                }
+              ]
+            },
+            "states": {
+              "TEXT": 2726,
+              "INLINE_MATH": 49,
+              "DISPLAY_MATH": 43,
+              "INLINE_CODE": 0,
+              "FENCED_CODE": 0
+            }
+          },
+          "rawHtml": {
+            "valid": true,
+            "violations": []
+          },
+          "structure": {
+            "valid": true,
+            "citationStyle": "quarto",
+            "sections": {
+              "references": {
+                "headingCount": 1,
+                "itemCount": 0,
+                "definitionCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              },
+              "tables": {
+                "headingCount": 0,
+                "itemCount": 0,
+                "tableCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              }
+            },
+            "issues": []
+          },
+          "crossReferences": {
+            "valid": true,
+            "issues": [],
+            "targets": [
+              "sec-the-design-and-synthesis-of-picrotoxinin-analogs",
+              "refs",
+              "c5-methylation-confers-accessibility-stability-and-selectivity-to-picrotoxinin",
+              "results",
+              "the-design-and-synthesis-of-picrotoxinin-analogs",
+              "references"
+            ],
+            "links": []
+          }
+        },
+        "warnings": [
+          "No Nature figures were detected.",
+          "No equation nodes were detected."
+        ]
+      }
+    ],
+    "rootCause": "非numeric、跨inline-element的原literal brackets缺少Nature typed literalText保护；Defuddle转义后legacy delimiter恢复失去来源身份。原MathJax source TeX仍有typed保护。",
+    "independentDefects": [
+      "leading isotope attachment独立packet：保护literal边界的诊断clone仍得到[ $^{3}$ H]并被scientific-isolatedSuperscript拒绝。",
+      "原Å units/ordinary scientific bases由#48/后续独立合同负责；本excerpt完整math validator未通过，不能计Issue10 passing coverage。"
+    ]
+  }
+}

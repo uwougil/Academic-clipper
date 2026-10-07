@@ -1,0 +1,2 @@
+# Preserve source-selected scientific whitespace and deterministic UTF-8 LF bytes.
+*.html text eol=lf whitespace=-blank-at-eol
