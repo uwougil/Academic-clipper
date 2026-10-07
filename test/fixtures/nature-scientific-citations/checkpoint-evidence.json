@@ -1,0 +1,340 @@
+{
+  "evidenceVersion": "nature-scientific-citation-preflight/1.0.0",
+  "workContract": {
+    "number": 56,
+    "url": "https://github.com/uwougil/Academic-clipper/issues/56",
+    "type": "bug",
+    "stateAtCheckpoint": "OPEN"
+  },
+  "phase": "SOURCE_ONLY_RED_NOT_FIXED",
+  "acceptedBase": {
+    "commit": "6b90413d806f7e611b00559c8208f6b95b31dd1e",
+    "mainCi": "37323651988",
+    "mainJobs": {
+      "ubuntu24": "111808767556",
+      "windows24": "111808767880",
+      "ubuntu20": "111808768068"
+    },
+    "mainConclusion": "success",
+    "secrets": "37323651876",
+    "secretsConclusion": "success"
+  },
+  "sourceAuditReuse": {
+    "policyCommit": "2445ae2",
+    "bSource": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330",
+    "bScientificInput": "143fc77ebdc4bf15dd1cdca63afcddb91e6b55f5",
+    "cCheckpoint": "bc81a28d8edf05bbba06b1a82cdedcde3d6f8ac6",
+    "cHandoffBlob": "f304bfee7976faa041f91d3eeb402a7ea510d11a",
+    "actualAHelper": {
+      "path": "scripts/lib/nature-corpus-infrastructure.mjs",
+      "gitBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+      "workingFileHashObject": "e56f140d9756bb83013b9df0716dc650e04d7917",
+      "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+      "serializerVersion": "nature-corpus-subtree/1.0.0",
+      "importedReadOnly": true,
+      "copiedIntoBugBranch": false
+    },
+    "bBlobs": {
+      "quantumExcerpt": "a2030bd4dd4cb72343b9b7a7d5e9d23b68d7f8e8",
+      "quantumSourceEvidence": "e700e5904893a00764998a2760e4dbd4a2f3b8f1",
+      "chemistryExcerpt": "d049ece2e34c1246b8a9c420df3b213216f45504",
+      "chemistrySourceEvidence": "a30c30af7588d9bec204b7fd3d706d7aae1e45b9"
+    },
+    "cBlobs": {
+      "quantumExcerpt": "a2030bd4dd4cb72343b9b7a7d5e9d23b68d7f8e8",
+      "quantumSourceEvidence": "3edb599bad022a1d27611f337fbd8b8d3a9e2ef4",
+      "chemistryExcerpt": "d049ece2e34c1246b8a9c420df3b213216f45504",
+      "chemistrySourceEvidence": "f5dfe795b6979be4d4cd0a039780b72bdd44ad03"
+    },
+    "distinction": "B/C original scientific excerpt Git blobs agree. Their source-evidence blobs differ: B b718fa8 adds complete rights provenance over scientific input 143fc77. The earlier independent raw/rights/prehash/recipe audit used the actual B b718fa8 helper and rights and is reused unchanged, rather than claiming those provenance blobs are identical.",
+    "previousReceiptsLog": "freeze-receipts.jsonl",
+    "repeatAuditNotPerformed": true,
+    "immutableOwnInputs": [
+      {
+        "kind": "quantum",
+        "fixtureSha256": "3fdd325ba36f107ecdcdbc4643e3bda22350091565de75bf9b169ea36df6f277",
+        "fixtureBytes": 65179,
+        "recipeSha256": "bd9ba9eda06a44dd7a617ea5c2adecff9bb0003395d04e2bed860a0a1e25b393",
+        "sourceSha256": "6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e",
+        "sourceBytes": 511799,
+        "retainedReferencePrefix": 64,
+        "sourceCreatorCount": 6,
+        "repeatByteEqual": true,
+        "idempotent": true
+      },
+      {
+        "kind": "chemistry",
+        "fixtureSha256": "a98b1bc64cb0b86e90225ea4d3a0d1071da3fe195d53ad54c1fdf86ad9693b98",
+        "fixtureBytes": 59993,
+        "recipeSha256": "a4f32deeb5682b7a48a7d883af6b9bfaed8a2738a788a0f270977b58da9c1c97",
+        "sourceSha256": "a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d",
+        "sourceBytes": 460171,
+        "retainedReferencePrefix": 35,
+        "sourceCreatorCount": 9,
+        "repeatByteEqual": true,
+        "idempotent": true
+      }
+    ]
+  },
+  "reproduce": {
+    "command": "node --test test/nature-scientific-citations.test.mjs",
+    "runtime": {
+      "node": "v24.14.1",
+      "npm": "11.11.0",
+      "platform": "Windows"
+    },
+    "previousAcceptedBase": "e2d32e9ec819692a1f08075636c3a168f15ad20b",
+    "previousRed": {
+      "filename": "red-corrected-integrity.log",
+      "sha256": "4f4abcde91cb3508292ad76e6b136dbe2df7fcdd364706e8bf54ec050d79434d",
+      "bytes": 14778,
+      "exitCode": 1,
+      "tests": 13,
+      "pass": 1,
+      "fail": 12,
+      "skipped": 0
+    },
+    "acceptedRed": {
+      "filename": "red-accepted-6b-matrix.log",
+      "sha256": "4886858be88c7e0fd3ca81d1b05a5974391e6c67404a4bde44b4d32b9f5de011",
+      "bytes": 50452,
+      "exitCode": 1,
+      "tests": 41,
+      "pass": 5,
+      "fail": 36,
+      "skipped": 0
+    },
+    "testedFileSha256": "162cce8497cc3f65bc01c1e1fc149b72a964b423559ca02d58b2df8f62b85f20",
+    "originalSourceRowCountsAtBothBases": {
+      "tests": 13,
+      "pass": 1,
+      "fail": 12,
+      "skipped": 0
+    },
+    "addedBoundaryVariants": {
+      "tests": 24,
+      "pass": 0,
+      "fail": 24,
+      "skipped": 0,
+      "mutations": [
+        "Remove only href from actual selected anchors; keep citation-ref data-test.",
+        "Remove only data-test from actual selected anchors; keep exact original #ref-CR href."
+      ],
+      "sourceEvidence": false
+    },
+    "addedSourceNegativeControls": {
+      "tests": 4,
+      "pass": 4,
+      "fail": 0,
+      "skipped": 0,
+      "originalHtml": "<i>e</i><sup>−2<i>r</i></sup>",
+      "citationCues": 0,
+      "originalIntrinsicAlphaPrime": true
+    },
+    "productionEdits": false,
+    "fullTestBuildGoldenRun": false,
+    "reason": "Source-only preflight. No production change and the human incremental-verification instruction reserves full-suite execution for the implementation/reviewer gate."
+  },
+  "originalCases": [
+    {
+      "kind": "quantum",
+      "clusterIndexInBOracle": 37,
+      "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d102805164e7515)",
+      "rawParagraphSha256": "9461453468d164c47c8d6b64843c5578c260bf0251b713796d45fb36cbd74963",
+      "frozenParagraphSha256": "b226cfc00f5f696516b68092ae4701b4222124e54ea965f7ec5bed543af3df16",
+      "sourceNumbers": [
+        58,
+        64
+      ],
+      "scientificBase": {
+        "tag": "SPAN",
+        "text": "\\({\\alpha }^{{\\prime} }\\)",
+        "sourceSha256": "73ed36866848e28e458057b377eee703b3c361c5e59728dcbb7cdd1955a08671",
+        "tex": "{\\alpha }^{{\\prime} }"
+      },
+      "afterCitationText": ". The loss and the heating contribute to "
+    },
+    {
+      "kind": "quantum",
+      "clusterIndexInBOracle": 57,
+      "selector": "section[data-title=\"Discussion\"] p:has(#ref-link-section-d102805164e12550)",
+      "rawParagraphSha256": "697d3fbbdcb78ca7ee69c7d85b72b370e185ec3bb260def1aa04aa4962b1c6e4",
+      "frozenParagraphSha256": "9e6e99e09e8e4cd9e96b870d4c245f5ffb96a2a504c17d8ad5036e8d3b0975e8",
+      "sourceNumbers": [
+        42,
+        58
+      ],
+      "scientificBase": {
+        "tag": "SPAN",
+        "text": "\\({J}_{m}=\\sqrt{\\bar{n}}{\\kappa }_{2}/2\\epsilon\\)",
+        "sourceSha256": "0f478b75c5cd7df1b4cbe2fe4990f7d919168db943c3e4bbf3d570a4a7f58c96",
+        "tex": "{J}_{m}=\\sqrt{\\bar{n}}{\\kappa }_{2}/2\\epsilon"
+      },
+      "afterCitationText": ". For the SC, as shown in the Methods, the maximum nonlinear coupling strength is given by "
+    },
+    {
+      "kind": "chemistry",
+      "clusterIndexInBOracle": 40,
+      "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d76734419e929)",
+      "rawParagraphSha256": "40052f20434e9ebfb090e55429d3a20e47553d31afe92b047c485808ba6e64a3",
+      "frozenParagraphSha256": "74e0d28852386fd8165404fa8a38afcb94b49979f2c5dd9f9f3cb457bb3df00e",
+      "sourceNumbers": [
+        33,
+        34
+      ],
+      "scientificBase": {
+        "tag": "B",
+        "text": "2",
+        "sourceSha256": "6e784353ea75228d9d65f28d704f77c2b294757ae6d8ca74ae74a459de564cfa",
+        "tex": null
+      },
+      "afterCitationText": ", but only hydrogenation of corresponding cyclopropane ("
+    }
+  ],
+  "diagnosis": {
+    "classification": "implementation bug; not a proven introduced regression",
+    "trigger": "A typed citation SUP directly follows an actual MathJax inline marker or bold scientific compound base.",
+    "traceMethod": "Read-only Node inspector breakpoints before replaceScientificRuns, at range.extractContents(), and after scientific runs before replaceCitations. Clone ranges inspected; no production instrumentation or edits.",
+    "traceFile": "stage-trace.json",
+    "traceSha256": "8c23d3db575b912118b60fb62ffb44eca1520f6e1f174fc5f3475ba1b2e0b5ac",
+    "sameAdapterGitBlobAtPreviousAndAcceptedBase": "7757ed87fb64573c8e1bd706fbee4aaa041dea7c",
+    "earliestInvalidStage": "replaceRangeWithScientificMarker range.extractContents() removes actual citation SUP and its reference anchors into the scientific fragment.",
+    "causalSteps": [
+      "collectMathMarkerRun / collectStyledRun accept SUP on tag membership without excluding either existing citation cue.",
+      "The selected Range contains both the scientific base and the original typed citation SUP.",
+      "scientificTex recursively discards anchor semantics and converts SUP labels into a TeX exponent.",
+      "Later replaceCitations cannot find the removed source anchors. Defuddle and all dialect renderers receive already-corrupt semantic input."
+    ],
+    "stageObservations": [
+      {
+        "kind": "quantum",
+        "phase": "beforeScientificRuns",
+        "clusters": [
+          [
+            "63"
+          ],
+          [
+            "58",
+            "64"
+          ],
+          [
+            "30"
+          ],
+          [
+            "42",
+            "58"
+          ]
+        ]
+      },
+      {
+        "kind": "quantum",
+        "phase": "rangeExtraction",
+        "citationCount": 2,
+        "rangeHtmlSha256": "917dd2ce801bdaafa64ff37724b101d05632afc216b537dd0c2de375438ab21e",
+        "citationSelector": "a[data-test=\"citation-ref\"], a[href*=\"#ref-CR\"]"
+      },
+      {
+        "kind": "quantum",
+        "phase": "rangeExtraction",
+        "citationCount": 2,
+        "rangeHtmlSha256": "889dc7cb5bcee4d2fddef7b8fea3d7a338eb2c1cac3f3c3d9004faa81afecb9c",
+        "citationSelector": "a[data-test=\"citation-ref\"], a[href*=\"#ref-CR\"]"
+      },
+      {
+        "kind": "quantum",
+        "phase": "afterScientificRunsBeforeCitations",
+        "clusters": [
+          [
+            "63"
+          ],
+          [
+            "30"
+          ]
+        ],
+        "runs": [
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+            "tex": "{\\alpha}^{{\\prime}}^{58,64}",
+            "provenance": "Nature MathJax plus adjacent inline scientific nodes"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN12X",
+            "tex": "{J}_{m}=\\sqrt{\\bar{n}}{\\kappa}_{2}/2\\epsilon^{42,58}",
+            "provenance": "Nature MathJax plus adjacent inline scientific nodes"
+          }
+        ]
+      },
+      {
+        "kind": "chemistry",
+        "phase": "beforeScientificRuns",
+        "clusters": [
+          [
+            "21",
+            "28",
+            "29"
+          ],
+          [
+            "30"
+          ],
+          [
+            "31"
+          ],
+          [
+            "32"
+          ],
+          [
+            "33",
+            "34"
+          ],
+          [
+            "35"
+          ]
+        ]
+      },
+      {
+        "kind": "chemistry",
+        "phase": "rangeExtraction",
+        "citationCount": 2,
+        "rangeHtmlSha256": "7f57d8f719baa7d89532f4b9041e3ee29ea9d8746e13113ba8b2f86b977c656d",
+        "citationSelector": "a[data-test=\"citation-ref\"], a[href*=\"#ref-CR\"]"
+      },
+      {
+        "kind": "chemistry",
+        "phase": "afterScientificRunsBeforeCitations",
+        "clusters": [
+          [
+            "21",
+            "28",
+            "29"
+          ],
+          [
+            "30"
+          ],
+          [
+            "31"
+          ],
+          [
+            "32"
+          ],
+          [
+            "35"
+          ]
+        ],
+        "runs": [
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+            "tex": "\\mathbf{2}^{33,34}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          }
+        ]
+      }
+    ],
+    "proposedCounterfactual": "At the existing scientific-node eligibility boundary, a SUP containing either existing citation anchor cue ends a scientific run, while a genuine scientific SUP remains eligible. Existing citation extraction then sees original anchors. This proposal is not applied or claimed verified GREEN."
+  },
+  "independentFailurePacket": "independent-chemical-base-packet.json",
+  "excludedDelivery": [
+    "No production edit, implementation PR, merge or completion claim.",
+    "No old Issue #47 worktree/branch edits.",
+    "No B/C corpus/oracle edits, full raw captures, live source acquisition, source rewrites or validator relaxation."
+  ]
+}
