@@ -7,6 +7,10 @@ import {syncBuiltinESMExports} from 'node:module';
 import {after, test} from 'node:test';
 import {pathToFileURL} from 'node:url';
 
+const scope = process.env.CHEMICAL_GROUP_SYNTHETIC_SCOPE || 'all';
+assert.ok(['all', 'review-tail'].includes(scope), 'Explicit synthetic scope');
+const tailOnly = scope === 'review-tail';
+
 const attempts = [];
 const original = {fetch: globalThis.fetch, lookup: dns.lookup, promiseLookup: dnsPromises.lookup};
 const domKeys = ['window','document','DOMParser','XMLSerializer','Node','NodeFilter','HTMLElement','Element','SVGElement','Document'];
@@ -30,7 +34,7 @@ after(async () => {
     }
   }
   const lifecycle = {attempts, parsedWindows: windows.size, closedWindows, clips: 0,
-    sourceReads: 0, sourceAudits: 0, synthetic: true,
+    sourceReads: 0, sourceAudits: 0, synthetic: true, scope,
     restoredNetworkBindings: globalThis.fetch === original.fetch && dns.lookup === original.lookup && dnsPromises.lookup === original.promiseLookup,
     restoredDomDescriptors: domSnapshot.every(({key, descriptor}) => {
       const actual = Object.getOwnPropertyDescriptor(globalThis, key);
@@ -56,7 +60,7 @@ const formula = {
   cd2: '(\\mathrm{CD}_{3})_{2}\\mathrm{CO}', ch4: '(\\mathrm{CH}_{3})_{4}\\mathrm{CO}',
   oh2: '\\mathrm{Ca}(\\mathrm{OH})_{2}',
 };
-const positive = [
+const positive = tailOnly ? [] : [
   ['source-shaped Pb whole group', 'Pb(OAc)<sub>4</sub>', formula.pb4],
   ['source-shaped Fe inner and outer counts', 'Fe<sub>2</sub>(ox)<sub>3</sub>', formula.fe3],
   ['source-shaped CD inner count and outside CO', '(CD<sub>3</sub>)<sub>2</sub>CO', formula.cd2],
@@ -65,7 +69,20 @@ const positive = [
   ['native inner 3 and outer 4 remain two owners', '(CH<sub>3</sub>)<sub>4</sub>CO', formula.ch4],
   ['element token family without article identity', 'Ca(OH)<sub>2</sub>', formula.oh2],
 ];
-const negative = [
+const reviewTailNegative = [
+  ['short ligand needs original prefix atom SUB', 'Fe(ox)<sub>3</sub>'],
+  ['short ligand needs element-led prefix', '(ox)<sub>3</sub>'],
+  ['unknown prefix SUB cannot authorize short ligand', 'word<sub>2</sub>(ox)<sub>3</sub>'],
+  ['native prefix SUB cannot authorize long unknown ligand', 'Fe<sub>2</sub>(word)<sub>3</sub>'],
+  ['unknown left sibling preserves inherited styled role', '<i>x</i><sub>2</sub>; <span>x</span>Pb(OAc)<sub>4</sub>', ['x_{2}']],
+  ['unknown right sibling is not an edge', 'Pb(OAc)<sub>4</sub><span>x</span>'],
+  ['right comment is not an edge', 'Pb(OAc)<sub>4</sub><!-- x -->'],
+  ['right empty wrapper is not an edge', 'Pb(OAc)<sub>4</sub><span></span>'],
+  ['extra native SUB has no authorized owner', 'Pb(OAc)<sub>4</sub><sub>2</sub>'],
+  ['extra native SUP has no authorized owner', 'Pb(OAc)<sub>4</sub><sup>2</sup>'],
+  ['untyped right anchor is not an independent citation', 'Pb(OAc)<sub>4</sub><a href="#unknown">x</a>'],
+];
+const negative = tailOnly ? reviewTailNegative : [
   ['unknown word', 'unknown(word)<sub>4</sub>'],
   ['element prefix cannot authorize a long unknown word', 'Ca(word)<sub>4</sub>'],
   ['numeric parentheses belong to a separate contract', '(2)<sub>4</sub>'],
@@ -77,8 +94,9 @@ const negative = [
   ['literal math across siblings', '$Pb(OAc)<sub>4</sub>$'],
   ['literal code across siblings', '`Pb(OAc)<sub>4</sub>`'],
   ['typed reference child cannot become a numeric SUB', 'Pb(OAc)<sub><a data-test="citation-ref" href="#ref-CR1">1</a></sub>'],
+  ...reviewTailNegative,
 ];
-for (const [kind, value] of [['letter','x'], ['number','9'], ['mark','\u0301'], ['underscore','_'], ['astral letter','\u{10400}']]) {
+if (!tailOnly) for (const [kind, value] of [['letter','x'], ['number','9'], ['mark','\u0301'], ['underscore','_'], ['astral letter','\u{10400}']]) {
   negative.push([`${kind} prefix and suffix boundaries`, `${value}Pb(OAc)<sub>4</sub>; Pb(OAc)<sub>4</sub>${value}`]);
 }
 
@@ -106,9 +124,10 @@ function observe(id, body, expected, checks = () => {}) {
   }
 }
 for (const [name, html, tex] of positive) test(`synthetic positive: ${name}`, () => observe(name, `<p>${html}.</p>`, [tex]));
-for (const [name, html] of negative) test(`synthetic exclusion: ${name}`, () => observe(name, `<p>${html}</p>`, [], page => {
+for (const [name, html, expected = []] of negative) test(`synthetic exclusion: ${name}`, () => observe(name, `<p>${html}</p>`, expected, page => {
   if (name.startsWith('typed reference')) assert.deepEqual(page.semantic.citations.map(c => c.numbers), [[1]]);
 }));
+if (!tailOnly) {
 test('synthetic native MathML integration point keeps its math ancestor', () => observe('native MathML ancestor',
   '<math><mtext><p id="math-integration">Pb(OAc)<sub>4</sub></p></mtext></math>', [], page => {
     const paragraph = page.document.querySelector('#math-integration');
@@ -135,3 +154,4 @@ test('synthetic mixed body and caption preserve all ordered roles and nonzero sh
       'ACADEMICCLIPPERSCIENTIFICRUN6X; ACADEMICCLIPPERSCIENTIFICRUN7XACADEMICCLIPPERCITATION1X.');
     for (const {marker} of page.semantic.citations) assert.equal(page.cleanedHtml.split(marker).length - 1, 1);
   }));
+}

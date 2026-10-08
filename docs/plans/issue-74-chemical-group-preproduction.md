@@ -22,6 +22,10 @@ numeric SUB 必须是单个 plain text child、正整数、无 nested style/link
 
 prefix/suffix 边界必须按 Unicode code point 检查 `\p{L}\p{N}\p{M}_`，包括 astral letter；不能只取一个 UTF-16 code unit。同一 token 不得从 `xPb` 或 suffix word 中截出似乎有效的 formula。邻接 typed citation 的 SUP/direct anchor 是 formula 的终点，citation 节点归原 citation pass；不能当 group count 或跨越它。原分隔空白/标点及前后 measurement 留在 range 外。
 
+边界验证必须先于任何 DOM mutation。formula 的 direct Text offset0 左侧只允许 parent 起点，或同级 direct Text 中已经证明的空白/Unicode punctuation（排除 `_`）；不能把未知 element/comment/empty wrapper 的节点边缘当作 lexical edge，也不能跳过未知节点去找更远分隔符。右侧同样只允许 parent 终点、原 direct Text 中明确空白/Unicode punctuation（排除 `_`），或真正 typed 的独立 citation（既有 direct/SUP citation positive）。紧邻 element-led plain Text suffix 必须完整纳入 formula 后，再验证该 suffix 的终点。额外 SUB/SUP、untyped anchor、未知 span/comment/empty wrapper 都拒绝新增 group interpretation；不得通过 flattening 来证明边界。上述规则仅约束新 group collector，保留既有 typed scientific roles。
+
+短 lowercase ligand 的资格必须同时满足 element-led 原 prefix 和该 prefix 的直接 native atom SUB。`Fe(ox)<sub>3</sub>`、`(ox)<sub>3</sub>`、`word<sub>2</sub>(ox)<sub>3</sub>`、`Fe<sub>2</sub>(word)<sub>3</sub>` 均不能生成新 group role；原已有 scientific roles 仍按完整 ordered registry 保持。
+
 ancestor `pre, code, math, .mathjax-tex, .c-article-equation` 保持 opaque；literal `$`/backtick/fence 跨 siblings 时保守拒绝新增 attachment interpretation。原 MathJax/display typed role、scientific styled/Greek/unit/numeric collectors 不重写。新 collector 只消费成功验证的 native plain group，不与 styled collector抢 owner。真实 HTML-in-MathML integration-point 用 `.closest('math')` 原祖先证据拒绝；不能用 flattened synthetic HTML 代替。
 
 renderer 保留原 roman atom/ligand 字体；括号保持数学 grouping，原 atom SUB 与 whole-group SUB 各有唯一 owner，prefix/suffix 不丢失、不重复。规范输出例如 `\mathrm{Pb}(\mathrm{OAc})_{4}`、`\mathrm{Fe}_{2}(\mathrm{ox})_{3}`、`(\mathrm{CD}_{3})_{2}\mathrm{CO}`。不添加 `\mathbf`、italic、Greek 或新的运算符。单个 source range 插入一个 existing scientific marker；使用统一 list 的实际非零 index，禁止另建局部 index0 或在caption 重置。
@@ -39,6 +43,12 @@ renderer 保留原 roman atom/ligand 字体；括号保持数学 grouping，原 
 after ledger为 `[]`，26 actual returned windows全部关闭，exact bindings/descriptors复原；0新clips/0scholarly source reads/0source audits。后续只读同批 observations，独立核对 mixed原4-item prefix、inlineMath、两 citations、各实际marker唯一性，0新parse/test/clip。mixed candidate完整array失败后的exact body/caption index assertions尚未执行，receipt明确列为 blocked；不能从baseline推断其通过。原source counts/admission、旧3clips/18RED和85expectation契约均不变。
 
 ## 后续释放与 gate
+
+### 独立审查增量（P2-1 / P2-2 / P2-3）
+
+原 `56f45db` 的审查为 `PLAN_CHANGES_REQUIRED`，三个 P2 均属测试契约缺口，不是新 source 或 production failure。真实三方言的 attachment 断言改为共享 [test-only whole-formula oracle](../../test/helpers/chemical-group-output-oracle.mjs)。匹配完整 math atom 或完整 Unicode token，只移除明确 font/spacing presentation，保留所有 numeric braces、inner/outer counts、完整 Pb/Fe/CO prefix/suffix 和大小写；重复、split roles、多余 math 内容或 Unicode 数字/字母/mark 邻接均拒绝。原 `readable()` 仍只用于普通兼容性检查，不参与 group attachment 判定。
+
+新增 [纯字符串 controls](../../test/chemical-group-output-oracle.test.mjs) 独立导入 helper，不导入原 source test/production/DOM；新增11个 parse-only negative controls覆盖 ligand 资格与未知同级边界，其中 left span case明确保留已存在的 `x_{2}`。完整 scientific array、marker顺序/唯一性仍逐字断言。`CHEMICAL_GROUP_SYNTHETIC_SCOPE=review-tail` 在任何 production import / case registration 前选择，只注册这11项；旧26项不注册、不运行、不跳过。默认 `all` 将是后续正式 candidate 的37个 synthetic cases，尚未执行；原18真实 tests也仅强化了未来的 oracle，不能将旧PASS转移到新字节。此次执行精确结果、脚本和输入身份见 [tail receipt](../goals/issue-10/bug-chemical-group-plan-tail-receipt.json) 与 handoff。
 
 Different-owner reviewer先审核这个语法/范围/字体/typed boundaries及 synthetic oracle的独立性；root批准 plan并释放serialized production后，owner才基于届时 accepted main最小实现。若 source/helper/recipe/科学oracle未变，复用已完成sourceclear；不要重复65 source audit或 raw获取。实现后清除旧cache env，fresh跑真实三方言 regression和本synthetic matrix，完整all-run/mixed/citation assertions必须GREEN；任何新增 unsupported真实结构向root报告，不静默泛化。
 

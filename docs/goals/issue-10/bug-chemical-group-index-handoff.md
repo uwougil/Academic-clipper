@@ -121,3 +121,18 @@ Production owner：独立sourceacceptance和rootproductiongate后，采用最新
 Agent C：保持原85expectations与Bfixture/sourceoracle。#74解释Chemistry原三个trailing-groupSUB失败；#73仍负责两个ΔSUP，其他已接纳修复保持独立。此bug被acceptedmain接纳后，用原Chemistrysource增量核验相关角色和4validators；复用之前27source/3repeat证据并明确新的executiontier。不能将newminimalprojection或cachepasses当作all255/currentwholeChemistry通过。全部requiredroles真实通过后再由root安排最终corpus/integration。
 
 没有source/science/spec ambiguity，没有proposedspecchanges，无需humanpolicydecision；尚需独立source审核和parser修复是agent-resolvabledependencies。Canonical保持原文。终态仅SOURCE_ONLYhandoff，Issue #10未完成。
+
+
+## Resume — 独立 PLAN 三项 P2 的增量修正
+
+从 clean/pushed `56f45db6962d512fd9ac82bc7aadef7a9cb696df` 恢复相同 branch/worktree，仅补原 different-owner `PLAN_CHANGES_REQUIRED` 的三个测试/计划缺口。新 stable commit 用 `git log -1 --format=%H` 重建。旧 source65/source18/原3clips/source-review 和 26-case preflight receipts/log/observations均保持，不新 source audit/raw read/A/reprojection/clip。生产仍未实现。
+
+P2-1：共享 test-only `test/helpers/chemical-group-output-oracle.mjs` 被真实三方言 attachment tests使用；完整 math atom 或 Unicode token identity保留 numeric braces/全部 inner+outer count/原 Pb、Fe、CO prefix/suffix/大小写，拒绝重复或 split roles、extra数字/文字/Unicode adjacency。允许明确 `\mathrm`/`\text`、`\left`/`\right` 与字体/空白/声明spacing presentation。原 `readable()` 只用于 ordinary compatibility，不再证明group attachment。强化后的真实18tests未执行，不能转移旧PASS到新assertions。
+
+P2-2/P2-3：新11 negatives限定短 lowercase ligand 的 element-led prefix+native atom SUB资格，以及左右 unknownspan/rightcomment/emptyspan/extraSUB/SUP/untypedanchor；left unknownspan case保留既有 `x_{2}`，比较全部ordered scientificRuns marker+TeX和唯一DOM owner。计划明确mutation前边界资格：原 direct Text的空白/Unicode punctuation（除 `_`）、parent起止或真正typed独立citation；未知节点不能flatten/skip为implicit edge。已有mixed typed citation positive保持，candidate其完整array/placement仍unproven。未扩张chemicalgrammar。
+
+唯一新命令 `node C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/run-plan-tail.cjs`，actual exit0，53/53 PASS，736.9922ms，零skip/cancel/todo：42纯字符串controls（9accept/33reject，0parse/DOM/clip），11新synthetic actual `parseNaturePage()`。专用 `CHEMICAL_GROUP_SYNTHETIC_SCOPE=review-tail` 在productionimport/caseregistration前选择；旧26项根本未注册。原 accepted36c external physical snapshot36files只读identity复验，没有重建/写dependencies。11/11 returned windows关闭，HTTP/DNS ledgers均`[]`，exact networkbindings/DOMdescriptors恢复。两测试模块进程隔离，pure module只importbuiltin/test-onlyhelper，无production/sourceinput。
+
+精确 argv/childenv/input hashes、完整logs/实际exit/timestamps/closedlifecycles和snapshot身份见 [tail machine receipt](bug-chemical-group-plan-tail-receipt.json)；新文件与old packet隔离。当前是 `TAIL_CONTROLS_PASS_INDEPENDENT_PLAN_REVIEW_PENDING`，不是implementationclear。Default37 synthetic/fullcandidate、强化18真实tests、affected/full/build/golden/CI/Secrets均UNRUN。只改tests/helper/plan/新receipt/本handoff；无src/sourcefixture/B/A/C/D/golden/canonical/PRD/EDD/dependency/security/writer变更，无PR/merge。
+
+Root应交回相同different-owner reviewer仅做tail静态和receipt审核，不重复运行本53或原26/source65/3clips。PLAN clear后仍等serialized #68→#71→#72→#73 accepted main及root明确生产释放；future owner届时adopt最新acceptedmain后执行fresh真实三方言+完整37 synthetic与全部十gate。Agent C未因本packet解锁；需真正accepted #74实现后按原Chemistry源执行所需增量。无spec变化，无humanpolicy blocker，Issue #10未完成。

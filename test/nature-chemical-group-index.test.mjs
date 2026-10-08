@@ -10,6 +10,7 @@ import {clipNature,referencesBib} from '../src/clip.mjs';
 import {parseNaturePage} from '../src/adapters/nature.mjs';
 import {normalizeAcademicInline} from '../src/normalizers/academic-inline.mjs';
 import {validateMathDelimiters} from '../src/validators/math-delimiters.mjs';
+import {assertChemicalGroupFormula} from './helpers/chemical-group-output-oracle.mjs';
 
 const directory=new URL('./fixtures/nature-chemical-group-index/',import.meta.url);
 const provenance=JSON.parse(await readFile(new URL('s41467-023-44030-3.provenance.json',directory),'utf8'));
@@ -49,16 +50,6 @@ function context(markdown,index){
  const first=index===1?'6F12FPXN ':starts[index];
  const lines=markdown.split('\n').filter(line=>line.includes(first));assert.equal(lines.length,1,`Unique original paragraph ${index}`);return lines[0];
 }
-function simplifiedTex(tex){return tex.replace(/\\(?:mathrm|text)\{([^{}]*)\}/gu,'$1').replace(/\\(?:left|right)/gu,'').replace(/\s+/gu,'');}
-function attachedGroup(context,index){
- const rules=[/(?:Pb)?\(OAc\)_\{4\}/u,/(?:Fe_\{2\})?\(ox\)_\{3\}/u,/\(CD_\{3\}\)_\{2\}(?:CO)?/u];
- const unicode=['Pb(OAc)₄','Fe₂(ox)₃','(CD₃)₂CO'];
- const atoms=[...context.matchAll(/(?<!\$)\$([^$\n]+)\$(?!\$)/gu)].filter(m=>rules[index].test(simplifiedTex(m[1])));
- const unicodeCount=context.split(unicode[index]).length-1;
- assert.equal(atoms.length+unicodeCount,1,'The original complete parenthesized group has one attached outer count, with inner counts preserved');
- const spelled=readable(context).replace(/\s+/gu,'');
- assert.ok(spelled.includes(['Pb(OAc)_4','Fe_2(ox)_3','(CD_3)_2CO'][index])||unicodeCount===1,'Complete original formula keeps its outside element/prefix, inner count and suffix');
-}
 function readable(text){return text.replace(/\\(?:mathrm|text)\{([^{}]*)\}/gu,'$1').replace(/(?<!\$)\$([^$\n]+)\$(?!\$)/gu,(_,s)=>s).replace(/[{}]/gu,'').replace(/\s+/gu,' ');}
 for(const dialect of ['markdown','links','quarto']){
  let promise;
@@ -68,7 +59,7 @@ for(const dialect of ['markdown','links','quarto']){
   if(process.env.CHEMICAL_GROUP_RECEIPT_ROOT){const root=process.env.CHEMICAL_GROUP_RECEIPT_ROOT;await mkdir(root,{recursive:true});await writeFile(`${root}/${dialect}.result.json`,JSON.stringify(r,null,2)+'\n');await writeFile(`${root}/${dialect}.md`,r.markdown);}
   return r;
  })();
- for(const[pIndex,p]of provenance.paragraphs.entries())test(`real ${p.id} outer count belongs to complete original chemical group (${dialect})`,async()=>{const r=await result();attachedGroup(context(r.markdown,pIndex),pIndex);});
+ for(const[pIndex,p]of provenance.paragraphs.entries())test(`real ${p.id} outer count belongs to complete original chemical group (${dialect})`,async()=>{const r=await result();assertChemicalGroupFormula(context(r.markdown,pIndex),pIndex);});
  test(`three real group contexts pass unchanged strict math validator (${dialect})`,async()=>{const r=await result();assert.equal(r.debug.mathValidation.valid,true,JSON.stringify(r.debug.mathValidation));});
  test(`ordinary chemical counts, measured NMR values, citations and target resources remain valid (${dialect})`,async()=>{
   const r=await result();
