@@ -1,0 +1,953 @@
+{
+  "version": "issue75-preproduction/1.0",
+  "issue": 75,
+  "status": "PREPRODUCTION_RED_PLAN_REVIEW_READY",
+  "sourceHead": "eede55ac7136467510b04507729217b15ca9224c",
+  "acceptedImplementation": "36c93ca81236705912c25db391d611ee28405dca",
+  "branch": "codex/issue-10-bug-parenthesized-power",
+  "worktree": "C:/Users/guoli/.codex/worktrees/issue-10-bug-parenthesized-power/academic-clipper",
+  "processReceipt": {
+    "receipt": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue10-parenthesized-power\\preflight-36c93ca\\synthetic-results.json",
+    "snapshotRoot": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-parenthesized-power/preflight-36c93ca",
+    "endedAt": "2026-10-08T10:38:25.5218610Z",
+    "command": "node --test test/nature-parenthesized-power-preproduction.test.mjs",
+    "startedAt": "2026-10-08T10:38:24.5342841Z",
+    "exitCode": 1
+  },
+  "summary": {
+    "tests": 50,
+    "pass": 42,
+    "fail": 8,
+    "contractRed": 8,
+    "harnessErrors": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0,
+    "durationMs": 931.9007,
+    "executionCount": 1,
+    "syntheticParses": 49,
+    "pureStringTests": 1
+  },
+  "lifecycle": {
+    "attempts": [],
+    "parses": 49,
+    "closedWindows": 49,
+    "clips": 0,
+    "sourceReads": 0,
+    "sourceAudits": 0,
+    "restoredNetworkBindings": true,
+    "restoredDomDescriptors": true
+  },
+  "sourceReview": {
+    "status": "SOURCE_CLEAR_ONLY",
+    "reused": true,
+    "artifacts": [
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue75-independent-source-review/source-review.md",
+        "bytes": 10222,
+        "sha256": "475d75d87e4206fdf32ddfa21f11e9edf09c6f1128748c012740dc288e8f42da"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue75-independent-source-review/source-review.json",
+        "bytes": 71582,
+        "sha256": "beacb248ab51381645fc47dd680dcfe8698a3b3e7ad278414fd8ee5ad93864e8"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue75-independent-source-review/source-prefix-checkpoint.json",
+        "bytes": 54137,
+        "sha256": "9f54bc8809078c066009a644732959786b57b0202c21baf03d70b487a1882e5d"
+      }
+    ],
+    "newSourceAudits": 0,
+    "newRawReads": 0,
+    "newSanitizerCalls": 0,
+    "newSourceClips": 0,
+    "originalSourceRegression": {
+      "tests": 15,
+      "pass": 6,
+      "trueParserFailures": 9,
+      "harnessErrors": 0,
+      "durationMs": 1046.1507,
+      "clips": 3,
+      "implementation": "f4a5f2ad74546ea54b990c6080e480871ee98e09",
+      "rerun": false
+    }
+  },
+  "sourceIdentities": [
+    {
+      "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.excerpt.html",
+      "gitBytes": 25549,
+      "gitSha256": "f672ec55261b61376bb1b0a82889e05b45deec9123442dccabab9829ebcd45de",
+      "physicalBytes": 25549,
+      "physicalSha256": "f672ec55261b61376bb1b0a82889e05b45deec9123442dccabab9829ebcd45de",
+      "gitBlob": "a04d8ca5d9d0774ec893b9c77c47ea430a70c928"
+    },
+    {
+      "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.provenance.json",
+      "gitBytes": 31939,
+      "gitSha256": "8ed315749e0dcf860053b1bbdbe73ef910b1480415a3ba49ea1c86a4e5b9b4e3",
+      "physicalBytes": 31939,
+      "physicalSha256": "8ed315749e0dcf860053b1bbdbe73ef910b1480415a3ba49ea1c86a4e5b9b4e3",
+      "gitBlob": "f29b5b9c5223a46ed9fe101bf5edd161105629fe"
+    },
+    {
+      "path": "test/fixtures/nature-parenthesized-power/diagnosis.json",
+      "gitBytes": 11434,
+      "gitSha256": "968b3dc0a185ce674dce915e13e5f7af6a02e79b2e5dc65871dd9e3065f49628",
+      "physicalBytes": 11434,
+      "physicalSha256": "968b3dc0a185ce674dce915e13e5f7af6a02e79b2e5dc65871dd9e3065f49628",
+      "gitBlob": "ad1848225dfacdc90dbed0f3aabbaa13491456b9"
+    },
+    {
+      "path": "test/nature-parenthesized-power.test.mjs",
+      "gitBytes": 9119,
+      "gitSha256": "8b21132dde2d56dd0ad8ef624866c7ee3bf15845f19aa5fcde53759ac0db5c32",
+      "physicalBytes": 9119,
+      "physicalSha256": "8b21132dde2d56dd0ad8ef624866c7ee3bf15845f19aa5fcde53759ac0db5c32",
+      "gitBlob": "571f85f96550638b1c60c7bc274552108b44b7d6"
+    }
+  ],
+  "newInput": {
+    "path": "C:/Users/guoli/.codex/worktrees/issue-10-bug-parenthesized-power/academic-clipper/test/nature-parenthesized-power-preproduction.test.mjs",
+    "bytes": 11685,
+    "sha256": "061c3edf88f29c132ef7d13a096ff055546dfebcfd778252a2792f2af01c2f7f"
+  },
+  "snapshot": {
+    "sha": "36c93ca81236705912c25db391d611ee28405dca",
+    "mode": "Exact git show Buffer; external snapshot only; node_modules read-only reuse",
+    "identities": [
+      {
+        "path": "src/adapters/aaas.mjs",
+        "gitBlob": "af2abbc4bd1ac561c86a59c695e8f2b2c2eeed4a",
+        "bytes": 20906,
+        "sha256": "e68ae9d1b9cead3ec94b6ed3c1946b15099c9dff125eb603c9fe9b11063221b0"
+      },
+      {
+        "path": "src/adapters/aip.mjs",
+        "gitBlob": "93fa911559fb75420dbdb4aefa5fd2432470cff6",
+        "bytes": 15005,
+        "sha256": "8ba1627f13f606d9244bcefd16a711971b85a28e32bf894b6636b5f048afacc3"
+      },
+      {
+        "path": "src/adapters/iop.mjs",
+        "gitBlob": "f5288256ab3c8b479590c63a4ba90186ab4607be",
+        "bytes": 20230,
+        "sha256": "9992d6f35e5a46f1e025aa16432fbf201e347543b37166d1c6bc1f294f9a991d"
+      },
+      {
+        "path": "src/adapters/nature.mjs",
+        "gitBlob": "2b0311b18d9806061fd00f888d85dfd1814b692d",
+        "bytes": 52009,
+        "sha256": "a38a9073d1e435df42afcc9e5e4527ac1b5282c18b36307607e3b0046af2edbf"
+      },
+      {
+        "path": "src/adapters/pnas.mjs",
+        "gitBlob": "a8fd35a5ab7b0b4fbe30cae545f1533d0d4275e7",
+        "bytes": 12991,
+        "sha256": "c99fd47195c5542a4c0eee882d82244c5be91f0f09019c596638b5e1a4bf6b7a"
+      },
+      {
+        "path": "src/adapters/rsc.mjs",
+        "gitBlob": "f462467ac864b5311376ad23252497f81cf25afb",
+        "bytes": 16355,
+        "sha256": "2e25194fb9511f12363a7975fc981f6902e0b0fc8196dd0d98fd63567d93d912"
+      },
+      {
+        "path": "src/adapters/sciopen.mjs",
+        "gitBlob": "78f1670807a90650d6710af6e99e5a9ba54f735a",
+        "bytes": 16484,
+        "sha256": "3ff9c25e158be3d0ac7c9f2c6ba89aeffe95691499186700820eddc908a96b92"
+      },
+      {
+        "path": "src/adapters/wiley-clip.mjs",
+        "gitBlob": "978cb53123253949a965afff413740bbc009fcb6",
+        "bytes": 3847,
+        "sha256": "cddb60f8c30ecda98ab875a0c3d07d3be6383a28425d614a214946489e083847"
+      },
+      {
+        "path": "src/adapters/wiley.mjs",
+        "gitBlob": "443eb03c2ee5da43f2d85402ca643c011ace0255",
+        "bytes": 16142,
+        "sha256": "d28d850d07452804bc718b0545de32a3fb964ac5b1d0f92f9b690f7fe19594a3"
+      },
+      {
+        "path": "src/article-fetch.mjs",
+        "gitBlob": "7b1728c55a3892e7c0d3506e17812c11e31bdce5",
+        "bytes": 3178,
+        "sha256": "90ec9df28e05ce7ee97ed88ae2a332f0897a01fab455d1f8dc143be8d837f58c"
+      },
+      {
+        "path": "src/bridge.mjs",
+        "gitBlob": "aa537246bcf5e034d511db1ffc6cc4d5adcbd0dc",
+        "bytes": 8246,
+        "sha256": "e71241f9cbc79018d4480cf567ef08647fee054f57b9267a5aa34a4a9a8acaec"
+      },
+      {
+        "path": "src/build.mjs",
+        "gitBlob": "8c9f125a4db0ec35eb8fd11466b37d5345adae19",
+        "bytes": 773,
+        "sha256": "e41c92ab67fa84197c4af8155451dad007aa4e58dfd267497d745ddb74e5ce7a"
+      },
+      {
+        "path": "src/cli.mjs",
+        "gitBlob": "ab2fabc9dcafbde0461f50e91974f379a44c8d35",
+        "bytes": 2252,
+        "sha256": "389677a8a89eb308a8ea4c4b8d9f9bae6ddf930d82fc36a8fb5d8d66c1147628"
+      },
+      {
+        "path": "src/clip.mjs",
+        "gitBlob": "daeed3c9eff8bc12e011e0a5274fb1f4b5701b66",
+        "bytes": 40191,
+        "sha256": "5abc6dfda4995a0a736e88386469b0c91fb824155ea8700568cf77bde5f50f56"
+      },
+      {
+        "path": "src/dom-runtime.mjs",
+        "gitBlob": "2214febf98d698cfe4229cb0502c46c2e443b31d",
+        "bytes": 1441,
+        "sha256": "c93d95087b7714bb1f43bcf3ab47dc085465192130c4b284b75c8c0ce1ce70c0"
+      },
+      {
+        "path": "src/experimental/rsc-clip.mjs",
+        "gitBlob": "5020f77c0ea70451669c4cfd378a4ee5323a6ff2",
+        "bytes": 4510,
+        "sha256": "183f2d457e93a35738810265ece66bbf24c29390be08356715d8d45fd38fa2d1"
+      },
+      {
+        "path": "src/launcher.cs",
+        "gitBlob": "59ee707186e29f81ab87eb4bad0f4913bbf8f960",
+        "bytes": 3145,
+        "sha256": "c28cf6e1e871f61d18776264081f2e65230e209e661192e8a7c56af099c6ecfe"
+      },
+      {
+        "path": "src/launcher.mjs",
+        "gitBlob": "eb6a928d7fb85fdf8d630abc66ec20afbf57172f",
+        "bytes": 13112,
+        "sha256": "2166d91878ec35c73cf73e84f69fa1f77089026dadded976570ee22aba0dd200"
+      },
+      {
+        "path": "src/markdown.mjs",
+        "gitBlob": "1e59a6f60410952f07373b4ea7fee936ff69b406",
+        "bytes": 1064,
+        "sha256": "6f85fe369104491eb066e7c16d897802a7031afd2d84179cae0462ed6d7785b0"
+      },
+      {
+        "path": "src/normalizers/academic-inline.mjs",
+        "gitBlob": "a63eba2cacf0bc0a43552d1c16ec41e91b2cf0bc",
+        "bytes": 13076,
+        "sha256": "4d5baa998adb27d6c76567133b1c226082736254dc74d160a24eff8390b59a0d"
+      },
+      {
+        "path": "src/normalizers/citations.mjs",
+        "gitBlob": "85e64aa1a23133436d9b65effce5d3a5174ae169",
+        "bytes": 4360,
+        "sha256": "154cb977c73cac5a2513ef5543ac2637ebdaff598f97ee9463742e6373b004fe"
+      },
+      {
+        "path": "src/normalizers/figures.mjs",
+        "gitBlob": "8a11073cf57886886bbb5ab6af7572c533ef8d17",
+        "bytes": 15916,
+        "sha256": "dfe4febd24a03bc1ead37df299ea5fbe1071d279d55cc428fc3d0e5c98f761cd"
+      },
+      {
+        "path": "src/normalizers/markers.mjs",
+        "gitBlob": "361d79473c43474c0a22c1c6d1e5d65b40de38dd",
+        "bytes": 128,
+        "sha256": "929109d61e08ab4cc866f925b8af08444f3e8a2893d96d4b9d219a9e5890d78f"
+      },
+      {
+        "path": "src/normalizers/math.mjs",
+        "gitBlob": "867bca0aeebb39b459ed1b605b11050b438e1b20",
+        "bytes": 3686,
+        "sha256": "2ec1ecc5a387b5e3f0135bcb43d482ca3c82092741879b26ce18e29cae3e8dc6"
+      },
+      {
+        "path": "src/pnas-clip.mjs",
+        "gitBlob": "cfc699ba2eaa7e7bee91731dc50fc8712e02f2da",
+        "bytes": 5495,
+        "sha256": "975ffd6aed97d159ec0b92959e8f08de1211c4ab61139413195bb7e08719a87e"
+      },
+      {
+        "path": "src/renderers/output-policy.mjs",
+        "gitBlob": "ff89f6d7294207c8c11020c72be78f680a7836b6",
+        "bytes": 992,
+        "sha256": "c413fd8568881def27757971295877789930a9acf9d914d4bfc4ec8716a49126"
+      },
+      {
+        "path": "src/security.mjs",
+        "gitBlob": "67fb03c3fa49ec5832624ebdbf7b74526ad2cffd",
+        "bytes": 6909,
+        "sha256": "a02c3bba53802f90a8b769d05e5696ff474486878f5fa9c8f7d9e9289b6c188d"
+      },
+      {
+        "path": "src/validate-paper.mjs",
+        "gitBlob": "50b99a55e0fbbc2c488092f6c3628bf93a984184",
+        "bytes": 2127,
+        "sha256": "df8256258ae6abe0e05a95418a79e1db6210e9e94a0f3095f23563a6cdc77f96"
+      },
+      {
+        "path": "src/validators/citation-style.mjs",
+        "gitBlob": "ee0a4bd1755d1a3d032de12983fc6a3be94bda4d",
+        "bytes": 1243,
+        "sha256": "2e0e7054390e22cf04a33a48c0597bdc30ce79f4f925f56f84bce65d46d2ae9e"
+      },
+      {
+        "path": "src/validators/cross-references.mjs",
+        "gitBlob": "5e5b34c4ac47b3f5c3aad53de3898a9ab4b2379e",
+        "bytes": 3815,
+        "sha256": "73c86520874b8c4665f46d9bf57548265963de5030e33b8b7580f9e22eb5d473"
+      },
+      {
+        "path": "src/validators/html-audit.mjs",
+        "gitBlob": "2dea0667fe7901bf779bf7dc1bab60c3e83dcc30",
+        "bytes": 3878,
+        "sha256": "e78cf6a1864de7defa2df21142393ec7d00af0860196c995b8f7a42fe2112c71"
+      },
+      {
+        "path": "src/validators/markdown-structure.mjs",
+        "gitBlob": "28e763ab85fa51f2ebc55caeaa7fb87cc848cb47",
+        "bytes": 6048,
+        "sha256": "f90addbe9deb6067d3cecb735aef5c331741a464b82b7f76c05a1150963442d7"
+      },
+      {
+        "path": "src/validators/math-delimiters.mjs",
+        "gitBlob": "6a725071538641c0c99cee92b86c6632cd67b606",
+        "bytes": 9609,
+        "sha256": "59e66bf87583dd9cff1d06a36cd137fcbfd1067b3db61c0501c329e1800ff22f"
+      },
+      {
+        "path": "src/version.mjs",
+        "gitBlob": "158980b1f83eeb7583fc7583660c08be72377f95",
+        "bytes": 161,
+        "sha256": "380c1c8d3ce15a0c2039949b7153fc4eb11fafc1653476527adbf1f67dcdaa4e"
+      },
+      {
+        "path": "package.json",
+        "gitBlob": "8a5035e829dc6f3c7d1c597144e2cc59a7f47f17",
+        "bytes": 785,
+        "sha256": "badcd09ee49ab7a0495a499754e80e719674126f0f589fc6c2fced06ec94cf4d"
+      },
+      {
+        "path": "package-lock.json",
+        "gitBlob": "c4883d68e0a71a4abbbab9c01b7f219c9731c08f",
+        "bytes": 31708,
+        "sha256": "b9a7cc5a1c2e7b3b3080dc19171b2303cfe1368b6a6d5ae808e2f4bb62c310aa"
+      }
+    ],
+    "lockMatchesOwnerGit": true,
+    "physicalLock": {
+      "bytes": 32599,
+      "sha256": "5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef42a7a1",
+      "crlfOnly": true
+    },
+    "setupFailure": "Initial setup compared physical CRLF package-lock against accepted Git LF; no parser/test/source executions; snapshot already exact. Finalization verifies actual buffers and records physical distinction without rerunning snapshot creation."
+  },
+  "artifacts": [
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-parenthesized-power/preflight-36c93ca/setup.mjs",
+      "bytes": 1579,
+      "sha256": "d5fe9d21ac433fa93a4119ecb1d7b447c436f7afd49c1569ef1c5a2df04840b6"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-parenthesized-power/preflight-36c93ca/setup-tail.mjs",
+      "bytes": 2102,
+      "sha256": "0fa87dd4f9e1835dbe87ece6d36507aca12568df72a78e399c61c584e776a3e0"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-parenthesized-power/preflight-36c93ca/snapshot-receipt.json",
+      "bytes": 8475,
+      "sha256": "8051823530242e26f6d0d928964dcffae270c55d300624063bcc77243e5fc0bd"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-parenthesized-power/preflight-36c93ca/synthetic.log",
+      "bytes": 15889,
+      "sha256": "ca4eddd290754df559d1b788a1e33b5c04b2e038fcc4a4460125bb08dbded1d0"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-parenthesized-power/preflight-36c93ca/synthetic-results.json",
+      "bytes": 32251,
+      "sha256": "409f53c2e573237bfb2603f8e9bd656351281c38b2a51599577589f0e67c8d4b"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-parenthesized-power/preflight-36c93ca/process-receipt.json",
+      "bytes": 463,
+      "sha256": "63a31d5f0a2cc5f1292cec112f243917f075014a7ec6ee7c9696e5ef778352a5"
+    }
+  ],
+  "observations": [
+    {
+      "id": "source-shaped integer fraction with outside pi and divisor",
+      "synthetic": true,
+      "expected": [
+        "(5/60)^{2}"
+      ],
+      "status": "CONTRACT_RED",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "error": {
+        "name": "AssertionError",
+        "message": "Entire ordered scientific registry, including inherited controls\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '(5/60)^{2}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "source-shaped decimal and two divisors",
+      "synthetic": true,
+      "expected": [
+        "(0.19/60/60)^{2}"
+      ],
+      "status": "CONTRACT_RED",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "error": {
+        "name": "AssertionError",
+        "message": "Entire ordered scientific registry, including inherited controls\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '(0.19/60/60)^{2}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "same grammar independent of source digits",
+      "synthetic": true,
+      "expected": [
+        "(3/12)^{2}"
+      ],
+      "status": "CONTRACT_RED",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "error": {
+        "name": "AssertionError",
+        "message": "Entire ordered scientific registry, including inherited controls\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '(3/12)^{2}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "decimal numerator and changed outside divisor",
+      "synthetic": true,
+      "expected": [
+        "(0.25/12/30)^{2}"
+      ],
+      "status": "CONTRACT_RED",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "error": {
+        "name": "AssertionError",
+        "message": "Entire ordered scientific registry, including inherited controls\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '(0.25/12/30)^{2}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "zero numerator is a numeric base",
+      "synthetic": true,
+      "expected": [
+        "(0/60)^{2}"
+      ],
+      "status": "CONTRACT_RED",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "error": {
+        "name": "AssertionError",
+        "message": "Entire ordered scientific registry, including inherited controls\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '(0/60)^{2}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "ordinary prose separation remains outside",
+      "synthetic": true,
+      "expected": [
+        "(5/60)^{2}"
+      ],
+      "status": "CONTRACT_RED",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "error": {
+        "name": "AssertionError",
+        "message": "Entire ordered scientific registry, including inherited controls\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '(5/60)^{2}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "independent direct typed citation",
+      "synthetic": true,
+      "expected": [
+        "(5/60)^{2}"
+      ],
+      "status": "CONTRACT_RED",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": [
+        {
+          "marker": "ACADEMICCLIPPERCITATION0X",
+          "numbers": [
+            1
+          ]
+        }
+      ],
+      "error": {
+        "name": "AssertionError",
+        "message": "Entire ordered scientific registry, including inherited controls\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '(5/60)^{2}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "unknown parenthesized prose",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "operators are outside this fraction grammar",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "signed numerator is outside this contract",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "zero denominator is not a valid fraction",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "decimal denominator is outside the source grammar",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "third slash is outside the bounded family",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "nested numeric parentheses",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "unbalanced numeric parentheses",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "internal whitespace is not inferred",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "different exponent belongs to a different contract",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "wrapped exponent is unknown topology",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "split exponent topology",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "subscript continuation is ambiguous",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "space before exponent is not native attachment",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "comment before exponent breaks immediate ownership",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "split base wrapper is not flattened",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "unknown left node continues a token",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "unknown left comment is not a lexical boundary",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "unknown right node continues a token",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "empty right wrapper is not skipped",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "unknown right comment is not skipped",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "code ancestor is opaque",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "literal dollar context is opaque",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "literal backtick context is opaque",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "fenced code cue is opaque",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "typed citation exponent is not a square",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": [
+        {
+          "marker": "ACADEMICCLIPPERCITATION0X",
+          "numbers": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "letter left boundary",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "letter right boundary",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "number left boundary",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "number right boundary",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "mark left boundary",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "mark right boundary",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "underscore left boundary",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "underscore right boundary",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "astral letter left boundary",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "astral letter right boundary",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "astral number left boundary",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "astral number right boundary",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "pi is not a word-boundary escape",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "MathML ancestor",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "citations": []
+    },
+    {
+      "id": "MathJax identity",
+      "synthetic": true,
+      "expected": [],
+      "status": "PASS",
+      "scientificRuns": [],
+      "inlineMath": [
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH0X",
+          "tex": "(5/60)^{2}"
+        }
+      ],
+      "citations": []
+    },
+    {
+      "id": "mixed complete registry",
+      "synthetic": true,
+      "expected": [
+        "x_{2}",
+        "\\mathrm{mS}\\,\\mathrm{cm}^{-1}",
+        "10^{−6}",
+        "q_{1}",
+        "(5/60)^{2}",
+        "(3/12)^{2}",
+        "(0.19/60/60)^{2}",
+        "(5/60)^{2}"
+      ],
+      "status": "CONTRACT_RED",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "x_{2}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "\\mathrm{mS}\\,\\mathrm{cm}^{-1}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "tex": "10^{−6}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "tex": "q_{1}"
+        }
+      ],
+      "inlineMath": [
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH0X",
+          "tex": "q"
+        }
+      ],
+      "citations": [
+        {
+          "marker": "ACADEMICCLIPPERCITATION0X",
+          "numbers": [
+            1
+          ]
+        },
+        {
+          "marker": "ACADEMICCLIPPERCITATION1X",
+          "numbers": [
+            2
+          ]
+        }
+      ],
+      "error": {
+        "name": "AssertionError",
+        "message": "Entire ordered scientific registry, including inherited controls\n+ actual - expected\n... Skipped lines\n\n  [\n    {\n      marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n      tex: 'x_{2}'\n    },\n...\n    },\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN4X',\n-     tex: '(5/60)^{2}'\n-   },\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN5X',\n-     tex: '(3/12)^{2}'\n-   },\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN6X',\n-     tex: '(0.19/60/60)^{2}'\n-   },\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN7X',\n-     tex: '(5/60)^{2}'\n-   }\n  ]\n"
+      }
+    }
+  ],
+  "cacheOnlyTail": {
+    "newParses": 0,
+    "newClips": 0,
+    "mixedInheritedCompletePrefixEqual": true,
+    "mixedTypedInlineMathEqual": true,
+    "mixedOrderedCitationsEqual": true,
+    "newRolePlacementChecksBlockedByFirstRed": true
+  },
+  "notRun": [
+    "Production implementation",
+    "Original source15/3 clips",
+    "New matrix repeat",
+    "Existing/full tests",
+    "Build",
+    "Golden",
+    "CI polling",
+    "PR publication/merge"
+  ],
+  "unblocking": [
+    "Different-owner PLAN review",
+    "Accepted #74 dependency and root serialized Nature owner",
+    "Actual source and synthetic GREEN after minimal production",
+    "Independent code review then all prerequisite delivery gates"
+  ],
+  "specChanges": []
+}

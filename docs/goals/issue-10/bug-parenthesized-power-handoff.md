@@ -1,6 +1,6 @@
 # Issue #75 — 括号数值基底平方：来源与 RED 交接
 
-状态：SOURCE_ONLY_RED。来源与永久 regression 已提交；生产修复、不同作者的来源审查、全量验收均未完成。此分支不作为可合并交付，不声明 Issue #10 或 FRB 验证完成。
+状态：SOURCE_CLEAR_ONLY / PREPRODUCTION_RED。下方原来源交接保留最初 checkpoint，最新独立来源审查及新增边界矩阵见文末续交。来源审查已完成；生产修复、different-owner plan review 和全量验收未完成。此分支不作为可合并交付，不声明 Issue #10 或 FRB 验证完成。
 
 ## Work Contract 与隔离
 
@@ -98,3 +98,25 @@ Git diff --check、git status --short、tracked diff scope 在 docs-only 发布�
 4. C 只有在该独立修复 accepted main、merged Main CI 成功后，才解除相应 FRB scientific-inline blocker；最终 integrator 统一完成 Issue #10 acceptance。
 
 未提出 canonical/PRD/EDD 变更。Issue #75 尚未修复；独立 source audit 尚未完成；本源码/test branch 不 merge、不运行 final Issue #10 PR。
+
+## 2026-10-08 preproduction 续交：只补缺失矩阵，不重复来源
+
+当前 SOURCE_CLEAR_ONLY 已由 `/root/chemical_group_independent_resume` 完成；前文 source PENDING 描述为原 eede55a 发布时历史状态，现已解除。独立报告 C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue75-independent-source-review/source-review.md（10222 bytes / SHA 475d75d87e4206fdf32ddfa21f11e9edf09c6f1128748c012740dc288e8f42da），machine source-review.json（71582 / SHA beacb248ab51381645fc47dd680dcfe8698a3b3e7ad278414fd8ee5ad93864e8）。这次续交只读并复用已通过的 source gate，没有重读 raw/A/48-block audit、重抓站点、重跑原15/三方言clips。
+
+新增 owned 文件：test/nature-parenthesized-power-preproduction.test.mjs、docs/plans/issue-75-parenthesized-power-preproduction.md、docs/goals/issue-10/bug-parenthesized-power-preproduction-receipt.json，外加本 handoff 尾段与状态行。保持 branch/worktree 和 eede55a source 前缀；没有修改生产、source fixtures/test/diagnosis、其他 agent 文件或 canonical/PRD/EDD。
+
+`node --test test/nature-parenthesized-power-preproduction.test.mjs` 在 exact accepted 36c93ca81236705912c25db391d611ee28405dca 外部 snapshot 上一次运行：50 tests，42 PASS / 8 true CONTRACT_RED / 0 harness，931.9007 ms，exit1，0 skipped/cancelled/todo。49 synthetic parses / 49 DOM windows explicitly closed；纯字符串 whole-atom oracle无需 parse。HTTP/DNS attempts=[]，exact network bindings 与10 DOM global descriptors restoration 均 true；clips/source/raw/A calls 均0。七 positives与八条完整 mixed scientific registry 中四条新角色因未实现而RED，继承四角色完全保持；39 exclusion与MathML/MathJax以及whole-grouping oracle通过。Mixed 新marker/body/caption placement checks被首个真实RED挡住，未执行，不能算GREEN。
+
+固定外部根 C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-parenthesized-power/preflight-36c93ca：
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| synthetic.log | 15889 | ca4eddd290754df559d1b788a1e33b5c04b2e038fcc4a4460125bb08dbded1d0 |
+| synthetic-results.json | 32251 | 409f53c2e573237bfb2603f8e9bd656351281c38b2a51599577589f0e67c8d4b |
+| process-receipt.json | 463 | 63a31d5f0a2cc5f1292cec112f243917f075014a7ec6ee7c9696e5ef778352a5 |
+| snapshot-receipt.json | 8475 | 8051823530242e26f6d0d928964dcffae270c55d300624063bcc77243e5fc0bd |
+| committed preproduction receipt JSON | 29993 | 0876b83dc0e3def74fa74a05fba975c618a7a03ba6ce0ca963b8a165cf9e77b9 |
+
+setup 初次 physical CRLF / Git LF dependency-lock comparison错误在测试前停止；setup-tail 仅核验已经创建的36个 exact Git buffer snapshots、Git lock equality并记录 physical distinction。原脚本/错误保留，不当作 parser FAIL、不再执行 snapshot creation。唯一 matrix 的 actual process起止10:38:24.5342841Z → 10:38:25.5218610Z。packet.mjs 仅读同次缓存生成回执，另查 mixed inherited前缀/typedMath/orderedcitations相同，没有额外parse/clip。
+
+下一步：different-owner PLAN_ONLY review；#74 accepted merged Main CI 后由 root 释放串行 Nature owner，采用 plan 的有限numeric-parentheses grammar和既有 typedrange seam。生产后真实 source15/新50 GREEN、independent implementation审查、required affected/full/build/golden/fresh三平台CI/Secrets/finalhead十gates均必需；本旧日志不能替代生产完成证据。C只在修复 accepted Main CI 后解除 corresponding FRB roles，最终Issue10 remains integrator-owned/unmerged human final review。没有 spec change。
