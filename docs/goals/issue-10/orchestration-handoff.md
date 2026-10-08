@@ -20,7 +20,7 @@
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
 | A / B immutable source inputs | DONE | A reviewed actual e56 interface；B b718fa8 source-only；nine articles/four resources/85 expectations |
-| C assertion framework / oracle audit | DONE for implementation | reviewed9c5/API1.0；clean791d2 handoff/12ec accepted依赖；73d6 Quantum30source/3repeat实际PASS，math17 Greek FAIL；其他225source记录历史，当前全255/27未验收 |
+| C assertion framework / oracle audit | DONE for implementation | reviewed9c5/API1.0；clean7b419/d3dd adopted134ba；Quantum30source/3repeat及三方言四validators实际PASS；其他225source记录历史，当前全255/27未验收 |
 | D seam / controller review | DONE for implementation | exact4649 independent zero blockers；最终真实source-controller acceptance DEPENDENCY_PENDING |
 | Footer45、caption47、units48、tableMathJax51、literal53、sparse55、citation56 | DONE | 各独立PR与成功mergedMain receipts见后续历史；accepted mainac86 |
 | styled-adjacency57 / PR62 | DONE | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523与Secrets成功、57 automation completed |
@@ -28,10 +28,10 @@
 | leading-isotope61 | DONE | PR69 exacte88独立零阻塞及十门槛通过；squasha5b6acc；Main37716530268/Secrets37716530267SUCCESS；61automationCOMPLETED |
 | split-power63 / PR76 | DONE | final993/737full/十门槛；squash73d6 Main37734814590与Secrets SUCCESS；63 automation completed；C actual拆分SUP归零 |
 | reference2 literal inequality65 / PR70 | DONE | final7c32/676full/十门槛；squashf4a5 Main37725961177与Secrets SUCCESS；65 automation completed |
-| Greek64 / PR77 | DONE | final2a231/code07be，93focused/181affected/830full/build/golden/独立zero blockers/三平台CI/Secrets全部通过；squash134ba67 Main37740911355 SUCCESS，64 automation completed；C定点实际复验进行中 |
-| compound-unit67 | RUNNING sole Nature production | source99 CLEAR，preflight38d236与独立计划8047dd兼容；accepted134ba67正式release，最小collector先focused和独审，full尚未释放 |
-| Materials identifier68 | DONE for source inputs / preflight additions | source81 CLEAR，新48=39PASS9RED/6442d6，两gap仅新10cases补证中；生产不得与67并发，尚未release |
-| Other mandatory scientific71–75 | DONE for source inputs / production pending | 独立各来源清关与真实RED已保存；正确roles仍必须修复，按窄合同串行Nature生产，不重做有效采集/审核 |
+| Greek64 / PR77 | DONE | final2a231/code07be，93focused/181affected/830full/build/golden/独立zero blockers/三平台CI/Secrets全部通过；squash134ba67 Main37740911355 SUCCESS，64 automation completed；C实际Quantum全部四guards已通过 |
+| compound-unit67 | RUNNING sole Nature production | codeab589/DOC91a9；59focusedPASS，独立4NEW probesPASS/implementation零阻塞；root读取CLEAR后释放一次affected/full/build/golden；finalhead/CI仍待验收 |
+| Materials identifier68 | DONE for source inputs / preflight | source81 CLEAR，8f18620；原48与新10分轮baseline，两证据gap已补，独立计划零阻塞；生产待67 Main accepted |
+| Other mandatory scientific71–75 | DONE for source inputs / production pending | 71只读新synthetic preflight进行中；72–75来源独审CLEAR；正确roles仍必须修复，按窄合同串行Nature生产，不重做有效采集/审核 |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
 当前 host 并发上限为 4（含 orchestrator）。优先同时运行 C、D、table-footer bug；其余节点在名额空出并满足 dependency 后启动，重复恢复同一 C / D child。
@@ -49,6 +49,8 @@
 | integration / final CI / final PR | PENDING | codex/issue-10-integration | prerequisite bugs accepted-main checks、C 完整 rerun、D complete；最终 PR 保持 unmerged |
 
 每个 child 的具体 worktree、SHA、commands 和 review findings 随其 durable handoff 交付；orchestrator 在决定合并/集成前重新读取实际分支、工作区、PR head 与 checks。不能把 idle agent 当作 verified live wait，不因 child 报 blocked 停止可以解决的前置工作。
+
+验证复用规则：恢复时先读已提交 handoff / 终态 receipt，按执行代码 blob、input hash、interface version、检查范围四项判断复用。四项不变的来源审核、sanitizer、真实 clips、矩阵与完整测试不重跑；文档变更只核对 diff / SHA / 状态。新生产只执行受影响必要检查与明确要求的 full / fresh CI 门槛，不把历史 PASS 当当前 combined acceptance。每个长任务只保留一个已核实的 session / CI watcher；超时先核对原句柄和终态，不能直接另启动同一任务。缓存诊断错误只修诊断并使用同批 bytes，不触发重新采集；保留最初失败日志。
 
 ## Corpus 大小初审
 
@@ -712,3 +714,13 @@ Root唯一Mainwatch75708实际terminalexit0；随后API读取same134ba mergedMai
 Same C的新只读pending64-quantum-791d-preflight.json46335/SHA7990bec3507251400ce701fa149bd521091ee2f7882362d63d37552bf717b884 root核actualhash/plan；17source roles/bodycaption/sourceparagraphorder/exactreplay与32protected输入冻结。Source64机器证据真实hash为628be3bf139544503f38b17614489a42e8ec95dfd43c1007c80a33753b84e0cd，先前summary手打末尾差异不权威，root实际GetHash确认，不重新来源审计。Formalrelease后 dependency-only d3dd8573560be019164698f726425294a5101239 adopted134ba，32objectsquiet/prefixabsent，唯一actualQuantum session9983 confirmedLIVE；尚不称PASS。仍3baseline+3repeat、30current source+3repeat/fourvalidators/17originalnative科学roles，partialafter24missing必须HARDFAIL，不伪255/27。
 
 67不同ownerplan-review-38d236b.md4424/SHA8047dd9fc8b315751c4e940648dd9e0144f392ae7a00de4ffc7975217405d97d与machine1381SHAc661af0da8fe6582912bf899b9148d87e213ff05b15a82c7bc3a138e0e4aba46 root全文read，zero planfindings不是implCLEAR。Formalrelease SAME sourcebranch38d236最小mS×cm逆幂privatecollector，唯一Nature owner；source99/A/old46+7baseline/old3clips不重做。必要stablefocused后不同owner先审再一次full，防止全量后边界返工。68 source81/A已CLEAR不重采，新48 constructed一次39PASS9missingRED1012.9236ms，6442d6仅test/doc；root完整读计划。Differentowner计划report4717/SHAbd2a2629a5f287a6dbf6f63b40111eb0cfd500e42075dd64ebaf3457e8fe0177明确两证据gap：negativefilter-only可漏错误typedrecord，以及没有动态fetchDNSguard。Owner仅新10cases8PASS2missingRED717.5275ms、record-beforethrow ledger[]/restoretrue完成，原48不重跑/staticscope不冒充动态proof；doc/commit/最终计划尾审进行中。DOMshape保存原脚本，q²MODEL明确syntheticanti-hardcode而非功能推断，无需allowlist/specchange；68生产仍锁，禁止与67写共享Nature。
+
+## 07:26 UTC：避免重复劳动与两个独立门槛收尾
+
+用户再次明确后续恢复 goal 要避免重复劳动；上方规则绑定 code/input/interface/scope，实际未变执行证据优先复用。上一 continuation 进展改变 authoritative 状态（64 Main accepted、Quantum实际四guards通过、67真实59GREEN与独审、68计划清关），不属重复阻塞/死循环。本 continuation 仅重读用户完整 goal、67新独立报告与新增 receipts；没有重采来源或复跑64/Quantum/full。
+
+C clean/pushed `7b4191173cb04260653aa232e05ab28127134ec1`（DOCONLY），dependency `d3dd8573560be019164698f726425294a5101239` adopted134ba，source/helper/test protected32objects unchanged。实际唯一Quantum batch9983 terminalexit1：40tests39PASS1FAIL53572.4901ms/zero skip；30source records及3repeatPASS、全部三方言四validatorsPASS；17原生Greek科学role=15body+2Fig5caption。唯一FAIL仍afterhook24missing/completefalse；不能称全255/27/final ABA完成。每baseline仅声明table1 GET/manual及www.nature.com DNS all/verbatim replay，unexpected[]；repeatMarkdown/Bib/semantic/ledger一致。Receipt113076/SHA b604628f6d917a1d1ce3a3e653b65255647c177d753caf4b723155711226094d，已有当前 Quantum30+历史225组合255sourcePASS只是mixed-tier registry。根恢复核同receipt hash与实际Chead/helper/test，不重新clips/来源85/A。后续67 Main accepted只恢复同C owner跑受影响Materialsdelta。
+
+#67 code/test `ab589138631edc5db95ced0bae03a72d5ff6da2f` / doc `91a9b210e79bfbad4f5b509d106fb989fdb047cb`；source99既有独审复用，focused59/59PASS1625.521ms实际三source clips/四validators/exactwarnings及阈值/温度/原cite69均保真。不同owner实现review报告6061 SHA82ba83a61ee9cb93d62e423f92bbefe6a6195e84d0c767aafce93d27d6b5b89c root完整读，zero blockingFindings；四NEW parse-only probes一次4PASS/exit0/attempts[]/restoredtrue，另三方言 cache-only审核0clips。Probe receipt4126 SHA c42c6e35842d37bc68ef6c1f6b8d225403280e440290e54ff797d0ffe104f1ce；cache5285 SHA08d589c58213167612f1cb2fae443ad1cb81abae2b054e984ba71162d98b02c2。严格source mS乘cm逆幂，原101.18 quantity不进指数；writerCalls0仅static import scope，不冒称runtime writer spy。Root release同owner一次必要affected/full/build/golden，禁止再单独重跑59/source99/53baseline/独立4probes。Finalpublication head/CI/Secrets/十门槛与mergedMain仍待完成，不提前merge。
+
+#68 clean/pushed `8f18620bbc28278cde20c2dbda5423cbe259dc00`，原48baseline未重复，只追加新10一次8PASS2missing-roleRED717.5275ms、动态record-beforethrow DNS/fetch/restoreproof；58registry不冒称一次58baseline。最终只读计划report4092 SHAebbaa0bdda564130d7a04bec2a2871af3215ad4655b3028968ce192a99a4cc8b zero plan blockers；不属implementationCLEAR，生产仍锁到67 Main accepted。#71使用原c701/source58独审，来源报告真实目录TEMP/academic-clipper-issue71-independent-source-review；恢复只新增synthetic边界/最小计划，accepted134src只读snapshot，不重旧来源/3clips/A，禁止与67共享生产写入。
