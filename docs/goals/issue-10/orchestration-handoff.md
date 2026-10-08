@@ -20,14 +20,14 @@
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
 | A / B immutable source inputs | DONE | A reviewed actual e56 interface；B b718fa8 source-only；nine articles/four resources/85 expectations |
-| C assertion framework / oracle audit | DONE for implementation | e3ff helper，3d533fb handoff；3889仅27source/3repeatPASS，mandatory validators与全255验收仍未通过 |
+| C assertion framework / oracle audit | DONE for implementation | 9c5容器consumer独立clear，90bacdoc/84cdaccepted依赖；a5bChemistry27source/3repeat定点复验已释放，mandatory validators与全255验收仍未通过 |
 | D seam / controller review | DONE for implementation | exact4649 independent zero blockers；最终真实source-controller acceptance DEPENDENCY_PENDING |
 | Footer45、caption47、units48、tableMathJax51、literal53、sparse55、citation56 | DONE | 各独立PR与成功mergedMain receipts见后续历史；accepted mainac86 |
 | styled-adjacency57 / PR62 | DONE | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523与Secrets成功、57 automation completed |
 | table-caption60 | DONE | PR66 exact3a7ab0b独立zero findings与十门槛通过，squashe2c1fad；mergedMain37707702765/Secrets37707702972 SUCCESS，60automationCOMPLETED |
 | leading-isotope61 | DONE | PR69 exacte88独立零阻塞及十门槛通过；squasha5b6acc；Main37716530268/Secrets37716530267SUCCESS；61automationCOMPLETED |
 | Greek / split-power source contracts | DONE for source inputs | Greek64 cleanfcb116e / split63 clean4376aa8；两新projection独立CLEAR，production gate仍锁 |
-| reference2 literal inequality | DONE for source inputs | cleanaea33123/a07c827；新30block独立SOURCE_PROJECTION_CLEAR，生产修复仍pending |
+| reference2 literal inequality | RUNNING minimal implementation | source30原独立review复用；e410accepted依赖/1fd新边界RED；只改reference literal输出编码，full尚未执行 |
 | Materials identifier68 / compound-unit67 | DONE for source inputs | 67 exact9610923的99block、68 exactd501e4的81block均独立SOURCE_CLEAR_ONLY；两者production仍pending |
 | Other mandatory scientific / Ref2 roles | PENDING | C冻结历史source evidence；需各独立窄合同/正确覆盖，不计现有PASS |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
@@ -525,3 +525,13 @@ Fetch/API最新main仍a5b6acc2984af5cb8b82106291e963f4f413f5ac。Main37716530268
 C implementation固定9c5c3ff9f232ecc3d9eb03b579fb04eef45a4fce，仅helper/test两个C-ownedfiles；helperf9144ce6f40653061ee57164d6612860c47da981/test9530e0f194f78cc7d0ff9a9e98fb4b660873585f。Author报告cache27=24PASS3Quantum旧真实FAIL→27/27PASS、24真实mutation、synthetic3PASS/33checks，clips0；当前root尚未读取最终machine，不能替其扩称全suite。恢复时只有agent-c-handoff未提交修改，保存不覆盖，replacement只完成actualreceipt/hash/scopes/doc-onlycommit并push，不重复27cache/3synthetic或新clip。独立不同owner针对唯一9c5consumerdelta只读审查；source/semantic全文序、来源容器/一对一outputframe/邻词/次数/原簇内order/定义key必须保留，禁止sorting/multiset/hardcode。随后C可adoptaccepted依赖，只先预检Chemistry确切IDs/filter/三style+三repeat，实际batch待rootrelease，不在code未审清时多跑。
 
 Alpha readonlypreflight复用四原r.m.s.d.SUB95、rawparagraph0722…/frozencdc3…与cached三style4mathFAIL。原科学意义为Cα root-mean-square deviation在95%residuecoverage；paragraph零cite、链接Fig1a/b/c/d和SupplementaryFig14→MOESM1；已admitted完整Fig1 caption零cite/SUB95、panelsa–e/Nseq/Nres，全部34sourcecreators需保留。因此新最小projection最高referenceprefix0，不制造cite或填84refs。只读packet已保存，原一次rawDOM检查如实记录无再parse/clip/Aregen；尚未freeze/sourcebranch/新合同，不计新source完成。待名额后same证据恢复source-only工作，futureindependentreview仍需不同owner。
+
+## 02:53 UTC：C 容器独立清关与 Chemistry 唯一定点执行释放
+
+Root实际读作者code9c5、完整helper/testdiff及DOCONLY90bac3815eb056abd852edba5083cd4c3e3b2088（32add2del），implementation两blob相同。Actualidentityreceipt3341/SHAf6ef5fa728a5cbe9be95a1dd4ffe3fd1772863d05e3c159abc8aeac29ec70a84、27consumer/mutationlog及source-freeTAP逐项核验；未新clip。C OWNbranch非破坏dependency-only84cd04e7ced048f5375fac5cb608fd0b75555263 adoptaccepteda5b6；32个source/helper/test/goldenobjects unchanged。预检inventory15715/SHA6a2e317171e1fd2fe8b60987ec8b5573cb480f32319409e0b196e3c8cc1c862d实际读，9expectations×3=27 IDs、三repeat正确positivefilter，15原massrole frozenpositions/paragraphdigest、resources[]、exactNoequationwarning，remainingΔ2/trailing3；仅一次frozenDOM，不重复raw/A审计。
+
+新独立review不同owner在ownexact9c5checkout完成；root全文读report7968/SHA46e2d5f0dc457170c8b9306f887ddac72b7104dc7cb06569c252d133297113c9与machine8546/SHAe17f3adbc576c654d29500df574581eb5c60ff27d17f9f20ca735d87c7a030b5。零blocking findings；独立缓存Quantum3baseline PASS、48source/outputmutations正确AssertionError拒绝，加synthetic3PASS/33checks。核source语义全序/reference/key/所有validator未变，来源URL+captionID/label到唯一finalframe、各容器原sequence/occurrence/次数/邻文严格保持，无oracle sorting/multiset/includes-only/hardcode。Doc90bac后的code相同，不repeatreview；作者27cached消费者复用不重跑。新过程只有frozenDOM3、raw/Aregen/productionclip/full/build/golden/network0。Win32PID21480原live后确terminal，完整post-assertionresults仅全部assert通过后写出；原工具未保存OSexitcode，报告诚实不宣称exit0，不为补这个字段重跑必要证据已完成的检查。OwnGitdiffcheck/cleanness/protectedpath/实际Git-vs-CRLFdigestdomains已核。
+
+Root释放SAMEC84cd窄Chemistrybatch：只执行预声明exact三个source-parent与三repeat titles，prefixaccepted-a5b6-chemistry-delta先核不存在；same-run原a9cache保存actualcomparisons/fullMD/四validators/strictwarnings/ledgers/27source records，不另clip取证、不复制receipt infrastructure。对15mass/fourmeasurement/Δ2/trailing3来源关系从同runMD核对；24missing afterhook继续HARDFAIL，不伪造complete或new255全通过。最终Dhelper consumption/全语料/ABA/resources/golden/full/npmCI依然待fixedintegrator阶段，Issue10未完成。
+
+65新boundarycommit1fd67c8e2d9b6cf46fbedfd7e07656cd1d23ea5b actual16scope旧accepted基线0PASS16FAIL7936ms，其中4escaped-dollar源字符串呈现断言属于继承Defuddle转换差异，不冒称本bugRED；12 literalHTML failures真实保留。最小27lineencoder仅referenceText在DOI/anchor拼接前，复用maskCode/原math/rawHTML validators作opaque筛选，literal<&编码与原presentation escaping；先补balanced-dollar foreigntag/oddslash等未验证边界，不通过仅balanced dollars放行HTML。原source/test/provenance未改；scope初16GREEN690ms只边界，没有real/full执行；新controls调整明确属于继承presentation而非sourceoracle改写。Rootread实际patch与source测试范围，要求全部必要边界结束再固定树跑一次full，避免可预见的审查后返工。
