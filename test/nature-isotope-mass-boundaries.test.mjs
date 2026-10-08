@@ -70,7 +70,7 @@ for (const dialect of ['markdown', 'links', 'quarto']) {
     assert.ok(result.markdown.includes('$^{19}F$'));
     assert.ok(result.markdown.includes('$10^{3}$H') || result.markdown.includes('$10^{3}$ H'));
     assert.ok(result.markdown.includes('`2.05 ^{1} H`'));
-    assert.deepEqual(result.debug.warnings, ['No equation nodes were detected.']);
+    assert.deepEqual(result.debug.warnings, ['No Nature figures were detected.', 'No equation nodes were detected.', 'No Nature reference list was detected.']);
     for (const key of ['mathValidation','rawHtmlValidation','markdownStructure','crossReferenceValidation']) assert.equal(result.debug[key].valid, true, key);
   });
 }

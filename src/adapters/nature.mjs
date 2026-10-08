@@ -760,6 +760,26 @@ function collectNumericSuperscriptRun(parent, startIndex) {
   };
 }
 
+function collectLeadingIsotopeRun(parent, startIndex) {
+  const mass = parent.childNodes[startIndex];
+  if (!isElement(mass, new Set(['SUP'])) || mass.firstElementChild
+    || !/^[1-9]\d*$/u.test(mass.textContent)
+    || mass.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  const element = mass.nextSibling;
+  // These are the source-backed element roles. A whole word, another element,
+  // or presentation whitespace after SUP is not evidence of this prefix role.
+  if (element?.nodeType !== 3 || !/^[HCF](?![\p{L}\p{N}_])/u.test(element.textContent)) return null;
+  const previous = mass.previousSibling;
+  // Contiguous numeric/styled bases belong to the existing exponent collectors.
+  // A measurement's original separating whitespace stays outside this range.
+  if (previous && (previous.nodeType !== 3
+    || !/[\s\u2009\[(]$/u.test(previous.textContent))) return null;
+  return {
+    start: { node: parent, offset: startIndex },
+    end: { node: element, offset: 1 },
+  };
+}
+
 function collectTextAndStyledSymbolRun(parent, startIndex, inlineMathByMarker, displayMath) {
   const node = parent.childNodes[startIndex];
   if (!isElement(node, new Set(['I', 'B']))) return null;
@@ -817,6 +837,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
           || collectTextAndStyledSymbolRun(parent, index, inlineMathByMarker, displayMath)
           || collectNumericAttachmentRun(parent, index)
           || collectNumericSuperscriptRun(parent, index)
+          || collectLeadingIsotopeRun(parent, index)
           || collectDetachedSuperscriptRun(parent, index);
       if (!range) {
         index += 1;
