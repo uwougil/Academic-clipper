@@ -1,5 +1,34 @@
 # Issue #67 — compound conductivity unit source-only handoff
 
+## 当前生产增量（历史 RED 保留，2026-10-08）
+
+当前状态 `IMPLEMENTED_FOCUSED_GREEN / INDEPENDENT_REVIEW_PENDING`。Root 核验 #64 PR77 的 merged Main `134ba67a9eefe8763314454183a625f83a34837b`：Main `37740911355` 三平台成功、Secrets `37740911189` 成功，Issue64 automation completed 后正式释放 SAME #67 owner 的 sole Nature production。Own 原 clean `38d236b4462d0dce4cb7f5592c2e8b15060f314c` 通过 dependency-only non-FF `d4d497966a007d43fd2f890d6e8f4736248ebe53` 采用完整 accepted134；源 fixture/provenance 与 `e8a67e9…` 无 diff，未重 raw/A/source99/旧 baseline。
+
+有序新增提交：已独审新 synthetic matrix `5c40198c240cb19dbc311c96b8b0a9f107d2bfa1` → 独审补充 `38d236b4462d0dce4cb7f5592c2e8b15060f314c` → dependency `d4d497966a007d43fd2f890d6e8f4736248ebe53` → code/test `ab589138631edc5db95ced0bae03a72d5ff6da2f` → 本 doc-only successor。Plan review `academic-clipper-issue67-plan-independent-review/plan-review-38d236b.md` 4424 bytes / SHA256 `8047dd9fc8b315751c4e940648dd9e0144f392ae7a00de4ffc7975217405d97d` zero plan findings；不是实现审查。
+
+最小生产变化只有 Nature private `collectCompoundConductivityRun()` 和一个既有 range chain 接点（27新增行），复用 existing `range.tex` / marker pipeline；唯一已证明因子 `mScm` + 一个 contiguous plain SUP −1/-1 表示 `\mathrm{mS}\,\mathrm{cm}^{-1}`。不将整个 mScm 取逆；Unicode L/N/M/_ 完整前缀、原 node 边缘、未知右端、额外附件和复杂指数保守拒绝；citation SUP 保留独立角色；opaque ancestor 和跨 span parent literal cues 不解释。Normalizer、validator、安全、writer、依赖、golden、科学 fixture/oracle 均不改。Test 增强四 validators、原 σ/temperature/101.18/thin-space 顺序和后继完整句子/原 Supplementary href、creators；保留原正确 unit oracle。
+
+唯一新真实 focused：`node --test test/nature-compound-unit-boundaries.test.mjs test/nature-compound-unit.test.mjs`，Node v24.14.1，exit0，**59/59 PASS，0 fail/skip/cancel/todo，1625.521ms**。53 synthetic +6既有 source/normalizer/ledger tests；原 source 每方言 clip 一次，共3次。此前 RED 未达到的 exact range、typed citation、两 compound units 的非零 marker/inline MathJax/styled 角色顺序均已实际到达 PASS。真实三方言 four validators 全 PASS，scientific fragments isolated SUP/SUB 都0；exact 两 warnings、citation69、refs69、6creators、0 figures/tables/display 保持。#65 Ref2 在 accepted main 正常 PASS。不会把这个 bounded projection GREEN 声称为全篇 Materials/canonical C 验收。
+
+HTTP/fetch、DNS lookup/promise lookup record-before-throw guards 覆盖所有实际 source clips，try/finally 恢复 globals，单独 ledger assertion 捕获任何被生产 catch 的 attempts：均空。Synthetic after hook 同样独立核验并恢复/关闭 DOM。`writerCalls:0` 仅静态调用范围记录：test 不 import/call writer，不是运行时 writer spy。结果缓存每方言一次；没有另跑 clip 为报告生成输出。
+
+同轮 external TEMP `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue67-production`：
+
+| file | bytes | SHA256 |
+| --- | ---: | --- |
+| focused-initial.log | 11900 | b4efd489001878d73f02af0d298522a344fa5972077130f882e24a5589b40f1a |
+| focused-ab58913-receipt.json | 13125 | 749b6e57c9a93ba88fd20e9ef035c1b3ae4eda60c0b9015d49547f60b9b89ad3 |
+| markdown.actual-cache.json | 162985 | 948be828f3f5319af50c246970a7cb60a565fd2b063d3d7465bed15cac04dd97 |
+| markdown.actual.md | 16165 | ffa6d39eb38b6705dfe8a46ae3dd6326dd6395c4076dd3de8e1e9485dbb7fd2a |
+| links.actual-cache.json | 167075 | 32b552bfeb70e919a51a9430942e54e5f07b3ca0af7dd60104f2ba82dfd636d7 |
+| links.actual.md | 17337 | 6cd95e5dc6d74332979955eebb17b385466c34e38c3551cb285eaae036bcf9ed |
+| quarto.actual-cache.json | 132436 | 5f57ea747251ba45ac507b6ff80731d356a42e40d5a8d08ee194112da03e8e8c |
+| quarto.actual.md | 1029 | 9ed64f2071e6b53511b05d5eca204abd0f798cc3296ccd7d8c3e7d96704f8545 |
+
+`git diff --check` exit0；protected fixture diff against source e8a exit0。Stable ab589 src tree `54c78d6bd5d6b4e986a116cf3e113dd1e12161df` / test tree `93d80cd26da3f95d159e704c4787bf6f59df44bb`。尚未独立 implementation review、affected/full/build/golden/fresh CI/Secrets/PR；先审实现再释放 full，避免提前全量后返工。没有 spec change 或 Issue10 完成声明。
+
+## 原 SOURCE_ONLY_RED 历史（以下保留当时事实）
+
 状态：`SOURCE_ONLY_RED / PRODUCTION_GATE_LOCKED`。已经建立 [独立 bug Work Contract #67](https://github.com/uwougil/Academic-clipper/issues/67) 与一个完整真实来源投影、永久正确期待和三方言真实RED，没有生产修复、implementation PR或#10完成声明。新投影须由另一owner独立核验；shared Nature gate仅由root释放，不能把本RED branch合入main。
 
 ## 基线、历史与所有权
