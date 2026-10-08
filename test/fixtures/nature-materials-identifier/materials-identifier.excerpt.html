@@ -1,0 +1,636 @@
+<!doctype html>
+<html class="grade-c" lang="en"><head>
+    
+    
+    
+
+
+
+    
+        
+
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+     
+    
+    
+        
+    
+    
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+
+
+
+
+        
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link href="https://www.nature.com/articles/s41586-023-06735-9" rel="canonical">
+
+
+
+
+
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","author":[{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google DeepMind, Mountain View, USA"},"name":"Google DeepMind"}],"email":"amilmerchant@google.com","name":"Amil Merchant","url":"http://orcid.org/0000-0001-5262-6599"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google DeepMind, Mountain View, USA"},"name":"Google DeepMind"}],"name":"Simon Batzner"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google DeepMind, Mountain View, USA"},"name":"Google DeepMind"}],"name":"Samuel S. Schoenholz"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google DeepMind, Mountain View, USA"},"name":"Google DeepMind"}],"name":"Muratahan Aykol","url":"http://orcid.org/0000-0001-6433-7217"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google Research, Mountain View, USA"},"name":"Google Research"}],"name":"Gowoon Cheon"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google DeepMind, Mountain View, USA"},"name":"Google DeepMind"}],"email":"cubuk@google.com","name":"Ekin Dogus Cubuk","url":"http://orcid.org/0000-0003-0524-2837"}],"dateModified":"2023-11-29T00:00:00Z","datePublished":"2023-11-29T00:00:00Z","description":"Novel functional materials enable fundamental breakthroughs across technological applications from clean energy to information processing1–11. From microchips to batteries and photovoltaics, discovery of inorganic crystals has been bottlenecked by expensive trial-and-error approaches. Concurrently, deep-learning models for language, vision and biology have showcased emergent predictive capabilities with increasing data and computation12–14. Here we show that graph networks trained at scale can reach unprecedented levels of generalization, improving the efficiency of materials discovery by an order of magnitude. Building on 48,000 stable crystals identified in continuing studies15–17, improved efficiency enables the discovery of 2.2 million structures below the current convex hull, many of which escaped previous human chemical intuition. Our work represents an order-of-magnitude expansion in stable materials known to humanity. Stable discoveries that are on the final convex hull will be made available to screen for technological applications, as we demonstrate for layered materials and solid-electrolyte candidates. Of the stable structures, 736 have already been independently experimentally realized. The scale and diversity of hundreds of millions of first-principles calculations also unlock modelling capabilities for downstream applications, leading in particular to highly accurate and robust learned interatomic potentials that can be used in condensed-phase molecular-dynamics simulations and high-fidelity zero-shot prediction of ionic conductivity. A protocol using large-scale training of graph networks enables high-throughput discovery of novel stable structures and led to the identification of 2.2 million crystal structures, of which 381,000 are newly discovered stable materials.","headline":"Scaling deep learning for materials discovery","image":["https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-023-06735-9/MediaObjects/41586_2023_6735_Fig1_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-023-06735-9/MediaObjects/41586_2023_6735_Fig2_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-023-06735-9/MediaObjects/41586_2023_6735_Fig3_HTML.png"],"isAccessibleForFree":true,"isPartOf":{"@type":["Periodical","PublicationVolume"],"issn":["1476-4687","0028-0836"],"name":"Nature","volumeNumber":"624"},"keywords":["Scaling laws","Computer science","Science","Humanities and Social Sciences","multidisciplinary"],"license":"http://creativecommons.org/licenses/by/4.0/","pageEnd":"85","pageStart":"80","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.springernature.com/app-sn/public/images/logo-springernature.png"},"name":"Nature Publishing Group UK"},"sameAs":"https://doi.org/10.1038/s41586-023-06735-9"}</script>
+
+
+
+
+    
+    
+    
+    <meta content="Scaling deep learning for materials discovery" name="dc.title">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta content="Nature" name="citation_journal_title">
+    
+    
+    
+    <meta content="Scaling deep learning for materials discovery" name="citation_title">
+    <meta content="624" name="citation_volume">
+    <meta content="7990" name="citation_issue">
+    <meta content="2023/12" name="citation_publication_date">
+    <meta content="2023/11/29" name="citation_online_date">
+    <meta content="80" name="citation_firstpage">
+    <meta content="85" name="citation_lastpage">
+    
+    
+    
+    <meta content="doi:10.1038/s41586-023-06735-9" name="dc.identifier">
+    
+    
+    <meta content="10.1038/s41586-023-06735-9" name="citation_doi">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta content="Merchant, Amil" name="citation_author">
+    
+    <meta content="Batzner, Simon" name="citation_author">
+    
+    <meta content="Schoenholz, Samuel S." name="citation_author">
+    
+    <meta content="Aykol, Muratahan" name="citation_author">
+    
+    <meta content="Cheon, Gowoon" name="citation_author">
+    
+    <meta content="Cubuk, Ekin Dogus" name="citation_author">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    <meta content="https://www.nature.com/articles/s41586-023-06735-9" property="og:url">
+    <meta content="article" property="og:type">
+    
+    <meta content="Scaling deep learning for materials discovery - Nature" property="og:title">
+    
+    
+    
+
+
+
+
+    
+    
+    
+
+
+
+</head>
+<body class="article-page">
+
+
+
+
+
+
+    
+        
+    
+
+
+
+    
+        
+    
+        
+    
+
+    
+
+
+    
+
+
+
+
+
+    <div class="c-article-main u-container u-mt-24 u-mb-32 eds-l-with-sidebar" id="content">
+        <main class="c-article-main-column js-main-column">
+            
+                
+            
+
+            <article lang="en">
+                
+                    
+                        
+                            
+                        
+                    
+                
+                <div class="c-article-header">
+                    <header>
+                        
+
+                        <h1 class="c-article-title" data-test="article-title">Scaling deep learning for materials discovery</h1>
+                        
+
+                        
+
+                        
+                        
+                            
+                        
+                        
+        
+        
+    
+                        
+                    </header>
+
+                    
+    
+    
+
+    
+    
+
+                    
+                </div>
+
+                <div class="c-article-body">
+                    
+                    
+    
+
+
+                    
+                        
+                        
+                        
+    
+        
+    
+
+                        
+
+                        <div class="main-content">
+                            <section data-title="Main"><div class="c-article-section" id="Sec1-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec1">Main</h2><div class="c-article-section__content" id="Sec1-content"><p>Through this iterative procedure, GNoME models have discovered more than 2.2 million structures stable with respect to previous work, in particular agglomerated datasets encompassing computational and experimental structures<sup><a data-test="citation-ref" href="#ref-CR15" id="ref-link-section-d102862606e496" title="Hellenbrandt, M. The Inorganic Crystal Structure Database (ICSD)—present and future. Crystallogr. Rev. 10, 17–22 (2004).">15</a>,<a data-test="citation-ref" href="#ref-CR16" id="ref-link-section-d102862606e496_1" title="Jain, A. et al. Commentary: The Materials Project: a materials genome approach to accelerating materials innovation. APL Mater. 1, 011002 (2013).">16</a>,<a aria-label="Reference 17" data-test="citation-ref" href="/articles/s41586-023-06735-9#ref-CR17" id="ref-link-section-d102862606e499" title="Saal, J. E., Kirklin, S., Aykol, M., Meredig, B. &amp; Wolverton, C. Materials design and discovery with high-throughput density functional theory: the Open Quantum Materials Database (OQMD). JOM 65, 1501–1509 (2013).">17</a>,<a aria-label="Reference 27" data-test="citation-ref" href="/articles/s41586-023-06735-9#ref-CR27" id="ref-link-section-d102862606e502" title="Wang, H.-C., Botti, S. &amp; Marques, M. A. Predicting stable crystalline compounds using chemical similarity. npj Comput. Mater. 7, 12 (2021).">27</a></sup>. Given that discovered materials compete for stability, the updated convex hull consists of 381,000 new entries for a total of 421,000 stable crystals, representing an-order-of-magnitude expansion from all previous discoveries. Consistent with observations in other domains of machine learning<sup><a aria-label="Reference 28" data-test="citation-ref" href="/articles/s41586-023-06735-9#ref-CR28" id="ref-link-section-d102862606e506" title="Hestness, J. et al. Deep learning scaling is predictable, empirically. Preprint at 
+                  https://arxiv.org/abs/1712.00409
+                  
+                 (2017).">28</a></sup>, we observe that our neural networks predictions improve as a power law with the amount of data. Final GNoME models accurately predict energies to 11 meV atom<sup>−1</sup> and improve the precision of stable predictions (hit rate) to above 80% with structure and 33% per 100 trials with composition only, compared with 1% in previous work<sup><a aria-label="Reference 17" data-test="citation-ref" href="/articles/s41586-023-06735-9#ref-CR17" id="ref-link-section-d102862606e512" title="Saal, J. E., Kirklin, S., Aykol, M., Meredig, B. &amp; Wolverton, C. Materials design and discovery with high-throughput density functional theory: the Open Quantum Materials Database (OQMD). JOM 65, 1501–1509 (2013).">17</a></sup>. Moreover, these networks develop emergent out-of-distribution generalization. For example, GNoME enables accurate predictions of structures with 5+ unique elements (despite omission from training), providing one of the first strategies to efficiently explore this chemical space. We validate findings by comparing predictions with experiments and higher-fidelity r<sup>2</sup>SCAN (ref. <sup><a aria-label="Reference 29" data-test="citation-ref" href="/articles/s41586-023-06735-9#ref-CR29" id="ref-link-section-d102862606e519" title="Furness, J. W., Kaplan, A. D., Ning, J., Perdew, J. P. &amp; Sun, J. Accurate and numerically efficient r2SCAN meta-generalized gradient approximation. J. Phys. Chem. Lett. 11, 8208–8215 (2020).">29</a></sup>) computations.</p></div></div></section><section data-title="Discovered stable crystals"><div class="c-article-section" id="Sec6-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec6">Discovered stable crystals</h2><div class="c-article-section__content" id="Sec6-content"><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-title="Summaries of discovered stable crystals." id="figure-2"><figure><figcaption><b class="c-article-section__figure-caption" data-test="figure-caption-text" id="Fig2">Fig. 2: Summaries of discovered stable crystals.</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture class="c-article-section__figure-picture"><source srcset="//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-023-06735-9/MediaObjects/41586_2023_6735_Fig2_HTML.png?as=webp" type="image/webp"><img alt="Fig. 2: Summaries of discovered stable crystals." aria-describedby="figure-2-desc" height="423" src="//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-023-06735-9/MediaObjects/41586_2023_6735_Fig2_HTML.png" width="685"></picture><div class="c-article-section__figure-link"><a aria-label="Full size image figure 2" class="c-article__pill-button" data-test="article-link" href="/articles/s41586-023-06735-9/figures/2" rel="nofollow"><span>Full size image</span><svg aria-hidden="true" class="u-icon" height="16" width="16"><use></use></svg></a></div></div><div class="c-article-section__figure-description" data-test="bottom-caption" id="figure-2-desc"><p><b>a</b>, GNoME enables efficient discovery in the combinatorial spaces of 4+ unique elements that can be difficult for human experts. <b>b</b>, Phase-separation energies (energy to the convex hull) for discovered quaternaries showcase similar patterns but larger absolute numbers than previous catalogues. <b>c</b>, Discovered stable crystals correspond to 45,500 novel prototypes as measured by XtalFinder (ref. <sup><a aria-label="Reference 39" data-test="citation-ref" href="/articles/s41586-023-06735-9#ref-CR39" id="ref-link-section-d102862606e745" title="Hicks, D. et al. AFLOW-XtalFinder: a reliable choice to identify crystalline prototypes. npj Comput. Mater. 7, 30 (2021).">39</a></sup>). <b>d</b>, Validation by r<sup>2</sup>SCAN shows that 84% of discovered binary and ternary crystals retain negative phase separations with more accurate functionals.</p></div></div></figure></div><h3 class="c-article__sub-heading" id="Sec7">Validation through experimental matching and r<sup>2</sup>SCAN</h3><p>We also validate predictions to ensure that model-based exploration did not overfit simulation parameters. We focus on the choice of functional. Standard projector augmented wave (PAW)-Perdew–Burke–Ernzerhof (PBE) potentials provided a speed–accuracy trade-off suited for large-scale discovery<sup><a aria-label="Reference 40" data-test="citation-ref" href="/articles/s41586-023-06735-9#ref-CR40" id="ref-link-section-d102862606e800" title="Blöchl, P. E. Projector augmented-wave method. Phys. Rev. B 50, 17953 (1994).">40</a>,<a aria-label="Reference 41" data-test="citation-ref" href="/articles/s41586-023-06735-9#ref-CR41" id="ref-link-section-d102862606e803" title="Perdew, J. P., Ernzerhof, M. &amp; Burke, K. Rationale for mixing exact exchange with density functional approximations. J. Chem. Phys. 105, 9982–9985 (1996).">41</a></sup>, but the r<sup>2</sup>SCAN functional provides a more accurate meta-generalized gradient approximation<sup><a aria-label="Reference 29" data-test="citation-ref" href="/articles/s41586-023-06735-9#ref-CR29" id="ref-link-section-d102862606e809" title="Furness, J. W., Kaplan, A. D., Ning, J., Perdew, J. P. &amp; Sun, J. Accurate and numerically efficient r2SCAN meta-generalized gradient approximation. J. Phys. Chem. Lett. 11, 8208–8215 (2020).">29</a>,<a aria-label="Reference 42" data-test="citation-ref" href="/articles/s41586-023-06735-9#ref-CR42" id="ref-link-section-d102862606e812" title="Kitchaev, D. A. et al. Energetics of MnO2 polymorphs in density functional theory. Phys. Rev. B 93, 045132 (2016).">42</a>,<a aria-label="Reference 43" data-test="citation-ref" href="/articles/s41586-023-06735-9#ref-CR43" id="ref-link-section-d102862606e815" title="Kingsbury, R. et al. Performance comparison of r2SCAN and SCAN metaGGA density functionals for solid materials via an automated, high-throughput computational workflow. Phys. Rev. Mater. 6, 013801 (2022).">43</a></sup>. 84% of the discovered binaries and ternary materials also present negative phase-separation energies (as visualized in Fig. <a href="/articles/s41586-023-06735-9#Fig2">2d</a>, comparable with a 90% ratio in the Materials Project but operating at a larger scale). 86.8% of tested quaternaries also remain stable on the r<sup>2</sup>SCAN convex hull. The discrepancies between PBE and r<sup>2</sup>SCAN energies are further analysed in Supplementary Note <a href="/articles/s41586-023-06735-9#MOESM1">2</a>.</p></div></div></section><section data-title="Methods"><div class="c-article-section" id="Sec13-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec13">Methods</h2><div class="c-article-section__content" id="Sec13-content"><h3 class="c-article__sub-heading c-article__sub-heading--divider" id="Sec30">DFT evaluation</h3><h4 class="c-article__sub-heading c-article__sub-heading--small" id="Sec33">r<sup>2</sup>SCAN</h4><p>r<sup>2</sup>SCAN is an accurate and numerically efficient functional that has seen increasing adoption from the community for increasing the fidelity of computational DFT calculations. This functional is provided in the upgraded version of VASP6 and, for all corresponding calculations, we use the settings as detailed by MPScanRelaxSet and MPScanStaticSet in pymatgen. Notably, r<sup>2</sup>SCAN functionals require the use of PBE52 or PBE54 potentials, which can differ slightly from the PBE equivalents used elsewhere in this paper. To speed up computation, we perform three jobs for every SCAN-based computation. First, we precondition by means of the updated PBE54 potentials by running a standard relaxation job under MPRelaxSet settings. This preconditioning step greatly speeds up SCAN computations, which—on average—are five times slower and can otherwise crash on our infrastructure owing to elongated trajectories. Then, we relax with the r<sup>2</sup>SCAN functional, followed by a static computation.</p>
+                    
+                    
+                  
+                    
+                    
+                  
+                    
+                    
+                  </div></div></section>
+                        </div>
+                    
+
+                    <div class="u-mt-32">
+                        <section data-title="Data availability"><div class="c-article-section" id="data-availability-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="data-availability">Data availability</h2><div class="c-article-section__content" id="data-availability-content">
+              
+              <p>Crystal structures corresponding to stable discoveries discussed throughout the paper will be made available at <a href="https://github.com/google-deepmind/materials_discovery">https://github.com/google-deepmind/materials_discovery</a>. In particular, we provide results for all stable structures, as well as any material that has been recomputed from previous datasets to ensure consistent settings. Associated data from the r<sup>2</sup>SCAN functional will be provided, expectantly serving as a foundation for analysing discrepancies between functional choices. Data will also be available via the Materials Project at <a href="https://materialsproject.org/gnome">https://materialsproject.org/gnome</a> with permanent link: <a href="https://doi.org/10.17188/2009989">https://doi.org/10.17188/2009989</a>.</p>
+            </div></div></section><div id="MagazineFulltextArticleBodySuffix"><section aria-labelledby="Bib1" data-title="References"><div class="c-article-section" id="Bib1-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Bib1">References</h2><div class="c-article-section__content" id="Bib1-content"><div><ol class="c-article-references"><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR1">Green, M. A., Ho-Baillie, A. &amp; Snaith, H. J. The emergence of perovskite solar cells. <i>Nat. Photon.</i> <b>8</b>, 506–514 (2014).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 1" data-doi="10.1038/nphoton.2014.134" href="https://doi.org/10.1038%2Fnphoton.2014.134" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 1" href="/articles/cas-redirect/1:CAS:528:DC%2BC2cXhtVGqu7zN" rel="nofollow noopener">CAS</a> 
+    <a aria-label="ADS reference 1" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2014NaPho...8..506G" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 1" href="http://scholar.google.com/scholar_lookup?&amp;title=The%20emergence%20of%20perovskite%20solar%20cells&amp;journal=Nat.%20Photon.&amp;doi=10.1038%2Fnphoton.2014.134&amp;volume=8&amp;pages=506-514&amp;publication_year=2014" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR2">Mizushima, K., Jones, P., Wiseman, P. &amp; Goodenough, J. B. Li<sub><i>x</i></sub>CoO<sub>2</sub> (0&lt;<i>x</i>&lt;-1): a new cathode material for batteries of high energy density. <i>Mater. Res. Bull.</i> <b>15</b>, 783–789 (1980).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 2" data-doi="10.1016/0025-5408(80)90012-4" href="https://doi.org/10.1016%2F0025-5408%2880%2990012-4" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 2" href="/articles/cas-redirect/1:CAS:528:DyaL3cXkvFyntr0%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="Google Scholar reference 2" href="http://scholar.google.com/scholar_lookup?&amp;title=LixCoO2%20%280%3Cx%3C-1%29%3A%20a%20new%20cathode%20material%20for%20batteries%20of%20high%20energy%20density&amp;journal=Mater.%20Res.%20Bull.&amp;doi=10.1016%2F0025-5408%2880%2990012-4&amp;volume=15&amp;pages=783-789&amp;publication_year=1980" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR3">Bednorz, J. G. &amp; Müller, K. A. Possible high <i>T</i><sub>c</sub> superconductivity in the Ba–La–Cu–O system. <i>Z. Phys. B Condens. Matter</i> <b>64</b>, 189–193 (1986).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 3" data-doi="10.1007/BF01303701" href="https://link.springer.com/doi/10.1007/BF01303701" rel="noopener">Article</a> 
+    <a aria-label="CAS reference 3" href="/articles/cas-redirect/1:CAS:528:DyaL28XlsVCgu74%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="ADS reference 3" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=1986ZPhyB..64..189B" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 3" href="http://scholar.google.com/scholar_lookup?&amp;title=Possible%20high%20Tc%20superconductivity%20in%20the%20Ba%E2%80%93La%E2%80%93Cu%E2%80%93O%20system&amp;journal=Z.%20Phys.%20B%20Condens.%20Matter&amp;doi=10.1007%2FBF01303701&amp;volume=64&amp;pages=189-193&amp;publication_year=1986" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR4">Ceder, G. et al. Identification of cathode materials for lithium batteries guided by first-principles calculations. <i>Nature</i> <b>392</b>, 694–696 (1998).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 4" data-doi="10.1038/33647" href="https://doi.org/10.1038%2F33647" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 4" href="/articles/cas-redirect/1:CAS:528:DyaK1cXjtVWhtbY%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="ADS reference 4" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=1998Natur.392..694C" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 4" href="http://scholar.google.com/scholar_lookup?&amp;title=Identification%20of%20cathode%20materials%20for%20lithium%20batteries%20guided%20by%20first-principles%20calculations&amp;journal=Nature&amp;doi=10.1038%2F33647&amp;volume=392&amp;pages=694-696&amp;publication_year=1998" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR5">Tabor, D. P. et al. Accelerating the discovery of materials for clean energy in the era of smart automation. <i>Nat. Rev. Mater.</i> <b>3</b>, 5–20 (2018).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 5" data-doi="10.1038/s41578-018-0005-z" href="https://doi.org/10.1038%2Fs41578-018-0005-z" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 5" href="/articles/cas-redirect/1:CAS:528:DC%2BC1cXht1Cjs73F" rel="nofollow noopener">CAS</a> 
+    <a aria-label="ADS reference 5" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2018NatRM...3....5T" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 5" href="http://scholar.google.com/scholar_lookup?&amp;title=Accelerating%20the%20discovery%20of%20materials%20for%20clean%20energy%20in%20the%20era%20of%20smart%20automation&amp;journal=Nat.%20Rev.%20Mater.&amp;doi=10.1038%2Fs41578-018-0005-z&amp;volume=3&amp;pages=5-20&amp;publication_year=2018" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR6">Liu, C. et al. Two-dimensional materials for next-generation computing technologies. <i>Nat. Nanotechnol.</i> <b>15</b>, 545–557 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 6" data-doi="10.1038/s41565-020-0724-3" href="https://doi.org/10.1038%2Fs41565-020-0724-3" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 6" href="/articles/cas-redirect/1:CAS:528:DC%2BB3cXhtlGlu7bN" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 6" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=32647168" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="ADS reference 6" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2020NatNa..15..545L" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 6" href="http://scholar.google.com/scholar_lookup?&amp;title=Two-dimensional%20materials%20for%20next-generation%20computing%20technologies&amp;journal=Nat.%20Nanotechnol.&amp;doi=10.1038%2Fs41565-020-0724-3&amp;volume=15&amp;pages=545-557&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR7">Nørskov, J. K., Bligaard, T., Rossmeisl, J. &amp; Christensen, C. H. Towards the computational design of solid catalysts. <i>Nat. Chem.</i> <b>1</b>, 37–46 (2009).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 7" data-doi="10.1038/nchem.121" href="https://doi.org/10.1038%2Fnchem.121" rel="nofollow noopener">Article</a> 
+    <a aria-label="PubMed reference 7" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=21378799" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="Google Scholar reference 7" href="http://scholar.google.com/scholar_lookup?&amp;title=Towards%20the%20computational%20design%20of%20solid%20catalysts&amp;journal=Nat.%20Chem.&amp;doi=10.1038%2Fnchem.121&amp;volume=1&amp;pages=37-46&amp;publication_year=2009" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR8">Greeley, J., Jaramillo, T. F., Bonde, J., Chorkendorff, I. &amp; Nørskov, J. K. Computational high-throughput screening of electrocatalytic materials for hydrogen evolution. <i>Nat. Mater.</i> <b>5</b>, 909–913 (2006).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 8" data-doi="10.1038/nmat1752" href="https://doi.org/10.1038%2Fnmat1752" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 8" href="/articles/cas-redirect/1:CAS:528:DC%2BD28XhtFCqu73N" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 8" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=17041585" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="ADS reference 8" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2006NatMa...5..909G" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 8" href="http://scholar.google.com/scholar_lookup?&amp;title=Computational%20high-throughput%20screening%20of%20electrocatalytic%20materials%20for%20hydrogen%20evolution&amp;journal=Nat.%20Mater.&amp;doi=10.1038%2Fnmat1752&amp;volume=5&amp;pages=909-913&amp;publication_year=2006" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR9">Gómez-Bombarelli, R. et al. Design of efficient molecular organic light-emitting diodes by a high-throughput virtual screening and experimental approach. <i>Nat. Mater.</i> <b>15</b>, 1120–1127 (2016).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 9" data-doi="10.1038/nmat4717" href="https://doi.org/10.1038%2Fnmat4717" rel="nofollow noopener">Article</a> 
+    <a aria-label="PubMed reference 9" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=27500805" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="ADS reference 9" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2016NatMa..15.1120G" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 9" href="http://scholar.google.com/scholar_lookup?&amp;title=Design%20of%20efficient%20molecular%20organic%20light-emitting%20diodes%20by%20a%20high-throughput%20virtual%20screening%20and%20experimental%20approach&amp;journal=Nat.%20Mater.&amp;doi=10.1038%2Fnmat4717&amp;volume=15&amp;pages=1120-1127&amp;publication_year=2016" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR10">de Leon, N. P. et al. Materials challenges and opportunities for quantum computing hardware. <i>Science</i> <b>372</b>, eabb2823 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 10" data-doi="10.1126/science.abb2823" href="https://doi.org/10.1126%2Fscience.abb2823" rel="nofollow noopener">Article</a> 
+    <a aria-label="PubMed reference 10" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=33859004" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="ADS reference 10" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2021Sci...372.2823D" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 10" href="http://scholar.google.com/scholar_lookup?&amp;title=Materials%20challenges%20and%20opportunities%20for%20quantum%20computing%20hardware&amp;journal=Science&amp;doi=10.1126%2Fscience.abb2823&amp;volume=372&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR11">Wedig, A. et al. Nanoscale cation motion in TaO<sub><i>x</i></sub>, HfO<sub><i>x</i></sub> and TiO<sub><i>x</i></sub> memristive systems. <i>Nat. Nanotechnol.</i> <b>11</b>, 67–74 (2016).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 11" data-doi="10.1038/nnano.2015.221" href="https://doi.org/10.1038%2Fnnano.2015.221" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 11" href="/articles/cas-redirect/1:CAS:528:DC%2BC2MXhsFOrsr%2FN" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 11" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=26414197" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="ADS reference 11" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2016NatNa..11...67W" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 11" href="http://scholar.google.com/scholar_lookup?&amp;title=Nanoscale%20cation%20motion%20in%20TaOx%2C%20HfOx%20and%20TiOx%20memristive%20systems&amp;journal=Nat.%20Nanotechnol.&amp;doi=10.1038%2Fnnano.2015.221&amp;volume=11&amp;pages=67-74&amp;publication_year=2016" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR12">Brown, T. et al. Language models are few-shot learners. <i>Adv. Neural Inf. Process. Syst.</i> <b>33</b>, 1877–1901 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 12" href="http://scholar.google.com/scholar_lookup?&amp;title=Language%20models%20are%20few-shot%20learners&amp;journal=Adv.%20Neural%20Inf.%20Process.%20Syst.&amp;volume=33&amp;pages=1877-1901&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR13">Dosovitskiy, A. et al. An image is worth 16x16 words: Transformers for image recognition at scale. In <i>International Conference on Learning Representations</i> (ICLR, 2021); <a href="https://openreview.net/forum?id=YicbFdNTTy">https://openreview.net/forum?id=YicbFdNTTy</a></p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR14">Jumper, J. et al. Highly accurate protein structure prediction with AlphaFold. <i>Nature</i> <b>596</b>, 583–589 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 14" data-doi="10.1038/s41586-021-03819-2" href="https://doi.org/10.1038%2Fs41586-021-03819-2" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 14" href="/articles/cas-redirect/1:CAS:528:DC%2BB3MXhvVaktrrL" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 14" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=34265844" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 14" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC8371605" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="ADS reference 14" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2021Natur.596..583J" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 14" href="http://scholar.google.com/scholar_lookup?&amp;title=Highly%20accurate%20protein%20structure%20prediction%20with%20AlphaFold&amp;journal=Nature&amp;doi=10.1038%2Fs41586-021-03819-2&amp;volume=596&amp;pages=583-589&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR15">Hellenbrandt, M. The Inorganic Crystal Structure Database (ICSD)—present and future. <i>Crystallogr. Rev.</i> <b>10</b>, 17–22 (2004).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 15" data-doi="10.1080/08893110410001664882" href="https://doi.org/10.1080%2F08893110410001664882" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 15" href="/articles/cas-redirect/1:CAS:528:DC%2BD2cXjt1ahsrY%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="Google Scholar reference 15" href="http://scholar.google.com/scholar_lookup?&amp;title=The%20Inorganic%20Crystal%20Structure%20Database%20%28ICSD%29%E2%80%94present%20and%20future&amp;journal=Crystallogr.%20Rev.&amp;doi=10.1080%2F08893110410001664882&amp;volume=10&amp;pages=17-22&amp;publication_year=2004" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR16">Jain, A. et al. Commentary: The Materials Project: a materials genome approach to accelerating materials innovation. <i>APL Mater.</i> <b>1</b>, 011002 (2013).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 16" data-doi="10.1063/1.4812323" href="https://doi.org/10.1063%2F1.4812323" rel="nofollow noopener">Article</a> 
+    <a aria-label="ADS reference 16" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2013APLM....1a1002J" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 16" href="http://scholar.google.com/scholar_lookup?&amp;title=Commentary%3A%20The%20Materials%20Project%3A%20a%20materials%20genome%20approach%20to%20accelerating%20materials%20innovation&amp;journal=APL%20Mater.&amp;doi=10.1063%2F1.4812323&amp;volume=1&amp;publication_year=2013" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR17">Saal, J. E., Kirklin, S., Aykol, M., Meredig, B. &amp; Wolverton, C. Materials design and discovery with high-throughput density functional theory: the Open Quantum Materials Database (OQMD). <i>JOM</i> <b>65</b>, 1501–1509 (2013).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 17" data-doi="10.1007/s11837-013-0755-4" href="https://link.springer.com/doi/10.1007/s11837-013-0755-4" rel="noopener">Article</a> 
+    <a aria-label="CAS reference 17" href="/articles/cas-redirect/1:CAS:528:DC%2BC3sXhsFentbzK" rel="nofollow noopener">CAS</a> 
+    <a aria-label="Google Scholar reference 17" href="http://scholar.google.com/scholar_lookup?&amp;title=Materials%20design%20and%20discovery%20with%20high-throughput%20density%20functional%20theory%3A%20the%20Open%20Quantum%20Materials%20Database%20%28OQMD%29&amp;journal=JOM&amp;doi=10.1007%2Fs11837-013-0755-4&amp;volume=65&amp;pages=1501-1509&amp;publication_year=2013" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR18">Belsky, A., Hellenbrandt, M., Karen, V. L. &amp; Luksch, P. New developments in the Inorganic Crystal Structure Database (ICSD): accessibility in support of materials research and design. <i>Acta Crystallogr. B Struct. Sci.</i> <b>58</b>, 364–369 (2002).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 18" data-doi="10.1107/S0108768102006948" href="https://doi.org/10.1107%2FS0108768102006948" rel="nofollow noopener">Article</a> 
+    <a aria-label="ADS reference 18" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2002AcCrB..58..364B" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 18" href="http://scholar.google.com/scholar_lookup?&amp;title=New%20developments%20in%20the%20Inorganic%20Crystal%20Structure%20Database%20%28ICSD%29%3A%20accessibility%20in%20support%20of%20materials%20research%20and%20design&amp;journal=Acta%20Crystallogr.%20B%20Struct.%20Sci.&amp;doi=10.1107%2FS0108768102006948&amp;volume=58&amp;pages=364-369&amp;publication_year=2002" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR19">Aykol, M., Montoya, J. H. &amp; Hummelshøj, J. Rational solid-state synthesis routes for inorganic materials. <i>J. Am. Chem. Soc.</i> <b>143</b>, 9244–9259 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 19" data-doi="10.1021/jacs.1c04888" href="https://doi.org/10.1021%2Fjacs.1c04888" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 19" href="/articles/cas-redirect/1:CAS:528:DC%2BB3MXht1yhurfL" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 19" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=34114812" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="Google Scholar reference 19" href="http://scholar.google.com/scholar_lookup?&amp;title=Rational%20solid-state%20synthesis%20routes%20for%20inorganic%20materials&amp;journal=J.%20Am.%20Chem.%20Soc.&amp;doi=10.1021%2Fjacs.1c04888&amp;volume=143&amp;pages=9244-9259&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR20">Curtarolo, S. et al. AFLOWLIB.ORG: a distributed materials properties repository from high-throughput ab initio calculations. <i>Comput. Mater. Sci.</i> <b>58</b>, 227–235 (2012).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 20" data-doi="10.1016/j.commatsci.2012.02.002" href="https://doi.org/10.1016%2Fj.commatsci.2012.02.002" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 20" href="/articles/cas-redirect/1:CAS:528:DC%2BC38XksVyktLw%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="Google Scholar reference 20" href="http://scholar.google.com/scholar_lookup?&amp;title=AFLOWLIB.ORG%3A%20a%20distributed%20materials%20properties%20repository%20from%20high-throughput%20ab%20initio%20calculations&amp;journal=Comput.%20Mater.%20Sci.&amp;doi=10.1016%2Fj.commatsci.2012.02.002&amp;volume=58&amp;pages=227-235&amp;publication_year=2012" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR21">Draxl, C. &amp; Scheffler, M. The NOMAD laboratory: from data sharing to artificial intelligence. <i>J. Phys. Mater.</i> <b>2</b>, 036001 (2019).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 21" data-doi="10.1088/2515-7639/ab13bb" href="https://doi.org/10.1088%2F2515-7639%2Fab13bb" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 21" href="/articles/cas-redirect/1:CAS:528:DC%2BB3cXitFGhs73E" rel="nofollow noopener">CAS</a> 
+    <a aria-label="Google Scholar reference 21" href="http://scholar.google.com/scholar_lookup?&amp;title=The%20NOMAD%20laboratory%3A%20from%20data%20sharing%20to%20artificial%20intelligence&amp;journal=J.%20Phys.%20Mater.&amp;doi=10.1088%2F2515-7639%2Fab13bb&amp;volume=2&amp;publication_year=2019" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR22">Hautier, G., Fischer, C., Ehrlacher, V., Jain, A. &amp; Ceder, G. Data mined ionic substitutions for the discovery of new compounds. <i>Inorg. Chem.</i> <b>50</b>, 656–663 (2011).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 22" data-doi="10.1021/ic102031h" href="https://doi.org/10.1021%2Fic102031h" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 22" href="/articles/cas-redirect/1:CAS:528:DC%2BC3cXhsFGltrrO" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 22" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=21142147" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="Google Scholar reference 22" href="http://scholar.google.com/scholar_lookup?&amp;title=Data%20mined%20ionic%20substitutions%20for%20the%20discovery%20of%20new%20compounds&amp;journal=Inorg.%20Chem.&amp;doi=10.1021%2Fic102031h&amp;volume=50&amp;pages=656-663&amp;publication_year=2011" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR23">Ong, S. P. et al. Python Materials Genomics (pymatgen): a robust, open-source Python library for materials analysis. <i>Comput. Mater. Sci.</i> <b>68</b>, 314–319 (2013).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 23" data-doi="10.1016/j.commatsci.2012.10.028" href="https://doi.org/10.1016%2Fj.commatsci.2012.10.028" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 23" href="/articles/cas-redirect/1:CAS:528:DC%2BC3sXhsVGjt7g%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="Google Scholar reference 23" href="http://scholar.google.com/scholar_lookup?&amp;title=Python%20Materials%20Genomics%20%28pymatgen%29%3A%20a%20robust%2C%20open-source%20Python%20library%20for%20materials%20analysis&amp;journal=Comput.%20Mater.%20Sci.&amp;doi=10.1016%2Fj.commatsci.2012.10.028&amp;volume=68&amp;pages=314-319&amp;publication_year=2013" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR24">Aykol, M. et al. Network analysis of synthesizable materials discovery. <i>Nat. Commun.</i> <b>10</b>, 2018 (2019).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 24" data-doi="10.1038/s41467-019-10030-5" href="https://doi.org/10.1038%2Fs41467-019-10030-5" rel="nofollow noopener">Article</a> 
+    <a aria-label="PubMed reference 24" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=31043603" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 24" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC6494829" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="ADS reference 24" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2019NatCo..10.2018A" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 24" href="http://scholar.google.com/scholar_lookup?&amp;title=Network%20analysis%20of%20synthesizable%20materials%20discovery&amp;journal=Nat.%20Commun.&amp;doi=10.1038%2Fs41467-019-10030-5&amp;volume=10&amp;publication_year=2019" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR25">Bartel, C. J. et al. A critical examination of compound stability predictions from machine-learned formation energies. <i>npj Comput. Mater.</i> <b>6</b>, 97 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 25" data-doi="10.1038/s41524-020-00362-y" href="https://doi.org/10.1038%2Fs41524-020-00362-y" rel="nofollow noopener">Article</a> 
+    <a aria-label="ADS reference 25" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2020npjCM...6...97B" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 25" href="http://scholar.google.com/scholar_lookup?&amp;title=A%20critical%20examination%20of%20compound%20stability%20predictions%20from%20machine-learned%20formation%20energies&amp;journal=npj%20Comput.%20Mater.&amp;doi=10.1038%2Fs41524-020-00362-y&amp;volume=6&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR26">Pickard, C. J. &amp; Needs, R. Ab initio random structure searching. <i>J. Phys. Condens. Matter</i> <b>23</b>, 053201 (2011).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 26" data-doi="10.1088/0953-8984/23/5/053201" href="https://doi.org/10.1088%2F0953-8984%2F23%2F5%2F053201" rel="nofollow noopener">Article</a> 
+    <a aria-label="PubMed reference 26" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=21406903" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="ADS reference 26" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2011JPCM...23e3201P" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 26" href="http://scholar.google.com/scholar_lookup?&amp;title=Ab%20initio%20random%20structure%20searching&amp;journal=J.%20Phys.%20Condens.%20Matter&amp;doi=10.1088%2F0953-8984%2F23%2F5%2F053201&amp;volume=23&amp;publication_year=2011" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR27">Wang, H.-C., Botti, S. &amp; Marques, M. A. Predicting stable crystalline compounds using chemical similarity. <i>npj Comput. Mater.</i> <b>7</b>, 12 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 27" data-doi="10.1038/s41524-020-00481-6" href="https://doi.org/10.1038%2Fs41524-020-00481-6" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 27" href="/articles/cas-redirect/1:CAS:528:DC%2BB3MXotlGgs70%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="ADS reference 27" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2021npjCM...7...12W" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 27" href="http://scholar.google.com/scholar_lookup?&amp;title=Predicting%20stable%20crystalline%20compounds%20using%20chemical%20similarity&amp;journal=npj%20Comput.%20Mater.&amp;doi=10.1038%2Fs41524-020-00481-6&amp;volume=7&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR28">Hestness, J. et al. Deep learning scaling is predictable, empirically. Preprint at <a href="https://arxiv.org/abs/1712.00409">https://arxiv.org/abs/1712.00409</a> (2017).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR29">Furness, J. W., Kaplan, A. D., Ning, J., Perdew, J. P. &amp; Sun, J. Accurate and numerically efficient r<sup>2</sup>SCAN meta-generalized gradient approximation. <i>J. Phys. Chem. Lett.</i> <b>11</b>, 8208–8215 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 29" data-doi="10.1021/acs.jpclett.0c02405" href="https://doi.org/10.1021%2Facs.jpclett.0c02405" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 29" href="/articles/cas-redirect/1:CAS:528:DC%2BB3cXhslequ77N" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 29" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=32876454" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="Google Scholar reference 29" href="http://scholar.google.com/scholar_lookup?&amp;title=Accurate%20and%20numerically%20efficient%20r2SCAN%20meta-generalized%20gradient%20approximation&amp;journal=J.%20Phys.%20Chem.%20Lett.&amp;doi=10.1021%2Facs.jpclett.0c02405&amp;volume=11&amp;pages=8208-8215&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR30">Batzner, S. et al. E(3)-equivariant graph neural networks for data-efficient and accurate interatomic potentials. <i>Nat. Commun.</i> <b>13</b>, 2453 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 30" data-doi="10.1038/s41467-022-29939-5" href="https://doi.org/10.1038%2Fs41467-022-29939-5" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 30" href="/articles/cas-redirect/1:CAS:528:DC%2BB38Xht1ShtLrE" rel="nofollow noopener">CAS</a> 
+    <a aria-label="PubMed reference 30" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids=35508450" rel="nofollow noopener">PubMed</a> 
+    <a aria-label="PubMed Central reference 30" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC9068614" rel="nofollow noopener">PubMed Central</a> 
+    <a aria-label="ADS reference 30" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2022NatCo..13.2453B" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 30" href="http://scholar.google.com/scholar_lookup?&amp;title=E%283%29-equivariant%20graph%20neural%20networks%20for%20data-efficient%20and%20accurate%20interatomic%20potentials&amp;journal=Nat.%20Commun.&amp;doi=10.1038%2Fs41467-022-29939-5&amp;volume=13&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR31">Thomas, N. et al. Tensor field networks: rotation- and translation-equivariant neural networks for 3D point clouds. Preprint at <a href="https://arxiv.org/abs/1802.08219">https://arxiv.org/abs/1802.08219</a> (2018).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR32">Togo, A. &amp; Tanaka, I. Spglib: a software library for crystal symmetry search. Preprint at <a href="https://arxiv.org/abs/1808.01590">https://arxiv.org/abs/1808.01590</a> (2018).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR33">Behler, J. Constructing high-dimensional neural network potentials: a tutorial review. <i>Int. J. Quantum Chem.</i> <b>115</b>, 1032–1050 (2015).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 33" data-doi="10.1002/qua.24890" href="https://doi.org/10.1002%2Fqua.24890" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 33" href="/articles/cas-redirect/1:CAS:528:DC%2BC2MXks12gtbk%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="Google Scholar reference 33" href="http://scholar.google.com/scholar_lookup?&amp;title=Constructing%20high-dimensional%20neural%20network%20potentials%3A%20a%20tutorial%20review&amp;journal=Int.%20J.%20Quantum%20Chem.&amp;doi=10.1002%2Fqua.24890&amp;volume=115&amp;pages=1032-1050&amp;publication_year=2015" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR34">Kresse, G. &amp; Furthmüller, J. Efficient iterative schemes for ab initio total-energy calculations using a plane-wave basis set. <i>Phys. Rev. B</i> <b>54</b>, 11169 (1996).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 34" data-doi="10.1103/PhysRevB.54.11169" href="https://doi.org/10.1103%2FPhysRevB.54.11169" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 34" href="/articles/cas-redirect/1:CAS:528:DyaK28Xms1Whu7Y%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="ADS reference 34" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=1996PhRvB..5411169K" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 34" href="http://scholar.google.com/scholar_lookup?&amp;title=Efficient%20iterative%20schemes%20for%20ab%20initio%20total-energy%20calculations%20using%20a%20plane-wave%20basis%20set&amp;journal=Phys.%20Rev.%20B&amp;doi=10.1103%2FPhysRevB.54.11169&amp;volume=54&amp;publication_year=1996" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR35">Battaglia, P. W. et al. Relational inductive biases, deep learning, and graph networks. Preprint at <a href="https://arxiv.org/abs/1806.01261">https://arxiv.org/abs/1806.01261</a> (2018).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR36">Gilmer, J., Schoenholz, S. S., Riley, P. F., Vinyals, O. &amp; Dahl, G. E. Neural message passing for quantum chemistry. <i>Proc. Mach. Learn. Res.</i> <b>70</b>, 1263–1272 (2017).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 36" href="http://scholar.google.com/scholar_lookup?&amp;title=Neural%20message%20passing%20for%20quantum%20chemistry&amp;journal=Proc.%20Mach.%20Learn.%20Res.&amp;volume=70&amp;pages=1263-1272&amp;publication_year=2017" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR37">Chen, C., Ye, W., Zuo, Y., Zheng, C. &amp; Ong, S. P. Graph networks as a universal machine learning framework for molecules and crystals. <i>Chem. Mater.</i> <b>31</b>, 3564–3572 (2019).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 37" data-doi="10.1021/acs.chemmater.9b01294" href="https://doi.org/10.1021%2Facs.chemmater.9b01294" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 37" href="/articles/cas-redirect/1:CAS:528:DC%2BC1MXntFaqt7g%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="Google Scholar reference 37" href="http://scholar.google.com/scholar_lookup?&amp;title=Graph%20networks%20as%20a%20universal%20machine%20learning%20framework%20for%20molecules%20and%20crystals&amp;journal=Chem.%20Mater.&amp;doi=10.1021%2Facs.chemmater.9b01294&amp;volume=31&amp;pages=3564-3572&amp;publication_year=2019" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR38">Kaplan, J. et al. Scaling laws for neural language models. Preprint at <a href="https://arxiv.org/abs/2001.08361">https://arxiv.org/abs/2001.08361</a> (2020).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR39">Hicks, D. et al. AFLOW-XtalFinder: a reliable choice to identify crystalline prototypes. <i>npj Comput. Mater.</i> <b>7</b>, 30 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 39" data-doi="10.1038/s41524-020-00483-4" href="https://doi.org/10.1038%2Fs41524-020-00483-4" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 39" href="/articles/cas-redirect/1:CAS:528:DC%2BB3MXotlGgsLg%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="ADS reference 39" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2021npjCM...7...30H" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 39" href="http://scholar.google.com/scholar_lookup?&amp;title=AFLOW-XtalFinder%3A%20a%20reliable%20choice%20to%20identify%20crystalline%20prototypes&amp;journal=npj%20Comput.%20Mater.&amp;doi=10.1038%2Fs41524-020-00483-4&amp;volume=7&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR40">Blöchl, P. E. Projector augmented-wave method. <i>Phys. Rev. B</i> <b>50</b>, 17953 (1994).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 40" data-doi="10.1103/PhysRevB.50.17953" href="https://doi.org/10.1103%2FPhysRevB.50.17953" rel="nofollow noopener">Article</a> 
+    <a aria-label="ADS reference 40" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=1994PhRvB..5017953B" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 40" href="http://scholar.google.com/scholar_lookup?&amp;title=Projector%20augmented-wave%20method&amp;journal=Phys.%20Rev.%20B&amp;doi=10.1103%2FPhysRevB.50.17953&amp;volume=50&amp;publication_year=1994" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR41">Perdew, J. P., Ernzerhof, M. &amp; Burke, K. Rationale for mixing exact exchange with density functional approximations. <i>J. Chem. Phys.</i> <b>105</b>, 9982–9985 (1996).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 41" data-doi="10.1063/1.472933" href="https://doi.org/10.1063%2F1.472933" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 41" href="/articles/cas-redirect/1:CAS:528:DyaK28XnsFahtbg%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="ADS reference 41" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=1996JChPh.105.9982P" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 41" href="http://scholar.google.com/scholar_lookup?&amp;title=Rationale%20for%20mixing%20exact%20exchange%20with%20density%20functional%20approximations&amp;journal=J.%20Chem.%20Phys.&amp;doi=10.1063%2F1.472933&amp;volume=105&amp;pages=9982-9985&amp;publication_year=1996" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR42">Kitchaev, D. A. et al. Energetics of MnO<sub>2</sub> polymorphs in density functional theory. <i>Phys. Rev. B</i> <b>93</b>, 045132 (2016).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 42" data-doi="10.1103/PhysRevB.93.045132" href="https://doi.org/10.1103%2FPhysRevB.93.045132" rel="nofollow noopener">Article</a> 
+    <a aria-label="ADS reference 42" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2016PhRvB..93d5132K" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 42" href="http://scholar.google.com/scholar_lookup?&amp;title=Energetics%20of%20MnO2%20polymorphs%20in%20density%20functional%20theory&amp;journal=Phys.%20Rev.%20B&amp;doi=10.1103%2FPhysRevB.93.045132&amp;volume=93&amp;publication_year=2016" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR43">Kingsbury, R. et al. Performance comparison of r<sup>2</sup>SCAN and SCAN metaGGA density functionals for solid materials via an automated, high-throughput computational workflow. <i>Phys. Rev. Mater.</i> <b>6</b>, 013801 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 43" data-doi="10.1103/PhysRevMaterials.6.013801" href="https://doi.org/10.1103%2FPhysRevMaterials.6.013801" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 43" href="/articles/cas-redirect/1:CAS:528:DC%2BB38Xjt1yru7c%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="Google Scholar reference 43" href="http://scholar.google.com/scholar_lookup?&amp;title=Performance%20comparison%20of%20r2SCAN%20and%20SCAN%20metaGGA%20density%20functionals%20for%20solid%20materials%20via%20an%20automated%2C%20high-throughput%20computational%20workflow&amp;journal=Phys.%20Rev.%20Mater.&amp;doi=10.1103%2FPhysRevMaterials.6.013801&amp;volume=6&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li></ol></div></div></div></section></div><section data-title="Rights and permissions"><div class="c-article-section" id="rightslink-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="rightslink">Rights and permissions</h2><div class="c-article-section__content" id="rightslink-content">
+                <p><b>Open Access</b>  This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">http://creativecommons.org/licenses/by/4.0/</a>.</p>
+              </div></div></section>
+                    </div>
+
+                    
+                        
+                            
+                        
+                    
+
+                    
+                </div>
+            </article>
+        </main>
+        
+            
+
+        
+    </div>
+
+    
+
+
+
+
+    
+        
+    
+    
+        
+            
+        
+
+        
+            
+        
+    
+    
+
+
+
+
+<footer class="composite-layer">
+        
+        
+
+        
+
+    <div class="c-footer">
+        
+
+
+        <div class="c-footer__container">
+    
+    <p class="c-footer__legal" data-test="copyright">© 2026 Springer Nature Limited</p>
+</div>
+
+    </div>
+    
+</footer>
+
+
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+</body></html>
