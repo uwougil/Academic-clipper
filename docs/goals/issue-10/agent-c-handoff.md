@@ -1,6 +1,6 @@
 # Agent C — 来源核验与离线回归检查点
 
-状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线 accepted `4e8dcd9ce4998c3f8f373daecf332e7f9bfcfb74`（PR #79 / Issue #68），dependency-only `5a420d80891f0f4eb332e72dde5abf8ee2fa768f` 接入。Materials 的实际六 clips 四 validators 均 GREEN；原9正文/图注与2标题 identifier 的完整脚本恢复，compound mS×cm^-1 与全部其它内容保持。原37 tests仍30PASS/7FAIL：C旧标题consumer不接受正确带脚本标题，3source失败、3parents、partial after缺24组合硬FAIL。窄C consumer修正 `918901c0957b5021f1712594e6c83f33d7384490` 的实际7focused tests全PASS；仅对六份原缓存重新执行标题consumer，零新clip。当前27 Materials composite来源记录为24原runtime PASS加3新cached consumer PASS；228历史记录明确分开，不是当前main全255/27验收。API/schema1.0不变，但新helper blob `8897a61e3ac044442c5e7bcc1a59b2c292ff5d3d` 尚待独立delta审查，旧f914审查不覆盖它。其它Chemistry/Alpha/FRB科学角色和最终combined验收仍待，见末尾。
+状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前accepted生产main为 `3dba1bbccddb43e0ba22fa7b7717dc559b7f3494`（PR #80 / Issue #71），dependency-only `56307f2962df83ae033d7e2f006bd48698c0d27d` 接入。唯一Alpha全B affected batch实际37 tests/36PASS/1partial-afterhook FAIL、13678.8802ms：27来源consumer、三方言全部4validators和3repeat PASS，六实际clips/15实际DOM关闭一次/zero unexpected DNSHTTP。完整原四r.m.s.d.SUB95与0.96、2.8、1.5、3.5Å和95%coverage原段落保持，完整34authors/5figures/84references/45citationclusters和Fig1 Nseq/Nres source contracts通过。85registry现在27Alpha `A3dba_RUNTIME_56307f` current；另228historical，包含原4e8 Materials24runtime+3cached-heading composite，不是当前全255/27。Materials C consumer918/helper8897已由root独立审查CLEAR（如下），helper/test/API1.0本轮完全未改。FRB/Chemistry四required窄bug及最终combined验收仍待。
 
 历史 e2c1 轮仅复验 Quantum `s41534-023-00746-0` × 三方言：30 条来源记录 27 PASS / 3 FAIL；3 个 Markdown / Bib / semantics / replay repeat 全部 PASS。实际 session22332：40 tests = 30 PASS / 10 FAIL，0 skip / todo / cancel，43,193.7263ms。10 FAIL 包含 3 个 citation 子测试、3 个 validator 子测试、3 个 parents 及 receipt 缺 24 个组合的硬 FAIL。每方言完整 source-crossrefs 已恢复；原 12 个 table-caption MathJax 产生的 24 legacy delimiter issues 消失。其余 math 仍 19 issues（17 Greek isolatedSubscript、2 split isolatedSuperscript），整篇不通过。
 
@@ -972,3 +972,61 @@ Six full-return captures prefix `accepted-identifier-materials-delta.<dialect>.r
 | quarto | 290854 / `7e17ec665b486201747a28ec63fdd1879bdd41f73961baabbe525701443bd91e` | 290854 / `dd988306115a0f6fc8f3945ac2f46679e2e39dafb89d44dc7eeea3fe206fee05` |
 
 No proposed spec changes/新生产parser缺陷/sourceinput修改。下一步root不同owner审查exact918consumerdelta与scope receipt；D接入新helper须等待该CLEAR。C仍待其它accepted科学修复与最终currentcombined255/27、全部4validators、repeat/ABA/resources/golden与canonical npmchecks/三平台CI。Integrator在explicit C authored序列后选择918及本doc commit，新增focused模块应纳入最终明确corpus文件列表；不要whole-C merge覆盖完整B含b718rights。此次不建立ordinaryPR、不手动关闭任何Issue、不宣称Materials/C/Issue10最终complete。
+
+
+## Accepted3dba qualified metric — Alpha 实际 affected 六 clips
+
+Root formal release 的accepted main为 `3dba1bbccddb43e0ba22fa7b7717dc559b7f3494`（PR #80 / Issue #71）。Root实际Main `37770933630` 同head三jobs均SUCCESS：Ubuntu20 `113290039265` 11:38:29Z、Ubuntu24 `113290039561` 11:38:51Z、Windows24 `113290039733` 11:39:32Z；Secrets `37770933677` 同headSUCCESS。Issue71automation11:39:42Z CLOSED/COMPLETED，见[实际接受证据](https://github.com/uwougil/Academic-clipper/issues/71#issuecomment-6059056591)。C复用root证据，没有重复CI polling。Ownbranch `codex/issue-10-agent-c` / worktree `C:/Users/guoli/.codex/worktrees/issue-10-offline/academic-clipper` 从clean `edd8dbb215a00cf3012e2b3aa3c142fb67fffa17` 接入 dependency-only `56307f2962df83ae033d7e2f006bd48698c0d27d`；integrator从accepted main开始，不把该merge作为C authored delivery选择。
+
+Root已完整读不同owner Materials consumer delta审查：外部 `academic-clipper-issue10-c-identifier-consumer-review-edd8` human8345 bytes / SHA256 `0eedc828d042c6561feb316ea85128fd98dd4efbd72f639f8e540bfb2976ad5b`，machine19681 / `7f8a3069a9ba06d32d7a2e7ef637f33c08f10ba25e1714e8f9d99048250d639a`，zero blockers、31protected inputs/21artifacts/sixcached repetitions核验。故C helper `8897a61e3ac044442c5e7bcc1a59b2c292ff5d3d` / SHA256 `660c8f04c317c55afd1ab4082999e4a162e02aa24f3b7050d8b7d5461a7b07c6` 可交D；API/schema1.0不变。本次Alpha无新helper/test实现，旧末节pending审查是历史状态。
+
+### 原输入与实际执行
+
+使用完整admitted Alpha frozen excerpt `test/corpus/fixtures/s41586-021-03819-2/article.excerpt.html`，188879 LF bytes / SHA256 `b47e9b289dfd671000e361872c9feb561b6b603eaf7c9a7011923fbf43a3c5ef`；9原expectations及全部B/A科学合同保持。32protected Gitblobs和全部相关src/helper/test/package/B输入在batch前后逐项未变。没有独立source58、raw/A/projection/sanitization/85oracle审计、Materials测试、Cframework、standalone71 focused43/affected760/full1024或其它论文重复。
+
+唯一production batch session `16553`，samehandle terminalchunk `be7a9f` / exit1：**37tests/36PASS/1FAIL/13678.8802ms/0skip/cancel/todo**。27原source consumers全部PASS；3四validators/严格declaredwarning guards全部PASS；3repeat PASS；唯一FAIL是原optionalreceipt afterhook缺24未选择的article/dialect组合。Status records3、missing24、errors[]、unexpected[]、completefalse保持，没有绕开afterhook、补造cache或将partial运行说成exit0。
+
+外部observer沿用原execute-return hook，只保存同一次返回值的Markdown/Bib/summary/comparison/requestDNSledger/完整semantic arrays/metadata/figures/references/debug；没有重clip。新增只读load观察绑定原JSDOM constructor参数及原close、实际withDomGlobals窗口，原断言/cache/test-name注册不变。六真正production clipwindows保持开放直至全部3baseline+3repeat完成；beforeExit实际关闭6一次。另6comparison DOM和3source-consumer DOM按原finally关闭，总**15创建/15关闭且关闭后document不可用**。20实际guard bindings覆盖globalfetch、DNS callback/promises、HTTP/HTTPS、net/tls，attempts[]；原bindings/builtinexports/十DOMglobals恢复true。没有writer import/invocation；不声称未实现的writerCalls spy。
+
+### 同一次缓存的科学对账
+
+完整原CASP14段落四whole `$\mathrm{r.m.s.d.}_{95}$` 分别紧邻0.96、2.8、1.5、3.5Å，指标whole literal base与SUB95保持。段落把这些四有限合法编码还原为原source text并只取真实link labels后，与sealed source71全文逐字规范空白比较相同；Cα root-mean-square deviation at95% residuecoverage、所有confidence intervals、1.4Å比较、2,180-residue原文、Fig1a/b/c/d及MOESM1外部链接均完整。Source原段落index2/prehash `0722e1e1f1fb785c0add4e0a85c04e9dca2616ec0b3a6bde07ec29710b08088d`，raw UTF16[174425,176484]/UTF8[174554,176648]与四qualifier位置沿用已审查source oracle，没有raw重新解析。
+
+完整fullB ordered scientificRuns25保存，首4exactmetric原range/sourceprovenance，余21按原全source consumer/validators核验；所有marker unique且最终输出zero markers。Fig1完整caption source consumer PASS，Nseq/Nres保留source脚本，所有5figure IDs/顺序/短alt/main位置与原crossrefs合同通过；完整metadata34orderedauthors、referenceprefix84、citationclusters45、displayequations0、tables[]均精确。**fullB只有declared warning `No equation nodes were detected.`**，focused71 reduced excerpt的零references第二条warning不适用于fullB。四validators和scientificFragments全valid/issues[]/四orphan counts0；default/quarto zeroHTML与linksstrictanchors按真实validators/原consumers验收。Resources/actualrequestDNSledgers均empty，无unexpectedwarning。
+
+六返回值每style baseline/repeat的Markdown、Bib、semantics、comparison、ledger、metadata、figures、references、debug、body/referenceMarkdown全fieldwise相同；不同文件ordinal不作为内容oracle。缓存postprocess首个shape假设误读clip结果不存在的directequations字段（exit1），原script保留 `accepted-qualified-alpha-reconciliation.mjs.initial-field-assumption`；改读同一saved summary.equations后exit0，原六输出不动，没有新增clip/DOM/sourceaudit/validator运行。此为receipt脚本错误，不是生产/parser缺陷。
+
+85行registry见外部receipt：27Alpha `A3dba_RUNTIME_56307f` = CURRENT_3dba_ACTUAL；228HISTORICAL：F0DE117、Q134_NEW30、AC86_NEW27、Ca5b6_NEW27、M4e8_RUNTIME_5a420d24、M4e8_CACHED_918901c3。Materials原24runtime/3changed-heading cached baseline的composite及额外3cached-repeat保存为4e8历史证据，原37/30/7不改；不得把85source consumer历史PASS当四guards或current255/27验收。
+
+### Commands 与 durable选择
+
+| Exact command | Actual result |
+| --- | --- |
+| `git fetch origin main`；`git merge --no-ff 3dba1bbccddb43e0ba22fa7b7717dc559b7f3494 -m 'chore(corpus): adopt accepted qualified metric prerequisite'` | dependency-only56307f，clean inputs |
+| `node <TEMP>/qualified-alpha-readiness.mjs` | exit0，32protected/fixturehash/freshprefix/exact9IDs及positivefilter；zeroDOM |
+| `node --import file:///C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c/accepted-qualified-alpha-observer.mjs --test --test-name-pattern $cAlphaPlan.pattern test/nature-corpus.test.mjs`；env `ACADEMIC_CLIPPER_CORPUS_RECEIPT_PREFIX=<TEMP>/accepted-qualified-alpha-delta` | 唯一session16553，37/36/1afterhookmissing24，13678.8802ms，sixclips |
+| `node <TEMP>/accepted-qualified-alpha-reconciliation.mjs` | 最终exit0，同cache四roles/fullparagraph/sourcepositions/全部strictguards/wholearrays/repeat/32inputs/85registry对账；newclips/DOM0 |
+| `git diff --check`、stageddiffcheck、trackedfilenames/status、commit/push | authored只本handoff；docs不触发runtime重跑，finalSHA由gitlog/交接消息标识 |
+
+`$cAlphaPlan.pattern`为完整positivefilter：`^(?:s41586-021-03819-2)/(?:markdown|links|quarto): (?:every source expectation through the complete production chain|repeat Markdown, bibliography, semantics and replay operations)$`。
+
+External evidence root `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c`；只报告/返回值，不提交generated Markdown/full-page captures：
+
+| Artifact | Bytes / SHA256 |
+| --- | --- |
+| `accepted-qualified-alpha-delta.log` | 5215 / `e9e56f1924e945cf6a0fcc234c069ce4021118c64e933fd29d98e6ecebf53955` |
+| `accepted-qualified-alpha-delta-observer.json` | 7303 / `394689074ae3bde9024df781a5208f11da3d1fe9a789af00f3dd81ebdd3d97f4` |
+| `accepted-qualified-alpha-delta.comparisons.json` | 184834 / `771675a454789a6cdcac611c5dcce34d2f7d48bba5467a2d65510c46a467db27` |
+| `accepted-qualified-alpha-delta-receipt-status.json` | 1812 / `78c00424fc3643e2e996f238a2e33bad63266f6f9f8592afcdc095a8e9f5adde` |
+| `accepted-qualified-alpha-delta-process-exit.txt` | 1 / `6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b` |
+| `accepted-qualified-alpha-delta-receipt.json` | 117182 / `0fb42a77210fc44fccbcd8ce042309cef559f780df22c251f1646f6116d8d90c` |
+
+Same-return captures `accepted-qualified-alpha-delta.<dialect>.run<N>.json`：
+
+| Dialect | Baseline bytes / SHA256 | Repeat bytes / SHA256 |
+| --- | --- | --- |
+| markdown | 301663 / `ceae9025c7c192c0ac271bfbf2f8057325f226ff5cc5d2ff6492710898a7cd6a` | 301663 / `d280ff476452bf6b4ad32c2d14ec5b1ea89555187e6579e584527ae6da716cc8` |
+| links | 371228 / `4f51643a04c227ec63bc68f3da595f53d241033a7902a92afa5756ba7e07393a` | 371228 / `c63a1a8273bc5338ee413f16c225240cc4ee8db5274bd5cc07081e4e6cc12dd0` |
+| quarto | 281683 / `8a23e3bc639536316ed721040a4441942920bf21d3408787b6971dd89a369dbe` | 281683 / `9711137d9a53a375c52efff749e78af52e4b65b5ab9112d9217ce4b54a7b8c46` |
+
+C source acceptance此次Alpha role解除，仍DEPENDENCY_PENDING。#72 FRB fractional factors、#73 ChemistryGreek、#74 Chemistrygroup indices、#75 FRBnumericbase powers仍required；finalacceptedcombined仍需完整255source records/27combination guards、repeat/ABA/resources/golden/canonicalchecks/三平台CI。No newparser defect/specproposal/sourcechange/helperchange/ordinaryIssue10PR/manualclose/completionclaim。本doc-only appendedcheckpoint integrator应在原Cauthored序列（包括918/edd8）后选择，不选择563 dependencymerge/wholeC branch。
