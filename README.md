@@ -192,6 +192,7 @@ PNAS 有独立的[实验适配器及来源记录](docs/pnas-experiment.md)，仅
 - Supplementary Information 只保留在正文中被引用的内容，不下载 PDF。
 - 公式优先使用页面 `.mathjax-tex` 的原始 TeX：Nature equation container 中的 TeX 先冻结为 display 语义，正文中的 TeX 先冻结为 inline 语义，再交给 Defuddle 做 HTML→Markdown；少数异常页面若没有原始 TeX，会进入 warning，而不是伪造 Unicode 公式。
 - Nature 原正文中直接相邻的 `10<sup>−</sup><sup>15</sup>` 保留为单一 `$10^{−15}$`。数字 10 必须有明确原文边界，两个 SUP 必须只有原始文本且无分隔；空白、包裹节点、引用、额外 SUP 和未知词尾保持既有处理。同段存在字面数学/代码 delimiter 时，这个窄识别保守留给既有路径，尚不解析已闭合 delimiter 后的 split exponent。
+- Nature 原正文及完整图注中的独立 Γ/Ω 与直接相邻的简单下标保持为同一个数学表达式，例如 `Γ<sub><i>b</i></sub>` → `$Γ_{b}$`、`Ω<sub>0</sub>` → `$Ω_{0}$`。当前只识别原 `a`、`b`、`i`、`0` 的单文本或单层斜体下标；未知词/数字/组合字符前缀、分隔空白、包裹节点、复杂附件以及已有数学/代码保持原处理，引用上标独立。同段含字面数学/代码 delimiter 时保守留给既有路径，尚不识别已闭合 delimiter 后的这种简单下标。
 - 输出策略默认是 Markdown 原生脚注：语义 citation marker 只渲染为 `[^n]`，重复引用复用同一个 id，References 只生成一份 `[^n]: ...` 定义，不再依赖 `ref-n` HTML anchor；`links` 仅作为显式兼容模式保留。Quarto 使用稳定的作者-年份 key、`[@key]` 语义引用、同目录 `references.bib` 和 `::: {#refs}` citeproc 目标，不手工复制第二份 bibliography。章节目标使用自然 Markdown slug；Quarto 章节会附加 `sec-` identifier。figure/table/equation cross-reference 仍保留稳定本地目标。
 - 下载器记录 figure label、source URL、最终 URL、HTTP/result、content type、local path、fallback 和失败原因；同一 source URL 无论成功或失败只下载一次，并有 20 秒 timeout、20 MiB 单图大小上限和 `image/*` 响应检查。
 - writer 会先对远程图片版本 Markdown 做数学验证，再在 staging 目录下载和二次验证；在 `.academic-clipper-locks/` 中为每个竞争 writer 创建唯一 claim，并按 ticket 串行化同一文章。stale 清理只删除已复核的原 claim，因此不会误删刚接管的新 owner；下一次写入仍会恢复明显的 stale backup/transaction，避免无效 Markdown 或失败下载留下新半成品。最终文章使用目录级 replacement，旧 backup 清理失败只记录 warning，不把已成功安装报告为失败。

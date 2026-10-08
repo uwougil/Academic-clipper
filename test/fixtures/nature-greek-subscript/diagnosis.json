@@ -1,0 +1,639 @@
+{
+  "version": "nature-greek-diagnosis/1.0.0",
+  "baseSha": "ac86b2fa509653dfeb43b968472ce6280a51de2c",
+  "fixture": {
+    "path": "s41534-023-00746-0.excerpt.html",
+    "bytes": 90784,
+    "sha256": "227a626f70825f2484e94754cdda3a1a6a6608f4b94f6bbe4c6ff206be9f08b7",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "sourceRoles": 17,
+  "productionChanged": false,
+  "pipelineDuplicatedInPermanentTests": false,
+  "body": {
+    "adapterRemaining": [
+      {
+        "token": "Γ<sub><i>b</i></sub>",
+        "context": "a</i>, i.e., ACADEMICCLIPPERINLINEMATH0X and Γ<sub><i>b</i></sub> ≫ Γ<sub><i>a</i></sub>, we can adiabatically"
+      },
+      {
+        "token": "Γ<sub><i>a</i></sub>",
+        "context": "IPPERINLINEMATH0X and Γ<sub><i>b</i></sub> ≫ Γ<sub><i>a</i></sub>, we can adiabatically eliminate both <i>b</i"
+      },
+      {
+        "token": "Γ<sub><i>b</i></sub>",
+        "context": "           </div></div><p>Setting <i>λ</i> = Γ<sub><i>b</i></sub>, we obtain the desired dissipator ACADEMICCL"
+      },
+      {
+        "token": "Γ<sub><i>b</i></sub>",
+        "context": "rates <i></i>ACADEMICCLIPPERSCIENTIFICRUN1X, Γ<sub><i>b</i></sub> of auxiliary modes <i>b</i>,<i>c</i> cannot "
+      },
+      {
+        "token": "Γ<sub><i>b</i></sub>",
+        "context": "es <i></i>ACADEMICCLIPPERSCIENTIFICRUN2X and Γ<sub><i>b</i></sub>, and it is preferable to set <i></i>ACADEMIC"
+      },
+      {
+        "token": "Γ<sub><i>b</i></sub>",
+        "context": " set <i></i>ACADEMICCLIPPERSCIENTIFICRUN3X ~ Γ<sub><i>b</i></sub> to optimize over hardware resources (see Sup"
+      },
+      {
+        "token": "Γ<sub><i>a</i></sub>",
+        "context": "al implementation is determined by the ratio Γ<sub><i>a</i></sub>/Γ<sub><i>b</i></sub>, which heuristically de"
+      },
+      {
+        "token": "Γ<sub><i>b</i></sub>",
+        "context": "determined by the ratio Γ<sub><i>a</i></sub>/Γ<sub><i>b</i></sub>, which heuristically describes the branching"
+      },
+      {
+        "token": "Γ<sub><i>a</i></sub>",
+        "context": "RCROSSREFERENCEfigure-1X\">5b</a>, by setting Γ<sub><i>a</i></sub>/Γ<sub><i>b</i></sub> = 0.1, we can realize t"
+      },
+      {
+        "token": "Γ<sub><i>b</i></sub>",
+        "context": "-1X\">5b</a>, by setting Γ<sub><i>a</i></sub>/Γ<sub><i>b</i></sub> = 0.1, we can realize the desired <i>η</i> w"
+      },
+      {
+        "token": "Γ<sub><i>b</i></sub>",
+        "context": "that <i></i>ACADEMICCLIPPERSCIENTIFICRUN5X = Γ<sub><i>b</i></sub> = <i>λ</i>. ACADEMICCLIPPERINLINEMATH9X invo"
+      },
+      {
+        "token": "Γ<sub><i>a</i></sub>",
+        "context": "hat ACADEMICCLIPPERINLINEMATH16X. If we take Γ<sub><i>a</i></sub> = <i></i>ACADEMICCLIPPERSCIENTIFICRUN9X (and"
+      },
+      {
+        "token": "Ω<sub>0</sub>",
+        "context": "ted momentum kicks. The drive with amplitude Ω<sub>0</sub> in ACADEMICCLIPPERINLINEMATH25X comes from a"
+      },
+      {
+        "token": "Ω<sub><i>i</i></sub>",
+        "context": ", and choosing appropriate driving strength {Ω<sub><i>i</i></sub>} (see Supplementary Note <a href=\"/articles/"
+      },
+      {
+        "token": "Ω<sub><i>i</i></sub>",
+        "context": "ength. Note that we have assumed that Γ and {Ω<sub><i>i</i></sub>}, <i>i</i> = 1, 2, 3, 4, 5 are much smaller "
+      }
+    ],
+    "defuddleSameRun": [
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "e *a*, i.e., ACADEMICCLIPPERINLINEMATH0X and Γ <sub><i>b</i></sub>  ≫ Γ <sub><i>a</i></sub>, we can adiabatical"
+      },
+      {
+        "token": "Γ <sub><i>a</i></sub>",
+        "context": "PERINLINEMATH0X and Γ <sub><i>b</i></sub>  ≫ Γ <sub><i>a</i></sub>, we can adiabatically eliminate both *b* and"
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "ICCLIPPERDISPLAYMATH3X\n\n(19)\n\nSetting *λ*  = Γ <sub><i>b</i></sub>, we obtain the desired dissipator ACADEMICCL"
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": " decay rates ACADEMICCLIPPERSCIENTIFICRUN1X, Γ <sub><i>b</i></sub> of auxiliary modes *b*,*c* cannot be infinit"
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "cay rates ACADEMICCLIPPERSCIENTIFICRUN2X and Γ <sub><i>b</i></sub>, and it is preferable to set ACADEMICCLIPPER"
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "able to set ACADEMICCLIPPERSCIENTIFICRUN3X ~ Γ <sub><i>b</i></sub> to optimize over hardware resources (see Sup"
+      },
+      {
+        "token": "Γ <sub><i>a</i></sub>",
+        "context": "al implementation is determined by the ratio Γ <sub><i>a</i></sub> /Γ <sub><i>b</i></sub>, which heuristically "
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "termined by the ratio Γ <sub><i>a</i></sub> /Γ <sub><i>b</i></sub>, which heuristically describes the branching"
+      },
+      {
+        "token": "Γ <sub><i>a</i></sub>",
+        "context": "CCLIPPERCROSSREFERENCEfigure-1X), by setting Γ <sub><i>a</i></sub> /Γ <sub><i>b</i></sub>  = 0.1, we can realiz"
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "igure-1X), by setting Γ <sub><i>a</i></sub> /Γ <sub><i>b</i></sub>  = 0.1, we can realize the desired *η* withi"
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "ssumed that ACADEMICCLIPPERSCIENTIFICRUN5X = Γ <sub><i>b</i></sub>  =  *λ*. ACADEMICCLIPPERINLINEMATH9X involve"
+      },
+      {
+        "token": "Γ <sub><i>a</i></sub>",
+        "context": "hat ACADEMICCLIPPERINLINEMATH16X. If we take Γ <sub><i>a</i></sub>  = ACADEMICCLIPPERSCIENTIFICRUN9X (and corre"
+      },
+      {
+        "token": "Ω <sub>0</sub>",
+        "context": "ted momentum kicks. The drive with amplitude Ω <sub>0</sub> in ACADEMICCLIPPERINLINEMATH25X comes from a"
+      },
+      {
+        "token": "Ω <sub><i>i</i></sub>",
+        "context": ", and choosing appropriate driving strength {Ω <sub><i>i</i></sub> } (see Supplementary Note [6)](https://www.n"
+      },
+      {
+        "token": "Ω <sub><i>i</i></sub>",
+        "context": "ength. Note that we have assumed that Γ and {Ω <sub><i>i</i></sub> }, *i*  = 1, 2, 3, 4, 5 are much smaller tha"
+      }
+    ],
+    "afterMath": [
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "c}\\gg \\sqrt{{\\Gamma }_{a}{\\Gamma }_{b}}$ and Γ <sub><i>b</i></sub>  ≫ Γ <sub><i>a</i></sub>, we can adiabatical"
+      },
+      {
+        "token": "Γ <sub><i>a</i></sub>",
+        "context": "{\\Gamma }_{b}}$ and Γ <sub><i>b</i></sub>  ≫ Γ <sub><i>a</i></sub>, we can adiabatically eliminate both *b* and"
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "\\right]\\hat{\\rho }.\n$$\n\n(19)\n\nSetting *λ*  = Γ <sub><i>b</i></sub>, we obtain the desired dissipator ${\\hat{Z}}"
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "ameters, i.e., when the decay rates $κ_{c}$, Γ <sub><i>b</i></sub> of auxiliary modes *b*,*c* cannot be infinit"
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "is due to the finite decay rates $κ_{c}$ and Γ <sub><i>b</i></sub>, and it is preferable to set $κ_{c}$ ~ Γ <su"
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "/sub>, and it is preferable to set $κ_{c}$ ~ Γ <sub><i>b</i></sub> to optimize over hardware resources (see Sup"
+      },
+      {
+        "token": "Γ <sub><i>a</i></sub>",
+        "context": "al implementation is determined by the ratio Γ <sub><i>a</i></sub> /Γ <sub><i>b</i></sub>, which heuristically "
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "termined by the ratio Γ <sub><i>a</i></sub> /Γ <sub><i>b</i></sub>, which heuristically describes the branching"
+      },
+      {
+        "token": "Γ <sub><i>a</i></sub>",
+        "context": "CCLIPPERCROSSREFERENCEfigure-1X), by setting Γ <sub><i>a</i></sub> /Γ <sub><i>b</i></sub>  = 0.1, we can realiz"
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "igure-1X), by setting Γ <sub><i>a</i></sub> /Γ <sub><i>b</i></sub>  = 0.1, we can realize the desired *η* withi"
+      },
+      {
+        "token": "Γ <sub><i>b</i></sub>",
+        "context": "pa }_{c}}/2$. We have assumed that $κ_{c}$ = Γ <sub><i>b</i></sub>  =  *λ*. ${\\hat{H}}_{{{\\mathrm{tun}}}.}$ inv"
+      },
+      {
+        "token": "Γ <sub><i>a</i></sub>",
+        "context": "}}{{\\kappa }_{c}{\\sinh }^{2}2r}$. If we take Γ <sub><i>a</i></sub>  = $ϵ_{0}κ_{c}$ (and correspondingly, ${\\kap"
+      },
+      {
+        "token": "Ω <sub>0</sub>",
+        "context": "ted momentum kicks. The drive with amplitude Ω <sub>0</sub> in ${\\hat{H}}_{{{\\mathrm{eff}}}}$ comes from"
+      },
+      {
+        "token": "Ω <sub><i>i</i></sub>",
+        "context": ", and choosing appropriate driving strength {Ω <sub><i>i</i></sub> } (see Supplementary Note [6)](https://www.n"
+      },
+      {
+        "token": "Ω <sub><i>i</i></sub>",
+        "context": "ength. Note that we have assumed that Γ and {Ω <sub><i>i</i></sub> }, *i*  = 1, 2, 3, 4, 5 are much smaller tha"
+      }
+    ],
+    "afterAcademicInline": [
+      {
+        "token": "Γ$_{b}$",
+        "context": "c}\\gg \\sqrt{{\\Gamma }_{a}{\\Gamma }_{b}}$ and Γ$_{b}$  ≫ Γ$_{a}$, we can adiabatically eliminate b"
+      },
+      {
+        "token": "Γ$_{a}$",
+        "context": "{{\\Gamma }_{a}{\\Gamma }_{b}}$ and Γ$_{b}$  ≫ Γ$_{a}$, we can adiabatically eliminate both *b* and"
+      },
+      {
+        "token": "Γ$_{b}$",
+        "context": "\\right]\\hat{\\rho }.\n$$\n\n(19)\n\nSetting *λ*  = Γ$_{b}$, we obtain the desired dissipator ${\\hat{Z}}"
+      },
+      {
+        "token": "Γ$_{b}$",
+        "context": "ameters, i.e., when the decay rates $κ_{c}$, Γ$_{b}$ of auxiliary modes *b*,*c* cannot be infinit"
+      },
+      {
+        "token": "Γ$_{b}$",
+        "context": "is due to the finite decay rates $κ_{c}$ and Γ$_{b}$, and it is preferable to set $κ_{c}$ ~ Γ$_{b"
+      },
+      {
+        "token": "Γ$_{b}$",
+        "context": "_{b}$, and it is preferable to set $κ_{c}$ ~ Γ$_{b}$ to optimize over hardware resources (see Sup"
+      },
+      {
+        "token": "Γ$_{a}$",
+        "context": "al implementation is determined by the ratio Γ$_{a}$ /Γ$_{b}$, which heuristically describes the "
+      },
+      {
+        "token": "Γ$_{b}$",
+        "context": "entation is determined by the ratio Γ$_{a}$ /Γ$_{b}$, which heuristically describes the branching"
+      },
+      {
+        "token": "Γ$_{a}$",
+        "context": "CCLIPPERCROSSREFERENCEfigure-1X), by setting Γ$_{a}$ /Γ$_{b}$  = 0.1, we can realize the desired "
+      },
+      {
+        "token": "Γ$_{b}$",
+        "context": "ROSSREFERENCEfigure-1X), by setting Γ$_{a}$ /Γ$_{b}$  = 0.1, we can realize the desired *η* withi"
+      },
+      {
+        "token": "Γ$_{b}$",
+        "context": "pa }_{c}}/2$. We have assumed that $κ_{c}$ = Γ$_{b}$  =  *λ*. ${\\hat{H}}_{{{\\mathrm{tun}}}.}$ inv"
+      },
+      {
+        "token": "Γ$_{a}$",
+        "context": "}}{{\\kappa }_{c}{\\sinh }^{2}2r}$. If we take Γ$_{a}$  = $ϵ_{0}κ_{c}$ (and correspondingly, ${\\kap"
+      },
+      {
+        "token": "Ω$_{0}$",
+        "context": "ted momentum kicks. The drive with amplitude Ω$_{0}$ in ${\\hat{H}}_{{{\\mathrm{eff}}}}$ comes from"
+      },
+      {
+        "token": "Ω$_{i}$",
+        "context": ", and choosing appropriate driving strength {Ω$_{i}$ } (see Supplementary Note [6)](https://www.n"
+      },
+      {
+        "token": "Ω$_{i}$",
+        "context": "ength. Note that we have assumed that Γ and {Ω$_{i}$ }, *i*  = 1, 2, 3, 4, 5 are much smaller tha"
+      }
+    ]
+  },
+  "figure5": {
+    "adapterCaptionHtml": [
+      {
+        "token": "Γ<sub><i>a</i></sub>",
+        "context": "CEequation-6X\">6</a>)) for a range of finite Γ<sub><i>a</i></sub>/Γ<sub><i>b</i></sub>. The dashed line indica"
+      },
+      {
+        "token": "Γ<sub><i>b</i></sub>",
+        "context": ") for a range of finite Γ<sub><i>a</i></sub>/Γ<sub><i>b</i></sub>. The dashed line indicates the ideal case wh"
+      }
+    ],
+    "defuddleDiagnostic": [
+      {
+        "token": "Γ<sub><i>a</i></sub>",
+        "context": "EFERENCEequation-6X))) for a range of finite Γ<sub><i>a</i></sub>/Γ<sub><i>b</i></sub>. The dashed line indica"
+      },
+      {
+        "token": "Γ<sub><i>b</i></sub>",
+        "context": ") for a range of finite Γ<sub><i>a</i></sub>/Γ<sub><i>b</i></sub>. The dashed line indicates the ideal case wh"
+      }
+    ],
+    "afterMath": [
+      {
+        "token": "Γ<sub><i>a</i></sub>",
+        "context": "EFERENCEequation-6X))) for a range of finite Γ<sub><i>a</i></sub>/Γ<sub><i>b</i></sub>. The dashed line indica"
+      },
+      {
+        "token": "Γ<sub><i>b</i></sub>",
+        "context": ") for a range of finite Γ<sub><i>a</i></sub>/Γ<sub><i>b</i></sub>. The dashed line indicates the ideal case wh"
+      }
+    ],
+    "afterAcademicInline": [
+      {
+        "token": "Γ$_{a}$",
+        "context": "EFERENCEequation-6X))) for a range of finite Γ$_{a}$/Γ$_{b}$. The dashed line indicates the ideal"
+      },
+      {
+        "token": "Γ$_{b}$",
+        "context": "equation-6X))) for a range of finite Γ$_{a}$/Γ$_{b}$. The dashed line indicates the ideal case wh"
+      }
+    ],
+    "captureLifecycle": {
+      "observedOrder": [
+        "replaceDisplayMath",
+        "replaceInlineMath",
+        "replaceScientificRuns",
+        "replaceScientificBracketText",
+        "replaceCitations",
+        "buildCrossReferences",
+        "recapture protected captionHtml",
+        "figure placeholder replacement",
+        "normalizeFigureCaptions with the same semantic context"
+      ],
+      "existingScientificMarkers": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "η_{\\mathrm{pred}}"
+        }
+      ],
+      "observedRestoration": "The existing source η_pred scientific marker is retained by protected caption recapture and restored by normalizeMath using shared semantic.scientificRuns. The 2 plain Gamma+SUB caption roles are unprotected in the same captionHtml.",
+      "proposedReuse": "A future source-aware DOM attachment pass must run before that existing caption recapture, preserve both body15 and caption2 source roles, and prove all17 with actual clipNature tests. Shared semantic record/caption normalization already exists; no new generic caption infrastructure is proposed. If changed lifecycle prevents reuse, return evidence to root before widening scope."
+    }
+  },
+  "scientificRunTex": [
+    "η_{\\mathrm{pred}}",
+    "κ_{c}",
+    "κ_{c}",
+    "κ_{c}",
+    "η_{\\mathrm{pred}}",
+    "κ_{c}",
+    "κ_{2}",
+    "J_{m}",
+    "κ_{c}",
+    "ϵ_{0}κ_{c}",
+    "ϵ_{0}",
+    "η_{0}",
+    "δ_{1}",
+    "−2ν",
+    "δ_{2}",
+    "2ν",
+    "δ_{3}",
+    "δ_{4}",
+    "δ_{5}",
+    "κ_{2}"
+  ],
+  "validators": [
+    {
+      "style": "markdown",
+      "warnings": [],
+      "mathValid": false,
+      "mathIssues": [
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 50,
+          "column": 152
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 50,
+          "column": 163
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 60,
+          "column": 17
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 66,
+          "column": 317
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 66,
+          "column": 325
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 68,
+          "column": 259
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 68,
+          "column": 449
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 68,
+          "column": 496
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 68,
+          "column": 738
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 68,
+          "column": 747
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 68,
+          "column": 1514
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 68,
+          "column": 1523
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 78,
+          "column": 186
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 78,
+          "column": 1230
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 96,
+          "column": 539
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 96,
+          "column": 874
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 106,
+          "column": 401
+        }
+      ],
+      "rawHtmlValid": true,
+      "structureValid": true,
+      "crossReferenceValid": true
+    },
+    {
+      "style": "links",
+      "warnings": [],
+      "mathValid": false,
+      "mathIssues": [
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 50,
+          "column": 152
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 50,
+          "column": 163
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 60,
+          "column": 17
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 67,
+          "column": 332
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 67,
+          "column": 340
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 69,
+          "column": 291
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 69,
+          "column": 481
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 69,
+          "column": 528
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 69,
+          "column": 770
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 69,
+          "column": 779
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 69,
+          "column": 1574
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 69,
+          "column": 1583
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 79,
+          "column": 186
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 79,
+          "column": 1264
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 97,
+          "column": 552
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 97,
+          "column": 887
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 107,
+          "column": 401
+        }
+      ],
+      "rawHtmlValid": true,
+      "structureValid": true,
+      "crossReferenceValid": true
+    },
+    {
+      "style": "quarto",
+      "warnings": [],
+      "mathValid": false,
+      "mathIssues": [
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 43,
+          "column": 152
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 43,
+          "column": 163
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 51,
+          "column": 17
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 57,
+          "column": 335
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 57,
+          "column": 343
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 59,
+          "column": 297
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 59,
+          "column": 487
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 59,
+          "column": 534
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 59,
+          "column": 776
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 59,
+          "column": 785
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 59,
+          "column": 1587
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 59,
+          "column": 1596
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 67,
+          "column": 186
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 67,
+          "column": 1267
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 81,
+          "column": 556
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 81,
+          "column": 891
+        },
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 89,
+          "column": 401
+        }
+      ],
+      "rawHtmlValid": true,
+      "structureValid": true,
+      "crossReferenceValid": true
+    }
+  ],
+  "rootCause": "Nature scientific-run extraction has no plain Gamma/Omega + SUB source role. Correct original SUB survives adapter and Defuddle; renderRange emits the first syntactically invalid scientific representation as an orphan and existing reconstruction handles styled/unit/numeric bases only.",
+  "proposal": "At the existing Nature DOM scientific-run boundary preserve the observed terminal plain Greek base and immediately following original SUB as one typed source run; respect existing MathJax/display/citation/code/wrapper boundaries, source Unicode/case, and punctuation/meaningful whitespace. Reuse existing range/scientificTex/marker infrastructure; no whole-Markdown Greek regex or validator changes. Figure5 caption uses the same protected source semantic context and existing accepted figure caption normalizer, not the separate Table caption mechanism.",
+  "issue": 64
+}
