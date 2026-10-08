@@ -1,0 +1,599 @@
+{
+  "version": "nature-compound-conductivity-unit-diagnosis/1.0.0",
+  "workContract": 67,
+  "status": "SOURCE_ONLY_RED; no production fix",
+  "acceptedMain": "3889f7396eab99060bec88fc8b0dcd3e6712024e",
+  "source": {
+    "articleId": "s41586-023-06735-9",
+    "url": "https://www.nature.com/articles/s41586-023-06735-9",
+    "doi": "10.1038/s41586-023-06735-9",
+    "title": "Scaling deep learning for materials discovery",
+    "journal": "Nature",
+    "observedAt": "2026-10-03T16:44:22.324Z",
+    "captureMode": "guarded-http",
+    "bytes": 506351,
+    "sha256": "79f575e1941633c2dbd036682977ea6c274acd5c8c44fdb4648856a00a8d7cc6"
+  },
+  "fixture": {
+    "path": "s41586-023-06735-9.excerpt.html",
+    "bytes": 86732,
+    "sha256": "fbe6ad5fe6d53056277655422baf7e3c9fec5cac42c82473553df5cb6e9c3790",
+    "recipeSha256": "32eb0c4c3c2bf9f5d37739742c4f0fa94c6377e3465edf321082412ec15f9487",
+    "repeatEqual": true,
+    "idempotenceEqual": true
+  },
+  "recipeSha256": "32eb0c4c3c2bf9f5d37739742c4f0fa94c6377e3465edf321082412ec15f9487",
+  "sourceOracle": [
+    {
+      "id": "methods-p42-compound-conductivity-unit",
+      "sourceFragment": "mScm<sup>−1</sup>",
+      "sourceFragmentSha256": "4ea7d1da71cff1a96de53742ab51da5e5aa8ff1f27d9f63de9994e4437d8c846",
+      "sourceSupIndex": 1,
+      "sourceSupPosition": {
+        "startLine": 1068,
+        "startCol": 4812,
+        "startOffset": 244191,
+        "endLine": 1068,
+        "endCol": 4825,
+        "endOffset": 244204,
+        "startTag": {
+          "startLine": 1068,
+          "startCol": 4812,
+          "startOffset": 244191,
+          "endLine": 1068,
+          "endCol": 4817,
+          "endOffset": 244196
+        },
+        "endTag": {
+          "startLine": 1068,
+          "startCol": 4819,
+          "startOffset": 244198,
+          "endLine": 1068,
+          "endCol": 4825,
+          "endOffset": 244204
+        },
+        "offsetConvention": "Zero-based UTF16; UTF8 end exclusive; line/col one-based",
+        "startByte": 244723,
+        "endByte": 244738
+      },
+      "completeUnitInterval": {
+        "startUtf16": 244187,
+        "endUtf16": 244204,
+        "startByte": 244719,
+        "endByte": 244738,
+        "endExclusive": true
+      },
+      "sourcePreviousText": " > 101.18 mScm",
+      "sourceNextText": ". Refer to the original paper for applicable calculations. See ",
+      "sourceMeasurement": "101.18",
+      "temperature": "1,000 K",
+      "unitFactors": [
+        {
+          "symbol": "mS",
+          "role": "millisiemens multiplier",
+          "power": 1
+        },
+        {
+          "symbol": "cm",
+          "role": "centimetre inverse length",
+          "power": -1
+        }
+      ],
+      "sourceMeaning": "Conductivity measured in millisiemens per centimetre; inverse power belongs to cm only. Entire mScm token must not become exponent base.",
+      "allowedMeaningEquivalentRepresentations": [
+        "mS cm^{-1}",
+        "mS/cm",
+        "\\mathrm{mS}\\,\\mathrm{cm}^{-1}"
+      ],
+      "disallowedSemanticChange": "(mScm)^{-1} or mScm alone with orphan math exponent"
+    }
+  ],
+  "sourceProjectionNoResources": {
+    "fixtureSha256": "fbe6ad5fe6d53056277655422baf7e3c9fec5cac42c82473553df5cb6e9c3790",
+    "tables": 0,
+    "figures": 0,
+    "sameArticleTableLinks": []
+  },
+  "focused": {
+    "command": "node --test test/nature-compound-unit.test.mjs",
+    "environment": {
+      "node": "v24.14.1",
+      "NATURE_COMPOUND_UNIT_RECEIPT_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-compound-unit"
+    },
+    "exitCode": 1,
+    "tests": 6,
+    "pass": 3,
+    "fail": 3,
+    "skip": 0,
+    "todo": 0,
+    "cancelled": 0,
+    "durationMs": 1410.1535,
+    "logPath": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-compound-unit/compound-unit-red-3889.log",
+    "logBytes": 14258,
+    "logSha256": "e3740c3b7e704ca372e4e73795b16b847c40898572a0a7bfb60091bfac6ab7b3",
+    "clipCalls": 3,
+    "sourceKind": "real-source"
+  },
+  "caches": [
+    {
+      "dialect": "markdown",
+      "cachePath": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-compound-unit/markdown.actual-cache.json",
+      "cacheBytes": 163436,
+      "cacheSha256": "e6732cedb81d4061362072d6dbae5d81c2f66271e41c702f45fed0a9443d9cdf",
+      "markdownPath": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-compound-unit/markdown.actual.md",
+      "markdownBytes": 16009,
+      "markdownSha256": "9e85ecbbd9df519c3d92f25b2c3cba95c13baf64e9478b7d0ef09a9d02feb6d9",
+      "context": "Following ref. [^69], we classify a material as having superionic behaviour if the conductivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm$^{−1}$. Refer to the original paper for applicable calculations. See [Supplementary Information](https://www.nature.com/articles/s41586-023-06735-9#MOESM1) for further details.",
+      "stages": {
+        "defuddle": " the temperature of 1,000 K, as measured by AIMD, satisfies ACADEMICCLIPPERSCIENTIFICRUN0X > 101.18 mScm <sup>−1</sup>. Refer to the original paper for applicable calculations. See [Supplementary Information](https://www.nature.com/articles/s41586-023-06735-9#",
+        "math": "onductivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm <sup>−1</sup>. Refer to the original paper for applicable calculations. See [Supplementary Information](https://www.nature.com/articles/s41586-023-06735-9#",
+        "academic": "onductivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm$^{−1}$. Refer to the original paper for applicable calculations. See [Supplementary Information](https://www.nature.com/articles/s41586-023-06735-9#MOESM1)",
+        "cleanedHtml": "rature of 1,000 K, as measured by AIMD, satisfies <i></i>ACADEMICCLIPPERSCIENTIFICRUN0X &gt; 101.18 mScm<sup>−1</sup>. Refer to the original paper for applicable calculations. See&nbsp;<a href=\"/articles/s41586-023-06735-9#MOESM1\">Supplementary Information</a>"
+      },
+      "validators": {
+        "math": {
+          "valid": false,
+          "inlineMathCount": 2,
+          "displayMathCount": 0,
+          "issues": [
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 33,
+              "column": 189,
+              "delimiter": "$",
+              "context": "…ctivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm$^{−1}$. Refer to the original paper for applicable calculations. See [Supplementary Information](ht…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ],
+          "scientificFragments": {
+            "valid": false,
+            "counts": {
+              "isolatedSubscript": 0,
+              "isolatedSuperscript": 1,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": [
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 33,
+                "column": 189,
+                "delimiter": "$",
+                "context": "…ctivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm$^{−1}$. Refer to the original paper for applicable calculations. See [Supplementary Information](ht…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ]
+          },
+          "states": {
+            "TEXT": 15879,
+            "INLINE_MATH": 17,
+            "DISPLAY_MATH": 0,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "rawHtml": {
+          "valid": true,
+          "violations": []
+        },
+        "structure": {
+          "valid": true,
+          "citationStyle": "markdown",
+          "sections": {
+            "references": {
+              "headingCount": 1,
+              "itemCount": 69,
+              "definitionCount": 69,
+              "anchorCount": 0,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "crossReferences": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "scaling-deep-learning-for-materials-discovery",
+            "methods",
+            "mlips",
+            "aimd-conductivity-experiments",
+            "references"
+          ],
+          "links": []
+        }
+      },
+      "counts": {
+        "figures": 0,
+        "tables": 0,
+        "references": 69,
+        "displayMath": 0
+      },
+      "warnings": [
+        "No Nature figures were detected.",
+        "No equation nodes were detected."
+      ],
+      "networkLedger": {
+        "http": [],
+        "dns": []
+      },
+      "writerScopeDeclaration": 0
+    },
+    {
+      "dialect": "links",
+      "cachePath": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-compound-unit/links.actual-cache.json",
+      "cacheBytes": 167910,
+      "cacheSha256": "4d9ab2ef4e91efb9b74ac2b57d684d655e6a2e519c415d6ae934ac52a6522099",
+      "markdownPath": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-compound-unit/links.actual.md",
+      "markdownBytes": 17181,
+      "markdownSha256": "e17a90c93bb98ef4cc511ccfbb79d1e6ef921abf7be902ff8e87229d7eac86b9",
+      "context": "Following ref. [69](#ref-69), we classify a material as having superionic behaviour if the conductivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm$^{−1}$. Refer to the original paper for applicable calculations. See [Supplementary Information](https://www.nature.com/articles/s41586-023-06735-9#MOESM1) for further details.",
+      "stages": {
+        "defuddle": " the temperature of 1,000 K, as measured by AIMD, satisfies ACADEMICCLIPPERSCIENTIFICRUN0X > 101.18 mScm <sup>−1</sup>. Refer to the original paper for applicable calculations. See [Supplementary Information](https://www.nature.com/articles/s41586-023-06735-9#",
+        "math": "onductivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm <sup>−1</sup>. Refer to the original paper for applicable calculations. See [Supplementary Information](https://www.nature.com/articles/s41586-023-06735-9#",
+        "academic": "onductivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm$^{−1}$. Refer to the original paper for applicable calculations. See [Supplementary Information](https://www.nature.com/articles/s41586-023-06735-9#MOESM1)",
+        "cleanedHtml": "rature of 1,000 K, as measured by AIMD, satisfies <i></i>ACADEMICCLIPPERSCIENTIFICRUN0X &gt; 101.18 mScm<sup>−1</sup>. Refer to the original paper for applicable calculations. See&nbsp;<a href=\"/articles/s41586-023-06735-9#MOESM1\">Supplementary Information</a>"
+      },
+      "validators": {
+        "math": {
+          "valid": false,
+          "inlineMathCount": 2,
+          "displayMathCount": 0,
+          "issues": [
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 33,
+              "column": 197,
+              "delimiter": "$",
+              "context": "…ctivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm$^{−1}$. Refer to the original paper for applicable calculations. See [Supplementary Information](ht…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ],
+          "scientificFragments": {
+            "valid": false,
+            "counts": {
+              "isolatedSubscript": 0,
+              "isolatedSuperscript": 1,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": [
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 33,
+                "column": 197,
+                "delimiter": "$",
+                "context": "…ctivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm$^{−1}$. Refer to the original paper for applicable calculations. See [Supplementary Information](ht…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ]
+          },
+          "states": {
+            "TEXT": 17051,
+            "INLINE_MATH": 17,
+            "DISPLAY_MATH": 0,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "rawHtml": {
+          "valid": false,
+          "violations": [
+            {
+              "tag": "x",
+              "line": 39,
+              "column": 72,
+              "context": "<x<-1): a new cathode material for batteries of high energy density. Mater. Res. Bull. 15, 783–789 (1980). [doi:10.1016/0025-5408(80)90012-4](https://doi.org/10.1016/0025-5408(80)90012-4) <a id=\"ref-2\">",
+              "type": "unpermitted-html-tag"
+            }
+          ]
+        },
+        "structure": {
+          "valid": true,
+          "citationStyle": "links",
+          "sections": {
+            "references": {
+              "headingCount": 1,
+              "itemCount": 69,
+              "anchorCount": 69,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "crossReferences": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "ref-1",
+            "ref-2",
+            "ref-3",
+            "ref-4",
+            "ref-5",
+            "ref-6",
+            "ref-7",
+            "ref-8",
+            "ref-9",
+            "ref-10",
+            "ref-11",
+            "ref-12",
+            "ref-13",
+            "ref-14",
+            "ref-15",
+            "ref-16",
+            "ref-17",
+            "ref-18",
+            "ref-19",
+            "ref-20",
+            "ref-21",
+            "ref-22",
+            "ref-23",
+            "ref-24",
+            "ref-25",
+            "ref-26",
+            "ref-27",
+            "ref-28",
+            "ref-29",
+            "ref-30",
+            "ref-31",
+            "ref-32",
+            "ref-33",
+            "ref-34",
+            "ref-35",
+            "ref-36",
+            "ref-37",
+            "ref-38",
+            "ref-39",
+            "ref-40",
+            "ref-41",
+            "ref-42",
+            "ref-43",
+            "ref-44",
+            "ref-45",
+            "ref-46",
+            "ref-47",
+            "ref-48",
+            "ref-49",
+            "ref-50",
+            "ref-51",
+            "ref-52",
+            "ref-53",
+            "ref-54",
+            "ref-55",
+            "ref-56",
+            "ref-57",
+            "ref-58",
+            "ref-59",
+            "ref-60",
+            "ref-61",
+            "ref-62",
+            "ref-63",
+            "ref-64",
+            "ref-65",
+            "ref-66",
+            "ref-67",
+            "ref-68",
+            "ref-69",
+            "scaling-deep-learning-for-materials-discovery",
+            "methods",
+            "mlips",
+            "aimd-conductivity-experiments",
+            "references"
+          ],
+          "links": [
+            {
+              "label": "69",
+              "target": "ref-69",
+              "category": "reference",
+              "index": 519
+            }
+          ]
+        }
+      },
+      "counts": {
+        "figures": 0,
+        "tables": 0,
+        "references": 69,
+        "displayMath": 0
+      },
+      "warnings": [
+        "No Nature figures were detected.",
+        "No equation nodes were detected."
+      ],
+      "networkLedger": {
+        "http": [],
+        "dns": []
+      },
+      "writerScopeDeclaration": 0
+    },
+    {
+      "dialect": "quarto",
+      "cachePath": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-compound-unit/quarto.actual-cache.json",
+      "cacheBytes": 133162,
+      "cacheSha256": "7bc79a11d62a7e8b9985e549d73997db183b95f75f6626677a0434a38f7c9189",
+      "markdownPath": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-compound-unit/quarto.actual.md",
+      "markdownBytes": 1011,
+      "markdownSha256": "ec289b4327b87edf470f029a2982be1a58f4382d0b1bc7f900e4b49148cdd87b",
+      "context": "Following ref. [@Jun2022], we classify a material as having superionic behaviour if the conductivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm$^{−1}$. Refer to the original paper for applicable calculations. See [Supplementary Information](https://www.nature.com/articles/s41586-023-06735-9#MOESM1) for further details.",
+      "stages": {
+        "defuddle": " the temperature of 1,000 K, as measured by AIMD, satisfies ACADEMICCLIPPERSCIENTIFICRUN0X > 101.18 mScm <sup>−1</sup>. Refer to the original paper for applicable calculations. See [Supplementary Information](https://www.nature.com/articles/s41586-023-06735-9#",
+        "math": "onductivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm <sup>−1</sup>. Refer to the original paper for applicable calculations. See [Supplementary Information](https://www.nature.com/articles/s41586-023-06735-9#",
+        "academic": "onductivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm$^{−1}$. Refer to the original paper for applicable calculations. See [Supplementary Information](https://www.nature.com/articles/s41586-023-06735-9#MOESM1)",
+        "cleanedHtml": "rature of 1,000 K, as measured by AIMD, satisfies <i></i>ACADEMICCLIPPERSCIENTIFICRUN0X &gt; 101.18 mScm<sup>−1</sup>. Refer to the original paper for applicable calculations. See&nbsp;<a href=\"/articles/s41586-023-06735-9#MOESM1\">Supplementary Information</a>"
+      },
+      "validators": {
+        "math": {
+          "valid": false,
+          "inlineMathCount": 2,
+          "displayMathCount": 0,
+          "issues": [
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 28,
+              "column": 194,
+              "delimiter": "$",
+              "context": "…ctivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm$^{−1}$. Refer to the original paper for applicable calculations. See [Supplementary Information](ht…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ],
+          "scientificFragments": {
+            "valid": false,
+            "counts": {
+              "isolatedSubscript": 0,
+              "isolatedSuperscript": 1,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": [
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 28,
+                "column": 194,
+                "delimiter": "$",
+                "context": "…ctivity *σ* at the temperature of 1,000 K, as measured by AIMD, satisfies $σ_{1,000K}$ > 101.18 mScm$^{−1}$. Refer to the original paper for applicable calculations. See [Supplementary Information](ht…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ]
+          },
+          "states": {
+            "TEXT": 980,
+            "INLINE_MATH": 17,
+            "DISPLAY_MATH": 0,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "rawHtml": {
+          "valid": true,
+          "violations": []
+        },
+        "structure": {
+          "valid": true,
+          "citationStyle": "quarto",
+          "sections": {
+            "references": {
+              "headingCount": 1,
+              "itemCount": 0,
+              "definitionCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "crossReferences": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "sec-methods",
+            "sec-mlips",
+            "sec-aimd-conductivity-experiments",
+            "refs",
+            "scaling-deep-learning-for-materials-discovery",
+            "methods",
+            "mlips",
+            "aimd-conductivity-experiments",
+            "references"
+          ],
+          "links": []
+        }
+      },
+      "counts": {
+        "figures": 0,
+        "tables": 0,
+        "references": 69,
+        "displayMath": 0
+      },
+      "warnings": [
+        "No Nature figures were detected.",
+        "No equation nodes were detected."
+      ],
+      "networkLedger": {
+        "http": [],
+        "dns": []
+      },
+      "writerScopeDeclaration": 0
+    }
+  ],
+  "firstInvalidState": {
+    "sourceUnit": "mScm<sup>−1</sup>",
+    "sourceFactors": "mS multiplier × cm inverse length",
+    "adapter": "No typed compound-unit capture: cleanedHtml keeps source node; only conductivity sigma/temperature is typed.",
+    "defuddle": "Whole-body Defuddle inserts a presentation space before original SUP; original mScm and SUP remain.",
+    "math": "normalizeMath restores sigma typed run; compound original SUP remains.",
+    "academic": "normalizeAcademicInline renders SUP alone as $^{−1}$; combineLiteralPowers rejects complete mScm token because UNIT_SYMBOL accepts known single units, not compound factors.",
+    "symptom": "All3 rendered dialects retain orphan mScm$^{−1}$; math scientificFragments rejects1. Wrong whole-token power would still alter physical meaning."
+  },
+  "classification": {
+    "category": "implementation bug",
+    "regressionProven": false,
+    "authority": "PRD3 / EDD2.3–2.5 / canonical4–7",
+    "duplicateBoundary": "#48 accepted simple complete unit/numeric tokens and explicit SR/FRB source roles; compound conductivity factor semantics are distinct; identifier/FRBfractional/leading isotope/citation bugs remain separate."
+  },
+  "writerProof": {
+    "mode": "static inspected production callgraph and actual selected entrypoint, not runtime writer instrumentation",
+    "entrypoint": "clipNature",
+    "path": "clipNature→parseNaturePage→hydrateNatureTables(empty)→finishClip→Defuddle/normalizers→renderClipMarkdown/validators→return result",
+    "paperWriterEntrypointInvoked": false,
+    "explicitExternalReceiptWrites": true,
+    "ledgerWriterCalls0": "Declarative static scope field from test; do not report as independently measured writer spy."
+  },
+  "syntheticControls": {
+    "sourceKind": "synthetic-boundary-control; not real-source admission",
+    "cases": [
+      "typed mS/cm math idem",
+      "meaning recognizer rejects orphan and whole mScm inverse",
+      "simplecm,m,numeric10 powers",
+      "unknownsample/column no unit suffix",
+      "citationfootnote/quartokey unchanged",
+      "existing inline/display math/inline fencedcode opaque",
+      "validator retains oldorphan rejection"
+    ],
+    "limitation": "Controls exercise existing normalizer and test semantic recognizer. Future DOM implementation must additionally prove source citation cues/unknown-word/opaque-code boundary at adapter level; no synthetic Nature full clips were added."
+  },
+  "proposal": {
+    "expectedScope": "Existing Nature DOM typed scientific run handling; no implementation applied.",
+    "sourceRole": "Explicit complete source unit factor pair mS plus cm−1, select exact known compound token/source conductivity context; preserve multiplier and original measurement outside inverse-length attachment.",
+    "proposedTex": "\\mathrm{mS}\\,\\mathrm{cm}^{-1}",
+    "boundary": "Do not treat entire mScm as one inverse unit, suffix-match arbitrary words, add all-SUP classifier or rewrite globalMarkdown. Reuse existing typed marker pipeline; protect source citations/unknownwords/numeric powers/existingmath/code."
+  },
+  "productionChanged": false,
+  "notRun": [
+    "production fix",
+    "C3/C27",
+    "full tests",
+    "build",
+    "golden",
+    "fresh branch CI",
+    "PR",
+    "Nature acquisition"
+  ],
+  "reconstruction": "Verify untouched raw bytes plus actual A helper, apply final99-block recipe; source prehash/source intervals/oracle/rights independent reviewer pending.",
+  "knownIndependentFailure": "#65 links Ref2 rawHTMLx violation retained in fullrefprefix69",
+  "experiments": [
+    "Initial omission range incorrectly used104 without sourcecount evidence; raw independently verified71 and final provenance/contract corrected to70–71 before freeze/checkpoint commit. Fixture recipe/bytes never changed. No scientific content edited.",
+    "One rg probe used absent test/academic-inline.test.mjs; existing test/nature-scientific-units.test.mjs used instead, no source or tests altered."
+  ],
+  "rootGate": "Source-only final checkpoint needs another owner independent review; latestaccepted60e2c1 known via root, sourceRED3889 stays historical. No doc-only dependency merge or parser gate release here."
+}

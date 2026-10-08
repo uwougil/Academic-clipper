@@ -1,0 +1,533 @@
+{
+  "version": "nature-frb-fractional-units-diagnosis/1.0.0",
+  "issue": 72,
+  "base": "a5b6acc2984af5cb8b82106291e963f4f413f5ac",
+  "fixture": {
+    "path": "s41586-022-04755-5.excerpt.html",
+    "bytes": 80065,
+    "sha256": "9196756aa9c59254f6b310a59f6218853a6eece7025c4eac926aed21df7b16be",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "source": {
+    "articleId": "s41586-022-04755-5",
+    "url": "https://www.nature.com/articles/s41586-022-04755-5",
+    "title": "A repeating fast radio burst associated with a persistent radio source",
+    "doi": "10.1038/s41586-022-04755-5",
+    "journal": "Nature",
+    "observedAt": "2026-10-03T16:48:03.040Z",
+    "captureMode": "guarded-http",
+    "rawBytes": 545450,
+    "sha256": "190a270027c69a816b2647d2fdc6f1777cdf669695506fa40f2fe3cab8801ace",
+    "sourceContractSha": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330"
+  },
+  "actualClipCount": 3,
+  "cachedDiagnosticsNewClips": 0,
+  "producerSourceBlobs": {
+    "src/clip.mjs": "8eec6a856ffbd1b9283c43269d38079b3ac940d2",
+    "src/adapters/nature.mjs": "c6f819beb9747e83d322644c1f2a232769828afa",
+    "src/normalizers/academic-inline.mjs": "a63eba2cacf0bc0a43552d1c16ec41e91b2cf0bc"
+  },
+  "scope": "12 signed fractional unit powers only; Methods p22 parenthesized numeric powers omitted",
+  "dialects": [
+    {
+      "dialect": "markdown",
+      "cache": {
+        "bytes": 177948,
+        "sha256": "f75f0f7d201da5ebc36576118806c0db0f5131415d083a54ebc7cf358ec4061d"
+      },
+      "markdown": {
+        "bytes": 14801,
+        "sha256": "dfb6d04d919478d2edef5da77975de4475dfff024048ba719c32edfc493a551a"
+      },
+      "roles": [
+        {
+          "id": "methods-p50-fraction-1",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 65,
+          "column": 374,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 1555
+        },
+        {
+          "id": "methods-p50-fraction-2",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 65,
+          "column": 387,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 1572
+        },
+        {
+          "id": "methods-p50-fraction-3",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 65,
+          "column": 646,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 1838
+        },
+        {
+          "id": "methods-p50-fraction-4",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 65,
+          "column": 659,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 1855
+        },
+        {
+          "id": "methods-p50-fraction-5",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 65,
+          "column": 708,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 1908
+        },
+        {
+          "id": "methods-p50-fraction-6",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 65,
+          "column": 721,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 1925
+        },
+        {
+          "id": "methods-p50-fraction-7",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 65,
+          "column": 785,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 1995
+        },
+        {
+          "id": "methods-p50-fraction-8",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 65,
+          "column": 798,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 2012
+        },
+        {
+          "id": "methods-p51-fraction-1",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 67,
+          "column": 486,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 3223
+        },
+        {
+          "id": "methods-p51-fraction-2",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 67,
+          "column": 499,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 3240
+        },
+        {
+          "id": "methods-p51-fraction-3",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 67,
+          "column": 971,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 3741
+        },
+        {
+          "id": "methods-p51-fraction-4",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 67,
+          "column": 984,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 3758
+        }
+      ],
+      "validators": {
+        "mathValidation": false,
+        "rawHtmlValidation": true,
+        "markdownStructure": true,
+        "crossReferenceValidation": true
+      },
+      "scientificFragmentCounts": {
+        "isolatedSubscript": 0,
+        "isolatedSuperscript": 12,
+        "boldThenSubscript": 0,
+        "italicThenSuperscript": 0
+      },
+      "warnings": [
+        "No Nature figures were detected."
+      ],
+      "citations": [
+        [
+          52
+        ]
+      ],
+      "references": 52,
+      "displayMath": 1,
+      "resources": []
+    },
+    {
+      "dialect": "links",
+      "cache": {
+        "bytes": 181139,
+        "sha256": "84eddef020ff4c30825e75c378a49c8a12168721dcd852074947c08754326ce6"
+      },
+      "markdown": {
+        "bytes": 15722,
+        "sha256": "c3c3b63f788978a089ae20a4f4708441055cc5e2c44406a696c0e6069ba865fe"
+      },
+      "roles": [
+        {
+          "id": "methods-p50-fraction-1",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 65,
+          "column": 374,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 1578
+        },
+        {
+          "id": "methods-p50-fraction-2",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 65,
+          "column": 387,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 1595
+        },
+        {
+          "id": "methods-p50-fraction-3",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 65,
+          "column": 646,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 1861
+        },
+        {
+          "id": "methods-p50-fraction-4",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 65,
+          "column": 659,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 1878
+        },
+        {
+          "id": "methods-p50-fraction-5",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 65,
+          "column": 708,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 1931
+        },
+        {
+          "id": "methods-p50-fraction-6",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 65,
+          "column": 721,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 1948
+        },
+        {
+          "id": "methods-p50-fraction-7",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 65,
+          "column": 785,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 2018
+        },
+        {
+          "id": "methods-p50-fraction-8",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 65,
+          "column": 798,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 2035
+        },
+        {
+          "id": "methods-p51-fraction-1",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 67,
+          "column": 486,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 3269
+        },
+        {
+          "id": "methods-p51-fraction-2",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 67,
+          "column": 499,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 3286
+        },
+        {
+          "id": "methods-p51-fraction-3",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 67,
+          "column": 971,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 3787
+        },
+        {
+          "id": "methods-p51-fraction-4",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 67,
+          "column": 984,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 3804
+        }
+      ],
+      "validators": {
+        "mathValidation": false,
+        "rawHtmlValidation": true,
+        "markdownStructure": true,
+        "crossReferenceValidation": true
+      },
+      "scientificFragmentCounts": {
+        "isolatedSubscript": 0,
+        "isolatedSuperscript": 12,
+        "boldThenSubscript": 0,
+        "italicThenSuperscript": 0
+      },
+      "warnings": [
+        "No Nature figures were detected."
+      ],
+      "citations": [
+        [
+          52
+        ]
+      ],
+      "references": 52,
+      "displayMath": 1,
+      "resources": []
+    },
+    {
+      "dialect": "quarto",
+      "cache": {
+        "bytes": 156878,
+        "sha256": "d94ca3f53dc1484d3b5d233bd2fec3ae1f92119833b9c42a89a4f0b067ea2b98"
+      },
+      "markdown": {
+        "bytes": 4311,
+        "sha256": "f3bee091a2914818594ecf5a330cfa15b57ccf0417abeaa2b655f1729953672f"
+      },
+      "roles": [
+        {
+          "id": "methods-p50-fraction-1",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 60,
+          "column": 374,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 1663
+        },
+        {
+          "id": "methods-p50-fraction-2",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 60,
+          "column": 387,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 1680
+        },
+        {
+          "id": "methods-p50-fraction-3",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 60,
+          "column": 646,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 1946
+        },
+        {
+          "id": "methods-p50-fraction-4",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 60,
+          "column": 659,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 1963
+        },
+        {
+          "id": "methods-p50-fraction-5",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 60,
+          "column": 708,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 2016
+        },
+        {
+          "id": "methods-p50-fraction-6",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 60,
+          "column": 721,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 2033
+        },
+        {
+          "id": "methods-p50-fraction-7",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 60,
+          "column": 785,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 2103
+        },
+        {
+          "id": "methods-p50-fraction-8",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 60,
+          "column": 798,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 2120
+        },
+        {
+          "id": "methods-p51-fraction-1",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 62,
+          "column": 486,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 3356
+        },
+        {
+          "id": "methods-p51-fraction-2",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 62,
+          "column": 499,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 3373
+        },
+        {
+          "id": "methods-p51-fraction-3",
+          "base": "pc",
+          "exponent": "−2/3",
+          "line": 62,
+          "column": 971,
+          "originalOutput": "pc$^{−2/3}$",
+          "byteOffset": 3874
+        },
+        {
+          "id": "methods-p51-fraction-4",
+          "base": "km",
+          "exponent": "−1/3",
+          "line": 62,
+          "column": 984,
+          "originalOutput": "km$^{−1/3}$",
+          "byteOffset": 3891
+        }
+      ],
+      "validators": {
+        "mathValidation": false,
+        "rawHtmlValidation": true,
+        "markdownStructure": true,
+        "crossReferenceValidation": true
+      },
+      "scientificFragmentCounts": {
+        "isolatedSubscript": 0,
+        "isolatedSuperscript": 12,
+        "boldThenSubscript": 0,
+        "italicThenSuperscript": 0
+      },
+      "warnings": [
+        "No Nature figures were detected."
+      ],
+      "citations": [
+        [
+          52
+        ]
+      ],
+      "references": 52,
+      "displayMath": 1,
+      "resources": []
+    }
+  ],
+  "rootCause": {
+    "boundary": "src/normalizers/academic-inline.mjs combineLiteralPowers",
+    "knownUnitToken": "UNIT_SYMBOL recognizes pc and km",
+    "condition": "^[−+\\-]?\\d+$ restricts attachment to integer exponents; signed fractions are left orphaned",
+    "propagation": "original SUP converted to an isolated $^{...}$ by renderKnownTag; integer-only combineLiteralPowers rejects fractions; strict validator diagnoses the true defect",
+    "minimalFutureRemedy": "Preserve typed known-unit factor attachment for truthful signed fractions, with existing opaque math/code/citation/unknown-word boundaries. No source/validator changes."
+  },
+  "harness": {
+    "original": {
+      "tests": 15,
+      "pass": 3,
+      "fail": 12,
+      "durationMs": 1540.0662,
+      "trueParserFailures": 6,
+      "falseHarnessFailures": 6
+    },
+    "firstCachedCorrection": {
+      "tests": 15,
+      "pass": 8,
+      "fail": 7,
+      "durationMs": 780.988,
+      "falseHarnessFailures": 1
+    },
+    "finalCachedCorrection": {
+      "tests": 15,
+      "pass": 9,
+      "fail": 6,
+      "durationMs": 743.0504,
+      "trueParserFailures": 6,
+      "clipCount": 0
+    },
+    "changes": [
+      "Allow source ≳ and10² within one preexisting legitimate math run",
+      "Use actual semantic displayMath.tex, not nonexistent id field",
+      "Use existing renderers equation-8/eq-equation-8 identifiers and legal link syntax; source still Equ8",
+      "Exact existing absence warning No Nature figures were detected.",
+      "Use referencesBib(references) and citationKey actual interface"
+    ],
+    "oracleUnchanged": "12 bases/exponents/source blocks/fixture bytes unchanged"
+  },
+  "writerProof": "Static production clipNature returns result and does not call writePaper; no fake writer spy.",
+  "networkLedger": {
+    "attempts": [],
+    "writerProof": "Static call graph: clipNature returns data and does not invoke writePaper. No writer spy claimed."
+  },
+  "logs": [
+    {
+      "path": "red-a5b6.log",
+      "bytes": 44997,
+      "sha256": "cef1c6ee23cf2b0dab99ac4d85c7fca83d62b361f7cbae35614d6480c186422e"
+    },
+    {
+      "path": "cached-harness-correction.log",
+      "bytes": 41176,
+      "sha256": "93ab3be830ffb4ecb4e93a7a4149382ccc030b0e998f8ef873391d130b157515"
+    },
+    {
+      "path": "cached-contract-final.log",
+      "bytes": 40408,
+      "sha256": "9f8cb0176b764d2c6d3fa2d7c90646fcb64529f4a99686fba54bbc05ebe27dff"
+    },
+    {
+      "path": "red-a5b6/network-ledger.json",
+      "bytes": 139,
+      "sha256": "277d9eb94e43dc1026202a2aff2acbfa4d68b228961efcb6e8ce8fc8ba05bdcc"
+    }
+  ]
+}
