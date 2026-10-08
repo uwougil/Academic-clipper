@@ -1,6 +1,6 @@
 # Issue #68 — typed identifier 生产 focused checkpoint
 
-状态：`FOCUSED_GREEN_PENDING_IMPLEMENTATION_REVIEW`。原 source-only 与 preflight 文档保留历史身份；本文件记录正式释放后的实际实现。Issue #68 尚未完成，无 implementation PR、affected/full/build/golden 或 CI 运行。Root 的不同 owner 必须先审核本 checkpoint，才释放后续验证。
+状态：`LOCAL_GATES_GREEN_PENDING_PUBLICATION_REVIEW_AND_CI`。原 source-only 与 preflight 文档保留历史身份；本文件记录正式释放后的实际实现与 broader 验证。Root 已在 exact implementation head 独审 CLEAR 后释放下列 gates；Issue #68 尚未完成，fresh PR CI/Secret scan、最终 immutable publication review 与 merged-main acceptance 仍由 root 协调。
 
 ## 接纳依赖与范围
 
@@ -53,4 +53,40 @@ External root `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue68-produc
 
 本生产 authored diff仅 Nature、两个 focused test 文件及本 durable 文档；source fixture/provenance/rights、canonical/PRD/EDD、A/B/C contracts、normalizers/validators、security/writer、package/lock/golden 均未修改。Diff/status/filenames检查由最终 checkpoint给出 exact commit SHA，不在文档中构造 self-reference。
 
-Root 先安排不同 owner 的 immutable implementation review，尤其 sourceText→heading identity、完整 ranges14 的 source归属、零 marker/网络、Refs/Bib/Fig2 与三方言 source11。CLEAR并明确释放后才运行必要 affected tests、一次 full、build、read-only golden 与freshCI/Secrets；纯文档更新不重复 clipping。本 owner不 merge/pollCI/手动close；最终唯一 bug PR须 exact standalone `Refs #68`。Merge仅接纳代码，successful merged-commit Main CI 才由automation完成 Work Contract。
+Root 安排的不同 owner 已在 immutable `976f4798da464bb4b69115259f05ff1d2cf25685` 完整独审并报告 `IMPLEMENTATION_CLEAR` / blocking findings = 0，特别核 sourceText→heading identity、完整 ranges14 的 source归属、零 marker/网络、Refs/Bib/Fig2 与三方言 source11。保存于 `<TEMP>/academic-clipper-issue68-implementation-review-976f479/implementation-review.md`（7664 bytes / SHA256 `c3e69ac038c54304edd35f801e11b46fa4b47c43da051156033a4a55dcd2e0c3`）和 `.json`（175752 bytes / SHA256 `2ee8d48669b53a72582fc32c0e571e2aafc3fe2bb2f9455b6cf967f5bade8666`）。Reviewer 仅执行3个事先限定的新 synthetic parse probes，3 PASS，663.3904 ms，parses3/closedDoms3/attempts[]/restored=true；没有重复 source81、作者91、raw/source clips 或 broader gates。本 owner已实际读取报告并核 hashes，随后按 root 释放执行下列验证。
+
+## broader 验证与最终交接
+
+所有4 gates 的 code/test head 都是 `976f4798da464bb4b69115259f05ff1d2cf25685`，Windows Node `v24.14.1` / npm `11.11.0`。原 lock/dependencies 未变，复用已有安装；本 prerequisite 不重新 `npm ci`，fresh 三平台 CI 及最终 integrator 的规范验证仍须执行它。未运行 live clipping、未重新获取 raw/source、未重做 source81/A/C audits 或另跑作者91；唯一 full run 正常包含这两个 focused 模块。
+
+必要 affected 命令如下，覆盖原 Nature 各 collectors/markers、headings/captions/citations/refs、tables、normalizers/validators、DOM/writer lifecycle、transport/security；排除另已通过的两 identifier focused 文件。
+
+```text
+node --test test/nature-adapter.test.mjs test/nature-caption-citations.test.mjs test/nature-compound-unit-boundaries.test.mjs test/nature-compound-unit.test.mjs test/nature-greek-subscript-boundaries.test.mjs test/nature-greek-subscript-context-boundaries.test.mjs test/nature-greek-subscript.test.mjs test/nature-isotope-mass-boundaries.test.mjs test/nature-isotope-mass-coverage.test.mjs test/nature-isotope-mass.test.mjs test/nature-literal-brackets.test.mjs test/nature-reference-literal.test.mjs test/nature-scientific-citation-boundaries.test.mjs test/nature-scientific-citations.test.mjs test/nature-scientific-units.test.mjs test/nature-sparse-figure-alt.test.mjs test/nature-split-power-boundaries.test.mjs test/nature-split-power.test.mjs test/nature-styled-adjacency-boundaries.test.mjs test/nature-styled-adjacency.test.mjs test/nature-table-caption-clip.test.mjs test/nature-table-caption.test.mjs test/nature-table-mathjax.test.mjs test/nature-table-notes.test.mjs test/output-quality.test.mjs test/stability-regressions.test.mjs test/network-boundaries.test.mjs test/infrastructure-hardening.test.mjs
+```
+
+| gate（各执行一次） | closed result / test duration / whole process duration |
+| --- | --- |
+| 上述 affected 28 files | exit0；695 PASS / 0 FAIL；12904.4599 / 12964.9669 ms；skip/cancel/todo0 |
+| `npm test` | exit0；980 PASS / 0 FAIL；96003.2132 / 96382.9803 ms；skip/cancel/todo0 |
+| `npm run build` | exit0；394.6053 ms；extension 生成于 own ignored `dist/` |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0；382.0513 ms；math/scientificFragments/structure/rawHtml/crossrefs全部valid；13 display、50 references、Table1结构保留 |
+
+Full 的两个模块 runtime receipts 仍是 source `realSourceClips=3, syntheticClips=3, attempts=[], restored=true` 和 boundaries `constructedParses=58, attempts=[], restored=true, newRealClips=0`；这是必要 full 的新同轮证据，不同于此前 focused。Writer 的零调用声明继续只适用于实际 identifier `clipNature()` 测试路径；broader/full 中的既有 writer tests 明确调用临时目录 writer，不可声称整次 full writerCalls=0。网络 evidence 同样限定新模块 guarded ledger与既有 mocked transport tests，不构造未监测全部进程的全局网络计数。
+
+External root `<TEMP>/academic-clipper-issue68-broader-976f479/` 保存完整 closed stdout/stderr logs、每 gate receipt 与 `full-source/` 同轮缓存。每个 receipt 记录 exact command/head、start/end UTC、exit/signal、process/test durations、全部34 source files 和相应 execution test 的 Git blob/physical bytes/SHA256（full 为全部42 tracked test modules），并逐项核9个 golden tracked files 的 before/after Git/physical identities相同；未触碰 shared node_modules 或其它 owner outputs。
+
+| physical artifact | bytes / SHA256 |
+| --- | --- |
+| `affected.log` | 94799 / `40bd40022e79c90f6b0c0afcdf5ae4c9522d59ffade857a847da7be9da0387eb` |
+| `affected-receipt.json` | 32391 / `fd0a6b62aed396d560e95718f7c69e75a91440b6a87233b073958a42148d5d2d` |
+| `full.log` | 117119 / `8da1f1616ff4f04201173e551c815a69058b243d9a92ac7c86d9358b6b6e6f42` |
+| `full-receipt.json` | 36705 / `4703cf7f5a6d969ddb8a5006a2ab4bef3e52d79f0a1ec16e32de54756627470b` |
+| `build.log` | 167 / `b1d781eb0f5e40970d0b6f0923efb863c6aa02516e42c9f665aa4ca6cfa17263` |
+| `build-receipt.json` | 19661 / `e460dba4d3479448b507342f0c6cb6fac5856d15080f21399d0628b6357794a7` |
+| `golden.log` | 2893 / `a5117f116c1d285880129194d874ffe7812eaa6bd8634838524e53bfa131dbfe` |
+| `golden-receipt.json` | 19741 / `63d242afba793804b23c3576a65a5d1e311bb03623659a3ebcb95a909a5217a2` |
+
+Broader gates 未发现产品失败，因此 implementation/两个测试/source均不再修改。最后提交仅本 handoff 与 README 窄 identifier/原 H3/H4 identity 边界说明；不为这次 doc-only 更新重复解析/clip/tests。最终 publication head、ordered commits 与完整11-path diff 由 PR 和 root 的外部 publication receipt给出，避免本文件 self-reference。全部 tracked scope、diff-check/status/filenames、科学 fixture身份与受保护路径继续检查。
+
+唯一 prerequisite bug PR 使用 exact standalone `Refs #68`，不分摊 final Issue #10 PR责任。本 owner不 poll CI、merge 或手动 close；root 在 fresh Ubuntu20/24、Windows24 与 Secret scan 全绿和最终 immutable publication review后核十项gate，再执行获授权的 prerequisite merge。Merge仅接纳代码，successful merged-commit Main CI 才由automation完成 Work Contract。#67 p42 不在本 fixture，literal SUP code的既有独立诊断也未扩入；本结果不宣称 whole Materials、全部未知标识符或 Issue #10 完成。
