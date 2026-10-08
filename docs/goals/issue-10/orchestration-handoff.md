@@ -15,7 +15,7 @@
 
 ## DAG / 文件所有权
 
-当前 checkpoint（2026-10-08 02:12 UTC；以下 startup 表为历史）：
+当前 checkpoint（2026-10-08 02:28 UTC；以下 startup 表为历史）：
 
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
@@ -25,10 +25,10 @@
 | Footer45、caption47、units48、tableMathJax51、literal53、sparse55、citation56 | DONE | 各独立PR与成功mergedMain receipts见后续历史；accepted mainac86 |
 | styled-adjacency57 / PR62 | DONE | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523与Secrets成功、57 automation completed |
 | table-caption60 | DONE | PR66 exact3a7ab0b独立zero findings与十门槛通过，squashe2c1fad；mergedMain37707702765/Secrets37707702972 SUCCESS，60automationCOMPLETED |
-| leading-isotope61 | RUNNING merged-Main acceptance | PR69 exacte88独立零阻塞及十门槛通过；squasha5b6acc；Main37716530268运行中，Secrets37716530267SUCCESS；accepted仍e2c1 |
+| leading-isotope61 | DONE | PR69 exacte88独立零阻塞及十门槛通过；squasha5b6acc；Main37716530268/Secrets37716530267SUCCESS；61automationCOMPLETED |
 | Greek / split-power source contracts | DONE for source inputs | Greek64 cleanfcb116e / split63 clean4376aa8；两新projection独立CLEAR，production gate仍锁 |
 | reference2 literal inequality | DONE for source inputs | cleanaea33123/a07c827；新30block独立SOURCE_PROJECTION_CLEAR，生产修复仍pending |
-| Materials identifier68 / compound-unit67 | RUNNING / DONE for source inputs | 67 exact9610923的99block独立SOURCE_CLEAR_ONLY；68 exactd501e4新81block独立审查运行中；两者production仍pending |
+| Materials identifier68 / compound-unit67 | DONE for source inputs | 67 exact9610923的99block、68 exactd501e4的81block均独立SOURCE_CLEAR_ONLY；两者production仍pending |
 | Other mandatory scientific / Ref2 roles | PENDING | C冻结历史source evidence；需各独立窄合同/正确覆盖，不计现有PASS |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
@@ -511,3 +511,17 @@ Root全文读67 source report9975bytes/SHA4315f0c73eeca8795beb407c5b27764ecd6ffb
 Root全文读独立C仲裁report13171/SHA9ee18b07e54dbbff2db07bd8f9466b5a04a656ee604fed65871e2aad1cc7fffb，diagnostic73179/SHA7d264d30012993d95fcb4edbaa324b7e994af19fb6a7f94b920d6c43224b2f4b。P2/AGENT_RESOLVABLE：canonical§7与§4要求原cluster内部有序numbers；原B accepted e85已将Tables独立渲染于末尾。当前77source/semantic全序保持，最终76非table全序与原tablecaption一簇按sourceowner完全保持，只是caption合法移至文末；三个cachedsource邻接checks均通过。不能删除原条件后只计数/排序/multiset/whole-bodyincludes；必须sourceURL+captionidentity一对一匹配最终frame、非relocation全序/每table内序与multiplicity/cluster内部顺序/原邻词严格验证并增加真实mutation protection。19productionmathFAIL仍独立保留，不要求human/spec改变。
 
 旧Chandle不存在，按§22恢复SAMEcodex/issue-10-agent-c工作区d993的replacement，只修改C-ownedhelper/tests/handoff。其进一步确认same-runcomparison.summary/完整Markdown已包含citations consumer所需真实字段，可执行consumer-onlycache RED→GREEN/mutations，clips0；不冒充完整compareArticleResult或255/canonical全验收。未采用pendinga5b基线，待root发布acceptedMain后再执行Chemistry窄delta。65 SAMEsourcebranch恢复仅readonlypreflight、source30原审查复用，等待mergedMain成功后释放唯一生产gate；其它Naturefixes串行。Finalintegrationstartgate仍未达，Issue10未完成。
+
+68最终独立SOURCE_CLEAR_ONLY已由root全文读实际report10420bytes/SHAe4a199d48c08263d970689563cc1547e96c10621540007be829179c180ddbe2a，manifest77262/SHAadeec315c3ac1af8c177842fb8e93daab02a860aa6cd3442bc2814ecf38846e0。ActualA e56唯一新81projection再生成/repeatidem三calls首轮exit0，68630bytes精确相等；全部11r²SCAN角色九body/caption+两heading/sourceUTF16UTF8、完整Figure2 panels a–d/2d真实#Fig2target、三个外链、六作者/CCnotice/footer/refprefix1–43核验。Tail只读已生成projection，无重sanitize/rawparse。原32=4PASS28FAIL/correctedsynthetic3PASS/unknown1PASS分列，不冒称33wholeGREEN；ref2links与既有constructedcode损坏保留。Sourceonly结论不解除生产/CI/mergegate。
+
+65 readonlypreflight实际oldsourcepacketSHA/已缓存RED/代码边界核验完整，samecleanaea33123。明确src/clip.mjs referenceText转换后、兼容anchor拼接前的literal less-than escape；保留源负bound、既有opaque code/平衡TeX、escaped dollar、DOI/href/anchors，不能依maskCode声称其也覆盖math。原source30独立review复用；future只新增尚未覆盖的混排/escaped-dollar边界，root未在Mainpending时授权branch/test/productionmutations。闲置名额恢复下一Alpha qualifier来源只读preflight，未freeze新合同、未开始生产/full。一次新spawn因hostthreadlimit失败，无成果也不算已启动；后续复用completed reviewer真实followup成功，无并发重复owner。
+
+## 02:28 UTC：a5b6acc Main 接纳与固定 C 实现接续
+
+上一goalturn分类PROGRESS：PR69合并、67/68新projection独立source清关、C真实cache RED→GREEN与固定9c5consumer实现均产生可改变下一步的证据。当前continuation完整读用户原orchestratorgoal。实际list_agents仅root，旧childhandles不存在；不将它们当verifiedlivewait、不重启已完成过程。依据§22分别从same65ae/同C9c5/唯一readonlyreviewscope恢复三个新handles。
+
+Fetch/API最新main仍a5b6acc2984af5cb8b82106291e963f4f413f5ac。Main37716530268 completedSUCCESS：U20job113114140455 02:16:15Z、U24job113114140323 02:17:12Z、Win24job113114140480 02:21:27Z；Secrets37716530267sameSHA SUCCESS。Finalizer37717469435SUCCESS，61自动CLOSED/COMPLETED02:21:40Z，root未手动关闭。Acceptedmain现更新a5b6acc。65来源不变/source30独立review复用，释放SAMEbranch最小reference literal implementation唯一生产gate；首先新escaped-dollar/opaque/literal边界RED，再固定最小code跑必要affected和唯一full/build/golden，后续freshCI/Secrets/独立exact-headreview/十门槛仍必须，不因preflight替代。
+
+C implementation固定9c5c3ff9f232ecc3d9eb03b579fb04eef45a4fce，仅helper/test两个C-ownedfiles；helperf9144ce6f40653061ee57164d6612860c47da981/test9530e0f194f78cc7d0ff9a9e98fb4b660873585f。Author报告cache27=24PASS3Quantum旧真实FAIL→27/27PASS、24真实mutation、synthetic3PASS/33checks，clips0；当前root尚未读取最终machine，不能替其扩称全suite。恢复时只有agent-c-handoff未提交修改，保存不覆盖，replacement只完成actualreceipt/hash/scopes/doc-onlycommit并push，不重复27cache/3synthetic或新clip。独立不同owner针对唯一9c5consumerdelta只读审查；source/semantic全文序、来源容器/一对一outputframe/邻词/次数/原簇内order/定义key必须保留，禁止sorting/multiset/hardcode。随后C可adoptaccepted依赖，只先预检Chemistry确切IDs/filter/三style+三repeat，实际batch待rootrelease，不在code未审清时多跑。
+
+Alpha readonlypreflight复用四原r.m.s.d.SUB95、rawparagraph0722…/frozencdc3…与cached三style4mathFAIL。原科学意义为Cα root-mean-square deviation在95%residuecoverage；paragraph零cite、链接Fig1a/b/c/d和SupplementaryFig14→MOESM1；已admitted完整Fig1 caption零cite/SUB95、panelsa–e/Nseq/Nres，全部34sourcecreators需保留。因此新最小projection最高referenceprefix0，不制造cite或填84refs。只读packet已保存，原一次rawDOM检查如实记录无再parse/clip/Aregen；尚未freeze/sourcebranch/新合同，不计新source完成。待名额后same证据恢复source-only工作，futureindependentreview仍需不同owner。
