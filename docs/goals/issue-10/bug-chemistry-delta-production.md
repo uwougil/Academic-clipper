@@ -1,6 +1,6 @@
 # Issue #73 — Δ 键位标签 focused implementation handoff
 
-当前为 **FOCUSED_IMPLEMENTATION_READY_FOR_INDEPENDENT_REVIEW_ONLY**。真实来源15项与完整synthetic边界47项均已有当前实现的通过证据；尚未执行affected/full/build/golden、独立实现审查或publication，不宣称#73完成或#10 ready。
+当前为 **BROADER_READY_FOR_PUBLICATION**。真实来源15项、完整synthetic边界47项与不同作者exact-head实现审查均通过；本轮唯一affected/full/build/只读golden验证全部成功。Fresh PR CI/Secrets、最终publication-head审查、merge与merged-main接纳仍待root完成，不宣称#73完成或#10 ready。
 
 ## 分支与选择顺序
 
@@ -42,8 +42,25 @@ Lock SHA-256前后均`5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef
 
 ## 后续gate与消费者
 
-目前停止在root要求的独立实现审查前。待不同作者exact-head实现审查blocking0之后，root才释放affected/full/build/golden及publication。Fresh三平台PR CI/Secrets、最终exact-head审查、十项门槛与successful merged-main均仍必需。当前没有PR、merge或issue关闭。
+不同作者对clean head `2f66f8e76b93413f2779e5b45568b525b5c0b27a` / tree `ce17434c677af3d75819094169c2a52d36035242` 给出IMPLEMENTATION_CLEAR，blockingFindings=0、P0–P3均0。Root完整读取后正式释放本轮broader/publication。Fresh三平台PR CI/Secrets、最终publication-head审查、十项门槛与successful merged-main均仍必需；author不merge、不手工关闭Issue。唯一独立delivery PR使用精确 standalone `Refs #73` 行，创建后立即attach；最终PR URL/head由root持久接续。
 
 只接纳最小生产/harness与DOC文件；fixture/科学oracle、spec/PRD/EDD、dependency文件、validator/security/writer、golden与B/C/D均不改。`git diff --check`通过；protected paths自原plan69088无diff。无spec变更提案或human-only blocker。
 
 Agent C的完整Chemistry复验依赖#73和独立trailing-group SUB #74均accepted后统一执行；本bug通过不代表后三个化学group已解决，不重复C框架或B来源审核，也不宣称Issue #10完成。
+
+## 唯一broader验证与publication交接
+
+外部根：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue73-broader-3232733`。本轮复用已安装的ordinary own node_modules与committed lock，不重复npm ci。唯一wrapper `run-broader.cjs` PID51368依序执行下列四tier；以实际PID/commandline和同一closed receipt观察，未因工具未转发session字段而重启。全部4tier exit0、280个tracked source/test/fixture/extension/scripts/package/golden输入在每tier前后bytes/SHA一致，全部9个golden tracked files不变。完整argv/env、起止UTC/PID、日志hash及完整input inventory在production machine receipt。
+
+| tier | 实际结果 | UTC起止 / PID |
+| --- | --- | --- |
+| `node --test <34 existing files>` | 905/905 PASS，11175.2061ms，0fail/skip/cancel/todo | 2026-10-08T23:24:27.851Z → 2026-10-08T23:24:39.107Z / 15668 |
+| `npm test` | 1180/1180 PASS，82215.1407ms，0fail/skip/cancel/todo | 2026-10-08T23:24:39.128Z → 2026-10-08T23:26:01.642Z / 49112 |
+| `npm run build` | exit0 | 2026-10-08T23:26:01.663Z → 2026-10-08T23:26:01.936Z / 53008 |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0 | 2026-10-08T23:26:01.958Z → 2026-10-08T23:26:02.241Z / 48828 |
+
+Affected明确排除自己两个新增#73 focused文件；完整npm test按默认scope真实执行全部1180项，包括source15及boundary47，没有cache、production override或hidden skip。仅full设`CHEMISTRY_DELTA_RECEIPT_ROOT=<根>/full-source`与`CHEMISTRY_DELTA_PREFLIGHT_RECEIPT_ROOT=<根>/full-boundary`，供真实结果记录。真实三方言3clip windows opened3/closed3、source DOM2/2、11 HTTP/DNS方法attempts[]、exact bindings与10DOMglobals恢复；boundary scopeall关闭42parser DOM与3mixed clip windows、3synthetic clips、attempts[]与bindings恢复。网络ledger的直接观测范围是#73 source/boundary；其他full tests继续既有mock或loopback契约，不声称全进程syscall监测。Writer absence仍为静态clipNature callgraph，不冒称spy。
+
+Golden实际strict math/raw HTML/Markdown structure/crossrefs均valid，250inline/13display、50references、1structured table、issues[]。该命令只读，不执行live clip或writer；build只生成ignored dist。Source57/历史preflight/tail/standalonefocused/旧clips/独审runtime probes均没有额外重做。此前first62的3个harness failures、修正后source15与未重跑boundary47的证据全部原样保留。
+
+本次仅production MD与receipt两个DOC路径变化；生产code和source/boundary输入不变。Source fixture与provenance原bytes/hashes保持，保护路径无diff。更新文档不触发重复测试。当前交接给root进行最终published-head独立review、fresh CI/Secrets、十gate及matched merge；#73与#74均accepted后才解除Agent C完整Chemistry复验依赖。无spec或security变更提案。
