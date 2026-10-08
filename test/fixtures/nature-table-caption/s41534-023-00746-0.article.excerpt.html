@@ -1,0 +1,620 @@
+<!doctype html>
+<html class="grade-c" lang="en"><head>
+    
+    
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+     
+    
+    
+        
+    
+    
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+
+
+
+
+        
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link href="https://www.nature.com/articles/s41534-023-00746-0" rel="canonical">
+
+
+
+
+
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","author":[{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Pritzker School of Molecular Engineering, The University of Chicago, Chicago, USA"},"name":"The University of Chicago"}],"name":"Qian Xu","url":"http://orcid.org/0000-0002-8738-9420"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Pritzker School of Molecular Engineering, The University of Chicago, Chicago, USA"},"name":"The University of Chicago"}],"name":"Guo Zheng","url":"http://orcid.org/0000-0001-6338-0192"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Pritzker School of Molecular Engineering, The University of Chicago, Chicago, USA"},"name":"The University of Chicago"}],"name":"Yu-Xin Wang","url":"http://orcid.org/0000-0003-2848-1216"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute for Theoretical Physics, University of Innsbruck, Innsbruck, Austria"},"name":"University of Innsbruck"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Institute for Quantum Optics and Quantum Information of the Austrian Academy of Sciences, Innsbruck, Austria"},"name":"Institute for Quantum Optics and Quantum Information of the Austrian Academy of Sciences"}],"name":"Peter Zoller","url":"http://orcid.org/0000-0003-4014-1505"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Pritzker School of Molecular Engineering, The University of Chicago, Chicago, USA"},"name":"The University of Chicago"}],"name":"Aashish A. Clerk","url":"http://orcid.org/0000-0001-7297-9068"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Pritzker School of Molecular Engineering, The University of Chicago, Chicago, USA"},"name":"The University of Chicago"}],"email":"liang.jiang@uchicago.edu","name":"Liang Jiang","url":"http://orcid.org/0000-0002-0000-9342"}],"dateModified":"2023-08-03T00:00:00Z","datePublished":"2023-08-03T00:00:00Z","description":"We propose an autonomous quantum error correction scheme using squeezed cat (SC) code against excitation loss in continuous-variable systems. Through reservoir engineering, we show that a structured dissipation can stabilize a two-component SC while autonomously correcting the errors. The implementation of such dissipation only requires low-order nonlinear couplings among three bosonic modes or between a bosonic mode and a qutrit. While our proposed scheme is device independent, it is readily implementable with current experimental platforms such as superconducting circuits and trapped-ion systems. Compared to the stabilized cat, the stabilized SC has a much lower dominant error rate and a significantly enhanced noise bias. Furthermore, the bias-preserving operations for the SC have much lower error rates. In combination, the stabilized SC leads to substantially better logical performance when concatenating with an outer discrete-variable code. The surface-SC scheme achieves more than one order of magnitude increase in the threshold ratio between the loss rate κ1 and the engineered dissipation rate κ2. Under a practical noise ratio κ1/κ2 = 10−3, the repetition-SC scheme can reach a 10−15 logical error rate even with a small mean excitation number of 4, which already suffices for practically useful quantum algorithms.","headline":"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits","image":["https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41534-023-00746-0/MediaObjects/41534_2023_746_Fig1_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41534-023-00746-0/MediaObjects/41534_2023_746_Fig2_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41534-023-00746-0/MediaObjects/41534_2023_746_Fig3_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41534-023-00746-0/MediaObjects/41534_2023_746_Fig4_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41534-023-00746-0/MediaObjects/41534_2023_746_Fig5_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41534-023-00746-0/MediaObjects/41534_2023_746_Fig6_HTML.png"],"isAccessibleForFree":true,"isPartOf":{"@type":["Periodical","PublicationVolume"],"issn":["2056-6387"],"name":"npj Quantum Information","volumeNumber":"9"},"keywords":["Quantum information","Qubits","Physics","general","Quantum Physics","Quantum Information Technology","Spintronics","Quantum Computing","Quantum Field Theories","String Theory","Classical and Quantum Gravitation","Relativity Theory"],"license":"http://creativecommons.org/licenses/by/4.0/","pageEnd":"11","pageStart":"1","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.springernature.com/app-sn/public/images/logo-springernature.png"},"name":"Nature Publishing Group UK"},"sameAs":"https://doi.org/10.1038/s41534-023-00746-0"}</script>
+
+
+
+
+    
+    
+    
+    <meta content="Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits" name="dc.title">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta content="npj Quantum Information" name="citation_journal_title">
+    
+    
+    
+    <meta content="Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits" name="citation_title">
+    <meta content="9" name="citation_volume">
+    <meta content="1" name="citation_issue">
+    <meta content="2023/08/03" name="citation_online_date">
+    <meta content="78" name="citation_firstpage">
+    <meta content="" name="citation_lastpage">
+    
+    
+    
+    <meta content="doi:10.1038/s41534-023-00746-0" name="dc.identifier">
+    
+    
+    <meta content="10.1038/s41534-023-00746-0" name="citation_doi">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta content="Xu, Qian" name="citation_author">
+    
+    <meta content="Zheng, Guo" name="citation_author">
+    
+    <meta content="Wang, Yu-Xin" name="citation_author">
+    
+    <meta content="Zoller, Peter" name="citation_author">
+    
+    
+    <meta content="Clerk, Aashish A." name="citation_author">
+    
+    <meta content="Jiang, Liang" name="citation_author">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    <meta content="https://www.nature.com/articles/s41534-023-00746-0" property="og:url">
+    <meta content="article" property="og:type">
+    
+    <meta content="Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits - npj Quantum Information" property="og:title">
+    
+    
+
+
+
+
+    
+    
+    
+
+
+
+</head>
+<body class="article-page">
+
+
+
+
+
+
+    
+        
+    
+
+
+
+    
+        
+    
+        
+    
+
+    
+
+
+    
+
+
+
+
+
+    <div class="c-article-main u-container u-mt-24 u-mb-32 eds-l-with-sidebar" id="content">
+        <main class="c-article-main-column js-main-column">
+            
+                
+            
+
+            <article lang="en">
+                
+                    
+                        
+                            
+                        
+                    
+                
+                <div class="c-article-header">
+                    <header>
+                        
+
+                        <h1 class="c-article-title" data-test="article-title">Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits</h1>
+                        
+
+                        
+
+                        
+                        
+                            
+                        
+                        
+        
+        
+    
+                        
+                    </header>
+
+                    
+    
+    
+
+    
+    
+
+                    
+                </div>
+
+                <div class="c-article-body">
+                    
+                    
+    
+
+
+                    
+                        
+                        
+                        
+    
+        
+    
+
+                        
+
+                        <div class="main-content">
+                            <section data-title="Results"><div class="c-article-section" id="Sec2-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec2">Results</h2><div class="c-article-section__content" id="Sec2-content"><p>As shown by the blue arrow in Fig. <a href="/articles/s41534-023-00746-0#Fig1">1</a>, we can, in principle, perform photon counting measurement on a probe field that is weakly coupled to the gauge mode, and apply a feedback parity flip <span class="mathjax-tex">\({\hat{Z}}_{L}\)</span> on the logical qubit upon detecting an excitation in the probe field<sup><a aria-label="Reference 61" data-test="citation-ref" href="/articles/s41534-023-00746-0#ref-CR61" id="ref-link-section-d102805164e5156" title="Gross, J. A., Caves, C. M., Milburn, G. J. &amp; Combes, J. Qubit models of weak continuous measurements: Markovian conditional and open-system dynamics. Quantum Sci. Technol. 3, 024005 (2018).">61</a></sup>. Such measurement and feedback process can be equivalently implemented by applying the dissipative dynamics as described by Lindblad master equation <span class="mathjax-tex">\(\frac{d\hat{\rho }}{dt}={\kappa }_{2}{{{\mathcal{D}}}}[\hat{F}]\)</span>, with the jump operator <span class="mathjax-tex">\(\hat{F}\)</span> given by</p><div class="c-article-equation" id="Equ7"><div class="c-article-equation__content"><span class="mathjax-tex">$$\hat{F}=({\hat{Z}}_{L}\otimes \hat{\tilde{I}})\hat{S}(r)({\hat{a}}^{2}-{\alpha }^{{\prime} 2}){\hat{S}}^{{\dagger} }(r),$$</span></div><div class="c-article-equation__number">
+                    (7)
+                </div></div><p>and <span class="mathjax-tex">\({{{\mathcal{D}}}}[\hat{A}]\hat{\rho }:= \hat{A}\hat{\rho }{\hat{A}}^{{\dagger} }-\frac{1}{2}\{{\hat{A}}^{{\dagger} }\hat{A},\hat{\rho }\}\)</span>. When <span class="mathjax-tex">\({\alpha }^{{\prime} }\gg 1\)</span>, <span class="mathjax-tex">\(\hat{F}\propto {\hat{Z}}_{L}\otimes \hat{\tilde{a}}\)</span> represents a logical phase flip conditioned on the gauge mode losing an excitation. In the Fock basis, such an operator can be approximately given by</p></div></div></section><section data-title="Discussion"><div class="c-article-section" id="Sec7-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec7">Discussion</h2><div class="c-article-section__content" id="Sec7-content"><p>To better understand the novelty and necessity of the partity-flipping dissipator <span class="mathjax-tex">\(\hat{F}\)</span> we introduced in Eq. (<a href="/articles/s41534-023-00746-0#Equ7">7</a>), we compare it with a parity-preserving dissipator</p><div class="c-article-equation" id="Equ15"><div class="c-article-equation__content"><span class="mathjax-tex">$${\hat{F}}^{{\prime} }=\hat{S}(r)({\hat{a}}^{2}-{\alpha }^{{\prime} 2}){\hat{S}}^{{\dagger} }(r)\approx 2{\alpha }^{{\prime} }{\hat{I}}_{L}\otimes \hat{\tilde{a}},$$</span></div><div class="c-article-equation__number">
+                    (15)
+                </div></div><p>which is a straightforward extension from <span class="mathjax-tex">\({\hat{a}}^{2}-{\alpha }^{2}\)</span> that stabilizes the cat. Such a dissipator was recently considered in ref. <sup><a aria-label="Reference 71" data-test="citation-ref" href="/articles/s41534-023-00746-0#ref-CR71" id="ref-link-section-d102805164e13021" title="Hillmann, T. &amp; Quijandría, F. Quantum error correction with dissipatively stabilized squeezed-cat qubits. Phys. Rev. A 107, 032423 (2023).">71</a></sup> for stabilizing the SC. We show that the extra phase-flip correction in <span class="mathjax-tex">\(\hat{F}\)</span> is essential for reducing SC’s error rate in both the memory level and gate operations, which then leads to better logical performance in the concatenated level.</p><p>Regarding the gate operations, we take the Z rotation and the CNOT gate as examples. For the Z rotation, a SC stabilized by <span class="mathjax-tex">\({\hat{F}}^{{\prime} }\)</span> only enjoys a suppression in the non-adiabatic errors by the the increased adiabatic gap, <span class="mathjax-tex">\(4{\kappa }_{2}{\alpha }^{{\prime} 2}\)</span>, compared to conventional cat of the same <span class="mathjax-tex">\(\bar{n}\)</span>. In contrast, a SC stabilized by <span class="mathjax-tex">\(\hat{F}\)</span> corrects the leading-order non-adiabatic error in <span class="mathjax-tex">\(1/{\alpha }^{{\prime} 2}\)</span>, since the the extra <span class="mathjax-tex">\({\hat{Z}}_{L}\)</span> in <span class="mathjax-tex">\(\hat{F}\)</span> compensates the parity-flip associated with the non-adiabatic transition (to the leading order). The residual errors are proportion to the correction factor, <span class="mathjax-tex">\(\xi \propto 1/{\alpha }^{{\prime} 2}\)</span>, as discussed in Methods (see Eq. (<a href="/articles/s41534-023-00746-0#Equ33">33</a>)). Therefore, while the minimal <i>Z</i>(<i>θ</i>) gate error for the SC with <span class="mathjax-tex">\({\hat{F}}^{{\prime} }\)</span> is roughly suppressed by a factor <span class="mathjax-tex">\(1/\bar{n}\)</span> compared to the cat, that for the SC with <span class="mathjax-tex">\(\hat{F}\)</span> is suppressed by an <span class="mathjax-tex">\(1/{\bar{n}}^{2}\)</span> factor (see Table <a href="/articles/s41534-023-00746-0#Tab1">1</a>).</p><div class="c-article-table" data-test="inline-table" id="table-1"><figure><figcaption class="c-article-table__figcaption"><b data-test="table-caption" id="Tab1">Table 1 Comparison of the optimal gate error rates for the SC and the cat. All errors are normalized by the optimal gate errors of the cat, which are given by <span class="mathjax-tex">\({p}_{Z(\theta )}=\frac{\theta }{2}\sqrt{\frac{1}{\bar{n}}\frac{{\kappa }_{1}}{{\kappa }_{2}}}\)</span> and <span class="mathjax-tex">\({p}_{{{{\rm{CNOT}}}}}=\frac{\pi }{2\sqrt{2}}\sqrt{\frac{{\kappa }_{1}}{{\kappa }_{2}}}\)</span><sup><a aria-label="Reference 58" data-test="citation-ref" href="/articles/s41534-023-00746-0#ref-CR58" id="ref-link-section-d102805164e14011" title="Chamberland, C. et al. Building a fault-tolerant quantum computer using concatenated cat codes. PRX Quantum 3, 010329 (2022).">58</a></sup>. The definitions of <span class="mathjax-tex">\(\hat{F}\)</span> and <span class="mathjax-tex">\({\hat{F}}^{{\prime} }\)</span> are given in Eq. (<a href="/articles/s41534-023-00746-0#Equ7">7</a>) and Eq. (<a href="/articles/s41534-023-00746-0#Equ15">15</a>) respectively. The optimal gate errors for SC are reached at <span class="mathjax-tex">\(\eta \approx \frac{1}{2}\)</span>. The optima <i>Z</i>(<i>θ</i>) gate time for SC with <span class="mathjax-tex">\({\hat{F}}^{{\prime} }\)</span> and <span class="mathjax-tex">\(\hat{F}\)</span> are approximately <span class="mathjax-tex">\(\frac{\pi }{4\sqrt{{\kappa }_{1}{\kappa }_{2}}}{\bar{n}}^{-5/2}\)</span> and <span class="mathjax-tex">\(\frac{\pi }{4\sqrt{3{\kappa }_{1}{\kappa }_{2}}}{\bar{n}}^{-7/2}\)</span> respectively. The gate times for CNOT are approximately <span class="mathjax-tex">\(\frac{\pi }{4\sqrt{2{\kappa }_{1}{\kappa }_{2}}}{\bar{n}}^{-3/2}\)</span> and <span class="mathjax-tex">\(\frac{\pi }{12\sqrt{{\kappa }_{1}{\kappa }_{2}}}{\bar{n}}^{-5/2}\)</span> respectively. Since the cooling time is mostly assumed to be constant in our gate scheme, it is neglected for simplicity. We only provide the scaling of the gate errors with <span class="mathjax-tex">\(\bar{n}\)</span> for the SC since the exact expressions are complicated, as shown in Methods.</b></figcaption><div class="u-text-right u-hide-print"><a aria-label="Full size table 1" class="c-article__pill-button" data-test="table-link" href="/articles/s41534-023-00746-0/tables/1" rel="nofollow"><span>Full size table</span><svg aria-hidden="true" class="u-icon" height="16" width="16"><use></use></svg></a></div></figure></div><p>The errors of CNOT operation can be analyzed in a similar fashion. Due to the enlarged adiabatic gap, the minimal <i>Z</i> error rate of our SC gate with <span class="mathjax-tex">\({\hat{F}}^{{\prime} }\)</span> is a factor of <span class="mathjax-tex">\(\frac{2}{\sqrt{\bar{n}+1}}\)</span> smaller than that of the cat gate<sup><a aria-label="Reference 30" data-test="citation-ref" href="/articles/s41534-023-00746-0#ref-CR30" id="ref-link-section-d102805164e14997" title="Guillaud, J. &amp; Mirrahimi, M. Repetition cat qubits for fault-tolerant quantum computation. Phys. Rev. X 9, 041053 (2019).">30</a></sup>. For the mean excitation number we consider, <span class="mathjax-tex">\(\bar{n}=4\)</span>, this factor is only slightly less than 1. However, with the parity-flipping dissipator <span class="mathjax-tex">\(\hat{F}\)</span>, the gate error enjoys a <i>η</i> suppression in the loss errors and an additional <span class="mathjax-tex">\(\propto 1/{\alpha }^{{\prime} 2}\)</span> suppression in the non-adiabatic error. Combining these advantages, the CNOT gate error ratio with that of the cat roughly scales as <span class="mathjax-tex">\({\bar{n}}^{-3/2}\)</span> (see Table <a href="/articles/s41534-023-00746-0#Tab1">1)</a>.</p></div></div></section>
+                        </div>
+                    
+
+                    <div class="u-mt-32">
+                        <div id="MagazineFulltextArticleBodySuffix"><section aria-labelledby="Bib1" data-title="References"><div class="c-article-section" id="Bib1-section"><div class="c-article-section__content" id="Bib1-content"><div><ol class="c-article-references"><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR1">Nielsen, M. A. &amp; Chuang, I. L. <i>Quantum computation and quantum information: 10th anniversary</i> Edition (Cambridge University Press, Cambridge, United Kingdom, 2010).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR2">Lidar, D. A. &amp; Brun, T. A. <i>Quantum error correction</i> (Cambridge University Press, Cambridge, United Kingdom, 2013).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR3">Aharonov, D., Ben-Or, M., Impagliazzo, R. &amp; Nisan, N. Limitations of noisy reversible computation. Preprint at <a href="https://arxiv.org/abs/quant-ph/9611028">https://arxiv.org/abs/quant-ph/9611028</a> (1996).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR4">Aharonov, D. &amp; Ben-Or, M. Fault-tolerant quantum computation with constant error. In <i>Proc</i>. <i>Annual. ACM Symposium</i>., 176–188 (1997).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR5">Kitaev, A. Y. Quantum computations: algorithms and error correction. <i>Russ. Math. Surv.</i> <b>52</b>, 1191 (1997).</p><p class="c-article-references__links u-hide-print"><a aria-label="MathSciNet reference 5" href="http://www.ams.org/mathscinet-getitem?mr=1611329" rel="nofollow noopener">MathSciNet</a> 
+    <a aria-label="MATH reference 5" href="http://www.emis.de/MATH-item?0917.68063" rel="nofollow noopener">MATH</a> 
+    <a aria-label="Google Scholar reference 5" href="http://scholar.google.com/scholar_lookup?&amp;title=Quantum%20computations%3A%20algorithms%20and%20error%20correction&amp;journal=Russ.%20Math.%20Surv.&amp;volume=52&amp;publication_year=1997" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR6">Knill, E., Laflamme, R. &amp; Zurek, W. H. Resilient quantum computation: error models and thresholds. <i>Proc. R. Soc. A: Math. Phys. Eng. Sci.</i> <b>454</b>, 365–384 (1998).</p><p class="c-article-references__links u-hide-print"><a aria-label="MATH reference 6" href="http://www.emis.de/MATH-item?0915.68054" rel="nofollow noopener">MATH</a> 
+    <a aria-label="ADS reference 6" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=1998RSPSA.454..365K" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 6" href="http://scholar.google.com/scholar_lookup?&amp;title=Resilient%20quantum%20computation%3A%20error%20models%20and%20thresholds&amp;journal=Proc.%20R.%20Soc.%20A%3A%20Math.%20Phys.%20Eng.%20Sci.&amp;volume=454&amp;pages=365-384&amp;publication_year=1998" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR7">Aliferis, P., Gottesman, D. &amp; Preskill, J. Quantum accuracy threshold for concatenated distance-3 codes. <i>Quantum Info. Comput</i>. <b>6</b>, 97–165 (2006).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR8">Fowler, A. G., Mariantoni, M., Martinis, J. M. &amp; Cleland, A. N. Surface codes: towards practical large-scale quantum computation. <i>Phys. Rev. A</i> <b>86</b>, 032324 (2012).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 8" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2012PhRvA..86c2324F" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 8" href="http://scholar.google.com/scholar_lookup?&amp;title=Surface%20codes%3A%20towards%20practical%20large-scale%20quantum%20computation&amp;journal=Phys.%20Rev.%20A&amp;volume=86&amp;publication_year=2012" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR9">Litinski, D. A game of surface codes: large-scale quantum computing with lattice surgery. <i>Quantum</i> <b>3</b>, 128 (2019).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 9" href="http://scholar.google.com/scholar_lookup?&amp;title=A%20game%20of%20surface%20codes%3A%20large-scale%20quantum%20computing%20with%20lattice%20surgery&amp;journal=Quantum&amp;volume=3&amp;publication_year=2019" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR10">Chao, R., Beverland, M. E., Delfosse, N. &amp; Haah, J. Optimization of the surface code design for majorana-based qubits. <i>Quantum</i> <b>4</b>, 352 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 10" href="http://scholar.google.com/scholar_lookup?&amp;title=Optimization%20of%20the%20surface%20code%20design%20for%20majorana-based%20qubits&amp;journal=Quantum&amp;volume=4&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR11">Beverland, M. E., Kubica, A. &amp; Svore, K. M. Cost of universality: a comparative study of the overhead of state distillation and code switching with color codes. <i>PRX Quantum</i> <b>2</b>, 020341 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 11" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2021PRXQ....2b0341B" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 11" href="http://scholar.google.com/scholar_lookup?&amp;title=Cost%20of%20universality%3A%20a%20comparative%20study%20of%20the%20overhead%20of%20state%20distillation%20and%20code%20switching%20with%20color%20codes&amp;journal=PRX%20Quantum&amp;volume=2&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR12">Gottesman, D., Kitaev, A. &amp; Preskill, J. Encoding a qubit in an oscillator. <i>Phys. Rev. A</i> <b>64</b>, 012310 (2001).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 12" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2001PhRvA..64a2310G" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 12" href="http://scholar.google.com/scholar_lookup?&amp;title=Encoding%20a%20qubit%20in%20an%20oscillator&amp;journal=Phys.%20Rev.%20A&amp;volume=64&amp;publication_year=2001" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR13">Chuang, I. L., Leung, D. W. &amp; Yamamoto, Y. Bosonic quantum codes for amplitude damping. <i>Phys. Rev. A</i> <b>56</b>, 1114 (1997).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 13" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=1997PhRvA..56.1114C" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 13" href="http://scholar.google.com/scholar_lookup?&amp;title=Bosonic%20quantum%20codes%20for%20amplitude%20damping&amp;journal=Phys.%20Rev.%20A&amp;volume=56&amp;publication_year=1997" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR14">Michael, M. H. et al. New class of quantum error-correcting codes for a bosonic mode. <i>Phys. Rev. X</i> <b>6</b>, 031006 (2016).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 14" href="http://scholar.google.com/scholar_lookup?&amp;title=New%20class%20of%20quantum%20error-correcting%20codes%20for%20a%20bosonic%20mode&amp;journal=Phys.%20Rev.%20X&amp;volume=6&amp;publication_year=2016" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR15">Cochrane, P. T., Milburn, G. J. &amp; Munro, W. J. Macroscopically distinct quantum-superposition states as a bosonic code for amplitude damping. <i>Phys. Rev. A</i> <b>59</b>, 2631 (1999).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 15" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=1999PhRvA..59.2631C" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 15" href="http://scholar.google.com/scholar_lookup?&amp;title=Macroscopically%20distinct%20quantum-superposition%20states%20as%20a%20bosonic%20code%20for%20amplitude%20damping&amp;journal=Phys.%20Rev.%20A&amp;volume=59&amp;publication_year=1999" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR16">Albert, V. V. et al. Performance and structure of single-mode bosonic codes. <i>Phys. Rev. A</i> <b>97</b>, 032346 (2018).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 16" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2018PhRvA..97c2346A" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 16" href="http://scholar.google.com/scholar_lookup?&amp;title=Performance%20and%20structure%20of%20single-mode%20bosonic%20codes&amp;journal=Phys.%20Rev.%20A&amp;volume=97&amp;publication_year=2018" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR17">Ofek, N. et al. Extending the lifetime of a quantum bit with error correction in superconducting circuits. <i>Nature</i> <b>536</b>, 441–445 (2016).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 17" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2016Natur.536..441O" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 17" href="http://scholar.google.com/scholar_lookup?&amp;title=Extending%20the%20lifetime%20of%20a%20quantum%20bit%20with%20error%20correction%20in%20superconducting%20circuits&amp;journal=Nature&amp;volume=536&amp;pages=441-445&amp;publication_year=2016" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR18">Hu, L. et al. Quantum error correction and universal gate set operation on a binomial bosonic logical qubit. <i>Nat. Phys.</i> <b>15</b>, 503–508 (2019).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 18" href="http://scholar.google.com/scholar_lookup?&amp;title=Quantum%20error%20correction%20and%20universal%20gate%20set%20operation%20on%20a%20binomial%20bosonic%20logical%20qubit&amp;journal=Nat.%20Phys.&amp;volume=15&amp;pages=503-508&amp;publication_year=2019" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR19">Campagne-Ibarcq, P. et al. Quantum error correction of a qubit encoded in grid states of an oscillator. <i>Nature</i> <b>584</b>, 368–372 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 19" href="http://scholar.google.com/scholar_lookup?&amp;title=Quantum%20error%20correction%20of%20a%20qubit%20encoded%20in%20grid%20states%20of%20an%20oscillator&amp;journal=Nature&amp;volume=584&amp;pages=368-372&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR20">Lescanne, R. et al. Exponential suppression of bit-flips in a qubit encoded in an oscillator. <i>Nat. Phys.</i> <b>16</b>, 509–513 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 20" href="http://scholar.google.com/scholar_lookup?&amp;title=Exponential%20suppression%20of%20bit-flips%20in%20a%20qubit%20encoded%20in%20an%20oscillator&amp;journal=Nat.%20Phys.&amp;volume=16&amp;pages=509-513&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR21">Flühmann, C. et al. Encoding a qubit in a trapped-ion mechanical oscillator. <i>Nature</i> <b>566</b>, 513–517 (2019).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 21" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2019Natur.566..513F" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 21" href="http://scholar.google.com/scholar_lookup?&amp;title=Encoding%20a%20qubit%20in%20a%20trapped-ion%20mechanical%20oscillator&amp;journal=Nature&amp;volume=566&amp;pages=513-517&amp;publication_year=2019" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR22">Grimm, A. et al. Stabilization and operation of a kerr-cat qubit. <i>Nature</i> <b>584</b>, 205–209 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 22" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2020Natur.584..205G" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 22" href="http://scholar.google.com/scholar_lookup?&amp;title=Stabilization%20and%20operation%20of%20a%20kerr-cat%20qubit&amp;journal=Nature&amp;volume=584&amp;pages=205-209&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR23">Egan, L. et al. Fault-tolerant control of an error-corrected qubit. <i>Nature</i> <b>598</b>, 281–286 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 23" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2021Natur.598..281E" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 23" href="http://scholar.google.com/scholar_lookup?&amp;title=Fault-tolerant%20control%20of%20an%20error-corrected%20qubit&amp;journal=Nature&amp;volume=598&amp;pages=281-286&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR24">Zhao, Y. et al. Realization of an error-correcting surface code with superconducting qubits. <i>Phys. Rev. Lett.</i> <b>129</b>, 030501 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 24" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2022PhRvL.129c0501Z" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 24" href="http://scholar.google.com/scholar_lookup?&amp;title=Realization%20of%20an%20error-correcting%20surface%20code%20with%20superconducting%20qubits&amp;journal=Phys.%20Rev.%20Lett.&amp;volume=129&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR25">Ryan-Anderson, C. et al. Implementing fault-tolerant entangling gates on the five-qubit code and the color code. Preprint at <a href="https://arxiv.org/abs/2208.01863">https://arxiv.org/abs/2208.01863</a> (2022).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR26">Acharya, R. et al. Suppressing quantum errors by scaling a surface code logical qubit. <i>Nature</i> <b>614</b>, 676–681 (2023).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 26" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2023Natur.614..676G" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 26" href="http://scholar.google.com/scholar_lookup?&amp;title=Suppressing%20quantum%20errors%20by%20scaling%20a%20surface%20code%20logical%20qubit&amp;journal=Nature&amp;volume=614&amp;pages=676-681&amp;publication_year=2023" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR27">Lebreuilly, J., Noh, K., Wang, C.-H., Girvin, S. M. &amp; Jiang, L. Autonomous quantum error correction and quantum computation. Preprint at <a href="https://arxiv.org/abs/2103.05007">https://arxiv.org/abs/2103.05007</a> (2021).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR28">Lihm, J.-M., Noh, K. &amp; Fischer, U. R. Implementation-independent sufficient condition of the knill-laflamme type for the autonomous protection of logical qudits by strong engineered dissipation. <i>Phys. Rev. A</i> <b>98</b>, 012317 (2018).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 28" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2018PhRvA..98a2317L" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 28" href="http://scholar.google.com/scholar_lookup?&amp;title=Implementation-independent%20sufficient%20condition%20of%20the%20knill-laflamme%20type%20for%20the%20autonomous%20protection%20of%20logical%20qudits%20by%20strong%20engineered%20dissipation&amp;journal=Phys.%20Rev.%20A&amp;volume=98&amp;publication_year=2018" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR29">Mirrahimi, M. et al. Dynamically protected cat-qubits: a new paradigm for universal quantum computation. <i>New. J. Phys.</i> <b>16</b>, 045014 (2014).</p><p class="c-article-references__links u-hide-print"><a aria-label="MATH reference 29" href="http://www.emis.de/MATH-item?1451.81177" rel="nofollow noopener">MATH</a> 
+    <a aria-label="ADS reference 29" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2014NJPh...16d5014M" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 29" href="http://scholar.google.com/scholar_lookup?&amp;title=Dynamically%20protected%20cat-qubits%3A%20a%20new%20paradigm%20for%20universal%20quantum%20computation&amp;journal=New.%20J.%20Phys.&amp;volume=16&amp;publication_year=2014" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR30">Guillaud, J. &amp; Mirrahimi, M. Repetition cat qubits for fault-tolerant quantum computation. <i>Phys. Rev. X</i> <b>9</b>, 041053 (2019).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 30" href="http://scholar.google.com/scholar_lookup?&amp;title=Repetition%20cat%20qubits%20for%20fault-tolerant%20quantum%20computation&amp;journal=Phys.%20Rev.%20X&amp;volume=9&amp;publication_year=2019" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR31">Puri, S., Boutin, S. &amp; Blais, A. Engineering the quantum states of light in a kerr-nonlinear resonator by two-photon driving. <i>Npj Quantum Inf.</i> <b>3</b>, 18 (2017).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 31" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2017npjQI...3...18P" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 31" href="http://scholar.google.com/scholar_lookup?&amp;title=Engineering%20the%20quantum%20states%20of%20light%20in%20a%20kerr-nonlinear%20resonator%20by%20two-photon%20driving&amp;journal=Npj%20Quantum%20Inf.&amp;volume=3&amp;publication_year=2017" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR32">Putterman, H. et al. Stabilizing a bosonic qubit using colored dissipation. <i>Phys. Rev. Lett.</i> <b>128</b>, 110502 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 32" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2022PhRvL.128k0502P" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 32" href="http://scholar.google.com/scholar_lookup?&amp;title=Stabilizing%20a%20bosonic%20qubit%20using%20colored%20dissipation&amp;journal=Phys.%20Rev.%20Lett.&amp;volume=128&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR33">Berdou, C. et al. One hundred second bit-flip time in a two-photon dissipative oscillator. <i>PRX Quantum</i> <b>4</b>, 020350 (2023).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 33" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2023PRXQ....4b0350B" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 33" href="http://scholar.google.com/scholar_lookup?&amp;title=One%20hundred%20second%20bit-flip%20time%20in%20a%20two-photon%20dissipative%20oscillator&amp;journal=PRX%20Quantum&amp;volume=4&amp;publication_year=2023" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR34">Kwon, S., Watabe, S. &amp; Tsai, J.-S. Autonomous quantum error correction in a four-photon kerr parametric oscillator. <i>Npj Quantum Inf.</i> <b>8</b>, 40 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 34" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2022npjQI...8...40K" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 34" href="http://scholar.google.com/scholar_lookup?&amp;title=Autonomous%20quantum%20error%20correction%20in%20a%20four-photon%20kerr%20parametric%20oscillator&amp;journal=Npj%20Quantum%20Inf.&amp;volume=8&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR35">Grimsmo, A. L., Combes, J. &amp; Baragiola, B. Q. Quantum computing with rotation-symmetric bosonic codes. <i>Phys. Rev. X</i> <b>10</b>, 011058 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 35" href="http://scholar.google.com/scholar_lookup?&amp;title=Quantum%20computing%20with%20rotation-symmetric%20bosonic%20codes&amp;journal=Phys.%20Rev.%20X&amp;volume=10&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR36">Royer, B., Singh, S. &amp; Girvin, S. Stabilization of finite-energy gottesman-kitaev-preskill states. <i>Phys. Rev. Lett.</i> <b>125</b>, 260509 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 36" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2020PhRvL.125z0509R" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 36" href="http://scholar.google.com/scholar_lookup?&amp;title=Stabilization%20of%20finite-energy%20gottesman-kitaev-preskill%20states&amp;journal=Phys.%20Rev.%20Lett.&amp;volume=125&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR37">Gertler, J. M. et al. Protecting a bosonic qubit with autonomous quantum error correction. <i>Nature</i> <b>590</b>, 243–248 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 37" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2021Natur.590..243G" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 37" href="http://scholar.google.com/scholar_lookup?&amp;title=Protecting%20a%20bosonic%20qubit%20with%20autonomous%20quantum%20error%20correction&amp;journal=Nature&amp;volume=590&amp;pages=243-248&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR38">Schlegel, D. S., Minganti, F. &amp; Savona, V. Quantum error correction using squeezed schrödinger cat states. <i>Phys. Rev. A</i> <b>106</b>, 022431 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 38" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2022PhRvA.106b2431S" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 38" href="http://scholar.google.com/scholar_lookup?&amp;title=Quantum%20error%20correction%20using%20squeezed%20schr%C3%B6dinger%20cat%20states&amp;journal=Phys.%20Rev.%20A&amp;volume=106&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR39">Reimpell, M. &amp; Werner, R. F. Iterative optimization of quantum error correcting codes. <i>Phys. Rev. Lett.</i> <b>94</b>, 080501 (2005).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 39" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2005PhRvL..94h0501R" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 39" href="http://scholar.google.com/scholar_lookup?&amp;title=Iterative%20optimization%20of%20quantum%20error%20correcting%20codes&amp;journal=Phys.%20Rev.%20Lett.&amp;volume=94&amp;publication_year=2005" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR40">Fletcher, A. S., Shor, P. W. &amp; Win, M. Z. Optimum quantum error recovery using semidefinite programming. <i>Phys. Rev. A</i> <b>75</b>, 012338 (2007).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 40" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2007PhRvA..75a2338F" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 40" href="http://scholar.google.com/scholar_lookup?&amp;title=Optimum%20quantum%20error%20recovery%20using%20semidefinite%20programming&amp;journal=Phys.%20Rev.%20A&amp;volume=75&amp;publication_year=2007" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR41">Noh, K., Albert, V. V. &amp; Jiang, L. Quantum capacity bounds of gaussian thermal loss channels and achievable rates with gottesman-kitaev-preskill codes. <i>IEEE Trans. Inf.</i> <b>65</b>, 2563–2582 (2018).</p><p class="c-article-references__links u-hide-print"><a aria-label="MathSciNet reference 41" href="http://www.ams.org/mathscinet-getitem?mr=3928217" rel="nofollow noopener">MathSciNet</a> 
+    <a aria-label="MATH reference 41" href="http://www.emis.de/MATH-item?1431.94100" rel="nofollow noopener">MATH</a> 
+    <a aria-label="Google Scholar reference 41" href="http://scholar.google.com/scholar_lookup?&amp;title=Quantum%20capacity%20bounds%20of%20gaussian%20thermal%20loss%20channels%20and%20achievable%20rates%20with%20gottesman-kitaev-preskill%20codes&amp;journal=IEEE%20Trans.%20Inf.&amp;volume=65&amp;pages=2563-2582&amp;publication_year=2018" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR42">Leghtas, Z. et al. Confining the state of light to a quantum manifold by engineered two-photon loss. <i>Science</i> <b>347</b>, 853–857 (2015).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 42" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2015Sci...347..853L" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 42" href="http://scholar.google.com/scholar_lookup?&amp;title=Confining%20the%20state%20of%20light%20to%20a%20quantum%20manifold%20by%20engineered%20two-photon%20loss&amp;journal=Science&amp;volume=347&amp;pages=853-857&amp;publication_year=2015" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR43">Touzard, S. et al. Gated conditional displacement readout of superconducting qubits. <i>Phys. Rev. Lett.</i> <b>122</b>, 080502 (2019).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 43" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2019PhRvL.122h0502T" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 43" href="http://scholar.google.com/scholar_lookup?&amp;title=Gated%20conditional%20displacement%20readout%20of%20superconducting%20qubits&amp;journal=Phys.%20Rev.%20Lett.&amp;volume=122&amp;publication_year=2019" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR44">Poyatos, J., Cirac, J. I. &amp; Zoller, P. Quantum reservoir engineering with laser cooled trapped ions. <i>Phys. Rev. Lett.</i> <b>77</b>, 4728 (1996).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 44" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=1996PhRvL..77.4728P" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 44" href="http://scholar.google.com/scholar_lookup?&amp;title=Quantum%20reservoir%20engineering%20with%20laser%20cooled%20trapped%20ions&amp;journal=Phys.%20Rev.%20Lett.&amp;volume=77&amp;publication_year=1996" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR45">Tuckett, D. K., Bartlett, S. D. &amp; Flammia, S. T. Ultrahigh error threshold for surface codes with biased noise. <i>Phys. Rev. Lett.</i> <b>120</b>, 050505 (2018).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 45" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2018PhRvL.120e0505T" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 45" href="http://scholar.google.com/scholar_lookup?&amp;title=Ultrahigh%20error%20threshold%20for%20surface%20codes%20with%20biased%20noise&amp;journal=Phys.%20Rev.%20Lett.&amp;volume=120&amp;publication_year=2018" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR46">Tuckett, D. K. et al. Tailoring surface codes for highly biased noise. <i>Phys. Rev. X</i> <b>9</b>, 041031 (2019).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 46" href="http://scholar.google.com/scholar_lookup?&amp;title=Tailoring%20surface%20codes%20for%20highly%20biased%20noise&amp;journal=Phys.%20Rev.%20X&amp;volume=9&amp;publication_year=2019" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR47">Tuckett, D. K., Bartlett, S. D., Flammia, S. T. &amp; Brown, B. J. Fault-tolerant thresholds for the surface code in excess of 5% under biased noise. <i>Phys. Rev. Lett.</i> <b>124</b>, 130501 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 47" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2020PhRvL.124m0501T" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 47" href="http://scholar.google.com/scholar_lookup?&amp;title=Fault-tolerant%20thresholds%20for%20the%20surface%20code%20in%20excess%20of%205%25%20under%20biased%20noise&amp;journal=Phys.%20Rev.%20Lett.&amp;volume=124&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR48">Bonilla Ataides, J. P., Tuckett, D. K., Bartlett, S. D., Flammia, S. T. &amp; Brown, B. J. The XZZX surface code. <i>Nat. Commun.</i> <b>12</b>, 1–12 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 48" href="http://scholar.google.com/scholar_lookup?&amp;title=The%20XZZX%20surface%20code&amp;journal=Nat.%20Commun.&amp;volume=12&amp;pages=1-12&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR49">Roffe, J., Cohen, L. Z., Quintavalle, A. O., Chandra, D. &amp; Campbell, E. T. Bias-tailored quantum LDPC codes. <i>Quantum</i> <b>7</b>, 1005 (2023).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 49" href="http://scholar.google.com/scholar_lookup?&amp;title=Bias-tailored%20quantum%20LDPC%20codes&amp;journal=Quantum&amp;volume=7&amp;publication_year=2023" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR50">Xu, Q. et al. Tailored xzzx codes for biased noise. <i>Phys. Rev. Res.</i> <b>5</b>, 013035 (2023).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 50" href="http://scholar.google.com/scholar_lookup?&amp;title=Tailored%20xzzx%20codes%20for%20biased%20noise&amp;journal=Phys.%20Rev.%20Res.&amp;volume=5&amp;publication_year=2023" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR51">O’Gorman, J. &amp; Campbell, E. T. Quantum computation with realistic magic-state factories. <i>Phys. Rev. A</i> <b>95</b>, 032338 (2017).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 51" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2017PhRvA..95c2338O" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 51" href="http://scholar.google.com/scholar_lookup?&amp;title=Quantum%20computation%20with%20realistic%20magic-state%20factories&amp;journal=Phys.%20Rev.%20A&amp;volume=95&amp;publication_year=2017" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR52">Teh, R., Drummond, P. &amp; Reid, M. Overcoming decoherence of schrödinger cat states formed in a cavity using squeezed-state inputs. <i>Phys. Rev. Res.</i> <b>2</b>, 043387 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 52" href="http://scholar.google.com/scholar_lookup?&amp;title=Overcoming%20decoherence%20of%20schr%C3%B6dinger%20cat%20states%20formed%20in%20a%20cavity%20using%20squeezed-state%20inputs&amp;journal=Phys.%20Rev.%20Res.&amp;volume=2&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR53">Lo, H.-Y. et al. Spin–motion entanglement and state diagnosis with squeezed oscillator wavepackets. <i>Nature</i> <b>521</b>, 336–339 (2015).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 53" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2015Natur.521..336L" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 53" href="http://scholar.google.com/scholar_lookup?&amp;title=Spin%E2%80%93motion%20entanglement%20and%20state%20diagnosis%20with%20squeezed%20oscillator%20wavepackets&amp;journal=Nature&amp;volume=521&amp;pages=336-339&amp;publication_year=2015" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR54">Le Jeannic, H., Cavaillès, A., Huang, K., Filip, R. &amp; Laurat, J. Slowing quantum decoherence by squeezing in phase space. <i>Phys. Rev. Lett.</i> <b>120</b>, 073603 (2018).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 54" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2018PhRvL.120g3603L" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 54" href="http://scholar.google.com/scholar_lookup?&amp;title=Slowing%20quantum%20decoherence%20by%20squeezing%20in%20phase%20space&amp;journal=Phys.%20Rev.%20Lett.&amp;volume=120&amp;publication_year=2018" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR55">Lau, H.-K. &amp; Clerk, A. A. High-fidelity bosonic quantum state transfer using imperfect transducers and interference. <i>Npj Quantum Inf.</i> <b>5</b>, 31 (2019).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 55" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2019npjQI...5...31L" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 55" href="http://scholar.google.com/scholar_lookup?&amp;title=High-fidelity%20bosonic%20quantum%20state%20transfer%20using%20imperfect%20transducers%20and%20interference&amp;journal=Npj%20Quantum%20Inf.&amp;volume=5&amp;publication_year=2019" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR56">Pan, X. et al. Protecting the quantum interference of cat states by phase-space compression. <i>Phys. Rev. X</i> <b>13</b>, 021004 (2023).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 56" href="http://scholar.google.com/scholar_lookup?&amp;title=Protecting%20the%20quantum%20interference%20of%20cat%20states%20by%20phase-space%20compression&amp;journal=Phys.%20Rev.%20X&amp;volume=13&amp;publication_year=2023" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR57">Pantaleoni, G., Baragiola, B. Q. &amp; Menicucci, N. C. Modular bosonic subsystem codes. <i>Phys. Rev. Lett.</i> <b>125</b>, 040501 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="MathSciNet reference 57" href="http://www.ams.org/mathscinet-getitem?mr=4131194" rel="nofollow noopener">MathSciNet</a> 
+    <a aria-label="ADS reference 57" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2020PhRvL.125d0501P" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 57" href="http://scholar.google.com/scholar_lookup?&amp;title=Modular%20bosonic%20subsystem%20codes&amp;journal=Phys.%20Rev.%20Lett.&amp;volume=125&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR58">Chamberland, C. et al. Building a fault-tolerant quantum computer using concatenated cat codes. <i>PRX Quantum</i> <b>3</b>, 010329 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 58" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2022PRXQ....3a0329C" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 58" href="http://scholar.google.com/scholar_lookup?&amp;title=Building%20a%20fault-tolerant%20quantum%20computer%20using%20concatenated%20cat%20codes&amp;journal=PRX%20Quantum&amp;volume=3&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR59">Bennett, C. H., DiVincenzo, D. P., Smolin, J. A. &amp; Wootters, W. K. Mixed-state entanglement and quantum error correction. <i>Phys. Rev. A</i> <b>54</b>, 3824 (1996).</p><p class="c-article-references__links u-hide-print"><a aria-label="MathSciNet reference 59" href="http://www.ams.org/mathscinet-getitem?mr=1418618" rel="nofollow noopener">MathSciNet</a> 
+    <a aria-label="MATH reference 59" href="http://www.emis.de/MATH-item?1371.81041" rel="nofollow noopener">MATH</a> 
+    <a aria-label="ADS reference 59" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=1996PhRvA..54.3824B" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 59" href="http://scholar.google.com/scholar_lookup?&amp;title=Mixed-state%20entanglement%20and%20quantum%20error%20correction&amp;journal=Phys.%20Rev.%20A&amp;volume=54&amp;publication_year=1996" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR60">Knill, E. &amp; Laflamme, R. Theory of quantum error-correcting codes. <i>Phys. Rev. A</i> <b>55</b>, 900 (1997).</p><p class="c-article-references__links u-hide-print"><a aria-label="MathSciNet reference 60" href="http://www.ams.org/mathscinet-getitem?mr=1455854" rel="nofollow noopener">MathSciNet</a> 
+    <a aria-label="ADS reference 60" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=1997PhRvA..55..900K" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 60" href="http://scholar.google.com/scholar_lookup?&amp;title=Theory%20of%20quantum%20error-correcting%20codes&amp;journal=Phys.%20Rev.%20A&amp;volume=55&amp;publication_year=1997" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR61">Gross, J. A., Caves, C. M., Milburn, G. J. &amp; Combes, J. Qubit models of weak continuous measurements: Markovian conditional and open-system dynamics. <i>Quantum Sci. Technol.</i> <b>3</b>, 024005 (2018).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 61" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2018QS%26T....3b4005G" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 61" href="http://scholar.google.com/scholar_lookup?&amp;title=Qubit%20models%20of%20weak%20continuous%20measurements%3A%20Markovian%20conditional%20and%20open-system%20dynamics&amp;journal=Quantum%20Sci.%20Technol.&amp;volume=3&amp;publication_year=2018" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR62">Wang, Y.-X., Wang, C. &amp; Clerk, A. A. Quantum nonreciprocal interactions via dissipative gauge symmetry. <i>PRX Quantum</i> <b>4</b>, 010306 (2023).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 62" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2023PRXQ....4a0306W" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 62" href="http://scholar.google.com/scholar_lookup?&amp;title=Quantum%20nonreciprocal%20interactions%20via%20dissipative%20gauge%20symmetry&amp;journal=PRX%20Quantum&amp;volume=4&amp;publication_year=2023" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR63">Puri, S. et al. Bias-preserving gates with stabilized cat qubits. <i>Sci. Adv.</i> <b>6</b>, eaay5901 (2020).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 63" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2020SciA....6.5901P" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 63" href="http://scholar.google.com/scholar_lookup?&amp;title=Bias-preserving%20gates%20with%20stabilized%20cat%20qubits&amp;journal=Sci.%20Adv.&amp;volume=6&amp;publication_year=2020" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR64">Guillaud, J. &amp; Mirrahimi, M. Error rates and resource overheads of repetition cat qubits. <i>Phys. Rev. A</i> <b>103</b>, 042413 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="MathSciNet reference 64" href="http://www.ams.org/mathscinet-getitem?mr=4256814" rel="nofollow noopener">MathSciNet</a> 
+    <a aria-label="ADS reference 64" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2021PhRvA.103d2413G" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 64" href="http://scholar.google.com/scholar_lookup?&amp;title=Error%20rates%20and%20resource%20overheads%20of%20repetition%20cat%20qubits&amp;journal=Phys.%20Rev.%20A&amp;volume=103&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR65">Albert, V. V. Lindbladians with multiple steady states: theory and applications. Preprint at <a href="https://arxiv.org/abs/1802.00010">https://arxiv.org/abs/1802.00010</a> (2018).</p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR66">Leviant, P., Xu, Q., Jiang, L. &amp; Rosenblum, S. Quantum capacity and codes for the bosonic loss-dephasing channel. <i>Quantum</i> <b>6</b>, 821 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 66" href="http://scholar.google.com/scholar_lookup?&amp;title=Quantum%20capacity%20and%20codes%20for%20the%20bosonic%20loss-dephasing%20channel&amp;journal=Quantum&amp;volume=6&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR67">Bonilla Ataides, J. P., Tuckett, D. K., Bartlett, S. D., Flammia, S. T. &amp; Brown, B. J. The XZZX surface code. <i>Nat. Commun.</i> <b>12</b>, 1–12 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 67" href="http://scholar.google.com/scholar_lookup?&amp;title=The%20XZZX%20surface%20code&amp;journal=Nat.%20Commun.&amp;volume=12&amp;pages=1-12&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR68">Darmawan, A. S., Brown, B. J., Grimsmo, A. L., Tuckett, D. K. &amp; Puri, S. Practical quantum error correction with the xzzx code and kerr-cat qubits. <i>PRX Quantum</i> <b>2</b>, 030345 (2021).</p><p class="c-article-references__links u-hide-print"><a aria-label="ADS reference 68" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2021PRXQ....2c0345D" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 68" href="http://scholar.google.com/scholar_lookup?&amp;title=Practical%20quantum%20error%20correction%20with%20the%20xzzx%20code%20and%20kerr-cat%20qubits&amp;journal=PRX%20Quantum&amp;volume=2&amp;publication_year=2021" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR69">Xu, Q., Iverson, J. K., Brandão, F. G. &amp; Jiang, L. Engineering fast bias-preserving gates on stabilized cat qubits. <i>Phys. Rev. Res.</i> <b>4</b>, 013082 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="Google Scholar reference 69" href="http://scholar.google.com/scholar_lookup?&amp;title=Engineering%20fast%20bias-preserving%20gates%20on%20stabilized%20cat%20qubits&amp;journal=Phys.%20Rev.%20Res.&amp;volume=4&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR70">Yuan, M., Xu, Q. &amp; Jiang, L. Construction of bias-preserving operations for pair-cat codes. <i>Phys. Rev. A</i> <b>106</b>, 062422 (2022).</p><p class="c-article-references__links u-hide-print"><a aria-label="MathSciNet reference 70" href="http://www.ams.org/mathscinet-getitem?mr=4530593" rel="nofollow noopener">MathSciNet</a> 
+    <a aria-label="ADS reference 70" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2022PhRvA.106f2422Y" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 70" href="http://scholar.google.com/scholar_lookup?&amp;title=Construction%20of%20bias-preserving%20operations%20for%20pair-cat%20codes&amp;journal=Phys.%20Rev.%20A&amp;volume=106&amp;publication_year=2022" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR71">Hillmann, T. &amp; Quijandría, F. Quantum error correction with dissipatively stabilized squeezed-cat qubits. <i>Phys. Rev. A</i> <b>107</b>, 032423 (2023).</p><p class="c-article-references__links u-hide-print"><a aria-label="MathSciNet reference 71" href="http://www.ams.org/mathscinet-getitem?mr=4572370" rel="nofollow noopener">MathSciNet</a> 
+    <a aria-label="ADS reference 71" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2023PhRvA.107c2423H" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 71" href="http://scholar.google.com/scholar_lookup?&amp;title=Quantum%20error%20correction%20with%20dissipatively%20stabilized%20squeezed-cat%20qubits&amp;journal=Phys.%20Rev.%20A&amp;volume=107&amp;publication_year=2023" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li></ol></div></div></div></section></div><section data-title="Rights and permissions"><div class="c-article-section" id="rightslink-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="rightslink">Rights and permissions</h2><div class="c-article-section__content" id="rightslink-content">
+                <p><b>Open Access</b>  This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">http://creativecommons.org/licenses/by/4.0/</a>.</p>
+              <p class="c-article-rights"><a href="https://s100.copyright.com/AppDispatchServlet?title=Autonomous%20quantum%20error%20correction%20and%20fault-tolerant%20quantum%20computation%20with%20squeezed%20cat%20qubits&amp;contentID=10.1038%2Fs41534-023-00746-0&amp;copyright=The%20Author%28s%29&amp;publication=2056-6387&amp;publicationDate=2023-08-03&amp;publisherName=SpringerNature&amp;orderBeanReset=true&amp;oa=CC%20BY">Reprints and permissions</a></p></div></div></section>
+                    </div>
+
+                    
+                        
+                            
+                        
+                    
+
+                    
+                </div>
+            </article>
+        </main>
+        
+            
+
+        
+    </div>
+
+    
+
+
+
+
+    
+        
+    
+    
+        
+            
+        
+
+        
+            
+        
+    
+    
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+</body></html>

@@ -81,13 +81,13 @@ for (const record of records) {
         const start = result.markdown.indexOf('In a preliminary screen');
         const end = result.markdown.indexOf('for binding to rat cerebral cortex', start);
         const isotopeContext = result.markdown.slice(start, end);
-        assert.equal((isotopeContext.match(/\[[^\]\n]*H\]/gu) || []).length, expected.literalOccurrences, 'Original isotope label brackets remain literal boundaries');
+        assert.equal((isotopeContext.match(/\[\$(?:\{\})?\^\{3\}(?:H|\\(?:mathrm|text)\{H\})\$\]/gu) || []).length, expected.literalOccurrences, 'Original isotope label brackets enclose complete leading-mass atoms');
         assert.equal((isotopeContext.match(/\^\{3\}/gu) || []).length, expected.literalOccurrences, 'Original leading isotope mass remains present');
         assert.ok(isotopeContext.includes('butylbicycloorthobenzoate'));
         assert.ok(isotopeContext.includes('TBOB'));
         assert.doesNotMatch(isotopeContext, /\$\$\^/u);
-        // This contract restores literal boundaries only. Source-leading 3H
-        // attachment remains an independently recorded scientific defect.
+        // Issue #61 now protects the source-leading mass as one math atom;
+        // its closing math delimiter stays inside the original literal ].
       }
       assert.ok(result.debug.rawHtmlValidation.valid);
       assert.ok(result.debug.markdownStructure.valid);

@@ -228,6 +228,7 @@ function captionFor(figure, { includeFigureDescription = false } = {}) {
     : null;
   const html = [element?.innerHTML, description?.innerHTML].filter(Boolean).join(' ');
   return {
+    element,
     text: cleanText([element?.textContent, description?.textContent].filter(Boolean).join(' ')),
     html,
   };
@@ -312,19 +313,24 @@ function tableNotes(root) {
 function extractTables(body, url) {
   let number = 0;
   return Array.from(body.querySelectorAll('figure')).flatMap((figure) => {
-    const caption = captionFor(figure).text;
+    const captionData = captionFor(figure);
+    const caption = captionData.text;
     if (!/^Table\b|^Extended Data Table\b/i.test(caption)) return [];
     number += 1;
+    const identity = `inline-table-${number}`;
+    figure.setAttribute(FIGURE_IDENTITY_ATTR, identity);
     const link = figure.querySelector('[data-test="table-link"]')?.getAttribute('href')
       || figure.querySelector('a[href]')?.getAttribute('href');
     const id = figure.id || figure.querySelector('[id^="Tab"]')?.id || '';
     const tableElement = figure.querySelector('table');
     return [{
+      identity,
       id,
       natureId: id,
       anchor: `table-${number}`,
       label: tableLabel(caption, `Table ${number}`),
       caption,
+      captionHtml: captionData.html,
       url: normalizeUrl(link, url),
       tableHtml: tableElement?.outerHTML || '',
       notes: tableNotes(figure),
@@ -442,9 +448,19 @@ function extractMathSource(value) {
   return text;
 }
 
-function replaceDisplayMath(body) {
+function replaceDisplayMath(body, tables) {
   const values = [];
-  for (const element of Array.from(body.querySelectorAll('.c-article-equation .mathjax-tex'))) {
+  const tableDisplayMath = [];
+  for (const table of tables) {
+    const figure = body.querySelector(`[${FIGURE_IDENTITY_ATTR}="${table.identity}"]`);
+    if (!figure) continue;
+    for (const element of captionFor(figure).element?.querySelectorAll('.mathjax-tex') || []) {
+      const source = element.textContent.trim();
+      if (!element.closest('pre, code') && (source.startsWith('\\[') && source.endsWith('\\]')
+        || source.startsWith('$$') && source.endsWith('$$'))) tableDisplayMath.push(element);
+    }
+  }
+  for (const element of new Set([...body.querySelectorAll('.c-article-equation .mathjax-tex'), ...tableDisplayMath])) {
     const tex = extractMathSource(element.textContent);
     if (!tex) continue;
     const marker = semanticMarker('DISPLAYMATH', values.length);
@@ -744,6 +760,26 @@ function collectNumericSuperscriptRun(parent, startIndex) {
   };
 }
 
+function collectLeadingIsotopeRun(parent, startIndex) {
+  const mass = parent.childNodes[startIndex];
+  if (!isElement(mass, new Set(['SUP'])) || mass.firstElementChild
+    || !/^[1-9]\d*$/u.test(mass.textContent)
+    || mass.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  const element = mass.nextSibling;
+  // These are the source-backed element roles. A whole word, another element,
+  // or presentation whitespace after SUP is not evidence of this prefix role.
+  if (element?.nodeType !== 3 || !/^[HCF](?![\p{L}\p{N}_])/u.test(element.textContent)) return null;
+  const previous = mass.previousSibling;
+  // Contiguous numeric/styled bases belong to the existing exponent collectors.
+  // A measurement's original separating whitespace stays outside this range.
+  if (previous && (previous.nodeType !== 3
+    || !/[\s\u2009\[(]$/u.test(previous.textContent))) return null;
+  return {
+    start: { node: parent, offset: startIndex },
+    end: { node: element, offset: 1 },
+  };
+}
+
 function collectTextAndStyledSymbolRun(parent, startIndex, inlineMathByMarker, displayMath) {
   const node = parent.childNodes[startIndex];
   if (!isElement(node, new Set(['I', 'B']))) return null;
@@ -801,6 +837,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
           || collectTextAndStyledSymbolRun(parent, index, inlineMathByMarker, displayMath)
           || collectNumericAttachmentRun(parent, index)
           || collectNumericSuperscriptRun(parent, index)
+          || collectLeadingIsotopeRun(parent, index)
           || collectDetachedSuperscriptRun(parent, index);
       if (!range) {
         index += 1;
@@ -955,7 +992,7 @@ function insertAnchorMarker(parent, marker) {
 }
 
 function prepareSemanticNodes(body, url, figures, tables) {
-  const displayMath = replaceDisplayMath(body);
+  const displayMath = replaceDisplayMath(body, tables);
   const inlineMath = replaceInlineMath(body);
   const scientificRuns = replaceScientificRuns(body, inlineMath, displayMath);
   const literalText = replaceScientificBracketText(body);
@@ -986,6 +1023,11 @@ function prepareSemanticNodes(body, url, figures, tables) {
   // Capture the protected caption DOM, including citations and typed math,
   // before main figures become placeholders or supplementary sections vanish.
   for (const element of body.querySelectorAll(`[${FIGURE_IDENTITY_ATTR}]`)) {
+    const table = tables.find((candidate) => candidate.identity === element.getAttribute(FIGURE_IDENTITY_ATTR));
+    if (table) {
+      table.captionHtml = captionFor(element).html;
+      continue;
+    }
     const data = figures.find((candidate) => candidate.identity === element.getAttribute(FIGURE_IDENTITY_ATTR));
     if (!data) continue;
     data.captionHtml = data.source === 'inline figure'
