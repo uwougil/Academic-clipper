@@ -15,7 +15,7 @@
 
 ## DAG / 文件所有权
 
-当前 checkpoint（2026-10-08 02:00 UTC；以下 startup 表为历史）：
+当前 checkpoint（2026-10-08 02:12 UTC；以下 startup 表为历史）：
 
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
@@ -25,10 +25,10 @@
 | Footer45、caption47、units48、tableMathJax51、literal53、sparse55、citation56 | DONE | 各独立PR与成功mergedMain receipts见后续历史；accepted mainac86 |
 | styled-adjacency57 / PR62 | DONE | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523与Secrets成功、57 automation completed |
 | table-caption60 | DONE | PR66 exact3a7ab0b独立zero findings与十门槛通过，squashe2c1fad；mergedMain37707702765/Secrets37707702972 SUCCESS，60automationCOMPLETED |
-| leading-isotope61 | RUNNING delivery/review | cleane88b3db/code1320d8b；64focused/full604/build/golden GREEN；finalRefs61PR与独立exact-head implementation review接续，不重复full/sourceaudit |
+| leading-isotope61 | RUNNING merged-Main acceptance | PR69 exacte88独立零阻塞及十门槛通过；squasha5b6acc；Main37716530268运行中，Secrets37716530267SUCCESS；accepted仍e2c1 |
 | Greek / split-power source contracts | DONE for source inputs | Greek64 cleanfcb116e / split63 clean4376aa8；两新projection独立CLEAR，production gate仍锁 |
 | reference2 literal inequality | DONE for source inputs | cleanaea33123/a07c827；新30block独立SOURCE_PROJECTION_CLEAR，生产修复仍pending |
-| Materials identifier68 / compound-unit67 | RUNNING independent source scheduling | clean68d501e4/67 9610923；81block11identifier含两heading/99block真实mS·cm⁻¹；source RED与独立ref2FAIL保留，两个新projection审查未完成 |
+| Materials identifier68 / compound-unit67 | RUNNING / DONE for source inputs | 67 exact9610923的99block独立SOURCE_CLEAR_ONLY；68 exactd501e4新81block独立审查运行中；两者production仍pending |
 | Other mandatory scientific / Ref2 roles | PENDING | C冻结历史source evidence；需各独立窄合同/正确覆盖，不计现有PASS |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
@@ -497,3 +497,17 @@ Root完整readback[PR69](https://github.com/uwougil/Academic-clipper/pull/69) bo
 Fresh PRCI37715681800 actualsameheadLIVE：U20job113111486977/U24job113111487127/Win24job113111487126；Secrets37715681764/Gitleaks113111487058sameheadSUCCESS。当前独立review执行唯一必要subset49/49PASS1659ms（all15source25 +syntheticqualification24），原604/source83regen不重复，最终packet仍待，不能merge。Acceptedmain仍e2c1，不依未成功PRchecks释放另一productionowner；三个currentchildren绑定真实runninghandles，root无full/newclip执行。
 
 67 unique99projection sourceaudit已排程到不同owner，尚待实际独立result；68 unique81projection下一名额后审核。Citation-order独立arbitration检查规范cluster内部有序numbers与既有renderTables文末位置的独立历史证据，不改任何expected/helper/生产或重clip。所有当前failedsource/validators仍原样保留，finalintegratorstartgate未达，最终Issue10PR未创建/未merge。
+
+## 02:12 UTC：PR69 合并、来源清关与 C 容器断言仲裁
+
+用户再次明确要求后续goal避免重复劳动。复用证据以实际commit/tree、输入hash、接口版本及检查范围一致为条件；代码或输入改变只补受影响的检查。必须独立审查与最终canonical验证仍保留；每次新运行说明未确认的问题，不能因节省执行而把原FAIL改名为PASS。
+
+Root全文读61 implementation packet8699bytes/SHAd152594b7dbfd02bcee0b7135e627702b154f34c77e5a60a25175a63fb653626，manifest122058/SHA5ab2d33da7752bdaa28fa663a5be96ce93714e5ed024e459fb3926aa04bba257。Exacte88结论零blocking findings，独立唯一49/49PASS1659ms；三方言全部15真实mass角色、六measurement顺序/分隔及四错误binding恢复，source83/provenance/原两测试未变。Author唯一604/full/build/golden日志与code/src/test树逐项核验复用，reviewer没有重复full或A审计；两独立groupSUB失败仍保留。Root实际重新确认PRbody14路径、exactRefs61、cleanhead、protected-path quiet及code1320→e88仅文档，未执行任何test/clip。
+
+Fresh CI37715681800 samee88 completedSUCCESS：U20job113111486977 02:09:12Z、U24job113111487127 02:05:44Z、Win24job113111487126 02:09:16Z；Secrets37715681764samee88 SUCCESS。来源真实RED/focused/full/build/golden/freshCI/Secrets/独立零阻塞/窄scope/unchangedhead十门槛全满足。`gh pr merge 69 --repo uwougil/Academic-clipper --squash --match-head-commit e88b3dbcc2546b2cac5b8e66d9957113961c3afa` exit0；PR69 mergedAt2026-10-08T02:10:02Z，squasha5b6acc2984af5cb8b82106291e963f4f413f5ac。Fetch核origin/main same；mergedMain37716530268实际IN_PROGRESS、mergedSecrets37716530267SUCCESS。成功Main前accepted仍e2c1，不释放下一生产gate、不手动close61/10。
+
+Root全文读67 source report9975bytes/SHA4315f0c73eeca8795beb407c5b27764ecd6ffbd4cf8b11a9161a6ec96029a2e5；machine57075/SHA5a91e057fcebdb0a25af8bd1b0c3d527c3c4663cd701da2559c3af6feafe8aad；receipt1972/SHAdaf36857c7d3282ea160a53346fca4ca4c04268dc3c45ea09aae7e25c01143a1。不同owner在新owncheckout执行一次实际A接口审核99prehash/86732精确重建/repeatidem/transforms/signatures、fullp42原mS×cm⁻¹/101.18/σ温度/69cite/六作者/CCrights/prefix1–69，exit0/零阻塞来源问题。没有重clip/test/网络；cache/hash与旧6=3PASS3FAIL核对。Writer证据明确STATICcallgraph，declarativewriterCalls0不是运行时spy。只解除source gate，production/Ref2/全验收仍未解除。68交另一独立reviewer审新81projection，未声称结果。
+
+Root全文读独立C仲裁report13171/SHA9ee18b07e54dbbff2db07bd8f9466b5a04a656ee604fed65871e2aad1cc7fffb，diagnostic73179/SHA7d264d30012993d95fcb4edbaa324b7e994af19fb6a7f94b920d6c43224b2f4b。P2/AGENT_RESOLVABLE：canonical§7与§4要求原cluster内部有序numbers；原B accepted e85已将Tables独立渲染于末尾。当前77source/semantic全序保持，最终76非table全序与原tablecaption一簇按sourceowner完全保持，只是caption合法移至文末；三个cachedsource邻接checks均通过。不能删除原条件后只计数/排序/multiset/whole-bodyincludes；必须sourceURL+captionidentity一对一匹配最终frame、非relocation全序/每table内序与multiplicity/cluster内部顺序/原邻词严格验证并增加真实mutation protection。19productionmathFAIL仍独立保留，不要求human/spec改变。
+
+旧Chandle不存在，按§22恢复SAMEcodex/issue-10-agent-c工作区d993的replacement，只修改C-ownedhelper/tests/handoff。其进一步确认same-runcomparison.summary/完整Markdown已包含citations consumer所需真实字段，可执行consumer-onlycache RED→GREEN/mutations，clips0；不冒充完整compareArticleResult或255/canonical全验收。未采用pendinga5b基线，待root发布acceptedMain后再执行Chemistry窄delta。65 SAMEsourcebranch恢复仅readonlypreflight、source30原审查复用，等待mergedMain成功后释放唯一生产gate；其它Naturefixes串行。Finalintegrationstartgate仍未达，Issue10未完成。
