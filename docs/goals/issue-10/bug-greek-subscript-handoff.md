@@ -1,6 +1,6 @@
 # Issue #64 — plain Greek + SUB 来源预检交接
 
-状态：`SOURCE_ONLY / DEPENDENCY_PENDING`。已核验 [Issue #64](https://github.com/uwougil/Academic-clipper/issues/64) 为 OPEN、唯一 type label 为 `bug`。这是独立 implementation bug 的正确输入与永久 RED；没有生产修复、implementation PR 或 CI 完成声明，Issue #10 未完成。消费 `create-issue` 的 intake/重复查询规则和 `fix-bug` 的 reproduce→prove→diagnose→regression 流程；停在 root 指定的 source-only 边界。
+当前状态：`IMPLEMENTATION_FOCUSED_GREEN / INDEPENDENT_DELTA_REVIEW_PENDING`。下文原source-only交接保留历史证据，最新生产授权与实际focused见末尾续章。已核验 [Issue #64](https://github.com/uwougil/Academic-clipper/issues/64) 为 OPEN、唯一 type label 为 `bug`；尚无本bug实现PR或完成声明，Issue #10未完成。消费 `create-issue` intake与 `fix-bug` evidence-first流程，full/build/golden等到不同owner稳定代码增量审查通过后由root释放。
 
 ## 基线、所有权与提交
 
@@ -104,3 +104,37 @@ External final TAP `accepted-ac86-focused-frozen.log`：91380 bytes / SHA256 `01
 #64 accepted Main/Secrets后恢复 SAME C，对Quantum `source-inline-v1` / `nature-source-inline-v1`、`source-figures-v1`和真实finalmath validators定点复验，保留source/oracle不变。同次缓存记录scope与全部validators/warnings/semantics；不得因#64的17问题清除声称 whole Quantum通过，其#60 caption24和splitSUP2仍由各合同验证。这里没有新增source expectation或放宽C registry；最终27combo/85consumer的完整验收仍属Issue10integrator。
 
 Spec changes：无。Canonical、PRD/EDD、B科学input/oracle保持不变。没有需要human放宽科学真实性、许可或安全的决策。#64 OPEN和sourceRED说明当前工作未修复，不是Issue10完成状态。
+
+## 生产授权与 focused checkpoint（2026-10-08）
+
+Root明确释放 SAME owner 的唯一 Nature production写权后，采用accepted main `73d6cfafba9bb33149959e315ab29b5b0bc24d75`（#63）。Root核验 mergedMain `37734814590` 与 Secrets `37734814595` 同SHA success，Ubuntu20 `113171838806`、Ubuntu24 `113171838941`、Windows24 `113171838734` 全success；Finalizer `37735759743` success、Issue63由automation completed。只消费这个已accepted状态；没有改另一个ownercheckout/index。
+
+Ordered新增own commits：`485190375685d49ffb3eb2920f79830f226c4845`（45-case RED/plan）→ `2935e3c293dbb359a329caaebe1761b954f45ed6`（不同owner要求的16 context cases）→ `baf0fff48599eb0b06ef1a78128836a26adbe7cd`（synthetic旧emptyI邻接harness）→ dependency-only nonFF `93edf92301dd0fe227f9a27b06f01c51c6e982a5`（adopt73d6）→ implementation/test `aeaac76b132d8e70b42fcdab266f1f99ea1213f6` → 本docs-onlycheckpoint（`git log -1 --format=%H -- docs/goals/issue-10/bug-greek-subscript-handoff.md`）。原source commits59cf359/de24c908/fcb116e与source120/helper/oracle不改；`git diff fcb116e... HEAD -- test/fixtures/nature-greek-subscript`为空。原不同owner source CLEAR与45/16 synthetic RED直接复用，没有重做raw/A/sourceaudit或oldreal RED。
+
+最小实现仅 `src/adapters/nature.mjs` 29行新增（28行private `collectPlainGreekSubscriptRun` + 1collector-chain入口）。只接原previous TEXT末尾独立Γ/Ω与直接SUB，其内容恰plain atom或单I/单TEXT的原a/b/i/0；拒绝词/number/identifier前缀、未知前sibling/comment、separating whitespace/wrapper/mixed/nested/link/math附件，以及额外SUB/SUP链。Citation SUP仍由既有typed guard排除在range之外。Nativecode/math及parent literal cues保守opaque，借用已有range/scientificTex/shared marker：**没有第二caption parser、Markdown regex修补、normalizer/validator/security/spec/PRD/EDD/dependency/writer/golden修改**。图注仍是同一scientific pass之后既有protected caption recapture。整parent含literal cue的保守限制沿preflight声明，不声称通用Greek parser。
+
+第一次必要productionfocused实际88tests /84PASS /4FAIL /2585.4961ms /exit1，证据不删除。源三方言四validators已经PASS，native17 isolatedSubscript均归零；失败是旧p13 locator要求plain `Here ν`，accepted styled处理现在保留`Here *ν*`（3styles）；旧synthetic `<math><p>`实际被HTML parser迁至Math之外（1case）。只以稳定原句`is the trap frequency`定位，原Greek oracle/order不改；synthetic使用合法HTML integration point `<math><mtext><p>...`维持真实Math ancestor。独立JSDOM-only检查证明旧Math ancestor false/新true，不以改生产来修错误测试。
+
+第一次 source test的top-level await还导致afterhook过早restore guards，networkreceipt actualSourceClips=0；该receipt **不提供3真实clip的动态zero-network证明**。改为每方言lazy shared result，在test生命周期内恰一次clip，实际counters记录3real+3既有synthetic。没有为填receipt增加额外sourceclip；test运行重复是为修正必要的生命周期与harness，而不是重做来源工作。生产code在两个focused runs之间完全未变。
+
+Corrected focused：WindowsNode24.14.1，`node --test test/nature-greek-subscript.test.mjs test/nature-greek-subscript-boundaries.test.mjs test/nature-greek-subscript-context-boundaries.test.mjs`，**88/88 PASS，2262.0838ms，exit0，0skip/cancel/todo**。Scope=原27（21 paragraph×style role +3validator +source完整性 +2syntheticcompat）+45qualification/rejection/legacy+16context。实际3原sourceclips +3原syntheticdialectclips；实际source7contexts/17native（15body/2Fig5caption）和原MathJax角色sourceorder GREEN，mixed nonzero scientific/inline/citation markers exactonce/subset/order/邻接完整执行PASS，未知边界不猜测。四validators均PASS，warnings严格[]，tables[]。HTTP/DNS guards record-before-throw、after ledger=[]，bindingsRestored=true；parsed DOM finally close。Writer仅有静态调用路径证明，不冒称writer spy。
+
+同run3份完整MD/cache与network/两个synthetic receipts保存到外部 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue64-production/`；默认CI不输出这些文件。Cache-only compatibility检查（新parse/clip/raw/A/sourceaudit均0）核对原8display records/38inlineMath/3citation records与oldac86 cached完全相同；这些仅作旧角色不退化证明，绝不反推新scienceoracle。原6ordered creators、DOI/canonical、Fig5/6、refs连续1–76、17新native记录、全4validator与严格warnings[]均核验。Excerpt90784/SHA227a626...、provenance96355/SHA07e2d0...仍原source身份。
+
+| Closed artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| focused-green-initial.log | 10634 | `0cb794a74e64cb48567295148dec69cfe0220691ae2dedc7913c858c239e02d5` |
+| focused-green-stable.log | 6770 | `932b105eeeb8d97437dd1b556135e4bbaf6319e50cea3bde375c76fb2e029861` |
+| green-stable.network.json | 267 | `b58d3117c4483a32077f09fa1c22ce6f5e6e9c36757d98b5d68c16c0edc5e34e` |
+| green-stable.markdown.md | 21830 | `0f58f91b830de6fe23e32342c0da831ca16b57a7b27ca082d877f3ab02fca335` |
+| green-stable.links.md | 23502 | `69ae83f75e9fd381433fd8c1f7da51a3505e901a7628f5c812eaf8c134492cc6` |
+| green-stable.quarto.md | 11033 | `9e99f46fa894ee3c9694b8eeba8cfcf1354d0ac69683626f1b3db887eead3756` |
+| focused-stable-cache-audit.json | 19181 | `b6ddc756dfca899fe4c26623609d8ab1a1adc263a8dfd22e0cff9424774f7159` |
+
+Source/test implementation identity ataeaac76：Nature blob `5342e79f65b8209f5978cbc14481d8f1745d4854`；realtest `c5027f65bb5fed3fec3d23a74928809367097053`；45test `a624e6c4e4f601514cdf30c776d91657f14119e4`；16test `d79e4d6d27e68a9c0c02b0f732be98b8dfede06b`。三份cachebytes/Hashes、first invalid network与终态exit artifacts也在cache-audit记录，初次与corrected三份MD/cachebytes相同不等于初次guards有效。
+
+不同owner在88-case checkpoint增加唯一8个新parse-only probes，发现同一P2 lexical缺口：decomposed Latin/Greek/combining-overlay前缀被错误当成分隔（6probes3PASS3FAIL），astral Letter/Number的低surrogate被单codeunit检查漏判（追加2probes2FAIL）。原RED保存在不同owner external `academic-clipper-issue64-implementation-independent-review/{new-parse-probes-aeaac76.json,unicode-scalars-aeaac76.json}`；未重复原61matrix或原source clips/A/raw。最小修正commit `07be843674b9c4d5f676a3c3ef42c770a6655c4b`，把leftguard改为对完整prefix末端的Unicode `L/N/M/_` 检查，加入5个明确synthetic永久反例；不扩大collector/科学input/normalize架构。Nature blob更新为 `0900530ddfd8a11db7801e0aefa9f31a89d81a08`，21-case contexttest为 `9b085791c50bfbde0583a73173754db6d1aeabe7`，real/45test身份不变。
+
+修正production后必要focused再执行同命令：**93/93PASS，2234.6298ms，exit0，0skip/cancel/todo**，scope原27+45+21；真实3clips与synthetic3clips的同run network ledger=[]、bindingsRestored=true。新三份source MD/cache与此前88-case GREEN bytes完全相同，原scientific17/全4validators/严格warnings[]保持。最新 `focused-green-unicode.log` 7143 bytes/SHA `83660e50a6c7255f6fb8ff5b841a7660e7c3372b1c50cf26a785ed29e3aa0af9`；`context-green-unicode.json` 5817/SHA `0b8a6294c61c973a6e9110c1d26127d7afb4d3e3b352af911162bd008b637e68`，`boundary-green-unicode.json` 11007/SHA `92d230c5aa0a573d9133d0298ea14a933155e96ab78f30339af0a2e85396ca53`。最新same-run结果前缀为 `green-unicode`；对应MD/cache/network hashes复用前表身份，但scope证明来自新的必要运行。93-case证据是最新focused门槛，旧88-only成功不替代Unicode修正后验证。
+
+当前不是PR-ready或accepted bug：stablecode已发送不同owner做增量审查，full/affected/build/golden/freshCI/Secrets/finalexact-headreview尚未执行，按root门槛顺序继续。独立增量CLEAR后才一次全量验收；source/oracle无改动无需重做原120blocks来源审计。只有所有十gates满足才允许root narrow #64 PR squashmerge，mergedMain success后自动完成#64并解阻C；Issue10仍须最终统一集成与human-review PR。
