@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { readFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { after, test } from 'node:test';
 import { JSDOM } from 'jsdom';
 import { clipNature, referencesBib, referencesMarkdown } from '../src/clip.mjs';
@@ -67,7 +67,16 @@ test('real reference projection retains original prefix, creators, DOM science a
 // validator assertions. No full-document snapshot or second parser is used.
 const clipCache = new Map();
 function realClip(dialect) {
-  if (!clipCache.has(dialect)) clipCache.set(dialect, clipNature({html, url:provenance.source.url, citationStyle:dialect}));
+  if (!clipCache.has(dialect)) clipCache.set(dialect, clipNature({html, url:provenance.source.url, citationStyle:dialect}).then(async result => {
+    // Optional external evidence uses this same clip, never a second run or a
+    // committed Markdown snapshot. The normal test invocation writes nothing.
+    if (process.env.NATURE_REFERENCE_RECEIPT_ROOT) {
+      const root = process.env.NATURE_REFERENCE_RECEIPT_ROOT;
+      await writeFile(`${root}/${dialect}.actual.md`, result.markdown);
+      await writeFile(`${root}/${dialect}.actual-cache.json`, JSON.stringify(result, (key,value) => value instanceof Map ? {entries:[...value]} : value, 2)+'\n');
+    }
+    return result;
+  }));
   return clipCache.get(dialect);
 }
 for (const dialect of ['markdown', 'links', 'quarto']) {
@@ -152,3 +161,30 @@ test('synthetic existing reference math keeps its original less-than operator', 
   assert.ok(rendered.includes('$x+1$'));
   assert.equal(validateRawHtml(rendered,{allowHtmlAnchors:true}).valid, true);
 });
+
+// Deliberately constructed renderer boundaries. These are not source articles,
+// corpus admissions or claims that malformed math should pass math validation.
+const rendererBoundaries = [
+  {name:'mixed inline math and literal tag', text:'Synthetic. $x<1$ then <span>literal</span>.', opaque:['$x<1$']},
+  {name:'mixed display math and literal tag', text:'Synthetic. $$x<1$$ then <span>literal</span>.', opaque:['$$x<1$$']},
+  {name:'escaped currency beside literal tag', text:String.raw`Synthetic. \$5 then <span>literal</span> and \$10.`},
+  {name:'escaped delimiter inside balanced math', text:String.raw`Synthetic. $x<1+\$5$ then <span>literal</span>.`, opaque:[String.raw`$x<1+\$5$`]},
+  {name:'unclosed inline delimiter', text:'Synthetic. $x<1 then <span>literal</span>.'},
+  {name:'unclosed display delimiter', text:'Synthetic. $$x<1 then <span>literal</span>.'},
+  {name:'literal entity spelling and ampersand', text:'Synthetic. &lt; &amp; & <span>literal</span>.'},
+  {name:'literal foreign compatibility anchor', text:'Synthetic. <a id="ref-foreign" onclick="bad()"></a> <span>literal</span>.'},
+];
+for (const dialect of ['markdown','links']) {
+  for (const boundary of rendererBoundaries) {
+    test(`synthetic renderer boundary: ${boundary.name} (${dialect})`, async () => {
+      const refs = syntheticReference(boundary.text);
+      refs[0].doi = '10.1000/synthetic-boundary';
+      const rendered = await withDomGlobals(page.dom, () => referencesMarkdown(refs, provenance.source.url, outputPolicy(dialect)));
+      assert.ok(readableText(rendered).includes(boundary.text), 'Literal text keeps source order and values');
+      for (const opaque of boundary.opaque || []) assert.ok(rendered.includes(opaque), 'Balanced existing TeX bytes stay opaque');
+      assert.ok(rendered.includes('[doi:10.1000/synthetic-boundary](https://doi.org/10.1000/synthetic-boundary)'), 'DOI appended after literal encoding');
+      assert.equal(validateRawHtml(rendered,{allowHtmlAnchors:dialect==='links'}).valid, true, 'No literal tags become raw HTML');
+      assert.deepEqual([...rendered.matchAll(/<a id="([^"]+)"><\/a>/gu)].map(m=>m[1]), dialect==='links' ? ['ref-1'] : []);
+    });
+  }
+}
