@@ -1,6 +1,10 @@
-# Issue #63 — source-only split negative exponent handoff
+# Issue #63 — split negative exponent handoff
 
-独立 [bug Work Contract #63](https://github.com/uwougil/Academic-clipper/issues/63) 已创建并 read back：OPEN、唯一类型 `bug`。当前交付为真实来源与永久 RED 复现，**没有修复生产实现，没有实现 PR，不宣称 #63 或 Issue #10 完成**。分类为 implementation bug；未证明是哪次 commit 引入的 regression。使用 `create-issue` 完成立项，然后按 `fix-bug` 完成 source/reproduce/prove/diagnose/regression 阶段；root 仅授权本阶段，生产修改仍 locked。
+当前状态：真实源 p33/p37 的最小生产修复、必要 local focused/affected/full/build/golden 与不同 owner incremental review 已通过；源码/测试精确验证于 `1ea875efe80be3ebc1eacb61510a294a63aff7ce`。唯一 delivery [PR #76](https://github.com/uwougil/Academic-clipper/pull/76) 已建立；fresh CI/Secrets、immutable final publication review、root 十项 merge gates 与成功 merged Main CI 仍待完成。尚不宣称 #63 或 Issue #10 完成。最新验证和边界见本文末尾“增量审查修正与最终 local 验证”。
+
+## 历史 source-only checkpoint
+
+独立 [bug Work Contract #63](https://github.com/uwougil/Academic-clipper/issues/63) 已创建并 read back：OPEN、唯一类型 `bug`。该历史阶段交付为真实来源与永久 RED 复现，**当时没有修复生产实现、没有实现 PR，不宣称 #63 或 Issue #10 完成**。分类为 implementation bug；未证明是哪次 commit 引入的 regression。使用 `create-issue` 完成立项，然后按 `fix-bug` 完成 source/reproduce/prove/diagnose/regression 阶段；root 当时仅授权本阶段，生产修改仍 locked。
 
 ## 基线、分支与选择
 
