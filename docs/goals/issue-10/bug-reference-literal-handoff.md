@@ -1,6 +1,6 @@
-# Issue #65 — reference literal SOURCE_ONLY 交接
+# Issue #65 — reference literal 交接
 
-状态：`SOURCE_ONLY_UNFIXED`。独立 Work Contract [Issue #65](https://github.com/uwougil/Academic-clipper/issues/65) 已创建并 readback 为 OPEN / bug。没有生产修复、实现 PR 或完成声明；本新 projection 的独立来源审阅仍 pending。Issue #10 未完成。
+当前状态：`IMPLEMENTATION_VERIFIED_REVIEW_CI_PENDING`。独立 Work Contract [Issue #65](https://github.com/uwougil/Academic-clipper/issues/65) 仍 OPEN / bug。下方原 SOURCE_ONLY 阶段内容保持历史证据，其 pending/未实施措辞只描述旧 checkpoint；最新 accepted main、实施结果及交付 gates 在末尾恢复交接。Issue #10 未完成。
 
 ## 基线、所有权与 commit 选择
 
@@ -99,3 +99,79 @@ Git provenance：21728bytes / SHA `5fddc36377682eea4b7fdd9755212d070ffa0ae5dda6b
 3. 修复focused+affected+full/build/read-onlygolden和freshCI/Gitleaks、exactHEAD独立review全部通过后，root才可按goal严格门槛merge唯一#65bug PR；mergedMainCI成功才接受为新main/automation完成此bug。当前#65保持OPEN。
 4. C在新acceptedbase做必要Materials3dialect delta，复用原oracle/reference2 source身份；链接参考文献rawHtml必须由真实生产链路转PASS，不能改helper/validator/oracle或把此生产RED降成expectedwarning。Materials其余10 scientific failures仍各需独立解决，不能因#65解除宣布wholeMaterials/Issue10完成。
 5. 最终Issue10 integrator仍需canonical完整85×3/27 validators/resource/warnings/repeat/ABA/bibliography/golden/fullverification。此新source-only不解锁最终integration，也不创建普通#10deliveryPR。
+
+## 恢复实施交接 — accepted a5b6 / immutable f740
+
+2026-10-08 恢复同一 owned branch/worktree；root 根据 orchestrator §22 明确释放 sole shared-production gate。原 source-only checkpoint `aea33123c464c45273b6d3ced83a8d4478a1d88b` 启动 clean，无活跃旧 implementation handle。`git fetch origin` / actual API 核验最新 accepted main `a5b6acc2984af5cb8b82106291e963f4f413f5ac`；Main `37716530268` completed/success、三个 jobs成功，Secrets `37716530267` 同 SHA success。该 main 已接纳 #61；没有从 pending main 冻结输入。
+
+Ordered branch commits：
+
+1. `a07c82734c3e4e8c54b8be9901cf236ffe88092a` — 原 source/test。
+2. `aea33123c464c45273b6d3ced83a8d4478a1d88b` — 原 source-only durable handoff / synthetic math control。
+3. `e41058831c4c4d29f9baa2b504121a63d94890f3` — 非破坏 dependency merge accepted `a5b6acc`；保留原 source-only commits，不选择其他 agent 的未接纳 branch。
+4. `1fd67c8e2d9b6cf46fbedfd7e07656cd1d23ea5b` — 新 synthetic-only boundary RED checkpoint；不重跑已知三 source clips / raw30审计。
+5. `f740caab2014985088125b6c2b3d6faad8ee38ae` — 最小生产修复及最终36-test registry / no-network guards。
+6. 本恢复 handoff / fixture README doc-only commit — 实际 full SHA 从 final branch head/readback 重建，不存在循环 self-SHA claim。
+
+最终 #65 相对 accepted a5b6 只含7 owned paths：`src/clip.mjs`、`test/nature-reference-literal.test.mjs`、`test/fixtures/nature-reference-literal/{.gitattributes,README.md,materials-reference-literal.excerpt.html,source-provenance.json}`、本 handoff。Source/provenance 与第一 source commit 原 bytes 完全相同。canonical/intent/plan、A/B/C contracts、Nature/adapters、normalizers、validators/security、writer、dependencies/lock、CI、golden 零diff。No raw full capture、credential、generated artifact 或 Markdown snapshot 入Git。
+
+### 独立源审核复用
+
+`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue65-independent-source-review/issue65-source-review.md`，10776 bytes / SHA `c3177a697b871a68a60a88674e2bdf1bae512cbe00928de3bf7c76a6bb317521`：`SOURCE_PROJECTION_CLEAR` / zero blocking source findings。精确 reviewer head aea、全部30 blocks、原六 creators、source refs/DOM science/prefix、CC BY4.0、actual A API regeneration/repeat/idempotence和producer/source identity均已独立核验。复用这份版本化审核；本恢复没有重新 parse raw、再 sanitize、重新 acquisition 或重跑原 C Materials cache。原 source transformations/omissions/hashes/oracle positions与上方相同。
+
+### 最小修复与边界证据
+
+首个 invalid state 保持上方真实 trace：Defuddle 返回普通 `<` / Markdown `\<` 后，reference line 与兼容 anchor 拼接被严格 audit 当成 x tag。私有 `encodeReferenceLiterals()` 只被 `referenceText()` 调用，在现有 Defuddle/math/academic 后、DOI和anchor追加前编码 prose `<`→`&lt;`、`&`→`&amp;`。既有 `maskCode()` 保护代码；完整 dollar candidate 仅在原 `validateMathDelimiters()` 与 strict `validateRawHtml()` 均 valid 时保持 opaque，不把成对 dollars 内的 literal `<span>` 授权成公式。反斜杠奇偶按实际位置检查；移除 Defuddle 对 literal `<` 的一个 odd Markdown presentation escape，保留原 literal backslash 的 escape pair。没有生成新 TeX、重新解析 scholarly DOM、修改 validator 或全局 encoding/unescape。
+
+Ampersand编码用于区分原可读 `&` 与原字面 entity拼写 `&lt;` / `&amp;`；经过一次 entity/Markdown presentation decode保持原 source spelling，不双重decode来凑 oracle。旧 typed DOM code/MathJax/citation control和 `$x<1$` / `$x+1$` 原 math guards保持。额外24 synthetic renderer controls覆盖两输出参考文献方言的 inline/display math旁literal HTML、escaped currency、未闭合dollars、literal entities、foreign anchor、pairedcurrency/fakeHTML、原literal backslash及even backslashes前真实math；quarto引用部分既有refs/Bib契约真实source测试覆盖。Malformed dollar控制只断言literal安全与原值，不声称 malformed math应通过math validator。
+
+第一次 novel16 scope在 accepted a5b6：0 PASS /16 FAIL，7936.7537ms。10项实际 strict rawHTML FAIL；2项原 literal entity-spelling readable FAIL；4项 escaped-dollar输入与Defuddle既有backslash呈现比较 FAIL，不能冒称为 #65 parser RED。外部 preflight actual Defuddle输出保留；后续这些控制只消除比较器的成对 presentation backslashes，原 valid math byte guard仍独立 exact。一个 escaped-dollar-inside-TeX case显示 inherited Defuddle doubling，不将该 unrelated TeX行为固定成永久expected坏值，而改为有效 `$x<1$` 与escapedcurrency相邻的控制。初始16和preflight日志不覆盖。新增8个控制仅作为后修复边界保护，没有伪称已在旧main执行RED。
+
+Literal原 `(0<x<-1)` 不纠正为其他边界、不改原 sub/iDOM；在 source actual links 输出为 `(0&lt;x&lt;-1)`，可读原值、原2refs/order/DOI/keys/all6authors/exactwarnings均保持。三个 actual source clips四validators全部PASS，科学fragment无orphan。No table/figure/resources；精确warnings还是 `No Nature figures were detected.`、`No equation nodes were detected.`。
+
+普通测试额外记录 global fetch / DNS callback / promise lookup attempts；即使fallback吞掉异常，after仍硬断言空ledger，复原全局/builtin binding。实际 `networkAttempts=[]`。Writer依据 production `clipNature` 返回路径静态无 `writePaper` 调用，未声称 runtime writer spy；不写papers。显式 `NATURE_REFERENCE_RECEIPT_ROOT` 仅保存同一次实际3source结果到外部TEMP；普通invocation不写receipt、没有再clip来补证据。
+
+### Exact implementation verification
+
+下表 checks针对 immutable implementation `f740caab2014985088125b6c2b3d6faad8ee38ae`：src tree `72387d4155e79a38224daac3de60e56c325f7768`，test tree `57094a6273d64d56447b5b40b0b553045b6496a3`。最终 README 属于 test tree 的 doc-only差异；永久执行 `.test.mjs` 与 src identity保持，不能因此声称最终整个test tree仍同SHA。Full后只改本handoff/README，不重复full/focused/affected或源审计。
+
+| 实际 command / scope | Terminal result |
+| --- | --- |
+| `node --test --test-name-pattern='synthetic renderer boundary:' test/nature-reference-literal.test.mjs` 初次accepted baseline | 16/0PASS/16FAIL，7936.7537ms；上方区分10+2+4原因，无real-source clips |
+| 新边界逐步验证 | 初16 PASS 690.3445ms；新增4 safety PASS 688.7225ms；最终24 boundary PASS 685.4397ms；分别scope，不伪称三次完整36 |
+| `node --test test/nature-reference-literal.test.mjs`，显式外部同-run receipt | **36/36 PASS，1175.7502ms，exit0**；3source clips各一次，network attempts空 |
+| `node --test test/nature-adapter.test.mjs test/output-quality.test.mjs test/aip-adapter.test.mjs` | **43/43 PASS，6264.0575ms，exit0**；共享reference renderer直接消费者/validators/Bib/dialect，未扩大其他publisher |
+| `npm test` | **640/640 PASS，81990.5797ms，exit0，0skip/todo/cancel**；actual session90928先confirmed live后terminal，只执行一次 |
+| `npm run build` | exit0；dist generated且ignored，不提交 |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0 / valid=true，250inline、13display、50refs、fourguards PASS、scientificFragments zeroissues；golden零diff |
+| `git diff --check` / `git status --short` / tracked-diffname/protected paths审计 | PASS；提交前仅本README/handoff doc edits，最终doccommit后clean/readback |
+
+`npm ci`复用原source-only accepted lockfile install receipt；latest accepted合入没有package/lock/deps变化，无重新安装需求。Fresh PR CI仍必须实际运行npmci/全tests/build/golden三个platform，不以local缓存替代。没有npm audit fix、dependency更新或advisory豁免。
+
+External evidence root `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-reference-literal/`：
+
+| 文件 | Bytes / SHA-256 |
+| --- | --- |
+| renderer-boundaries-accepted-a5b6-red.log | 12806 / afc25082ddcd78b371bb2675ddcdce1f47b5f334c339d581c516b1a1653420c3 |
+| boundary-conversion-preflight.log | 706 / d9054bc34f6a2c18123d7220055019e8268ab34378e1e501fd36c1598dfee01c |
+| focused-implementation-green.log | 3398 / d8beab66f45d5e69924b9175a0c289c4dd492d405c61970b2f5734c8b9bbe2a8 |
+| affected-reference-renderers-green.log | 3684 / 67192677178888828e650dfda0b2ad77c9eba3e77e5a47042336ee534bb36925 |
+| full-f740caa.log | 84036 / 3287666f4a9d20e21a7c8545e72039e750b10d14f6bf7e9041633d0f8eee379b |
+| build-f740caa.log | 174 / 29bb2fc3db9bbbaa086603e3760889fc756348e7a100307b70d3b1ca87609e1c |
+| golden-f740caa.log | 3018 / 49fe118cfcf91bcbef91e1ec9ffad67f8807589431c6179ffc5cd1a8f8a36498 |
+
+Same actual focused3 clips在 `green-a5b6-final/`，不是额外clips或committed snapshots：
+
+| Dialect | actual Markdown bytes / SHA | actual full result cache bytes / SHA |
+| --- | --- | --- |
+| markdown | 1254 / 2812a02959b59dfd1fc9175250a9273438e4656b212477ef8660701aab694c00 | 31365 / d4390344ab040d404577052da67a27fa11ce31055590e00f439cf90f30ebcd25 |
+| links | 1286 / bea28669499d5b1f3f8e4b2f6ea25eb5f9f07e00d3aff3b1dce5af1b15ee08da | 31429 / 392f6695a8793c6b8673ee74e8afe6bd4e95c49f405c01e3ddb379c587c74d5c |
+| quarto | 846 / 60b28b76638803532b15b58ff70a244460b4901dce75ee9eab1c655b99e96be8 | 30526 / 8335eecf2952ebba3405376a72db3b8c80c457ba2164338ae5b0108339abfb65 |
+
+`network-ledger.json`135bytes / SHA `e30d302a4958c650050cd76b1f90fca3ed4244877c942913179fa32f187aeac9`，attempts[]与静态writer proof。`implementation-receipt-f740caa.json`记录所有Git LF bytes/blobs、actualsame-run cache/MD equality、source/protectedzero diff和logs；finalhead/hash在公开PR/最终交接readback报告，避免selfhash。本receipt只是bytes/log汇总，不执行raw/sanitize/clip/full。
+
+### Delivery / remaining gate
+
+仅为 #65 创建唯一final bug PR，exact standalone `Refs #65`；不承担普通Issue10 delivery PR责任。Owner不merge、不手动close。需要fresh三platformCI/Secrets、不同owner exact-final-head implementation review zero blockers，root十项gate全部满足才可自动squash merge；mergedMain同SHA成功后接受base并由automation完成#65。
+
+独立source gate已清；independent implementation review与freshCI在final PR发布时pending，不能由producer640PASS替代。C下一步在accepted #65 fix上使用既有oracle、做Materials三dialect source delta，原reference2 rawHTML必须真实PASS；不要重审raw30或替换source值。r²SCAN/compound units等其余science缺陷仍独立，wholeMaterials与Issue10尚未完成。未修改intent/spec，未提spec changes。

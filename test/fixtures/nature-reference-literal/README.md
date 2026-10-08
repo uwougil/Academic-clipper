@@ -1,4 +1,4 @@
-# Nature reference literal — Issue #65 SOURCE_ONLY
+# Nature reference literal — Issue #65
 
 来源：[Scaling deep learning for materials discovery](https://www.nature.com/articles/s41586-023-06735-9)，Nature，DOI `10.1038/s41586-023-06735-9`。作者按 source metadata 顺序为 Amil Merchant、Simon Batzner、Samuel S. Schoenholz、Muratahan Aykol、Gowoon Cheon、Ekin Dogus Cubuk。本文摘录的 source material 使用原 [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/) notice；该完整声明与 publisher site copyright footer 保留在 HTML/provenance，不能以 repository code license 替代。
 
@@ -12,4 +12,8 @@
 
 普通测试每 dialect 只执行一次真实 clip并共享结果；不复制 parser 或保存整篇 Markdown snapshot。无 tables/figures 的 preflight 在任何 clip 前硬断言，因而没有 hydration/resource/DNS/HTTP 路径；直接 `clipNature` 不调用 writer。小摘录唯一允许 warnings 是 `No Nature figures were detected.`、`No equation nodes were detected.`。Production/validators/security/writer/golden、A/B/C input/helper、canonical/PRD/EDD/dependencies 均未改。
 
-本新 projection 的独立来源审核仍 pending。完整证据、commands、stage diagnosis、未实施 proposal 与重新启动条件见 `docs/goals/issue-10/bug-reference-literal-handoff.md`。Issue #65 保持 OPEN，没有实现 PR；shared production files 等 orchestrator 串行释放后才可修改。不宣称 bug 修复或 Issue #10 完成。
+后续独立 source projection 审核已通过，packet SHA-256 `c3177a697b871a68a60a88674e2bdf1bae512cbe00928de3bf7c76a6bb317521`。原来源 bytes/provenance/oracles 均保持；原 SOURCE_ONLY RED 历史如上，不将新执行结果倒写到旧日志。
+
+在 accepted main `a5b6acc2984af5cb8b82106291e963f4f413f5ac` 上，最小 reference renderer 修复只在 Defuddle/normalization 后、DOI/兼容 anchor 拼接前编码字面 `<` 与 `&`，保护既有完整 math/code。新增明确 synthetic 边界覆盖未闭合/成对 dollars、合法数学与 literal HTML 混合、escaped currency、实体拼写、原 literal backslash 与 strict anchors。当前36 focused tests一次执行36 PASS / 0 FAIL；实际三个 source dialect 结果各保存一次到显式外部临时 evidence 路径，所有四 production validators PASS。HTTP/DNS attempts ledger为空；测试结束复原全局/builtin bindings。Writer未调用依据真实 `clipNature` 调用边界的静态证明，未声称存在 writer spy。
+
+完整 commands/results、selected commits、源审核复用、fresh CI 与独立实现 review gate见 `docs/goals/issue-10/bug-reference-literal-handoff.md`。Issue #65 仍须独立实现 review、fresh CI 和 merged-main 验证后由 automation 完成；本摘录不使其他 Materials science 角色或 Issue #10 完成。
