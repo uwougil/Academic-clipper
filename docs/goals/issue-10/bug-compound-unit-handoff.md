@@ -2,7 +2,7 @@
 
 ## 当前生产增量（历史 RED 保留，2026-10-08）
 
-当前状态 `IMPLEMENTED_FOCUSED_GREEN / INDEPENDENT_REVIEW_PENDING`。Root 核验 #64 PR77 的 merged Main `134ba67a9eefe8763314454183a625f83a34837b`：Main `37740911355` 三平台成功、Secrets `37740911189` 成功，Issue64 automation completed 后正式释放 SAME #67 owner 的 sole Nature production。Own 原 clean `38d236b4462d0dce4cb7f5592c2e8b15060f314c` 通过 dependency-only non-FF `d4d497966a007d43fd2f890d6e8f4736248ebe53` 采用完整 accepted134；源 fixture/provenance 与 `e8a67e9…` 无 diff，未重 raw/A/source99/旧 baseline。
+当前状态 `IMPLEMENTED_LOCAL_GREEN / PUBLICATION_REVIEW_CI_PENDING`。Root 核验 #64 PR77 的 merged Main `134ba67a9eefe8763314454183a625f83a34837b`：Main `37740911355` 三平台成功、Secrets `37740911189` 成功，Issue64 automation completed 后正式释放 SAME #67 owner 的 sole Nature production。Own 原 clean `38d236b4462d0dce4cb7f5592c2e8b15060f314c` 通过 dependency-only non-FF `d4d497966a007d43fd2f890d6e8f4736248ebe53` 采用完整 accepted134；源 fixture/provenance 与 `e8a67e9…` 无 diff，未重 raw/A/source99/旧 baseline。
 
 有序新增提交：已独审新 synthetic matrix `5c40198c240cb19dbc311c96b8b0a9f107d2bfa1` → 独审补充 `38d236b4462d0dce4cb7f5592c2e8b15060f314c` → dependency `d4d497966a007d43fd2f890d6e8f4736248ebe53` → code/test `ab589138631edc5db95ced0bae03a72d5ff6da2f` → 本 doc-only successor。Plan review `academic-clipper-issue67-plan-independent-review/plan-review-38d236b.md` 4424 bytes / SHA256 `8047dd9fc8b315751c4e940648dd9e0144f392ae7a00de4ffc7975217405d97d` zero plan findings；不是实现审查。
 
@@ -28,6 +28,16 @@ HTTP/fetch、DNS lookup/promise lookup record-before-throw guards 覆盖所有�
 `git diff --check` exit0；protected fixture diff against source e8a exit0。Stable ab589 src tree `54c78d6bd5d6b4e986a116cf3e113dd1e12161df` / test tree `93d80cd26da3f95d159e704c4787bf6f59df44bb`。尚未独立 implementation review、affected/full/build/golden/fresh CI/Secrets/PR；先审实现再释放 full，避免提前全量后返工。没有 spec change 或 Issue10 完成声明。
 
 ## 原 SOURCE_ONLY_RED 历史（以下保留当时事实）
+
+### 最终本地验证增量
+
+独立 implementation review `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue67-implementation-independent-review/implementation-review-ab58913-CLEAR.md` 6061 bytes / SHA256 `82ba83a61ee9cb93d62e423f92bbefe6a6195e84d0c767aafce93d27d6b5b89c`，**zero blocking findings**。另一 owner 在独立 checkout 实际执行4个新 parse-only probes 全 PASS 并只读核验3个 same-run source cache，没有重复来源审核/clip/full；root 全文审核后释放 broader gates。Future publication head 仍需独立审查。
+
+原 code/test ab589 保持，唯一新增 affected command（完整11 paths 在 receipt）**309/309 PASS，6914.0415ms，exit0**；唯一 `npm test` 实际 session **12854** 终态 **889/889 PASS，89698.7737ms，exit0**，无 skip/cancel/todo。Full 按合同包含原 focused；没有另外重复 focused59、source99/raw/A/旧RED 或4独立 probes。然后一次 `npm run build` exit0；一次 `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` exit0，valid=true，250 inline/13 display/50 refs、four validators/scientificFragments 全 PASS。Golden 文件无变化。README 仅一行解释准确 mS×cm^-1 和窄边界。
+
+TEMP `academic-clipper-issue67-production` 新同轮 logs：`affected-ab58913.log` 47081 / `04c6689a35e330ca5068a45ac010176a7be57649a28afd83203baae51db01e6b`；`full-ab58913.log` 111713 / `87a64b920c7d0bf5753c6a45bdc195d925cc921b35df1f0302d069c22acfcfbf`；`build-ab58913.log` 170 / `5c002db451662f43a1cac695dcf443b08bd445910fe9e92976e002bf9a83c4f3`；`golden-ab58913.log` 3018 / `49fe118cfcf91bcbef91e1ec9ffad67f8807589431c6179ffc5cd1a8f8a36498`。Final local receipt `final-local-ab58913-receipt.json` **6882 bytes / `e2d031287d8baee22dfe8da4024f4b90e0d6a9d7cbe5384a532091bed084ae0e`** 包含 exact commands/terminal/full count/runtime trees/golden result/protected scope。这些外部日志/缓存不是 committed full snapshots。
+
+实际 `git diff --check` exit0；against accepted134 的 papers/golden、clip/normalizers/validators/security、extension、package/lock、canonical/PRD/EDD 均 exit0/no diff；against e8a 所有来源 fixture/provenance/diagnosis/attributes exit0。Final diff 仅11 owned files，Nature production27新增行，无 credentials/full captures。后继 publication 是 docs-only，src/test trees保持上述 codeab589。尚需 fresh PR 三平台 CI/Secrets 与 immutable final head 独审；仅 root 在十 gate 全部成立后可 merge，本 owner 不 merge/手动 close。Merged Main 成功才接纳并由 automation 完成 #67；C 随后在该 accepted SHA 复验 Materials 中此角色，其余 #68 保持独立。Issue10 不完成，无 spec proposal。
 
 状态：`SOURCE_ONLY_RED / PRODUCTION_GATE_LOCKED`。已经建立 [独立 bug Work Contract #67](https://github.com/uwougil/Academic-clipper/issues/67) 与一个完整真实来源投影、永久正确期待和三方言真实RED，没有生产修复、implementation PR或#10完成声明。新投影须由另一owner独立核验；shared Nature gate仅由root释放，不能把本RED branch合入main。
 
