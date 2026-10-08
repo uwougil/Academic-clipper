@@ -1,0 +1,894 @@
+{
+  "version": "nature-chemistry-delta-provenance/1.0.0",
+  "base": "a5b6acc2984af5cb8b82106291e963f4f413f5ac",
+  "source": {
+    "articleId": "s41467-023-44030-3",
+    "url": "https://www.nature.com/articles/s41467-023-44030-3",
+    "title": "C5 methylation confers accessibility, stability and selectivity to picrotoxinin",
+    "doi": "10.1038/s41467-023-44030-3",
+    "journal": "Nature Communications",
+    "observedAt": "2026-10-03T16:44:25.253Z",
+    "captureMode": "guarded-http",
+    "rawBytes": 460171,
+    "sha256": "a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d",
+    "sourceContractSha": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330"
+  },
+  "dependencies": {
+    "helper": {
+      "gitBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+      "bytes": 34946,
+      "sha256": "a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c"
+    }
+  },
+  "fixture": {
+    "path": "s41467-023-44030-3.excerpt.html",
+    "bytes": 57405,
+    "sha256": "50e7bd3c941c8b448e49357109c38d1842821ce4ef2d270580a3663c1ae27030",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+  "serializerVersion": "nature-corpus-subtree/1.0.0",
+  "projectionVersion": "nature-corpus-projection/1.0.0",
+  "recipe": {
+    "version": "1.0.0",
+    "id": "s41467-023-44030-3-delta-bond-positions-v1",
+    "articleUrl": "https://www.nature.com/articles/s41467-023-44030-3",
+    "blocks": [
+      {
+        "id": "metadata-0",
+        "selector": "meta[name=\"citation_journal_title\"][content=\"Nature Communications\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-1",
+        "selector": "meta[name=\"citation_title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-2",
+        "selector": "meta[name=\"citation_online_date\"][content=\"2023/12/14\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-3",
+        "selector": "meta[name=\"citation_doi\"][content=\"10.1038/s41467-023-44030-3\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-4",
+        "selector": "meta[name=\"citation_author\"][content=\"Tong, Guanghu\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-5",
+        "selector": "meta[name=\"citation_author\"][content=\"Griffin, Samantha\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-6",
+        "selector": "meta[name=\"citation_author\"][content=\"Sader, Avery\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-7",
+        "selector": "meta[name=\"citation_author\"][content=\"Crowell, Anna B.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-8",
+        "selector": "meta[name=\"citation_author\"][content=\"Beavers, Ken\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-9",
+        "selector": "meta[name=\"citation_author\"][content=\"Watson, Jerry\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-10",
+        "selector": "meta[name=\"citation_author\"][content=\"Buchan, Zachary\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-11",
+        "selector": "meta[name=\"citation_author\"][content=\"Chen, Shuming\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-12",
+        "selector": "meta[name=\"citation_author\"][content=\"Shenvi, Ryan A.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "identity"
+      },
+      {
+        "id": "article-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "article-title",
+        "selector": "h1.c-article-title",
+        "role": "title"
+      },
+      {
+        "id": "heading-Sec2",
+        "selector": "#Sec2",
+        "role": "original-heading-hierarchy"
+      },
+      {
+        "id": "heading-Sec3",
+        "selector": "#Sec3",
+        "role": "original-heading-hierarchy"
+      },
+      {
+        "id": "delta-paragraph",
+        "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d76734419e1024)",
+        "role": "complete-original-bond-position-paragraph"
+      },
+      {
+        "id": "reference-1",
+        "selector": "ol.c-article-references li:has(#ref-CR1)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-2",
+        "selector": "ol.c-article-references li:has(#ref-CR2)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-3",
+        "selector": "ol.c-article-references li:has(#ref-CR3)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-4",
+        "selector": "ol.c-article-references li:has(#ref-CR4)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-5",
+        "selector": "ol.c-article-references li:has(#ref-CR5)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-6",
+        "selector": "ol.c-article-references li:has(#ref-CR6)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-7",
+        "selector": "ol.c-article-references li:has(#ref-CR7)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-8",
+        "selector": "ol.c-article-references li:has(#ref-CR8)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-9",
+        "selector": "ol.c-article-references li:has(#ref-CR9)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-10",
+        "selector": "ol.c-article-references li:has(#ref-CR10)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-11",
+        "selector": "ol.c-article-references li:has(#ref-CR11)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-12",
+        "selector": "ol.c-article-references li:has(#ref-CR12)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-13",
+        "selector": "ol.c-article-references li:has(#ref-CR13)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-14",
+        "selector": "ol.c-article-references li:has(#ref-CR14)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-15",
+        "selector": "ol.c-article-references li:has(#ref-CR15)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-16",
+        "selector": "ol.c-article-references li:has(#ref-CR16)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-17",
+        "selector": "ol.c-article-references li:has(#ref-CR17)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-18",
+        "selector": "ol.c-article-references li:has(#ref-CR18)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-19",
+        "selector": "ol.c-article-references li:has(#ref-CR19)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-20",
+        "selector": "ol.c-article-references li:has(#ref-CR20)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-21",
+        "selector": "ol.c-article-references li:has(#ref-CR21)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-22",
+        "selector": "ol.c-article-references li:has(#ref-CR22)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-23",
+        "selector": "ol.c-article-references li:has(#ref-CR23)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-24",
+        "selector": "ol.c-article-references li:has(#ref-CR24)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-25",
+        "selector": "ol.c-article-references li:has(#ref-CR25)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-26",
+        "selector": "ol.c-article-references li:has(#ref-CR26)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-27",
+        "selector": "ol.c-article-references li:has(#ref-CR27)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-28",
+        "selector": "ol.c-article-references li:has(#ref-CR28)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-29",
+        "selector": "ol.c-article-references li:has(#ref-CR29)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-30",
+        "selector": "ol.c-article-references li:has(#ref-CR30)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-31",
+        "selector": "ol.c-article-references li:has(#ref-CR31)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-32",
+        "selector": "ol.c-article-references li:has(#ref-CR32)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-33",
+        "selector": "ol.c-article-references li:has(#ref-CR33)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-34",
+        "selector": "ol.c-article-references li:has(#ref-CR34)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-35",
+        "selector": "ol.c-article-references li:has(#ref-CR35)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-36",
+        "selector": "ol.c-article-references li:has(#ref-CR36)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "article-rights",
+        "selector": "section[data-title=\"Rights and permissions\"] p:has(a[rel=\"license\"])",
+        "role": "original-rights-notice"
+      },
+      {
+        "id": "site-footer",
+        "selector": "p.c-footer__legal",
+        "role": "publisher-footer"
+      }
+    ],
+    "removeSelectors": []
+  },
+  "recipeSha256": "10cab195ffba239d0871b1d8ddf9417d7ef8ba4c9108cada04ddc4f2ff2e61ef",
+  "retainedBlocks": [
+    {
+      "id": "metadata-0",
+      "selector": "meta[name=\"citation_journal_title\"][content=\"Nature Communications\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "fed763f4c00b78f71837e14baaf5d5e95f1b9ce6b9c51a9fb8932d9fe1dfc53e"
+    },
+    {
+      "id": "metadata-1",
+      "selector": "meta[name=\"citation_title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "70bc2481e88c2723d5a5b9ddb40bcbffccab958163b942a06f6d46da288a28ff"
+    },
+    {
+      "id": "metadata-2",
+      "selector": "meta[name=\"citation_online_date\"][content=\"2023/12/14\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "04ffee8d1f7ef090c9c55f1b2cefd36445629ff757ceba710e185a95b474771a"
+    },
+    {
+      "id": "metadata-3",
+      "selector": "meta[name=\"citation_doi\"][content=\"10.1038/s41467-023-44030-3\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a43975239627809fec074e4b85f732c950b59d1f06c82ccc9cc70210f51e70e1"
+    },
+    {
+      "id": "metadata-4",
+      "selector": "meta[name=\"citation_author\"][content=\"Tong, Guanghu\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "806be7997770aebcef77a6124b104e5522fb38409183d1101e0edceff06312be"
+    },
+    {
+      "id": "metadata-5",
+      "selector": "meta[name=\"citation_author\"][content=\"Griffin, Samantha\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "9af41c7634e2f21d5f15bf578bac918d6b573d25fa695f3ecb4b15d7534ff43a"
+    },
+    {
+      "id": "metadata-6",
+      "selector": "meta[name=\"citation_author\"][content=\"Sader, Avery\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "0f6ffba52b0322bdfd051bffca4f09737438cacdf8ea4f46c2e294f0206a44c6"
+    },
+    {
+      "id": "metadata-7",
+      "selector": "meta[name=\"citation_author\"][content=\"Crowell, Anna B.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "bcfc4b60e96ce8d5f26936774b04eb576d9f366001107694718d6a187ef7fc45"
+    },
+    {
+      "id": "metadata-8",
+      "selector": "meta[name=\"citation_author\"][content=\"Beavers, Ken\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "421a4580a5ff93c9f4c3810b0bd31bd49aec65e108a9ab0155a5622cd8940a63"
+    },
+    {
+      "id": "metadata-9",
+      "selector": "meta[name=\"citation_author\"][content=\"Watson, Jerry\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b4dc454c3dbaceba761ac555f8ea07c791306137bdb9c8a68bc28601cb8b6799"
+    },
+    {
+      "id": "metadata-10",
+      "selector": "meta[name=\"citation_author\"][content=\"Buchan, Zachary\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "645106cfca35b972290f9b146feae464b737280384e824748c38f8a49d643d99"
+    },
+    {
+      "id": "metadata-11",
+      "selector": "meta[name=\"citation_author\"][content=\"Chen, Shuming\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "18394fb72ba21888387f57680034102ae01909e733b72a15d34a302fd81b5c29"
+    },
+    {
+      "id": "metadata-12",
+      "selector": "meta[name=\"citation_author\"][content=\"Shenvi, Ryan A.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "f09a470328c892187e516be0e6653b5a413bcf60d066a237324729d75715026e"
+    },
+    {
+      "id": "canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "identity",
+      "sourceSubtreeSha256": "9ee97a163f3fbc8b42ef3c4a9fb68f3b832c2d8b19bca58f330b9e86b6e4bed2"
+    },
+    {
+      "id": "article-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a3752c408c06d02bf6a1668852de8f8e44f2c1694ca143a62c3d0d9014c4c8c3"
+    },
+    {
+      "id": "article-title",
+      "selector": "h1.c-article-title",
+      "role": "title",
+      "sourceSubtreeSha256": "a98982a1c165f4924e6d23554e44a9dc64032b627fe31feced742de881f52c0a"
+    },
+    {
+      "id": "heading-Sec2",
+      "selector": "#Sec2",
+      "role": "original-heading-hierarchy",
+      "sourceSubtreeSha256": "b05d837b4acc0107b3277337c107f65be4a18c0bd31c2db268b4ce350058bb02"
+    },
+    {
+      "id": "heading-Sec3",
+      "selector": "#Sec3",
+      "role": "original-heading-hierarchy",
+      "sourceSubtreeSha256": "8e9e4ba08df87bee44def5d8f5380a25fc78287d76f0e49fb9929e313dfb4753"
+    },
+    {
+      "id": "delta-paragraph",
+      "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d76734419e1024)",
+      "role": "complete-original-bond-position-paragraph",
+      "sourceSubtreeSha256": "5637b1cf3f747317aae12698db23ae4ff5fa708a47236179d7d2444e93c6bc99"
+    },
+    {
+      "id": "reference-1",
+      "selector": "ol.c-article-references li:has(#ref-CR1)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "d68b1d66d538fda5924669267c747cc115233e1e0d88eb6da2da3b18dad02e97"
+    },
+    {
+      "id": "reference-2",
+      "selector": "ol.c-article-references li:has(#ref-CR2)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "8f24c1c4ce020ddf8a62ef0e68908e8f67fb26d62c62045d6d5a5d2a556a4250"
+    },
+    {
+      "id": "reference-3",
+      "selector": "ol.c-article-references li:has(#ref-CR3)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "195f1b6be41b4fcb77b01849b5f90589239b9f8a81fb93d25392b2dc5e0e719a"
+    },
+    {
+      "id": "reference-4",
+      "selector": "ol.c-article-references li:has(#ref-CR4)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "bcf9e562953769e5cf2e9b2b67012cdc6f43abba116fbb608d671b7c2fbcb9b9"
+    },
+    {
+      "id": "reference-5",
+      "selector": "ol.c-article-references li:has(#ref-CR5)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "058a3e4c6b01d703aa71149d468d8fde4bc91695982fc8ad7a007d4ad0976212"
+    },
+    {
+      "id": "reference-6",
+      "selector": "ol.c-article-references li:has(#ref-CR6)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "656c1bed0790acfe4e6e6d943b89fcb32dfc99e7e697d273e752aad9ebe8f827"
+    },
+    {
+      "id": "reference-7",
+      "selector": "ol.c-article-references li:has(#ref-CR7)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "1517429a4dd28ae8aa9c2d593d06c93d884a28df77efd2b73be9c74fa712a6b5"
+    },
+    {
+      "id": "reference-8",
+      "selector": "ol.c-article-references li:has(#ref-CR8)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "48126da1818c00716f8942f91174a3d3f53a8d658dff5e153ae7e96a738e94a4"
+    },
+    {
+      "id": "reference-9",
+      "selector": "ol.c-article-references li:has(#ref-CR9)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "8aaf096adb73cfe8ccaec2bb427b0de59dc55400881e0f35cf62a95e126d0c07"
+    },
+    {
+      "id": "reference-10",
+      "selector": "ol.c-article-references li:has(#ref-CR10)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "a4ded140e2258e5cbb9d11facb2d751da7c2515767f3e50601eaa1b28fcf7c8a"
+    },
+    {
+      "id": "reference-11",
+      "selector": "ol.c-article-references li:has(#ref-CR11)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "65cb24a07e6ba56fc65567a1c1118f90227adc9acf407895d1e9ce8735619990"
+    },
+    {
+      "id": "reference-12",
+      "selector": "ol.c-article-references li:has(#ref-CR12)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "04444a8d8505275041bbb5ea0e862a81d7c3cb29b957b5e70657c7eb798dc994"
+    },
+    {
+      "id": "reference-13",
+      "selector": "ol.c-article-references li:has(#ref-CR13)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "3b7c7541d05f1736c52c131a69b400fc907837b8a9fe4873ef0c70c84a6dd74b"
+    },
+    {
+      "id": "reference-14",
+      "selector": "ol.c-article-references li:has(#ref-CR14)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "d41405bedc94841bd4c76e03816f944aee0cae985120f6bb04fac78a84e34109"
+    },
+    {
+      "id": "reference-15",
+      "selector": "ol.c-article-references li:has(#ref-CR15)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "e9eb9630bf2be6b20faacf902204a4f2a96e534289545d5151e646111bd4c123"
+    },
+    {
+      "id": "reference-16",
+      "selector": "ol.c-article-references li:has(#ref-CR16)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "2685d6568bfd882d040fd83791d8df48c21bf578b9d53741d0d770b4d8928b65"
+    },
+    {
+      "id": "reference-17",
+      "selector": "ol.c-article-references li:has(#ref-CR17)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "50ed5b79c0357ddbcf2c11e57384486d2d8400766b013a3976a8aa0a2b67ce10"
+    },
+    {
+      "id": "reference-18",
+      "selector": "ol.c-article-references li:has(#ref-CR18)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "e3f4d32db13c9e9f3011877a8353abf5b448b3bf299f086be320ffbb494d2663"
+    },
+    {
+      "id": "reference-19",
+      "selector": "ol.c-article-references li:has(#ref-CR19)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "93ae20496b2307f5a6cf31a5aa929691b1f5d23b78e4de37848c7dca0f0037f8"
+    },
+    {
+      "id": "reference-20",
+      "selector": "ol.c-article-references li:has(#ref-CR20)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "056fdcf21b4ebf1ae4aa6deca789ee4f6a11d6423106d69c308546a5d281013a"
+    },
+    {
+      "id": "reference-21",
+      "selector": "ol.c-article-references li:has(#ref-CR21)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "49031960d161717fb98328cd637a4ebe57f1b7ef11e038f28aaba3e2ffaa606d"
+    },
+    {
+      "id": "reference-22",
+      "selector": "ol.c-article-references li:has(#ref-CR22)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "7e812d4411301b63a14d08fce913895cde97bcf24ec8cecc943307a94d80785b"
+    },
+    {
+      "id": "reference-23",
+      "selector": "ol.c-article-references li:has(#ref-CR23)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "5e5903ed0c38da46f59b083a72714bff4c0a9968d463f9e4596a6a45601d3ae9"
+    },
+    {
+      "id": "reference-24",
+      "selector": "ol.c-article-references li:has(#ref-CR24)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "b978651a18abceff351f31a76d6e8292d07c1606ad98ecd6bc6011826e27bb45"
+    },
+    {
+      "id": "reference-25",
+      "selector": "ol.c-article-references li:has(#ref-CR25)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "874a338c0f0f8667416c75a8f8fd4dd6932c18331ffe9622df2975edee972815"
+    },
+    {
+      "id": "reference-26",
+      "selector": "ol.c-article-references li:has(#ref-CR26)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "f6dff6343371585375991473945979d20927824fa28c015488f13ea1c29636fe"
+    },
+    {
+      "id": "reference-27",
+      "selector": "ol.c-article-references li:has(#ref-CR27)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "f63a5111b2add91d93c546843d76d9b9872a12637b0dc8e719ce1ac4a44b80e4"
+    },
+    {
+      "id": "reference-28",
+      "selector": "ol.c-article-references li:has(#ref-CR28)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "0644a2ff578c9f4a77026fc786c875033b4ae8dc1d5a8846132cd218a97599b5"
+    },
+    {
+      "id": "reference-29",
+      "selector": "ol.c-article-references li:has(#ref-CR29)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "235b0e0edc5da14512dfabaa2b2fd8befdea99d3f134f7f0c0d922996c694043"
+    },
+    {
+      "id": "reference-30",
+      "selector": "ol.c-article-references li:has(#ref-CR30)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "8c4bad5fd32f0705e99bf759a19f0e9811b006c185385fcd18499d6c36d3d113"
+    },
+    {
+      "id": "reference-31",
+      "selector": "ol.c-article-references li:has(#ref-CR31)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "b586f275194f1f628cb70556193427ae6bf647e3e9d97087a225829123de91d7"
+    },
+    {
+      "id": "reference-32",
+      "selector": "ol.c-article-references li:has(#ref-CR32)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "0c5a3f07f6fe6cb807f83e5968bb246802954a529c9795a196d7721253cf80e0"
+    },
+    {
+      "id": "reference-33",
+      "selector": "ol.c-article-references li:has(#ref-CR33)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "e232a49bef1c5dbce8317456591f219140afb88ab455b6e3221bb4d7acb0ee8e"
+    },
+    {
+      "id": "reference-34",
+      "selector": "ol.c-article-references li:has(#ref-CR34)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "353eeac0256fb70ddf1564afee1bb739e10c72f9c7f5ec0a34cdd7054e711d66"
+    },
+    {
+      "id": "reference-35",
+      "selector": "ol.c-article-references li:has(#ref-CR35)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "65e3f71440c821415454ce0cbd51018b938158d7c563d1b0a9ca6a222483b34f"
+    },
+    {
+      "id": "reference-36",
+      "selector": "ol.c-article-references li:has(#ref-CR36)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "d765f11e36636f1418d7752affae16e657e453e8349d624e0797a02c3996cdf7"
+    },
+    {
+      "id": "article-rights",
+      "selector": "section[data-title=\"Rights and permissions\"] p:has(a[rel=\"license\"])",
+      "role": "original-rights-notice",
+      "sourceSubtreeSha256": "84ab88094d2cd6f87d0a2a8abbb091db26a34a50a7701aa2a706a9a1a4b4dafd"
+    },
+    {
+      "id": "site-footer",
+      "selector": "p.c-footer__legal",
+      "role": "publisher-footer",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3"
+    }
+  ],
+  "transformations": [
+    {
+      "operation": "select-complete-source-blocks-with-ancestors",
+      "count": 57
+    },
+    {
+      "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+      "count": 1
+    },
+    {
+      "operation": "trim-json-ld-to-article-object",
+      "count": 1
+    },
+    {
+      "operation": "remove-attributes",
+      "count": 744
+    },
+    {
+      "operation": "sanitize-resource-urls",
+      "count": 34
+    }
+  ],
+  "retainedProjection": {
+    "projectionVersion": "nature-corpus-projection/1.0.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "recipeSha256": "10cab195ffba239d0871b1d8ddf9417d7ef8ba4c9108cada04ddc4f2ff2e61ef",
+    "structureSha256": "bb91524e350ac0009019db8dac7e2c2370791fe1c49f2dd7908dfaf6e9db0c3f",
+    "payloadSha256": "64f8a910dcf0fd8a55f466fa5c71e07f64ca3dd2399062e1ebf2998a3cc1c069"
+  },
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41467-023-44030-3",
+    "sourceObservedAt": "2026-10-03T16:44:25.253Z",
+    "sourceSha256": "a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Tong, Guanghu",
+      "Griffin, Samantha",
+      "Sader, Avery",
+      "Crowell, Anna B.",
+      "Beavers, Ken",
+      "Watson, Jerry",
+      "Buchan, Zachary",
+      "Chen, Shuming",
+      "Shenvi, Ryan A."
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "84ab88094d2cd6f87d0a2a8abbb091db26a34a50a7701aa2a706a9a1a4b4dafd",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "sourceRawNoticeText": "Open Access  This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/."
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "technicalTransformations": "Recipe-selected excerpts and original ancestors, A sanitizer 1.1.0, deterministic serialization and LF normalization. Advertising, navigation, executable content and unselected source blocks are omitted as recorded in the manifest/handoff. Retained scholarly prose, TeX, captions, authors, citation data and table cells are preserved; image binaries and full live captures are not included.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "paragraph": {
+    "sourceSelector": "section[data-title=\"Results\"] p:has(#ref-link-section-d76734419e1024)",
+    "sourceParagraphIndex": 4,
+    "sourceBlockId": "a-section-2",
+    "sourceSubtreeSha256": "5637b1cf3f747317aae12698db23ae4ff5fa708a47236179d7d2444e93c6bc99",
+    "frozenSubtreeSha256": "fc038557c307a32c496972e01f5b07ab41f4f0605bdf16fb32a87b80d8df061c",
+    "sourceText": "Hydration of the Δ12,13-alkene (PXN to PTN) dramatically reduced binding affinity to GABAA receptors5 but not RDL (see below). We wondered whether replacement of one or both C12 and C6 hydroxy groups with fluorine might disrupt internal hydrogen bonding and, combined with C5 methylation, differentially affect affinity for receptors. Advanced synthetic intermediate 6FPXN (22) was prepared from 1 (65% yield) by reaction with diethylaminosulfur trifluoride (DAST)27,36, and further employed as starting material for the synthesis of analogues 6FPTN (24) and 6FHPXN (26). In parallel, 6F5MePXN (23) was synthesized in 41% yield. Cobalt catalyzed Δ12,13-alkene hydration smoothly proceeded on 6FPXN and 6F5MePXN, delivering 24 and 6F5MePTN (25) in 81% and 88% yield, respectively. Dihydro-congeners 6FHPXN (26) and 6FH5MePXN (27) were prepared as above using PtO2-catalyzed hydrogenation.",
+    "orderedScientificNodes": [
+      {
+        "tag": "SUP",
+        "text": "12,13",
+        "html": "<sup>12,13</sup>"
+      },
+      {
+        "tag": "SUB",
+        "text": "A",
+        "html": "<sub>A</sub>"
+      },
+      {
+        "tag": "SUP",
+        "text": "5",
+        "html": "<sup><a aria-label=\"Reference 5\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR5\" id=\"ref-link-section-d76734419e1024\" title=\"Porter, L. A. Picrotoxinin and related substances. Chem. Rev. 67, 441–464 (1967).\">5</a></sup>"
+      },
+      {
+        "tag": "B",
+        "text": "22",
+        "html": "<b>22</b>"
+      },
+      {
+        "tag": "B",
+        "text": "1",
+        "html": "<b>1</b>"
+      },
+      {
+        "tag": "SUP",
+        "text": "27,36",
+        "html": "<sup><a aria-label=\"Reference 27\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR27\" id=\"ref-link-section-d76734419e1035\" title=\"Shirai, Y. et al. Actions of picrotoxinin analogues on an expressed, homo-oligomeric GABA receptor of Drosophila melanogaster. Neurosci. Lett. 189, 1–4 (1995).\">27</a>,<a aria-label=\"Reference 36\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR36\" id=\"ref-link-section-d76734419e1038\" title=\"Middleton, W. J. New fluorinating agents: dialkylaminosulphur fluorides. J. Org. Chem. 40, 574–578 (1974).\">36</a></sup>"
+      },
+      {
+        "tag": "B",
+        "text": "24",
+        "html": "<b>24</b>"
+      },
+      {
+        "tag": "B",
+        "text": "26",
+        "html": "<b>26</b>"
+      },
+      {
+        "tag": "B",
+        "text": "23",
+        "html": "<b>23</b>"
+      },
+      {
+        "tag": "SUP",
+        "text": "12,13",
+        "html": "<sup>12,13</sup>"
+      },
+      {
+        "tag": "B",
+        "text": "24",
+        "html": "<b>24</b>"
+      },
+      {
+        "tag": "B",
+        "text": "25",
+        "html": "<b>25</b>"
+      },
+      {
+        "tag": "B",
+        "text": "26",
+        "html": "<b>26</b>"
+      },
+      {
+        "tag": "B",
+        "text": "27",
+        "html": "<b>27</b>"
+      },
+      {
+        "tag": "SUB",
+        "text": "2",
+        "html": "<sub>2</sub>"
+      }
+    ],
+    "roles": [
+      {
+        "id": "results-p4-delta-bond-1",
+        "supIndex": 0,
+        "base": "Δ",
+        "superscript": "12,13",
+        "supHtml": "<sup>12,13</sup>",
+        "previousText": "Hydration of the Δ",
+        "nextText": "-alkene (PXN to PTN) dramatically reduced binding affinity to GABA",
+        "scientificMeaning": "Original Δ12,13-alkene double-bond positions at carbon12 and13, preserved as a comma-separated superscript of Δ, not exponentiation/decimal/measurement/citation."
+      },
+      {
+        "id": "results-p4-delta-bond-2",
+        "supIndex": 3,
+        "base": "Δ",
+        "superscript": "12,13",
+        "supHtml": "<sup>12,13</sup>",
+        "previousText": ") was synthesized in 41% yield. Cobalt catalyzed Δ",
+        "nextText": "-alkene hydration smoothly proceeded on 6FPXN and 6F5MePXN, delivering ",
+        "scientificMeaning": "Original Δ12,13-alkene double-bond positions at carbon12 and13, preserved as a comma-separated superscript of Δ, not exponentiation/decimal/measurement/citation."
+      }
+    ]
+  },
+  "referencePrefix": 36,
+  "retainedCitationClusters": [
+    [
+      5
+    ],
+    [
+      27,
+      36
+    ]
+  ],
+  "expected": {
+    "deltaRoles": 2,
+    "compoundBoldSequence": [
+      "22",
+      "1",
+      "24",
+      "26",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27"
+    ],
+    "receptor": "GABA_A",
+    "catalyst": "PtO_2",
+    "figures": 0,
+    "tables": 0,
+    "displayCount": 0,
+    "warnings": [
+      "No Nature figures were detected.",
+      "No equation nodes were detected."
+    ]
+  },
+  "omittedContent": [
+    "Other Results/Methods paragraphs, including the separate trailing-group SUB and isotope roles",
+    "Figures/equations/tables/supp not referenced in this paragraph; no target is fabricated for see below prose",
+    "References after36; preserve original complete prefix without renumbering",
+    "Unselected UI/account/executable/tracking/session material removed by unchanged A sanitizer",
+    "Full captures and all image/PDF binaries remain outside Git"
+  ],
+  "reproduction": "Apply exact recipe via unchanged A helper to original hash-verified raw bytes, before source/parser normalization. Repeat/idempotence bytes equal.",
+  "contract": {
+    "issue": 73,
+    "type": "bug",
+    "scope": "SOURCEONLY RED; different-owner57-blocksource audit pending; production gate owned by orchestrator."
+  }
+}

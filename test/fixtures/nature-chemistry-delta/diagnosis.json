@@ -1,0 +1,287 @@
+{
+  "version": "nature-chemistry-delta-diagnosis/1.0.0",
+  "issue": 73,
+  "base": "a5b6acc2984af5cb8b82106291e963f4f413f5ac",
+  "fixture": {
+    "path": "s41467-023-44030-3.excerpt.html",
+    "bytes": 57405,
+    "sha256": "50e7bd3c941c8b448e49357109c38d1842821ce4ef2d270580a3663c1ae27030",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "source": {
+    "articleId": "s41467-023-44030-3",
+    "url": "https://www.nature.com/articles/s41467-023-44030-3",
+    "title": "C5 methylation confers accessibility, stability and selectivity to picrotoxinin",
+    "doi": "10.1038/s41467-023-44030-3",
+    "journal": "Nature Communications",
+    "observedAt": "2026-10-03T16:44:25.253Z",
+    "captureMode": "guarded-http",
+    "rawBytes": 460171,
+    "sha256": "a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d",
+    "sourceContractSha": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330"
+  },
+  "actualClipCount": 3,
+  "cachedPostchecksNewClips": 0,
+  "producerSourceBlobs": {
+    "src/clip.mjs": "8eec6a856ffbd1b9283c43269d38079b3ac940d2",
+    "src/adapters/nature.mjs": "c6f819beb9747e83d322644c1f2a232769828afa",
+    "src/normalizers/academic-inline.mjs": "a63eba2cacf0bc0a43552d1c16ec41e91b2cf0bc"
+  },
+  "scope": "Only two Results p4 Delta12,13 bond-position labels; all three independent trailing-group SUB/isotope inputs omitted",
+  "test": {
+    "command": "node --test test/nature-chemistry-delta.test.mjs",
+    "exit": 1,
+    "tests": 15,
+    "pass": 6,
+    "fail": 9,
+    "durationMs": 1210.4358,
+    "trueParserFailures": 9,
+    "harnessFailures": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0
+  },
+  "rootCause": {
+    "source": "Complete original Δ<sup>12,13</sup>-alkene DOM twice, no anchor in these SUP",
+    "nature": "cleanedHtml still contains original plain Δ and completeSUP",
+    "defuddle": "bodyMarkdown still contains original SUP with presentation whitespace",
+    "normalization": "final academic renderer emits isolated $^{12,13}$ with plain Δ outside math; styled collectors do not protect the source plain-symbol role; literal attachment rule only handles numeric/unit bases and integer powers",
+    "futureBoundary": "Preserve this original typedDelta/bond-position role through existing Nature/Defuddle/academic chain; no generic Greek inference, source edits or validator weakening"
+  },
+  "dialects": [
+    {
+      "dialect": "markdown",
+      "cache": {
+        "bytes": 107939,
+        "sha256": "919b342ed17066f363af237e6f667b580a927ad9e101ac96d739ed0c125522a8"
+      },
+      "markdown": {
+        "bytes": 9664,
+        "sha256": "b857004cba39314d9ce7aaedbeee622c72569b30cc79be6cff8fdef178e9d556"
+      },
+      "roles": [
+        {
+          "id": "results-p4-delta-bond-1",
+          "base": "Δ",
+          "superscript": "12,13",
+          "line": 27,
+          "column": 18,
+          "originalOutput": "Δ$^{12,13}$",
+          "byteOffset": 616
+        },
+        {
+          "id": "results-p4-delta-bond-2",
+          "base": "Δ",
+          "superscript": "12,13",
+          "line": 27,
+          "column": 686,
+          "originalOutput": "Δ$^{12,13}$",
+          "byteOffset": 1285
+        }
+      ],
+      "stageEvidence": {
+        "natureCleaned": [
+          "Δ<sup>12,13</sup>-alkene",
+          "Δ<sup>12,13</sup>-alkene"
+        ],
+        "defuddleBodyMarkdown": [
+          "Δ <sup>12,13</sup> -alkene",
+          "Δ <sup>12,13</sup> -alkene"
+        ],
+        "finalOrphans": [
+          "Δ$^{12,13}$",
+          "Δ$^{12,13}$"
+        ]
+      },
+      "validators": {
+        "mathValidation": false,
+        "rawHtmlValidation": true,
+        "markdownStructure": true,
+        "crossReferenceValidation": true
+      },
+      "scientificFragmentCounts": {
+        "isolatedSubscript": 0,
+        "isolatedSuperscript": 2,
+        "boldThenSubscript": 0,
+        "italicThenSuperscript": 0
+      },
+      "warnings": [
+        "No Nature figures were detected.",
+        "No equation nodes were detected."
+      ],
+      "citations": [
+        [
+          5
+        ],
+        [
+          27,
+          36
+        ]
+      ],
+      "references": 36,
+      "resources": []
+    },
+    {
+      "dialect": "links",
+      "cache": {
+        "bytes": 110321,
+        "sha256": "54006e344541917aa2dd10da559cd85d034d3ab528a11c1ca50112ad689ba34e"
+      },
+      "markdown": {
+        "bytes": 10292,
+        "sha256": "141560ec6eb0a34f24f8189000c2b30864f73981e0285c7e0ab4128b749c7fdb"
+      },
+      "roles": [
+        {
+          "id": "results-p4-delta-bond-1",
+          "base": "Δ",
+          "superscript": "12,13",
+          "line": 27,
+          "column": 18,
+          "originalOutput": "Δ$^{12,13}$",
+          "byteOffset": 616
+        },
+        {
+          "id": "results-p4-delta-bond-2",
+          "base": "Δ",
+          "superscript": "12,13",
+          "line": 27,
+          "column": 711,
+          "originalOutput": "Δ$^{12,13}$",
+          "byteOffset": 1310
+        }
+      ],
+      "stageEvidence": {
+        "natureCleaned": [
+          "Δ<sup>12,13</sup>-alkene",
+          "Δ<sup>12,13</sup>-alkene"
+        ],
+        "defuddleBodyMarkdown": [
+          "Δ <sup>12,13</sup> -alkene",
+          "Δ <sup>12,13</sup> -alkene"
+        ],
+        "finalOrphans": [
+          "Δ$^{12,13}$",
+          "Δ$^{12,13}$"
+        ]
+      },
+      "validators": {
+        "mathValidation": false,
+        "rawHtmlValidation": true,
+        "markdownStructure": true,
+        "crossReferenceValidation": true
+      },
+      "scientificFragmentCounts": {
+        "isolatedSubscript": 0,
+        "isolatedSuperscript": 2,
+        "boldThenSubscript": 0,
+        "italicThenSuperscript": 0
+      },
+      "warnings": [
+        "No Nature figures were detected.",
+        "No equation nodes were detected."
+      ],
+      "citations": [
+        [
+          5
+        ],
+        [
+          27,
+          36
+        ]
+      ],
+      "references": 36,
+      "resources": []
+    },
+    {
+      "dialect": "quarto",
+      "cache": {
+        "bytes": 91824,
+        "sha256": "8100ef93dfa503c514fdad55ad4cb3d678e3532938246fd6929eeb869468b383"
+      },
+      "markdown": {
+        "bytes": 1701,
+        "sha256": "48b28696a0c15c21658ad23a3242bcf2c6ee7e64cda19c299f700922f5513287"
+      },
+      "roles": [
+        {
+          "id": "results-p4-delta-bond-1",
+          "base": "Δ",
+          "superscript": "12,13",
+          "line": 26,
+          "column": 18,
+          "originalOutput": "Δ$^{12,13}$",
+          "byteOffset": 701
+        },
+        {
+          "id": "results-p4-delta-bond-2",
+          "base": "Δ",
+          "superscript": "12,13",
+          "line": 26,
+          "column": 714,
+          "originalOutput": "Δ$^{12,13}$",
+          "byteOffset": 1398
+        }
+      ],
+      "stageEvidence": {
+        "natureCleaned": [
+          "Δ<sup>12,13</sup>-alkene",
+          "Δ<sup>12,13</sup>-alkene"
+        ],
+        "defuddleBodyMarkdown": [
+          "Δ <sup>12,13</sup> -alkene",
+          "Δ <sup>12,13</sup> -alkene"
+        ],
+        "finalOrphans": [
+          "Δ$^{12,13}$",
+          "Δ$^{12,13}$"
+        ]
+      },
+      "validators": {
+        "mathValidation": false,
+        "rawHtmlValidation": true,
+        "markdownStructure": true,
+        "crossReferenceValidation": true
+      },
+      "scientificFragmentCounts": {
+        "isolatedSubscript": 0,
+        "isolatedSuperscript": 2,
+        "boldThenSubscript": 0,
+        "italicThenSuperscript": 0
+      },
+      "warnings": [
+        "No Nature figures were detected.",
+        "No equation nodes were detected."
+      ],
+      "citations": [
+        [
+          5
+        ],
+        [
+          27,
+          36
+        ]
+      ],
+      "references": 36,
+      "resources": []
+    }
+  ],
+  "writerProof": "Static production clipNature returns data; writePaper is not called. No fake writer spy.",
+  "networkLedger": {
+    "attempts": [],
+    "writerProof": "Static clipNature returns data without invoking writePaper; no writer spy claimed."
+  },
+  "logs": [
+    {
+      "path": "red-a5b6.log",
+      "bytes": 13922,
+      "sha256": "c288adf5e326584cbebb573bd19bcbf145f73dbb6c1942fdff2dc3e61b51790b"
+    },
+    {
+      "path": "red-a5b6/network-ledger.json",
+      "bytes": 124,
+      "sha256": "38f726f4b3895d4c6d8bc4ae526aae1052a4f15ba568e58829f92db971cfb868"
+    }
+  ]
+}
