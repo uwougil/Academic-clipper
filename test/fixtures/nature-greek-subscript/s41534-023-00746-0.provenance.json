@@ -1,0 +1,2610 @@
+{
+  "version": "nature-greek-subscript-source/1.0.0",
+  "baseSha": "ac86b2fa509653dfeb43b968472ce6280a51de2c",
+  "source": {
+    "articleId": "s41534-023-00746-0",
+    "url": "https://www.nature.com/articles/s41534-023-00746-0",
+    "doi": "10.1038/s41534-023-00746-0",
+    "observedAt": "2026-10-03T16:44:08.251Z",
+    "rawBytes": 511799,
+    "sha256": "6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e",
+    "captureMode": "Reuse immutable public anonymous B body; no reacquisition."
+  },
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41534-023-00746-0",
+    "sourceObservedAt": "2026-10-03T16:44:08.251Z",
+    "sourceSha256": "6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Xu, Qian",
+      "Zheng, Guo",
+      "Wang, Yu-Xin",
+      "Zoller, Peter",
+      "Clerk, Aashish A.",
+      "Jiang, Liang"
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "sourceRawNoticeText": "Open Access  This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [
+      {
+        "resourceId": "table-1",
+        "sourceUrl": "https://www.nature.com/articles/s41534-023-00746-0/tables/1",
+        "sourceSha256": "7772399037acb3ba4dfc100bc6c9a8fdf4f82c56d8836e65fcb761294e9ee069",
+        "observedTableLicenseLinks": [],
+        "attributionSource": "https://www.nature.com/articles/s41534-023-00746-0",
+        "licenseEvidenceLocation": "sourceRights.notices in this article source-evidence.json",
+        "basis": "The table is an excerpt of this article. The article rights notice is recorded separately; an absent table-page license link is not claimed as an observed link."
+      }
+    ],
+    "technicalTransformations": "Recipe-selected excerpts and original ancestors, A sanitizer 1.1.0, deterministic serialization and LF normalization. Advertising, navigation, executable content and unselected source blocks are omitted as recorded in the manifest/handoff. Retained scholarly prose, TeX, captions, authors, citation data and table cells are preserved; image binaries and full live captures are not included.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "dependencies": {
+    "aOwnerSha": "3754d3a781459635e719859353fe3cbdf8741897",
+    "helper": {
+      "gitBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+      "bytes": 34946,
+      "sha256": "a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c"
+    },
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "projectionVersion": "nature-corpus-projection/1.0.0",
+    "bSha": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330",
+    "cSha": "19e09534736ff77b673fd289ea0b63a91514c7e3",
+    "cPacketBytes": 36206,
+    "cPacketSha256": "2a306f392a17ae9edd8e4964dcb1aae236861030de4074650179982774b2154f"
+  },
+  "fixture": {
+    "path": "s41534-023-00746-0.excerpt.html",
+    "bytes": 90784,
+    "sha256": "227a626f70825f2484e94754cdda3a1a6a6608f4b94f6bbe4c6ff206be9f08b7",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "referencePrefix": 76,
+  "recipe": {
+    "version": "1.0.0",
+    "id": "s41534-023-00746-0-plain-greek-subscript-v1",
+    "articleUrl": "https://www.nature.com/articles/s41534-023-00746-0",
+    "blocks": [
+      {
+        "id": "a-meta-11",
+        "selector": "head > meta[name=\"dc.title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-36",
+        "selector": "head > meta[name=\"citation_journal_title\"][content=\"npj Quantum Information\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-40",
+        "selector": "head > meta[name=\"citation_title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-41",
+        "selector": "head > meta[name=\"citation_volume\"][content=\"9\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-42",
+        "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-43",
+        "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/08/03\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-44",
+        "selector": "head > meta[name=\"citation_firstpage\"][content=\"78\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-45",
+        "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-49",
+        "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41534-023-00746-0\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-52",
+        "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41534-023-00746-0\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-140",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Xu, Qian\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-142",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zheng, Guo\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-144",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Wang, Yu-Xin\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-146",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zoller, Peter\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-149",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Clerk, Aashish A.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-151",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Jiang, Liang\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-160",
+        "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41534-023-00746-0\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-161",
+        "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-163",
+        "selector": "head > meta[property=\"og:title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits - npj Quantum Information\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-title",
+        "selector": "h1.c-article-title",
+        "role": "title"
+      },
+      {
+        "id": "methods-heading",
+        "selector": "#Sec8",
+        "role": "heading"
+      },
+      {
+        "id": "methods-subheading",
+        "selector": "#Sec9",
+        "role": "heading"
+      },
+      {
+        "id": "methods-p4",
+        "selector": "#Equ18 + p",
+        "role": "paragraph"
+      },
+      {
+        "id": "preceding-Equ18",
+        "selector": "#Equ18",
+        "role": "equation"
+      },
+      {
+        "id": "methods-p5",
+        "selector": "#Equ19 + p",
+        "role": "paragraph"
+      },
+      {
+        "id": "preceding-Equ19",
+        "selector": "#Equ19",
+        "role": "equation"
+      },
+      {
+        "id": "methods-p6",
+        "selector": "#figure-5",
+        "role": "figure"
+      },
+      {
+        "id": "methods-p7",
+        "selector": "#figure-5 + p",
+        "role": "paragraph"
+      },
+      {
+        "id": "methods-p9",
+        "selector": "#Equ20 + p",
+        "role": "paragraph"
+      },
+      {
+        "id": "preceding-Equ20",
+        "selector": "#Equ20",
+        "role": "equation"
+      },
+      {
+        "id": "methods-p13",
+        "selector": "#Equ23 + p",
+        "role": "paragraph"
+      },
+      {
+        "id": "preceding-Equ23",
+        "selector": "#Equ23",
+        "role": "equation"
+      },
+      {
+        "id": "methods-p15",
+        "selector": "#Equ25 + p",
+        "role": "paragraph"
+      },
+      {
+        "id": "preceding-Equ25",
+        "selector": "#Equ25",
+        "role": "equation"
+      },
+      {
+        "id": "target-MOESM1",
+        "selector": "section[data-title=\"Supplementary information\"]",
+        "role": "supplementary-target"
+      },
+      {
+        "id": "target-Equ6",
+        "selector": "#Equ6",
+        "role": "equation"
+      },
+      {
+        "id": "target-Equ16",
+        "selector": "#Equ16",
+        "role": "equation"
+      },
+      {
+        "id": "target-Fig6",
+        "selector": "#figure-6",
+        "role": "figure"
+      },
+      {
+        "id": "target-Equ22",
+        "selector": "#Equ22",
+        "role": "equation"
+      },
+      {
+        "id": "references-heading",
+        "selector": "#Bib1",
+        "role": "heading"
+      },
+      {
+        "id": "reference-1",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(1)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-2",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(2)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-3",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(3)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-4",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(4)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-5",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(5)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-6",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(6)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-7",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(7)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-8",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(8)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-9",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(9)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-10",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(10)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-11",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(11)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-12",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(12)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-13",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(13)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-14",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(14)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-15",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(15)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-16",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(16)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-17",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(17)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-18",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(18)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-19",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(19)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-20",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(20)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-21",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(21)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-22",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(22)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-23",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(23)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-24",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(24)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-25",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(25)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-26",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(26)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-27",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(27)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-28",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(28)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-29",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(29)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-30",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(30)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-31",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(31)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-32",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(32)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-33",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(33)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-34",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(34)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-35",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(35)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-36",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(36)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-37",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(37)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-38",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(38)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-39",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(39)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-40",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(40)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-41",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(41)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-42",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(42)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-43",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(43)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-44",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(44)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-45",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(45)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-46",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(46)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-47",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(47)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-48",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(48)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-49",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(49)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-50",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(50)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-51",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(51)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-52",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(52)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-53",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(53)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-54",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(54)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-55",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(55)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-56",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(56)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-57",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(57)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-58",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(58)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-59",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(59)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-60",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(60)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-61",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(61)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-62",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(62)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-63",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(63)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-64",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(64)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-65",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(65)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-66",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(66)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-67",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(67)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-68",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(68)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-69",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(69)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-70",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(70)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-71",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(71)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-72",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(72)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-73",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(73)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-74",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(74)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-75",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(75)",
+        "role": "reference"
+      },
+      {
+        "id": "reference-76",
+        "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(76)",
+        "role": "reference"
+      },
+      {
+        "id": "source-rights",
+        "selector": "section[data-title=\"Rights and permissions\"]",
+        "role": "rights"
+      },
+      {
+        "id": "publisher-footer",
+        "selector": "p.c-footer__legal",
+        "role": "publisher-notice"
+      }
+    ],
+    "removeSelectors": []
+  },
+  "retainedBlocks": [
+    {
+      "id": "a-meta-11",
+      "selector": "head > meta[name=\"dc.title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e0d4beaaaa87eec85fa146464f916c7c8f5703b2c0f81dbec687c66de50702e1"
+    },
+    {
+      "id": "a-meta-36",
+      "selector": "head > meta[name=\"citation_journal_title\"][content=\"npj Quantum Information\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ed88053f1288a4dc68b6da4c8f4eaabf3424ec7cb616aa1d0c723a9d274b1aa2"
+    },
+    {
+      "id": "a-meta-40",
+      "selector": "head > meta[name=\"citation_title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ecf37d16d7270373d42e8accffe6ecef46eaf6d1d60b242576020d3a02aab695"
+    },
+    {
+      "id": "a-meta-41",
+      "selector": "head > meta[name=\"citation_volume\"][content=\"9\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "287b7c72329f2a716ae7cb52dc7abc0eb6cd915eca14d157d41b0f1610bc7a56"
+    },
+    {
+      "id": "a-meta-42",
+      "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ed1801e512cd04c79001567258d9938bff6132aa5dd4e064b95179536e4cdde8"
+    },
+    {
+      "id": "a-meta-43",
+      "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/08/03\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "5f3278f3f500a9005cd3955db04616b14e5c43c933f19b05749e5a9e9e4947dc"
+    },
+    {
+      "id": "a-meta-44",
+      "selector": "head > meta[name=\"citation_firstpage\"][content=\"78\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "de244358874ddb6179096cda6c5efb375858a93dbdfca6cfb120fabce8340377"
+    },
+    {
+      "id": "a-meta-45",
+      "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "aeb52796a9a520993fee49b41ab2b5460c5dcfe24a657aaee093d4618fd9e1c6"
+    },
+    {
+      "id": "a-meta-49",
+      "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41534-023-00746-0\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "29a0a9417afec2e6db9c624241c317ea47b8954abae9b55c414aff8de98cf924"
+    },
+    {
+      "id": "a-meta-52",
+      "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41534-023-00746-0\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b9936a9e2953f4d42f767a5fb5edc8c92306f7e5aa10e4d9b7d55d6679c10200"
+    },
+    {
+      "id": "a-meta-140",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Xu, Qian\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "140c45e64f6916f2fc4d259bdb484474d5efcc8905bfb175bc9167f6466e24e0"
+    },
+    {
+      "id": "a-meta-142",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Zheng, Guo\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a5c721d0d06bc27f6e4a4ecc2a5418fac2bbd9b4c8d8e0646cd773d86607ff5e"
+    },
+    {
+      "id": "a-meta-144",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Wang, Yu-Xin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d0a369cbd1c1d8153babc145c5dbb0592db314fd4f63437c2289bfe0e0ae3a54"
+    },
+    {
+      "id": "a-meta-146",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Zoller, Peter\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "058404d464b506847d521e9d16f225c57f842690d89e3588e5504ba27e544459"
+    },
+    {
+      "id": "a-meta-149",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Clerk, Aashish A.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "f67cdd4dc2539cf492df6cbcb9c3f7d4aa74cc7684af44f18032ccdd83b56e58"
+    },
+    {
+      "id": "a-meta-151",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Jiang, Liang\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "391b875ffdf08da1d48fa5be4c13c307c35881d5988917e5465a797b4299cb93"
+    },
+    {
+      "id": "a-meta-160",
+      "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41534-023-00746-0\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "fc4177be945599466fdddfac68db535aa9cedb409758a5a1a58d9cff15c8dc64"
+    },
+    {
+      "id": "a-meta-161",
+      "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e2a47d03efa7114d4bc8e65c0fba2e84722b49e6e718eb787898c3c61ac5bcc9"
+    },
+    {
+      "id": "a-meta-163",
+      "selector": "head > meta[property=\"og:title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits - npj Quantum Information\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "64a66f6ef0a2bd2abcf91192b2d45a18014a9937864a8d21780cda209d19cd00"
+    },
+    {
+      "id": "a-canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c43c8acd8c08fb8377a3edef39fe8361076bd5da6b782ec20da729349bb3c0a2"
+    },
+    {
+      "id": "a-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "55fd311e8bb6f50f9068e873af6eb72bdd01db59996a87d928640920c2f931ec"
+    },
+    {
+      "id": "a-title",
+      "selector": "h1.c-article-title",
+      "role": "title",
+      "sourceSubtreeSha256": "b9b00030d89a629955e6a0ce9dc70bb185226b6b2f3e5441d443342c571fe8a6"
+    },
+    {
+      "id": "methods-heading",
+      "selector": "#Sec8",
+      "role": "heading",
+      "sourceSubtreeSha256": "2e9f88d8fb9495c0fcd4cd622088c955791a503c86dc1c501b1fe900f512d822"
+    },
+    {
+      "id": "methods-subheading",
+      "selector": "#Sec9",
+      "role": "heading",
+      "sourceSubtreeSha256": "4f9fb9fbd00b20efa5c1f40aa3add9792c77fc245f47b20012e2d50673cd1c37"
+    },
+    {
+      "id": "methods-p4",
+      "selector": "#Equ18 + p",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "d4b9cd5027373869e427abe3a356010ce137ee71232ba6fe10fa326e619e4636"
+    },
+    {
+      "id": "preceding-Equ18",
+      "selector": "#Equ18",
+      "role": "equation",
+      "sourceSubtreeSha256": "2c80ad7a53b54da5990884fed3af0f4a1f4e173190eb15459efd022481e4d46d"
+    },
+    {
+      "id": "methods-p5",
+      "selector": "#Equ19 + p",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "7917cafd5d18cb35e336b2dc2f3a83ea9c35d2e81f9e5e8c8ea513825b5ca19a"
+    },
+    {
+      "id": "preceding-Equ19",
+      "selector": "#Equ19",
+      "role": "equation",
+      "sourceSubtreeSha256": "64b8b8b9cd95984874a4c98e72c73f62a83e447341dc9c12612774aad86e3cc6"
+    },
+    {
+      "id": "methods-p6",
+      "selector": "#figure-5",
+      "role": "figure",
+      "sourceSubtreeSha256": "9afd4fa459c3bb331469676aab974db7b3527d55eac549f0a9857a4eb1dc2af6"
+    },
+    {
+      "id": "methods-p7",
+      "selector": "#figure-5 + p",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "41fe93f90327d2058184f53f70b106f365fec54bac3569302d2621b4e6b379a7"
+    },
+    {
+      "id": "methods-p9",
+      "selector": "#Equ20 + p",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "4df3e18987d23972b091c9e456138caf31e752848220bd87f716839e8bf298ad"
+    },
+    {
+      "id": "preceding-Equ20",
+      "selector": "#Equ20",
+      "role": "equation",
+      "sourceSubtreeSha256": "8f8295c794f464ec9902beee21c26a63c4778a77e60116d3445187f806863374"
+    },
+    {
+      "id": "methods-p13",
+      "selector": "#Equ23 + p",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "a5560c83a39e0275742a9c3d0dd8c0830be4cfc503882f9def1a6c06a13ac969"
+    },
+    {
+      "id": "preceding-Equ23",
+      "selector": "#Equ23",
+      "role": "equation",
+      "sourceSubtreeSha256": "97eb4200b974a79ea657664f785828e73681d5cfc47866c7a745d24667dd4a9c"
+    },
+    {
+      "id": "methods-p15",
+      "selector": "#Equ25 + p",
+      "role": "paragraph",
+      "sourceSubtreeSha256": "71d264e4fec89fd459f23ccf020b4a263bfee0b83e3a37ef201f6437a89f3fda"
+    },
+    {
+      "id": "preceding-Equ25",
+      "selector": "#Equ25",
+      "role": "equation",
+      "sourceSubtreeSha256": "b0ec1481ae505845b867abf7b2087739c01aa9a482820c0e9bd371f8b28547b4"
+    },
+    {
+      "id": "target-MOESM1",
+      "selector": "section[data-title=\"Supplementary information\"]",
+      "role": "supplementary-target",
+      "sourceSubtreeSha256": "a8fbb12d352c470fd69074bd473b3458b2ff68fd05e2c7abd99132649f75a508"
+    },
+    {
+      "id": "target-Equ6",
+      "selector": "#Equ6",
+      "role": "equation",
+      "sourceSubtreeSha256": "f5eaeb63f076880eb0953cc48fcb412d36785f9f1fc8a6acee64449eb0bfcdd4"
+    },
+    {
+      "id": "target-Equ16",
+      "selector": "#Equ16",
+      "role": "equation",
+      "sourceSubtreeSha256": "87f8baedadeec43d9f13fc25386f2e8a6003c1f52b1f459a2b3a215918f4d22c"
+    },
+    {
+      "id": "target-Fig6",
+      "selector": "#figure-6",
+      "role": "figure",
+      "sourceSubtreeSha256": "1e1385e1e78308bf81af62976f046b82fcefbefcca3d0e30b33accec236f59e4"
+    },
+    {
+      "id": "target-Equ22",
+      "selector": "#Equ22",
+      "role": "equation",
+      "sourceSubtreeSha256": "cd111da9fd4fdbf1e12716f370a5044e1a797ce1abda33e3a880ae9ce0c5adf9"
+    },
+    {
+      "id": "references-heading",
+      "selector": "#Bib1",
+      "role": "heading",
+      "sourceSubtreeSha256": "af92342e8974526976997242004de48e6fcf9aef95e778bf2972d4199120887d"
+    },
+    {
+      "id": "reference-1",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(1)",
+      "role": "reference",
+      "sourceSubtreeSha256": "f6e3ab681f25646ff4977c679cfd5869d3cd2734de392909c88529b40d1905bf"
+    },
+    {
+      "id": "reference-2",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(2)",
+      "role": "reference",
+      "sourceSubtreeSha256": "55fa4e01c7eac518984948854a28404860c9fba082c7c5506ddc80f42de11769"
+    },
+    {
+      "id": "reference-3",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(3)",
+      "role": "reference",
+      "sourceSubtreeSha256": "acd53f6390fe3b0b9fb32ff4a15dec61ff6685c1304eb227b11edba975df1791"
+    },
+    {
+      "id": "reference-4",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(4)",
+      "role": "reference",
+      "sourceSubtreeSha256": "8f1fb630ca7680ba2b910c3e392e22c7f031b3914398be8d7cd9292427b22643"
+    },
+    {
+      "id": "reference-5",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(5)",
+      "role": "reference",
+      "sourceSubtreeSha256": "3204ff6b0d808a04bffec1a619bc1b8f41f37a076b1bc007e961fb359004bcfd"
+    },
+    {
+      "id": "reference-6",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(6)",
+      "role": "reference",
+      "sourceSubtreeSha256": "05d380fc956b357bc46f07c76f5af0ad7552a4341172c96f3681345019624128"
+    },
+    {
+      "id": "reference-7",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(7)",
+      "role": "reference",
+      "sourceSubtreeSha256": "0db6c03461e22a6bd3c3463ef8ca8ef60df78a0f6572b9356f6df53e44d512bc"
+    },
+    {
+      "id": "reference-8",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(8)",
+      "role": "reference",
+      "sourceSubtreeSha256": "a284c60112e13225f88b281e68ba18e7405d0822f7f61b622c64ba6d49ff9b59"
+    },
+    {
+      "id": "reference-9",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(9)",
+      "role": "reference",
+      "sourceSubtreeSha256": "9555d5501c755611f5a88af39d1bb5b5f1cb9f5c964c613adc7c85f5b5418f51"
+    },
+    {
+      "id": "reference-10",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(10)",
+      "role": "reference",
+      "sourceSubtreeSha256": "1a538b4795a50acb5cc0c64f6f5b203dc25bb309944635422df9d43802dd85ad"
+    },
+    {
+      "id": "reference-11",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(11)",
+      "role": "reference",
+      "sourceSubtreeSha256": "c99a7c2f99a412334bb516c81608c120de571dca035322ff23f773b149e7a54d"
+    },
+    {
+      "id": "reference-12",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(12)",
+      "role": "reference",
+      "sourceSubtreeSha256": "5b25495b08873ebcb2350af31cc9b949ad4f680e88fd9c932a4427833ad090d4"
+    },
+    {
+      "id": "reference-13",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(13)",
+      "role": "reference",
+      "sourceSubtreeSha256": "6e514b5edf03bc106f50585711763e5dbe65a57c28bb6dd535bbe8a4b1be6b70"
+    },
+    {
+      "id": "reference-14",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(14)",
+      "role": "reference",
+      "sourceSubtreeSha256": "51e51da51b8b371759b1bbe5897842c4b82dd306d064167de4b6a34e64bdb2e8"
+    },
+    {
+      "id": "reference-15",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(15)",
+      "role": "reference",
+      "sourceSubtreeSha256": "111d45f80a74beaefc03d3ff2c8bead569b0e62ac6ee724b6877057d86d2fffd"
+    },
+    {
+      "id": "reference-16",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(16)",
+      "role": "reference",
+      "sourceSubtreeSha256": "cb79c49c7a0fee0af6066198990fb146bfdcd6cd4feacec8c466fe21cc5b1028"
+    },
+    {
+      "id": "reference-17",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(17)",
+      "role": "reference",
+      "sourceSubtreeSha256": "2655c6db42776ead10da8851a46b64bfcc0d4f2f2e5960671fe34e23540fe62a"
+    },
+    {
+      "id": "reference-18",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(18)",
+      "role": "reference",
+      "sourceSubtreeSha256": "cbdf5c6803bf8ce1855a297b1b526853823be17b02dbc3dbb485f6a64514e6be"
+    },
+    {
+      "id": "reference-19",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(19)",
+      "role": "reference",
+      "sourceSubtreeSha256": "fcb0da9f2c941794ffcf9f6869d28de73e56ae8530b156c587369853053deed2"
+    },
+    {
+      "id": "reference-20",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(20)",
+      "role": "reference",
+      "sourceSubtreeSha256": "9ef2a15c5dee4894e93e2aae695b23812b31bfaa725468d2038f67bdb54be05a"
+    },
+    {
+      "id": "reference-21",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(21)",
+      "role": "reference",
+      "sourceSubtreeSha256": "bf02b64c7fd772129b4d46b7ee718975aacdd4b3b53251940de88aa41d921c14"
+    },
+    {
+      "id": "reference-22",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(22)",
+      "role": "reference",
+      "sourceSubtreeSha256": "f8c75d824ec88e1efa91379731c88e86d53be1a54d01e57b4541775eb99c77b5"
+    },
+    {
+      "id": "reference-23",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(23)",
+      "role": "reference",
+      "sourceSubtreeSha256": "8b58779e4443cd91358f88d73c8b9292c3a7934a5ea7d689e0c3300c99828f01"
+    },
+    {
+      "id": "reference-24",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(24)",
+      "role": "reference",
+      "sourceSubtreeSha256": "0be5eebb615c4396f75f91c8c607a8450b8fac383847e46f259c881e4de87cc6"
+    },
+    {
+      "id": "reference-25",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(25)",
+      "role": "reference",
+      "sourceSubtreeSha256": "7d6d083f4f10be65edb7f3d026c110142e79d005999176e959c1f3efcd1e2639"
+    },
+    {
+      "id": "reference-26",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(26)",
+      "role": "reference",
+      "sourceSubtreeSha256": "4c070da976d6b49aa19f35a2fc99306fd4e23d213eefda910551ca70c54bca52"
+    },
+    {
+      "id": "reference-27",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(27)",
+      "role": "reference",
+      "sourceSubtreeSha256": "267db9015dfc153e5aed8fd8642a9dd7812fa5d9c7c2f04362adeaabb00ea2b2"
+    },
+    {
+      "id": "reference-28",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(28)",
+      "role": "reference",
+      "sourceSubtreeSha256": "80b0b02428979cd4c5ae5c8414a1d49d6eadf6945560cb79b5aecc9c162f4dd3"
+    },
+    {
+      "id": "reference-29",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(29)",
+      "role": "reference",
+      "sourceSubtreeSha256": "4d65ae72765f49de544d8a92407a6c9112c7bfe1aae79d22156c12241397c3dc"
+    },
+    {
+      "id": "reference-30",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(30)",
+      "role": "reference",
+      "sourceSubtreeSha256": "65fd6e30bbf8284dd96b608044f68e623c157621d615bedfedfa5572f9d164d1"
+    },
+    {
+      "id": "reference-31",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(31)",
+      "role": "reference",
+      "sourceSubtreeSha256": "c79571e340313d5e49fb8649e07232b5e952b0fd6bc93ac62f3fc19a6d7356d3"
+    },
+    {
+      "id": "reference-32",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(32)",
+      "role": "reference",
+      "sourceSubtreeSha256": "cb1c1a139bb616a789d4b9bf4068a43d470a0239bd985ad0c368184a29543eed"
+    },
+    {
+      "id": "reference-33",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(33)",
+      "role": "reference",
+      "sourceSubtreeSha256": "375079272093db900f183110aa70586f448cd4c1e65b68bb98b3d148098e19f7"
+    },
+    {
+      "id": "reference-34",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(34)",
+      "role": "reference",
+      "sourceSubtreeSha256": "e356f081f8124530461b2363533f6584b1c9951d6327117f80526a8d349fe559"
+    },
+    {
+      "id": "reference-35",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(35)",
+      "role": "reference",
+      "sourceSubtreeSha256": "ee745614636edbfdd5e1a0653682467c5b6c622e641aec7b4df0794af2d49b59"
+    },
+    {
+      "id": "reference-36",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(36)",
+      "role": "reference",
+      "sourceSubtreeSha256": "2e6c1dd205920233463203592ad0bc0cd6a4825b975c354366d3d42fa027cc5b"
+    },
+    {
+      "id": "reference-37",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(37)",
+      "role": "reference",
+      "sourceSubtreeSha256": "7975a944a16a096952d06d9581d55c55701099fba973d37b437d3069a02d6142"
+    },
+    {
+      "id": "reference-38",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(38)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b19552672b16c5efcdd116f6b34a645a3eac566a3302c880100470efd8617c58"
+    },
+    {
+      "id": "reference-39",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(39)",
+      "role": "reference",
+      "sourceSubtreeSha256": "84dc2b1c4add88a65dd3b3fe2f09d236c88e48adcbc3fd6284229921f23eab77"
+    },
+    {
+      "id": "reference-40",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(40)",
+      "role": "reference",
+      "sourceSubtreeSha256": "4e7e515d26dda03a2b71f0bff2c7d94e612910e32a7f9a916258245490d0eae9"
+    },
+    {
+      "id": "reference-41",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(41)",
+      "role": "reference",
+      "sourceSubtreeSha256": "65fb53ae0e79d7bb2d9b4a3839cdc36bfabeb604af2821072950e9977765374c"
+    },
+    {
+      "id": "reference-42",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(42)",
+      "role": "reference",
+      "sourceSubtreeSha256": "87ca3b1f65f31d38e0d420eb20fd37bb396a5bf488e6450efed486645cdcf172"
+    },
+    {
+      "id": "reference-43",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(43)",
+      "role": "reference",
+      "sourceSubtreeSha256": "62534db8a11b3b2fb1891a522b65f6b3c779de21c317a10c7ff81db1657f84cb"
+    },
+    {
+      "id": "reference-44",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(44)",
+      "role": "reference",
+      "sourceSubtreeSha256": "c12f34b45951659b4b20e098b368193bb83064781b43fc5dbb25d4a1a91afad3"
+    },
+    {
+      "id": "reference-45",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(45)",
+      "role": "reference",
+      "sourceSubtreeSha256": "192b4021ae3d64fb7fe49f11887a5130a37a9842a816657d5aad6261144ece22"
+    },
+    {
+      "id": "reference-46",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(46)",
+      "role": "reference",
+      "sourceSubtreeSha256": "de79967fd03d633bd8777b5521d090a306312d67c4cec692c6fefd151896c235"
+    },
+    {
+      "id": "reference-47",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(47)",
+      "role": "reference",
+      "sourceSubtreeSha256": "2a13d1b421039631f3b050f66323fcaff53fd316b6730b77cef2c1eb69235e67"
+    },
+    {
+      "id": "reference-48",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(48)",
+      "role": "reference",
+      "sourceSubtreeSha256": "fa309e1119a29ea1b314d4fd9fc5a57966357e1c0ae0c5b5efd2e584467b3355"
+    },
+    {
+      "id": "reference-49",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(49)",
+      "role": "reference",
+      "sourceSubtreeSha256": "88b9b557aeb9fbcb5128325551fbaa8a6a3ae3960f5600daa2e5af55ea596002"
+    },
+    {
+      "id": "reference-50",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(50)",
+      "role": "reference",
+      "sourceSubtreeSha256": "91dd01a899c17ece913eeaf05d3a65c4d2464e66d2434e86acb224b09a7c938e"
+    },
+    {
+      "id": "reference-51",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(51)",
+      "role": "reference",
+      "sourceSubtreeSha256": "7e9cf265c7cba3d666ca57bd3aaeed74029edd097ba541d4167032887c765f41"
+    },
+    {
+      "id": "reference-52",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(52)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b0e5fabd645e5685e65d07c3e813b15c49e3f5ff602ca346862c265519ae7221"
+    },
+    {
+      "id": "reference-53",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(53)",
+      "role": "reference",
+      "sourceSubtreeSha256": "9007ecf26ba6e61bbe64ab2daa1683e1f4d8e478ca1cf162c31508174172f1e5"
+    },
+    {
+      "id": "reference-54",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(54)",
+      "role": "reference",
+      "sourceSubtreeSha256": "482d3d3cb4521aa5699c9187f137e64dd8273ffb6bf9826a42f641647d8a618b"
+    },
+    {
+      "id": "reference-55",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(55)",
+      "role": "reference",
+      "sourceSubtreeSha256": "07e55d22e4d2324e4974f726a8cc8ab4a78fde3374eb7a41ddeea4d10d02b884"
+    },
+    {
+      "id": "reference-56",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(56)",
+      "role": "reference",
+      "sourceSubtreeSha256": "c8876c6312293da9baee27ecce5dd2802575f18081e61a9124116de1e9a139e1"
+    },
+    {
+      "id": "reference-57",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(57)",
+      "role": "reference",
+      "sourceSubtreeSha256": "67effb793dfe19bfa474b17985f9628ab6da6d1dfece5fd0e1173a9f657adec3"
+    },
+    {
+      "id": "reference-58",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(58)",
+      "role": "reference",
+      "sourceSubtreeSha256": "5b733179af01ee38366ba3b3e08b20f8796f39612969429357cfc6486327c836"
+    },
+    {
+      "id": "reference-59",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(59)",
+      "role": "reference",
+      "sourceSubtreeSha256": "40c689204d92020e18d9ebc3fcf0109b5de5cb85c879fef3f37d4b288165a2a3"
+    },
+    {
+      "id": "reference-60",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(60)",
+      "role": "reference",
+      "sourceSubtreeSha256": "1851f8cd938fed521ef5ffa59f799b64bfc02b810e540508e37aa125d6f8badd"
+    },
+    {
+      "id": "reference-61",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(61)",
+      "role": "reference",
+      "sourceSubtreeSha256": "eda19e0803798c03b676847051ddc114a9f2bd4a3701717c2114e94bdb1da31c"
+    },
+    {
+      "id": "reference-62",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(62)",
+      "role": "reference",
+      "sourceSubtreeSha256": "491eca47aab0bb0a614086d6463f870d88d47dfa2cdac30e2854c53148c4b62c"
+    },
+    {
+      "id": "reference-63",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(63)",
+      "role": "reference",
+      "sourceSubtreeSha256": "b23519fccf91e29068da93a94b1b59323bb8d7af27c0b4be73cde32bc1b901e3"
+    },
+    {
+      "id": "reference-64",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(64)",
+      "role": "reference",
+      "sourceSubtreeSha256": "499a90464847b75a8326076920fa6815d85c1786f8061130d76bc56280db647f"
+    },
+    {
+      "id": "reference-65",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(65)",
+      "role": "reference",
+      "sourceSubtreeSha256": "4f5915b209709c85f174b409fbd04297b8ed051a41deffb4c3cddc49d8b82e1f"
+    },
+    {
+      "id": "reference-66",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(66)",
+      "role": "reference",
+      "sourceSubtreeSha256": "267fb41882e73167cbf8c2382ab5dc3920d59a0caede8fdadd3a0d05d84e15b5"
+    },
+    {
+      "id": "reference-67",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(67)",
+      "role": "reference",
+      "sourceSubtreeSha256": "5a0eb8e24968818ebbc7fe61948d9b43506cce2486e8c0be936242ebbbd17a0a"
+    },
+    {
+      "id": "reference-68",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(68)",
+      "role": "reference",
+      "sourceSubtreeSha256": "640b7dec1204367bb62caaf1b510ab07d044d324d14b513e7879b4af8bce2edc"
+    },
+    {
+      "id": "reference-69",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(69)",
+      "role": "reference",
+      "sourceSubtreeSha256": "6f00f27cd2eba87639712065ac1e705e3fd9642589ecea54b191100785548bfe"
+    },
+    {
+      "id": "reference-70",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(70)",
+      "role": "reference",
+      "sourceSubtreeSha256": "a38fae7999e878b33e3f0589881d61a818298a8d903cba978af8a3022bd09c3e"
+    },
+    {
+      "id": "reference-71",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(71)",
+      "role": "reference",
+      "sourceSubtreeSha256": "e7eba2f7b5bd0d6492a0358ad12c6336d2942a83004665c6f894b79c310314aa"
+    },
+    {
+      "id": "reference-72",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(72)",
+      "role": "reference",
+      "sourceSubtreeSha256": "cf41ed99dac6d1b31e739846d64de81f08dda44eb667118d0769f594d37b6527"
+    },
+    {
+      "id": "reference-73",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(73)",
+      "role": "reference",
+      "sourceSubtreeSha256": "708376c5382d36cdc6ade97aa71e5cf474eaf56f03acbeeaa361b6d345ed8b2c"
+    },
+    {
+      "id": "reference-74",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(74)",
+      "role": "reference",
+      "sourceSubtreeSha256": "0382a965fcf12b3bbb5d524779846f256875bb417d03a0d357369c4d618d820f"
+    },
+    {
+      "id": "reference-75",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(75)",
+      "role": "reference",
+      "sourceSubtreeSha256": "4e39d9fd624666f686777f4fdd54faca4f4870fef8346084199a7d36c352edaf"
+    },
+    {
+      "id": "reference-76",
+      "selector": "#Bib1-content > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(76)",
+      "role": "reference",
+      "sourceSubtreeSha256": "144e24a180cc6a799646ed6080bc8207b50517e2e8e2f7b48459296d3396065f"
+    },
+    {
+      "id": "source-rights",
+      "selector": "section[data-title=\"Rights and permissions\"]",
+      "role": "rights",
+      "sourceSubtreeSha256": "97b4d3c3d96d646f72702a400f6728cd31a2b0f5272bbd1c93bdfd7c622a3e83"
+    },
+    {
+      "id": "publisher-footer",
+      "selector": "p.c-footer__legal",
+      "role": "publisher-notice",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3"
+    }
+  ],
+  "transformations": [
+    {
+      "operation": "select-complete-source-blocks-with-ancestors",
+      "count": 120
+    },
+    {
+      "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+      "count": 1
+    },
+    {
+      "operation": "trim-json-ld-to-article-object",
+      "count": 1
+    },
+    {
+      "operation": "remove-attributes",
+      "count": 824
+    },
+    {
+      "operation": "sanitize-resource-urls",
+      "count": 69
+    }
+  ],
+  "signatures": {
+    "projectionVersion": "nature-corpus-projection/1.0.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "recipeSha256": "8e103c0269c8a5f86e530a92b5907d78e4bffb688b93ac4882e15805491bdaac",
+    "structureSha256": "2996fec8f9f6b2dcc7551ae619e9288bf75483d2b3551c64918bccff69a79ea2",
+    "payloadSha256": "7ff3497399eb4b07a5defb96c862a96aa2de3c04f4763988a1ea9fc7de3f2b39"
+  },
+  "omittedContent": [
+    "Unselected article paragraphs/sections, tables and other figures; all original target blocks needed by selected contexts remain.",
+    "All unrelated navigation, metrics, advertising, account/session and executable material.",
+    "Image/PDF/supplementary binaries and full raw body are not committed."
+  ],
+  "paragraphs": [
+    {
+      "id": "methods-p4",
+      "sourceBlockId": "a-section-4",
+      "sourceParagraphIndex": 4,
+      "sourceSelector": "#Equ18 + p",
+      "retainedSelector": "#Sec8-content > p:nth-of-type(1)",
+      "rawParagraphPrehash": "d4b9cd5027373869e427abe3a356010ce137ee71232ba6fe10fa326e619e4636",
+      "cCorpusFrozenDigest": "74a9ca9392ba1e49f63b27c7dd139332ab694b2c99d96345da9bbca9654e8a0a",
+      "sourceText": "In the regime where the joint b,c modes act as a Markovian reservoir for mode a, i.e., \\({\\kappa }_{c}\\gg \\sqrt{{\\Gamma }_{a}{\\Gamma }_{b}}\\) and Γb ≫ Γa, we can adiabatically eliminate both b and c to obtain an effective dissipator (using the effective operator formalism76), as",
+      "contextSentinel": "In the regime where the joint b,c modes act as a M",
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 1,
+          "tag": "I",
+          "text": "c",
+          "html": "<i>c</i>"
+        },
+        {
+          "index": 2,
+          "tag": "I",
+          "text": "a",
+          "html": "<i>a</i>"
+        },
+        {
+          "index": 3,
+          "tag": "SPAN",
+          "text": "\\({\\kappa }_{c}\\gg \\sqrt{{\\Gamma }_{a}{\\Gamma }_{b}}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\kappa }_{c}\\gg \\sqrt{{\\Gamma }_{a}{\\Gamma }_{b}}\\)</span>"
+        },
+        {
+          "index": 4,
+          "tag": "SUB",
+          "text": "b",
+          "html": "<sub><i>b</i></sub>"
+        },
+        {
+          "index": 5,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 6,
+          "tag": "SUB",
+          "text": "a",
+          "html": "<sub><i>a</i></sub>"
+        },
+        {
+          "index": 7,
+          "tag": "I",
+          "text": "a",
+          "html": "<i>a</i>"
+        },
+        {
+          "index": 8,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 9,
+          "tag": "I",
+          "text": "c",
+          "html": "<i>c</i>"
+        },
+        {
+          "index": 10,
+          "tag": "SUP",
+          "text": "76",
+          "html": "<sup><a aria-label=\"Reference 76\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41534-023-00746-0#ref-CR76\" id=\"ref-link-section-d102805164e16910\" title=\"Reiter, F. &amp; Sørensen, A. S. Effective operator formalism for open quantum systems. Phys. Rev. A 85, 032111 (2012).\">76</a></sup>"
+        }
+      ],
+      "attachments": [
+        {
+          "subIndex": 0,
+          "base": "Γ",
+          "subscript": "b",
+          "subHtml": "<sub><i>b</i></sub>",
+          "before": " and Γ",
+          "after": " ≫ Γ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        },
+        {
+          "subIndex": 1,
+          "base": "Γ",
+          "subscript": "a",
+          "subHtml": "<sub><i>a</i></sub>",
+          "before": " ≫ Γ",
+          "after": ", we can adiabatically eliminate both ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        }
+      ],
+      "isFigureCaption": false,
+      "frozenParagraphDigest": "74a9ca9392ba1e49f63b27c7dd139332ab694b2c99d96345da9bbca9654e8a0a"
+    },
+    {
+      "id": "methods-p5",
+      "sourceBlockId": "a-section-4",
+      "sourceParagraphIndex": 5,
+      "sourceSelector": "#Equ19 + p",
+      "retainedSelector": "#Sec8-content > p:nth-of-type(2)",
+      "rawParagraphPrehash": "7917cafd5d18cb35e336b2dc2f3a83ea9c35d2e81f9e5e8c8ea513825b5ca19a",
+      "cCorpusFrozenDigest": "3605d4ae2cb313d0f68293ec7698dfc605544315b6d02dabc6a2050bf3b75aff",
+      "sourceText": "Setting λ = Γb, we obtain the desired dissipator \\({\\hat{Z}}_{L}\\otimes \\hat{\\tilde{a}}\\) to stabilize the SC (see Supplementary Note 6 for a detailed derivation).",
+      "contextSentinel": "Setting λ = Γb, we obtain the desired dissipator \\",
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "I",
+          "text": "λ",
+          "html": "<i>λ</i>"
+        },
+        {
+          "index": 1,
+          "tag": "SUB",
+          "text": "b",
+          "html": "<sub><i>b</i></sub>"
+        },
+        {
+          "index": 2,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 3,
+          "tag": "SPAN",
+          "text": "\\({\\hat{Z}}_{L}\\otimes \\hat{\\tilde{a}}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\hat{Z}}_{L}\\otimes \\hat{\\tilde{a}}\\)</span>"
+        }
+      ],
+      "attachments": [
+        {
+          "subIndex": 0,
+          "base": "Γ",
+          "subscript": "b",
+          "subHtml": "<sub><i>b</i></sub>",
+          "before": " = Γ",
+          "after": ", we obtain the desired dissipator ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        }
+      ],
+      "isFigureCaption": false,
+      "frozenParagraphDigest": "3605d4ae2cb313d0f68293ec7698dfc605544315b6d02dabc6a2050bf3b75aff"
+    },
+    {
+      "id": "methods-p6",
+      "sourceBlockId": "a-section-4",
+      "sourceParagraphIndex": 6,
+      "sourceSelector": "#figure-5-desc > p",
+      "retainedSelector": "#figure-5-desc > p:nth-of-type(1)",
+      "rawParagraphPrehash": "6b5529fa2fc0f7054db8ddff9f5845f04f47dc09a92c9b6c84c6e402cd3af866",
+      "cCorpusFrozenDigest": "f7f86bf155d5aa1ce3e2adc5f646839344901c4c2aa29ee7ecfa7289a32a0062",
+      "sourceText": "a Realization of the parity-flipping dissipator \\({\\hat{Z}}_{L}\\otimes \\hat{\\tilde{a}}\\) using three nonlinearly coupled bosonic modes. b Comparison between the numerically extracted η (\\({\\eta }_{{{{\\rm{sim}}}}}\\)) and the theoretically predicted η (ηpred in Eq. (6)) for a range of finite Γa/Γb. The dashed line indicates the ideal case where \\({\\eta }_{{{{\\rm{sim}}}}}={\\eta }_{{{{\\rm{pred}}}}}\\).",
+      "contextSentinel": "a Realization of the parity-flipping dissipator \\(",
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "B",
+          "text": "a",
+          "html": "<b>a</b>"
+        },
+        {
+          "index": 1,
+          "tag": "SPAN",
+          "text": "\\({\\hat{Z}}_{L}\\otimes \\hat{\\tilde{a}}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\hat{Z}}_{L}\\otimes \\hat{\\tilde{a}}\\)</span>"
+        },
+        {
+          "index": 2,
+          "tag": "B",
+          "text": "b",
+          "html": "<b>b</b>"
+        },
+        {
+          "index": 3,
+          "tag": "I",
+          "text": "η",
+          "html": "<i>η</i>"
+        },
+        {
+          "index": 4,
+          "tag": "SPAN",
+          "text": "\\({\\eta }_{{{{\\rm{sim}}}}}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\eta }_{{{{\\rm{sim}}}}}\\)</span>"
+        },
+        {
+          "index": 5,
+          "tag": "I",
+          "text": "η",
+          "html": "<i>η</i>"
+        },
+        {
+          "index": 6,
+          "tag": "I",
+          "text": "η",
+          "html": "<i>η</i>"
+        },
+        {
+          "index": 7,
+          "tag": "SUB",
+          "text": "pred",
+          "html": "<sub>pred</sub>"
+        },
+        {
+          "index": 8,
+          "tag": "SUB",
+          "text": "a",
+          "html": "<sub><i>a</i></sub>"
+        },
+        {
+          "index": 9,
+          "tag": "I",
+          "text": "a",
+          "html": "<i>a</i>"
+        },
+        {
+          "index": 10,
+          "tag": "SUB",
+          "text": "b",
+          "html": "<sub><i>b</i></sub>"
+        },
+        {
+          "index": 11,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 12,
+          "tag": "SPAN",
+          "text": "\\({\\eta }_{{{{\\rm{sim}}}}}={\\eta }_{{{{\\rm{pred}}}}}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\eta }_{{{{\\rm{sim}}}}}={\\eta }_{{{{\\rm{pred}}}}}\\)</span>"
+        }
+      ],
+      "attachments": [
+        {
+          "subIndex": 1,
+          "base": "Γ",
+          "subscript": "a",
+          "subHtml": "<sub><i>a</i></sub>",
+          "before": ")) for a range of finite Γ",
+          "after": "/Γ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        },
+        {
+          "subIndex": 2,
+          "base": "Γ",
+          "subscript": "b",
+          "subHtml": "<sub><i>b</i></sub>",
+          "before": "/Γ",
+          "after": ". The dashed line indicates the ideal case where ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        }
+      ],
+      "isFigureCaption": true,
+      "frozenParagraphDigest": "f7f86bf155d5aa1ce3e2adc5f646839344901c4c2aa29ee7ecfa7289a32a0062"
+    },
+    {
+      "id": "methods-p7",
+      "sourceBlockId": "a-section-4",
+      "sourceParagraphIndex": 7,
+      "sourceSelector": "#figure-5 + p",
+      "retainedSelector": "#Sec8-content > p:nth-of-type(3)",
+      "rawParagraphPrehash": "41fe93f90327d2058184f53f70b106f365fec54bac3569302d2621b4e6b379a7",
+      "cCorpusFrozenDigest": "1399a9b8f93b285f03f15b8d51e9cbc5cae6c3d6205a0888e98881557c151fa4",
+      "sourceText": "When deriving Eq. (19), we require the physical setup Eq. (16) to operate in the regime where adiabatic elimination remains valid. It is thus natural to ask what are the imperfections given realistic physical parameters, i.e., when the decay rates κc, Γb of auxiliary modes b,c cannot be infinitely large. In that case, one can show the dominating error due to finite reservoir bandwidth is due to the finite decay rates κc and Γb, and it is preferable to set κc ~ Γb to optimize over hardware resources (see Supplementary Note 6 for details). In this regime, the extra error introduced by physical implementation is determined by the ratio Γa/Γb, which heuristically describes the branching ratio between the logical qubit population that does not undergo the parity flip (uncorrected error) and the population that does (corrected error) whenever a gauge mode excitation decays into the environment. More specifically, as shown in Supplementary Note 6, we can approximately derive the discrepancy between the desired suppression factor for the loss-induced phase flip rate ηpred (using Eq. (6)) and the numerically extracted (achievable) value \\({\\eta }_{{{{\\rm{sim}}}}}\\), as \\({\\eta }_{{{{\\rm{sim}}}}}-{\\eta }_{{{{\\rm{pred}}}}}=(1-{\\eta }_{{{{\\rm{pred}}}}})({\\Gamma }_{a}/2{\\Gamma }_{b})\\). As shown in Fig. 5b, by setting Γa/Γb = 0.1, we can realize the desired η within 50% accuracy.",
+      "contextSentinel": "When deriving Eq. (19), we require the physical se",
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 1,
+          "tag": "SUB",
+          "text": "c",
+          "html": "<sub><i>c</i></sub>"
+        },
+        {
+          "index": 2,
+          "tag": "I",
+          "text": "c",
+          "html": "<i>c</i>"
+        },
+        {
+          "index": 3,
+          "tag": "SUB",
+          "text": "b",
+          "html": "<sub><i>b</i></sub>"
+        },
+        {
+          "index": 4,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 5,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 6,
+          "tag": "I",
+          "text": "c",
+          "html": "<i>c</i>"
+        },
+        {
+          "index": 7,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 8,
+          "tag": "SUB",
+          "text": "c",
+          "html": "<sub><i>c</i></sub>"
+        },
+        {
+          "index": 9,
+          "tag": "I",
+          "text": "c",
+          "html": "<i>c</i>"
+        },
+        {
+          "index": 10,
+          "tag": "SUB",
+          "text": "b",
+          "html": "<sub><i>b</i></sub>"
+        },
+        {
+          "index": 11,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 12,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 13,
+          "tag": "SUB",
+          "text": "c",
+          "html": "<sub><i>c</i></sub>"
+        },
+        {
+          "index": 14,
+          "tag": "I",
+          "text": "c",
+          "html": "<i>c</i>"
+        },
+        {
+          "index": 15,
+          "tag": "SUB",
+          "text": "b",
+          "html": "<sub><i>b</i></sub>"
+        },
+        {
+          "index": 16,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 17,
+          "tag": "SUB",
+          "text": "a",
+          "html": "<sub><i>a</i></sub>"
+        },
+        {
+          "index": 18,
+          "tag": "I",
+          "text": "a",
+          "html": "<i>a</i>"
+        },
+        {
+          "index": 19,
+          "tag": "SUB",
+          "text": "b",
+          "html": "<sub><i>b</i></sub>"
+        },
+        {
+          "index": 20,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 21,
+          "tag": "I",
+          "text": "η",
+          "html": "<i>η</i>"
+        },
+        {
+          "index": 22,
+          "tag": "SUB",
+          "text": "pred",
+          "html": "<sub>pred</sub>"
+        },
+        {
+          "index": 23,
+          "tag": "SPAN",
+          "text": "\\({\\eta }_{{{{\\rm{sim}}}}}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\eta }_{{{{\\rm{sim}}}}}\\)</span>"
+        },
+        {
+          "index": 24,
+          "tag": "SPAN",
+          "text": "\\({\\eta }_{{{{\\rm{sim}}}}}-{\\eta }_{{{{\\rm{pred}}}}}=(1-{\\eta }_{{{{\\rm{pred}}}}})({\\Gamma }_{a}/2{\\Gamma }_{b})\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\eta }_{{{{\\rm{sim}}}}}-{\\eta }_{{{{\\rm{pred}}}}}=(1-{\\eta }_{{{{\\rm{pred}}}}})({\\Gamma }_{a}/2{\\Gamma }_{b})\\)</span>"
+        },
+        {
+          "index": 25,
+          "tag": "SUB",
+          "text": "a",
+          "html": "<sub><i>a</i></sub>"
+        },
+        {
+          "index": 26,
+          "tag": "I",
+          "text": "a",
+          "html": "<i>a</i>"
+        },
+        {
+          "index": 27,
+          "tag": "SUB",
+          "text": "b",
+          "html": "<sub><i>b</i></sub>"
+        },
+        {
+          "index": 28,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 29,
+          "tag": "I",
+          "text": "η",
+          "html": "<i>η</i>"
+        }
+      ],
+      "attachments": [
+        {
+          "subIndex": 1,
+          "base": "Γ",
+          "subscript": "b",
+          "subHtml": "<sub><i>b</i></sub>",
+          "before": ", Γ",
+          "after": " of auxiliary modes ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        },
+        {
+          "subIndex": 3,
+          "base": "Γ",
+          "subscript": "b",
+          "subHtml": "<sub><i>b</i></sub>",
+          "before": " and Γ",
+          "after": ", and it is preferable to set ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        },
+        {
+          "subIndex": 5,
+          "base": "Γ",
+          "subscript": "b",
+          "subHtml": "<sub><i>b</i></sub>",
+          "before": " ~ Γ",
+          "after": " to optimize over hardware resources (see Supplementary Note ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        },
+        {
+          "subIndex": 6,
+          "base": "Γ",
+          "subscript": "a",
+          "subHtml": "<sub><i>a</i></sub>",
+          "before": " for details). In this regime, the extra error introduced by physical implementation is determined by the ratio Γ",
+          "after": "/Γ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        },
+        {
+          "subIndex": 7,
+          "base": "Γ",
+          "subscript": "b",
+          "subHtml": "<sub><i>b</i></sub>",
+          "before": "/Γ",
+          "after": ", which heuristically describes the branching ratio between the logical qubit population that does not undergo the parity flip (uncorrected error) and the population that does (corrected error) whenever a gauge mode excitation decays into the environment. More specifically, as shown in Supplementary Note ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        },
+        {
+          "subIndex": 9,
+          "base": "Γ",
+          "subscript": "a",
+          "subHtml": "<sub><i>a</i></sub>",
+          "before": ", by setting Γ",
+          "after": "/Γ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        },
+        {
+          "subIndex": 10,
+          "base": "Γ",
+          "subscript": "b",
+          "subHtml": "<sub><i>b</i></sub>",
+          "before": "/Γ",
+          "after": " = 0.1, we can realize the desired ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        }
+      ],
+      "isFigureCaption": false,
+      "frozenParagraphDigest": "1399a9b8f93b285f03f15b8d51e9cbc5cae6c3d6205a0888e98881557c151fa4"
+    },
+    {
+      "id": "methods-p9",
+      "sourceBlockId": "a-section-4",
+      "sourceParagraphIndex": 9,
+      "sourceSelector": "#Equ20 + p",
+      "retainedSelector": "#Sec8-content > p:nth-of-type(4)",
+      "rawParagraphPrehash": "4df3e18987d23972b091c9e456138caf31e752848220bd87f716839e8bf298ad",
+      "cCorpusFrozenDigest": "629a487989b7da126377e8b992c13abc2c89cd839b807066ab0144fa0d02fd6c",
+      "sourceText": "where \\({\\hat{a}}_{s}=\\cosh r\\hat{a}+\\sinh r{\\hat{a}}^{{\\dagger} }\\) is the squeezed annihilation operator, and \\(J:= \\sqrt{{\\Gamma }_{a}{\\kappa }_{c}}/2\\). We have assumed that κc = Γb = λ. \\({\\hat{H}}_{{{{\\rm{tun}}}}.}\\) involves several cubic nonlinear couplings between the a,b modes and between the a,c modes. In addition, \\({\\hat{H}}_{{{{\\rm{tun}}}}.}\\) requires a resonant linear coupling between the b,c modes and some linear drives with strength \\(\\frac{J{\\alpha }^{{\\prime} }}{2}\\) on the b,c modes that pump energy into the system. Note that all the nonlinear terms are cubic, which have been experimentally demonstrated in superconducting circuits42,43. The maximum nonlinear coupling strength is \\({J}_{m}:= J\\sinh 2r/2{\\alpha }^{{\\prime} }\\). Now we can write κ2 as a function of Jm and κc. Comparing the dissipator \\(\\sqrt{{\\Gamma }_{a}}{\\hat{Z}}_{L}\\otimes \\hat{\\tilde{a}}\\) in Eq. (19) with the dissipator \\(\\sqrt{{\\kappa }_{2}}\\hat{F}\\approx \\sqrt{{\\kappa }_{2}}2{\\alpha }^{{\\prime} }{\\hat{Z}}_{L}\\otimes \\hat{\\tilde{a}}\\), we have \\({\\kappa }_{2}={\\Gamma }_{a}/4{\\alpha }^{{\\prime} 2}\\), so that \\({\\kappa }_{2}=\\frac{4{J}_{m}^{2}}{{\\kappa }_{c}{\\sinh }^{2}2r}\\). If we take Γa = ϵ0κc (and correspondingly, \\({\\kappa }_{c}=\\frac{4{\\alpha }^{{\\prime} }{J}_{m}}{\\sqrt{{\\epsilon }_{0}}\\sinh 2r}\\)), where ϵ0 < 1 is related to the adiabatic elimination condition discussed above, we can obtain \\({J}_{m}={\\alpha }^{{\\prime} }\\sinh 2r{\\kappa }_{2}/\\sqrt{{\\epsilon }_{0}}\\).",
+      "contextSentinel": "where \\({\\hat{a}}_{s}=\\cosh r\\hat{a}+\\sinh r{\\hat{",
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "SPAN",
+          "text": "\\({\\hat{a}}_{s}=\\cosh r\\hat{a}+\\sinh r{\\hat{a}}^{{\\dagger} }\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\hat{a}}_{s}=\\cosh r\\hat{a}+\\sinh r{\\hat{a}}^{{\\dagger} }\\)</span>"
+        },
+        {
+          "index": 1,
+          "tag": "SPAN",
+          "text": "\\(J:= \\sqrt{{\\Gamma }_{a}{\\kappa }_{c}}/2\\)",
+          "html": "<span class=\"mathjax-tex\">\\(J:= \\sqrt{{\\Gamma }_{a}{\\kappa }_{c}}/2\\)</span>"
+        },
+        {
+          "index": 2,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 3,
+          "tag": "SUB",
+          "text": "c",
+          "html": "<sub><i>c</i></sub>"
+        },
+        {
+          "index": 4,
+          "tag": "I",
+          "text": "c",
+          "html": "<i>c</i>"
+        },
+        {
+          "index": 5,
+          "tag": "SUB",
+          "text": "b",
+          "html": "<sub><i>b</i></sub>"
+        },
+        {
+          "index": 6,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 7,
+          "tag": "I",
+          "text": "λ",
+          "html": "<i>λ</i>"
+        },
+        {
+          "index": 8,
+          "tag": "SPAN",
+          "text": "\\({\\hat{H}}_{{{{\\rm{tun}}}}.}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\hat{H}}_{{{{\\rm{tun}}}}.}\\)</span>"
+        },
+        {
+          "index": 9,
+          "tag": "I",
+          "text": "a",
+          "html": "<i>a</i>"
+        },
+        {
+          "index": 10,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 11,
+          "tag": "I",
+          "text": "a",
+          "html": "<i>a</i>"
+        },
+        {
+          "index": 12,
+          "tag": "I",
+          "text": "c",
+          "html": "<i>c</i>"
+        },
+        {
+          "index": 13,
+          "tag": "SPAN",
+          "text": "\\({\\hat{H}}_{{{{\\rm{tun}}}}.}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\hat{H}}_{{{{\\rm{tun}}}}.}\\)</span>"
+        },
+        {
+          "index": 14,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 15,
+          "tag": "I",
+          "text": "c",
+          "html": "<i>c</i>"
+        },
+        {
+          "index": 16,
+          "tag": "SPAN",
+          "text": "\\(\\frac{J{\\alpha }^{{\\prime} }}{2}\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\frac{J{\\alpha }^{{\\prime} }}{2}\\)</span>"
+        },
+        {
+          "index": 17,
+          "tag": "I",
+          "text": "b",
+          "html": "<i>b</i>"
+        },
+        {
+          "index": 18,
+          "tag": "I",
+          "text": "c",
+          "html": "<i>c</i>"
+        },
+        {
+          "index": 19,
+          "tag": "SUP",
+          "text": "42,43",
+          "html": "<sup><a aria-label=\"Reference 42\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41534-023-00746-0#ref-CR42\" id=\"ref-link-section-d102805164e18421\" title=\"Leghtas, Z. et al. Confining the state of light to a quantum manifold by engineered two-photon loss. Science 347, 853–857 (2015).\">42</a>,<a aria-label=\"Reference 43\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41534-023-00746-0#ref-CR43\" id=\"ref-link-section-d102805164e18424\" title=\"Touzard, S. et al. Gated conditional displacement readout of superconducting qubits. Phys. Rev. Lett. 122, 080502 (2019).\">43</a></sup>"
+        },
+        {
+          "index": 20,
+          "tag": "SPAN",
+          "text": "\\({J}_{m}:= J\\sinh 2r/2{\\alpha }^{{\\prime} }\\)",
+          "html": "<span class=\"mathjax-tex\">\\({J}_{m}:= J\\sinh 2r/2{\\alpha }^{{\\prime} }\\)</span>"
+        },
+        {
+          "index": 21,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 22,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 23,
+          "tag": "I",
+          "text": "J",
+          "html": "<i>J</i>"
+        },
+        {
+          "index": 24,
+          "tag": "SUB",
+          "text": "m",
+          "html": "<sub><i>m</i></sub>"
+        },
+        {
+          "index": 25,
+          "tag": "I",
+          "text": "m",
+          "html": "<i>m</i>"
+        },
+        {
+          "index": 26,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 27,
+          "tag": "SUB",
+          "text": "c",
+          "html": "<sub><i>c</i></sub>"
+        },
+        {
+          "index": 28,
+          "tag": "I",
+          "text": "c",
+          "html": "<i>c</i>"
+        },
+        {
+          "index": 29,
+          "tag": "SPAN",
+          "text": "\\(\\sqrt{{\\Gamma }_{a}}{\\hat{Z}}_{L}\\otimes \\hat{\\tilde{a}}\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\sqrt{{\\Gamma }_{a}}{\\hat{Z}}_{L}\\otimes \\hat{\\tilde{a}}\\)</span>"
+        },
+        {
+          "index": 30,
+          "tag": "SPAN",
+          "text": "\\(\\sqrt{{\\kappa }_{2}}\\hat{F}\\approx \\sqrt{{\\kappa }_{2}}2{\\alpha }^{{\\prime} }{\\hat{Z}}_{L}\\otimes \\hat{\\tilde{a}}\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\sqrt{{\\kappa }_{2}}\\hat{F}\\approx \\sqrt{{\\kappa }_{2}}2{\\alpha }^{{\\prime} }{\\hat{Z}}_{L}\\otimes \\hat{\\tilde{a}}\\)</span>"
+        },
+        {
+          "index": 31,
+          "tag": "SPAN",
+          "text": "\\({\\kappa }_{2}={\\Gamma }_{a}/4{\\alpha }^{{\\prime} 2}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\kappa }_{2}={\\Gamma }_{a}/4{\\alpha }^{{\\prime} 2}\\)</span>"
+        },
+        {
+          "index": 32,
+          "tag": "SPAN",
+          "text": "\\({\\kappa }_{2}=\\frac{4{J}_{m}^{2}}{{\\kappa }_{c}{\\sinh }^{2}2r}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\kappa }_{2}=\\frac{4{J}_{m}^{2}}{{\\kappa }_{c}{\\sinh }^{2}2r}\\)</span>"
+        },
+        {
+          "index": 33,
+          "tag": "SUB",
+          "text": "a",
+          "html": "<sub><i>a</i></sub>"
+        },
+        {
+          "index": 34,
+          "tag": "I",
+          "text": "a",
+          "html": "<i>a</i>"
+        },
+        {
+          "index": 35,
+          "tag": "I",
+          "text": "ϵ",
+          "html": "<i>ϵ</i>"
+        },
+        {
+          "index": 36,
+          "tag": "SUB",
+          "text": "0",
+          "html": "<sub>0</sub>"
+        },
+        {
+          "index": 37,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 38,
+          "tag": "SUB",
+          "text": "c",
+          "html": "<sub><i>c</i></sub>"
+        },
+        {
+          "index": 39,
+          "tag": "I",
+          "text": "c",
+          "html": "<i>c</i>"
+        },
+        {
+          "index": 40,
+          "tag": "SPAN",
+          "text": "\\({\\kappa }_{c}=\\frac{4{\\alpha }^{{\\prime} }{J}_{m}}{\\sqrt{{\\epsilon }_{0}}\\sinh 2r}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\kappa }_{c}=\\frac{4{\\alpha }^{{\\prime} }{J}_{m}}{\\sqrt{{\\epsilon }_{0}}\\sinh 2r}\\)</span>"
+        },
+        {
+          "index": 41,
+          "tag": "I",
+          "text": "ϵ",
+          "html": "<i>ϵ</i>"
+        },
+        {
+          "index": 42,
+          "tag": "SUB",
+          "text": "0",
+          "html": "<sub>0</sub>"
+        },
+        {
+          "index": 43,
+          "tag": "SPAN",
+          "text": "\\({J}_{m}={\\alpha }^{{\\prime} }\\sinh 2r{\\kappa }_{2}/\\sqrt{{\\epsilon }_{0}}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({J}_{m}={\\alpha }^{{\\prime} }\\sinh 2r{\\kappa }_{2}/\\sqrt{{\\epsilon }_{0}}\\)</span>"
+        }
+      ],
+      "attachments": [
+        {
+          "subIndex": 1,
+          "base": "Γ",
+          "subscript": "b",
+          "subHtml": "<sub><i>b</i></sub>",
+          "before": " = Γ",
+          "after": " = ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        },
+        {
+          "subIndex": 5,
+          "base": "Γ",
+          "subscript": "a",
+          "subHtml": "<sub><i>a</i></sub>",
+          "before": ". If we take Γ",
+          "after": " = ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        }
+      ],
+      "isFigureCaption": false,
+      "frozenParagraphDigest": "629a487989b7da126377e8b992c13abc2c89cd839b807066ab0144fa0d02fd6c"
+    },
+    {
+      "id": "methods-p13",
+      "sourceBlockId": "a-section-4",
+      "sourceParagraphIndex": 13,
+      "sourceSelector": "#Equ23 + p",
+      "retainedSelector": "#Sec8-content > p:nth-of-type(5)",
+      "rawParagraphPrehash": "a5560c83a39e0275742a9c3d0dd8c0830be4cfc503882f9def1a6c06a13ac969",
+      "cCorpusFrozenDigest": "28ea00ca891ecb94f15283d49e5fe2bee14c7a92e22a065cb6f735986288fc8e",
+      "sourceText": "Here ν is the trap frequency, η0 the Lamb-Dick parameter, Γ the engineered decay rate from \\(\\left\\vert e\\right\\rangle\\) to \\(\\left\\vert g\\right\\rangle\\), and N(u) the normalized dipole pattern. \\({\\hat{H}}_{{{{\\rm{coup}}}}}\\) describes the coupling between the motional mode and the internal states, illustrated in Fig. 6, and \\({{{\\mathcal{J}}}}\\hat{\\rho }\\) describes the spontaneous emission of the ion from \\(\\left\\vert e\\right\\rangle\\) to \\(\\left\\vert g\\right\\rangle\\) and its associated momentum kicks. The drive with amplitude Ω0 in \\({\\hat{H}}_{{{{\\rm{eff}}}}}\\) comes from a laser that is coupled to the ion along a constrained (transverse) direction, thereby only driving the internal transitions. By tuning the laser detunings δ1 = −2ν, δ2 = 2ν, δ3 = 0, δ4 = −ν, and δ5 = ν, and choosing appropriate driving strength {Ωi} (see Supplementary Note 6), we can obtain a coupling Hamiltonian (neglecting the fast-rotating terms):",
+      "contextSentinel": "Here ν is the trap frequency, η0 the Lamb-Dick par",
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "I",
+          "text": "ν",
+          "html": "<i>ν</i>"
+        },
+        {
+          "index": 1,
+          "tag": "I",
+          "text": "η",
+          "html": "<i>η</i>"
+        },
+        {
+          "index": 2,
+          "tag": "SUB",
+          "text": "0",
+          "html": "<sub>0</sub>"
+        },
+        {
+          "index": 3,
+          "tag": "SPAN",
+          "text": "\\(\\left\\vert e\\right\\rangle\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\left\\vert e\\right\\rangle\\)</span>"
+        },
+        {
+          "index": 4,
+          "tag": "SPAN",
+          "text": "\\(\\left\\vert g\\right\\rangle\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\left\\vert g\\right\\rangle\\)</span>"
+        },
+        {
+          "index": 5,
+          "tag": "I",
+          "text": "N",
+          "html": "<i>N</i>"
+        },
+        {
+          "index": 6,
+          "tag": "I",
+          "text": "u",
+          "html": "<i>u</i>"
+        },
+        {
+          "index": 7,
+          "tag": "SPAN",
+          "text": "\\({\\hat{H}}_{{{{\\rm{coup}}}}}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\hat{H}}_{{{{\\rm{coup}}}}}\\)</span>"
+        },
+        {
+          "index": 8,
+          "tag": "SPAN",
+          "text": "\\({{{\\mathcal{J}}}}\\hat{\\rho }\\)",
+          "html": "<span class=\"mathjax-tex\">\\({{{\\mathcal{J}}}}\\hat{\\rho }\\)</span>"
+        },
+        {
+          "index": 9,
+          "tag": "SPAN",
+          "text": "\\(\\left\\vert e\\right\\rangle\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\left\\vert e\\right\\rangle\\)</span>"
+        },
+        {
+          "index": 10,
+          "tag": "SPAN",
+          "text": "\\(\\left\\vert g\\right\\rangle\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\left\\vert g\\right\\rangle\\)</span>"
+        },
+        {
+          "index": 11,
+          "tag": "SUB",
+          "text": "0",
+          "html": "<sub>0</sub>"
+        },
+        {
+          "index": 12,
+          "tag": "SPAN",
+          "text": "\\({\\hat{H}}_{{{{\\rm{eff}}}}}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\hat{H}}_{{{{\\rm{eff}}}}}\\)</span>"
+        },
+        {
+          "index": 13,
+          "tag": "I",
+          "text": "δ",
+          "html": "<i>δ</i>"
+        },
+        {
+          "index": 14,
+          "tag": "SUB",
+          "text": "1",
+          "html": "<sub>1</sub>"
+        },
+        {
+          "index": 15,
+          "tag": "I",
+          "text": "ν",
+          "html": "<i>ν</i>"
+        },
+        {
+          "index": 16,
+          "tag": "I",
+          "text": "δ",
+          "html": "<i>δ</i>"
+        },
+        {
+          "index": 17,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 18,
+          "tag": "I",
+          "text": "ν",
+          "html": "<i>ν</i>"
+        },
+        {
+          "index": 19,
+          "tag": "I",
+          "text": "δ",
+          "html": "<i>δ</i>"
+        },
+        {
+          "index": 20,
+          "tag": "SUB",
+          "text": "3",
+          "html": "<sub>3</sub>"
+        },
+        {
+          "index": 21,
+          "tag": "I",
+          "text": "δ",
+          "html": "<i>δ</i>"
+        },
+        {
+          "index": 22,
+          "tag": "SUB",
+          "text": "4",
+          "html": "<sub>4</sub>"
+        },
+        {
+          "index": 23,
+          "tag": "I",
+          "text": "ν",
+          "html": "<i>ν</i>"
+        },
+        {
+          "index": 24,
+          "tag": "I",
+          "text": "δ",
+          "html": "<i>δ</i>"
+        },
+        {
+          "index": 25,
+          "tag": "SUB",
+          "text": "5",
+          "html": "<sub>5</sub>"
+        },
+        {
+          "index": 26,
+          "tag": "I",
+          "text": "ν",
+          "html": "<i>ν</i>"
+        },
+        {
+          "index": 27,
+          "tag": "SUB",
+          "text": "i",
+          "html": "<sub><i>i</i></sub>"
+        },
+        {
+          "index": 28,
+          "tag": "I",
+          "text": "i",
+          "html": "<i>i</i>"
+        }
+      ],
+      "attachments": [
+        {
+          "subIndex": 1,
+          "base": "Ω",
+          "subscript": "0",
+          "subHtml": "<sub>0</sub>",
+          "before": " and its associated momentum kicks. The drive with amplitude Ω",
+          "after": " in ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        },
+        {
+          "subIndex": 7,
+          "base": "Ω",
+          "subscript": "i",
+          "subHtml": "<sub><i>i</i></sub>",
+          "before": ", and choosing appropriate driving strength {Ω",
+          "after": "} (see Supplementary Note ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        }
+      ],
+      "isFigureCaption": false,
+      "frozenParagraphDigest": "28ea00ca891ecb94f15283d49e5fe2bee14c7a92e22a065cb6f735986288fc8e"
+    },
+    {
+      "id": "methods-p15",
+      "sourceBlockId": "a-section-4",
+      "sourceParagraphIndex": 15,
+      "sourceSelector": "#Equ25 + p",
+      "retainedSelector": "#Sec8-content > p:nth-of-type(6)",
+      "rawParagraphPrehash": "71d264e4fec89fd459f23ccf020b4a263bfee0b83e3a37ef201f6437a89f3fda",
+      "cCorpusFrozenDigest": "d614ce67b9f636f349b500a929acaf960a7000a57efed1329d546ae35a8f8b2e",
+      "sourceText": "where \\({\\hat{\\rho }}_{m}\\) is the reduced density matrix on the motional mode. Through numerically simulations we find that we can obtain the dissipator \\(\\hat{F}\\) with the desired rate by setting \\({\\Omega }_{ef}^{{\\prime} }=0.5\\Gamma ,{\\Omega }_{gf}^{{\\prime} }/{\\Omega }_{ef}^{{\\prime} }=1/20\\). A large κ2, therefore, demands large Γ and driving strength. Note that we have assumed that Γ and {Ωi}, i = 1, 2, 3, 4, 5 are much smaller than ν, so that the off-resonant terms can be safely neglected (secular approximation). In practice, however, one might be able to go beyond this weak-drive regime by carefully canceling the effects from the off-resonant terms. We have also neglected the effects from the momentum kicks here, which only lead to a small increase in the phase-flip suppression factor \\(\\eta \\to \\eta +{{{\\mathcal{O}}}}({\\eta }_{0}^{2})\\). See Supplementary Note 6 for a more detailed analysis. We stress that our proposed approach requires the same order of nonlinearity as that required by a two-component cat, which has been considered to be feasible in trapped-ion system44.",
+      "contextSentinel": "where \\({\\hat{\\rho }}_{m}\\) is the reduced density",
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "SPAN",
+          "text": "\\({\\hat{\\rho }}_{m}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\hat{\\rho }}_{m}\\)</span>"
+        },
+        {
+          "index": 1,
+          "tag": "SPAN",
+          "text": "\\(\\hat{F}\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\hat{F}\\)</span>"
+        },
+        {
+          "index": 2,
+          "tag": "SPAN",
+          "text": "\\({\\Omega }_{ef}^{{\\prime} }=0.5\\Gamma ,{\\Omega }_{gf}^{{\\prime} }/{\\Omega }_{ef}^{{\\prime} }=1/20\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\Omega }_{ef}^{{\\prime} }=0.5\\Gamma ,{\\Omega }_{gf}^{{\\prime} }/{\\Omega }_{ef}^{{\\prime} }=1/20\\)</span>"
+        },
+        {
+          "index": 3,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 4,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 5,
+          "tag": "SUB",
+          "text": "i",
+          "html": "<sub><i>i</i></sub>"
+        },
+        {
+          "index": 6,
+          "tag": "I",
+          "text": "i",
+          "html": "<i>i</i>"
+        },
+        {
+          "index": 7,
+          "tag": "I",
+          "text": "i",
+          "html": "<i>i</i>"
+        },
+        {
+          "index": 8,
+          "tag": "I",
+          "text": "ν",
+          "html": "<i>ν</i>"
+        },
+        {
+          "index": 9,
+          "tag": "SPAN",
+          "text": "\\(\\eta \\to \\eta +{{{\\mathcal{O}}}}({\\eta }_{0}^{2})\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\eta \\to \\eta +{{{\\mathcal{O}}}}({\\eta }_{0}^{2})\\)</span>"
+        },
+        {
+          "index": 10,
+          "tag": "SUP",
+          "text": "44",
+          "html": "<sup><a aria-label=\"Reference 44\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41534-023-00746-0#ref-CR44\" id=\"ref-link-section-d102805164e21917\" title=\"Poyatos, J., Cirac, J. I. &amp; Zoller, P. Quantum reservoir engineering with laser cooled trapped ions. Phys. Rev. Lett. 77, 4728 (1996).\">44</a></sup>"
+        }
+      ],
+      "attachments": [
+        {
+          "subIndex": 1,
+          "base": "Ω",
+          "subscript": "i",
+          "subHtml": "<sub><i>i</i></sub>",
+          "before": ", therefore, demands large Γ and driving strength. Note that we have assumed that Γ and {Ω",
+          "after": "}, ",
+          "direction": "preceding-base",
+          "role": "plain-greek-subscript"
+        }
+      ],
+      "isFigureCaption": false,
+      "frozenParagraphDigest": "d614ce67b9f636f349b500a929acaf960a7000a57efed1329d546ae35a8f8b2e"
+    }
+  ],
+  "retainedEquationIds": [
+    "Equ6",
+    "Equ16",
+    "Equ18",
+    "Equ19",
+    "Equ20",
+    "Equ22",
+    "Equ23",
+    "Equ25"
+  ],
+  "retainedFigureIds": [
+    "figure-5",
+    "figure-6"
+  ],
+  "commands": [
+    "node <external-root>/freeze.mjs"
+  ],
+  "scope": "Exactly 17 plain Gamma/Omega + SUB source attachments; any additional retained context is not an admission or passing corpus claim."
+}
