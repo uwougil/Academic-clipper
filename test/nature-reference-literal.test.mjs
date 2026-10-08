@@ -11,6 +11,9 @@ import { parseNaturePage } from '../src/adapters/nature.mjs';
 import { withDomGlobals } from '../src/dom-runtime.mjs';
 import { outputPolicy } from '../src/renderers/output-policy.mjs';
 import { validateRawHtml } from '../src/validators/html-audit.mjs';
+import { htmlToMarkdown } from '../src/markdown.mjs';
+import { normalizeMath } from '../src/normalizers/math.mjs';
+import { normalizeAcademicInline } from '../src/normalizers/academic-inline.mjs';
 
 const directory = new URL('./fixtures/nature-reference-literal/', import.meta.url);
 const bytes = await readFile(new URL('materials-reference-literal.excerpt.html', directory));
@@ -214,6 +217,54 @@ for (const dialect of ['markdown','links']) {
       assert.ok(rendered.includes('[doi:10.1000/synthetic-boundary](https://doi.org/10.1000/synthetic-boundary)'), 'DOI appended after literal encoding');
       assert.equal(validateRawHtml(rendered,{allowHtmlAnchors:dialect==='links'}).valid, true, 'No literal tags become raw HTML');
       assert.deepEqual([...rendered.matchAll(/<a id="([^"]+)"><\/a>/gu)].map(m=>m[1]), dialect==='links' ? ['ref-1'] : []);
+    });
+  }
+}
+
+// A rejected literal dollar pair must still consume its closing delimiter.
+// Otherwise that closing delimiter is re-used as an opener and can mask the
+// following legitimate opener, causing source TeX operators to be encoded.
+// These are synthetic renderer controls, not new scholarly source oracles.
+const rejectedDollarBoundaries = [
+  {name:'rejected inline then valid inline', text:'Synthetic. $<span>bad</span>$ then $x<1$ & literal.', opaque:['$x<1$']},
+  {name:'valid inline before rejection', text:'Synthetic. $x<1$ then $<span>bad</span>$ & literal.', opaque:['$x<1$']},
+  {name:'valid inline on both sides', text:'Synthetic. $x<1$ then $<span>bad</span>$ then $y<2$.', opaque:['$x<1$','$y<2$']},
+  {name:'rejection then two valid inline spans', text:'Synthetic. $<span>bad</span>$ then $x<1$ and $y<2$.', opaque:['$x<1$','$y<2$']},
+  {name:'two rejected inline spans then valid inline', text:'Synthetic. $<span>one</span>$ and $<span>two</span>$ then $x<1$.', opaque:['$x<1$']},
+  {name:'rejected display then valid display', text:'Synthetic. $$<span>bad</span>$$ then $$x<1$$.', opaque:['$$x<1$$']},
+  {name:'valid display on both sides', text:'Synthetic. $$x<1$$ then $$<span>bad</span>$$ then $$y<2$$.', opaque:['$$x<1$$','$$y<2$$']},
+  {name:'two rejected display spans then valid display', text:'Synthetic. $$<span>one</span>$$ and $$<span>two</span>$$ then $$x<1$$.', opaque:['$$x<1$$']},
+  {name:'inline rejection then valid display', text:'Synthetic. $<span>bad</span>$ then $$x<1$$.', opaque:['$$x<1$$']},
+  {name:'display rejection then valid inline', text:'Synthetic. $$<span>bad</span>$$ then $x<1$.', opaque:['$x<1$']},
+  {name:'mixed rejections then valid math', text:'Synthetic. $<span>one</span>$ then $$<span>two</span>$$ then $x<1$ and $$y<2$$.', opaque:['$x<1$','$$y<2$$']},
+  {name:'literal currency HTML pair then valid inline', text:'Synthetic. $5 <span>cost</span> $10 then $x<1$.', opaque:['$x<1$']},
+  {name:'escaped currency pair and valid inline', text:String.raw`Synthetic. \$5 <span>cost</span> \$10 then $x<1$.`, opaque:['$x<1$']},
+  {name:'even backslashes and valid inline', text:String.raw`Synthetic. $<span>bad</span>$ then \\$x<1$.`, opaque:['$x<1$']},
+  {name:'odd source backslash presentation and valid inline', text:String.raw`Synthetic. $<span>bad</span>$ then \$x<1$.`, opaque:['$x<1$']},
+  {name:'math ampersand stays opaque beside literal ampersand', text:'Synthetic. $<span>bad</span>$ then $$x&y$$ & prose.', opaque:['$$x&y$$']},
+  {name:'foreign anchor rejection and valid inline', text:'Synthetic. $<a id="ref-foreign" onclick="bad()"></a>$ then $x<1$.', opaque:['$x<1$']},
+  {name:'literal entity spellings survive beside math', text:'Synthetic. $<span>bad</span>$ then $x<1$ &quot; &apos; &#60; &#x3c; &lt; &amp; &copy; &.', opaque:['$x<1$']},
+];
+for (const dialect of ['markdown','links']) {
+  for (const boundary of rejectedDollarBoundaries) {
+    test(`synthetic rejected-dollar boundary: ${boundary.name} (${dialect})`, async () => {
+      const escapedText = boundary.text.replace(/[&<>]/gu, value => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[value]));
+      const converted = await withDomGlobals(page.dom, () => htmlToMarkdown(`<p>${escapedText}</p>`, provenance.source.url));
+      const beforeEncoder = normalizeAcademicInline(normalizeMath(converted)).replace(/^[-*]\s+/u,'').replace(/\n+/gu,' ').trim();
+      for (const opaque of boundary.opaque) assert.ok(beforeEncoder.includes(opaque), 'Control proves exact original math reaches encoder; inherited upstream changes are not encoder RED');
+      const refs = syntheticReference(boundary.text);
+      refs[0].doi = '10.1000/synthetic-rejected-dollar';
+      const rendered = await withDomGlobals(page.dom, () => referencesMarkdown(refs, provenance.source.url, outputPolicy(dialect)));
+      for (const opaque of boundary.opaque) assert.ok(rendered.includes(opaque), `Original valid math must retain exact bytes: ${opaque}`);
+      // Only remove Defuddle's already-proven presentation backslash pairs.
+      // Never decode entities twice or strip math operators to conceal damage.
+      assert.ok(readableText(rendered).replace(/\\\\/gu,'\\').includes(boundary.text), 'Original literal spelling, sequence and values survive');
+      assert.equal(validateRawHtml(rendered,{allowHtmlAnchors:dialect==='links'}).valid,true);
+      assert.deepEqual([...rendered.matchAll(/<a id="([^"]+)"><\/a>/gu)].map(m=>m[1]),dialect==='links'?['ref-1']:[]);
+      assert.ok(rendered.includes('[doi:10.1000/synthetic-rejected-dollar](https://doi.org/10.1000/synthetic-rejected-dollar)'));
+      // Literal rejected dollar pairs may be malformed math. This test does
+      // not demand that they become valid; original math bytes and HTML policy
+      // are tested independently from malformed-source math validation.
     });
   }
 }
