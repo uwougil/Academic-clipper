@@ -135,12 +135,55 @@ function doiUrl(doi) {
   return `https://doi.org/${cleanDoi(doi).replace(/\s+/gu, '')}`;
 }
 
+function encodeReferenceLiterals(value) {
+  // Defuddle returns literal text as Markdown, including escaped '<'. Encode
+  // prose before adding renderer-owned links/anchors, leaving code and complete
+  // existing math opaque. Incomplete dollar spans cannot hide literal HTML.
+  let prose = maskCode(value);
+  const escaped = index => {
+    let backslashes = 0;
+    for (let cursor = index - 1; cursor >= 0 && value[cursor] === '\\'; cursor -= 1) backslashes += 1;
+    return backslashes % 2 === 1;
+  };
+  let mathEnd = 0;
+  for (const opening of prose.matchAll(/\$\$|\$/gu)) {
+    if (opening.index < mathEnd || escaped(opening.index)) continue;
+    const closingPattern = /\$\$|\$/gu;
+    closingPattern.lastIndex = opening.index + opening[0].length;
+    let closing;
+    while ((closing = closingPattern.exec(prose))) {
+      if (closing[0] !== opening[0] || escaped(closing.index)) continue;
+      const end = closing.index + closing[0].length;
+      const candidate = prose.slice(opening.index, end);
+      if (validateMathDelimiters(candidate).valid && validateRawHtml(candidate).valid) {
+        prose = prose.slice(0, opening.index) + ' '.repeat(candidate.length) + prose.slice(end);
+        mathEnd = end;
+      }
+      break;
+    }
+  }
+  let encoded = '';
+  for (let index = 0; index < value.length; index += 1) {
+    const character = value[index];
+    if (prose[index] === ' ' || !/[<&]/u.test(character)) {
+      encoded += character;
+      continue;
+    }
+    if (character === '<') {
+      if (escaped(index)) encoded = encoded.slice(0, -1);
+    }
+    encoded += character === '<' ? '&lt;' : '&amp;';
+  }
+  return encoded;
+}
+
 async function referenceText(reference, url) {
   let converted = await htmlToMarkdown(`<p>${escapeHtml(reference.text)}</p>`, url);
   converted = normalizeAcademicInline(normalizeMath(converted))
     .replace(/^[-*]\s+/, '')
     .replace(/\n+/g, ' ')
     .trim();
+  converted = encodeReferenceLiterals(converted);
   const doi = cleanDoi(reference.doi);
   if (doi && !converted.includes(doi)) converted += ` [doi:${doi}](${doiUrl(doi)})`;
   return converted;
