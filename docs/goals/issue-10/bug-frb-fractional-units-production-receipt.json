@@ -1,0 +1,3146 @@
+{
+  "schemaVersion": "issue72-production-evidence/1.0.0",
+  "status": "LOCAL_VERIFICATION_GREEN_AWAITING_PUBLICATION_REVIEW_AND_FRESH_CI",
+  "acceptedBase": "3dba1bbccddb43e0ba22fa7b7717dc559b7f3494",
+  "dependencyCommit": "2d6cee2ad760be0ce1cf9f08ff126a8548e8b480",
+  "implementationCommit": "2dcaaf926a4a424fda20b6c61148c12b916de0d1",
+  "implementationTree": "e36de93dd756f33089943a40d7ec51ab799fbfb4",
+  "branch": "codex/issue-10-bug-frb-fractional-units",
+  "worktree": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+  "node": "v24.14.1",
+  "nodeExecutable": "C:\\nvm4w\\nodejs\\node.exe",
+  "interfaces": {
+    "sanitizer": "nature-corpus-sanitizer/1.1.0",
+    "subtree": "nature-corpus-subtree/1.0.0",
+    "projection": "nature-corpus-projection/1.0.0",
+    "recipe": "1.0.0",
+    "consumedHistoricalHelperGitBlob": "e56f140d9756bb83013b9df0716dc650e04d7917"
+  },
+  "reviewReuse": {
+    "sourceCommit": "2ef0774d63bba7202c84089e1d233e70197c2cdd",
+    "sourceHuman": {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-independent-source-review/issue72-source-review.md",
+      "bytes": 9164,
+      "sha256": "96c1aa069a3e773b482b63450fbc9c14eb902857895b5244a8e507731b29b766"
+    },
+    "sourceMachine": {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-independent-source-review/source-audit.json",
+      "bytes": 153780,
+      "sha256": "cc34e860ac3992a1bac477e4e5e04f12c4a7f5372aff0f10feac8a6d98d3fa18"
+    },
+    "sourceDecision": "SOURCE_PROJECTION_CLEAR_ONLY",
+    "sourceBlocks": 103,
+    "planCommit": "fbc5c59d07f2ac6de6496f2c27eedbb107c17753",
+    "planHuman": {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-plan-independent-review/plan-review-fbc5c59-CLEAR.md",
+      "bytes": 4030,
+      "sha256": "b64fb908f875ae599f27b60d1af5d87ea4da6f2107560d90f93019e0f62244c9"
+    },
+    "planMachine": {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-plan-independent-review/plan-review-fbc5c59-CLEAR.json",
+      "bytes": 3977,
+      "sha256": "26c7f603959e9a24b547c1070f3d7164b8fce6a0bac0e6b3f2f85c285f67b939"
+    },
+    "planDecision": "PLAN_ONLY_CLEAR",
+    "independentProductionReview": {
+      "decision": "IMPLEMENTATION_CLEAR",
+      "blockingFindings": 0,
+      "severityCounts": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 0,
+        "P3": 0
+      },
+      "head": "cc2178f420a370db00a6bb8bf8e7a118cbe013f6",
+      "tree": "581db1d21cd1143971c866d48b84d294a0c57b3f",
+      "human": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-implementation-review-cc2178-recovery\\implementation-review.md",
+        "bytes": 5712,
+        "sha256": "15f42dc3b9f97b3e828e2ce43c2213793d4bd466b8a72d2a62d8f9c6cd6d7154"
+      },
+      "machine": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-implementation-review-cc2178-recovery\\implementation-review.json",
+        "bytes": 40864,
+        "sha256": "b02c405494c6e5fe5e54601ac382c80f0b2a5241fb99be3aede53daa7b95bc4f"
+      }
+    }
+  },
+  "commands": [
+    {
+      "name": "source",
+      "command": "node --test test/nature-frb-fractional-units.test.mjs",
+      "argv": [
+        "--test",
+        "test/nature-frb-fractional-units.test.mjs"
+      ],
+      "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+      "startedAt": "2026-10-08T11:57:24.478Z",
+      "finishedAt": "2026-10-08T11:57:26.088Z",
+      "processDurationMs": 1608.7812,
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "environment": {
+        "FRB_FRACTIONAL_RECEIPT_ROOT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\source",
+        "FRB_FRACTIONAL_CACHE_ROOT": null,
+        "FRB_PREFLIGHT_MIXED_CACHE_ROOT": null,
+        "FRB_PREFLIGHT_SOURCE_ROOT": null
+      },
+      "counts": {
+        "tests": 15,
+        "suites": 0,
+        "pass": 15,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 1568.1294
+      },
+      "log": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\source\\source.log",
+        "bytes": 1536,
+        "sha256": "b0e2f4f6665454c2210923372b5c7364c1f5c7381e736c054e9dc7b953d76d5c"
+      },
+      "summaryReadFrom": "Actual unchanged closed Node spec reporter log; no runtime rerun"
+    },
+    {
+      "name": "matrix",
+      "command": "node --test test/nature-frb-fractional-preflight.test.mjs",
+      "argv": [
+        "--test",
+        "test/nature-frb-fractional-preflight.test.mjs"
+      ],
+      "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+      "startedAt": "2026-10-08T11:57:26.096Z",
+      "finishedAt": "2026-10-08T11:57:27.667Z",
+      "processDurationMs": 1571.1249,
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "environment": {
+        "FRB_PREFLIGHT_RECEIPT_ROOT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\matrix",
+        "FRB_FRACTIONAL_CACHE_ROOT": null,
+        "FRB_PREFLIGHT_MIXED_CACHE_ROOT": null,
+        "FRB_PREFLIGHT_SOURCE_ROOT": null
+      },
+      "counts": {
+        "tests": 79,
+        "suites": 0,
+        "pass": 79,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 1529.3215
+      },
+      "log": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\matrix\\matrix.log",
+        "bytes": 4689,
+        "sha256": "bd9d6dc1b1c40a7a59d6cff52f657e0325b7bf2d35e1d8d01d8df67eff5eae1f"
+      },
+      "summaryReadFrom": "Actual unchanged closed Node spec reporter log; no runtime rerun"
+    }
+  ],
+  "sourceResults": [
+    {
+      "citationStyle": "markdown",
+      "result": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\source\\markdown.result.json",
+        "bytes": 167945,
+        "sha256": "7bab0d00c9073ae77f91b5b383bcc7897f782e3e218fd6954d29dc52d5efca8b"
+      },
+      "markdown": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\source\\markdown.md",
+        "bytes": 14963,
+        "sha256": "a54fa43af6a46cc3f4ec1a83aa73482f9ed9a9931c17751712bb0f74eaa21d5e"
+      },
+      "metadata": {
+        "title": "A repeating fast radio burst associated with a persistent radio source",
+        "authors": [
+          "Niu, C.-H.",
+          "Aggarwal, K.",
+          "Li, D.",
+          "Zhang, X.",
+          "Chatterjee, S.",
+          "Tsai, C.-W.",
+          "Yu, W.",
+          "Law, C. J.",
+          "Burke-Spolaor, S.",
+          "Cordes, J. M.",
+          "Zhang, Y.-K.",
+          "Ocker, S. K.",
+          "Yao, J.-M.",
+          "Wang, P.",
+          "Feng, Y.",
+          "Niino, Y.",
+          "Bochenek, C.",
+          "Cruces, M.",
+          "Connor, L.",
+          "Jiang, J.-A.",
+          "Dai, S.",
+          "Luo, R.",
+          "Li, G.-D.",
+          "Miao, C.-C.",
+          "Niu, J.-R.",
+          "Anna-Thomas, R.",
+          "Sydnor, J.",
+          "Stern, D.",
+          "Wang, W.-Y.",
+          "Yuan, M.",
+          "Yue, Y.-L.",
+          "Zhou, D.-J.",
+          "Yan, Z.",
+          "Zhu, W.-W.",
+          "Zhang, B."
+        ],
+        "journal": "Nature",
+        "date": "2022-06-08",
+        "doi": "10.1038/s41586-022-04755-5",
+        "url": "https://www.nature.com/articles/s41586-022-04755-5",
+        "volume": "",
+        "issue": "",
+        "pages": "",
+        "metadataSource": "Nature citation_* meta tags, with JSON-LD fallback",
+        "authorInformation": {
+          "notes": [],
+          "affiliations": [],
+          "contributions": "",
+          "correspondence": null
+        },
+        "publisherNotes": []
+      },
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "z_{l}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "tex": "ϵ^{2}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+          "tex": "l_{0}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+          "tex": "l_{i}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN6X",
+          "tex": "10^{−3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN7X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN8X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN9X",
+          "tex": "\\gtrsim10^{2}",
+          "provenance": "Nature MathJax plus adjacent inline scientific nodes"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN10X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN11X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN12X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN13X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN14X",
+          "tex": "G_{\\mathrm{scatt}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN15X",
+          "tex": "d_{\\mathrm{sl}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN16X",
+          "tex": "d_{\\mathrm{so}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN17X",
+          "tex": "d_{\\mathrm{so}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN18X",
+          "tex": "T_{4}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN19X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN20X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN21X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN22X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH0X",
+          "tex": "\\tilde{F}=\\zeta {{\\epsilon }}^{2}/f{({l}_{{\\rm{o}}}^{2}{l}_{{\\rm{i}}})}^{1/3}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH1X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH2X",
+          "tex": "\\zeta"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH3X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH4X",
+          "tex": "\\gtrsim"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH5X",
+          "tex": "{G}_{{\\rm{scatt}}}\\approx 2{d}_{{\\rm{sl}}}{d}_{{\\rm{lo}}}/{d}_{{\\rm{so}}}\\,L"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH6X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH7X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH8X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH9X",
+          "tex": "\\tilde{F}"
+        }
+      ],
+      "displayMath": [
+        {
+          "marker": "ACADEMICCLIPPERDISPLAYMATH0X",
+          "tex": "\\tau ({\\rm{DM}},\\nu ,z)\\approx 48.03\\,{\\rm{\\mu }}{\\rm{s}}\\times \\frac{\\tilde{F}{G}_{{\\rm{scatt}}}{{\\rm{DM}}}_{{\\rm{l}}}^{2}}{{(1+{z}_{{\\rm{l}}})}^{3}{\\nu }^{4}},"
+        }
+      ],
+      "citations": [
+        {
+          "marker": "ACADEMICCLIPPERCITATION0X",
+          "numbers": [
+            52
+          ]
+        }
+      ],
+      "references": 52,
+      "figures": [],
+      "tables": [],
+      "warnings": [
+        "No Nature figures were detected."
+      ],
+      "validators": {
+        "mathValidation": {
+          "valid": true,
+          "inlineMathCount": 41,
+          "displayMathCount": 1,
+          "issues": [],
+          "scientificFragments": {
+            "valid": true,
+            "counts": {
+              "isolatedSubscript": 0,
+              "isolatedSuperscript": 0,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": []
+          },
+          "states": {
+            "TEXT": 13894,
+            "INLINE_MATH": 673,
+            "DISPLAY_MATH": 178,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "rawHtmlValidation": {
+          "valid": true,
+          "violations": []
+        },
+        "markdownStructure": {
+          "valid": true,
+          "citationStyle": "markdown",
+          "sections": {
+            "references": {
+              "headingCount": 1,
+              "itemCount": 52,
+              "definitionCount": 52,
+              "anchorCount": 0,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "crossReferenceValidation": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "a-repeating-fast-radio-burst-associated-with-a-persistent-radio-source",
+            "methods",
+            "fast-burst-sample-analysis",
+            "extragalactic-scattering",
+            "references"
+          ],
+          "links": []
+        }
+      }
+    },
+    {
+      "citationStyle": "links",
+      "result": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\source\\links.result.json",
+        "bytes": 171136,
+        "sha256": "b365a79121d6da751e3e60970a4ef912beaa1037fccc4554c5a1ee0c8fd814d9"
+      },
+      "markdown": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\source\\links.md",
+        "bytes": 15884,
+        "sha256": "c7caefb400e16787715dc94d4a6e5d8ad7afef0a815f3bf73e4e85cdd93eeb25"
+      },
+      "metadata": {
+        "title": "A repeating fast radio burst associated with a persistent radio source",
+        "authors": [
+          "Niu, C.-H.",
+          "Aggarwal, K.",
+          "Li, D.",
+          "Zhang, X.",
+          "Chatterjee, S.",
+          "Tsai, C.-W.",
+          "Yu, W.",
+          "Law, C. J.",
+          "Burke-Spolaor, S.",
+          "Cordes, J. M.",
+          "Zhang, Y.-K.",
+          "Ocker, S. K.",
+          "Yao, J.-M.",
+          "Wang, P.",
+          "Feng, Y.",
+          "Niino, Y.",
+          "Bochenek, C.",
+          "Cruces, M.",
+          "Connor, L.",
+          "Jiang, J.-A.",
+          "Dai, S.",
+          "Luo, R.",
+          "Li, G.-D.",
+          "Miao, C.-C.",
+          "Niu, J.-R.",
+          "Anna-Thomas, R.",
+          "Sydnor, J.",
+          "Stern, D.",
+          "Wang, W.-Y.",
+          "Yuan, M.",
+          "Yue, Y.-L.",
+          "Zhou, D.-J.",
+          "Yan, Z.",
+          "Zhu, W.-W.",
+          "Zhang, B."
+        ],
+        "journal": "Nature",
+        "date": "2022-06-08",
+        "doi": "10.1038/s41586-022-04755-5",
+        "url": "https://www.nature.com/articles/s41586-022-04755-5",
+        "volume": "",
+        "issue": "",
+        "pages": "",
+        "metadataSource": "Nature citation_* meta tags, with JSON-LD fallback",
+        "authorInformation": {
+          "notes": [],
+          "affiliations": [],
+          "contributions": "",
+          "correspondence": null
+        },
+        "publisherNotes": []
+      },
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "z_{l}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "tex": "ϵ^{2}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+          "tex": "l_{0}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+          "tex": "l_{i}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN6X",
+          "tex": "10^{−3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN7X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN8X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN9X",
+          "tex": "\\gtrsim10^{2}",
+          "provenance": "Nature MathJax plus adjacent inline scientific nodes"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN10X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN11X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN12X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN13X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN14X",
+          "tex": "G_{\\mathrm{scatt}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN15X",
+          "tex": "d_{\\mathrm{sl}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN16X",
+          "tex": "d_{\\mathrm{so}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN17X",
+          "tex": "d_{\\mathrm{so}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN18X",
+          "tex": "T_{4}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN19X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN20X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN21X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN22X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH0X",
+          "tex": "\\tilde{F}=\\zeta {{\\epsilon }}^{2}/f{({l}_{{\\rm{o}}}^{2}{l}_{{\\rm{i}}})}^{1/3}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH1X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH2X",
+          "tex": "\\zeta"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH3X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH4X",
+          "tex": "\\gtrsim"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH5X",
+          "tex": "{G}_{{\\rm{scatt}}}\\approx 2{d}_{{\\rm{sl}}}{d}_{{\\rm{lo}}}/{d}_{{\\rm{so}}}\\,L"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH6X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH7X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH8X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH9X",
+          "tex": "\\tilde{F}"
+        }
+      ],
+      "displayMath": [
+        {
+          "marker": "ACADEMICCLIPPERDISPLAYMATH0X",
+          "tex": "\\tau ({\\rm{DM}},\\nu ,z)\\approx 48.03\\,{\\rm{\\mu }}{\\rm{s}}\\times \\frac{\\tilde{F}{G}_{{\\rm{scatt}}}{{\\rm{DM}}}_{{\\rm{l}}}^{2}}{{(1+{z}_{{\\rm{l}}})}^{3}{\\nu }^{4}},"
+        }
+      ],
+      "citations": [
+        {
+          "marker": "ACADEMICCLIPPERCITATION0X",
+          "numbers": [
+            52
+          ]
+        }
+      ],
+      "references": 52,
+      "figures": [],
+      "tables": [],
+      "warnings": [
+        "No Nature figures were detected."
+      ],
+      "validators": {
+        "mathValidation": {
+          "valid": true,
+          "inlineMathCount": 41,
+          "displayMathCount": 1,
+          "issues": [],
+          "scientificFragments": {
+            "valid": true,
+            "counts": {
+              "isolatedSubscript": 0,
+              "isolatedSuperscript": 0,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": []
+          },
+          "states": {
+            "TEXT": 14815,
+            "INLINE_MATH": 673,
+            "DISPLAY_MATH": 178,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "rawHtmlValidation": {
+          "valid": true,
+          "violations": []
+        },
+        "markdownStructure": {
+          "valid": true,
+          "citationStyle": "links",
+          "sections": {
+            "references": {
+              "headingCount": 1,
+              "itemCount": 52,
+              "anchorCount": 52,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "crossReferenceValidation": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "equation-8",
+            "ref-1",
+            "ref-2",
+            "ref-3",
+            "ref-4",
+            "ref-5",
+            "ref-6",
+            "ref-7",
+            "ref-8",
+            "ref-9",
+            "ref-10",
+            "ref-11",
+            "ref-12",
+            "ref-13",
+            "ref-14",
+            "ref-15",
+            "ref-16",
+            "ref-17",
+            "ref-18",
+            "ref-19",
+            "ref-20",
+            "ref-21",
+            "ref-22",
+            "ref-23",
+            "ref-24",
+            "ref-25",
+            "ref-26",
+            "ref-27",
+            "ref-28",
+            "ref-29",
+            "ref-30",
+            "ref-31",
+            "ref-32",
+            "ref-33",
+            "ref-34",
+            "ref-35",
+            "ref-36",
+            "ref-37",
+            "ref-38",
+            "ref-39",
+            "ref-40",
+            "ref-41",
+            "ref-42",
+            "ref-43",
+            "ref-44",
+            "ref-45",
+            "ref-46",
+            "ref-47",
+            "ref-48",
+            "ref-49",
+            "ref-50",
+            "ref-51",
+            "ref-52",
+            "a-repeating-fast-radio-burst-associated-with-a-persistent-radio-source",
+            "methods",
+            "fast-burst-sample-analysis",
+            "extragalactic-scattering",
+            "references"
+          ],
+          "links": [
+            {
+              "label": "52",
+              "target": "ref-52",
+              "category": "reference",
+              "index": 2144
+            },
+            {
+              "label": "8",
+              "target": "equation-8",
+              "category": "equation",
+              "index": 2666
+            }
+          ]
+        }
+      }
+    },
+    {
+      "citationStyle": "quarto",
+      "result": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\source\\quarto.result.json",
+        "bytes": 146755,
+        "sha256": "6d683ec5b48102c190448f9f1973b1717a74eef3e5a83e1d8c79cc05b18e053f"
+      },
+      "markdown": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\source\\quarto.md",
+        "bytes": 4413,
+        "sha256": "ddc924a95a0cdbbb4a9205a5a07d7b9cd594cf3416c32245ff8d353c0b74892e"
+      },
+      "metadata": {
+        "title": "A repeating fast radio burst associated with a persistent radio source",
+        "authors": [
+          "Niu, C.-H.",
+          "Aggarwal, K.",
+          "Li, D.",
+          "Zhang, X.",
+          "Chatterjee, S.",
+          "Tsai, C.-W.",
+          "Yu, W.",
+          "Law, C. J.",
+          "Burke-Spolaor, S.",
+          "Cordes, J. M.",
+          "Zhang, Y.-K.",
+          "Ocker, S. K.",
+          "Yao, J.-M.",
+          "Wang, P.",
+          "Feng, Y.",
+          "Niino, Y.",
+          "Bochenek, C.",
+          "Cruces, M.",
+          "Connor, L.",
+          "Jiang, J.-A.",
+          "Dai, S.",
+          "Luo, R.",
+          "Li, G.-D.",
+          "Miao, C.-C.",
+          "Niu, J.-R.",
+          "Anna-Thomas, R.",
+          "Sydnor, J.",
+          "Stern, D.",
+          "Wang, W.-Y.",
+          "Yuan, M.",
+          "Yue, Y.-L.",
+          "Zhou, D.-J.",
+          "Yan, Z.",
+          "Zhu, W.-W.",
+          "Zhang, B."
+        ],
+        "journal": "Nature",
+        "date": "2022-06-08",
+        "doi": "10.1038/s41586-022-04755-5",
+        "url": "https://www.nature.com/articles/s41586-022-04755-5",
+        "volume": "",
+        "issue": "",
+        "pages": "",
+        "metadataSource": "Nature citation_* meta tags, with JSON-LD fallback",
+        "authorInformation": {
+          "notes": [],
+          "affiliations": [],
+          "contributions": "",
+          "correspondence": null
+        },
+        "publisherNotes": []
+      },
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "z_{l}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "tex": "ϵ^{2}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+          "tex": "l_{0}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+          "tex": "l_{i}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN6X",
+          "tex": "10^{−3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN7X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN8X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN9X",
+          "tex": "\\gtrsim10^{2}",
+          "provenance": "Nature MathJax plus adjacent inline scientific nodes"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN10X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN11X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN12X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN13X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN14X",
+          "tex": "G_{\\mathrm{scatt}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN15X",
+          "tex": "d_{\\mathrm{sl}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN16X",
+          "tex": "d_{\\mathrm{so}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN17X",
+          "tex": "d_{\\mathrm{so}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN18X",
+          "tex": "T_{4}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN19X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN20X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN21X",
+          "tex": "\\mathrm{pc}^{−2/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN22X",
+          "tex": "\\mathrm{km}^{−1/3}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH0X",
+          "tex": "\\tilde{F}=\\zeta {{\\epsilon }}^{2}/f{({l}_{{\\rm{o}}}^{2}{l}_{{\\rm{i}}})}^{1/3}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH1X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH2X",
+          "tex": "\\zeta"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH3X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH4X",
+          "tex": "\\gtrsim"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH5X",
+          "tex": "{G}_{{\\rm{scatt}}}\\approx 2{d}_{{\\rm{sl}}}{d}_{{\\rm{lo}}}/{d}_{{\\rm{so}}}\\,L"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH6X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH7X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH8X",
+          "tex": "\\tilde{F}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH9X",
+          "tex": "\\tilde{F}"
+        }
+      ],
+      "displayMath": [
+        {
+          "marker": "ACADEMICCLIPPERDISPLAYMATH0X",
+          "tex": "\\tau ({\\rm{DM}},\\nu ,z)\\approx 48.03\\,{\\rm{\\mu }}{\\rm{s}}\\times \\frac{\\tilde{F}{G}_{{\\rm{scatt}}}{{\\rm{DM}}}_{{\\rm{l}}}^{2}}{{(1+{z}_{{\\rm{l}}})}^{3}{\\nu }^{4}},"
+        }
+      ],
+      "citations": [
+        {
+          "marker": "ACADEMICCLIPPERCITATION0X",
+          "numbers": [
+            52
+          ]
+        }
+      ],
+      "references": 52,
+      "figures": [],
+      "tables": [],
+      "warnings": [
+        "No Nature figures were detected."
+      ],
+      "validators": {
+        "mathValidation": {
+          "valid": true,
+          "inlineMathCount": 41,
+          "displayMathCount": 1,
+          "issues": [],
+          "scientificFragments": {
+            "valid": true,
+            "counts": {
+              "isolatedSubscript": 0,
+              "isolatedSuperscript": 0,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": []
+          },
+          "states": {
+            "TEXT": 3406,
+            "INLINE_MATH": 673,
+            "DISPLAY_MATH": 178,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "rawHtmlValidation": {
+          "valid": true,
+          "violations": []
+        },
+        "markdownStructure": {
+          "valid": true,
+          "citationStyle": "quarto",
+          "sections": {
+            "references": {
+              "headingCount": 1,
+              "itemCount": 0,
+              "definitionCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "crossReferenceValidation": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "sec-fast-burst-sample-analysis",
+            "sec-extragalactic-scattering",
+            "eq-equation-8",
+            "refs",
+            "a-repeating-fast-radio-burst-associated-with-a-persistent-radio-source",
+            "methods",
+            "fast-burst-sample-analysis",
+            "extragalactic-scattering",
+            "references"
+          ],
+          "links": [
+            {
+              "label": "8",
+              "target": "eq-equation-8",
+              "category": "equation",
+              "index": 2750
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "sourceGuard": {
+    "attempts": [],
+    "realClipCalls": 3,
+    "clipWindowsOpened": 3,
+    "clipWindowsClosed": 3,
+    "sourceDomsOpened": 1,
+    "sourceDomsClosed": 1,
+    "guardedMethods": 11,
+    "restoredBindings": true,
+    "restoredDomGlobals": true,
+    "writerProof": "Static call graph: clipNature returns data and does not invoke writePaper. No writer spy claimed."
+  },
+  "matrix": {
+    "node": "v24.14.1",
+    "sourceRoot": "file:///C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper/src/",
+    "attempts": [],
+    "parseCalls": 73,
+    "clipCalls": 3,
+    "domsOpened": 74,
+    "domsClosed": 74,
+    "capturedWindowsClosed": 86,
+    "restoredIdentities": {
+      "fetch": true,
+      "dnsCallback": true,
+      "dnsPromise": true,
+      "windowDescriptor": true
+    },
+    "writerProof": "Only parseNaturePage/clipNature/normalizer/validator called. No writePaper invocation; no runtime writer spy claimed.",
+    "records": [
+      {
+        "id": "positive/pc-only",
+        "category": "REQUIRED_NEW_ROLE",
+        "checks": [
+          {
+            "label": "complete ordered scientific registry including marker identity and multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete ordered marker placement in cleaned input",
+            "status": "PASS"
+          },
+          {
+            "label": "source coefficients/ranges outside the extracted range remain unchanged",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "positive/km-only",
+        "category": "REQUIRED_NEW_ROLE",
+        "checks": [
+          {
+            "label": "complete ordered scientific registry including marker identity and multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete ordered marker placement in cleaned input",
+            "status": "PASS"
+          },
+          {
+            "label": "source coefficients/ranges outside the extracted range remain unchanged",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "positive/measurement-prefix",
+        "category": "REQUIRED_NEW_ROLE",
+        "checks": [
+          {
+            "label": "complete ordered scientific registry including marker identity and multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete ordered marker placement in cleaned input",
+            "status": "PASS"
+          },
+          {
+            "label": "source coefficients/ranges outside the extracted range remain unchanged",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "positive/range-prefix",
+        "category": "REQUIRED_NEW_ROLE",
+        "checks": [
+          {
+            "label": "complete ordered scientific registry including marker identity and multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete ordered marker placement in cleaned input",
+            "status": "PASS"
+          },
+          {
+            "label": "source coefficients/ranges outside the extracted range remain unchanged",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "positive/denominator-prefix",
+        "category": "REQUIRED_NEW_ROLE",
+        "checks": [
+          {
+            "label": "complete ordered scientific registry including marker identity and multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete ordered marker placement in cleaned input",
+            "status": "PASS"
+          },
+          {
+            "label": "source coefficients/ranges outside the extracted range remain unchanged",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "positive/adjacent-pair",
+        "category": "REQUIRED_NEW_ROLE",
+        "checks": [
+          {
+            "label": "complete ordered scientific registry including marker identity and multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete ordered marker placement in cleaned input",
+            "status": "PASS"
+          },
+          {
+            "label": "source coefficients/ranges outside the extracted range remain unchanged",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "positive/thin-space-pair",
+        "category": "REQUIRED_NEW_ROLE",
+        "checks": [
+          {
+            "label": "complete ordered scientific registry including marker identity and multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete ordered marker placement in cleaned input",
+            "status": "PASS"
+          },
+          {
+            "label": "source coefficients/ranges outside the extracted range remain unchanged",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "positive/repeated-factors",
+        "category": "REQUIRED_NEW_ROLE",
+        "checks": [
+          {
+            "label": "complete ordered scientific registry including marker identity and multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete ordered marker placement in cleaned input",
+            "status": "PASS"
+          },
+          {
+            "label": "source coefficients/ranges outside the extracted range remain unchanged",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/unknown-word",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/suffix-word",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/unproved-unit",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/wrong-pc-fraction",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/wrong-km-fraction",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/unsigned",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/plus-sign",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/ascii-minus",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/zero-denominator",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/zero-numerator",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/extra-slash",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/decimal-fraction",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/fraction-spaces",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/fraction-edge-space",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/nested-italic",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/nested-span",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/nested-sub",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/comment-in-sup",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/split-sup",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/extra-sup",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/extra-sub",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/wrapped-base",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/wrapped-sup",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/comment-gap",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/space-gap",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/split-base",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/sibling-prefix",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/comment-prefix",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/unicode-letter-prefix",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/number-prefix",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/combining-mark-prefix",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/bare-mark-prefix",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/underscore-prefix",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/astral-letter-prefix",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/astral-number-prefix",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/typed-data-test",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          },
+          {
+            "label": "non-numeric citation label is preserved without guessed citation number",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/typed-href",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          },
+          {
+            "label": "non-numeric citation label is preserved without guessed citation number",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/letter",
+        "category": "RIGHT_EDGE_REJECTION",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/digit",
+        "category": "RIGHT_EDGE_REJECTION",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/combining-mark",
+        "category": "RIGHT_EDGE_REJECTION",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/underscore",
+        "category": "RIGHT_EDGE_REJECTION",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/astral-letter",
+        "category": "RIGHT_EDGE_REJECTION",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/astral-number",
+        "category": "RIGHT_EDGE_REJECTION",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/wrapper",
+        "category": "RIGHT_EDGE_REJECTION",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/styled-element",
+        "category": "RIGHT_EDGE_REJECTION",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/empty-wrapper",
+        "category": "RIGHT_EDGE_REJECTION",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/comment-continuation",
+        "category": "RIGHT_EDGE_REJECTION",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/direct-typed-citations",
+        "category": "RIGHT_EDGE_POSITIVE_WITH_TYPED_CONTROL",
+        "checks": [
+          {
+            "label": "both typed citation cues retain complete ordered identities",
+            "status": "PASS"
+          },
+          {
+            "label": "whole factor registry coexists with independent direct citations",
+            "status": "PASS"
+          },
+          {
+            "label": "complete body marker sequence retains distinct factor/citation ownership",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "oracle/exact-registry",
+        "category": "ORACLE_STRING_CONTROL",
+        "checks": [
+          {
+            "label": "unknown cannot be washed out",
+            "status": "PASS"
+          },
+          {
+            "label": "orphan cannot be washed out",
+            "status": "PASS"
+          },
+          {
+            "label": "reordered cannot be washed out",
+            "status": "PASS"
+          },
+          {
+            "label": "duplicate cannot be washed out",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "opaque/inline-tex",
+        "category": "OPAQUE_CONTEXT",
+        "checks": [
+          {
+            "label": "complete scientific registry remains empty in opaque context",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "opaque/display-tex",
+        "category": "OPAQUE_CONTEXT",
+        "checks": [
+          {
+            "label": "complete scientific registry remains empty in opaque context",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "opaque/cross-span-tex",
+        "category": "OPAQUE_CONTEXT",
+        "checks": [
+          {
+            "label": "complete scientific registry remains empty in opaque context",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "opaque/inline-code",
+        "category": "OPAQUE_CONTEXT",
+        "checks": [
+          {
+            "label": "complete scientific registry remains empty in opaque context",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "opaque/pre-code",
+        "category": "OPAQUE_CONTEXT",
+        "checks": [
+          {
+            "label": "complete scientific registry remains empty in opaque context",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "opaque/literal-backticks",
+        "category": "OPAQUE_CONTEXT",
+        "checks": [
+          {
+            "label": "complete scientific registry remains empty in opaque context",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "opaque/cross-span-backticks",
+        "category": "OPAQUE_CONTEXT",
+        "checks": [
+          {
+            "label": "complete scientific registry remains empty in opaque context",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "opaque/literal-fence",
+        "category": "OPAQUE_CONTEXT",
+        "checks": [
+          {
+            "label": "complete scientific registry remains empty in opaque context",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "opaque/mathjax",
+        "category": "OPAQUE_CONTEXT",
+        "checks": [
+          {
+            "label": "complete scientific registry remains empty in opaque context",
+            "status": "PASS"
+          },
+          {
+            "label": "complete typed source TeX registry remains exact",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "opaque/equation-ancestor",
+        "category": "OPAQUE_CONTEXT",
+        "checks": [
+          {
+            "label": "complete scientific registry remains empty in opaque context",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "opaque/mathml-ancestor",
+        "category": "OPAQUE_CONTEXT",
+        "checks": [
+          {
+            "label": "lawful parsed MathML ancestor exists before production parse",
+            "status": "PASS"
+          },
+          {
+            "label": "complete scientific registry remains empty in opaque context",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "inherited/numeric",
+        "category": "ACCEPTED_COMPATIBILITY",
+        "checks": [
+          {
+            "label": "existing complete scientific registry remains exact",
+            "status": "PASS"
+          },
+          {
+            "label": "existing marker placement/multiplicity remains exact",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "inherited/split-numeric",
+        "category": "ACCEPTED_COMPATIBILITY",
+        "checks": [
+          {
+            "label": "existing complete scientific registry remains exact",
+            "status": "PASS"
+          },
+          {
+            "label": "existing marker placement/multiplicity remains exact",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "inherited/styled-variable",
+        "category": "ACCEPTED_COMPATIBILITY",
+        "checks": [
+          {
+            "label": "existing complete scientific registry remains exact",
+            "status": "PASS"
+          },
+          {
+            "label": "existing marker placement/multiplicity remains exact",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "inherited/bold-variable",
+        "category": "ACCEPTED_COMPATIBILITY",
+        "checks": [
+          {
+            "label": "existing complete scientific registry remains exact",
+            "status": "PASS"
+          },
+          {
+            "label": "existing marker placement/multiplicity remains exact",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "inherited/greek-index",
+        "category": "ACCEPTED_COMPATIBILITY",
+        "checks": [
+          {
+            "label": "existing complete scientific registry remains exact",
+            "status": "PASS"
+          },
+          {
+            "label": "existing marker placement/multiplicity remains exact",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "inherited/isotope",
+        "category": "ACCEPTED_COMPATIBILITY",
+        "checks": [
+          {
+            "label": "existing complete scientific registry remains exact",
+            "status": "PASS"
+          },
+          {
+            "label": "existing marker placement/multiplicity remains exact",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "inherited/normalizer",
+        "category": "ACCEPTED_COMPATIBILITY",
+        "checks": [
+          {
+            "label": "opaque $\\mathrm{pc}^{-2/3}$",
+            "status": "PASS"
+          },
+          {
+            "label": "opaque `pc$^{−2/3}$`",
+            "status": "PASS"
+          },
+          {
+            "label": "opaque ~~~\npc$^{−2/3}$\n~~~",
+            "status": "PASS"
+          },
+          {
+            "label": "integer unit unchanged",
+            "status": "PASS"
+          },
+          {
+            "label": "numeric integer unchanged",
+            "status": "PASS"
+          },
+          {
+            "label": "original orphan still rejected",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "mixed/markdown",
+        "category": "MIXED_PIPELINE",
+        "checks": [
+          {
+            "label": "complete ordered registry freezes new factors and inherited roles without filtering",
+            "status": "PASS"
+          },
+          {
+            "label": "complete body and display marker placement/order/multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete caption registry placement/order/multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete inline/display typed registry identities and values",
+            "status": "PASS"
+          },
+          {
+            "label": "complete typed citation registry identities and numbers",
+            "status": "PASS"
+          },
+          {
+            "label": "typed math/citation ownership is exact in body and caption",
+            "status": "PASS"
+          },
+          {
+            "label": "exact rendered body and caption retain factors coefficients and inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "two inherited integer cm powers survive",
+            "status": "PASS"
+          },
+          {
+            "label": "strict mathValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "strict rawHtmlValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "strict markdownStructure",
+            "status": "PASS"
+          },
+          {
+            "label": "strict crossReferenceValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "no leaked semantic placeholders",
+            "status": "PASS"
+          },
+          {
+            "label": "no attempted synthetic network operation",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "mixed/links",
+        "category": "MIXED_PIPELINE",
+        "checks": [
+          {
+            "label": "complete ordered registry freezes new factors and inherited roles without filtering",
+            "status": "PASS"
+          },
+          {
+            "label": "complete body and display marker placement/order/multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete caption registry placement/order/multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete inline/display typed registry identities and values",
+            "status": "PASS"
+          },
+          {
+            "label": "complete typed citation registry identities and numbers",
+            "status": "PASS"
+          },
+          {
+            "label": "typed math/citation ownership is exact in body and caption",
+            "status": "PASS"
+          },
+          {
+            "label": "exact rendered body and caption retain factors coefficients and inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "two inherited integer cm powers survive",
+            "status": "PASS"
+          },
+          {
+            "label": "strict mathValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "strict rawHtmlValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "strict markdownStructure",
+            "status": "PASS"
+          },
+          {
+            "label": "strict crossReferenceValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "no leaked semantic placeholders",
+            "status": "PASS"
+          },
+          {
+            "label": "no attempted synthetic network operation",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "mixed/quarto",
+        "category": "MIXED_PIPELINE",
+        "checks": [
+          {
+            "label": "complete ordered registry freezes new factors and inherited roles without filtering",
+            "status": "PASS"
+          },
+          {
+            "label": "complete body and display marker placement/order/multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete caption registry placement/order/multiplicity",
+            "status": "PASS"
+          },
+          {
+            "label": "complete inline/display typed registry identities and values",
+            "status": "PASS"
+          },
+          {
+            "label": "complete typed citation registry identities and numbers",
+            "status": "PASS"
+          },
+          {
+            "label": "typed math/citation ownership is exact in body and caption",
+            "status": "PASS"
+          },
+          {
+            "label": "exact rendered body and caption retain factors coefficients and inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "two inherited integer cm powers survive",
+            "status": "PASS"
+          },
+          {
+            "label": "strict mathValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "strict rawHtmlValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "strict markdownStructure",
+            "status": "PASS"
+          },
+          {
+            "label": "strict crossReferenceValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "no leaked semantic placeholders",
+            "status": "PASS"
+          },
+          {
+            "label": "no attempted synthetic network operation",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "network/final-ledger",
+        "category": "SECURITY_CONTROL",
+        "checks": [
+          {
+            "label": "empty record-before-throw attempts including swallowed fallback",
+            "status": "PASS"
+          }
+        ]
+      }
+    ]
+  },
+  "sourceQuiet": [
+    {
+      "path": "test/fixtures/nature-frb-fractional-units/.gitattributes",
+      "gitBlob": "2bb80e164a0a08fad70caa78c57ccbe969bc953d",
+      "gitBytes": 80,
+      "gitSha256": "88ea5e6fa1b78031a906f8966b9d6df30fa7c567a3a0a4c53c659625acd26166",
+      "physical": {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\.gitattributes",
+        "bytes": 80,
+        "sha256": "88ea5e6fa1b78031a906f8966b9d6df30fa7c567a3a0a4c53c659625acd26166"
+      },
+      "unchangedFromSourceCommit": true
+    },
+    {
+      "path": "test/fixtures/nature-frb-fractional-units/README.md",
+      "gitBlob": "21a462f84005f3d39740264822b9102d1b47212a",
+      "gitBytes": 2967,
+      "gitSha256": "a2ec5a30be7724b314f27167e30aeedd975b2a792ad95ad5e6b441b98b2e9d06",
+      "physical": {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\README.md",
+        "bytes": 2967,
+        "sha256": "a2ec5a30be7724b314f27167e30aeedd975b2a792ad95ad5e6b441b98b2e9d06"
+      },
+      "unchangedFromSourceCommit": true
+    },
+    {
+      "path": "test/fixtures/nature-frb-fractional-units/diagnosis.json",
+      "gitBlob": "0d55e167d2c27c37a8b6b000304e947ca13caf93",
+      "gitBytes": 15276,
+      "gitSha256": "aa3a66dbb9e3ae5ec714ef8f0be5d28372061e16f13bfebc4f59f531d3e7a487",
+      "physical": {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\diagnosis.json",
+        "bytes": 15276,
+        "sha256": "aa3a66dbb9e3ae5ec714ef8f0be5d28372061e16f13bfebc4f59f531d3e7a487"
+      },
+      "unchangedFromSourceCommit": true
+    },
+    {
+      "path": "test/fixtures/nature-frb-fractional-units/s41586-022-04755-5.excerpt.html",
+      "gitBlob": "ba28b3e2e1b713446b254d3f075d6b79a8291a34",
+      "gitBytes": 80065,
+      "gitSha256": "9196756aa9c59254f6b310a59f6218853a6eece7025c4eac926aed21df7b16be",
+      "physical": {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\s41586-022-04755-5.excerpt.html",
+        "bytes": 80065,
+        "sha256": "9196756aa9c59254f6b310a59f6218853a6eece7025c4eac926aed21df7b16be"
+      },
+      "unchangedFromSourceCommit": true
+    },
+    {
+      "path": "test/fixtures/nature-frb-fractional-units/s41586-022-04755-5.provenance.json",
+      "gitBlob": "99631745a6a25d9412390ff05e94b8af6edbd7fb",
+      "gitBytes": 65081,
+      "gitSha256": "0271c2b543d016d35c573cb047e28435a81b07cb8eb323114a1b23d0f7d6970d",
+      "physical": {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\s41586-022-04755-5.provenance.json",
+        "bytes": 65081,
+        "sha256": "0271c2b543d016d35c573cb047e28435a81b07cb8eb323114a1b23d0f7d6970d"
+      },
+      "unchangedFromSourceCommit": true
+    }
+  ],
+  "codeInputs": [
+    {
+      "path": "src/adapters/nature.mjs",
+      "gitBlob": "db23dc46661a23a47232220efd3b5f8e6903f223",
+      "gitBytes": 57217,
+      "gitSha256": "1b047b681d763e4d1f3532573c8e01e56ae88df15ef2c0fcaec9311b6fd8107b",
+      "physical": {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\adapters\\nature.mjs",
+        "bytes": 58579,
+        "sha256": "3552ae4efa872cf06b4dd1bb6b75389f2e3c4506fe3fe0c86103663fc79162f3"
+      }
+    },
+    {
+      "path": "test/nature-frb-fractional-units.test.mjs",
+      "gitBlob": "ecba476f0cb0d070eb0da0507d41ac745e57a145",
+      "gitBytes": 13545,
+      "gitSha256": "4d3878a35ff3fd788ab8323902a34f40a31f3bd9c4198bf760cd265b608cbc55",
+      "physical": {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\nature-frb-fractional-units.test.mjs",
+        "bytes": 13545,
+        "sha256": "4d3878a35ff3fd788ab8323902a34f40a31f3bd9c4198bf760cd265b608cbc55"
+      }
+    },
+    {
+      "path": "test/nature-frb-fractional-preflight.test.mjs",
+      "gitBlob": "27d573b8692b66bdd4bdbdfe4d0c9dde908a7805",
+      "gitBytes": 21202,
+      "gitSha256": "9f291b71297cbdf6c5ad23f2a2a140a89cfd67c6b63324089e61d7094005ee0b",
+      "physical": {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\nature-frb-fractional-preflight.test.mjs",
+        "bytes": 21202,
+        "sha256": "9f291b71297cbdf6c5ad23f2a2a140a89cfd67c6b63324089e61d7094005ee0b"
+      }
+    }
+  ],
+  "physicalExecutionInputs": [
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\package-lock.json",
+      "bytes": 32599,
+      "sha256": "5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef42a7a1"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\package.json",
+      "bytes": 811,
+      "sha256": "70730641b447be2c08db2b7ecd9354c1ba426f10195b2e2e8528de54fcc41d9a"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\papers\\s41586-026-10401-1\\debug.json",
+      "bytes": 10955,
+      "sha256": "85f6478e8bfc7b395ec310f2897617fa1e209c8614486c60beafeb622db0a8c5"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig1.webp",
+      "bytes": 49630,
+      "sha256": "81e587ee56dc9eca4dc088c513fd7668ee189c42dcae2ffe722c865347069fc8"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig2.webp",
+      "bytes": 29826,
+      "sha256": "320f625b06577492a61e094f810c576cf013c3a1b39251f10b5fabf9d25d4713"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig3.webp",
+      "bytes": 38546,
+      "sha256": "28033ea3a0a8da6c1b98c39dbcf92ca304f65cfa52e0d06df70b74736af8841d"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig4.jpg",
+      "bytes": 49049,
+      "sha256": "c0cf5cd9efb083280b026b22f5a426643b8211e03f5fe57e28bcc1b306ce5e38"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig5.jpg",
+      "bytes": 49427,
+      "sha256": "4f29f68cadc51e31651a2504fcd479162de15fcb0a1a5bdfa01f80cacb7ab25a"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig6.jpg",
+      "bytes": 44566,
+      "sha256": "7006478d43ec6f9fbf2109c17a8671e48566c0aec99d3183fbeee69bedb25ef4"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig7.jpg",
+      "bytes": 47151,
+      "sha256": "4b3b34928752fdd70b116908b7db82071f11013211b6327f2e0c4844ee047ac3"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\papers\\s41586-026-10401-1\\index.md",
+      "bytes": 65059,
+      "sha256": "33caa4997c92c8cd7d40581db3e589c260ee5d70c4bded9b2e8c981b43cffaf5"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\adapters\\aaas.mjs",
+      "bytes": 21207,
+      "sha256": "c52678918e22c126d9a0ff128a044fab9cd4f1995ad023f588f00fa66f50946c"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\adapters\\aip.mjs",
+      "bytes": 15429,
+      "sha256": "1593d3b34850c5a282829aff393ac0ac4695f257adff62860fd3f8cced3d9298"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\adapters\\iop.mjs",
+      "bytes": 20595,
+      "sha256": "0e633803180532090015014db7eaf98534a2e021ce155f6a4de881ba6bd26611"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\adapters\\nature.mjs",
+      "bytes": 58579,
+      "sha256": "3552ae4efa872cf06b4dd1bb6b75389f2e3c4506fe3fe0c86103663fc79162f3"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\adapters\\pnas.mjs",
+      "bytes": 13186,
+      "sha256": "e7bd7b1409cdf31bb50844d016bf1953e18e82883fc03980877a601e57845bae"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\adapters\\rsc.mjs",
+      "bytes": 16616,
+      "sha256": "1a54fe1c2b4280c44d4b33a1f86597dd19a6f1172ec2b887c3cf64bde8e2c1cd"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\adapters\\sciopen.mjs",
+      "bytes": 16747,
+      "sha256": "75820995ce0c3e6856f2b3c2e6a541e0a9634fa4db2db1345c870265693a01ea"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\adapters\\wiley-clip.mjs",
+      "bytes": 3903,
+      "sha256": "1069a037f4c69492c85f9878fbafc6c4c852578098a371275728c0dbccda8f2c"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\adapters\\wiley.mjs",
+      "bytes": 16387,
+      "sha256": "afcc9e70bd505395d8d15561d452fc94430f190b93632335e8ffb1a45b43eaca"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\article-fetch.mjs",
+      "bytes": 3263,
+      "sha256": "e779fcfe477909c86a3260154190bb19dc57d677787d85028b41f42b8e32cf66"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\bridge.mjs",
+      "bytes": 8468,
+      "sha256": "be81cb8de7240731c6ee470d43c1e055ba430b0ab8bb03c30ed34be7a33830ec"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\build.mjs",
+      "bytes": 792,
+      "sha256": "4bcc8c82a594d230bff2ff2dbbda4ee5cb07c00013a59502854e6b92b86bd6ef"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\cli.mjs",
+      "bytes": 2304,
+      "sha256": "74f72ccc7aaebf52dc1c8a8c94924abc7abe9a26909e63d6b3ac2ab01b1f66b0"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\clip.mjs",
+      "bytes": 41240,
+      "sha256": "7f10fdd09c52528b5228433f3c84aa8bcef12d3bc63cc7c03005f233a325b134"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\dom-runtime.mjs",
+      "bytes": 1489,
+      "sha256": "45778aff5794d548af5a467d1eab17e62eda61796cf18254ccacd32d1158c198"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\experimental\\rsc-clip.mjs",
+      "bytes": 4579,
+      "sha256": "f65b936498cd67a9a2d912dcebca5effd72f965877cce87801ad1e71d868418a"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\launcher.cs",
+      "bytes": 3222,
+      "sha256": "16b93e04ef388cbcfe3f44cfbb04108d83476a20390ef04763feffe3b571afe7"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\launcher.mjs",
+      "bytes": 13550,
+      "sha256": "c28e501ca37f7b6fcc59ec2ee9153d737891220d387d611a5c69f10ba291fea3"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\markdown.mjs",
+      "bytes": 1097,
+      "sha256": "ef4859276c23e1442de315d418347f5881164c47d1eebb58e5d6322d7a918416"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\normalizers\\academic-inline.mjs",
+      "bytes": 13414,
+      "sha256": "1a7e380ee2d0836533e8d7621a9d7ef4dfdfe1c43583d64abb11d4d2c3e77ce0"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\normalizers\\citations.mjs",
+      "bytes": 4463,
+      "sha256": "d46831bac833d3f7fc70ec03aaf3c16323814aabae34a48cd1d3c1598caed201"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\normalizers\\figures.mjs",
+      "bytes": 16260,
+      "sha256": "e3cb06038756a38649633cd3612edcbeca515c370dc238836cf472b6530bb8d2"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\normalizers\\markers.mjs",
+      "bytes": 131,
+      "sha256": "f94d063d5a0849f117b6633bf12db01588a5d6d9104ebe933eedc01c87605afc"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\normalizers\\math.mjs",
+      "bytes": 3771,
+      "sha256": "e646de6497838580b47d31f65ee5b50ae2f03ec3137cace1fe8225af528d1089"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\pnas-clip.mjs",
+      "bytes": 5571,
+      "sha256": "7d4c52feec43db6ae9643f5d23690094767cc85036971ce42dd49d204acf89bf"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\renderers\\output-policy.mjs",
+      "bytes": 1027,
+      "sha256": "92d7239d5613cd8e812f7ebffb8066e19a15d180b3950d6b68130ac77233c30a"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\security.mjs",
+      "bytes": 7094,
+      "sha256": "d0b8f1278532db6251e50640d2503cca1772e09c5889fb981798cb753934b0db"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\validate-paper.mjs",
+      "bytes": 2166,
+      "sha256": "5fa1736ef4c72aed4bb6350b780cd0a8ada6b3ec472902681d95da589872d5d1"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\validators\\citation-style.mjs",
+      "bytes": 1267,
+      "sha256": "c2d511dc22296d1f56eb138c5ad7d8d4b3b43c587f51461972fe397769a099a7"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\validators\\cross-references.mjs",
+      "bytes": 3933,
+      "sha256": "ed0a5f751a018fe7859a880949376c7fa8390aacdf85b2565a804a395753bf5e"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\validators\\html-audit.mjs",
+      "bytes": 4005,
+      "sha256": "c3eb1d382f4742aaf825d186fc793bb1f4c1aa7ce6e7fdcd56bbaa320b8202fa"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\validators\\markdown-structure.mjs",
+      "bytes": 6179,
+      "sha256": "302303cf9fc724c9c5677ae84f3dd840ebe7a62aeee7e5eed00950d135b177a2"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\validators\\math-delimiters.mjs",
+      "bytes": 9885,
+      "sha256": "87d19d2bf51c4f5da87cd7d6aaf352595be537f9d1e6c28620e13701f5279284"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\src\\version.mjs",
+      "bytes": 163,
+      "sha256": "377d26da1e0336fa86ee757012a50fdd37b8868530929b59ec1a41d1be300e3b"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\.gitattributes",
+      "bytes": 80,
+      "sha256": "88ea5e6fa1b78031a906f8966b9d6df30fa7c567a3a0a4c53c659625acd26166"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\README.md",
+      "bytes": 2967,
+      "sha256": "a2ec5a30be7724b314f27167e30aeedd975b2a792ad95ad5e6b441b98b2e9d06"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\diagnosis.json",
+      "bytes": 15276,
+      "sha256": "aa3a66dbb9e3ae5ec714ef8f0be5d28372061e16f13bfebc4f59f531d3e7a487"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\s41586-022-04755-5.excerpt.html",
+      "bytes": 80065,
+      "sha256": "9196756aa9c59254f6b310a59f6218853a6eece7025c4eac926aed21df7b16be"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\s41586-022-04755-5.provenance.json",
+      "bytes": 65081,
+      "sha256": "0271c2b543d016d35c573cb047e28435a81b07cb8eb323114a1b23d0f7d6970d"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\nature-frb-fractional-preflight.test.mjs",
+      "bytes": 21202,
+      "sha256": "9f291b71297cbdf6c5ad23f2a2a140a89cfd67c6b63324089e61d7094005ee0b"
+    },
+    {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-frb-fractional-units\\academic-clipper\\test\\nature-frb-fractional-units.test.mjs",
+      "bytes": 13545,
+      "sha256": "4d3878a35ff3fd788ab8323902a34f40a31f3bd9c4198bf760cd265b608cbc55"
+    }
+  ],
+  "inputsUnchangedThroughExecutionAndPackaging": true,
+  "changedSinceDependency": [
+    "src/adapters/nature.mjs",
+    "test/nature-frb-fractional-units.test.mjs"
+  ],
+  "artifacts": [
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\run-focused.mjs",
+      "bytes": 2954,
+      "sha256": "31f758a51fa5748daa0985b26fe4849148034b5ff198e019bfe5a22e30496233"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\focused-receipt.json",
+      "bytes": 16263,
+      "sha256": "82ce04b1c9232a114f228bdfa72965f176d2674fbfa175d5334cf9f88fb1c03a"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\source\\network-ledger.json",
+      "bytes": 345,
+      "sha256": "35e64a149323a54d38160e1f89dc167554df29001214b38c9b15eb54d59f3aa2"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\matrix\\matrix-records.json",
+      "bytes": 39044,
+      "sha256": "91b58b305793ee90d2e091a5b1deb406deb51486e8bea1f11e06930429298dce"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\matrix\\markdown.synthetic.result.json",
+      "bytes": 9802,
+      "sha256": "dc9312c241f271c2127bf13df310b16ca968fd0cbc2321a8e47a60a938e214e0"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\matrix\\links.synthetic.result.json",
+      "bytes": 10196,
+      "sha256": "db36d47fc9e5ab1cef845fe3c38b6a0c5d26e6a46bbdbbb5e055f1adedaf4ca2"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-production-3dba\\focused-first\\matrix\\quarto.synthetic.result.json",
+      "bytes": 9918,
+      "sha256": "2677440b717dcd2dd9bde4589385ebeb48edaa39b917a3fae1ed96387b253213"
+    }
+  ],
+  "limitations": {
+    "broader": "CLOSED_GREEN_SEE_closedBroaderVerification",
+    "full": "CLOSED_GREEN_SEE_closedBroaderVerification",
+    "build": "CLOSED_GREEN_SEE_closedBroaderVerification",
+    "golden": "CLOSED_GREEN_SEE_closedBroaderVerification",
+    "freshCI": "PENDING_FRESH_EXACT_HEAD_ROOT_GATE",
+    "secretScan": "PENDING_FRESH_EXACT_HEAD_ROOT_GATE",
+    "pr": "PUBLICATION_IN_PROGRESS",
+    "writer": "Static production clipNature-only call graph, no runtime writer spy",
+    "determinism": "No new repeat-source clip or full-document snapshot added",
+    "parenthesizedNumericPower": "#75 separate required p22 family remains outside this bounded bug"
+  },
+  "explicitNonRepeats": {
+    "rawAcquisition": 0,
+    "source103Audit": 0,
+    "sanitizer": 0,
+    "recipeOrProjectionRegeneration": 0,
+    "historicalRealClips": 0,
+    "old67Preflight": 0,
+    "old41Subset": 0,
+    "old17Tail": 0,
+    "cachedAssertions": 0,
+    "snapshotRebuild": 0,
+    "full": 0,
+    "build": 0,
+    "golden": 0,
+    "install": 0
+  },
+  "receiptCorrection": {
+    "firstClosedReceiptCounts": null,
+    "reason": "Wrapper expected TAP summary while actual Node emitted spec reporter. Original log/receipt/runner preserved. Counts above were read from same closed logs; zero test reruns.",
+    "commitPackagingShell": "Commit2dca succeeded; trailing unquoted PowerShell HEAD^{tree} expanded incorrectly and failed. Correct tree queried using child_process argument array only; no test or code failure."
+  },
+  "closedBroaderVerification": {
+    "stages": [
+      {
+        "receipt": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\affected-receipt.json",
+          "bytes": 78486,
+          "sha256": "c3b5d52f4564786f28a18851e89eb42c9dbef0beeebc4fb9ea2afa1512c2d99e"
+        },
+        "name": "affected",
+        "command": "node --test --test-reporter=tap test/nature-adapter.test.mjs test/nature-alpha-qualifier-boundaries.test.mjs test/nature-alpha-qualifier-oracle.test.mjs test/nature-alpha-qualifier.test.mjs test/nature-caption-citations.test.mjs test/nature-compound-unit-boundaries.test.mjs test/nature-compound-unit.test.mjs test/nature-greek-subscript-boundaries.test.mjs test/nature-greek-subscript-context-boundaries.test.mjs test/nature-greek-subscript.test.mjs test/nature-isotope-mass-boundaries.test.mjs test/nature-isotope-mass-coverage.test.mjs test/nature-isotope-mass.test.mjs test/nature-literal-brackets.test.mjs test/nature-materials-identifier-boundaries.test.mjs test/nature-materials-identifier.test.mjs test/nature-reference-literal.test.mjs test/nature-scientific-citation-boundaries.test.mjs test/nature-scientific-citations.test.mjs test/nature-scientific-units.test.mjs test/nature-sparse-figure-alt.test.mjs test/nature-split-power-boundaries.test.mjs test/nature-split-power.test.mjs test/nature-styled-adjacency-boundaries.test.mjs test/nature-styled-adjacency.test.mjs test/nature-table-caption-clip.test.mjs test/nature-table-caption.test.mjs test/nature-table-mathjax.test.mjs test/nature-table-notes.test.mjs test/bridge-security.test.mjs test/infrastructure-hardening.test.mjs test/network-boundaries.test.mjs test/output-quality.test.mjs test/stability-regressions.test.mjs",
+        "argv": [
+          "--test",
+          "--test-reporter=tap",
+          "test/nature-adapter.test.mjs",
+          "test/nature-alpha-qualifier-boundaries.test.mjs",
+          "test/nature-alpha-qualifier-oracle.test.mjs",
+          "test/nature-alpha-qualifier.test.mjs",
+          "test/nature-caption-citations.test.mjs",
+          "test/nature-compound-unit-boundaries.test.mjs",
+          "test/nature-compound-unit.test.mjs",
+          "test/nature-greek-subscript-boundaries.test.mjs",
+          "test/nature-greek-subscript-context-boundaries.test.mjs",
+          "test/nature-greek-subscript.test.mjs",
+          "test/nature-isotope-mass-boundaries.test.mjs",
+          "test/nature-isotope-mass-coverage.test.mjs",
+          "test/nature-isotope-mass.test.mjs",
+          "test/nature-literal-brackets.test.mjs",
+          "test/nature-materials-identifier-boundaries.test.mjs",
+          "test/nature-materials-identifier.test.mjs",
+          "test/nature-reference-literal.test.mjs",
+          "test/nature-scientific-citation-boundaries.test.mjs",
+          "test/nature-scientific-citations.test.mjs",
+          "test/nature-scientific-units.test.mjs",
+          "test/nature-sparse-figure-alt.test.mjs",
+          "test/nature-split-power-boundaries.test.mjs",
+          "test/nature-split-power.test.mjs",
+          "test/nature-styled-adjacency-boundaries.test.mjs",
+          "test/nature-styled-adjacency.test.mjs",
+          "test/nature-table-caption-clip.test.mjs",
+          "test/nature-table-caption.test.mjs",
+          "test/nature-table-mathjax.test.mjs",
+          "test/nature-table-notes.test.mjs",
+          "test/bridge-security.test.mjs",
+          "test/infrastructure-hardening.test.mjs",
+          "test/network-boundaries.test.mjs",
+          "test/output-quality.test.mjs",
+          "test/stability-regressions.test.mjs"
+        ],
+        "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+        "node": "v24.14.1",
+        "nodeExecutable": "C:\\nvm4w\\nodejs\\node.exe",
+        "head": "cc2178f420a370db00a6bb8bf8e7a118cbe013f6",
+        "tree": "581db1d21cd1143971c866d48b84d294a0c57b3f",
+        "startedAt": "2026-10-08T12:41:54.401Z",
+        "finishedAt": "2026-10-08T12:42:08.239Z",
+        "processDurationMs": 13837.5681,
+        "exitCode": 0,
+        "signal": null,
+        "error": null,
+        "counts": {
+          "tests": 831,
+          "suites": 0,
+          "pass": 831,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0,
+          "duration_ms": 13782.7969
+        },
+        "log": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\affected.log",
+          "bytes": 212676,
+          "sha256": "ed0dba717f05f4f18fcfc37d8f5ef742491bc3316cb49589f2df63973b38ccb1"
+        },
+        "environment": {
+          "receiptCacheSourceRootOverrides": null
+        },
+        "changedInputs": [],
+        "inputBytesUnchanged": true,
+        "trackedStatus": "",
+        "inputCount": 273
+      },
+      {
+        "receipt": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\full-receipt.json",
+          "bytes": 75877,
+          "sha256": "29a70aabf8db20c75563ce208eeb1086e27fbf8314934e492934742ac029e949"
+        },
+        "name": "full",
+        "command": "npm test",
+        "argv": [
+          "C:\\nvm4w\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+          "test"
+        ],
+        "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+        "node": "v24.14.1",
+        "nodeExecutable": "C:\\nvm4w\\nodejs\\node.exe",
+        "head": "cc2178f420a370db00a6bb8bf8e7a118cbe013f6",
+        "tree": "581db1d21cd1143971c866d48b84d294a0c57b3f",
+        "startedAt": "2026-10-08T12:42:08.366Z",
+        "finishedAt": "2026-10-08T12:43:45.003Z",
+        "processDurationMs": 96637.4331,
+        "exitCode": 0,
+        "signal": null,
+        "error": null,
+        "counts": {
+          "tests": 1118,
+          "suites": 0,
+          "pass": 1118,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0,
+          "duration_ms": 96368.7189
+        },
+        "log": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\full.log",
+          "bytes": 130449,
+          "sha256": "3d168a4eb7796d6f65b5213304ff5dd3cf671f264984bb17ee6fe460a0c39a6d"
+        },
+        "environment": {
+          "FRB_FRACTIONAL_RECEIPT_ROOT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\full\\source",
+          "FRB_PREFLIGHT_RECEIPT_ROOT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\full\\matrix",
+          "FRB_FRACTIONAL_CACHE_ROOT": null,
+          "FRB_PREFLIGHT_MIXED_CACHE_ROOT": null,
+          "FRB_PREFLIGHT_SOURCE_ROOT": null
+        },
+        "changedInputs": [],
+        "inputBytesUnchanged": true,
+        "trackedStatus": "",
+        "inputCount": 273
+      },
+      {
+        "receipt": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\build-receipt.json",
+          "bytes": 75406,
+          "sha256": "e341548a715acd78b8cd4eecb71eab037d3a23f56db2760544313b63e0f40694"
+        },
+        "name": "build",
+        "command": "npm run build",
+        "argv": [
+          "C:\\nvm4w\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+          "run",
+          "build"
+        ],
+        "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+        "node": "v24.14.1",
+        "nodeExecutable": "C:\\nvm4w\\nodejs\\node.exe",
+        "head": "cc2178f420a370db00a6bb8bf8e7a118cbe013f6",
+        "tree": "581db1d21cd1143971c866d48b84d294a0c57b3f",
+        "startedAt": "2026-10-08T12:43:45.114Z",
+        "finishedAt": "2026-10-08T12:43:45.355Z",
+        "processDurationMs": 241.24989999999525,
+        "exitCode": 0,
+        "signal": null,
+        "error": null,
+        "counts": null,
+        "log": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\build.log",
+          "bytes": 172,
+          "sha256": "ea58ab778b84082d2a39b5fa8e7e598bd0c3794758fbeb2c57589eccd66ee4cd"
+        },
+        "environment": {
+          "receiptCacheSourceRootOverrides": null
+        },
+        "changedInputs": [],
+        "inputBytesUnchanged": true,
+        "trackedStatus": "",
+        "inputCount": 273
+      },
+      {
+        "receipt": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\golden-receipt.json",
+          "bytes": 75600,
+          "sha256": "1863a9495f9d2685a2592745e3620d37c92f6a290ebb6a79049495971540126e"
+        },
+        "name": "golden",
+        "command": "npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto",
+        "argv": [
+          "C:\\nvm4w\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+          "run",
+          "validate:paper",
+          "--",
+          "--file",
+          "./papers/s41586-026-10401-1/index.md",
+          "--citation-style",
+          "auto"
+        ],
+        "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+        "node": "v24.14.1",
+        "nodeExecutable": "C:\\nvm4w\\nodejs\\node.exe",
+        "head": "cc2178f420a370db00a6bb8bf8e7a118cbe013f6",
+        "tree": "581db1d21cd1143971c866d48b84d294a0c57b3f",
+        "startedAt": "2026-10-08T12:43:45.459Z",
+        "finishedAt": "2026-10-08T12:43:45.732Z",
+        "processDurationMs": 273.04700000000594,
+        "exitCode": 0,
+        "signal": null,
+        "error": null,
+        "counts": null,
+        "log": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\golden.log",
+          "bytes": 2893,
+          "sha256": "a5117f116c1d285880129194d874ffe7812eaa6bd8634838524e53bfa131dbfe"
+        },
+        "environment": {
+          "receiptCacheSourceRootOverrides": null
+        },
+        "changedInputs": [],
+        "inputBytesUnchanged": true,
+        "trackedStatus": "",
+        "inputCount": 273
+      }
+    ],
+    "currentTrackedInputVerification": {
+      "count": 273,
+      "mismatches": [],
+      "matchedAt": "2026-10-08T20:22:59.191Z",
+      "historicalInputsReceipt": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\full-receipt.json",
+        "bytes": 75877,
+        "sha256": "29a70aabf8db20c75563ce208eeb1086e27fbf8314934e492934742ac029e949"
+      }
+    },
+    "fullSourceGuard": {
+      "artifact": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\full\\source\\network-ledger.json",
+        "bytes": 345,
+        "sha256": "35e64a149323a54d38160e1f89dc167554df29001214b38c9b15eb54d59f3aa2"
+      },
+      "attempts": [],
+      "realClipCalls": 3,
+      "clipWindowsOpened": 3,
+      "clipWindowsClosed": 3,
+      "sourceDomsOpened": 1,
+      "sourceDomsClosed": 1,
+      "guardedMethods": 11,
+      "restoredBindings": true,
+      "restoredDomGlobals": true,
+      "writerProof": "Static call graph: clipNature returns data and does not invoke writePaper. No writer spy claimed."
+    },
+    "runtimeScope": "Original closed runs only; publication recovery executed no tests, parses, clips, build, golden, source audit, sanitizer, network probe or dependency install."
+  },
+  "publication": {
+    "reviewedPrePublicationHead": "cc2178f420a370db00a6bb8bf8e7a118cbe013f6",
+    "reviewedPrePublicationTree": "581db1d21cd1143971c866d48b84d294a0c57b3f",
+    "scope": "Two production handoff/receipt documents only",
+    "freshCi": "NOT_YET_OBSERVED_ROOT_GATE",
+    "secrets": "NOT_YET_OBSERVED_ROOT_GATE",
+    "finalPublicationReview": "NOT_YET_RUN_ROOT_GATE",
+    "mergedMain": "NOT_MERGED",
+    "localDependencies": "Closed runs used existing read-only junction. At publication recovery the junction points to C:/Users/guoli/.codex/worktrees/3417/academic-clipper/node_modules and its target is unavailable; no npm ci or repair was run. Fresh three-platform CI must prove clean npm ci.",
+    "originalFocusedEvidencePreserved": true
+  }
+}
