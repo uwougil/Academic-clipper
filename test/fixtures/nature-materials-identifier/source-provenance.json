@@ -1,0 +1,1404 @@
+{
+  "version": "nature-materials-identifier-source/1.0.0",
+  "classification": "SOURCE_ONLY_UNFIXED",
+  "baseSha": "3889f7396eab99060bec88fc8b0dcd3e6712024e",
+  "source": {
+    "articleId": "s41586-023-06735-9",
+    "url": "https://www.nature.com/articles/s41586-023-06735-9",
+    "doi": "10.1038/s41586-023-06735-9",
+    "title": "Scaling deep learning for materials discovery",
+    "journal": "Nature",
+    "observedAt": "2026-10-03T16:44:22.324Z",
+    "captureMode": "guarded-http",
+    "sourceBytes": 506351,
+    "sourceSha256": "79f575e1941633c2dbd036682977ea6c274acd5c8c44fdb4648856a00a8d7cc6",
+    "acquisition": "Reuse original anonymous B HTTP bytes; no new access, credentials or cookies."
+  },
+  "dependencies": {
+    "bCommit": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330",
+    "cCommit": "3d533fb15115ad670e30b52b11ac6435d654c53a",
+    "cPacket": {
+      "bytes": 34429,
+      "sha256": "84d93cc4261471a9c5ce20df73a214d8078be5d8d78e0c85211e07436a54ec35"
+    },
+    "helper": {
+      "gitBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+      "gitBytes": 34946,
+      "gitSha256": "a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c",
+      "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+      "serializerVersion": "nature-corpus-subtree/1.0.0",
+      "projectionVersion": "nature-corpus-projection/1.0.0"
+    }
+  },
+  "recipe": {
+    "version": "1.0.0",
+    "id": "materials-identifier-all-nine-with-source-headings-v1",
+    "articleUrl": "https://www.nature.com/articles/s41586-023-06735-9",
+    "blocks": [
+      {
+        "id": "a-meta-11",
+        "selector": "head > meta[name=\"dc.title\"][content=\"Scaling deep learning for materials discovery\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-36",
+        "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-40",
+        "selector": "head > meta[name=\"citation_title\"][content=\"Scaling deep learning for materials discovery\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-41",
+        "selector": "head > meta[name=\"citation_volume\"][content=\"624\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-42",
+        "selector": "head > meta[name=\"citation_issue\"][content=\"7990\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-43",
+        "selector": "head > meta[name=\"citation_publication_date\"][content=\"2023/12\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-44",
+        "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/11/29\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-45",
+        "selector": "head > meta[name=\"citation_firstpage\"][content=\"80\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-46",
+        "selector": "head > meta[name=\"citation_lastpage\"][content=\"85\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-50",
+        "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41586-023-06735-9\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-53",
+        "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41586-023-06735-9\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-135",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Merchant, Amil\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-137",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Batzner, Simon\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-139",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Schoenholz, Samuel S.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-141",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Aykol, Muratahan\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-143",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Cheon, Gowoon\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-145",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Cubuk, Ekin Dogus\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-154",
+        "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41586-023-06735-9\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-155",
+        "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-157",
+        "selector": "head > meta[property=\"og:title\"][content=\"Scaling deep learning for materials discovery - Nature\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-title",
+        "selector": "h1.c-article-title",
+        "role": "title"
+      },
+      {
+        "id": "heading-Sec1",
+        "selector": "#Sec1",
+        "role": "complete-original-heading"
+      },
+      {
+        "id": "heading-Sec6",
+        "selector": "#Sec6",
+        "role": "complete-original-heading"
+      },
+      {
+        "id": "heading-Sec7",
+        "selector": "#Sec7",
+        "role": "complete-original-heading"
+      },
+      {
+        "id": "heading-Sec13",
+        "selector": "#Sec13",
+        "role": "complete-original-heading"
+      },
+      {
+        "id": "heading-Sec30",
+        "selector": "#Sec30",
+        "role": "complete-original-heading"
+      },
+      {
+        "id": "heading-Sec33",
+        "selector": "#Sec33",
+        "role": "complete-original-heading"
+      },
+      {
+        "id": "main-p2",
+        "selector": "section[data-title=\"Main\"] p:has(#ref-link-section-d102862606e519)",
+        "role": "complete-source-identifier-paragraph"
+      },
+      {
+        "id": "crystals-p5",
+        "selector": "section[data-title=\"Discovered stable crystals\"] p:has(#ref-link-section-d102862606e815)",
+        "role": "complete-source-identifier-paragraph"
+      },
+      {
+        "id": "methods-p25",
+        "selector": "#Sec33 + p",
+        "role": "complete-source-identifier-paragraph"
+      },
+      {
+        "id": "figure-2",
+        "selector": "figure:has(#Fig2)",
+        "role": "complete-original-figure-and-caption"
+      },
+      {
+        "id": "data-availability",
+        "selector": "section[data-title=\"Data availability\"]",
+        "role": "complete-original-data-section"
+      },
+      {
+        "id": "references-heading",
+        "selector": "#Bib1",
+        "role": "original-reference-heading"
+      },
+      {
+        "id": "reference-1",
+        "selector": "ol.c-article-references > li:nth-child(1)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-2",
+        "selector": "ol.c-article-references > li:nth-child(2)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-3",
+        "selector": "ol.c-article-references > li:nth-child(3)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-4",
+        "selector": "ol.c-article-references > li:nth-child(4)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-5",
+        "selector": "ol.c-article-references > li:nth-child(5)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-6",
+        "selector": "ol.c-article-references > li:nth-child(6)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-7",
+        "selector": "ol.c-article-references > li:nth-child(7)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-8",
+        "selector": "ol.c-article-references > li:nth-child(8)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-9",
+        "selector": "ol.c-article-references > li:nth-child(9)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-10",
+        "selector": "ol.c-article-references > li:nth-child(10)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-11",
+        "selector": "ol.c-article-references > li:nth-child(11)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-12",
+        "selector": "ol.c-article-references > li:nth-child(12)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-13",
+        "selector": "ol.c-article-references > li:nth-child(13)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-14",
+        "selector": "ol.c-article-references > li:nth-child(14)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-15",
+        "selector": "ol.c-article-references > li:nth-child(15)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-16",
+        "selector": "ol.c-article-references > li:nth-child(16)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-17",
+        "selector": "ol.c-article-references > li:nth-child(17)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-18",
+        "selector": "ol.c-article-references > li:nth-child(18)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-19",
+        "selector": "ol.c-article-references > li:nth-child(19)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-20",
+        "selector": "ol.c-article-references > li:nth-child(20)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-21",
+        "selector": "ol.c-article-references > li:nth-child(21)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-22",
+        "selector": "ol.c-article-references > li:nth-child(22)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-23",
+        "selector": "ol.c-article-references > li:nth-child(23)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-24",
+        "selector": "ol.c-article-references > li:nth-child(24)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-25",
+        "selector": "ol.c-article-references > li:nth-child(25)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-26",
+        "selector": "ol.c-article-references > li:nth-child(26)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-27",
+        "selector": "ol.c-article-references > li:nth-child(27)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-28",
+        "selector": "ol.c-article-references > li:nth-child(28)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-29",
+        "selector": "ol.c-article-references > li:nth-child(29)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-30",
+        "selector": "ol.c-article-references > li:nth-child(30)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-31",
+        "selector": "ol.c-article-references > li:nth-child(31)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-32",
+        "selector": "ol.c-article-references > li:nth-child(32)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-33",
+        "selector": "ol.c-article-references > li:nth-child(33)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-34",
+        "selector": "ol.c-article-references > li:nth-child(34)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-35",
+        "selector": "ol.c-article-references > li:nth-child(35)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-36",
+        "selector": "ol.c-article-references > li:nth-child(36)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-37",
+        "selector": "ol.c-article-references > li:nth-child(37)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-38",
+        "selector": "ol.c-article-references > li:nth-child(38)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-39",
+        "selector": "ol.c-article-references > li:nth-child(39)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-40",
+        "selector": "ol.c-article-references > li:nth-child(40)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-41",
+        "selector": "ol.c-article-references > li:nth-child(41)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-42",
+        "selector": "ol.c-article-references > li:nth-child(42)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-43",
+        "selector": "ol.c-article-references > li:nth-child(43)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "rights-heading",
+        "selector": "section[data-title=\"Rights and permissions\"] h2",
+        "role": "original-rights-heading"
+      },
+      {
+        "id": "article-rights",
+        "selector": "section[data-title=\"Rights and permissions\"] p:has(a[href=\"http://creativecommons.org/licenses/by/4.0/\"])",
+        "role": "complete-original-article-notice"
+      },
+      {
+        "id": "publisher-footer",
+        "selector": "p.c-footer__legal",
+        "role": "original-publisher-site-footer"
+      }
+    ],
+    "removeSelectors": []
+  },
+  "recipeSha256": "7055cabd92c3c0fcbb2b7e2200fa00fae734411da1afa645f5ffb68bc0519329",
+  "retainedBlocks": [
+    {
+      "id": "a-meta-11",
+      "selector": "head > meta[name=\"dc.title\"][content=\"Scaling deep learning for materials discovery\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "61c7a4f7321ddfa29e5655316c8776b8b4bd8d338660fa81088b807c366f7e21"
+    },
+    {
+      "id": "a-meta-36",
+      "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d624cd945018592d96ac7b5f06c775fab966979552e03ab8f4185895ea0af853"
+    },
+    {
+      "id": "a-meta-40",
+      "selector": "head > meta[name=\"citation_title\"][content=\"Scaling deep learning for materials discovery\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a05d3a33622845f8eb9ab600da14551813cfc9c398f22011f581f2521031946e"
+    },
+    {
+      "id": "a-meta-41",
+      "selector": "head > meta[name=\"citation_volume\"][content=\"624\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ac01c2e3681bba8a7eaa43f8be16c71b72d31744f8661dc9582e82b66dea8933"
+    },
+    {
+      "id": "a-meta-42",
+      "selector": "head > meta[name=\"citation_issue\"][content=\"7990\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "11cad9dfe1acce932f6ac7b076e5cc288e98f7a46c4c02138a268250ae9bcad4"
+    },
+    {
+      "id": "a-meta-43",
+      "selector": "head > meta[name=\"citation_publication_date\"][content=\"2023/12\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b6a249eddd52f456a71a79cf09d928bdf1c086afdf2a6f22d4e83638125a1595"
+    },
+    {
+      "id": "a-meta-44",
+      "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/11/29\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "cf0749fcad2dc59601f7aee322bdb8c69e141cdf4eb6a343c20be5e9bd6a28a3"
+    },
+    {
+      "id": "a-meta-45",
+      "selector": "head > meta[name=\"citation_firstpage\"][content=\"80\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "8789b8a9d6d54d04737a08a848d29206f04fb466506b3604df208d879c13bd29"
+    },
+    {
+      "id": "a-meta-46",
+      "selector": "head > meta[name=\"citation_lastpage\"][content=\"85\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "37fd1b50119910b5d21de4da01e9a1ee329633f97342b5d4a1b0f47f58979abd"
+    },
+    {
+      "id": "a-meta-50",
+      "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41586-023-06735-9\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "f8b6b0b6041427a132114ad7f02db35f7eb6605f1a7ee00e4e756c5b17da9648"
+    },
+    {
+      "id": "a-meta-53",
+      "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41586-023-06735-9\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "2c06653c30093f479b8357e97c9063d42de3b9781d3bcda0214e41baddeeac34"
+    },
+    {
+      "id": "a-meta-135",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Merchant, Amil\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "dabf5d7c8fc8c8360cb067e9422a17b4d68c01d521f6095e247c6741363d13e2"
+    },
+    {
+      "id": "a-meta-137",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Batzner, Simon\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c86b50bf8c91b1c8991421a145394a8bf0a732384ab53e281f0da622a58fabf6"
+    },
+    {
+      "id": "a-meta-139",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Schoenholz, Samuel S.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "cee789311c615fb5384a3cd6e5e635c7cd49c5f630fc95ee335f2920c7edc7e1"
+    },
+    {
+      "id": "a-meta-141",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Aykol, Muratahan\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "9e3c08ae6cbdac1d4c05fbef6ec521506e271512fa5015da047891ad01567794"
+    },
+    {
+      "id": "a-meta-143",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Cheon, Gowoon\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "92ddc3b6597ead189e9f4a4c952763da89ead760f2435c7ed1f4d9d9a5f1d481"
+    },
+    {
+      "id": "a-meta-145",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Cubuk, Ekin Dogus\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "6f939b2a9791bf96098a2b0008913174fb2808c54371aad960663af16ed81810"
+    },
+    {
+      "id": "a-meta-154",
+      "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41586-023-06735-9\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "eaae4c91d4e056b7c898de9dd35d25ebe38e904272654f32a4a1bec4a815db03"
+    },
+    {
+      "id": "a-meta-155",
+      "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e2a47d03efa7114d4bc8e65c0fba2e84722b49e6e718eb787898c3c61ac5bcc9"
+    },
+    {
+      "id": "a-meta-157",
+      "selector": "head > meta[property=\"og:title\"][content=\"Scaling deep learning for materials discovery - Nature\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "6537488db88a7eb2fa9ba2ad2a75600fda874f440cbc9fc85e59154e2d3810ac"
+    },
+    {
+      "id": "a-canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "757097cc5a5f1877ab6fa08fc9ea48e109bd80b0fa17799fd0ea971351d070a8"
+    },
+    {
+      "id": "a-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a5388a86ff4278af3c4aeebb7860e666f73474d5a54b0e55d6bdc9eb58c93e16"
+    },
+    {
+      "id": "a-title",
+      "selector": "h1.c-article-title",
+      "role": "title",
+      "sourceSubtreeSha256": "d702370f138bffc1df55a66ca7d7149e0778587a3e6b48ec0079e58bc8cbd745"
+    },
+    {
+      "id": "heading-Sec1",
+      "selector": "#Sec1",
+      "role": "complete-original-heading",
+      "sourceSubtreeSha256": "09f8778f43dc62a0f59cf52aa9b5d47329480bff79dd9e53c7c544aeb548aac7"
+    },
+    {
+      "id": "heading-Sec6",
+      "selector": "#Sec6",
+      "role": "complete-original-heading",
+      "sourceSubtreeSha256": "e28758d2db19bdf755cc67ac2679883fd6f32fcf113fcdedca7edb4dfd800820"
+    },
+    {
+      "id": "heading-Sec7",
+      "selector": "#Sec7",
+      "role": "complete-original-heading",
+      "sourceSubtreeSha256": "e1ba1824e3e1a4d84358faa175b14c30f234cfddf3af996eb0060851b035de00"
+    },
+    {
+      "id": "heading-Sec13",
+      "selector": "#Sec13",
+      "role": "complete-original-heading",
+      "sourceSubtreeSha256": "75d539d32a1728c6b0ca355c3c9b2913b27cdc19a3b91ff9650dbcbfa088c40d"
+    },
+    {
+      "id": "heading-Sec30",
+      "selector": "#Sec30",
+      "role": "complete-original-heading",
+      "sourceSubtreeSha256": "3778fa76ea2fb64ed3629d9d79d648bea195973ea7fea4513817f9d284f9e496"
+    },
+    {
+      "id": "heading-Sec33",
+      "selector": "#Sec33",
+      "role": "complete-original-heading",
+      "sourceSubtreeSha256": "233ddf198b2cef3cea8b897146077c29ca65bdbff5e2bf817d082155f2ed7b3f"
+    },
+    {
+      "id": "main-p2",
+      "selector": "section[data-title=\"Main\"] p:has(#ref-link-section-d102862606e519)",
+      "role": "complete-source-identifier-paragraph",
+      "sourceSubtreeSha256": "13879004c6bdfc0f8919bf4aae21b7c2dcbf3e057ca85daf77174f2c6b717687"
+    },
+    {
+      "id": "crystals-p5",
+      "selector": "section[data-title=\"Discovered stable crystals\"] p:has(#ref-link-section-d102862606e815)",
+      "role": "complete-source-identifier-paragraph",
+      "sourceSubtreeSha256": "3440d3b012be7af1589f2418a4ed762f9b0696f3ebba55d48158453c91a095f4"
+    },
+    {
+      "id": "methods-p25",
+      "selector": "#Sec33 + p",
+      "role": "complete-source-identifier-paragraph",
+      "sourceSubtreeSha256": "60a8bdd9120069f1869adb027b67bdb65386efeae662cecc66009b7cb0383f2e"
+    },
+    {
+      "id": "figure-2",
+      "selector": "figure:has(#Fig2)",
+      "role": "complete-original-figure-and-caption",
+      "sourceSubtreeSha256": "65930d13f62eaf62d8b2d7ec5ec95d83315b2b1c5f6eb5933787d9ab152271be"
+    },
+    {
+      "id": "data-availability",
+      "selector": "section[data-title=\"Data availability\"]",
+      "role": "complete-original-data-section",
+      "sourceSubtreeSha256": "e226531f6a720e8292bdbba75cc23683278beaa86633ba4ad7e5bfdd7bc7873d"
+    },
+    {
+      "id": "references-heading",
+      "selector": "#Bib1",
+      "role": "original-reference-heading",
+      "sourceSubtreeSha256": "af92342e8974526976997242004de48e6fcf9aef95e778bf2972d4199120887d"
+    },
+    {
+      "id": "reference-1",
+      "selector": "ol.c-article-references > li:nth-child(1)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "84f5d0b182626bfcfbcfee7dac7eef33bd7ce85d5967ff55287e2ce0926da6e6"
+    },
+    {
+      "id": "reference-2",
+      "selector": "ol.c-article-references > li:nth-child(2)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "0e255b91a472bfacada32b8041e736dbe7ccbae15e28f00a75db89cb113217cb"
+    },
+    {
+      "id": "reference-3",
+      "selector": "ol.c-article-references > li:nth-child(3)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "8a5eb13507016a4bfaa8fa24c94c1b9380e5662c5637354d5dcea8a10b3396ab"
+    },
+    {
+      "id": "reference-4",
+      "selector": "ol.c-article-references > li:nth-child(4)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "09a4d694c7fe7a4db81f3c038ccb5515fbed7e2be6b857e01ce8f9e613d273fa"
+    },
+    {
+      "id": "reference-5",
+      "selector": "ol.c-article-references > li:nth-child(5)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "8714e6d5aa20c463c426c3c2e59bd046278b179e49472265a48331153e58b056"
+    },
+    {
+      "id": "reference-6",
+      "selector": "ol.c-article-references > li:nth-child(6)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "0a5b218e68f069987ee5cbf77a8e3ce2fcac9572e9a9da15b4ee7f2988dba8ee"
+    },
+    {
+      "id": "reference-7",
+      "selector": "ol.c-article-references > li:nth-child(7)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "f4282a00736f7215d65c6997eb9c03d91bcfde0073d0dbc87954dba6eeeff866"
+    },
+    {
+      "id": "reference-8",
+      "selector": "ol.c-article-references > li:nth-child(8)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "6b74eb28f6f41553b277741f3022d9f93e64dc1221741812ca52328fde52dbb1"
+    },
+    {
+      "id": "reference-9",
+      "selector": "ol.c-article-references > li:nth-child(9)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "9267ef81f6edc79ab34cba1e59dea6c76c3d145b47736ee1d827858a82e8dca9"
+    },
+    {
+      "id": "reference-10",
+      "selector": "ol.c-article-references > li:nth-child(10)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "c31520efd065e99f8b66d020aac3b311352b753c42bb3aec597ca1ac38ba8935"
+    },
+    {
+      "id": "reference-11",
+      "selector": "ol.c-article-references > li:nth-child(11)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "65c346b674a4701e731688eee2a2dda5ad29ddecc7f0cb0263a3b9946ca48ae0"
+    },
+    {
+      "id": "reference-12",
+      "selector": "ol.c-article-references > li:nth-child(12)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "1306c3db0e7515d2dc43d671e33ff3af5ed01f3679b3edda7752b5d272a8dcdb"
+    },
+    {
+      "id": "reference-13",
+      "selector": "ol.c-article-references > li:nth-child(13)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "472f2d7740fce8503c98015e667f8832a237280b3af880f2dd6a64a79c1cb2ed"
+    },
+    {
+      "id": "reference-14",
+      "selector": "ol.c-article-references > li:nth-child(14)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "b3706f5e09c72e7f7faaa3259a44607ac68e00fad0302fac1be289c327be1201"
+    },
+    {
+      "id": "reference-15",
+      "selector": "ol.c-article-references > li:nth-child(15)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "37c7a7859e60859576e8925d4b8d45544e03737dea8dabb53b535c554a0c0ba9"
+    },
+    {
+      "id": "reference-16",
+      "selector": "ol.c-article-references > li:nth-child(16)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "5768e439e0878cea889ba209a9ebcf82556810c5ca40e658ae068f29da1fbc64"
+    },
+    {
+      "id": "reference-17",
+      "selector": "ol.c-article-references > li:nth-child(17)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "0ecc0a1870e8b9e40dac1c8557ab4e5015c7b0f5bd919a6bb6fbce49c42a4646"
+    },
+    {
+      "id": "reference-18",
+      "selector": "ol.c-article-references > li:nth-child(18)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "0b2c794e58d331a35767ec2f410214e7543e809d499773289423a520f78c1494"
+    },
+    {
+      "id": "reference-19",
+      "selector": "ol.c-article-references > li:nth-child(19)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "b4e7ea65ff08b95957f87eda16cbc5d5ea93db64de959634712fd866fe37df08"
+    },
+    {
+      "id": "reference-20",
+      "selector": "ol.c-article-references > li:nth-child(20)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "42b318cec3f136a0fcc2c7985457163778f374cd9d0dfcd6bc953ba17c12c327"
+    },
+    {
+      "id": "reference-21",
+      "selector": "ol.c-article-references > li:nth-child(21)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "800708d5ac63b1f2bdb2e4bc8a37fa2d5cab91968db848f1b05d2ffb1a31932b"
+    },
+    {
+      "id": "reference-22",
+      "selector": "ol.c-article-references > li:nth-child(22)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "367dcba9a4998139ff9893d0de79f2214512d62b751e39e747fa6d7f3146c08f"
+    },
+    {
+      "id": "reference-23",
+      "selector": "ol.c-article-references > li:nth-child(23)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "6eb4492e3ddc29f4fd72a41c7f1b71af4a93f72a3468175462607de3e66013c9"
+    },
+    {
+      "id": "reference-24",
+      "selector": "ol.c-article-references > li:nth-child(24)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "5e36eedd0e1dc1364e6acf6cd9e215364ffe25289f53f08fa515bc96200b9ece"
+    },
+    {
+      "id": "reference-25",
+      "selector": "ol.c-article-references > li:nth-child(25)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "7abb11e18e64dc0f92b781858b99c3e8d01a27e136938f0b0d9846973e2fc30e"
+    },
+    {
+      "id": "reference-26",
+      "selector": "ol.c-article-references > li:nth-child(26)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "275bc178f41e2b50a1046a1f895ee9717729e34df4f97c6b179a3987bca963a7"
+    },
+    {
+      "id": "reference-27",
+      "selector": "ol.c-article-references > li:nth-child(27)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "6e94e54beb82d741c21aa92b682697dd7a1f4442f146fb1592339944dc6ff90b"
+    },
+    {
+      "id": "reference-28",
+      "selector": "ol.c-article-references > li:nth-child(28)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "63d089853492311296322f5d72c12ed7a1ff36b727351fb00c49d9e36903f8cf"
+    },
+    {
+      "id": "reference-29",
+      "selector": "ol.c-article-references > li:nth-child(29)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "d12c9a4aaa241bc6a08c5655488f8d14ffc5d8338d4061f518f99fbe5b7f7966"
+    },
+    {
+      "id": "reference-30",
+      "selector": "ol.c-article-references > li:nth-child(30)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "6a3210854a4b681794e8bd945cca61817af697ba07fd2b3a270d7a5c8f571543"
+    },
+    {
+      "id": "reference-31",
+      "selector": "ol.c-article-references > li:nth-child(31)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "192efc229b26b4e66a8dc8db3c678cedf003e398710577e36c771c5dd62de6d3"
+    },
+    {
+      "id": "reference-32",
+      "selector": "ol.c-article-references > li:nth-child(32)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "fde8c8f0034e0d69d6f3dc48e9fdf982191616e2707fd326ffacb94e20760f0b"
+    },
+    {
+      "id": "reference-33",
+      "selector": "ol.c-article-references > li:nth-child(33)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "e9e343815ee1aef49b785e2e3e96a7565541f960c7583cc2ceed2c17c41b5c3f"
+    },
+    {
+      "id": "reference-34",
+      "selector": "ol.c-article-references > li:nth-child(34)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "6ee8132ba2cef0fc852a6baa597b7db9ac50183ba7ccd4c5794730b1232b440c"
+    },
+    {
+      "id": "reference-35",
+      "selector": "ol.c-article-references > li:nth-child(35)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "1874d0f1ac2747fa3ad9ae667ad5f3ba0fb39aad9d47f2160dee64ddfdd4488d"
+    },
+    {
+      "id": "reference-36",
+      "selector": "ol.c-article-references > li:nth-child(36)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "48c29a8de2ee4734c8012312ef4a2ac64f66d87fd3d1bdabfd608dcb78062491"
+    },
+    {
+      "id": "reference-37",
+      "selector": "ol.c-article-references > li:nth-child(37)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "3a4d53906a9c0c340f065973742f84484fd95a431471924e1307319493b415e6"
+    },
+    {
+      "id": "reference-38",
+      "selector": "ol.c-article-references > li:nth-child(38)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "3183ecc50c31a822df171f1ab8f1408677649dd97531d2fbd5fc6995ab204dac"
+    },
+    {
+      "id": "reference-39",
+      "selector": "ol.c-article-references > li:nth-child(39)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "b14dedf742b98c5840ade1f9c83efd77764e44722289453b956a6cb0ddaef4ac"
+    },
+    {
+      "id": "reference-40",
+      "selector": "ol.c-article-references > li:nth-child(40)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "5582179bb15581c67c4492b3002693b0ba6966fe34c5de409b9fabdc06aad6e1"
+    },
+    {
+      "id": "reference-41",
+      "selector": "ol.c-article-references > li:nth-child(41)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "1d4930670fbd94c2a5d4810bed642723e63fc1099af996d959f51ba5f7859c06"
+    },
+    {
+      "id": "reference-42",
+      "selector": "ol.c-article-references > li:nth-child(42)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "3f286b9ec294ac77277f5f8c0cb1bca6ae2020230d073fb43290d533459e137f"
+    },
+    {
+      "id": "reference-43",
+      "selector": "ol.c-article-references > li:nth-child(43)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "b29246ac8cf513eb226d54582ba207246a0ef9614b735372b754b3562c5e917c"
+    },
+    {
+      "id": "rights-heading",
+      "selector": "section[data-title=\"Rights and permissions\"] h2",
+      "role": "original-rights-heading",
+      "sourceSubtreeSha256": "9115d872cc0109bd3832220805f3ad60bde8fdc4c49fbee3fbb3745051a947c5"
+    },
+    {
+      "id": "article-rights",
+      "selector": "section[data-title=\"Rights and permissions\"] p:has(a[href=\"http://creativecommons.org/licenses/by/4.0/\"])",
+      "role": "complete-original-article-notice",
+      "sourceSubtreeSha256": "84ab88094d2cd6f87d0a2a8abbb091db26a34a50a7701aa2a706a9a1a4b4dafd"
+    },
+    {
+      "id": "publisher-footer",
+      "selector": "p.c-footer__legal",
+      "role": "original-publisher-site-footer",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3"
+    }
+  ],
+  "signatures": {
+    "projectionVersion": "nature-corpus-projection/1.0.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "recipeSha256": "7055cabd92c3c0fcbb2b7e2200fa00fae734411da1afa645f5ffb68bc0519329",
+    "structureSha256": "498b3dd1a728527069ff76c7197b7ba5db11e5081481331742163075a2e30607",
+    "payloadSha256": "680df36434d25a271fb6642ff546a5777f816882c12f1572629292f7a5a20834"
+  },
+  "transformations": [
+    {
+      "operation": "select-complete-source-blocks-with-ancestors",
+      "count": 81
+    },
+    {
+      "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+      "count": 1
+    },
+    {
+      "operation": "trim-json-ld-to-article-object",
+      "count": 1
+    },
+    {
+      "operation": "remove-attributes",
+      "count": 806
+    },
+    {
+      "operation": "sanitize-resource-urls",
+      "count": 37
+    }
+  ],
+  "fixture": {
+    "path": "materials-identifier.excerpt.html",
+    "bytes": 68630,
+    "sha256": "443e7defac512d8f1ce87a50c0d353ff3930c85f321a859fea25dff7a66fbe69",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41586-023-06735-9",
+    "sourceObservedAt": "2026-10-03T16:44:22.324Z",
+    "sourceSha256": "79f575e1941633c2dbd036682977ea6c274acd5c8c44fdb4648856a00a8d7cc6",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Merchant, Amil",
+      "Batzner, Simon",
+      "Schoenholz, Samuel S.",
+      "Aykol, Muratahan",
+      "Cheon, Gowoon",
+      "Cubuk, Ekin Dogus"
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "84ab88094d2cd6f87d0a2a8abbb091db26a34a50a7701aa2a706a9a1a4b4dafd",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [],
+    "technicalTransformations": "Recipe-selected excerpts and original ancestors, A sanitizer 1.1.0, deterministic serialization and LF normalization. Advertising, navigation, executable content and unselected source blocks are omitted as recorded in the manifest/handoff. Retained scholarly prose, TeX, captions, authors, citation data and table cells are preserved; image binaries and full live captures are not included.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "oracles": [
+    {
+      "id": "main-p2",
+      "section": "Main",
+      "paragraphIndex": 2,
+      "selector": "section[data-title=\"Main\"] p:has(#ref-link-section-d102862606e519)",
+      "count": 1,
+      "sourceParagraphText": "Through this iterative procedure, GNoME models have discovered more than 2.2 million structures stable with respect to previous work, in particular agglomerated datasets encompassing computational and experimental structures15,16,17,27. Given that discovered materials compete for stability, the updated convex hull consists of 381,000 new entries for a total of 421,000 stable crystals, representing an-order-of-magnitude expansion from all previous discoveries. Consistent with observations in other domains of machine learning28, we observe that our neural networks predictions improve as a power law with the amount of data. Final GNoME models accurately predict energies to 11 meV atom−1 and improve the precision of stable predictions (hit rate) to above 80% with structure and 33% per 100 trials with composition only, compared with 1% in previous work17. Moreover, these networks develop emergent out-of-distribution generalization. For example, GNoME enables accurate predictions of structures with 5+ unique elements (despite omission from training), providing one of the first strategies to efficiently explore this chemical space. We validate findings by comparing predictions with experiments and higher-fidelity r2SCAN (ref. 29) computations.",
+      "rawParagraphPrehash": "13879004c6bdfc0f8919bf4aae21b7c2dcbf3e057ca85daf77174f2c6b717687",
+      "frozenParagraphDigest": "92b04249b290ef4c1aa130aedce9be4508cc4ffa8e65f3a8b1f27f872c6836ee",
+      "sourceScientificNodes": [
+        {
+          "tag": "SUP",
+          "text": "15,16,17,27",
+          "html": "<sup><a data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" data-test=\"citation-ref\" title=\"Hellenbrandt, M. The Inorganic Crystal Structure Database (ICSD)—present and future. Crystallogr. Rev. 10, 17–22 (2004).\" href=\"#ref-CR15\" id=\"ref-link-section-d102862606e496\">15</a>,<a data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" data-test=\"citation-ref\" title=\"Jain, A. et al. Commentary: The Materials Project: a materials genome approach to accelerating materials innovation. APL Mater. 1, 011002 (2013).\" href=\"#ref-CR16\" id=\"ref-link-section-d102862606e496_1\">16</a>,<a data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" data-test=\"citation-ref\" aria-label=\"Reference 17\" title=\"Saal, J. E., Kirklin, S., Aykol, M., Meredig, B. &amp; Wolverton, C. Materials design and discovery with high-throughput density functional theory: the Open Quantum Materials Database (OQMD). JOM 65, 1501–1509 (2013).\" href=\"/articles/s41586-023-06735-9#ref-CR17\" id=\"ref-link-section-d102862606e499\">17</a>,<a data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" data-test=\"citation-ref\" aria-label=\"Reference 27\" title=\"Wang, H.-C., Botti, S. &amp; Marques, M. A. Predicting stable crystalline compounds using chemical similarity. npj Comput. Mater. 7, 12 (2021).\" href=\"/articles/s41586-023-06735-9#ref-CR27\" id=\"ref-link-section-d102862606e502\">27</a></sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "28",
+          "html": "<sup><a data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" data-test=\"citation-ref\" aria-label=\"Reference 28\" title=\"Hestness, J. et al. Deep learning scaling is predictable, empirically. Preprint at \n                  https://arxiv.org/abs/1712.00409\n                  \n                 (2017).\" href=\"/articles/s41586-023-06735-9#ref-CR28\" id=\"ref-link-section-d102862606e506\">28</a></sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−1",
+          "html": "<sup>−1</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "17",
+          "html": "<sup><a data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" data-test=\"citation-ref\" aria-label=\"Reference 17\" title=\"Saal, J. E., Kirklin, S., Aykol, M., Meredig, B. &amp; Wolverton, C. Materials design and discovery with high-throughput density functional theory: the Open Quantum Materials Database (OQMD). JOM 65, 1501–1509 (2013).\" href=\"/articles/s41586-023-06735-9#ref-CR17\" id=\"ref-link-section-d102862606e512\">17</a></sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "2",
+          "html": "<sup>2</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "29",
+          "html": "<sup><a data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" data-test=\"citation-ref\" aria-label=\"Reference 29\" title=\"Furness, J. W., Kaplan, A. D., Ning, J., Perdew, J. P. &amp; Sun, J. Accurate and numerically efficient r2SCAN meta-generalized gradient approximation. J. Phys. Chem. Lett. 11, 8208–8215 (2020).\" href=\"/articles/s41586-023-06735-9#ref-CR29\" id=\"ref-link-section-d102862606e519\">29</a></sup>"
+        }
+      ],
+      "roles": [
+        {
+          "index": 0,
+          "base": "r",
+          "exponent": "2",
+          "suffix": "SCAN",
+          "sourceHtml": "<sup>2</sup>",
+          "previousText": ". Moreover, these networks develop emergent out-of-distribution generalization. For example, GNoME enables accurate predictions of structures with 5+ unique elements (despite omission from training), providing one of the first strategies to efficiently explore this chemical space. We validate findings by comparing predictions with experiments and higher-fidelity r",
+          "nextText": "SCAN (ref. ",
+          "paragraphTextUtf16Offset": 1227,
+          "rawHtmlUtf16Start": 145351,
+          "rawUtf8ByteStart": 145445,
+          "rawUtf8ByteEnd": 145457
+        }
+      ]
+    },
+    {
+      "id": "figure-2-caption-p2",
+      "section": "Discovered stable crystals",
+      "paragraphIndex": 2,
+      "selector": "#figure-2-desc > p",
+      "count": 1,
+      "sourceParagraphText": "a, GNoME enables efficient discovery in the combinatorial spaces of 4+ unique elements that can be difficult for human experts. b, Phase-separation energies (energy to the convex hull) for discovered quaternaries showcase similar patterns but larger absolute numbers than previous catalogues. c, Discovered stable crystals correspond to 45,500 novel prototypes as measured by XtalFinder (ref. 39). d, Validation by r2SCAN shows that 84% of discovered binary and ternary crystals retain negative phase separations with more accurate functionals.",
+      "rawParagraphPrehash": "7411a00492e4f18329c6b732f410ca475376ac7d3b2a1b662535c41eb1784905",
+      "frozenParagraphDigest": "877fb21b9e26480533a157277c605abc871d076494deffa98b3aef2d47331d0c",
+      "sourceScientificNodes": [
+        {
+          "tag": "B",
+          "text": "a",
+          "html": "<b>a</b>"
+        },
+        {
+          "tag": "B",
+          "text": "b",
+          "html": "<b>b</b>"
+        },
+        {
+          "tag": "B",
+          "text": "c",
+          "html": "<b>c</b>"
+        },
+        {
+          "tag": "SUP",
+          "text": "39",
+          "html": "<sup><a data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" data-test=\"citation-ref\" aria-label=\"Reference 39\" title=\"Hicks, D. et al. AFLOW-XtalFinder: a reliable choice to identify crystalline prototypes. npj Comput. Mater. 7, 30 (2021).\" href=\"/articles/s41586-023-06735-9#ref-CR39\" id=\"ref-link-section-d102862606e745\">39</a></sup>"
+        },
+        {
+          "tag": "B",
+          "text": "d",
+          "html": "<b>d</b>"
+        },
+        {
+          "tag": "SUP",
+          "text": "2",
+          "html": "<sup>2</sup>"
+        }
+      ],
+      "roles": [
+        {
+          "index": 0,
+          "base": "r",
+          "exponent": "2",
+          "suffix": "SCAN",
+          "sourceHtml": "<sup>2</sup>",
+          "previousText": ", Validation by r",
+          "nextText": "SCAN shows that 84% of discovered binary and ternary crystals retain negative phase separations with more accurate functionals.",
+          "paragraphTextUtf16Offset": 416,
+          "rawHtmlUtf16Start": 169024,
+          "rawUtf8ByteStart": 169174,
+          "rawUtf8ByteEnd": 169186
+        }
+      ]
+    },
+    {
+      "id": "crystals-p5",
+      "section": "Discovered stable crystals",
+      "paragraphIndex": 5,
+      "selector": "section[data-title=\"Discovered stable crystals\"] p:has(#ref-link-section-d102862606e815)",
+      "count": 3,
+      "sourceParagraphText": "We also validate predictions to ensure that model-based exploration did not overfit simulation parameters. We focus on the choice of functional. Standard projector augmented wave (PAW)-Perdew–Burke–Ernzerhof (PBE) potentials provided a speed–accuracy trade-off suited for large-scale discovery40,41, but the r2SCAN functional provides a more accurate meta-generalized gradient approximation29,42,43. 84% of the discovered binaries and ternary materials also present negative phase-separation energies (as visualized in Fig. 2d, comparable with a 90% ratio in the Materials Project but operating at a larger scale). 86.8% of tested quaternaries also remain stable on the r2SCAN convex hull. The discrepancies between PBE and r2SCAN energies are further analysed in Supplementary Note 2.",
+      "rawParagraphPrehash": "3440d3b012be7af1589f2418a4ed762f9b0696f3ebba55d48158453c91a095f4",
+      "frozenParagraphDigest": "44c85a3f59d6457f8509724712fa618f26c20c7a7cf13745a72aca670ed9fa3b",
+      "sourceScientificNodes": [
+        {
+          "tag": "SUP",
+          "text": "40,41",
+          "html": "<sup><a data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" data-test=\"citation-ref\" aria-label=\"Reference 40\" title=\"Blöchl, P. E. Projector augmented-wave method. Phys. Rev. B 50, 17953 (1994).\" href=\"/articles/s41586-023-06735-9#ref-CR40\" id=\"ref-link-section-d102862606e800\">40</a>,<a data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" data-test=\"citation-ref\" aria-label=\"Reference 41\" title=\"Perdew, J. P., Ernzerhof, M. &amp; Burke, K. Rationale for mixing exact exchange with density functional approximations. J. Chem. Phys. 105, 9982–9985 (1996).\" href=\"/articles/s41586-023-06735-9#ref-CR41\" id=\"ref-link-section-d102862606e803\">41</a></sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "2",
+          "html": "<sup>2</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "29,42,43",
+          "html": "<sup><a data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" data-test=\"citation-ref\" aria-label=\"Reference 29\" title=\"Furness, J. W., Kaplan, A. D., Ning, J., Perdew, J. P. &amp; Sun, J. Accurate and numerically efficient r2SCAN meta-generalized gradient approximation. J. Phys. Chem. Lett. 11, 8208–8215 (2020).\" href=\"/articles/s41586-023-06735-9#ref-CR29\" id=\"ref-link-section-d102862606e809\">29</a>,<a data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" data-test=\"citation-ref\" aria-label=\"Reference 42\" title=\"Kitchaev, D. A. et al. Energetics of MnO2 polymorphs in density functional theory. Phys. Rev. B 93, 045132 (2016).\" href=\"/articles/s41586-023-06735-9#ref-CR42\" id=\"ref-link-section-d102862606e812\">42</a>,<a data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" data-test=\"citation-ref\" aria-label=\"Reference 43\" title=\"Kingsbury, R. et al. Performance comparison of r2SCAN and SCAN metaGGA density functionals for solid materials via an automated, high-throughput computational workflow. Phys. Rev. Mater. 6, 013801 (2022).\" href=\"/articles/s41586-023-06735-9#ref-CR43\" id=\"ref-link-section-d102862606e815\">43</a></sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "2",
+          "html": "<sup>2</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "2",
+          "html": "<sup>2</sup>"
+        }
+      ],
+      "roles": [
+        {
+          "index": 0,
+          "base": "r",
+          "exponent": "2",
+          "suffix": "SCAN",
+          "sourceHtml": "<sup>2</sup>",
+          "previousText": ", but the r",
+          "nextText": "SCAN functional provides a more accurate meta-generalized gradient approximation",
+          "paragraphTextUtf16Offset": 309,
+          "rawHtmlUtf16Start": 173151,
+          "rawUtf8ByteStart": 173321,
+          "rawUtf8ByteEnd": 173333
+        },
+        {
+          "index": 1,
+          "base": "r",
+          "exponent": "2",
+          "suffix": "SCAN",
+          "sourceHtml": "<sup>2</sup>",
+          "previousText": ", comparable with a 90% ratio in the Materials Project but operating at a larger scale). 86.8% of tested quaternaries also remain stable on the r",
+          "nextText": "SCAN convex hull. The discrepancies between PBE and r",
+          "paragraphTextUtf16Offset": 671,
+          "rawHtmlUtf16Start": 174859,
+          "rawUtf8ByteStart": 175031,
+          "rawUtf8ByteEnd": 175043
+        },
+        {
+          "index": 2,
+          "base": "r",
+          "exponent": "2",
+          "suffix": "SCAN",
+          "sourceHtml": "<sup>2</sup>",
+          "previousText": "SCAN convex hull. The discrepancies between PBE and r",
+          "nextText": "SCAN energies are further analysed in Supplementary Note ",
+          "paragraphTextUtf16Offset": 725,
+          "rawHtmlUtf16Start": 174924,
+          "rawUtf8ByteStart": 175096,
+          "rawUtf8ByteEnd": 175108
+        }
+      ]
+    },
+    {
+      "id": "methods-p25",
+      "section": "Methods",
+      "paragraphIndex": 25,
+      "selector": "#Sec33 + p",
+      "count": 3,
+      "sourceParagraphText": "r2SCAN is an accurate and numerically efficient functional that has seen increasing adoption from the community for increasing the fidelity of computational DFT calculations. This functional is provided in the upgraded version of VASP6 and, for all corresponding calculations, we use the settings as detailed by MPScanRelaxSet and MPScanStaticSet in pymatgen. Notably, r2SCAN functionals require the use of PBE52 or PBE54 potentials, which can differ slightly from the PBE equivalents used elsewhere in this paper. To speed up computation, we perform three jobs for every SCAN-based computation. First, we precondition by means of the updated PBE54 potentials by running a standard relaxation job under MPRelaxSet settings. This preconditioning step greatly speeds up SCAN computations, which—on average—are five times slower and can otherwise crash on our infrastructure owing to elongated trajectories. Then, we relax with the r2SCAN functional, followed by a static computation.",
+      "rawParagraphPrehash": "60a8bdd9120069f1869adb027b67bdb65386efeae662cecc66009b7cb0383f2e",
+      "frozenParagraphDigest": "60a8bdd9120069f1869adb027b67bdb65386efeae662cecc66009b7cb0383f2e",
+      "sourceScientificNodes": [
+        {
+          "tag": "SUP",
+          "text": "2",
+          "html": "<sup>2</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "2",
+          "html": "<sup>2</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "2",
+          "html": "<sup>2</sup>"
+        }
+      ],
+      "roles": [
+        {
+          "index": 0,
+          "base": "r",
+          "exponent": "2",
+          "suffix": "SCAN",
+          "sourceHtml": "<sup>2</sup>",
+          "previousText": "r",
+          "nextText": "SCAN is an accurate and numerically efficient functional that has seen increasing adoption from the community for increasing the fidelity of computational DFT calculations. This functional is provided in the upgraded version of VASP6 and, for all corresponding calculations, we use the settings as detailed by MPScanRelaxSet and MPScanStaticSet in pymatgen. Notably, r",
+          "paragraphTextUtf16Offset": 1,
+          "rawHtmlUtf16Start": 220968,
+          "rawUtf8ByteStart": 221302,
+          "rawUtf8ByteEnd": 221314
+        },
+        {
+          "index": 1,
+          "base": "r",
+          "exponent": "2",
+          "suffix": "SCAN",
+          "sourceHtml": "<sup>2</sup>",
+          "previousText": "SCAN is an accurate and numerically efficient functional that has seen increasing adoption from the community for increasing the fidelity of computational DFT calculations. This functional is provided in the upgraded version of VASP6 and, for all corresponding calculations, we use the settings as detailed by MPScanRelaxSet and MPScanStaticSet in pymatgen. Notably, r",
+          "nextText": "SCAN functionals require the use of PBE52 or PBE54 potentials, which can differ slightly from the PBE equivalents used elsewhere in this paper. To speed up computation, we perform three jobs for every SCAN-based computation. First, we precondition by means of the updated PBE54 potentials by running a standard relaxation job under MPRelaxSet settings. This preconditioning step greatly speeds up SCAN computations, which—on average—are five times slower and can otherwise crash on our infrastructure owing to elongated trajectories. Then, we relax with the r",
+          "paragraphTextUtf16Offset": 370,
+          "rawHtmlUtf16Start": 221348,
+          "rawUtf8ByteStart": 221682,
+          "rawUtf8ByteEnd": 221694
+        },
+        {
+          "index": 2,
+          "base": "r",
+          "exponent": "2",
+          "suffix": "SCAN",
+          "sourceHtml": "<sup>2</sup>",
+          "previousText": "SCAN functionals require the use of PBE52 or PBE54 potentials, which can differ slightly from the PBE equivalents used elsewhere in this paper. To speed up computation, we perform three jobs for every SCAN-based computation. First, we precondition by means of the updated PBE54 potentials by running a standard relaxation job under MPRelaxSet settings. This preconditioning step greatly speeds up SCAN computations, which—on average—are five times slower and can otherwise crash on our infrastructure owing to elongated trajectories. Then, we relax with the r",
+          "nextText": "SCAN functional, followed by a static computation.",
+          "paragraphTextUtf16Offset": 930,
+          "rawHtmlUtf16Start": 221919,
+          "rawUtf8ByteStart": 222257,
+          "rawUtf8ByteEnd": 222269
+        }
+      ]
+    },
+    {
+      "id": "data-availability-p0",
+      "section": "Data availability",
+      "paragraphIndex": 0,
+      "selector": "section[data-title=\"Data availability\"] p",
+      "count": 1,
+      "sourceParagraphText": "Crystal structures corresponding to stable discoveries discussed throughout the paper will be made available at https://github.com/google-deepmind/materials_discovery. In particular, we provide results for all stable structures, as well as any material that has been recomputed from previous datasets to ensure consistent settings. Associated data from the r2SCAN functional will be provided, expectantly serving as a foundation for analysing discrepancies between functional choices. Data will also be available via the Materials Project at https://materialsproject.org/gnome with permanent link: https://doi.org/10.17188/2009989.",
+      "rawParagraphPrehash": "2d2e26531f19fe9315af3b924ef1f7c1b79a8f21598589dc83993af088d89f75",
+      "frozenParagraphDigest": "2d2e26531f19fe9315af3b924ef1f7c1b79a8f21598589dc83993af088d89f75",
+      "sourceScientificNodes": [
+        {
+          "tag": "SUP",
+          "text": "2",
+          "html": "<sup>2</sup>"
+        }
+      ],
+      "roles": [
+        {
+          "index": 0,
+          "base": "r",
+          "exponent": "2",
+          "suffix": "SCAN",
+          "sourceHtml": "<sup>2</sup>",
+          "previousText": ". In particular, we provide results for all stable structures, as well as any material that has been recomputed from previous datasets to ensure consistent settings. Associated data from the r",
+          "nextText": "SCAN functional will be provided, expectantly serving as a foundation for analysing discrepancies between functional choices. Data will also be available via the Materials Project at ",
+          "paragraphTextUtf16Offset": 358,
+          "rawHtmlUtf16Start": 250922,
+          "rawUtf8ByteStart": 251536,
+          "rawUtf8ByteEnd": 251548
+        }
+      ]
+    }
+  ],
+  "headingContexts": [
+    {
+      "id": "Sec7",
+      "selector": "#Sec7",
+      "sourceText": "Validation through experimental matching and r2SCAN",
+      "sourceHtml": "Validation through experimental matching and r<sup>2</sup>SCAN",
+      "rawPrehash": "e1ba1824e3e1a4d84358faa175b14c30f234cfddf3af996eb0060851b035de00",
+      "frozenDigest": "e1ba1824e3e1a4d84358faa175b14c30f234cfddf3af996eb0060851b035de00",
+      "role": "Two additional source heading identifier contexts, separate from nine body/caption roles."
+    },
+    {
+      "id": "Sec33",
+      "selector": "#Sec33",
+      "sourceText": "r2SCAN",
+      "sourceHtml": "r<sup>2</sup>SCAN",
+      "rawPrehash": "233ddf198b2cef3cea8b897146077c29ca65bdbff5e2bf817d082155f2ed7b3f",
+      "frozenDigest": "233ddf198b2cef3cea8b897146077c29ca65bdbff5e2bf817d082155f2ed7b3f",
+      "role": "Two additional source heading identifier contexts, separate from nine body/caption roles."
+    }
+  ],
+  "allNonCitationSup": [
+    {
+      "text": "−1",
+      "identifierRole": false,
+      "parentTag": "P"
+    },
+    {
+      "text": "2",
+      "identifierRole": true,
+      "parentTag": "P"
+    },
+    {
+      "text": "2",
+      "identifierRole": true,
+      "parentTag": "P"
+    },
+    {
+      "text": "2",
+      "identifierRole": true,
+      "parentTag": "H3"
+    },
+    {
+      "text": "2",
+      "identifierRole": true,
+      "parentTag": "P"
+    },
+    {
+      "text": "2",
+      "identifierRole": true,
+      "parentTag": "P"
+    },
+    {
+      "text": "2",
+      "identifierRole": true,
+      "parentTag": "P"
+    },
+    {
+      "text": "2",
+      "identifierRole": true,
+      "parentTag": "H4"
+    },
+    {
+      "text": "2",
+      "identifierRole": true,
+      "parentTag": "P"
+    },
+    {
+      "text": "2",
+      "identifierRole": true,
+      "parentTag": "P"
+    },
+    {
+      "text": "2",
+      "identifierRole": true,
+      "parentTag": "P"
+    },
+    {
+      "text": "2",
+      "identifierRole": true,
+      "parentTag": "P"
+    }
+  ],
+  "expectations": {
+    "bodyCaptionIdentifierRoles": 9,
+    "headingIdentifierContexts": 2,
+    "identifierRole": "Plain r is the base of SUP2; SCAN is contiguous suffix of the functional identifier. No inferred leading isotope, unit or citation role.",
+    "referencesPrefix": 43,
+    "figureIds": [
+      "Fig2"
+    ],
+    "sourceDisplayEquations": 0,
+    "expectedWarnings": [
+      "No equation nodes were detected."
+    ]
+  },
+  "omittedContent": [
+    "All other paragraphs/figures/equations/tables, abstract, references44–71, ads/navigation/account/executable content omitted.",
+    "Methods p42 compound unit mScm−1 excluded: independent source contract; original C evidence retained unchanged.",
+    "No new corpus article admission, full captures, images/PDF/table binaries or full Markdown snapshots."
+  ],
+  "independentReview": "Pending unique final projection review."
+}
