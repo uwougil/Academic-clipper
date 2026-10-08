@@ -26,20 +26,26 @@ let parseCalls=0,clipCalls=0,domsOpened=0,domsClosed=0;
 const capturedWindows=new Set();
 let windowDescriptor;
 after(async()=>{
+  let cleanupError;
   try {
     // clipNature owns additional DOMs. Capture window getters in memory only
     // and close all of them, including converter DOMs, after the final case.
     for(const window of capturedWindows)window.close();
-    if(receiptRoot){
-      await mkdir(receiptRoot,{recursive:true});
-      await writeFile(path.join(receiptRoot,'matrix-records.json'),JSON.stringify({node:process.version,sourceRoot:sourceRoot.href,records,attempts,parseCalls,clipCalls,domsOpened,domsClosed,capturedWindowsClosed:capturedWindows.size,writerProof:'Only parseNaturePage/clipNature/normalizer/validator called. No writePaper invocation; no runtime writer spy claimed.'},null,2)+'\n');
-    }
     assert.deepEqual(attempts,[],'Final independent record-before-throw ledger');
     assert.equal(domsOpened,domsClosed,'All harness-owned DOMs closed');
+  } catch(error){
+    cleanupError=error;
   } finally {
     if(windowDescriptor)Object.defineProperty(JSDOM.prototype,'window',windowDescriptor);
     globalThis.fetch=original.fetch;dns.lookup=original.lookup;dnsPromises.lookup=original.promiseLookup;syncBuiltinESMExports();
   }
+  const restoredIdentities={fetch:globalThis.fetch===original.fetch,dnsCallback:dns.lookup===original.lookup,dnsPromise:dnsPromises.lookup===original.promiseLookup,windowDescriptor:!windowDescriptor||Object.entries(windowDescriptor).every(([key,value])=>Object.getOwnPropertyDescriptor(JSDOM.prototype,'window')[key]===value)};
+  if(receiptRoot){
+    await mkdir(receiptRoot,{recursive:true});
+    await writeFile(path.join(receiptRoot,'matrix-records.json'),JSON.stringify({node:process.version,sourceRoot:sourceRoot.href,records,attempts,parseCalls,clipCalls,domsOpened,domsClosed,capturedWindowsClosed:capturedWindows.size,restoredIdentities,writerProof:'Only parseNaturePage/clipNature/normalizer/validator called. No writePaper invocation; no runtime writer spy claimed.'},null,2)+'\n');
+  }
+  assert.deepEqual(restoredIdentities,{fetch:true,dnsCallback:true,dnsPromise:true,windowDescriptor:true},'Actual restored function/getter identities');
+  if(cleanupError)throw cleanupError;
 });
 ({parseNaturePage}=await import(new URL('adapters/nature.mjs',sourceRoot)));
 ({clipNature}=await import(new URL('clip.mjs',sourceRoot)));
@@ -58,7 +64,17 @@ async function withPage(body,fn){
   try{return await fn(page);}finally{page.dom.window.close();domsClosed++;}
 }
 const fractionTex=base=>`\\mathrm{${base}}^{${base==='pc'?'−2/3':'−1/3'}}`;
-const fractionRuns=page=>page.semantic.scientificRuns.filter(({tex})=>/\\mathrm\{(?:pc|km)\}\^\{[−-][12]\/[3]\}/u.test(tex)).map(({tex})=>tex);
+const marker=(kind,index)=>`ACADEMICCLIPPER${kind}${index}X`;
+const scientificRecords=texes=>texes.map((tex,index)=>({marker:marker('SCIENTIFICRUN',index),tex,provenance:'Nature inline style nodes (<i>/<b>/<sub>/<sup>)'}));
+function assertScientificRegistry(page,texes){assert.deepEqual(page.semantic.scientificRuns,scientificRecords(texes));}
+function typedMarkers(value){return [...value.matchAll(/ACADEMICCLIPPER(?:SCIENTIFICRUN|INLINEMATH|DISPLAYMATH|CITATION)\d+X/gu)].map(m=>m[0]);}
+function mathCitationMarkers(value){return [...value.matchAll(/ACADEMICCLIPPER(?:INLINEMATH|DISPLAYMATH|CITATION)\d+X/gu)].map(m=>m[0]);}
+function region(value,start,end){
+  const index=value.indexOf(start),stop=value.indexOf(end,index);
+  assert.ok(index>=0&&stop>=index,`Exact region ${start}/${end} must exist`);
+  assert.equal(value.indexOf(start,index+start.length),-1,`Unique region ${start}`);
+  return value.slice(index,stop+end.length);
+}
 
 const positives=[
  ['pc-only','pc<sup>−2/3</sup>',['pc']],
@@ -73,7 +89,8 @@ const positives=[
 for(const [id,input,bases] of positives)test(`synthetic whole factor: ${id}`,async()=>{
   const record={id:`positive/${id}`,category:'REQUIRED_NEW_ROLE',input,checks:[]};
   await withPage(`<p>${input}</p>`,page=>{
-    check(record,'entire source factor uses its own ordered scientific marker',()=>assert.deepEqual(fractionRuns(page),bases.map(fractionTex)));
+    check(record,'complete ordered scientific registry including marker identity and multiplicity',()=>assertScientificRegistry(page,bases.map(fractionTex)));
+    check(record,'complete ordered marker placement in cleaned input',()=>assert.deepEqual(typedMarkers(page.cleanedHtml),bases.map((_,i)=>marker('SCIENTIFICRUN',i))));
     check(record,'source coefficients/ranges outside the extracted range remain unchanged',()=>{
       let remaining=input.replace(/(pc|km)<sup>−[12]\/3<\/sup>/gu,'FACTOR');
       const rendered=page.cleanedHtml.replace(/ACADEMICCLIPPERSCIENTIFICRUN\d+X/gu,'FACTOR');
@@ -105,12 +122,52 @@ const rejects=[
 for(const [id,input] of rejects)test(`synthetic reject inference: ${id}`,async()=>{
   const record={id:`reject/${id}`,category:'NEW_COLLECTOR_MUST_REJECT',input,checks:[]};
   await withPage(`<p>${input}</p>`,page=>{
-    check(record,'no known or unproved whole unit factor is inferred',()=>assert.equal(page.semantic.scientificRuns.some(({tex})=>/\\(?:mathrm|text)\{(?:pc|km|cm|word|topic)\}\^|(?:pc|km|cm|word|topic)\^/u.test(tex)),false));
+    // Accepted detached styled SUP is an existing orphan family. Preserve its
+    // exact record rather than pretending every rejected unit input is empty.
+    const expected=id==='nested-italic'?['^{−2/3}']:[];
+    check(record,'complete registry preserves only explicitly frozen inherited roles',()=>assertScientificRegistry(page,expected));
+    check(record,'complete marker order/multiplicity in cleaned input',()=>assert.deepEqual(typedMarkers(page.cleanedHtml),expected.map((_,i)=>marker('SCIENTIFICRUN',i))));
     if(id.startsWith('typed-'))check(record,'non-numeric citation label is preserved without guessed citation number',()=>{
       assert.deepEqual(page.semantic.citations,[]);
       assert.ok(page.cleanedHtml.includes('−2/3</a>'));
     });
   });
+  finish(record);
+});
+
+const rightContinuations=[
+ ['letter','x'],['digit','1'],['combining-mark','\u0301'],['underscore','_tail'],
+ ['astral-letter','𝐴'],['astral-number','𝟙'],['wrapper','<span>x</span>'],
+ ['styled-element','<i>x</i>'],['empty-wrapper','<span></span>'],['comment-continuation','<!--edge-->x'],
+];
+for(const [id,continuation] of rightContinuations)test(`synthetic right continuation: ${id}`,async()=>{
+  const base=id==='digit'||id==='astral-number'?'km':'pc';
+  const input=`${base}<sup>${base==='pc'?'−2/3':'−1/3'}</sup>${continuation}`,record={id:`right/${id}`,category:'RIGHT_EDGE_REJECTION',input,checks:[]};
+  await withPage(`<p>${input}</p>`,page=>{
+    check(record,'whole scientific registry remains empty at unproved right edge',()=>assertScientificRegistry(page,[]));
+    check(record,'no hidden extra or reordered typed markers',()=>assert.deepEqual(typedMarkers(page.cleanedHtml),[]));
+  });
+  finish(record);
+});
+test('synthetic direct typed citation right-edge control',async()=>{
+  const input='<p>pc<sup>−2/3</sup><sup><a data-test="citation-ref" href="#ref-CR1">1</a></sup></p><p>km<sup>−1/3</sup><sup><a href="#ref-CR2">2</a></sup></p>';
+  const record={id:'right/direct-typed-citations',category:'RIGHT_EDGE_POSITIVE_WITH_TYPED_CONTROL',input,checks:[]};
+  await withPage(input,page=>{
+    check(record,'both typed citation cues retain complete ordered identities',()=>assert.deepEqual(page.semantic.citations,[{marker:marker('CITATION',0),numbers:[1]},{marker:marker('CITATION',1),numbers:[2]}]));
+    check(record,'whole factor registry coexists with independent direct citations',()=>assertScientificRegistry(page,['pc','km'].map(fractionTex)));
+    check(record,'complete body marker sequence retains distinct factor/citation ownership',()=>assert.deepEqual(typedMarkers(page.cleanedHtml),[marker('SCIENTIFICRUN',0),marker('CITATION',0),marker('SCIENTIFICRUN',1),marker('CITATION',1)]));
+  });
+  finish(record);
+});
+test('synthetic exact registry oracle rejects extra orphan unknown reordered and duplicate records',()=>{
+  const record={id:'oracle/exact-registry',category:'ORACLE_STRING_CONTROL',checks:[]};
+  const expected=scientificRecords(['pc','km'].map(fractionTex));
+  const bad={
+    unknown:[...expected,{marker:marker('SCIENTIFICRUN',2),tex:'unknown^{2}',provenance:'unexpected'}],
+    orphan:[...expected,{marker:marker('SCIENTIFICRUN',2),tex:'^{−2/3}',provenance:'unexpected'}],
+    reordered:[expected[1],expected[0]],duplicate:[...expected,expected[0]],
+  };
+  for(const [id,actual] of Object.entries(bad))check(record,`${id} cannot be washed out`,()=>assert.throws(()=>assert.deepEqual(actual,expected),assert.AssertionError));
   finish(record);
 });
 
@@ -132,8 +189,8 @@ for(const [id,input] of opaque)test(`synthetic opaque context: ${id}`,async()=>{
     finally{dom.window.close();domsClosed++;}
   }
   await withPage(input,page=>{
-    check(record,'new whole-factor range does not capture math/code',()=>assert.deepEqual(fractionRuns(page),[]));
-    if(id==='mathjax')check(record,'typed source TeX remains exact',()=>assert.deepEqual(page.semantic.inlineMath.map(m=>m.tex),['$\\mathrm{pc}^{−2/3}$']));
+    check(record,'complete scientific registry remains empty in opaque context',()=>assertScientificRegistry(page,[]));
+    if(id==='mathjax')check(record,'complete typed source TeX registry remains exact',()=>assert.deepEqual(page.semantic.inlineMath,[{marker:marker('INLINEMATH',0),tex:'$\\mathrm{pc}^{−2/3}$'}]));
   });
   finish(record);
 });
@@ -148,7 +205,10 @@ const inherited=[
 ];
 for(const [id,input,tex] of inherited)test(`synthetic inherited role: ${id}`,async()=>{
   const record={id:`inherited/${id}`,category:'ACCEPTED_COMPATIBILITY',input,checks:[]};
-  await withPage(`<p>${input}</p>`,page=>check(record,'existing typed range retains exact source TeX',()=>assert.deepEqual(page.semantic.scientificRuns.map(r=>r.tex),[tex])));
+  await withPage(`<p>${input}</p>`,page=>{
+    check(record,'existing complete scientific registry remains exact',()=>assertScientificRegistry(page,[tex]));
+    check(record,'existing marker placement/multiplicity remains exact',()=>assert.deepEqual(typedMarkers(page.cleanedHtml),[marker('SCIENTIFICRUN',0)]));
+  });
   finish(record);
 });
 test('synthetic normalizer opacity, integer attachment and strict orphan controls',()=>{
@@ -170,16 +230,26 @@ for(const dialect of ['markdown','links','quarto'])test(`synthetic mixed body an
   assert.equal(result.rawHtml,mixed,'Cached synthetic result must match the exact generated input');
   assert.equal(result.citationStyle,dialect);
   if(receiptRoot){await mkdir(receiptRoot,{recursive:true});await writeFile(path.join(receiptRoot,`${dialect}.synthetic.result.json`),JSON.stringify(result,null,2)+'\n');}
-  check(record,'body and caption both retain whole ordered factors',()=>assert.deepEqual(fractionRuns(result),['pc','km','pc','km'].map(fractionTex)));
-  check(record,'nonzero inherited numeric and styled markers coexist',()=>{
-    const values=result.semantic.scientificRuns.map(r=>r.tex);
-    for(const tex of ['10^{−3}','F_{n}','10^{2}','\\mathbf{D}_{n}'])assert.ok(values.includes(tex),tex);
-    assert.ok(values.length>=4);
+  const completeTex=[fractionTex('pc'),fractionTex('km'),'10^{−3}','F_{n}',fractionTex('pc'),fractionTex('km'),'10^{2}','\\mathbf{D}_{n}'];
+  check(record,'complete ordered registry freezes new factors and inherited roles without filtering',()=>assertScientificRegistry(result,completeTex));
+  check(record,'complete body and display marker placement/order/multiplicity',()=>assert.deepEqual(typedMarkers(result.bodyMarkdown),[0,1,2,3].map(i=>marker('SCIENTIFICRUN',i)).concat(marker('INLINEMATH',0),marker('CITATION',0),marker('DISPLAYMATH',0))));
+  check(record,'complete caption registry placement/order/multiplicity',()=>{
+    assert.equal(result.figures.length,1);
+    assert.deepEqual(typedMarkers(result.figures[0].captionHtml),[4,5,6,7].map(i=>marker('SCIENTIFICRUN',i)).concat(marker('INLINEMATH',1),marker('CITATION',1)));
   });
-  check(record,'nonzero typed inline/display math preserve exact values',()=>{assert.deepEqual(result.semantic.inlineMath.map(r=>r.tex),['$x^2$','$y^2$']);assert.deepEqual(result.semantic.displayMath.map(r=>r.tex),['Q=1']);});
-  check(record,'both typed citation cues retain their roles',()=>assert.deepEqual(result.semantic.citations.map(c=>c.numbers),[[1],[1]]));
-  check(record,'body/caption coefficient boundaries and sentinels survive',()=>{for(const value of ['BODY START 392','BODY END.','CAPTION START 50','CAPTION END.'])assert.ok(result.markdown.includes(value),value);});
-  check(record,'real figure caption conversion path is exercised',()=>{assert.equal(result.figures.length,1);assert.ok(result.figures[0].captionMarkdown.includes('CAPTION START'));});
+  check(record,'complete inline/display typed registry identities and values',()=>{assert.deepEqual(result.semantic.inlineMath,[{marker:marker('INLINEMATH',0),tex:'$x^2$'},{marker:marker('INLINEMATH',1),tex:'$y^2$'}]);assert.deepEqual(result.semantic.displayMath,[{marker:marker('DISPLAYMATH',0),tex:'Q=1'}]);});
+  check(record,'complete typed citation registry identities and numbers',()=>assert.deepEqual(result.semantic.citations,[{marker:marker('CITATION',0),numbers:[1]},{marker:marker('CITATION',1),numbers:[1]}]));
+  check(record,'typed math/citation ownership is exact in body and caption',()=>{
+    assert.deepEqual(mathCitationMarkers(region(result.bodyMarkdown,'BODY START','BODY END.')),[marker('INLINEMATH',0),marker('CITATION',0)]);
+    assert.deepEqual(mathCitationMarkers(result.figures[0].captionHtml),[marker('INLINEMATH',1),marker('CITATION',1)]);
+    assert.deepEqual(mathCitationMarkers(result.bodyMarkdown),[marker('INLINEMATH',0),marker('CITATION',0),marker('DISPLAYMATH',0)]);
+  });
+  check(record,'exact rendered body and caption retain factors coefficients and inherited roles',()=>{
+    const citation={markdown:'[^1]',links:'[1](#ref-1)',quarto:'[@Synthetic]'}[dialect];
+    const body=`BODY START 392 $${fractionTex('pc')}$ $${fractionTex('km')}$; $10^{−3}$; $\\mathrm{cm}^{−3}$; $F_{n}$; $x^2$; citation${citation} BODY END.`;
+    const caption=`CAPTION START 50 $${fractionTex('pc')}$ $${fractionTex('km')}$; $10^{2}$; $\\mathrm{cm}^{−3}$; $\\mathbf{D}_{n}$; $y^2$; citation${citation} CAPTION END.`;
+    assert.deepEqual([region(result.markdown,'BODY START','BODY END.'),result.figures[0].captionMarkdown],[body,caption]);
+  });
   check(record,'two inherited integer cm powers survive',()=>assert.equal((result.markdown.match(/\\mathrm\{cm\}\^\{−3\}/gu)||[]).length,2));
   for(const key of ['mathValidation','rawHtmlValidation','markdownStructure','crossReferenceValidation'])check(record,`strict ${key}`,()=>assert.equal(result.debug[key].valid,true,JSON.stringify(result.debug[key])));
   check(record,'no leaked semantic placeholders',()=>assert.doesNotMatch(result.markdown,/ACADEMICCLIPPER(?:SCIENTIFICRUN|INLINEMATH|DISPLAYMATH|CITATION)\d+X/u));

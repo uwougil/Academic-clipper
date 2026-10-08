@@ -57,6 +57,38 @@
         "logSha256": "c1548e0eb28ca37bcdac37fc22b11f9be3515e2fa934156b5c97130952d3e20a"
       },
       "scope": "Only changed rejection assertions, corrected typed MathJax and cached mixed checks. Zero new clips. Initial full matrix not repeated."
+    },
+    {
+      "argv": [
+        "node",
+        "--test",
+        "--test-name-pattern=synthetic right continuation:|synthetic direct typed citation right-edge control|synthetic exact registry oracle|synthetic reject inference: (unknown-word|nested-italic)$|synthetic mixed body and caption pipeline:",
+        "test/nature-frb-fractional-preflight.test.mjs"
+      ],
+      "env": {
+        "FRB_PREFLIGHT_SOURCE_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/accepted-134ba67/src",
+        "FRB_PREFLIGHT_RECEIPT_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/plan-tail-134ba67",
+        "FRB_PREFLIGHT_MIXED_CACHE_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-initial"
+      },
+      "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+      "node": "v24.14.1",
+      "started": "2026-10-08T08:47:07.601Z",
+      "elapsedMs": 795.1754000000001,
+      "status": 1,
+      "signal": null,
+      "inputs": {
+        "testSha256": "9f291b71297cbdf6c5ad23f2a2a140a89cfd67c6b63324089e61d7094005ee0b",
+        "acceptedSourceSha": "134ba67a9eefe8763314454183a625f83a34837b",
+        "snapshotReceiptSha256": "57e11a8832719a545a64f8d83c32db134c351fde0f92c594d7a33d3edb3fa8ab",
+        "initialRecordsSha256": "f4329234b00d659a2078f5d4ea2ee9a423475c3e5ab5777329fbf80417f9316e",
+        "mixedCachedResultHashes": {
+          "markdown": "94c424bc5dff5d0fd29c9d661f5c2e73a3bfc12c578b933ef64d20aef389c7e4",
+          "links": "7057ed9c8d3b8d8dafead5db9ad2e9daaba52cbaa54446013e447c790ba7b7ae",
+          "quarto": "38f1253d4ee64c50316b5b3d484615092f92e2bcedde0e0b51393b8ea7c0460c"
+        },
+        "logSha256": "6d8b7f9fd28ef7e9352142281faa9efb2d13d361de5e71d67aca7e61b853fded"
+      },
+      "scope": "Only new compact right-edge cases, one string-only oracle, two representative updated rejection cases and exact cached mixed checks. No old 67/37/15 rerun or new clips."
     }
   ],
   "summary": {
@@ -87,7 +119,13 @@
     "Eight positive cases and three mixed whole-factor/strict-validator cases remain RED on exact accepted source.",
     "Negative controls prove the current baseline rejects these roles; later implementation must rerun them against its final head.",
     "Source review clears immutable source input only. New tests and plan await root review; production stays locked.",
-    "No full tests, build, golden validation, new real clips, PR, dependency installation or production edits were performed."
+    "No full tests, build, golden validation, new real clips, PR, dependency installation or production edits were performed.",
+    "Plan tail was already executed once before recovery; recovery reads and preserves its closed command/log/result receipt without repetition.",
+    "Tail 13 PASS / 4 FAIL proves accepted baseline controls only; direct typed-citation factors and three cached mixed cases still lack the required new roles.",
+    "Original 67 historical records retain their original assertion versions. Strengthened full-registry versions were not all rerun; future final-head mandatory matrix is 79 cases.",
+    "Restored fetch/DNS/window getter runtime identity proof applies only to this new 17-case tail, not retroactively to the original 67 or subset 41.",
+    "Saved mixed-result baseline exact comparison proves only inherited roles/typed placement in saved outputs. It cannot establish candidate parsing or whole-factor GREEN.",
+    "Author corrections await root independent plan review. No self-CLEAR, production edit, full suite/build/golden, new real clip or PR."
   ],
   "artifacts": [
     {
@@ -139,6 +177,46 @@
       "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-initial/quarto.synthetic.result.json",
       "bytes": 12574,
       "sha256": "38f1253d4ee64c50316b5b3d484615092f92e2bcedde0e0b51393b8ea7c0460c"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/plan-tail-134ba67/command-receipt.json",
+      "bytes": 1888,
+      "sha256": "3f80aa1c1721d274c828dd49f4f12b114fcab352a4d14c3201cfa8884bdc9b38"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/plan-tail-134ba67/matrix.log",
+      "bytes": 25113,
+      "sha256": "6d8b7f9fd28ef7e9352142281faa9efb2d13d361de5e71d67aca7e61b853fded"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/plan-tail-134ba67/matrix-records.json",
+      "bytes": 31583,
+      "sha256": "4bc4a7d91daad1a406985d295b296b00e4a5cbfa51eb5bc02ccb2eaa860399b2"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/plan-tail-134ba67/markdown.synthetic.result.json",
+      "bytes": 12394,
+      "sha256": "94c424bc5dff5d0fd29c9d661f5c2e73a3bfc12c578b933ef64d20aef389c7e4"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/plan-tail-134ba67/links.synthetic.result.json",
+      "bytes": 12844,
+      "sha256": "7057ed9c8d3b8d8dafead5db9ad2e9daaba52cbaa54446013e447c790ba7b7ae"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/plan-tail-134ba67/quarto.synthetic.result.json",
+      "bytes": 12574,
+      "sha256": "38f1253d4ee64c50316b5b3d484615092f92e2bcedde0e0b51393b8ea7c0460c"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/run-plan-tail.mjs",
+      "bytes": 3351,
+      "sha256": "e45c5403483b940b2e4bd571d215a1d0ebc632c5646fbe03c390f701535c62f2"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/assemble-tail-recovery.mjs",
+      "bytes": 7395,
+      "sha256": "bd865159638e15a19c3e65d3c90e16f2a28ceac1a28dbb66b132338fccfd6d49"
     }
   ],
   "records": [
@@ -1202,5 +1280,837 @@
         }
       ]
     }
-  ]
+  ],
+  "planReview": {
+    "reviewedHead": "7de3629334576d5cfdf0d48429802dfa4b4964d0",
+    "reviewConclusion": "PLAN_REQUIRES_TWO_NARROW_CORRECTIONS",
+    "authorRevisionStatus": "READY_FOR_ROOT_REVIEW_NOT_SELF_CLEAR",
+    "artifacts": [
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-plan-independent-review/plan-review-7de3629-FINDINGS.md",
+        "bytes": 4030,
+        "sha256": "d6d164a6e12664266a3cdc6f17e821c1f4599f6f7700a896084c99eb1274dd61"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-plan-independent-review/plan-review-7de3629-FINDINGS.json",
+        "bytes": 7298,
+        "sha256": "93cb54725cf01c2c62ff4399306b610f729927e8578b6800f9d68dd44ea7422d"
+      }
+    ]
+  },
+  "planTail": {
+    "scope": "RECOVER_CLOSED_RECEIPT_NO_RERUN",
+    "testInputSha256": "9f291b71297cbdf6c5ad23f2a2a140a89cfd67c6b63324089e61d7094005ee0b",
+    "summary": {
+      "tests": 17,
+      "pass": 13,
+      "fail": 4,
+      "skip": 0,
+      "cancel": 0,
+      "todo": 0,
+      "nodeTestDurationMs": 748.4144,
+      "wrapperDurationMs": 795.1754000000001,
+      "newSyntheticParseCalls": 13,
+      "newSyntheticClipCalls": 0,
+      "domsOpened": 13,
+      "domsClosed": 13,
+      "capturedWindowsClosed": 13,
+      "httpDnsAttempts": 0,
+      "restoredIdentities": {
+        "fetch": true,
+        "dnsCallback": true,
+        "dnsPromise": true,
+        "windowDescriptor": true
+      }
+    },
+    "records": [
+      {
+        "id": "reject/unknown-word",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "input": "word<sup>−2/3</sup>",
+        "status": "PASS",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "reject/nested-italic",
+        "category": "NEW_COLLECTOR_MUST_REJECT",
+        "input": "pc<sup><i>−2/3</i></sup>",
+        "status": "PASS",
+        "checks": [
+          {
+            "label": "complete registry preserves only explicitly frozen inherited roles",
+            "status": "PASS"
+          },
+          {
+            "label": "complete marker order/multiplicity in cleaned input",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/letter",
+        "category": "RIGHT_EDGE_REJECTION",
+        "input": "pc<sup>−2/3</sup>x",
+        "status": "PASS",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/digit",
+        "category": "RIGHT_EDGE_REJECTION",
+        "input": "km<sup>−1/3</sup>1",
+        "status": "PASS",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/combining-mark",
+        "category": "RIGHT_EDGE_REJECTION",
+        "input": "pc<sup>−2/3</sup>́",
+        "status": "PASS",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/underscore",
+        "category": "RIGHT_EDGE_REJECTION",
+        "input": "pc<sup>−2/3</sup>_tail",
+        "status": "PASS",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/astral-letter",
+        "category": "RIGHT_EDGE_REJECTION",
+        "input": "pc<sup>−2/3</sup>𝐴",
+        "status": "PASS",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/astral-number",
+        "category": "RIGHT_EDGE_REJECTION",
+        "input": "km<sup>−1/3</sup>𝟙",
+        "status": "PASS",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/wrapper",
+        "category": "RIGHT_EDGE_REJECTION",
+        "input": "pc<sup>−2/3</sup><span>x</span>",
+        "status": "PASS",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/styled-element",
+        "category": "RIGHT_EDGE_REJECTION",
+        "input": "pc<sup>−2/3</sup><i>x</i>",
+        "status": "PASS",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/empty-wrapper",
+        "category": "RIGHT_EDGE_REJECTION",
+        "input": "pc<sup>−2/3</sup><span></span>",
+        "status": "PASS",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/comment-continuation",
+        "category": "RIGHT_EDGE_REJECTION",
+        "input": "pc<sup>−2/3</sup><!--edge-->x",
+        "status": "PASS",
+        "checks": [
+          {
+            "label": "whole scientific registry remains empty at unproved right edge",
+            "status": "PASS"
+          },
+          {
+            "label": "no hidden extra or reordered typed markers",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "right/direct-typed-citations",
+        "category": "RIGHT_EDGE_POSITIVE_WITH_TYPED_CONTROL",
+        "input": "<p>pc<sup>−2/3</sup><sup><a data-test=\"citation-ref\" href=\"#ref-CR1\">1</a></sup></p><p>km<sup>−1/3</sup><sup><a href=\"#ref-CR2\">2</a></sup></p>",
+        "status": "FAIL",
+        "checks": [
+          {
+            "label": "both typed citation cues retain complete ordered identities",
+            "status": "PASS"
+          },
+          {
+            "label": "whole factor registry coexists with independent direct citations",
+            "status": "FAIL",
+            "failureMessageSha256": "8f59ba186d36a2ebb08f8a770905e26fef295d382a5d5d9e57496985d0ef1912",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     provenance: 'Nature inline "
+          },
+          {
+            "label": "complete body marker sequence retains distinct factor/citation ownership",
+            "status": "FAIL",
+            "failureMessageSha256": "dc750cb8a9a40b9d950c4c805748f92174cfcf86fee592fc42ab6b2fb251b99a",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n-   'ACADEMICCLIPPERSCIENTIFICRUN0X',\n    'ACADEMICCLIPPERCITATION0X',\n-   'ACADEMICCLIPPERS"
+          }
+        ]
+      },
+      {
+        "id": "oracle/exact-registry",
+        "category": "ORACLE_STRING_CONTROL",
+        "status": "PASS",
+        "checks": [
+          {
+            "label": "unknown cannot be washed out",
+            "status": "PASS"
+          },
+          {
+            "label": "orphan cannot be washed out",
+            "status": "PASS"
+          },
+          {
+            "label": "reordered cannot be washed out",
+            "status": "PASS"
+          },
+          {
+            "label": "duplicate cannot be washed out",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "mixed/markdown",
+        "category": "MIXED_PIPELINE",
+        "inputSha256": "36dd6d6e0192ea14f4681313aaf0408b75ab0415b0517277de73f5d934b4b7ee",
+        "status": "FAIL",
+        "checks": [
+          {
+            "label": "complete ordered registry freezes new factors and inherited roles without filtering",
+            "status": "FAIL",
+            "failureMessageSha256": "1bb796d41838d12bb7c75ef9885052cfc26c814e8ef0192b68a1c80038536b01",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    {\n      marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n      provenance: 'Nature inline style"
+          },
+          {
+            "label": "complete body and display marker placement/order/multiplicity",
+            "status": "FAIL",
+            "failureMessageSha256": "54e76b8ff82ac43a8fd56fbaec887a77f8abe06acf71a0c3a241479c8f4c3aed",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    'ACADEMICCLIPPERSCIENTIFICRUN0X',\n    'ACADEMICCLIPPERSCIENTIFICRUN1X',\n-   'ACADEMICCLI"
+          },
+          {
+            "label": "complete caption registry placement/order/multiplicity",
+            "status": "FAIL",
+            "failureMessageSha256": "2f753a9d05fa5c416ef39463afe31a2308f423f74816a0c05c8a0a0be9ebec3b",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'ACADEMICCLIPPERSCIENTIFICRUN2X',\n+   'ACADEMICCLIPPERSCIENTIFICRUN3X',\n-   'ACADEMICCLI"
+          },
+          {
+            "label": "complete inline/display typed registry identities and values",
+            "status": "PASS"
+          },
+          {
+            "label": "complete typed citation registry identities and numbers",
+            "status": "PASS"
+          },
+          {
+            "label": "typed math/citation ownership is exact in body and caption",
+            "status": "PASS"
+          },
+          {
+            "label": "exact rendered body and caption retain factors coefficients and inherited roles",
+            "status": "FAIL",
+            "failureMessageSha256": "3395f80cac787969699fc03939ff8ba07d7afc5b3163e77830487ce397621db9",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'BODY START 392 pc$^{−2/3}$ km$^{−1/3}$; $10^{−3}$; $\\\\mathrm{cm}^{−3}$; $F_{n}$; $x^2$;"
+          },
+          {
+            "label": "two inherited integer cm powers survive",
+            "status": "PASS"
+          },
+          {
+            "label": "strict mathValidation",
+            "status": "FAIL",
+            "failureMessageSha256": "afa1a6ea2466a9954819737a9d7e9a65acf9cd2eceed4554d132d36ec1b0f9fe",
+            "failureMessagePrefix": "{\"valid\":false,\"inlineMathCount\":12,\"displayMathCount\":1,\"issues\":[{\"type\":\"scientific-isolatedSuperscript\",\"line\":15,\"column\":18,\"delimiter\":\"$\",\"context\":\"BOD"
+          },
+          {
+            "label": "strict rawHtmlValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "strict markdownStructure",
+            "status": "PASS"
+          },
+          {
+            "label": "strict crossReferenceValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "no leaked semantic placeholders",
+            "status": "PASS"
+          },
+          {
+            "label": "no attempted synthetic network operation",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "mixed/links",
+        "category": "MIXED_PIPELINE",
+        "inputSha256": "36dd6d6e0192ea14f4681313aaf0408b75ab0415b0517277de73f5d934b4b7ee",
+        "status": "FAIL",
+        "checks": [
+          {
+            "label": "complete ordered registry freezes new factors and inherited roles without filtering",
+            "status": "FAIL",
+            "failureMessageSha256": "1bb796d41838d12bb7c75ef9885052cfc26c814e8ef0192b68a1c80038536b01",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    {\n      marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n      provenance: 'Nature inline style"
+          },
+          {
+            "label": "complete body and display marker placement/order/multiplicity",
+            "status": "FAIL",
+            "failureMessageSha256": "54e76b8ff82ac43a8fd56fbaec887a77f8abe06acf71a0c3a241479c8f4c3aed",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    'ACADEMICCLIPPERSCIENTIFICRUN0X',\n    'ACADEMICCLIPPERSCIENTIFICRUN1X',\n-   'ACADEMICCLI"
+          },
+          {
+            "label": "complete caption registry placement/order/multiplicity",
+            "status": "FAIL",
+            "failureMessageSha256": "2f753a9d05fa5c416ef39463afe31a2308f423f74816a0c05c8a0a0be9ebec3b",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'ACADEMICCLIPPERSCIENTIFICRUN2X',\n+   'ACADEMICCLIPPERSCIENTIFICRUN3X',\n-   'ACADEMICCLI"
+          },
+          {
+            "label": "complete inline/display typed registry identities and values",
+            "status": "PASS"
+          },
+          {
+            "label": "complete typed citation registry identities and numbers",
+            "status": "PASS"
+          },
+          {
+            "label": "typed math/citation ownership is exact in body and caption",
+            "status": "PASS"
+          },
+          {
+            "label": "exact rendered body and caption retain factors coefficients and inherited roles",
+            "status": "FAIL",
+            "failureMessageSha256": "229b3dbf858c18b3b82a4c52dea8bd0d5412201ff8a926911a59584870b4d155",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'BODY START 392 pc$^{−2/3}$ km$^{−1/3}$; $10^{−3}$; $\\\\mathrm{cm}^{−3}$; $F_{n}$; $x^2$;"
+          },
+          {
+            "label": "two inherited integer cm powers survive",
+            "status": "PASS"
+          },
+          {
+            "label": "strict mathValidation",
+            "status": "FAIL",
+            "failureMessageSha256": "f09b31dbcf7c16672b681f018bf72b02077082e10057d7b22e257483e8536a83",
+            "failureMessagePrefix": "{\"valid\":false,\"inlineMathCount\":12,\"displayMathCount\":1,\"issues\":[{\"type\":\"scientific-isolatedSuperscript\",\"line\":15,\"column\":18,\"delimiter\":\"$\",\"context\":\"BOD"
+          },
+          {
+            "label": "strict rawHtmlValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "strict markdownStructure",
+            "status": "PASS"
+          },
+          {
+            "label": "strict crossReferenceValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "no leaked semantic placeholders",
+            "status": "PASS"
+          },
+          {
+            "label": "no attempted synthetic network operation",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "mixed/quarto",
+        "category": "MIXED_PIPELINE",
+        "inputSha256": "36dd6d6e0192ea14f4681313aaf0408b75ab0415b0517277de73f5d934b4b7ee",
+        "status": "FAIL",
+        "checks": [
+          {
+            "label": "complete ordered registry freezes new factors and inherited roles without filtering",
+            "status": "FAIL",
+            "failureMessageSha256": "1bb796d41838d12bb7c75ef9885052cfc26c814e8ef0192b68a1c80038536b01",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    {\n      marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n      provenance: 'Nature inline style"
+          },
+          {
+            "label": "complete body and display marker placement/order/multiplicity",
+            "status": "FAIL",
+            "failureMessageSha256": "54e76b8ff82ac43a8fd56fbaec887a77f8abe06acf71a0c3a241479c8f4c3aed",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    'ACADEMICCLIPPERSCIENTIFICRUN0X',\n    'ACADEMICCLIPPERSCIENTIFICRUN1X',\n-   'ACADEMICCLI"
+          },
+          {
+            "label": "complete caption registry placement/order/multiplicity",
+            "status": "FAIL",
+            "failureMessageSha256": "2f753a9d05fa5c416ef39463afe31a2308f423f74816a0c05c8a0a0be9ebec3b",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'ACADEMICCLIPPERSCIENTIFICRUN2X',\n+   'ACADEMICCLIPPERSCIENTIFICRUN3X',\n-   'ACADEMICCLI"
+          },
+          {
+            "label": "complete inline/display typed registry identities and values",
+            "status": "PASS"
+          },
+          {
+            "label": "complete typed citation registry identities and numbers",
+            "status": "PASS"
+          },
+          {
+            "label": "typed math/citation ownership is exact in body and caption",
+            "status": "PASS"
+          },
+          {
+            "label": "exact rendered body and caption retain factors coefficients and inherited roles",
+            "status": "FAIL",
+            "failureMessageSha256": "a1271ac92c588de4f3360caa88e67aa749ae815db598bc36cd61a1a6b68b3515",
+            "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'BODY START 392 pc$^{−2/3}$ km$^{−1/3}$; $10^{−3}$; $\\\\mathrm{cm}^{−3}$; $F_{n}$; $x^2$;"
+          },
+          {
+            "label": "two inherited integer cm powers survive",
+            "status": "PASS"
+          },
+          {
+            "label": "strict mathValidation",
+            "status": "FAIL",
+            "failureMessageSha256": "b1f06f000b4bb4d4c129148488784ddc4814013ac12c57367b19734829fb4606",
+            "failureMessagePrefix": "{\"valid\":false,\"inlineMathCount\":12,\"displayMathCount\":1,\"issues\":[{\"type\":\"scientific-isolatedSuperscript\",\"line\":16,\"column\":18,\"delimiter\":\"$\",\"context\":\"BOD"
+          },
+          {
+            "label": "strict rawHtmlValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "strict markdownStructure",
+            "status": "PASS"
+          },
+          {
+            "label": "strict crossReferenceValidation",
+            "status": "PASS"
+          },
+          {
+            "label": "no leaked semantic placeholders",
+            "status": "PASS"
+          },
+          {
+            "label": "no attempted synthetic network operation",
+            "status": "PASS"
+          }
+        ]
+      }
+    ],
+    "cachedInheritedBaseline": [
+      {
+        "dialect": "markdown",
+        "resultArtifact": {
+          "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-initial/markdown.synthetic.result.json",
+          "bytes": 12394,
+          "sha256": "94c424bc5dff5d0fd29c9d661f5c2e73a3bfc12c578b933ef64d20aef389c7e4"
+        },
+        "scientificRuns": [
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+            "tex": "10^{−3}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+            "tex": "F_{n}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+            "tex": "10^{2}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+            "tex": "\\mathbf{D}_{n}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          }
+        ],
+        "inlineMath": [
+          {
+            "marker": "ACADEMICCLIPPERINLINEMATH0X",
+            "tex": "$x^2$"
+          },
+          {
+            "marker": "ACADEMICCLIPPERINLINEMATH1X",
+            "tex": "$y^2$"
+          }
+        ],
+        "displayMath": [
+          {
+            "marker": "ACADEMICCLIPPERDISPLAYMATH0X",
+            "tex": "Q=1"
+          }
+        ],
+        "citations": [
+          {
+            "marker": "ACADEMICCLIPPERCITATION0X",
+            "numbers": [
+              1
+            ]
+          },
+          {
+            "marker": "ACADEMICCLIPPERCITATION1X",
+            "numbers": [
+              1
+            ]
+          }
+        ],
+        "bodyMarkers": [
+          "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "ACADEMICCLIPPERINLINEMATH0X",
+          "ACADEMICCLIPPERCITATION0X",
+          "ACADEMICCLIPPERDISPLAYMATH0X"
+        ],
+        "captionMarkers": [
+          "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "ACADEMICCLIPPERINLINEMATH1X",
+          "ACADEMICCLIPPERCITATION1X"
+        ],
+        "status": "EXACT_INHERITED_BASELINE_CONFIRMED_FROM_SAVED_RESULT_ONLY",
+        "newFactorStatus": "MISSING_ROLE_RED_NOT_CANDIDATE_GREEN"
+      },
+      {
+        "dialect": "links",
+        "resultArtifact": {
+          "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-initial/links.synthetic.result.json",
+          "bytes": 12844,
+          "sha256": "7057ed9c8d3b8d8dafead5db9ad2e9daaba52cbaa54446013e447c790ba7b7ae"
+        },
+        "scientificRuns": [
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+            "tex": "10^{−3}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+            "tex": "F_{n}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+            "tex": "10^{2}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+            "tex": "\\mathbf{D}_{n}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          }
+        ],
+        "inlineMath": [
+          {
+            "marker": "ACADEMICCLIPPERINLINEMATH0X",
+            "tex": "$x^2$"
+          },
+          {
+            "marker": "ACADEMICCLIPPERINLINEMATH1X",
+            "tex": "$y^2$"
+          }
+        ],
+        "displayMath": [
+          {
+            "marker": "ACADEMICCLIPPERDISPLAYMATH0X",
+            "tex": "Q=1"
+          }
+        ],
+        "citations": [
+          {
+            "marker": "ACADEMICCLIPPERCITATION0X",
+            "numbers": [
+              1
+            ]
+          },
+          {
+            "marker": "ACADEMICCLIPPERCITATION1X",
+            "numbers": [
+              1
+            ]
+          }
+        ],
+        "bodyMarkers": [
+          "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "ACADEMICCLIPPERINLINEMATH0X",
+          "ACADEMICCLIPPERCITATION0X",
+          "ACADEMICCLIPPERDISPLAYMATH0X"
+        ],
+        "captionMarkers": [
+          "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "ACADEMICCLIPPERINLINEMATH1X",
+          "ACADEMICCLIPPERCITATION1X"
+        ],
+        "status": "EXACT_INHERITED_BASELINE_CONFIRMED_FROM_SAVED_RESULT_ONLY",
+        "newFactorStatus": "MISSING_ROLE_RED_NOT_CANDIDATE_GREEN"
+      },
+      {
+        "dialect": "quarto",
+        "resultArtifact": {
+          "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-initial/quarto.synthetic.result.json",
+          "bytes": 12574,
+          "sha256": "38f1253d4ee64c50316b5b3d484615092f92e2bcedde0e0b51393b8ea7c0460c"
+        },
+        "scientificRuns": [
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+            "tex": "10^{−3}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+            "tex": "F_{n}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+            "tex": "10^{2}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+            "tex": "\\mathbf{D}_{n}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          }
+        ],
+        "inlineMath": [
+          {
+            "marker": "ACADEMICCLIPPERINLINEMATH0X",
+            "tex": "$x^2$"
+          },
+          {
+            "marker": "ACADEMICCLIPPERINLINEMATH1X",
+            "tex": "$y^2$"
+          }
+        ],
+        "displayMath": [
+          {
+            "marker": "ACADEMICCLIPPERDISPLAYMATH0X",
+            "tex": "Q=1"
+          }
+        ],
+        "citations": [
+          {
+            "marker": "ACADEMICCLIPPERCITATION0X",
+            "numbers": [
+              1
+            ]
+          },
+          {
+            "marker": "ACADEMICCLIPPERCITATION1X",
+            "numbers": [
+              1
+            ]
+          }
+        ],
+        "bodyMarkers": [
+          "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "ACADEMICCLIPPERINLINEMATH0X",
+          "ACADEMICCLIPPERCITATION0X",
+          "ACADEMICCLIPPERDISPLAYMATH0X"
+        ],
+        "captionMarkers": [
+          "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "ACADEMICCLIPPERINLINEMATH1X",
+          "ACADEMICCLIPPERCITATION1X"
+        ],
+        "status": "EXACT_INHERITED_BASELINE_CONFIRMED_FROM_SAVED_RESULT_ONLY",
+        "newFactorStatus": "MISSING_ROLE_RED_NOT_CANDIDATE_GREEN"
+      }
+    ],
+    "sourceRightContexts": {
+      "provenanceArtifact": {
+        "path": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper/test/fixtures/nature-frb-fractional-units/s41586-022-04755-5.provenance.json",
+        "bytes": 65081,
+        "sha256": "0271c2b543d016d35c573cb047e28435a81b07cb8eb323114a1b23d0f7d6970d"
+      },
+      "method": "Read frozen provenance fields only; no source HTML/DOM parse, reprojection or source audit",
+      "records": [
+        {
+          "id": "methods-p50-fraction-1",
+          "base": "pc",
+          "exponent": "−2/3",
+          "nextText": " km",
+          "rightContextClass": "WHITESPACE"
+        },
+        {
+          "id": "methods-p50-fraction-2",
+          "base": "km",
+          "exponent": "−1/3",
+          "nextText": ", where ",
+          "rightContextClass": "PUNCTUATION"
+        },
+        {
+          "id": "methods-p50-fraction-3",
+          "base": "pc",
+          "exponent": "−2/3",
+          "nextText": " km",
+          "rightContextClass": "WHITESPACE"
+        },
+        {
+          "id": "methods-p50-fraction-4",
+          "base": "km",
+          "exponent": "−1/3",
+          "nextText": " in the thick disk to ",
+          "rightContextClass": "WHITESPACE"
+        },
+        {
+          "id": "methods-p50-fraction-5",
+          "base": "pc",
+          "exponent": "−2/3",
+          "nextText": " km",
+          "rightContextClass": "WHITESPACE"
+        },
+        {
+          "id": "methods-p50-fraction-6",
+          "base": "km",
+          "exponent": "−1/3",
+          "nextText": " near the inner Galaxy, and is typically about 0.1–1 pc",
+          "rightContextClass": "WHITESPACE"
+        },
+        {
+          "id": "methods-p50-fraction-7",
+          "base": "pc",
+          "exponent": "−2/3",
+          "nextText": " km",
+          "rightContextClass": "WHITESPACE"
+        },
+        {
+          "id": "methods-p50-fraction-8",
+          "base": "km",
+          "exponent": "−1/3",
+          "nextText": " in the thin disk, but it is not generally known for other galaxies",
+          "rightContextClass": "WHITESPACE"
+        },
+        {
+          "id": "methods-p51-fraction-1",
+          "base": "pc",
+          "exponent": "−2/3",
+          "nextText": " km",
+          "rightContextClass": "WHITESPACE"
+        },
+        {
+          "id": "methods-p51-fraction-2",
+          "base": "km",
+          "exponent": "−1/3",
+          "nextText": " and ",
+          "rightContextClass": "WHITESPACE"
+        },
+        {
+          "id": "methods-p51-fraction-3",
+          "base": "pc",
+          "exponent": "−2/3",
+          "nextText": " km",
+          "rightContextClass": "WHITESPACE"
+        },
+        {
+          "id": "methods-p51-fraction-4",
+          "base": "km",
+          "exponent": "−1/3",
+          "nextText": " and ",
+          "rightContextClass": "WHITESPACE"
+        }
+      ]
+    },
+    "updatedOriginal67Assertions": "UNPROVEN_AS_FULL_EXECUTION_DO_NOT_RECLASSIFY_HISTORICAL_RESULTS",
+    "futureMandatorySyntheticCaseCount": 79,
+    "productionStatus": "LOCKED_PENDING_ROOT_PLAN_REVIEW_AND_SERIAL_PRODUCTION_GATE",
+    "recoveryCommand": "node C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/assemble-tail-recovery.mjs",
+    "recoveryCommandStatus": 0
+  }
 }
