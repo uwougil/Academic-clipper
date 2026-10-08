@@ -86,13 +86,13 @@ try {
   for(const citationStyle of ['markdown','links','quarto']){
     const result=await clipNature({html,url:provenance.source.url,citationStyle});
     const mathBody=normalizeMath(result.bodyMarkdown,result.semantic);
-    const cache={sourceKind:'real-source',acceptedMain:provenance.dependencies.acceptedMain,citationStyle,fixture:provenance.fixture,result,bodyStages:{defuddle:result.bodyMarkdown,math:mathBody,academic:normalizeAcademicInline(mathBody)},networkLedger:structuredClone(networkLedger)};
+    const cache={sourceKind:'real-source',acceptedMain:'134ba67a9eefe8763314454183a625f83a34837b',sourceBaselineMain:provenance.dependencies.acceptedMain,citationStyle,fixture:provenance.fixture,result,bodyStages:{defuddle:result.bodyMarkdown,math:mathBody,academic:normalizeAcademicInline(mathBody)},networkLedger:structuredClone(networkLedger)};
     if(process.env.NATURE_COMPOUND_UNIT_RECEIPT_ROOT){const dir=process.env.NATURE_COMPOUND_UNIT_RECEIPT_ROOT;await writeFile(`${dir}/${citationStyle}.actual-cache.json`,JSON.stringify(cache,(key,value)=>value instanceof Map?{entries:[...value]}:value,2)+'\n');await writeFile(`${dir}/${citationStyle}.actual.md`,result.markdown);}
     results.push({citationStyle,result});
   }
 } finally {globalThis.fetch=originalFetch;dns.lookup=originalLookup;dns.promises.lookup=originalPromiseLookup;syncBuiltinESMExports();}
 
-test('source execution has zero HTTP/DNS and uses only clipNature, with no writer call',()=>{
+test('source execution has zero HTTP/DNS; static scope uses clipNature without importing the writer',()=>{
   assert.deepEqual(networkLedger,{http:[],dns:[],writerCalls:0});
 });
 for(const {citationStyle,result}of results){
@@ -101,9 +101,11 @@ for(const {citationStyle,result}of results){
     assert.equal(result.figures.length,0);assert.equal(result.tables.length,0);assert.equal(result.semantic.displayMath.length,0);assert.equal(result.references.length,69);
     assert.deepEqual(result.debug.warnings,['No Nature figures were detected.','No equation nodes were detected.']);
     assert.deepEqual(result.semantic.citations.map(c=>c.numbers),[[69]]);
-    assert.equal(result.debug.markdownStructure.valid,true);assert.equal(result.debug.crossReferenceValidation.valid,true);
-    assert.match(line,/101\.18/u,'Keep original threshold literally; source does not have a power on10');
-    assert.ok(line.includes('1,000'),'Original temperature digits retained');
+    for(const key of ['mathValidation','rawHtmlValidation','markdownStructure','crossReferenceValidation'])assert.equal(result.debug[key].valid,true,`${citationStyle}: ${key}`);
+    assert.deepEqual(result.metadata.authors,provenance.sourceRights.orderedSourceCreators);
+    assert.match(line,/conductivity \*σ\* at the temperature of 1,000\u2009K, as measured by AIMD, satisfies \$σ_\{1,000K\}\$\u2009>\u2009101\.18\u2009/u,'Original σ/temperature/threshold and separators stay in source order');
+    assert.ok(line.includes(String.raw`101.18 $\mathrm{mS}\,\mathrm{cm}^{-1}$. Refer to the original paper for applicable calculations.`),'Keep quantity outside the cm inverse atom and original following prose');
+    assert.ok(line.includes('[Supplementary Information](https://www.nature.com/articles/s41586-023-06735-9#MOESM1) for further details.'),'Original external fragment is retained without hydration');
     t.diagnostic(JSON.stringify({sourceKind:'real-source',sourceRole:provenance.unitRoles[0],actual:line,validators:{math:result.debug.mathValidation,rawHtml:result.debug.rawHtmlValidation,structure:result.debug.markdownStructure.valid,crossReferences:result.debug.crossReferenceValidation.valid},networkLedger}));
     assert.deepEqual(inverseCentimetreRoles(line),[{multiplier:'mS',base:'cm',power:-1}],'Only centimetre is inverse; orphan/whole compound inverse must fail even if a future delimiter validator passes');
   });
