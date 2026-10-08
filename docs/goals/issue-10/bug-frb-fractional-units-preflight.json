@@ -1,0 +1,1206 @@
+{
+  "scope": "SYNTHETIC_PREFLIGHT_ONLY_PRODUCTION_LOCKED",
+  "acceptedSourceSha": "134ba67a9eefe8763314454183a625f83a34837b",
+  "node": "v24.14.1",
+  "sourceFixture": {
+    "bytes": 80065,
+    "sha256": "9196756aa9c59254f6b310a59f6218853a6eece7025c4eac926aed21df7b16be",
+    "newRawSourceReadsParsesSanitizerCalls": 0,
+    "originalRealClipRuns": 0,
+    "original15TestReruns": 0
+  },
+  "sourceReview": {
+    "status": "SOURCE_PROJECTION_CLEAR_ONLY",
+    "reviewedSourceSha": "2ef0774d63bba7202c84089e1d233e70197c2cdd",
+    "reportSha256": "96c1aa069a3e773b482b63450fbc9c14eb902857895b5244a8e507731b29b766",
+    "machineSha256": "cc34e860ac3992a1bac477e4e5e04f12c4a7f5372aff0f10feac8a6d98d3fa18",
+    "newAudits": 0
+  },
+  "commands": [
+    {
+      "command": "node --test test/nature-frb-fractional-preflight.test.mjs",
+      "env": {
+        "FRB_PREFLIGHT_SOURCE_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/accepted-134ba67/src",
+        "FRB_PREFLIGHT_RECEIPT_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-initial"
+      },
+      "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+      "node": "v24.14.1",
+      "nodeExecutable": "C:\\nvm4w\\nodejs\\node.exe",
+      "started": "2026-10-08T08:25:09.707Z",
+      "elapsedMs": 1386.4266,
+      "status": 1,
+      "signal": null,
+      "inputs": {
+        "testSha256": "671ea5ed115bfbe41a58d7993c03b510265b9bc0095dd4671a441afc6dbc6fa4",
+        "snapshotReceiptSha256": "57e11a8832719a545a64f8d83c32db134c351fde0f92c594d7a33d3edb3fa8ab",
+        "nodeModulesPackageLockSha256": "dea8bf451dc880801c5ef9c5e7301803f39fe8631a48e06b4e25f9c9224e4767",
+        "logSha256": "900b799c6c85b8025cb69e1fc0d4bc190709de3aa06ca712aa05a7117876ff45"
+      }
+    },
+    {
+      "command": "node --test --test-name-pattern=synthetic reject inference:|synthetic opaque context: mathjax|synthetic mixed body and caption pipeline: test/nature-frb-fractional-preflight.test.mjs",
+      "env": {
+        "FRB_PREFLIGHT_SOURCE_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/accepted-134ba67/src",
+        "FRB_PREFLIGHT_RECEIPT_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-corrected-subset",
+        "FRB_PREFLIGHT_MIXED_CACHE_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-initial"
+      },
+      "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+      "node": "v24.14.1",
+      "started": "2026-10-08T08:27:23.349Z",
+      "elapsedMs": 907.0504000000001,
+      "status": 1,
+      "signal": null,
+      "inputs": {
+        "testSha256": "8ace802e48c1e76bc91436b67e6df0952c7e13e386488e1e274b627b4b0188d0",
+        "snapshotReceiptSha256": "57e11a8832719a545a64f8d83c32db134c351fde0f92c594d7a33d3edb3fa8ab",
+        "initialRecordsSha256": "f4329234b00d659a2078f5d4ea2ee9a423475c3e5ab5777329fbf80417f9316e",
+        "logSha256": "c1548e0eb28ca37bcdac37fc22b11f9be3515e2fa934156b5c97130952d3e20a"
+      },
+      "scope": "Only changed rejection assertions, corrected typed MathJax and cached mixed checks. Zero new clips. Initial full matrix not repeated."
+    }
+  ],
+  "summary": {
+    "fullMatrixExecutions": 1,
+    "initialTests": 67,
+    "initialPass": 53,
+    "initialFail": 14,
+    "correctedSubsetTests": 41,
+    "correctedSubsetPass": 38,
+    "correctedSubsetFail": 3,
+    "combinedDistinctCases": 67,
+    "combinedPass": 56,
+    "combinedFail": 11,
+    "actualInitialNodeTestDurationMs": 1339.7254,
+    "actualSubsetNodeTestDurationMs": 863.0192,
+    "syntheticParseCalls": 100,
+    "syntheticClipCalls": 3,
+    "explicitDomsOpened": 101,
+    "explicitDomsClosed": 101,
+    "initialCapturedWindowsClosed": 75,
+    "subsetCapturedWindowsClosed": 38,
+    "httpDnsAttempts": 0,
+    "writerCalls": 0
+  },
+  "limitations": [
+    "Combined result joins distinct actually executed cases; it is not a new green 67-test execution.",
+    "Initial three harness-only failed cases and mixed inline-TeX assertion errors are preserved in original log.",
+    "Eight positive cases and three mixed whole-factor/strict-validator cases remain RED on exact accepted source.",
+    "Negative controls prove the current baseline rejects these roles; later implementation must rerun them against its final head.",
+    "Source review clears immutable source input only. New tests and plan await root review; production stays locked.",
+    "No full tests, build, golden validation, new real clips, PR, dependency installation or production edits were performed."
+  ],
+  "artifacts": [
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/snapshot-identity.json",
+      "bytes": 11034,
+      "sha256": "57e11a8832719a545a64f8d83c32db134c351fde0f92c594d7a33d3edb3fa8ab"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-initial/command-receipt.json",
+      "bytes": 1005,
+      "sha256": "f63b26352835db80424139103c8fc061fe8d19a3a363bee82628ff3fc2c56597"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-initial/matrix.log",
+      "bytes": 30786,
+      "sha256": "900b799c6c85b8025cb69e1fc0d4bc190709de3aa06ca712aa05a7117876ff45"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-initial/matrix-records.json",
+      "bytes": 39217,
+      "sha256": "f4329234b00d659a2078f5d4ea2ee9a423475c3e5ab5777329fbf80417f9316e"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-corrected-subset/command-receipt.json",
+      "bytes": 1369,
+      "sha256": "786bf72cd6fe3026cb5f9f511e48ad750e1f53c58d5ab786261bfaf080807ccb"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-corrected-subset/matrix.log",
+      "bytes": 15719,
+      "sha256": "c1548e0eb28ca37bcdac37fc22b11f9be3515e2fa934156b5c97130952d3e20a"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-corrected-subset/matrix-records.json",
+      "bytes": 27110,
+      "sha256": "a8d980b12315270265c7842b7bb3dc6e4691f006d692cd1d4219786fa83ca413"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-initial/markdown.synthetic.result.json",
+      "bytes": 12394,
+      "sha256": "94c424bc5dff5d0fd29c9d661f5c2e73a3bfc12c578b933ef64d20aef389c7e4"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-initial/links.synthetic.result.json",
+      "bytes": 12844,
+      "sha256": "7057ed9c8d3b8d8dafead5db9ad2e9daaba52cbaa54446013e447c790ba7b7ae"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-preflight/matrix-134ba67-initial/quarto.synthetic.result.json",
+      "bytes": 12574,
+      "sha256": "38f1253d4ee64c50316b5b3d484615092f92e2bcedde0e0b51393b8ea7c0460c"
+    }
+  ],
+  "records": [
+    {
+      "id": "positive/pc-only",
+      "category": "REQUIRED_NEW_ROLE",
+      "execution": "initial-full-matrix",
+      "status": "FAIL",
+      "checks": [
+        {
+          "label": "entire source factor uses its own ordered scientific marker",
+          "status": "FAIL",
+          "failureMessageSha256": "f9cc5417b884d996efff93d21e9e01cddd70a9f49ac0180d9f43d3cd84719478",
+          "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   '\\\\mathrm{pc}^{−2/3}'\n- ]\n"
+        },
+        {
+          "label": "source coefficients/ranges outside the extracted range remain unchanged",
+          "status": "FAIL",
+          "failureMessageSha256": "19b2366b722939df29089e7dab4d17e6a7e904e2ffcfd7d23089c5b9bf7854ba",
+          "failureMessagePrefix": "The expression evaluated to a falsy value:\n\n  assert.ok(rendered.includes(`<p>${remaining}</p>`))\n"
+        }
+      ]
+    },
+    {
+      "id": "positive/km-only",
+      "category": "REQUIRED_NEW_ROLE",
+      "execution": "initial-full-matrix",
+      "status": "FAIL",
+      "checks": [
+        {
+          "label": "entire source factor uses its own ordered scientific marker",
+          "status": "FAIL",
+          "failureMessageSha256": "857015633e35af73b57ab55926740f549abe469a3d998aad7c814aa7e32f8fcd",
+          "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   '\\\\mathrm{km}^{−1/3}'\n- ]\n"
+        },
+        {
+          "label": "source coefficients/ranges outside the extracted range remain unchanged",
+          "status": "FAIL",
+          "failureMessageSha256": "19b2366b722939df29089e7dab4d17e6a7e904e2ffcfd7d23089c5b9bf7854ba",
+          "failureMessagePrefix": "The expression evaluated to a falsy value:\n\n  assert.ok(rendered.includes(`<p>${remaining}</p>`))\n"
+        }
+      ]
+    },
+    {
+      "id": "positive/measurement-prefix",
+      "category": "REQUIRED_NEW_ROLE",
+      "execution": "initial-full-matrix",
+      "status": "FAIL",
+      "checks": [
+        {
+          "label": "entire source factor uses its own ordered scientific marker",
+          "status": "FAIL",
+          "failureMessageSha256": "f9cc5417b884d996efff93d21e9e01cddd70a9f49ac0180d9f43d3cd84719478",
+          "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   '\\\\mathrm{pc}^{−2/3}'\n- ]\n"
+        },
+        {
+          "label": "source coefficients/ranges outside the extracted range remain unchanged",
+          "status": "FAIL",
+          "failureMessageSha256": "19b2366b722939df29089e7dab4d17e6a7e904e2ffcfd7d23089c5b9bf7854ba",
+          "failureMessagePrefix": "The expression evaluated to a falsy value:\n\n  assert.ok(rendered.includes(`<p>${remaining}</p>`))\n"
+        }
+      ]
+    },
+    {
+      "id": "positive/range-prefix",
+      "category": "REQUIRED_NEW_ROLE",
+      "execution": "initial-full-matrix",
+      "status": "FAIL",
+      "checks": [
+        {
+          "label": "entire source factor uses its own ordered scientific marker",
+          "status": "FAIL",
+          "failureMessageSha256": "f9cc5417b884d996efff93d21e9e01cddd70a9f49ac0180d9f43d3cd84719478",
+          "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   '\\\\mathrm{pc}^{−2/3}'\n- ]\n"
+        },
+        {
+          "label": "source coefficients/ranges outside the extracted range remain unchanged",
+          "status": "FAIL",
+          "failureMessageSha256": "19b2366b722939df29089e7dab4d17e6a7e904e2ffcfd7d23089c5b9bf7854ba",
+          "failureMessagePrefix": "The expression evaluated to a falsy value:\n\n  assert.ok(rendered.includes(`<p>${remaining}</p>`))\n"
+        }
+      ]
+    },
+    {
+      "id": "positive/denominator-prefix",
+      "category": "REQUIRED_NEW_ROLE",
+      "execution": "initial-full-matrix",
+      "status": "FAIL",
+      "checks": [
+        {
+          "label": "entire source factor uses its own ordered scientific marker",
+          "status": "FAIL",
+          "failureMessageSha256": "857015633e35af73b57ab55926740f549abe469a3d998aad7c814aa7e32f8fcd",
+          "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   '\\\\mathrm{km}^{−1/3}'\n- ]\n"
+        },
+        {
+          "label": "source coefficients/ranges outside the extracted range remain unchanged",
+          "status": "FAIL",
+          "failureMessageSha256": "19b2366b722939df29089e7dab4d17e6a7e904e2ffcfd7d23089c5b9bf7854ba",
+          "failureMessagePrefix": "The expression evaluated to a falsy value:\n\n  assert.ok(rendered.includes(`<p>${remaining}</p>`))\n"
+        }
+      ]
+    },
+    {
+      "id": "positive/adjacent-pair",
+      "category": "REQUIRED_NEW_ROLE",
+      "execution": "initial-full-matrix",
+      "status": "FAIL",
+      "checks": [
+        {
+          "label": "entire source factor uses its own ordered scientific marker",
+          "status": "FAIL",
+          "failureMessageSha256": "c320d4a85fa63dd9c7903507423ab0be45fecc09baf3dfec4ac2b77ec4b586d7",
+          "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   '\\\\mathrm{pc}^{−2/3}',\n-   '\\\\mathrm{km}^{−1/3}'\n- ]\n"
+        },
+        {
+          "label": "source coefficients/ranges outside the extracted range remain unchanged",
+          "status": "FAIL",
+          "failureMessageSha256": "19b2366b722939df29089e7dab4d17e6a7e904e2ffcfd7d23089c5b9bf7854ba",
+          "failureMessagePrefix": "The expression evaluated to a falsy value:\n\n  assert.ok(rendered.includes(`<p>${remaining}</p>`))\n"
+        }
+      ]
+    },
+    {
+      "id": "positive/thin-space-pair",
+      "category": "REQUIRED_NEW_ROLE",
+      "execution": "initial-full-matrix",
+      "status": "FAIL",
+      "checks": [
+        {
+          "label": "entire source factor uses its own ordered scientific marker",
+          "status": "FAIL",
+          "failureMessageSha256": "c320d4a85fa63dd9c7903507423ab0be45fecc09baf3dfec4ac2b77ec4b586d7",
+          "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   '\\\\mathrm{pc}^{−2/3}',\n-   '\\\\mathrm{km}^{−1/3}'\n- ]\n"
+        },
+        {
+          "label": "source coefficients/ranges outside the extracted range remain unchanged",
+          "status": "FAIL",
+          "failureMessageSha256": "19b2366b722939df29089e7dab4d17e6a7e904e2ffcfd7d23089c5b9bf7854ba",
+          "failureMessagePrefix": "The expression evaluated to a falsy value:\n\n  assert.ok(rendered.includes(`<p>${remaining}</p>`))\n"
+        }
+      ]
+    },
+    {
+      "id": "positive/repeated-factors",
+      "category": "REQUIRED_NEW_ROLE",
+      "execution": "initial-full-matrix",
+      "status": "FAIL",
+      "checks": [
+        {
+          "label": "entire source factor uses its own ordered scientific marker",
+          "status": "FAIL",
+          "failureMessageSha256": "13699846b07cf0ce78ff9d3138bcc02f713a2b8d9521f2c1d2c8c718a5d4cc83",
+          "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   '\\\\mathrm{pc}^{−2/3}',\n-   '\\\\mathrm{km}^{−1/3}',\n-   '\\\\mathrm{pc}^{−2/3}',\n-   '\\"
+        },
+        {
+          "label": "source coefficients/ranges outside the extracted range remain unchanged",
+          "status": "FAIL",
+          "failureMessageSha256": "19b2366b722939df29089e7dab4d17e6a7e904e2ffcfd7d23089c5b9bf7854ba",
+          "failureMessagePrefix": "The expression evaluated to a falsy value:\n\n  assert.ok(rendered.includes(`<p>${remaining}</p>`))\n"
+        }
+      ]
+    },
+    {
+      "id": "reject/unknown-word",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/suffix-word",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/unproved-unit",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/wrong-pc-fraction",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/wrong-km-fraction",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/unsigned",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/plus-sign",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/ascii-minus",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/zero-denominator",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/zero-numerator",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/extra-slash",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/decimal-fraction",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/fraction-spaces",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/fraction-edge-space",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/nested-italic",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/nested-span",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/nested-sub",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/comment-in-sup",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/split-sup",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/extra-sup",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/extra-sub",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/wrapped-base",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/wrapped-sup",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/comment-gap",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/space-gap",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/split-base",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/sibling-prefix",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/comment-prefix",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/unicode-letter-prefix",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/number-prefix",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/combining-mark-prefix",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/bare-mark-prefix",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/underscore-prefix",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/astral-letter-prefix",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/astral-number-prefix",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/typed-data-test",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        },
+        {
+          "label": "non-numeric citation label is preserved without guessed citation number",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "reject/typed-href",
+      "category": "NEW_COLLECTOR_MUST_REJECT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "no known or unproved whole unit factor is inferred",
+          "status": "PASS"
+        },
+        {
+          "label": "non-numeric citation label is preserved without guessed citation number",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "opaque/inline-tex",
+      "category": "OPAQUE_CONTEXT",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "new whole-factor range does not capture math/code",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "opaque/display-tex",
+      "category": "OPAQUE_CONTEXT",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "new whole-factor range does not capture math/code",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "opaque/cross-span-tex",
+      "category": "OPAQUE_CONTEXT",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "new whole-factor range does not capture math/code",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "opaque/inline-code",
+      "category": "OPAQUE_CONTEXT",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "new whole-factor range does not capture math/code",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "opaque/pre-code",
+      "category": "OPAQUE_CONTEXT",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "new whole-factor range does not capture math/code",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "opaque/literal-backticks",
+      "category": "OPAQUE_CONTEXT",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "new whole-factor range does not capture math/code",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "opaque/cross-span-backticks",
+      "category": "OPAQUE_CONTEXT",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "new whole-factor range does not capture math/code",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "opaque/literal-fence",
+      "category": "OPAQUE_CONTEXT",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "new whole-factor range does not capture math/code",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "opaque/mathjax",
+      "category": "OPAQUE_CONTEXT",
+      "execution": "corrected-affected-subset",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "new whole-factor range does not capture math/code",
+          "status": "PASS"
+        },
+        {
+          "label": "typed source TeX remains exact",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "opaque/equation-ancestor",
+      "category": "OPAQUE_CONTEXT",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "new whole-factor range does not capture math/code",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "opaque/mathml-ancestor",
+      "category": "OPAQUE_CONTEXT",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "lawful parsed MathML ancestor exists before production parse",
+          "status": "PASS"
+        },
+        {
+          "label": "new whole-factor range does not capture math/code",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "inherited/numeric",
+      "category": "ACCEPTED_COMPATIBILITY",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "existing typed range retains exact source TeX",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "inherited/split-numeric",
+      "category": "ACCEPTED_COMPATIBILITY",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "existing typed range retains exact source TeX",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "inherited/styled-variable",
+      "category": "ACCEPTED_COMPATIBILITY",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "existing typed range retains exact source TeX",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "inherited/bold-variable",
+      "category": "ACCEPTED_COMPATIBILITY",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "existing typed range retains exact source TeX",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "inherited/greek-index",
+      "category": "ACCEPTED_COMPATIBILITY",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "existing typed range retains exact source TeX",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "inherited/isotope",
+      "category": "ACCEPTED_COMPATIBILITY",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "existing typed range retains exact source TeX",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "inherited/normalizer",
+      "category": "ACCEPTED_COMPATIBILITY",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "opaque $\\mathrm{pc}^{-2/3}$",
+          "status": "PASS"
+        },
+        {
+          "label": "opaque `pc$^{−2/3}$`",
+          "status": "PASS"
+        },
+        {
+          "label": "opaque ~~~\npc$^{−2/3}$\n~~~",
+          "status": "PASS"
+        },
+        {
+          "label": "integer unit unchanged",
+          "status": "PASS"
+        },
+        {
+          "label": "numeric integer unchanged",
+          "status": "PASS"
+        },
+        {
+          "label": "original orphan still rejected",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "mixed/markdown",
+      "category": "MIXED_PIPELINE",
+      "execution": "corrected-affected-subset",
+      "status": "FAIL",
+      "checks": [
+        {
+          "label": "body and caption both retain whole ordered factors",
+          "status": "FAIL",
+          "failureMessageSha256": "13699846b07cf0ce78ff9d3138bcc02f713a2b8d9521f2c1d2c8c718a5d4cc83",
+          "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   '\\\\mathrm{pc}^{−2/3}',\n-   '\\\\mathrm{km}^{−1/3}',\n-   '\\\\mathrm{pc}^{−2/3}',\n-   '\\"
+        },
+        {
+          "label": "nonzero inherited numeric and styled markers coexist",
+          "status": "PASS"
+        },
+        {
+          "label": "nonzero typed inline/display math preserve exact values",
+          "status": "PASS"
+        },
+        {
+          "label": "both typed citation cues retain their roles",
+          "status": "PASS"
+        },
+        {
+          "label": "body/caption coefficient boundaries and sentinels survive",
+          "status": "PASS"
+        },
+        {
+          "label": "real figure caption conversion path is exercised",
+          "status": "PASS"
+        },
+        {
+          "label": "two inherited integer cm powers survive",
+          "status": "PASS"
+        },
+        {
+          "label": "strict mathValidation",
+          "status": "FAIL",
+          "failureMessageSha256": "afa1a6ea2466a9954819737a9d7e9a65acf9cd2eceed4554d132d36ec1b0f9fe",
+          "failureMessagePrefix": "{\"valid\":false,\"inlineMathCount\":12,\"displayMathCount\":1,\"issues\":[{\"type\":\"scientific-isolatedSuperscript\",\"line\":15,\"column\":18,\"delimiter\":\"$\",\"context\":\"BOD"
+        },
+        {
+          "label": "strict rawHtmlValidation",
+          "status": "PASS"
+        },
+        {
+          "label": "strict markdownStructure",
+          "status": "PASS"
+        },
+        {
+          "label": "strict crossReferenceValidation",
+          "status": "PASS"
+        },
+        {
+          "label": "no leaked semantic placeholders",
+          "status": "PASS"
+        },
+        {
+          "label": "no attempted synthetic network operation",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "mixed/links",
+      "category": "MIXED_PIPELINE",
+      "execution": "corrected-affected-subset",
+      "status": "FAIL",
+      "checks": [
+        {
+          "label": "body and caption both retain whole ordered factors",
+          "status": "FAIL",
+          "failureMessageSha256": "13699846b07cf0ce78ff9d3138bcc02f713a2b8d9521f2c1d2c8c718a5d4cc83",
+          "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   '\\\\mathrm{pc}^{−2/3}',\n-   '\\\\mathrm{km}^{−1/3}',\n-   '\\\\mathrm{pc}^{−2/3}',\n-   '\\"
+        },
+        {
+          "label": "nonzero inherited numeric and styled markers coexist",
+          "status": "PASS"
+        },
+        {
+          "label": "nonzero typed inline/display math preserve exact values",
+          "status": "PASS"
+        },
+        {
+          "label": "both typed citation cues retain their roles",
+          "status": "PASS"
+        },
+        {
+          "label": "body/caption coefficient boundaries and sentinels survive",
+          "status": "PASS"
+        },
+        {
+          "label": "real figure caption conversion path is exercised",
+          "status": "PASS"
+        },
+        {
+          "label": "two inherited integer cm powers survive",
+          "status": "PASS"
+        },
+        {
+          "label": "strict mathValidation",
+          "status": "FAIL",
+          "failureMessageSha256": "f09b31dbcf7c16672b681f018bf72b02077082e10057d7b22e257483e8536a83",
+          "failureMessagePrefix": "{\"valid\":false,\"inlineMathCount\":12,\"displayMathCount\":1,\"issues\":[{\"type\":\"scientific-isolatedSuperscript\",\"line\":15,\"column\":18,\"delimiter\":\"$\",\"context\":\"BOD"
+        },
+        {
+          "label": "strict rawHtmlValidation",
+          "status": "PASS"
+        },
+        {
+          "label": "strict markdownStructure",
+          "status": "PASS"
+        },
+        {
+          "label": "strict crossReferenceValidation",
+          "status": "PASS"
+        },
+        {
+          "label": "no leaked semantic placeholders",
+          "status": "PASS"
+        },
+        {
+          "label": "no attempted synthetic network operation",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "mixed/quarto",
+      "category": "MIXED_PIPELINE",
+      "execution": "corrected-affected-subset",
+      "status": "FAIL",
+      "checks": [
+        {
+          "label": "body and caption both retain whole ordered factors",
+          "status": "FAIL",
+          "failureMessageSha256": "13699846b07cf0ce78ff9d3138bcc02f713a2b8d9521f2c1d2c8c718a5d4cc83",
+          "failureMessagePrefix": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   '\\\\mathrm{pc}^{−2/3}',\n-   '\\\\mathrm{km}^{−1/3}',\n-   '\\\\mathrm{pc}^{−2/3}',\n-   '\\"
+        },
+        {
+          "label": "nonzero inherited numeric and styled markers coexist",
+          "status": "PASS"
+        },
+        {
+          "label": "nonzero typed inline/display math preserve exact values",
+          "status": "PASS"
+        },
+        {
+          "label": "both typed citation cues retain their roles",
+          "status": "PASS"
+        },
+        {
+          "label": "body/caption coefficient boundaries and sentinels survive",
+          "status": "PASS"
+        },
+        {
+          "label": "real figure caption conversion path is exercised",
+          "status": "PASS"
+        },
+        {
+          "label": "two inherited integer cm powers survive",
+          "status": "PASS"
+        },
+        {
+          "label": "strict mathValidation",
+          "status": "FAIL",
+          "failureMessageSha256": "b1f06f000b4bb4d4c129148488784ddc4814013ac12c57367b19734829fb4606",
+          "failureMessagePrefix": "{\"valid\":false,\"inlineMathCount\":12,\"displayMathCount\":1,\"issues\":[{\"type\":\"scientific-isolatedSuperscript\",\"line\":16,\"column\":18,\"delimiter\":\"$\",\"context\":\"BOD"
+        },
+        {
+          "label": "strict rawHtmlValidation",
+          "status": "PASS"
+        },
+        {
+          "label": "strict markdownStructure",
+          "status": "PASS"
+        },
+        {
+          "label": "strict crossReferenceValidation",
+          "status": "PASS"
+        },
+        {
+          "label": "no leaked semantic placeholders",
+          "status": "PASS"
+        },
+        {
+          "label": "no attempted synthetic network operation",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "network/final-ledger",
+      "category": "SECURITY_CONTROL",
+      "execution": "initial-full-matrix",
+      "status": "PASS",
+      "checks": [
+        {
+          "label": "empty record-before-throw attempts including swallowed fallback",
+          "status": "PASS"
+        }
+      ]
+    }
+  ]
+}

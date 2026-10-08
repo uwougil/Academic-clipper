@@ -1,6 +1,6 @@
 # Issue #72 — FRB 分数单位来源合同交接
 
-状态：SOURCE-ONLY RED，未修复。独立合同 [#72](https://github.com/uwougil/Academic-clipper/issues/72) 为 OPEN / `bug`；生产 gate 由 orchestrator 控制。不同作者的 103-block source audit 尚待执行，本 agent 不自称独立审核通过；不声明 #72 或 #10 完成，没有创建 PR。
+状态：SOURCE-ONLY RED，未修复。独立合同 [#72](https://github.com/uwougil/Academic-clipper/issues/72) 为 OPEN / `bug`；生产 gate 由 orchestrator 控制。本文件以下记录 `2ef0774` 来源阶段的历史执行；当时不同作者的 103-block source audit 尚待执行。之后该独立 packet 已报告 SOURCE_PROJECTION_CLEAR_ONLY，复用证据及新 synthetic RED / 生产前计划见 [preflight handoff](bug-frb-fractional-units-preflight.md)。本 agent 没有重复来源审核；不声明 #72 或 #10 完成，没有创建 PR。
 
 ## 基线、所有权与 commits
 
