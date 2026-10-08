@@ -59,7 +59,9 @@ const cases=[
  {id:'superscript-is-separate-contract',html:'Γ<sup>2</sup>',tex:[],kind:'reject'},
  {id:'code-element',html:'<code>Γ<sub><i>b</i></sub></code>',tex:[],kind:'reject'},
  {id:'code-ancestor',html:'<pre><p>Γ<sub><i>b</i></sub></p></pre>',tex:[],kind:'reject'},
- {id:'math-element',html:'<math><p>Γ<sub><i>b</i></sub></p></math>',tex:[],kind:'reject'},
+ // Mtext is an HTML integration point: a bare P under Math would be moved
+ // outside Math by the HTML parser and would not test an opaque ancestor.
+ {id:'math-element',html:'<math><mtext><p>Γ<sub><i>b</i></sub></p></mtext></math>',tex:[],kind:'reject'},
  {id:'inline-dollar-context',html:'$Γ<sub>b</sub>$',tex:[],kind:'reject'},
  {id:'backtick-context',html:'`Γ<sub>b</sub>`',tex:[],kind:'reject'},
  {id:'fenced-context',html:'~~~\nΓ<sub>b</sub>\n~~~',tex:[],kind:'reject'},

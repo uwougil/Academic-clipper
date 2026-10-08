@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
+import dns from 'node:dns';
+import dnsPromises from 'node:dns/promises';
 import {readFile,writeFile} from 'node:fs/promises';
+import {syncBuiltinESMExports} from 'node:module';
 import {after,test} from 'node:test';
 import {JSDOM} from 'jsdom';
 import {clipNature} from '../src/clip.mjs';
@@ -12,8 +15,19 @@ const provenance=JSON.parse(await readFile(new URL('s41534-023-00746-0.provenanc
 const bytes=await readFile(new URL(provenance.fixture.path,base));
 assert.equal(bytes.length,provenance.fixture.bytes);
 assert.equal(createHash('sha256').update(bytes).digest('hex'),provenance.fixture.sha256);
-const html=bytes.toString('utf8'),doms=[];
-after(()=>{for(const dom of doms)dom.window.close();});
+const html=bytes.toString('utf8'),doms=[],receipts=[];
+let syntheticClips=0;
+const networkAttempts=[],originalNetwork={fetch:globalThis.fetch,lookup:dns.lookup,promiseLookup:dnsPromises.lookup};
+globalThis.fetch=async(...args)=>{networkAttempts.push({kind:'HTTP',url:String(args[0])});throw new Error('Unexpected Greek source HTTP');};
+dns.lookup=(...args)=>{networkAttempts.push({kind:'DNS',host:String(args[0])});throw new Error('Unexpected Greek source DNS');};
+dnsPromises.lookup=async(...args)=>{networkAttempts.push({kind:'DNS-promise',host:String(args[0])});throw new Error('Unexpected Greek source DNS');};
+syncBuiltinESMExports();
+after(async()=>{
+  globalThis.fetch=originalNetwork.fetch;dns.lookup=originalNetwork.lookup;dnsPromises.lookup=originalNetwork.promiseLookup;syncBuiltinESMExports();
+  for(const dom of doms)dom.window.close();
+  assert.deepEqual(networkAttempts,[],'Record before throw catches even swallowed HTTP/DNS attempts');
+  if(process.env.NATURE_GREEK_RECEIPT_PREFIX)await writeFile(process.env.NATURE_GREEK_RECEIPT_PREFIX+'.network.json',JSON.stringify({networkAttempts,bindingsRestored:globalThis.fetch===originalNetwork.fetch&&dns.lookup===originalNetwork.lookup&&dnsPromises.lookup===originalNetwork.promiseLookup,actualSourceClips:receipts.length,actualSyntheticClips:syntheticClips,writerProof:'Static: test calls clipNature only; clipNature returns results and does not call writePaper or download figures. No writer spy claimed.'},null,2)+'\n');
+});
 
 test('real Greek source keeps complete original paragraphs, rights, creators, targets and reference prefix',()=>{
   const dom=new JSDOM(html);doms.push(dom);const d=dom.window.document;
@@ -71,26 +85,33 @@ function orderedSourceRoles(paragraph){
   });
 }
 const sourceRoles=new Map(provenance.paragraphs.map(p=>[p.id,orderedSourceRoles(p)]));
-const sentinels={4:'In the regime where',5:'we obtain the desired dissipator',6:'Realization of the parity-flipping dissipator',7:'we require the physical setup',9:'is the squeezed annihilation operator',13:'Here ν is the trap frequency',15:'is the reduced density matrix on the motional mode'};
+const sentinels={4:'In the regime where',5:'we obtain the desired dissipator',6:'Realization of the parity-flipping dissipator',7:'we require the physical setup',9:'is the squeezed annihilation operator',13:'is the trap frequency',15:'is the reduced density matrix on the motional mode'};
 
 for(const dialect of ['markdown','links','quarto']){
-  const result=await clipNature({html,url:provenance.source.url,citationStyle:dialect});
-  // Explicit external capture only; default CI does not write reports and this
-  // collects the same three production results, without another clip pipeline.
-  if(process.env.NATURE_GREEK_RECEIPT_PREFIX){
-    const prefix=process.env.NATURE_GREEK_RECEIPT_PREFIX+'.'+dialect;
-    await writeFile(prefix+'.md',result.markdown);
-    await writeFile(prefix+'.json',JSON.stringify({baseSha:provenance.baseSha,fixture:provenance.fixture,debug:result.debug,bodyMarkdown:result.bodyMarkdown,semantic:result.semantic},(key,value)=>value instanceof Map?[...value]:value,2)+'\n');
-  }
+  // Lazy shared result keeps all source clips inside the test lifecycle and
+  // its network guards; top-level awaits could let after() run prematurely.
+  let resultPromise;
+  const getResult=()=>resultPromise??=clipNature({html,url:provenance.source.url,citationStyle:dialect}).then(async result=>{
+    receipts.push(dialect);
+    // Same three results, no extra clip to populate an external receipt.
+    if(process.env.NATURE_GREEK_RECEIPT_PREFIX){
+      const prefix=process.env.NATURE_GREEK_RECEIPT_PREFIX+'.'+dialect;
+      await writeFile(prefix+'.md',result.markdown);
+      await writeFile(prefix+'.json',JSON.stringify({baseSha:provenance.baseSha,runtimeScope:'current checkout production; baseSha above is original source baseline, not runtime identity',fixture:provenance.fixture,metadata:result.metadata,figures:result.figures,tables:result.tables,references:result.references,debug:result.debug,bodyMarkdown:result.bodyMarkdown,semantic:result.semantic},(key,value)=>value instanceof Map?[...value]:value,2)+'\n');
+    }
+    return result;
+  });
   for(const paragraph of provenance.paragraphs){
-    test(`real Methods p${paragraph.sourceParagraphIndex} preserves ordered plain Greek/subscript roles (${dialect})`,()=>{
+    test(`real Methods p${paragraph.sourceParagraphIndex} preserves ordered plain Greek/subscript roles (${dialect})`,async()=>{
+      const result=await getResult();
       const context=result.markdown.split('\n').find(line=>line.includes(sentinels[paragraph.sourceParagraphIndex]));
       assert.ok(context,paragraph.id+': complete source context was rendered');
       assert.deepEqual(greekAtoms(context),sourceRoles.get(paragraph.id),'Every source base/subscript must stay in ONE expression in its original paragraph, with original MathJax roles in source order: '+context);
       assert.doesNotMatch(context,/[ΓΩ]\s*\$_\{/u,'No orphaned subscript after plain Greek');
     });
   }
-  test(`real Greek excerpt production validators and original targets remain valid (${dialect})`,()=>{
+  test(`real Greek excerpt production validators and original targets remain valid (${dialect})`,async()=>{
+    const result=await getResult();
     assert.deepEqual(result.debug.warnings,[]);
     for(const key of ['rawHtmlValidation','markdownStructure','crossReferenceValidation'])assert.equal(result.debug[key].valid,true,key);
     assert.equal(result.debug.mathValidation.valid,true,JSON.stringify(result.debug.mathValidation));
@@ -109,6 +130,7 @@ test('synthetic Nature plain Greek prose, MathJax, citation SUP and code remain 
   assert.equal(page.tables.length,0);
   for(const dialect of ['markdown','links','quarto']){
     const result=await clipNature({html:synthetic,url,citationStyle:dialect});
+    syntheticClips+=1;
     assert.ok(result.markdown.includes('Ordinary Γ, Ω and β.'));
     assert.ok(result.markdown.includes(String.raw`$\Gamma_b+\Omega_0$`));
     assert.ok(result.markdown.includes('`Γ_b Ω_0`'));
