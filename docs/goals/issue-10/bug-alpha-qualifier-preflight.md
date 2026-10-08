@@ -64,7 +64,9 @@ Wrapper 验证快照/复用报告 bytes 后，以 `NATURE_ALPHA_QUALIFIER_SRC_RO
 
 唯一新运行：`node C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue71-preflight/run-oracle-precision.mjs`，wrapper 执行 `node --test test/nature-alpha-qualifier-oracle.test.mjs`，设置 `NATURE_ALPHA_QUALIFIER_CACHE_ROOT=C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-alpha-qualifier`。Node `v24.14.1` / `C:/nvm4w/nodejs/node.exe`；**exit0，4 tests /4 PASS /0 FAIL /0 skipped/cancelled/todo，59.1156ms**。三项 pure-string controls 接受完整 grouped95/font wrappers/原 Unicode，拒绝 split/unbraced/extra/mismatch/measurement/whitespace，并验证独立 inherited roles 和完整数组顺序。第四项只读原三方言 same-run cache，逐份核验原 SHA，确认原段落各4个 `r.m.s.d.$_{95}$` 仍被拒绝。没有导入原 top-level source test、matrix、parser、clip 或 source helper；没有新 DOM/source parse、原28/source3 rerun、A/raw/source58 audit、full/build/golden/npmci/live/CI。
 
-同目录外部记录：
+上述4/4是 `a10b453` packaging 修订前实际运行，receipt 的原3006-byte test input与当时四项 registry身份不变。后续只做静态 CI packaging：将第四项 optional historical cache check移入外部 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue71-preflight/historical-cache-oracle.test.mjs`，删除 committed oracle test的crypto/fs/path imports与TEMP env/`t.skip`分支。默认 test文件现在只有三项无条件 pure-string controls，不依赖外部缓存或env，不产生optional skip；没有fake PASS。新外部diagnostic也不含skip，需要其明确固定历史缓存；本轮未执行。原 `run-oracle-precision.mjs`、4/4 actual receipt/log及 `precision-handoff-a10b453.md`完整保留为历史，不重写为3 PASS、不再次执行旧wrapper，也不声称运行了新三项版本。此次仅两处tracked test/doc静态变更，没有任何test/cache/parser/source/clip/full/build/golden/live/CI rerun；新commit仍需root独立静态验收。
+
+同目录外部历史记录：
 
 | 记录 | bytes | SHA256 |
 | --- | ---: | --- |
