@@ -68,6 +68,39 @@ WindowsNode24.14.1，actual session20541终态exit1：**45tests /33PASS /12 expe
 
 Newtest SHA `0978eb02e9fe4164ff0b6ca2e318b7c7905d1014738c25f4e56ce911181a288e`（LFbytes）。原source/audit/globaloutput不重算hash来伪称freshsource验收；read-onlycheck源码与preparedruntime身份不改变既有science。
 
+## 不同 owner 计划审查与补充 context matrix
+
+不同 owner 的 `plan-review-4851903.md` 对 clean checkpoint `485190375685d49ffb3eb2920f79830f226c4845` 给出 `PLAN_SCOPE_COMPATIBLE_WITH_MATRIX_ADDITIONS_REQUESTED`，不是 implementation CLEAR。报告在 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue64-plan-independent-review/`，7734 bytes / SHA256 `bfa7410cc82152e92665a658d5d363d92483c6a180d1e2a89b7983164e57ee3f`。据此新增独立 `test/nature-greek-subscript-context-boundaries.test.mjs`；不加载原45或真实回归文件，避免其 top-level clip 被名称过滤误执行。
+
+新增16条明确 synthetic parse-only 控制：12 rejection（非空前 sibling、comment 连续词、identifier 前缀、3跨span literal cues、mixed/nested SUB、额外SUB/SUP附件），1 inherited styled-SUP compatibility，3 qualification（明确空格分隔的 sibling、href-only相邻citation、mixed body/caption共享非零marker）。拒绝新Greek role时仍保留既有 detached styled SUP、typed MathJax与citations，不能顺手更改另一个collector。
+
+实现资格据此明确：原 text-node 起点不自动是词法起点；真实前空格/标点是分隔，未知前 sibling/comment 与 identifier 连续性不猜成独立Greek变量。SUB仅原单 text atom，或恰一个I且I内恰单 text atom；不压平多个I、I与text混合、I内anchor/MathJax。额外相邻SUB/SUP保守拒绝新增Greek range；独立 native citation SUP不属于额外数学附件，不吞引用。含跨node `$`/backtick/fence cues的原inline parent保守保持opaque；若采用整parent cue guard，也会拒绝已闭合literal region之后的新plainGreek附件，这个未覆盖场景不得宣称通用Greek支持。原typedMathJax marker不等于literal cue。
+
+Mixed wiring control明确body scientific marker为原styled `v_{0}`，caption为新 `Γ_{a}`/`Γ_{b}`；inlineMath/citation也各有body/caption非零shared records。修复后必须分别一对一出现、保持原邻接与顺序、另一区块marker不得漏入，并移除已替换的原Greek/SUB节点。Baseline在missingGreek比较即失败，**后续wiring断言还未执行通过**；不能以global semantic列表存在推导finalMarkdown或caption正确。
+
+原owner已经于2026-10-08 05:57 UTC完成下面唯一新cases RED；恢复owner仅核读终态log/JSON/exit artifact，没有重新启动process或重跑。
+
+```powershell
+$env:GREEK_BOUNDARY_ADAPTER_MODULE='file:///C:/Users/guoli/.codex/worktrees/issue10-greek-source/academic-clipper/node_modules/issue64-preflight-f4a5/src/adapters/nature.mjs'
+$env:GREEK_CONTEXT_BOUNDARY_RECEIPT='C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue64-production-preflight/context-synthetic-red-f4a5.json'
+node --test test/nature-greek-subscript-context-boundaries.test.mjs
+Remove-Item Env:GREEK_BOUNDARY_ADAPTER_MODULE
+Remove-Item Env:GREEK_CONTEXT_BOUNDARY_RECEIPT
+```
+
+实际 **16tests /13PASS /3 expectedRED /722.325ms，0skip/cancel/todo，exit1**。12拒绝与1旧styled-SUP角色全PASS；两个正例actualTex=[]，mixed actualTex=[v_{0}] 缺captionΓa/Γb，均为预期缺失的nativeGreek保护，未发现harness错误。HTTP/DNS attempt ledger=[]、bindingsRestored=true；每个DOM finally close。原45/真实27/A120/raw/sourceaudit/clip/full/build/golden均未重复，未消费未接受#63实现。
+
+同一external preflight目录的新终态证据：
+
+| Artifact | Bytes | SHA-256 |
+| --- | ---: | --- |
+| context-synthetic-red-f4a5.log | 4692 | `4d70a745b810d318caac717c700afdbaacdea32bf0d480396e9a7b71753a8beb` |
+| context-synthetic-red-f4a5.json | 5344 | `6611db83f979bc70d61e4f645a548229ed8e9b0649f8200c68b0967cb872f44d` |
+| context-process-exit.txt | 1 | `6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b` |
+| new context test (LF) | 7548 | `2357356511559272aadd13798c81e1db9cb0a75dc08cc93ed3e611561c3684d8` |
+
+本补充只增加该测试与本preflight文档；原 source 与 scientific oracle不动。提交SHA可由 `git log -1 --format=%H -- test/nature-greek-subscript-context-boundaries.test.mjs` 重建，前置commit为4851903。Pending mergedMain仍由root唯一核验，本owner未poll/rebase/merge或取得Nature生产写权。
+
 ## 下一门槛
 
 本commit只新增newtest/doc，src/sourcefixture/validators/security/golden/deps/canonical/PRD/EDD无改动。Root正式发布#63mergedcommit Main/Secrets接受并释放共享Nature写权之前，**不得实施生产**。之后same64ownerbranch采用latestacceptedmain，重新确认actualcollector范围再最小修复；source原bytes/17oracle不变，不重新生成摘录。
