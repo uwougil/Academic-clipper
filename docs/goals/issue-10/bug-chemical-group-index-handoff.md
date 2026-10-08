@@ -44,7 +44,7 @@ Recipe `s41467-023-44030-3-chemical-group-index-v1`，SHA-256 `ca1ca9ac5d464122b
 | excerpt HTML | 72722 | `a8c10a9e583c640a3adb41cf7a55f3c1a4d1a7f7b8f88b7d370afaa969c8079b` |
 | provenance JSON | 59160 | `428ffafc1558ba0b07dadd0f48f44f29bfebe9b603f1e87ec8af4a564b949887` |
 | diagnosis JSON | 32460 | `4b178707f39e5dac50bd270f5fc18721856a328b3feccdec3e5b92a664c92360` |
-| permanent test | 实际 `git show HEAD:test/nature-chemical-group-index.test.mjs` bytes | `c693e600d8312c1020b95469505c985d107436d09f2a6af944502ccc17079634` |
+| permanent test | 10011 | `c693e600d8312c1020b95469505c985d107436d09f2a6af944502ccc17079634` |
 
 72722 bytes 处于 article20–150KiB target和256KiB hard cap内。Resource fixture0/table0、retained mainfigures2/display0；没有 sizeException。总 metadata/test size不被冒充 excerpt bytes，最终 corpus size仍属 integrator完整政策审阅。
 
