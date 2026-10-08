@@ -146,3 +146,46 @@ External root 仍是 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10
 `git diff --check` exit 0；3149676 clean。相对 dependency merge 524ba89，fixture/diagnosis/provenance、canonical/plan/PRD/EDD、golden、package/lock、security、clip、normalizers、validators、extension、CI 均无变化。仅 Nature 最小 33-line delta、原 focused test 的 17-line network evidence、40 synthetic matrix 和本 handoff 改动。
 
 **尚未完成**：不同 owner 的 incremental implementation review、affected/full tests、build/golden、新 implementation PR、fresh CI/Secrets、immutable final head review，以及 root 的十 gate merge/main acceptance。按 root 授权先等增量 review CLEAR 再跑一次必要 full/build/golden，不为 checkpoint 重跑 source clips 或旧 source audits；当前不宣称 PR-ready 或 #63 完成。成功 accepted merged main 后 SAME C 才恢复 Quantum source/validators，精确解除 p33 两 orphan SUP；Greek17 等独立缺陷继续保留。没有 spec proposal。
+
+## 增量审查修正与最终 local 验证
+
+上节 checkpoint 的 remaining 状态由本节更新，历史证据不删除。不同 owner 首次增量审查在 `3149676` 找到两个真实 P2：offset0 的 unknown sibling/comment 会把 word/210/0.10/identifier 尾段错当独立10；跨 inline sibling 的 literal math/code opening cue 没被单个 previous text guard 看见。独立 exact-baseline 22 个 parse-only probes 中 11 个新增误推；没有重复 source77/A/raw 或三个 real clips。首次 BLOCKED report 5378 bytes / `04ccb3b71499ce305e12ce381c165878f94b451639fe9bc8d6e3a98522fb5e1c` 与其 artifacts 在 `academic-clipper-issue63-incremental-review` 原样保存。
+
+追加 ordered authored commits：`d5981c5cc7239b0a1c4263c50b035db26cad6a4b`（12 新拒绝 matrix：11 review cases + 1 带空格 sibling opaque case）→ `1ea875efe80be3ebc1eacb61510a294a63aff7ce`（7 add / 2 delete 的 qualification 修正）。新12 cases-only 先在旧314生产真实 RED：exit1，0 PASS / 12 FAIL，953.7069 ms，没有重跑旧49/source baseline。修正要求 offset0 时无任何 previousSibling，并保守检查整个 parent inline text 的 dollar/backtick/fenced-tilde cues；没有复制 math/code parser。原 source、typed range TeX、generic scientific renderer 与其他 collector 不变。
+
+最终 qualification 局限：同 paragraph 内任何 literal dollar/backtick/fence cue 会让这一窄 role 走既有路径，包含 cue 已闭合之后的 plain split10。既有 single-text guard 已保守拒绝同类 context；本合同不声称通用 delimiter parser 或所有任意科学上下文已覆盖。真实 source p33/p37 没有此 literal cue，原 MathJax 已用 typed marker 保护；保留来源正确性，不能把这个 scope 局限藏成 required coverage PASS。若未来真实 source 要求更广识别，须保存新来源证据并独立立窄合同。README 如实记录该运行边界。
+
+不同 owner 第二次 review exact1ea875 CLEAR，zero blocking：`academic-clipper-issue63-incremental-review/delta-1ea875/incremental-review-1ea875.md`，5313 bytes / `f925ab72250818bf0f77606139227a0c1fbdc99dc3280c3005046f6ad402da55`。唯一同22 inputs delta 使先前11误推清零；另6有效 controls 分开记录（3正例 + 3纠正后的 literal controls），不重复正确旧观察；一次 reviewer PowerShell 插值错误的3inputs不计产品证据。有效28 probes均为 synthetic parse-only，0 new source clips/audits/full。
+
+最终 local runtime 精确绑定 code/test HEAD **`1ea875efe80be3ebc1eacb61510a294a63aff7ce`**、src tree **`9a79861e85a539b87da96e08ef855f037348cd64`**、test tree **`3935bbe3265d28bf614a4ded8d30851813e89581`**、Nature blob **`40593974b4ae7d6120c35c40ed6b8ef974b48509`**。Node v24.14.1；没有更改现有 lockfile/已按 `npm ci` 安装的 dependencies。
+
+| 最终必要命令 | 实际结果 |
+| --- | --- |
+| `node --test test/nature-split-power.test.mjs test/nature-split-power-boundaries.test.mjs` | code change 后必要 fresh source3 clips，每 style 一次；61/61 PASS，1866.487 ms，exit0、0 skip/todo/cancel |
+| `node --test test/nature-adapter.test.mjs test/nature-scientific-units.test.mjs test/nature-styled-adjacency.test.mjs test/nature-styled-adjacency-boundaries.test.mjs test/nature-scientific-citations.test.mjs test/nature-scientific-citation-boundaries.test.mjs test/nature-isotope-mass.test.mjs test/nature-isotope-mass-boundaries.test.mjs test/nature-isotope-mass-coverage.test.mjs test/nature-table-caption-clip.test.mjs test/output-quality.test.mjs` | 275/275 PASS，6439.1221 ms，exit0、0 skip/todo/cancel |
+| `npm test` | **737/737 PASS，81070.8737 ms，exit0、0 skip/todo/cancel**。唯一 full exec session29335，经实际同 handle 等待到终态；不是仅从 log 推测完成 |
+| `npm run build` | exit0；ignored dist output 不进 Git |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0；250 inline / 13 display / 50 refs，四 validators valid，golden 未改变 |
+| `git diff --check` / `git status --short` / protected paths | exit0 / clean code checkpoint / spec、source fixture、security、normalizers、validators、writer、clip、dependencies、golden、extension/CI 无变化 |
+
+Full 前清除所有 optional focused receipt environment variables；全量 suite 真实运行，不用 cached clip 替代，不覆盖旧focused缓存。Source3 fresh final cache 与上一fixed cache恰好字节相同，但是 code变更后确实重新运行，不能拿旧byteidentity冒充新runtime。四 validators valid、warnings 唯一NoEquation、ordered citations仍 `[[58],[58],[8,51],[58]]`、refs58、resources/tables[]、record-before-throw HTTP/DNS ledger[]、bindings复原。新MD缓存另存 `reviewed-delta/`，各Markdown bytes/hash同上表，原历史产物不覆写。
+
+External final evidence（仍不提交 full captures/cache/logs）：
+
+| Evidence | bytes / SHA-256 |
+| --- | --- |
+| `review-boundary-red-3149676.log` | 14174 / `a31bd4f9f5094b907fb7e396c330d18224d7c5f2b69b09f2456431e3a92ae737` |
+| `review-boundary-red-3149676.json` | 110364 / `57de5d3f9b7873a332f01e029d98599fbad2dbd330148c06e7a4b7c91354e044` |
+| `focused-green-reviewed-delta.log` | 5259 / `dc69e7085cad17876b2cbfee59e67a322a1511ff07f5d4675440a4877a5c3b9f` |
+| `boundary-green-reviewed-delta.json` | 475980 / `8f33efc4edd96da6f8a8727a92d94cb89ea8d8b41e2bf3b5734bfdc8528223f9` |
+| `green-source-reviewed-delta.json` | 92793 / `2ef9dea42c8e212949323f4e900ab0543f626228e98bcc17eea0b8934c5ba28f` |
+| `affected-1ea875.log` | 51371 / `1e5321628ed85e1600aa2dc60da881040fdf017854b49902a5f112eb3521e0f2` |
+| `full-1ea875.log` | 92765 / `1ae187b180537db10b75471afdff9d9c1ba9ce0991bcd2d4914a2bd30089d115` |
+| `full-1ea875-exit.txt` | 1 / `5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9`（实际0） |
+| `build-1ea875.log` | 168 / `a2b090d8b57c0f4eb3698da6e609deea60f71bd1e76a87e31092dabb5a103af2` |
+| `golden-1ea875.log` | 3018 / `49fe118cfcf91bcbef91e1ec9ffad67f8807589431c6179ffc5cd1a8f8a36498` |
+| `final-local-1ea875-receipt.json` | 9546 / `c64bf6632215df5979cb7c703f21f4e858b1ec590cadbebfc0c4f6ad6471fee8` |
+
+上述 immutable receipt 包含 exact commands/heads/blobs/terminal exits、full session、四 validators/citation/cache/network/writer事实、全部log hashes和protected scope，后续 docs-only/head CI 审核可在相同 source/code/test tree 上复用。原源77 audit、旧40RED、49GREEN、第一次BLOCKED、12新RED全部保留，不重做。最后 docs-only commit 用 git log 重建，除本文与 README 外无新 runtime变更。
+
+目前 local implementation / incremental review 已通过；下一步唯一 `Refs #63` delivery PR、fresh 三平台 CI/Secrets、different-owner immutable final publication review、root十 gates后合并与 merged-main CI automation 尚须完成。Owner 不自行 merge 或关闭合同，不宣称 Issue #10 complete。
