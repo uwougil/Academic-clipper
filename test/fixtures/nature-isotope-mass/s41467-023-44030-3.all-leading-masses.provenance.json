@@ -1,0 +1,3261 @@
+{
+  "evidenceVersion": "nature-isotope-mass-coverage/1.0.0",
+  "status": "SOURCE_ONLY_RED; no production implementation",
+  "workContract": 61,
+  "source": {
+    "url": "https://www.nature.com/articles/s41467-023-44030-3",
+    "canonical": "https://www.nature.com/articles/s41467-023-44030-3",
+    "doi": "10.1038/s41467-023-44030-3",
+    "title": "C5 methylation confers accessibility, stability and selectivity to picrotoxinin",
+    "journal": "Nature Communications",
+    "observedAt": "2026-10-03T16:44:25.253Z",
+    "bytes": 460171,
+    "sha256": "a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d",
+    "publicAccess": {
+      "articleLabel": "Article Open access Published: 14 December 2023",
+      "jsonLdIsAccessibleForFree": true,
+      "jsonLdSameAs": "https://doi.org/10.1038/s41467-023-44030-3"
+    }
+  },
+  "dependencies": {
+    "acceptedMain": "3889f7396eab99060bec88fc8b0dcd3e6712024e",
+    "bSourceCommit": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330",
+    "cSourcePacketCommit": "3d533fb15115ad670e30b52b11ac6435d654c53a",
+    "bEvidenceGitBlob": "a30c30af7588d9bec204b7fd3d706d7aae1e45b9",
+    "helper": {
+      "path": "scripts/lib/nature-corpus-infrastructure.mjs",
+      "gitBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+      "gitBytes": 34946,
+      "sha256": "a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c",
+      "schemaVersion": "1.0.0",
+      "recipeVersion": "1.0.0",
+      "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+      "serializerVersion": "nature-corpus-subtree/1.0.0",
+      "projectionVersion": "nature-corpus-projection/1.0.0"
+    },
+    "cPriorRolePacketCommit": "19e09534736ff77b673fd289ea0b63a91514c7e3",
+    "cRemainingSourcePacketSha256": "29275569f9bdfadfbe11f26c97e0d3b9f919b5a153a55a48e22bf7a771c94bf7"
+  },
+  "originalNine": {
+    "sourceCommit": "2d038beaef441b346bd341c0783fba2d317ef8c6",
+    "checkpoint": "b78c39a55ffccf00c4a8f8085f5b91ece55f4b6b",
+    "fixture": {
+      "path": "s41467-023-44030-3.excerpt.html",
+      "bytes": 53436,
+      "sha256": "3c68fff1660b3b861da7432e9d96ce9957649adca7105646e4ee206e531365f0",
+      "recipeSha256": "04fb0c8294a21f573d806121722b073d646e66531324e9067a4922112279ff90",
+      "repeatBytesEqual": true,
+      "idempotentBytesEqual": true
+    },
+    "unchanged": true
+  },
+  "fixture": {
+    "path": "s41467-023-44030-3.all-leading-masses.excerpt.html",
+    "bytes": 83245,
+    "sha256": "ca8665672f96c5590bb0767cab0448f60305f3b916b8e743e478766975a3ea81",
+    "recipeSha256": "733e4d843d613e887f2184b1cef439c2c7687ff71ae8d3d61d0e7fa570e7677d",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "recipe": {
+    "version": "1.0.0",
+    "id": "s41467-023-44030-3-all-leading-isotope-masses-v1",
+    "articleUrl": "https://www.nature.com/articles/s41467-023-44030-3",
+    "blocks": [
+      {
+        "id": "a-meta-11",
+        "selector": "head > meta[name=\"dc.title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-36",
+        "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature Communications\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-40",
+        "selector": "head > meta[name=\"citation_title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-41",
+        "selector": "head > meta[name=\"citation_volume\"][content=\"14\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-42",
+        "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-43",
+        "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/12/14\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-44",
+        "selector": "head > meta[name=\"citation_firstpage\"][content=\"8308\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-45",
+        "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-49",
+        "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41467-023-44030-3\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-52",
+        "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41467-023-44030-3\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-122",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Tong, Guanghu\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-124",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Griffin, Samantha\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-126",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Sader, Avery\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-128",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Crowell, Anna B.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-130",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Beavers, Ken\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-132",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Watson, Jerry\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-134",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Buchan, Zachary\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-136",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Shuming\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-138",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Shenvi, Ryan A.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-147",
+        "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41467-023-44030-3\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-148",
+        "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-150",
+        "selector": "head > meta[property=\"og:title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin - Nature Communications\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "title",
+        "selector": "h1.c-article-title",
+        "role": "title"
+      },
+      {
+        "id": "heading-Sec2",
+        "selector": "#Sec2",
+        "role": "original-heading-context"
+      },
+      {
+        "id": "heading-Sec3",
+        "selector": "#Sec3",
+        "role": "original-heading-context"
+      },
+      {
+        "id": "heading-Sec5",
+        "selector": "#Sec5",
+        "role": "original-heading-context"
+      },
+      {
+        "id": "heading-Sec6",
+        "selector": "#Sec6",
+        "role": "original-heading-context"
+      },
+      {
+        "id": "heading-Sec8",
+        "selector": "#Sec8",
+        "role": "original-heading-context"
+      },
+      {
+        "id": "results-p0",
+        "selector": "#Sec2-content > p:first-of-type",
+        "role": "complete-original-paragraph"
+      },
+      {
+        "id": "results-p5-fluorine",
+        "selector": "#Sec2-content > p:has(a#ref-link-section-d76734419e1091)",
+        "role": "complete-original-paragraph"
+      },
+      {
+        "id": "results-p6-nmr",
+        "selector": "#Sec2-content > p:has(a#ref-link-section-d76734419e1122)",
+        "role": "complete-original-paragraph"
+      },
+      {
+        "id": "figure-3-complete",
+        "selector": "#figure-3",
+        "role": "complete-original-figure-wrapper"
+      },
+      {
+        "id": "figure-5-complete",
+        "selector": "#figure-5",
+        "role": "complete-original-figure-wrapper"
+      },
+      {
+        "id": "results-p20-binding",
+        "selector": "#Sec2-content > p:has(a[href$=\"#Fig5\"]):has(> sup:nth-of-type(4)):not(:has(> sup:nth-of-type(5)))",
+        "role": "complete-original-paragraph"
+      },
+      {
+        "id": "methods-p0",
+        "selector": "#Sec8-content > p:first-of-type",
+        "role": "complete-original-paragraph"
+      },
+      {
+        "id": "references-heading",
+        "selector": "#Bib1",
+        "role": "heading"
+      },
+      {
+        "id": "reference-1",
+        "selector": "ol.c-article-references > li:nth-child(1)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-2",
+        "selector": "ol.c-article-references > li:nth-child(2)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-3",
+        "selector": "ol.c-article-references > li:nth-child(3)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-4",
+        "selector": "ol.c-article-references > li:nth-child(4)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-5",
+        "selector": "ol.c-article-references > li:nth-child(5)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-6",
+        "selector": "ol.c-article-references > li:nth-child(6)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-7",
+        "selector": "ol.c-article-references > li:nth-child(7)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-8",
+        "selector": "ol.c-article-references > li:nth-child(8)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-9",
+        "selector": "ol.c-article-references > li:nth-child(9)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-10",
+        "selector": "ol.c-article-references > li:nth-child(10)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-11",
+        "selector": "ol.c-article-references > li:nth-child(11)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-12",
+        "selector": "ol.c-article-references > li:nth-child(12)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-13",
+        "selector": "ol.c-article-references > li:nth-child(13)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-14",
+        "selector": "ol.c-article-references > li:nth-child(14)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-15",
+        "selector": "ol.c-article-references > li:nth-child(15)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-16",
+        "selector": "ol.c-article-references > li:nth-child(16)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-17",
+        "selector": "ol.c-article-references > li:nth-child(17)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-18",
+        "selector": "ol.c-article-references > li:nth-child(18)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-19",
+        "selector": "ol.c-article-references > li:nth-child(19)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-20",
+        "selector": "ol.c-article-references > li:nth-child(20)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-21",
+        "selector": "ol.c-article-references > li:nth-child(21)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-22",
+        "selector": "ol.c-article-references > li:nth-child(22)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-23",
+        "selector": "ol.c-article-references > li:nth-child(23)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-24",
+        "selector": "ol.c-article-references > li:nth-child(24)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-25",
+        "selector": "ol.c-article-references > li:nth-child(25)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-26",
+        "selector": "ol.c-article-references > li:nth-child(26)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-27",
+        "selector": "ol.c-article-references > li:nth-child(27)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-28",
+        "selector": "ol.c-article-references > li:nth-child(28)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-29",
+        "selector": "ol.c-article-references > li:nth-child(29)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-30",
+        "selector": "ol.c-article-references > li:nth-child(30)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-31",
+        "selector": "ol.c-article-references > li:nth-child(31)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-32",
+        "selector": "ol.c-article-references > li:nth-child(32)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-33",
+        "selector": "ol.c-article-references > li:nth-child(33)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-34",
+        "selector": "ol.c-article-references > li:nth-child(34)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-35",
+        "selector": "ol.c-article-references > li:nth-child(35)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-36",
+        "selector": "ol.c-article-references > li:nth-child(36)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-37",
+        "selector": "ol.c-article-references > li:nth-child(37)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-38",
+        "selector": "ol.c-article-references > li:nth-child(38)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-39",
+        "selector": "ol.c-article-references > li:nth-child(39)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-40",
+        "selector": "ol.c-article-references > li:nth-child(40)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-41",
+        "selector": "ol.c-article-references > li:nth-child(41)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-42",
+        "selector": "ol.c-article-references > li:nth-child(42)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "reference-43",
+        "selector": "ol.c-article-references > li:nth-child(43)",
+        "role": "unrenumbered-source-reference-prefix"
+      },
+      {
+        "id": "rights",
+        "selector": "section[data-title=\"Rights and permissions\"] p:first-of-type",
+        "role": "rights"
+      },
+      {
+        "id": "publisher-footer",
+        "selector": "p.c-footer__legal",
+        "role": "site-footer"
+      }
+    ],
+    "removeSelectors": []
+  },
+  "retainedBlocks": [
+    {
+      "id": "a-meta-11",
+      "selector": "head > meta[name=\"dc.title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "89db2f0d3246994e1a44edd43109c208c2b0ac221113b0be77fe06c9adb9cca5"
+    },
+    {
+      "id": "a-meta-36",
+      "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature Communications\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "fed763f4c00b78f71837e14baaf5d5e95f1b9ce6b9c51a9fb8932d9fe1dfc53e"
+    },
+    {
+      "id": "a-meta-40",
+      "selector": "head > meta[name=\"citation_title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "70bc2481e88c2723d5a5b9ddb40bcbffccab958163b942a06f6d46da288a28ff"
+    },
+    {
+      "id": "a-meta-41",
+      "selector": "head > meta[name=\"citation_volume\"][content=\"14\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "df7ba09daa145ad4a25ade2d52ff2b2aa60f10c6d3ff0ec8ea7eee10a4c4b76c"
+    },
+    {
+      "id": "a-meta-42",
+      "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ed1801e512cd04c79001567258d9938bff6132aa5dd4e064b95179536e4cdde8"
+    },
+    {
+      "id": "a-meta-43",
+      "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/12/14\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "04ffee8d1f7ef090c9c55f1b2cefd36445629ff757ceba710e185a95b474771a"
+    },
+    {
+      "id": "a-meta-44",
+      "selector": "head > meta[name=\"citation_firstpage\"][content=\"8308\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "327d6354e424e1b372c5cf859e4e71c01fba89c99aa0532638ae05a4b597706d"
+    },
+    {
+      "id": "a-meta-45",
+      "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "aeb52796a9a520993fee49b41ab2b5460c5dcfe24a657aaee093d4618fd9e1c6"
+    },
+    {
+      "id": "a-meta-49",
+      "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41467-023-44030-3\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "4b5ed9045a8b237706c58230af1168cf11fcf944aa46f36b7659a8f27447a1fe"
+    },
+    {
+      "id": "a-meta-52",
+      "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41467-023-44030-3\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a43975239627809fec074e4b85f732c950b59d1f06c82ccc9cc70210f51e70e1"
+    },
+    {
+      "id": "a-meta-122",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Tong, Guanghu\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "806be7997770aebcef77a6124b104e5522fb38409183d1101e0edceff06312be"
+    },
+    {
+      "id": "a-meta-124",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Griffin, Samantha\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "9af41c7634e2f21d5f15bf578bac918d6b573d25fa695f3ecb4b15d7534ff43a"
+    },
+    {
+      "id": "a-meta-126",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Sader, Avery\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "0f6ffba52b0322bdfd051bffca4f09737438cacdf8ea4f46c2e294f0206a44c6"
+    },
+    {
+      "id": "a-meta-128",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Crowell, Anna B.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "bcfc4b60e96ce8d5f26936774b04eb576d9f366001107694718d6a187ef7fc45"
+    },
+    {
+      "id": "a-meta-130",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Beavers, Ken\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "421a4580a5ff93c9f4c3810b0bd31bd49aec65e108a9ab0155a5622cd8940a63"
+    },
+    {
+      "id": "a-meta-132",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Watson, Jerry\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b4dc454c3dbaceba761ac555f8ea07c791306137bdb9c8a68bc28601cb8b6799"
+    },
+    {
+      "id": "a-meta-134",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Buchan, Zachary\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "645106cfca35b972290f9b146feae464b737280384e824748c38f8a49d643d99"
+    },
+    {
+      "id": "a-meta-136",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Chen, Shuming\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "18394fb72ba21888387f57680034102ae01909e733b72a15d34a302fd81b5c29"
+    },
+    {
+      "id": "a-meta-138",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Shenvi, Ryan A.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "f09a470328c892187e516be0e6653b5a413bcf60d066a237324729d75715026e"
+    },
+    {
+      "id": "a-meta-147",
+      "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41467-023-44030-3\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "63828a01686594198ae673064205e58c81617de414846b8fdb16772b0533e8b7"
+    },
+    {
+      "id": "a-meta-148",
+      "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e2a47d03efa7114d4bc8e65c0fba2e84722b49e6e718eb787898c3c61ac5bcc9"
+    },
+    {
+      "id": "a-meta-150",
+      "selector": "head > meta[property=\"og:title\"][content=\"C5 methylation confers accessibility, stability and selectivity to picrotoxinin - Nature Communications\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "db6a311bdcbcf0112f05d142f737f1b8c1b91da85c48fb912ad88f5c6739276b"
+    },
+    {
+      "id": "a-canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "9ee97a163f3fbc8b42ef3c4a9fb68f3b832c2d8b19bca58f330b9e86b6e4bed2"
+    },
+    {
+      "id": "a-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a3752c408c06d02bf6a1668852de8f8e44f2c1694ca143a62c3d0d9014c4c8c3"
+    },
+    {
+      "id": "title",
+      "selector": "h1.c-article-title",
+      "role": "title",
+      "sourceSubtreeSha256": "a98982a1c165f4924e6d23554e44a9dc64032b627fe31feced742de881f52c0a"
+    },
+    {
+      "id": "heading-Sec2",
+      "selector": "#Sec2",
+      "role": "original-heading-context",
+      "sourceSubtreeSha256": "b05d837b4acc0107b3277337c107f65be4a18c0bd31c2db268b4ce350058bb02"
+    },
+    {
+      "id": "heading-Sec3",
+      "selector": "#Sec3",
+      "role": "original-heading-context",
+      "sourceSubtreeSha256": "8e9e4ba08df87bee44def5d8f5380a25fc78287d76f0e49fb9929e313dfb4753"
+    },
+    {
+      "id": "heading-Sec5",
+      "selector": "#Sec5",
+      "role": "original-heading-context",
+      "sourceSubtreeSha256": "6efe080bcd48876d870625d213e554afeda67e9e32d341179c94ae1a76d28a83"
+    },
+    {
+      "id": "heading-Sec6",
+      "selector": "#Sec6",
+      "role": "original-heading-context",
+      "sourceSubtreeSha256": "fe422af02d25168007e475e7490ab81732f0b9fb75b919ef65fe72617daad0e8"
+    },
+    {
+      "id": "heading-Sec8",
+      "selector": "#Sec8",
+      "role": "original-heading-context",
+      "sourceSubtreeSha256": "2e9f88d8fb9495c0fcd4cd622088c955791a503c86dc1c501b1fe900f512d822"
+    },
+    {
+      "id": "results-p0",
+      "selector": "#Sec2-content > p:first-of-type",
+      "role": "complete-original-paragraph",
+      "sourceSubtreeSha256": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c"
+    },
+    {
+      "id": "results-p5-fluorine",
+      "selector": "#Sec2-content > p:has(a#ref-link-section-d76734419e1091)",
+      "role": "complete-original-paragraph",
+      "sourceSubtreeSha256": "b128b77e64328225608d6694938fccf1aed9a9f58a0f7beb1c842d0511999947"
+    },
+    {
+      "id": "results-p6-nmr",
+      "selector": "#Sec2-content > p:has(a#ref-link-section-d76734419e1122)",
+      "role": "complete-original-paragraph",
+      "sourceSubtreeSha256": "77668daf030a601bae26e46af3b5352e4334073e3dbb2d5ed4648cc1a128a975"
+    },
+    {
+      "id": "figure-3-complete",
+      "selector": "#figure-3",
+      "role": "complete-original-figure-wrapper",
+      "sourceSubtreeSha256": "472a0ddbd53ebef050ec348df7983861c2abe5ef8209c413387a54cb474e33b5"
+    },
+    {
+      "id": "figure-5-complete",
+      "selector": "#figure-5",
+      "role": "complete-original-figure-wrapper",
+      "sourceSubtreeSha256": "0bcbd8c744ff93e084960d9e3d214f443e35a1bbab4648066f5b24e62ba3f457"
+    },
+    {
+      "id": "results-p20-binding",
+      "selector": "#Sec2-content > p:has(a[href$=\"#Fig5\"]):has(> sup:nth-of-type(4)):not(:has(> sup:nth-of-type(5)))",
+      "role": "complete-original-paragraph",
+      "sourceSubtreeSha256": "84ce5d602039554b81ef69b4a8801d0e6a6f1dbbaa20ad0c02545136d4c2b56a"
+    },
+    {
+      "id": "methods-p0",
+      "selector": "#Sec8-content > p:first-of-type",
+      "role": "complete-original-paragraph",
+      "sourceSubtreeSha256": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a"
+    },
+    {
+      "id": "references-heading",
+      "selector": "#Bib1",
+      "role": "heading",
+      "sourceSubtreeSha256": "af92342e8974526976997242004de48e6fcf9aef95e778bf2972d4199120887d"
+    },
+    {
+      "id": "reference-1",
+      "selector": "ol.c-article-references > li:nth-child(1)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "d68b1d66d538fda5924669267c747cc115233e1e0d88eb6da2da3b18dad02e97"
+    },
+    {
+      "id": "reference-2",
+      "selector": "ol.c-article-references > li:nth-child(2)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "8f24c1c4ce020ddf8a62ef0e68908e8f67fb26d62c62045d6d5a5d2a556a4250"
+    },
+    {
+      "id": "reference-3",
+      "selector": "ol.c-article-references > li:nth-child(3)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "195f1b6be41b4fcb77b01849b5f90589239b9f8a81fb93d25392b2dc5e0e719a"
+    },
+    {
+      "id": "reference-4",
+      "selector": "ol.c-article-references > li:nth-child(4)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "bcf9e562953769e5cf2e9b2b67012cdc6f43abba116fbb608d671b7c2fbcb9b9"
+    },
+    {
+      "id": "reference-5",
+      "selector": "ol.c-article-references > li:nth-child(5)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "058a3e4c6b01d703aa71149d468d8fde4bc91695982fc8ad7a007d4ad0976212"
+    },
+    {
+      "id": "reference-6",
+      "selector": "ol.c-article-references > li:nth-child(6)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "656c1bed0790acfe4e6e6d943b89fcb32dfc99e7e697d273e752aad9ebe8f827"
+    },
+    {
+      "id": "reference-7",
+      "selector": "ol.c-article-references > li:nth-child(7)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "1517429a4dd28ae8aa9c2d593d06c93d884a28df77efd2b73be9c74fa712a6b5"
+    },
+    {
+      "id": "reference-8",
+      "selector": "ol.c-article-references > li:nth-child(8)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "48126da1818c00716f8942f91174a3d3f53a8d658dff5e153ae7e96a738e94a4"
+    },
+    {
+      "id": "reference-9",
+      "selector": "ol.c-article-references > li:nth-child(9)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "8aaf096adb73cfe8ccaec2bb427b0de59dc55400881e0f35cf62a95e126d0c07"
+    },
+    {
+      "id": "reference-10",
+      "selector": "ol.c-article-references > li:nth-child(10)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "a4ded140e2258e5cbb9d11facb2d751da7c2515767f3e50601eaa1b28fcf7c8a"
+    },
+    {
+      "id": "reference-11",
+      "selector": "ol.c-article-references > li:nth-child(11)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "65cb24a07e6ba56fc65567a1c1118f90227adc9acf407895d1e9ce8735619990"
+    },
+    {
+      "id": "reference-12",
+      "selector": "ol.c-article-references > li:nth-child(12)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "04444a8d8505275041bbb5ea0e862a81d7c3cb29b957b5e70657c7eb798dc994"
+    },
+    {
+      "id": "reference-13",
+      "selector": "ol.c-article-references > li:nth-child(13)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "3b7c7541d05f1736c52c131a69b400fc907837b8a9fe4873ef0c70c84a6dd74b"
+    },
+    {
+      "id": "reference-14",
+      "selector": "ol.c-article-references > li:nth-child(14)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "d41405bedc94841bd4c76e03816f944aee0cae985120f6bb04fac78a84e34109"
+    },
+    {
+      "id": "reference-15",
+      "selector": "ol.c-article-references > li:nth-child(15)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "e9eb9630bf2be6b20faacf902204a4f2a96e534289545d5151e646111bd4c123"
+    },
+    {
+      "id": "reference-16",
+      "selector": "ol.c-article-references > li:nth-child(16)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "2685d6568bfd882d040fd83791d8df48c21bf578b9d53741d0d770b4d8928b65"
+    },
+    {
+      "id": "reference-17",
+      "selector": "ol.c-article-references > li:nth-child(17)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "50ed5b79c0357ddbcf2c11e57384486d2d8400766b013a3976a8aa0a2b67ce10"
+    },
+    {
+      "id": "reference-18",
+      "selector": "ol.c-article-references > li:nth-child(18)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "e3f4d32db13c9e9f3011877a8353abf5b448b3bf299f086be320ffbb494d2663"
+    },
+    {
+      "id": "reference-19",
+      "selector": "ol.c-article-references > li:nth-child(19)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "93ae20496b2307f5a6cf31a5aa929691b1f5d23b78e4de37848c7dca0f0037f8"
+    },
+    {
+      "id": "reference-20",
+      "selector": "ol.c-article-references > li:nth-child(20)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "056fdcf21b4ebf1ae4aa6deca789ee4f6a11d6423106d69c308546a5d281013a"
+    },
+    {
+      "id": "reference-21",
+      "selector": "ol.c-article-references > li:nth-child(21)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "49031960d161717fb98328cd637a4ebe57f1b7ef11e038f28aaba3e2ffaa606d"
+    },
+    {
+      "id": "reference-22",
+      "selector": "ol.c-article-references > li:nth-child(22)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "7e812d4411301b63a14d08fce913895cde97bcf24ec8cecc943307a94d80785b"
+    },
+    {
+      "id": "reference-23",
+      "selector": "ol.c-article-references > li:nth-child(23)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "5e5903ed0c38da46f59b083a72714bff4c0a9968d463f9e4596a6a45601d3ae9"
+    },
+    {
+      "id": "reference-24",
+      "selector": "ol.c-article-references > li:nth-child(24)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "b978651a18abceff351f31a76d6e8292d07c1606ad98ecd6bc6011826e27bb45"
+    },
+    {
+      "id": "reference-25",
+      "selector": "ol.c-article-references > li:nth-child(25)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "874a338c0f0f8667416c75a8f8fd4dd6932c18331ffe9622df2975edee972815"
+    },
+    {
+      "id": "reference-26",
+      "selector": "ol.c-article-references > li:nth-child(26)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "f6dff6343371585375991473945979d20927824fa28c015488f13ea1c29636fe"
+    },
+    {
+      "id": "reference-27",
+      "selector": "ol.c-article-references > li:nth-child(27)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "f63a5111b2add91d93c546843d76d9b9872a12637b0dc8e719ce1ac4a44b80e4"
+    },
+    {
+      "id": "reference-28",
+      "selector": "ol.c-article-references > li:nth-child(28)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "0644a2ff578c9f4a77026fc786c875033b4ae8dc1d5a8846132cd218a97599b5"
+    },
+    {
+      "id": "reference-29",
+      "selector": "ol.c-article-references > li:nth-child(29)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "235b0e0edc5da14512dfabaa2b2fd8befdea99d3f134f7f0c0d922996c694043"
+    },
+    {
+      "id": "reference-30",
+      "selector": "ol.c-article-references > li:nth-child(30)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "8c4bad5fd32f0705e99bf759a19f0e9811b006c185385fcd18499d6c36d3d113"
+    },
+    {
+      "id": "reference-31",
+      "selector": "ol.c-article-references > li:nth-child(31)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "b586f275194f1f628cb70556193427ae6bf647e3e9d97087a225829123de91d7"
+    },
+    {
+      "id": "reference-32",
+      "selector": "ol.c-article-references > li:nth-child(32)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "0c5a3f07f6fe6cb807f83e5968bb246802954a529c9795a196d7721253cf80e0"
+    },
+    {
+      "id": "reference-33",
+      "selector": "ol.c-article-references > li:nth-child(33)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "e232a49bef1c5dbce8317456591f219140afb88ab455b6e3221bb4d7acb0ee8e"
+    },
+    {
+      "id": "reference-34",
+      "selector": "ol.c-article-references > li:nth-child(34)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "353eeac0256fb70ddf1564afee1bb739e10c72f9c7f5ec0a34cdd7054e711d66"
+    },
+    {
+      "id": "reference-35",
+      "selector": "ol.c-article-references > li:nth-child(35)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "65e3f71440c821415454ce0cbd51018b938158d7c563d1b0a9ca6a222483b34f"
+    },
+    {
+      "id": "reference-36",
+      "selector": "ol.c-article-references > li:nth-child(36)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "d765f11e36636f1418d7752affae16e657e453e8349d624e0797a02c3996cdf7"
+    },
+    {
+      "id": "reference-37",
+      "selector": "ol.c-article-references > li:nth-child(37)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "42c15aeb8c430d2bcbf063093b8f18e4f608ba0fe73529af0accd6ca3a025f5c"
+    },
+    {
+      "id": "reference-38",
+      "selector": "ol.c-article-references > li:nth-child(38)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "9083b974722a00e85bdb3167f8e1a1aa5095d710e8cb8a0883fe3c8993fc736a"
+    },
+    {
+      "id": "reference-39",
+      "selector": "ol.c-article-references > li:nth-child(39)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "0ba12a87dc8ed96df9ee0c38c03421723bf67e14f0cbd4164ddb2517f19cc830"
+    },
+    {
+      "id": "reference-40",
+      "selector": "ol.c-article-references > li:nth-child(40)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "543e962a836e7d05b0e38cacf2400bdb59e8630bb49691b7e17ab6812fc9c893"
+    },
+    {
+      "id": "reference-41",
+      "selector": "ol.c-article-references > li:nth-child(41)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "973c7e3e09a3f46b82b4043ae979a47deae77568bf4c26e9701da672525ee226"
+    },
+    {
+      "id": "reference-42",
+      "selector": "ol.c-article-references > li:nth-child(42)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "40546dec9ee3a8f375ec97bc358dc166c9d9355a3ec3c05430f8822b74ea8ebb"
+    },
+    {
+      "id": "reference-43",
+      "selector": "ol.c-article-references > li:nth-child(43)",
+      "role": "unrenumbered-source-reference-prefix",
+      "sourceSubtreeSha256": "e3c02b078d2c6cd71b95896c1c7489a6269c984de636ff402821c9c24815fbb9"
+    },
+    {
+      "id": "rights",
+      "selector": "section[data-title=\"Rights and permissions\"] p:first-of-type",
+      "role": "rights",
+      "sourceSubtreeSha256": "84ab88094d2cd6f87d0a2a8abbb091db26a34a50a7701aa2a706a9a1a4b4dafd"
+    },
+    {
+      "id": "publisher-footer",
+      "selector": "p.c-footer__legal",
+      "role": "site-footer",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3"
+    }
+  ],
+  "transformations": [
+    {
+      "operation": "select-complete-source-blocks-with-ancestors",
+      "count": 83
+    },
+    {
+      "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+      "count": 1
+    },
+    {
+      "operation": "trim-json-ld-to-article-object",
+      "count": 1
+    },
+    {
+      "operation": "remove-attributes",
+      "count": 928
+    },
+    {
+      "operation": "sanitize-resource-urls",
+      "count": 40
+    }
+  ],
+  "signatures": {
+    "projectionVersion": "nature-corpus-projection/1.0.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "recipeSha256": "733e4d843d613e887f2184b1cef439c2c7687ff71ae8d3d61d0e7fa570e7677d",
+    "structureSha256": "6bf740cb94ef0e6b8fc49b89dfa63364b5bcdbdd9ed918a7b6d83c3ccf3fb65c",
+    "payloadSha256": "09c609b134e1a6afb40e2bdf55a67ca8fe8ff2bc4c6e1e4a8020c333fee3ab7b"
+  },
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41467-023-44030-3",
+    "sourceObservedAt": "2026-10-03T16:44:25.253Z",
+    "sourceSha256": "a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Tong, Guanghu",
+      "Griffin, Samantha",
+      "Sader, Avery",
+      "Crowell, Anna B.",
+      "Beavers, Ken",
+      "Watson, Jerry",
+      "Buchan, Zachary",
+      "Chen, Shuming",
+      "Shenvi, Ryan A."
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "84ab88094d2cd6f87d0a2a8abbb091db26a34a50a7701aa2a706a9a1a4b4dafd",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "sourceRawNoticeText": "Open Access  This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/."
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [],
+    "technicalTransformations": "Complete original paragraphs Results p0/p5/p6/p20 and Methods p0, complete Figure3 and Figure5 wrappers/captions; original source ancestors/heading context and unrenumbered References prefix 1–43. A sanitizer1.1.0 / serializer-projection-recipe1.0.0 only; no scholarly text, mass, following element, measurement, styling, citation, creator or license edit.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "paragraphs": [
+    {
+      "id": "results-p0",
+      "selector": "#Sec2-content > p:first-of-type",
+      "sourceSection": "Results",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 0,
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 20897,
+        "startOffset": 150334,
+        "endLine": 1037,
+        "endCol": 25061,
+        "endOffset": 154498,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 20897,
+          "startOffset": 150334,
+          "endLine": 1037,
+          "endCol": 20900,
+          "endOffset": 150337
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 25057,
+          "startOffset": 154494,
+          "endLine": 1037,
+          "endCol": 25061,
+          "endOffset": 154498
+        },
+        "startByte": 150449,
+        "endByte": 154656
+      },
+      "rawPreSanitizationSha256": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+      "frozenParagraphSha256": "1d03f1991268ca7b64f42caa0f4a5e348594a8d2c129ce9cd756ff5ca7b1359f",
+      "serializedRawBytes": 4207,
+      "serializedFrozenBytes": 3567,
+      "sourceText": "The 5 rings, 8 stereocenters, and 6 oxygens of PXN comprise a Böttcher complexity (Cm)22,23 of 467.61 mcbits packaged into 228 Å3, to give a density of 2.05 mcbits/Å3. Its small volume allows PXN to fit into the narrow space near the desensitization gate24 of GABAA receptors24 (largest pore radius ca. 3 Å in α1β3γ2L)25. Methylation of C5 increases the Cm to 480.1 ( + 3%), the ligand volume by 14 Å3 ( + 6%), maintains the information density (1.98 mcbits/Å3) and appears to access a hydrophobic pocket defined by residues L259/ T256 (β3 subunit) and T261 (α1 subunit)25,26. In a preliminary screen, we found that 5MePXN competed with [3H]-t-butylbicycloorthobenzoate ([3H]TBOB) for binding to rat cerebral cortex with an IC50 of 2.1 ± 0.3 μM21, corresponding to a 10-fold loss in potency from PXN. We wondered if this potency loss at mammalian receptors could serve as an advantage if the 5Me series bound invertebrate receptors with greater affinity, broadening the selectivity index of PXN analogs between mammals and insects.",
+      "contextStart": "The 5 rings, 8 stereocenters, and 6 oxygens of PXN comprise a Böttcher complexity (Cm)22,23 of 467.6",
+      "contextEnd": " with greater affinity, broadening the selectivity index of PXN analogs between mammals and insects.",
+      "sourceHeadingIds": [
+        "Sec2",
+        "Sec3"
+      ],
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "SUB",
+          "text": "m",
+          "html": "<sub>m</sub>"
+        },
+        {
+          "index": 1,
+          "tag": "SUP",
+          "text": "22,23",
+          "html": "<sup><a aria-label=\"Reference 22\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR22\" id=\"ref-link-section-d76734419e713\" title=\"Bottcher, T. An additive definition of molecular complexity. J. Chem. Inf. Model. 56, 462–470 (2016).\">22</a>,<a aria-label=\"Reference 23\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR23\" id=\"ref-link-section-d76734419e716\" title=\"Demoret, R. M. et al. Synthetic, mechanistic, and biological interrogation of ginkgo biloba chemical space en route to (−)-bilobalide. J. Am. Chem. Soc. 142, 18599–18618 (2020).\">23</a></sup>"
+        },
+        {
+          "index": 2,
+          "tag": "SUP",
+          "text": "3",
+          "html": "<sup>3</sup>"
+        },
+        {
+          "index": 3,
+          "tag": "SUP",
+          "text": "3",
+          "html": "<sup>3</sup>"
+        },
+        {
+          "index": 4,
+          "tag": "SUP",
+          "text": "24",
+          "html": "<sup><a aria-label=\"Reference 24\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR24\" id=\"ref-link-section-d76734419e724\" title=\"Gielen, M., Thomas, P. &amp; Smart, T. G. The desensitization gate of inhibitory Cys-loop receptors. Nat. Comm. 6, 6829 (2015).\">24</a></sup>"
+        },
+        {
+          "index": 5,
+          "tag": "SUB",
+          "text": "A",
+          "html": "<sub>A</sub>"
+        },
+        {
+          "index": 6,
+          "tag": "SUP",
+          "text": "24",
+          "html": "<sup><a aria-label=\"Reference 24\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR24\" id=\"ref-link-section-d76734419e731\" title=\"Gielen, M., Thomas, P. &amp; Smart, T. G. The desensitization gate of inhibitory Cys-loop receptors. Nat. Comm. 6, 6829 (2015).\">24</a></sup>"
+        },
+        {
+          "index": 7,
+          "tag": "I",
+          "text": "ca",
+          "html": "<i>ca</i>"
+        },
+        {
+          "index": 8,
+          "tag": "SUP",
+          "text": "25",
+          "html": "<sup><a aria-label=\"Reference 25\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR25\" id=\"ref-link-section-d76734419e738\" title=\"Hibbs, R. E. &amp; Gouaux, E. Principles of activation and permeation in an anion-selective Cys-loop receptor. Nature 474, 54–60 (2011).\">25</a></sup>"
+        },
+        {
+          "index": 9,
+          "tag": "SUB",
+          "text": "m",
+          "html": "<sub>m</sub>"
+        },
+        {
+          "index": 10,
+          "tag": "SUP",
+          "text": "3",
+          "html": "<sup>3</sup>"
+        },
+        {
+          "index": 11,
+          "tag": "SUP",
+          "text": "3",
+          "html": "<sup>3</sup>"
+        },
+        {
+          "index": 12,
+          "tag": "SUP",
+          "text": "25,26",
+          "html": "<sup><a aria-label=\"Reference 25\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR25\" id=\"ref-link-section-d76734419e749\" title=\"Hibbs, R. E. &amp; Gouaux, E. Principles of activation and permeation in an anion-selective Cys-loop receptor. Nature 474, 54–60 (2011).\">25</a>,<a aria-label=\"Reference 26\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR26\" id=\"ref-link-section-d76734419e752\" title=\"Masiulis, S. et al. GABAA receptor signalling mechanisms revealed by structural pharmacology. Nature 565, 454–459 (2019).\">26</a></sup>"
+        },
+        {
+          "index": 13,
+          "tag": "SUP",
+          "text": "3",
+          "html": "<sup>3</sup>"
+        },
+        {
+          "index": 14,
+          "tag": "I",
+          "text": "t",
+          "html": "<i>t</i>"
+        },
+        {
+          "index": 15,
+          "tag": "SUP",
+          "text": "3",
+          "html": "<sup>3</sup>"
+        },
+        {
+          "index": 16,
+          "tag": "SUB",
+          "text": "50",
+          "html": "<sub>50</sub>"
+        },
+        {
+          "index": 17,
+          "tag": "SUP",
+          "text": "21",
+          "html": "<sup><a aria-label=\"Reference 21\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR21\" id=\"ref-link-section-d76734419e766\" title=\"Crossley, S. W. M., Tong, G., Lambrecht, M., Burdge, H. E. &amp; Shenvi, R. A. Synthesis of picrotoxinin via late-stage strong bond activations. J. Am. Chem. Soc. 142, 11376–11381 (2020).\">21</a></sup>"
+        }
+      ],
+      "attachments": [
+        {
+          "id": "results-p0-SUP9",
+          "supIndex": 9,
+          "mass": "3",
+          "element": "H",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>3</sup>H",
+          "sourceFragmentSha256": "e7e3281f400d11c8f081a0b97b9aa7aa3730f899d271f73891541a3b1f480e1a",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 24198,
+            "startOffset": 153635,
+            "endLine": 1037,
+            "endCol": 24210,
+            "endOffset": 153647,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 24198,
+              "startOffset": 153635,
+              "endLine": 1037,
+              "endCol": 24203,
+              "endOffset": 153640
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 24204,
+              "startOffset": 153641,
+              "endLine": 1037,
+              "endCol": 24210,
+              "endOffset": 153647
+            },
+            "startByte": 153783,
+            "endByte": 153795
+          },
+          "beforeSourceText": ". In a preliminary screen, we found that 5MePXN competed with [",
+          "afterSourceText": "H]-",
+          "measurement": null,
+          "measurementHasPpm": null,
+          "bracketed": true,
+          "originalNineCovered": true,
+          "cAcceptedAc86Role": "isolated-leading-mass",
+          "cSourcePosition": {
+            "blockId": "a-section-2",
+            "paragraphIndex": 0,
+            "rawParagraphPrehash": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+            "frozenParagraphDigest": "1d03f1991268ca7b64f42caa0f4a5e348594a8d2c129ce9cd756ff5ca7b1359f"
+          }
+        },
+        {
+          "id": "results-p0-SUP10",
+          "supIndex": 10,
+          "mass": "3",
+          "element": "H",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>3</sup>H",
+          "sourceFragmentSha256": "e7e3281f400d11c8f081a0b97b9aa7aa3730f899d271f73891541a3b1f480e1a",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 24250,
+            "startOffset": 153687,
+            "endLine": 1037,
+            "endCol": 24262,
+            "endOffset": 153699,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 24250,
+              "startOffset": 153687,
+              "endLine": 1037,
+              "endCol": 24255,
+              "endOffset": 153692
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 24256,
+              "startOffset": 153693,
+              "endLine": 1037,
+              "endCol": 24262,
+              "endOffset": 153699
+            },
+            "startByte": 153835,
+            "endByte": 153847
+          },
+          "beforeSourceText": "-butylbicycloorthobenzoate ([",
+          "afterSourceText": "H]TBOB) for binding to rat cerebral cortex with an IC",
+          "measurement": null,
+          "measurementHasPpm": null,
+          "bracketed": true,
+          "originalNineCovered": true,
+          "cAcceptedAc86Role": "isolated-leading-mass",
+          "cSourcePosition": {
+            "blockId": "a-section-2",
+            "paragraphIndex": 0,
+            "rawParagraphPrehash": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+            "frozenParagraphDigest": "1d03f1991268ca7b64f42caa0f4a5e348594a8d2c129ce9cd756ff5ca7b1359f"
+          }
+        }
+      ]
+    },
+    {
+      "id": "results-p5-fluorine",
+      "selector": "#Sec2-content > p:has(a#ref-link-section-d76734419e1091)",
+      "sourceSection": "Results",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 5,
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 40006,
+        "startOffset": 169443,
+        "endLine": 1037,
+        "endCol": 41766,
+        "endOffset": 171203,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 40006,
+          "startOffset": 169443,
+          "endLine": 1037,
+          "endCol": 40009,
+          "endOffset": 169446
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 41762,
+          "startOffset": 171199,
+          "endLine": 1037,
+          "endCol": 41766,
+          "endOffset": 171203
+        },
+        "startByte": 169664,
+        "endByte": 171439
+      },
+      "rawPreSanitizationSha256": "b128b77e64328225608d6694938fccf1aed9a9f58a0f7beb1c842d0511999947",
+      "frozenParagraphSha256": "896c0856d4585fd2b2b6df5ba7dd70bdbb466d8b1eb216d7be2d809d411fc605",
+      "serializedRawBytes": 1775,
+      "serializedFrozenBytes": 1618,
+      "sourceText": "6F12FPXN (28) arose via Boger hydrofluorination (Fe2(ox)3, Selectfluor, NaBH4) in 40% yield (accompanying alkene reduction byproduct 26) but confounded assignment due to an unexpected, strong fluorine-fluorine coupling by 19F NMR (JF,F = 31.2 Hz)37. Correlation to the 5Me series was helpful: treatment of 13 with DAST at low temperature followed by weak basic workup yielded two crystalline compounds after silica chromatography in 55% and 32% yield (Fig. 2b). Single-crystal X-ray diffraction of both structures identified the major product as 31, an unexpected fragmentation product, and the minor product as 6F12F5MePXN (30). The 19F coupling constant of 30 was found to be 27.8 Hz, aiding the assignment of 28 via the relationship between C6-F and C12-F. The additional C5-methyl must significantly stabilize the high-energy, non-classical cation 29, leading to the unexpected reactivity of decarboxylation and fluoride capture at C3 or C6. The unexpected stabilizing role of the C5-methyl heralded more remarkable effects in classic solvolytic degradations of PXN.",
+      "contextStart": "6F12FPXN (28) arose via Boger hydrofluorination (Fe2(ox)3, Selectfluor, NaBH4) in 40% yield (accompa",
+      "contextEnd": "ng role of the C5-methyl heralded more remarkable effects in classic solvolytic degradations of PXN.",
+      "sourceHeadingIds": [
+        "Sec2",
+        "Sec3"
+      ],
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "B",
+          "text": "28",
+          "html": "<b>28</b>"
+        },
+        {
+          "index": 1,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 2,
+          "tag": "SUB",
+          "text": "3",
+          "html": "<sub>3</sub>"
+        },
+        {
+          "index": 3,
+          "tag": "SUB",
+          "text": "4",
+          "html": "<sub>4</sub>"
+        },
+        {
+          "index": 4,
+          "tag": "B",
+          "text": "26",
+          "html": "<b>26</b>"
+        },
+        {
+          "index": 5,
+          "tag": "SUP",
+          "text": "19",
+          "html": "<sup>19</sup>"
+        },
+        {
+          "index": 6,
+          "tag": "I",
+          "text": "J",
+          "html": "<i>J</i>"
+        },
+        {
+          "index": 7,
+          "tag": "SUB",
+          "text": "F,F",
+          "html": "<sub>F,F</sub>"
+        },
+        {
+          "index": 8,
+          "tag": "SUP",
+          "text": "37",
+          "html": "<sup><a aria-label=\"Reference 37\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR37\" id=\"ref-link-section-d76734419e1091\" title=\"Mallory, F. B. et al. Nuclear spin−spin coupling via nonbonded interactions. 8. The distance dependence of through-space fluorine−fluorine coupling. J. Am. Chem. Soc. 122, 4108–4116 (2000).\">37</a></sup>"
+        },
+        {
+          "index": 9,
+          "tag": "B",
+          "text": "13",
+          "html": "<b>13</b>"
+        },
+        {
+          "index": 10,
+          "tag": "B",
+          "text": "31",
+          "html": "<b>31</b>"
+        },
+        {
+          "index": 11,
+          "tag": "B",
+          "text": "30",
+          "html": "<b>30</b>"
+        },
+        {
+          "index": 12,
+          "tag": "SUP",
+          "text": "19",
+          "html": "<sup>19</sup>"
+        },
+        {
+          "index": 13,
+          "tag": "B",
+          "text": "30",
+          "html": "<b>30</b>"
+        },
+        {
+          "index": 14,
+          "tag": "B",
+          "text": "28",
+          "html": "<b>28</b>"
+        },
+        {
+          "index": 15,
+          "tag": "B",
+          "text": "29",
+          "html": "<b>29</b>"
+        }
+      ],
+      "attachments": [
+        {
+          "id": "results-p5-fluorine-SUP0",
+          "supIndex": 0,
+          "mass": "19",
+          "element": "F",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>19</sup>F",
+          "sourceFragmentSha256": "9e52f1ca527f0be5c4e9ebef8efec3ef83d89c9a9f21e423692a603dba8afca0",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 40278,
+            "startOffset": 169715,
+            "endLine": 1037,
+            "endCol": 40291,
+            "endOffset": 169728,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 40278,
+              "startOffset": 169715,
+              "endLine": 1037,
+              "endCol": 40283,
+              "endOffset": 169720
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 40285,
+              "startOffset": 169722,
+              "endLine": 1037,
+              "endCol": 40291,
+              "endOffset": 169728
+            },
+            "startByte": 169936,
+            "endByte": 169949
+          },
+          "beforeSourceText": ") but confounded assignment due to an unexpected, strong fluorine-fluorine coupling by ",
+          "afterSourceText": "F NMR (",
+          "measurement": null,
+          "measurementHasPpm": null,
+          "bracketed": false,
+          "originalNineCovered": false,
+          "cAcceptedAc86Role": "isolated-leading-mass",
+          "cSourcePosition": {
+            "blockId": "a-section-2",
+            "paragraphIndex": 5,
+            "rawParagraphPrehash": "b128b77e64328225608d6694938fccf1aed9a9f58a0f7beb1c842d0511999947",
+            "frozenParagraphDigest": "896c0856d4585fd2b2b6df5ba7dd70bdbb466d8b1eb216d7be2d809d411fc605"
+          }
+        },
+        {
+          "id": "results-p5-fluorine-SUP2",
+          "supIndex": 2,
+          "mass": "19",
+          "element": "F",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>19</sup>F",
+          "sourceFragmentSha256": "9e52f1ca527f0be5c4e9ebef8efec3ef83d89c9a9f21e423692a603dba8afca0",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 41294,
+            "startOffset": 170731,
+            "endLine": 1037,
+            "endCol": 41307,
+            "endOffset": 170744,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 41294,
+              "startOffset": 170731,
+              "endLine": 1037,
+              "endCol": 41299,
+              "endOffset": 170736
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 41301,
+              "startOffset": 170738,
+              "endLine": 1037,
+              "endCol": 41307,
+              "endOffset": 170744
+            },
+            "startByte": 170965,
+            "endByte": 170978
+          },
+          "beforeSourceText": "). The ",
+          "afterSourceText": "F coupling constant of ",
+          "measurement": null,
+          "measurementHasPpm": null,
+          "bracketed": false,
+          "originalNineCovered": false,
+          "cAcceptedAc86Role": "isolated-leading-mass",
+          "cSourcePosition": {
+            "blockId": "a-section-2",
+            "paragraphIndex": 5,
+            "rawParagraphPrehash": "b128b77e64328225608d6694938fccf1aed9a9f58a0f7beb1c842d0511999947",
+            "frozenParagraphDigest": "896c0856d4585fd2b2b6df5ba7dd70bdbb466d8b1eb216d7be2d809d411fc605"
+          }
+        }
+      ]
+    },
+    {
+      "id": "results-p6-nmr",
+      "selector": "#Sec2-content > p:has(a#ref-link-section-d76734419e1122)",
+      "sourceSection": "Results",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 6,
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 41766,
+        "startOffset": 171203,
+        "endLine": 1037,
+        "endCol": 46943,
+        "endOffset": 176380,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 41766,
+          "startOffset": 171203,
+          "endLine": 1037,
+          "endCol": 41769,
+          "endOffset": 171206
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 46939,
+          "startOffset": 176376,
+          "endLine": 1037,
+          "endCol": 46943,
+          "endOffset": 176380
+        },
+        "startByte": 171439,
+        "endByte": 176657
+      },
+      "rawPreSanitizationSha256": "77668daf030a601bae26e46af3b5352e4334073e3dbb2d5ed4648cc1a128a975",
+      "frozenParagraphSha256": "a65361c9ac6dceb63aef8ccedf9b90fc9848ba893b35dfb9046c7cc4fa5bd7b9",
+      "serializedRawBytes": 5218,
+      "serializedFrozenBytes": 4264,
+      "sourceText": "Picrotoxinin undergoes reversible hydrolysis to lose efficacy upon storage in water between pH 7–9 or in mouse plasma17. Whereas the site of initial, reversible hydrolysis had long been hypothesized to be C15, we recently observed by 1H NMR that the actual site of hydrolysis with 1 equiv. NaOH was C1138. Hydrolysis at C11 is reversible if only one equivalent of hydroxide is used: protonation with HCl returns PXN with only small amounts of degradation product (picrotoxic acid, see 32, Fig. 3a) derived from C15 hydrolysis38. In contrast to C11, hydrolysis at C15 is irreversible — a point-of-no-return due to concomitant epoxide opening or cyclohexane relaxation, with no precedent for chemical or biochemical reversion: exposure to excess base led to complex decomposition14,39,40,41,42. We had previously observed 5-methyl substitution to decrease degradation by halving the pseudo-first order rate constant (t1/2 = 60 vs. 120 h, D2O, 8.2 pH*)43, a result of fast reversible and slow irreversible degradation. We had not probed the effect of C5 substitution on irreversible degradation of PXN with strong acid, alkoxide base, or incubation in plasma. These studies are important because chemical manipulations of PXN to generate analogs (e.g. Fig. 2) must otherwise avoid acid and base due to instability5, and plasma stability influences future biological application to human disease.",
+      "contextStart": "Picrotoxinin undergoes reversible hydrolysis to lose efficacy upon storage in water between pH 7–9 o",
+      "contextEnd": "due to instability5, and plasma stability influences future biological application to human disease.",
+      "sourceHeadingIds": [
+        "Sec2",
+        "Sec3"
+      ],
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "SUP",
+          "text": "17",
+          "html": "<sup><a aria-label=\"Reference 17\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR17\" id=\"ref-link-section-d76734419e1122\" title=\"Pressly, B. et al. Comparison of the toxicokinetics of the convulsants picrotoxinin and tetramethylenedisulfotetramine (TETS) in mice. Arch. Toxicol. 94, 1995–2007 (2020).\">17</a></sup>"
+        },
+        {
+          "index": 1,
+          "tag": "SUP",
+          "text": "1",
+          "html": "<sup>1</sup>"
+        },
+        {
+          "index": 2,
+          "tag": "SUP",
+          "text": "38",
+          "html": "<sup><a aria-label=\"Reference 38\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR38\" id=\"ref-link-section-d76734419e1128\" title=\"Tong, G. &amp; Shenvi, R. A. Revision of the unstable picrotoxinin hydrolysis product. Angew. Chem. Int. Ed. 60, 19113–19116 (2021).\">38</a></sup>"
+        },
+        {
+          "index": 3,
+          "tag": "B",
+          "text": "32",
+          "html": "<b>32</b>"
+        },
+        {
+          "index": 4,
+          "tag": "SUP",
+          "text": "38",
+          "html": "<sup><a aria-label=\"Reference 38\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR38\" id=\"ref-link-section-d76734419e1139\" title=\"Tong, G. &amp; Shenvi, R. A. Revision of the unstable picrotoxinin hydrolysis product. Angew. Chem. Int. Ed. 60, 19113–19116 (2021).\">38</a></sup>"
+        },
+        {
+          "index": 5,
+          "tag": "SUP",
+          "text": "14,39,40,41,42",
+          "html": "<sup><a aria-label=\"Reference 14\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR14\" id=\"ref-link-section-d76734419e1143\" title=\"Burkhill, P. I., Holker, J. S. E., Robertson, A. &amp; Taylor, J. H. Picrotoxin. Part VI.* Picrotoxic acid and its derivatives. J. Chem. Soc. 4945–4952 (1957).\">14</a>,<a data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"#ref-CR39\" id=\"ref-link-section-d76734419e1146\" title=\"Conroy, H. Picrotoxin. V. Conformational analysis and problems of structure. J. Am. Chem. Soc. 79, 5550–5553 (1957).\">39</a>,<a data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"#ref-CR40\" id=\"ref-link-section-d76734419e1146_1\" title=\"Conroy, H. Picrotoxin. I. The skeleton of picrotoxinin. The degradation to picrotoxadiene. J. Am. Chem. Soc. 74, 491–498 (1952).\">40</a>,<a data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"#ref-CR41\" id=\"ref-link-section-d76734419e1146_2\" title=\"Horrmann, P. Über Derivate des α- und β-Brompikrotoxinins. Ber. Dtsch. Chem. Ges. 46, 2793–2801 (1913).\">41</a>,<a aria-label=\"Reference 42\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR42\" id=\"ref-link-section-d76734419e1149\" title=\"Burkhill, P. I. &amp; Holker, J. S. E. Picrotoxin. Part VIII. The structures of α- and β-picrotoxinones. J. Chem. Soc. 4011–4015 (1960).\">42</a></sup>"
+        },
+        {
+          "index": 6,
+          "tag": "I",
+          "text": "t",
+          "html": "<i>t</i>"
+        },
+        {
+          "index": 7,
+          "tag": "SUB",
+          "text": "1/2",
+          "html": "<sub>1/2</sub>"
+        },
+        {
+          "index": 8,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 9,
+          "tag": "SUP",
+          "text": "43",
+          "html": "<sup><a aria-label=\"Reference 43\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR43\" id=\"ref-link-section-d76734419e1159\" title=\"Krężel, A. &amp; Bal, W. A formula for correlating pKa values determined in D2O and H2O. J. Inorg. Biochem. 98, 161–166 (2004).\">43</a></sup>"
+        },
+        {
+          "index": 10,
+          "tag": "SUP",
+          "text": "5",
+          "html": "<sup><a aria-label=\"Reference 5\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41467-023-44030-3#ref-CR5\" id=\"ref-link-section-d76734419e1167\" title=\"Porter, L. A. Picrotoxinin and related substances. Chem. Rev. 67, 441–464 (1967).\">5</a></sup>"
+        }
+      ],
+      "attachments": [
+        {
+          "id": "results-p6-nmr-SUP1",
+          "supIndex": 1,
+          "mass": "1",
+          "element": "H",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>1</sup>H",
+          "sourceFragmentSha256": "e5f549a8adfbb34d7430d7e505380894268fb60e650bbdd88cb4fe79ed4c551c",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 42414,
+            "startOffset": 171851,
+            "endLine": 1037,
+            "endCol": 42426,
+            "endOffset": 171863,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 42414,
+              "startOffset": 171851,
+              "endLine": 1037,
+              "endCol": 42419,
+              "endOffset": 171856
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 42420,
+              "startOffset": 171857,
+              "endLine": 1037,
+              "endCol": 42426,
+              "endOffset": 171863
+            },
+            "startByte": 172091,
+            "endByte": 172103
+          },
+          "beforeSourceText": ". Whereas the site of initial, reversible hydrolysis had long been hypothesized to be C15, we recently observed by ",
+          "afterSourceText": "H NMR that the actual site of hydrolysis with 1 equiv. NaOH was C11",
+          "measurement": null,
+          "measurementHasPpm": null,
+          "bracketed": false,
+          "originalNineCovered": false,
+          "cAcceptedAc86Role": "isolated-leading-mass",
+          "cSourcePosition": {
+            "blockId": "a-section-2",
+            "paragraphIndex": 6,
+            "rawParagraphPrehash": "77668daf030a601bae26e46af3b5352e4334073e3dbb2d5ed4648cc1a128a975",
+            "frozenParagraphDigest": "a65361c9ac6dceb63aef8ccedf9b90fc9848ba893b35dfb9046c7cc4fa5bd7b9"
+          }
+        }
+      ]
+    },
+    {
+      "id": "figure3-caption-p7",
+      "selector": "#figure-3-desc > p",
+      "sourceSection": "Results",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 7,
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 48694,
+        "startOffset": 178131,
+        "endLine": 1037,
+        "endCol": 49793,
+        "endOffset": 179230,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 48694,
+          "startOffset": 178131,
+          "endLine": 1037,
+          "endCol": 48697,
+          "endOffset": 178134
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 49789,
+          "startOffset": 179226,
+          "endLine": 1037,
+          "endCol": 49793,
+          "endOffset": 179230
+        },
+        "startByte": 178408,
+        "endByte": 179525
+      },
+      "rawPreSanitizationSha256": "f153157ebdf38415025030538f00eb00c39f5692bb24fdbff54cc37d5462baed",
+      "frozenParagraphSha256": "8a02db586d4a4ad340dd67722dac0b67b514dbf8133f3bea956b9c2c019bf52b",
+      "serializedRawBytes": 1117,
+      "serializedFrozenBytes": 1024,
+      "sourceText": "a Degradation of 1 using common acidic and basic conditions; (b) Attempted degradation of 5MePXN (2) using the same conditions; (c) In situ 1H NMR monitoring of 1:1 PXN/ 5MePXN in 5 mol % NaOMe/ d4-methanol; (d) Competition experiments with 1 and 2 using 5 mol % NaOMe in d4-methanol; t = 0 and 6 h, w/ and w/o 2; (e) Degradation is also retarded in mouse and human plasma (n = 2). f, g Calculated structures and free energies of transition states and intermediates for base-catalyzed methanolysis at the ωB97X-D/def2-TZVPPD, SMD (H2O)// ωB97X-D/def2-SVP, SMD (H2O) level of theory. Interatomic distances are in Å. Dashed curves denote raw calculated values; solid curves denote values with translational entropy corrections accounting for concentration gradients (see Supplementary Information).",
+      "contextStart": "a Degradation of 1 using common acidic and basic conditions; (b) Attempted degradation of 5MePXN (2)",
+      "contextEnd": "lational entropy corrections accounting for concentration gradients (see Supplementary Information).",
+      "sourceHeadingIds": [
+        "Sec2",
+        "Sec3"
+      ],
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "B",
+          "text": "a",
+          "html": "<b>a</b>"
+        },
+        {
+          "index": 1,
+          "tag": "B",
+          "text": "1",
+          "html": "<b>1</b>"
+        },
+        {
+          "index": 2,
+          "tag": "B",
+          "text": "b",
+          "html": "<b>b</b>"
+        },
+        {
+          "index": 3,
+          "tag": "B",
+          "text": "2",
+          "html": "<b>2</b>"
+        },
+        {
+          "index": 4,
+          "tag": "B",
+          "text": "c",
+          "html": "<b>c</b>"
+        },
+        {
+          "index": 5,
+          "tag": "SUP",
+          "text": "1",
+          "html": "<sup>1</sup>"
+        },
+        {
+          "index": 6,
+          "tag": "SUB",
+          "text": "4",
+          "html": "<sub>4</sub>"
+        },
+        {
+          "index": 7,
+          "tag": "B",
+          "text": "d",
+          "html": "<b>d</b>"
+        },
+        {
+          "index": 8,
+          "tag": "B",
+          "text": "1",
+          "html": "<b>1</b>"
+        },
+        {
+          "index": 9,
+          "tag": "B",
+          "text": "2",
+          "html": "<b>2</b>"
+        },
+        {
+          "index": 10,
+          "tag": "SUB",
+          "text": "4",
+          "html": "<sub>4</sub>"
+        },
+        {
+          "index": 11,
+          "tag": "I",
+          "text": "t",
+          "html": "<i>t</i>"
+        },
+        {
+          "index": 12,
+          "tag": "B",
+          "text": "2",
+          "html": "<b>2</b>"
+        },
+        {
+          "index": 13,
+          "tag": "B",
+          "text": "e",
+          "html": "<b>e</b>"
+        },
+        {
+          "index": 14,
+          "tag": "I",
+          "text": "n",
+          "html": "<i>n</i>"
+        },
+        {
+          "index": 15,
+          "tag": "B",
+          "text": "f",
+          "html": "<b>f</b>"
+        },
+        {
+          "index": 16,
+          "tag": "B",
+          "text": "g",
+          "html": "<b>g</b>"
+        },
+        {
+          "index": 17,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 18,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        }
+      ],
+      "attachments": [
+        {
+          "id": "figure3-caption-p7-SUP0",
+          "supIndex": 0,
+          "mass": "1",
+          "element": "H",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>1</sup>H",
+          "sourceFragmentSha256": "e5f549a8adfbb34d7430d7e505380894268fb60e650bbdd88cb4fe79ed4c551c",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 48872,
+            "startOffset": 178309,
+            "endLine": 1037,
+            "endCol": 48884,
+            "endOffset": 178321,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 48872,
+              "startOffset": 178309,
+              "endLine": 1037,
+              "endCol": 48877,
+              "endOffset": 178314
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 48878,
+              "startOffset": 178315,
+              "endLine": 1037,
+              "endCol": 48884,
+              "endOffset": 178321
+            },
+            "startByte": 178586,
+            "endByte": 178598
+          },
+          "beforeSourceText": ") In situ ",
+          "afterSourceText": "H NMR monitoring of 1:1 PXN/ 5MePXN in 5 mol % NaOMe/ d",
+          "measurement": null,
+          "measurementHasPpm": null,
+          "bracketed": false,
+          "originalNineCovered": false,
+          "cAcceptedAc86Role": "isolated-leading-mass",
+          "cSourcePosition": {
+            "blockId": "a-section-2",
+            "paragraphIndex": 7,
+            "rawParagraphPrehash": "f153157ebdf38415025030538f00eb00c39f5692bb24fdbff54cc37d5462baed",
+            "frozenParagraphDigest": "8a02db586d4a4ad340dd67722dac0b67b514dbf8133f3bea956b9c2c019bf52b"
+          }
+        }
+      ]
+    },
+    {
+      "id": "figure5-caption-p15",
+      "selector": "#figure-5-desc > p",
+      "sourceSection": "Results",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 15,
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 66382,
+        "startOffset": 195819,
+        "endLine": 1037,
+        "endCol": 67746,
+        "endOffset": 197183,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 66382,
+          "startOffset": 195819,
+          "endLine": 1037,
+          "endCol": 66385,
+          "endOffset": 195822
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 67742,
+          "startOffset": 197179,
+          "endLine": 1037,
+          "endCol": 67746,
+          "endOffset": 197183
+        },
+        "startByte": 196210,
+        "endByte": 197598
+      },
+      "rawPreSanitizationSha256": "21ed9ff8a20bc5a6cc7724c2027e9ca7ab3578ee98ecf38e0f3fb39b52336b73",
+      "frozenParagraphSha256": "21ed9ff8a20bc5a6cc7724c2027e9ca7ab3578ee98ecf38e0f3fb39b52336b73",
+      "serializedRawBytes": 1388,
+      "serializedFrozenBytes": 1388,
+      "sourceText": "a Relative potencies of PXN and 5MePXN analogs at GABAAR ([3H]-TBOB, n = 1); (b) Relative potencies of PXN and 5MePXN analogs at RDL receptors measured by electrophysiology as a proxy for channel binding (n = 4); (c) Selectivity between vertebrate (GABAA) and invertebrate (RDL) receptors by PXN analogs: C5-methylated analogs are selective for invertebrate receptors; (d) Pairwise identity matrix of GABA/RDL residues across species; (e) PXN (1) and analog 30 in the rat GABA homology model, showing crystal binding poses of PXN (PDB: 6×40; dark gray), PXN after MD (pink), and 30 (light gray) interacting with T287 (β2), T309 (γ2), and T280 (α2). The binding free energy of 30 is predicted to be 1.8 ± 1.5 kcal/mol above that of 1 at GABAA. Orientation of the binding pocket is kept fixed to allow direct comparison of binding poses; (f) PXN (1) and analog 30 in the fly RDL homology model. Crystal binding poses of PXN (PDB: 6 × 40; dark gray), PXN after MD (pink), and 30 (light gray) show varying degrees of interaction with the fly RDL homopentamer. After forcefield minimization, the crystal and MD poses of PXN converged. Interactions with S286, A290, and T294 are indicated with dotted lines.",
+      "contextStart": "a Relative potencies of PXN and 5MePXN analogs at GABAAR ([3H]-TBOB, n = 1); (b) Relative potencies ",
+      "contextEnd": "d MD poses of PXN converged. Interactions with S286, A290, and T294 are indicated with dotted lines.",
+      "sourceHeadingIds": [
+        "Sec2",
+        "Sec5"
+      ],
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "B",
+          "text": "a",
+          "html": "<b>a</b>"
+        },
+        {
+          "index": 1,
+          "tag": "SUB",
+          "text": "A",
+          "html": "<sub>A</sub>"
+        },
+        {
+          "index": 2,
+          "tag": "SUP",
+          "text": "3",
+          "html": "<sup>3</sup>"
+        },
+        {
+          "index": 3,
+          "tag": "I",
+          "text": "n",
+          "html": "<i>n</i>"
+        },
+        {
+          "index": 4,
+          "tag": "B",
+          "text": "b",
+          "html": "<b>b</b>"
+        },
+        {
+          "index": 5,
+          "tag": "I",
+          "text": "n",
+          "html": "<i>n</i>"
+        },
+        {
+          "index": 6,
+          "tag": "B",
+          "text": "c",
+          "html": "<b>c</b>"
+        },
+        {
+          "index": 7,
+          "tag": "SUB",
+          "text": "A",
+          "html": "<sub>A</sub>"
+        },
+        {
+          "index": 8,
+          "tag": "B",
+          "text": "d",
+          "html": "<b>d</b>"
+        },
+        {
+          "index": 9,
+          "tag": "B",
+          "text": "e",
+          "html": "<b>e</b>"
+        },
+        {
+          "index": 10,
+          "tag": "B",
+          "text": "1",
+          "html": "<b>1</b>"
+        },
+        {
+          "index": 11,
+          "tag": "B",
+          "text": "30",
+          "html": "<b>30</b>"
+        },
+        {
+          "index": 12,
+          "tag": "B",
+          "text": "30",
+          "html": "<b>30</b>"
+        },
+        {
+          "index": 13,
+          "tag": "B",
+          "text": "30",
+          "html": "<b>30</b>"
+        },
+        {
+          "index": 14,
+          "tag": "B",
+          "text": "1",
+          "html": "<b>1</b>"
+        },
+        {
+          "index": 15,
+          "tag": "SUB",
+          "text": "A",
+          "html": "<sub>A</sub>"
+        },
+        {
+          "index": 16,
+          "tag": "B",
+          "text": "f",
+          "html": "<b>f</b>"
+        },
+        {
+          "index": 17,
+          "tag": "B",
+          "text": "1",
+          "html": "<b>1</b>"
+        },
+        {
+          "index": 18,
+          "tag": "B",
+          "text": "30",
+          "html": "<b>30</b>"
+        },
+        {
+          "index": 19,
+          "tag": "B",
+          "text": "30",
+          "html": "<b>30</b>"
+        }
+      ],
+      "attachments": [
+        {
+          "id": "figure5-caption-p15-SUP0",
+          "supIndex": 0,
+          "mass": "3",
+          "element": "H",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>3</sup>H",
+          "sourceFragmentSha256": "e7e3281f400d11c8f081a0b97b9aa7aa3730f899d271f73891541a3b1f480e1a",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 66462,
+            "startOffset": 195899,
+            "endLine": 1037,
+            "endCol": 66474,
+            "endOffset": 195911,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 66462,
+              "startOffset": 195899,
+              "endLine": 1037,
+              "endCol": 66467,
+              "endOffset": 195904
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 66468,
+              "startOffset": 195905,
+              "endLine": 1037,
+              "endCol": 66474,
+              "endOffset": 195911
+            },
+            "startByte": 196290,
+            "endByte": 196302
+          },
+          "beforeSourceText": "R ([",
+          "afterSourceText": "H]-TBOB, ",
+          "measurement": null,
+          "measurementHasPpm": null,
+          "bracketed": true,
+          "originalNineCovered": true,
+          "cAcceptedAc86Role": "isolated-leading-mass",
+          "cSourcePosition": {
+            "blockId": "a-section-2",
+            "paragraphIndex": 15,
+            "rawParagraphPrehash": "21ed9ff8a20bc5a6cc7724c2027e9ca7ab3578ee98ecf38e0f3fb39b52336b73",
+            "frozenParagraphDigest": "21ed9ff8a20bc5a6cc7724c2027e9ca7ab3578ee98ecf38e0f3fb39b52336b73"
+          }
+        }
+      ]
+    },
+    {
+      "id": "results-p20-binding",
+      "selector": "#Sec2-content > p:has(a[href$=\"#Fig5\"]):has(> sup:nth-of-type(4)):not(:has(> sup:nth-of-type(5)))",
+      "sourceSection": "Results",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 20,
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 78048,
+        "startOffset": 207485,
+        "endLine": 1037,
+        "endCol": 80585,
+        "endOffset": 210022,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 78048,
+          "startOffset": 207485,
+          "endLine": 1037,
+          "endCol": 78051,
+          "endOffset": 207488
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 80581,
+          "startOffset": 210018,
+          "endLine": 1037,
+          "endCol": 80585,
+          "endOffset": 210022
+        },
+        "startByte": 207999,
+        "endByte": 210542
+      },
+      "rawPreSanitizationSha256": "84ce5d602039554b81ef69b4a8801d0e6a6f1dbbaa20ad0c02545136d4c2b56a",
+      "frozenParagraphSha256": "20fc81daafd619e6c28721e07e40f5b7702e6c54e17ca0c3fb1d9ddac891c2f0",
+      "serializedRawBytes": 2543,
+      "serializedFrozenBytes": 2235,
+      "sourceText": "Within the rat GABAA model, PXN and 30 accept a hydrogen bond from T287 through the epoxide oxygen atom. After MD simulation, PXN displays additional, albeit weak, electrostatic interactions with the sidechain alcohol oxygen atoms of T280 and T309, the latter of which is not observed in the binding pose of 30 (Fig. 5e). Within the fly RDL model, PXN and 30 interact with T294 through the epoxide oxygen atom, analogous to the hydrogen bond seen in the rat GABAA model. Specific to the fly RDL model are electrostatic interactions with backbone carbonyl oxygen atoms of S286 and A290 and a strong hydrogen bond between the ester carbonyl of the ligand and the sidechain alcohol of T294 on a separate helix (Fig. 5f). These additional interactions shown by MD relaxation and simulations provide a rational explanation for the increased potency of 30 in D. melanogaster that is not observed in R. norvegicus. While not assessed quantitatively from our simulations, the overall volume of 30 relative to 1 (247 Å3 vs. 229 Å3) may exceed the narrow pore volume of the GABAAR, imparting some degree of differential selectivity among the two organisms. We could not definitively rule out with experimental data the hypothesis from a referee that narrower regions of the GABAAR channel prevent access to the PXN binding site by 30 (as opposed to a hypothesis of low binding affinity to the site itself). However, all analogs antagonized the PXN-site binder 3H-TBOB to varying degrees, suggesting that either access to the PXN binding site is reasonably unobstructed, or PXN analogs allosterically modulated 3H-TBOB binding. This difference in pore sizes is qualitatively reproduced by the transparent surfaces in Fig. 5e, f. The general tolerance of RDL to C5 methylation (Fig. 5c) compared to GABAA suggests that other LGICs homologous to RDL may be similarly accommodating.",
+      "contextStart": "Within the rat GABAA model, PXN and 30 accept a hydrogen bond from T287 through the epoxide oxygen a",
+      "contextEnd": "g. 5c) compared to GABAA suggests that other LGICs homologous to RDL may be similarly accommodating.",
+      "sourceHeadingIds": [
+        "Sec2",
+        "Sec6"
+      ],
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "SUB",
+          "text": "A",
+          "html": "<sub>A</sub>"
+        },
+        {
+          "index": 1,
+          "tag": "B",
+          "text": "30",
+          "html": "<b>30</b>"
+        },
+        {
+          "index": 2,
+          "tag": "B",
+          "text": "30",
+          "html": "<b>30</b>"
+        },
+        {
+          "index": 3,
+          "tag": "B",
+          "text": "30",
+          "html": "<b>30</b>"
+        },
+        {
+          "index": 4,
+          "tag": "SUB",
+          "text": "A",
+          "html": "<sub>A</sub>"
+        },
+        {
+          "index": 5,
+          "tag": "B",
+          "text": "30",
+          "html": "<b>30</b>"
+        },
+        {
+          "index": 6,
+          "tag": "I",
+          "text": "D. melanogaster",
+          "html": "<i>D. melanogaster</i>"
+        },
+        {
+          "index": 7,
+          "tag": "I",
+          "text": "R. norvegicus",
+          "html": "<i>R. norvegicus</i>"
+        },
+        {
+          "index": 8,
+          "tag": "B",
+          "text": "30",
+          "html": "<b>30</b>"
+        },
+        {
+          "index": 9,
+          "tag": "B",
+          "text": "1",
+          "html": "<b>1</b>"
+        },
+        {
+          "index": 10,
+          "tag": "SUP",
+          "text": "3",
+          "html": "<sup>3</sup>"
+        },
+        {
+          "index": 11,
+          "tag": "SUP",
+          "text": "3",
+          "html": "<sup>3</sup>"
+        },
+        {
+          "index": 12,
+          "tag": "SUB",
+          "text": "A",
+          "html": "<sub>A</sub>"
+        },
+        {
+          "index": 13,
+          "tag": "SUB",
+          "text": "A",
+          "html": "<sub>A</sub>"
+        },
+        {
+          "index": 14,
+          "tag": "B",
+          "text": "30",
+          "html": "<b>30</b>"
+        },
+        {
+          "index": 15,
+          "tag": "SUP",
+          "text": "3",
+          "html": "<sup>3</sup>"
+        },
+        {
+          "index": 16,
+          "tag": "SUP",
+          "text": "3",
+          "html": "<sup>3</sup>"
+        },
+        {
+          "index": 17,
+          "tag": "SUB",
+          "text": "A",
+          "html": "<sub>A</sub>"
+        }
+      ],
+      "attachments": [
+        {
+          "id": "results-p20-binding-SUP2",
+          "supIndex": 2,
+          "mass": "3",
+          "element": "H",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>3</sup>H",
+          "sourceFragmentSha256": "e7e3281f400d11c8f081a0b97b9aa7aa3730f899d271f73891541a3b1f480e1a",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 79880,
+            "startOffset": 209317,
+            "endLine": 1037,
+            "endCol": 79892,
+            "endOffset": 209329,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 79880,
+              "startOffset": 209317,
+              "endLine": 1037,
+              "endCol": 79885,
+              "endOffset": 209322
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 79886,
+              "startOffset": 209323,
+              "endLine": 1037,
+              "endCol": 79892,
+              "endOffset": 209329
+            },
+            "startByte": 209835,
+            "endByte": 209847
+          },
+          "beforeSourceText": " (as opposed to a hypothesis of low binding affinity to the site itself). However, all analogs antagonized the PXN-site binder ",
+          "afterSourceText": "H-TBOB to varying degrees, suggesting that either access to the PXN binding site is reasonably unobstructed, or PXN analogs allosterically modulated ",
+          "measurement": null,
+          "measurementHasPpm": null,
+          "bracketed": false,
+          "originalNineCovered": false,
+          "cAcceptedAc86Role": "isolated-leading-mass",
+          "cSourcePosition": {
+            "blockId": "a-section-2",
+            "paragraphIndex": 20,
+            "rawParagraphPrehash": "84ce5d602039554b81ef69b4a8801d0e6a6f1dbbaa20ad0c02545136d4c2b56a",
+            "frozenParagraphDigest": "20fc81daafd619e6c28721e07e40f5b7702e6c54e17ca0c3fb1d9ddac891c2f0"
+          }
+        },
+        {
+          "id": "results-p20-binding-SUP3",
+          "supIndex": 3,
+          "mass": "3",
+          "element": "H",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>3</sup>H",
+          "sourceFragmentSha256": "e7e3281f400d11c8f081a0b97b9aa7aa3730f899d271f73891541a3b1f480e1a",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 80041,
+            "startOffset": 209478,
+            "endLine": 1037,
+            "endCol": 80053,
+            "endOffset": 209490,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 80041,
+              "startOffset": 209478,
+              "endLine": 1037,
+              "endCol": 80046,
+              "endOffset": 209483
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 80047,
+              "startOffset": 209484,
+              "endLine": 1037,
+              "endCol": 80053,
+              "endOffset": 209490
+            },
+            "startByte": 209996,
+            "endByte": 210008
+          },
+          "beforeSourceText": "H-TBOB to varying degrees, suggesting that either access to the PXN binding site is reasonably unobstructed, or PXN analogs allosterically modulated ",
+          "afterSourceText": "H-TBOB binding. This difference in pore sizes is qualitatively reproduced by the transparent surfaces in Fig. ",
+          "measurement": null,
+          "measurementHasPpm": null,
+          "bracketed": false,
+          "originalNineCovered": false,
+          "cAcceptedAc86Role": "isolated-leading-mass",
+          "cSourcePosition": {
+            "blockId": "a-section-2",
+            "paragraphIndex": 20,
+            "rawParagraphPrehash": "84ce5d602039554b81ef69b4a8801d0e6a6f1dbbaa20ad0c02545136d4c2b56a",
+            "frozenParagraphDigest": "20fc81daafd619e6c28721e07e40f5b7702e6c54e17ca0c3fb1d9ddac891c2f0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "methods-p0",
+      "selector": "#Sec8-content > p:first-of-type",
+      "sourceSection": "Methods",
+      "sourceBlockId": "a-section-3",
+      "sourceParagraphIndex": 0,
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 88073,
+        "startOffset": 217510,
+        "endLine": 1037,
+        "endCol": 90994,
+        "endOffset": 220431,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 88073,
+          "startOffset": 217510,
+          "endLine": 1037,
+          "endCol": 88076,
+          "endOffset": 217513
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 90990,
+          "startOffset": 220427,
+          "endLine": 1037,
+          "endCol": 90994,
+          "endOffset": 220431
+        },
+        "startByte": 218078,
+        "endByte": 221028
+      },
+      "rawPreSanitizationSha256": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "frozenParagraphSha256": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "serializedRawBytes": 2950,
+      "serializedFrozenBytes": 2950,
+      "sourceText": "Unless otherwise noted, all experiments were run in flame-dried glassware under an atmosphere of argon. A stir bar is always present in the reaction vessel. Hexane, dichloromethane (DCM), toluene, ethyl acetate (EtOAc), diethyl ether (Et2O), tetrahydrofuran (THF), acetone, dimethylsulfoxide (DMSO), methanol (MeOH), isopropanol (i-PrOH), N-dimethylformamide (DMF), Acetonitrile (MeCN) and triethylamine (Et3N) were purchased from Sigma Aldrich, Fisher Chemicals or Acros Organics and used without further purification. All anhydrous solvents were purchased from Fisher Chemicals, Sigma Aldrich or Acros Organics and used without further purification, unless otherwise stated. Reactions were monitored by thin layer chromatography (TLC) with pre-coated silica gel plates from EMD Chemicals (TLC Silica gel 60 F254, 250 μm thickness) using UV light as the visualizing agent and an acidic mixture of anisaldehyde, phosphomolybdic acid (PMA), chromic acid, iodine vapor, Seebach’s stain, or basic aqueous potassium permanganate (KMnO4), and heat as developing agents. Preparatory thin layer chromatography (PTLC) was performed using the aforementioned silica gel plates. Flash column chromatography was performed over silica gel 60 (particle size 0.035- 0.07 mm) from Acros Organics. NMR spectra were recorded on Bruker DRX-600 (equipped with a 5 mm DCH Cryoprobe), AV-600, DRX-500 or DPX-400 and calibrated using residual non-deuterated solvent as an internal reference (CHCl3 @ 7.26 ppm 1H NMR, 77.16 ppm 13C NMR; (CD3)2CO @ 2.05 1H NMR, 206.26 13C NMR; CD3OD @ 3.31 1H NMR, 49.00 13C NMR). The following abbreviations (or combinations thereof) were used to explain the multiplicities: s = singlet, d = doublet, t = triplet, q = quartet, p = pentet, sex = sextet, sep = septet m = multiplet, br = broad. LC/MS analysis was performed on an Agilent 1200 series HPLC/MS equipped with an Agilent SB-C18 2.1 mm × 50 mm column, with mass spectra recorded on a 6120 Quadrupole mass spectrometer (API-ES), using MeCN and H2O as the mobile phase (0.1% formic acid). LC-MS runs used the following method unless otherwise specified: flow rate of 0.5 mL/min is used, initial equilibration of 5% MeCN/H2O with a linear gradient to 95% MeCN / H2O over 5 min, then a hold at 95% MeCN / H2O for an additional 3 min. Optical rotations were measured digitally on an Autopol III polarimeter from Rudolph Research Analytic, using a flow cell with a 0.5 decimeter pathlength and the sodium lamp D-line wavelength (λ = 589.3 nm). High-resolution mass spectrometric data were obtained on a Waters Xevo G2-XS QTOF instrument. Commercial picrotoxinin was obtained from Millipore Sigma (USA) and used for relative analog preparation.",
+      "contextStart": "Unless otherwise noted, all experiments were run in flame-dried glassware under an atmosphere of arg",
+      "contextEnd": "rcial picrotoxinin was obtained from Millipore Sigma (USA) and used for relative analog preparation.",
+      "sourceHeadingIds": [
+        "Sec8"
+      ],
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 1,
+          "tag": "I",
+          "text": "i",
+          "html": "<i>i</i>"
+        },
+        {
+          "index": 2,
+          "tag": "I",
+          "text": "N",
+          "html": "<i>N</i>"
+        },
+        {
+          "index": 3,
+          "tag": "SUB",
+          "text": "3",
+          "html": "<sub>3</sub>"
+        },
+        {
+          "index": 4,
+          "tag": "I",
+          "text": "μ",
+          "html": "<i>μ</i>"
+        },
+        {
+          "index": 5,
+          "tag": "SUB",
+          "text": "4",
+          "html": "<sub>4</sub>"
+        },
+        {
+          "index": 6,
+          "tag": "SUB",
+          "text": "3",
+          "html": "<sub>3</sub>"
+        },
+        {
+          "index": 7,
+          "tag": "SUP",
+          "text": "1",
+          "html": "<sup>1</sup>"
+        },
+        {
+          "index": 8,
+          "tag": "SUP",
+          "text": "13",
+          "html": "<sup>13</sup>"
+        },
+        {
+          "index": 9,
+          "tag": "SUB",
+          "text": "3",
+          "html": "<sub>3</sub>"
+        },
+        {
+          "index": 10,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 11,
+          "tag": "SUP",
+          "text": "1",
+          "html": "<sup>1</sup>"
+        },
+        {
+          "index": 12,
+          "tag": "SUP",
+          "text": "13",
+          "html": "<sup>13</sup>"
+        },
+        {
+          "index": 13,
+          "tag": "SUB",
+          "text": "3",
+          "html": "<sub>3</sub>"
+        },
+        {
+          "index": 14,
+          "tag": "SUP",
+          "text": "1",
+          "html": "<sup>1</sup>"
+        },
+        {
+          "index": 15,
+          "tag": "SUP",
+          "text": "13",
+          "html": "<sup>13</sup>"
+        },
+        {
+          "index": 16,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 17,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 18,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 19,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        }
+      ],
+      "attachments": [
+        {
+          "id": "methods-p0-SUP0",
+          "supIndex": 0,
+          "mass": "1",
+          "element": "H",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>1</sup>H",
+          "sourceFragmentSha256": "e5f549a8adfbb34d7430d7e505380894268fb60e650bbdd88cb4fe79ed4c551c",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 89627,
+            "startOffset": 219064,
+            "endLine": 1037,
+            "endCol": 89639,
+            "endOffset": 219076,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 89627,
+              "startOffset": 219064,
+              "endLine": 1037,
+              "endCol": 89632,
+              "endOffset": 219069
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 89633,
+              "startOffset": 219070,
+              "endLine": 1037,
+              "endCol": 89639,
+              "endOffset": 219076
+            },
+            "startByte": 219639,
+            "endByte": 219651
+          },
+          "beforeSourceText": " @ 7.26 ppm ",
+          "afterSourceText": "H NMR, 77.16 ppm ",
+          "measurement": "7.26",
+          "measurementHasPpm": true,
+          "bracketed": false,
+          "originalNineCovered": true,
+          "cAcceptedAc86Role": "isolated-leading-mass",
+          "cSourcePosition": {
+            "blockId": "a-section-3",
+            "paragraphIndex": 0,
+            "rawParagraphPrehash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+            "frozenParagraphDigest": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a"
+          }
+        },
+        {
+          "id": "methods-p0-SUP1",
+          "supIndex": 1,
+          "mass": "13",
+          "element": "C",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>13</sup>C",
+          "sourceFragmentSha256": "a7706c063c579e729cbfc37ed9919f4489175d5649e15232e7b17a7881dc2923",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 89656,
+            "startOffset": 219093,
+            "endLine": 1037,
+            "endCol": 89669,
+            "endOffset": 219106,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 89656,
+              "startOffset": 219093,
+              "endLine": 1037,
+              "endCol": 89661,
+              "endOffset": 219098
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 89663,
+              "startOffset": 219100,
+              "endLine": 1037,
+              "endCol": 89669,
+              "endOffset": 219106
+            },
+            "startByte": 219668,
+            "endByte": 219681
+          },
+          "beforeSourceText": "H NMR, 77.16 ppm ",
+          "afterSourceText": "C NMR; (CD",
+          "measurement": "77.16",
+          "measurementHasPpm": true,
+          "bracketed": false,
+          "originalNineCovered": true,
+          "cAcceptedAc86Role": "isolated-leading-mass",
+          "cSourcePosition": {
+            "blockId": "a-section-3",
+            "paragraphIndex": 0,
+            "rawParagraphPrehash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+            "frozenParagraphDigest": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a"
+          }
+        },
+        {
+          "id": "methods-p0-SUP2",
+          "supIndex": 2,
+          "mass": "1",
+          "element": "H",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>1</sup>H",
+          "sourceFragmentSha256": "e5f549a8adfbb34d7430d7e505380894268fb60e650bbdd88cb4fe79ed4c551c",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 89714,
+            "startOffset": 219151,
+            "endLine": 1037,
+            "endCol": 89726,
+            "endOffset": 219163,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 89714,
+              "startOffset": 219151,
+              "endLine": 1037,
+              "endCol": 89719,
+              "endOffset": 219156
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 89720,
+              "startOffset": 219157,
+              "endLine": 1037,
+              "endCol": 89726,
+              "endOffset": 219163
+            },
+            "startByte": 219726,
+            "endByte": 219738
+          },
+          "beforeSourceText": "CO @ 2.05 ",
+          "afterSourceText": "H NMR, 206.26 ",
+          "measurement": "2.05",
+          "measurementHasPpm": false,
+          "bracketed": false,
+          "originalNineCovered": true,
+          "cAcceptedAc86Role": "silent-measurement-backbinding",
+          "cSourcePosition": {
+            "blockId": "a-section-3",
+            "paragraphIndex": 0,
+            "rawParagraphPrehash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+            "frozenParagraphDigest": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a"
+          }
+        },
+        {
+          "id": "methods-p0-SUP3",
+          "supIndex": 3,
+          "mass": "13",
+          "element": "C",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>13</sup>C",
+          "sourceFragmentSha256": "a7706c063c579e729cbfc37ed9919f4489175d5649e15232e7b17a7881dc2923",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 89740,
+            "startOffset": 219177,
+            "endLine": 1037,
+            "endCol": 89753,
+            "endOffset": 219190,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 89740,
+              "startOffset": 219177,
+              "endLine": 1037,
+              "endCol": 89745,
+              "endOffset": 219182
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 89747,
+              "startOffset": 219184,
+              "endLine": 1037,
+              "endCol": 89753,
+              "endOffset": 219190
+            },
+            "startByte": 219752,
+            "endByte": 219765
+          },
+          "beforeSourceText": "H NMR, 206.26 ",
+          "afterSourceText": "C NMR; CD",
+          "measurement": "206.26",
+          "measurementHasPpm": false,
+          "bracketed": false,
+          "originalNineCovered": true,
+          "cAcceptedAc86Role": "silent-measurement-backbinding",
+          "cSourcePosition": {
+            "blockId": "a-section-3",
+            "paragraphIndex": 0,
+            "rawParagraphPrehash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+            "frozenParagraphDigest": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a"
+          }
+        },
+        {
+          "id": "methods-p0-SUP4",
+          "supIndex": 4,
+          "mass": "1",
+          "element": "H",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>1</sup>H",
+          "sourceFragmentSha256": "e5f549a8adfbb34d7430d7e505380894268fb60e650bbdd88cb4fe79ed4c551c",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 89784,
+            "startOffset": 219221,
+            "endLine": 1037,
+            "endCol": 89796,
+            "endOffset": 219233,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 89784,
+              "startOffset": 219221,
+              "endLine": 1037,
+              "endCol": 89789,
+              "endOffset": 219226
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 89790,
+              "startOffset": 219227,
+              "endLine": 1037,
+              "endCol": 89796,
+              "endOffset": 219233
+            },
+            "startByte": 219796,
+            "endByte": 219808
+          },
+          "beforeSourceText": "OD @ 3.31 ",
+          "afterSourceText": "H NMR, 49.00 ",
+          "measurement": "3.31",
+          "measurementHasPpm": false,
+          "bracketed": false,
+          "originalNineCovered": true,
+          "cAcceptedAc86Role": "silent-measurement-backbinding",
+          "cSourcePosition": {
+            "blockId": "a-section-3",
+            "paragraphIndex": 0,
+            "rawParagraphPrehash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+            "frozenParagraphDigest": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a"
+          }
+        },
+        {
+          "id": "methods-p0-SUP5",
+          "supIndex": 5,
+          "mass": "13",
+          "element": "C",
+          "role": "leading-isotope-mass",
+          "attachmentDirection": "following-element",
+          "sourceFragment": "<sup>13</sup>C",
+          "sourceFragmentSha256": "a7706c063c579e729cbfc37ed9919f4489175d5649e15232e7b17a7881dc2923",
+          "sourcePosition": {
+            "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+            "startLine": 1037,
+            "startCol": 89809,
+            "startOffset": 219246,
+            "endLine": 1037,
+            "endCol": 89822,
+            "endOffset": 219259,
+            "startTag": {
+              "startLine": 1037,
+              "startCol": 89809,
+              "startOffset": 219246,
+              "endLine": 1037,
+              "endCol": 89814,
+              "endOffset": 219251
+            },
+            "endTag": {
+              "startLine": 1037,
+              "startCol": 89816,
+              "startOffset": 219253,
+              "endLine": 1037,
+              "endCol": 89822,
+              "endOffset": 219259
+            },
+            "startByte": 219821,
+            "endByte": 219834
+          },
+          "beforeSourceText": "H NMR, 49.00 ",
+          "afterSourceText": "C NMR). The following abbreviations (or combinations thereof) were used to explain the multiplicities: s = singlet, d = doublet, t = triplet, q = quartet, p = pentet, sex = sextet, sep = septet m = multiplet, br = broad. LC/MS analysis was performed on an Agilent 1200 series HPLC/MS equipped with an Agilent SB-C18 2.1 mm × 50 mm column, with mass spectra recorded on a 6120 Quadrupole mass spectrometer (API-ES), using MeCN and H",
+          "measurement": "49.00",
+          "measurementHasPpm": false,
+          "bracketed": false,
+          "originalNineCovered": true,
+          "cAcceptedAc86Role": "silent-measurement-backbinding",
+          "cSourcePosition": {
+            "blockId": "a-section-3",
+            "paragraphIndex": 0,
+            "rawParagraphPrehash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+            "frozenParagraphDigest": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a"
+          }
+        }
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "selector": "#figure-3",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 46943,
+        "startOffset": 176380,
+        "endLine": 1037,
+        "endCol": 49820,
+        "endOffset": 179257,
+        "attrs": {
+          "class": {
+            "startLine": 1037,
+            "startCol": 46948,
+            "startOffset": 176385,
+            "endLine": 1037,
+            "endCol": 47017,
+            "endOffset": 176454
+          },
+          "data-test": {
+            "startLine": 1037,
+            "startCol": 47018,
+            "startOffset": 176455,
+            "endLine": 1037,
+            "endCol": 47036,
+            "endOffset": 176473
+          },
+          "data-container-section": {
+            "startLine": 1037,
+            "startCol": 47037,
+            "startOffset": 176474,
+            "endLine": 1037,
+            "endCol": 47068,
+            "endOffset": 176505
+          },
+          "id": {
+            "startLine": 1037,
+            "startCol": 47069,
+            "startOffset": 176506,
+            "endLine": 1037,
+            "endCol": 47082,
+            "endOffset": 176519
+          },
+          "data-title": {
+            "startLine": 1037,
+            "startCol": 47083,
+            "startOffset": 176520,
+            "endLine": 1037,
+            "endCol": 47176,
+            "endOffset": 176613
+          }
+        },
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 46943,
+          "startOffset": 176380,
+          "endLine": 1037,
+          "endCol": 47177,
+          "endOffset": 176614,
+          "attrs": {
+            "class": {
+              "startLine": 1037,
+              "startCol": 46948,
+              "startOffset": 176385,
+              "endLine": 1037,
+              "endCol": 47017,
+              "endOffset": 176454
+            },
+            "data-test": {
+              "startLine": 1037,
+              "startCol": 47018,
+              "startOffset": 176455,
+              "endLine": 1037,
+              "endCol": 47036,
+              "endOffset": 176473
+            },
+            "data-container-section": {
+              "startLine": 1037,
+              "startCol": 47037,
+              "startOffset": 176474,
+              "endLine": 1037,
+              "endCol": 47068,
+              "endOffset": 176505
+            },
+            "id": {
+              "startLine": 1037,
+              "startCol": 47069,
+              "startOffset": 176506,
+              "endLine": 1037,
+              "endCol": 47082,
+              "endOffset": 176519
+            },
+            "data-title": {
+              "startLine": 1037,
+              "startCol": 47083,
+              "startOffset": 176520,
+              "endLine": 1037,
+              "endCol": 47176,
+              "endOffset": 176613
+            }
+          }
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 49814,
+          "startOffset": 179251,
+          "endLine": 1037,
+          "endCol": 49820,
+          "endOffset": 179257
+        },
+        "startByte": 176657,
+        "endByte": 179552
+      },
+      "rawPreSanitizationSha256": "472a0ddbd53ebef050ec348df7983861c2abe5ef8209c413387a54cb474e33b5",
+      "frozenSha256": "919c161e92afa9262c5ff39fb4c4e392a92022c2c6fdc5aaa22b4640af03c8f9",
+      "completeSourceText": "Fig. 3: Experimental and computational analysis of stability imparted by C5-methylation.Full size imagea Degradation of 1 using common acidic and basic conditions; (b) Attempted degradation of 5MePXN (2) using the same conditions; (c) In situ 1H NMR monitoring of 1:1 PXN/ 5MePXN in 5 mol % NaOMe/ d4-methanol; (d) Competition experiments with 1 and 2 using 5 mol % NaOMe in d4-methanol; t = 0 and 6 h, w/ and w/o 2; (e) Degradation is also retarded in mouse and human plasma (n = 2). f, g Calculated structures and free energies of transition states and intermediates for base-catalyzed methanolysis at the ωB97X-D/def2-TZVPPD, SMD (H2O)// ωB97X-D/def2-SVP, SMD (H2O) level of theory. Interatomic distances are in Å. Dashed curves denote raw calculated values; solid curves denote values with translational entropy corrections accounting for concentration gradients (see Supplementary Information).",
+      "label": "Fig. 3: Experimental and computational analysis of stability imparted by C5-methylation."
+    },
+    {
+      "selector": "#figure-5",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 64655,
+        "startOffset": 194092,
+        "endLine": 1037,
+        "endCol": 67773,
+        "endOffset": 197210,
+        "attrs": {
+          "class": {
+            "startLine": 1037,
+            "startCol": 64660,
+            "startOffset": 194097,
+            "endLine": 1037,
+            "endCol": 64729,
+            "endOffset": 194166
+          },
+          "data-test": {
+            "startLine": 1037,
+            "startCol": 64730,
+            "startOffset": 194167,
+            "endLine": 1037,
+            "endCol": 64748,
+            "endOffset": 194185
+          },
+          "data-container-section": {
+            "startLine": 1037,
+            "startCol": 64749,
+            "startOffset": 194186,
+            "endLine": 1037,
+            "endCol": 64780,
+            "endOffset": 194217
+          },
+          "id": {
+            "startLine": 1037,
+            "startCol": 64781,
+            "startOffset": 194218,
+            "endLine": 1037,
+            "endCol": 64794,
+            "endOffset": 194231
+          },
+          "data-title": {
+            "startLine": 1037,
+            "startCol": 64795,
+            "startOffset": 194232,
+            "endLine": 1037,
+            "endCol": 64880,
+            "endOffset": 194317
+          }
+        },
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 64655,
+          "startOffset": 194092,
+          "endLine": 1037,
+          "endCol": 64881,
+          "endOffset": 194318,
+          "attrs": {
+            "class": {
+              "startLine": 1037,
+              "startCol": 64660,
+              "startOffset": 194097,
+              "endLine": 1037,
+              "endCol": 64729,
+              "endOffset": 194166
+            },
+            "data-test": {
+              "startLine": 1037,
+              "startCol": 64730,
+              "startOffset": 194167,
+              "endLine": 1037,
+              "endCol": 64748,
+              "endOffset": 194185
+            },
+            "data-container-section": {
+              "startLine": 1037,
+              "startCol": 64749,
+              "startOffset": 194186,
+              "endLine": 1037,
+              "endCol": 64780,
+              "endOffset": 194217
+            },
+            "id": {
+              "startLine": 1037,
+              "startCol": 64781,
+              "startOffset": 194218,
+              "endLine": 1037,
+              "endCol": 64794,
+              "endOffset": 194231
+            },
+            "data-title": {
+              "startLine": 1037,
+              "startCol": 64795,
+              "startOffset": 194232,
+              "endLine": 1037,
+              "endCol": 64880,
+              "endOffset": 194317
+            }
+          }
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 67767,
+          "startOffset": 197204,
+          "endLine": 1037,
+          "endCol": 67773,
+          "endOffset": 197210
+        },
+        "startByte": 194483,
+        "endByte": 197625
+      },
+      "rawPreSanitizationSha256": "0bcbd8c744ff93e084960d9e3d214f443e35a1bbab4648066f5b24e62ba3f457",
+      "frozenSha256": "84aabb11461c364898d15185793dfcc82dbf1f8d05344d3c45c21b96550f9e53",
+      "completeSourceText": "Fig. 5: Experimental and computational analysis of LGIC binding and selectivity.Full size imagea Relative potencies of PXN and 5MePXN analogs at GABAAR ([3H]-TBOB, n = 1); (b) Relative potencies of PXN and 5MePXN analogs at RDL receptors measured by electrophysiology as a proxy for channel binding (n = 4); (c) Selectivity between vertebrate (GABAA) and invertebrate (RDL) receptors by PXN analogs: C5-methylated analogs are selective for invertebrate receptors; (d) Pairwise identity matrix of GABA/RDL residues across species; (e) PXN (1) and analog 30 in the rat GABA homology model, showing crystal binding poses of PXN (PDB: 6×40; dark gray), PXN after MD (pink), and 30 (light gray) interacting with T287 (β2), T309 (γ2), and T280 (α2). The binding free energy of 30 is predicted to be 1.8 ± 1.5 kcal/mol above that of 1 at GABAA. Orientation of the binding pocket is kept fixed to allow direct comparison of binding poses; (f) PXN (1) and analog 30 in the fly RDL homology model. Crystal binding poses of PXN (PDB: 6 × 40; dark gray), PXN after MD (pink), and 30 (light gray) show varying degrees of interaction with the fly RDL homopentamer. After forcefield minimization, the crystal and MD poses of PXN converged. Interactions with S286, A290, and T294 are indicated with dotted lines.",
+      "label": "Fig. 5: Experimental and computational analysis of LGIC binding and selectivity."
+    }
+  ],
+  "coverage": {
+    "allLeadingMassRoles": 15,
+    "originalCovered": 9,
+    "newRoles": 6,
+    "cAcceptedAc86Orphans": 11,
+    "cAcceptedAc86SilentMeasurementPowers": 4,
+    "scope": "All fifteen actual leading numeric mass attachments to following source H/C/F; scope derived from explicit primitive positions and context, not a generalized element classifier.",
+    "rawNonCitationSupCount": 26,
+    "excludedNonIsotopeSuperscripts": [
+      {
+        "sourceSection": "Results",
+        "sourceParagraphIndex": 0,
+        "supIndex": 1,
+        "text": "3",
+        "before": " of 467.61 mcbits packaged into 228 Å",
+        "after": ", to give a density of 2.05 mcbits/Å",
+        "rawParagraphPrehash": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+        "role": "true-trailing-numeric-or-unit-power",
+        "scope": "excluded-from-isotope61"
+      },
+      {
+        "sourceSection": "Results",
+        "sourceParagraphIndex": 0,
+        "supIndex": 2,
+        "text": "3",
+        "before": ", to give a density of 2.05 mcbits/Å",
+        "after": ". Its small volume allows PXN to fit into the narrow space near the desensitization g",
+        "rawParagraphPrehash": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+        "role": "true-trailing-numeric-or-unit-power",
+        "scope": "excluded-from-isotope61"
+      },
+      {
+        "sourceSection": "Results",
+        "sourceParagraphIndex": 0,
+        "supIndex": 6,
+        "text": "3",
+        "before": " to 480.1 ( + 3%), the ligand volume by 14 Å",
+        "after": " ( + 6%), maintains the information density (1.98 mcbits/Å",
+        "rawParagraphPrehash": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+        "role": "true-trailing-numeric-or-unit-power",
+        "scope": "excluded-from-isotope61"
+      },
+      {
+        "sourceSection": "Results",
+        "sourceParagraphIndex": 0,
+        "supIndex": 7,
+        "text": "3",
+        "before": " ( + 6%), maintains the information density (1.98 mcbits/Å",
+        "after": ") and appears to access a hydrophobic pocket defined by residues L259/ T256 (β3 subun",
+        "rawParagraphPrehash": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+        "role": "true-trailing-numeric-or-unit-power",
+        "scope": "excluded-from-isotope61"
+      },
+      {
+        "sourceSection": "Results",
+        "sourceParagraphIndex": 4,
+        "supIndex": 0,
+        "text": "12,13",
+        "before": "Hydration of the Δ",
+        "after": "-alkene (PXN to PTN) dramatically reduced binding affinity to GABA",
+        "rawParagraphPrehash": "5637b1cf3f747317aae12698db23ae4ff5fa708a47236179d7d2444e93c6bc99",
+        "role": "Delta-bond-position-label",
+        "scope": "excluded-from-isotope61"
+      },
+      {
+        "sourceSection": "Results",
+        "sourceParagraphIndex": 4,
+        "supIndex": 3,
+        "text": "12,13",
+        "before": ") was synthesized in 41% yield. Cobalt catalyzed Δ",
+        "after": "-alkene hydration smoothly proceeded on 6FPXN and 6F5MePXN, delivering ",
+        "rawParagraphPrehash": "5637b1cf3f747317aae12698db23ae4ff5fa708a47236179d7d2444e93c6bc99",
+        "role": "Delta-bond-position-label",
+        "scope": "excluded-from-isotope61"
+      },
+      {
+        "sourceSection": "Results",
+        "sourceParagraphIndex": 11,
+        "supIndex": 3,
+        "text": "5",
+        "before": "ning barriers for picrotoxinin and 5-Me-picrotoxinin roughly translates to a 1.6 × 10",
+        "after": "-fold difference in rate, in good agreement with the experimental differences in rate",
+        "rawParagraphPrehash": "70ba2e4614c9010d2e57050df0f110941b942e8e3e703375e5b8a660629fd6d7",
+        "role": "true-trailing-numeric-or-unit-power",
+        "scope": "excluded-from-isotope61"
+      },
+      {
+        "sourceSection": "Results",
+        "sourceParagraphIndex": 18,
+        "supIndex": 0,
+        "text": "−30",
+        "before": " = 2.95×10",
+        "after": ") and the RDL receptor (",
+        "rawParagraphPrehash": "ad972dc1cda53ec1341248ea6be122dd8252803c8c8fa674652bd51a04ba398f",
+        "role": "true-trailing-numeric-or-unit-power",
+        "scope": "excluded-from-isotope61"
+      },
+      {
+        "sourceSection": "Results",
+        "sourceParagraphIndex": 18,
+        "supIndex": 1,
+        "text": "−31",
+        "before": " = 1.22×10",
+        "after": "). Each distribution except for ",
+        "rawParagraphPrehash": "ad972dc1cda53ec1341248ea6be122dd8252803c8c8fa674652bd51a04ba398f",
+        "role": "true-trailing-numeric-or-unit-power",
+        "scope": "excluded-from-isotope61"
+      },
+      {
+        "sourceSection": "Results",
+        "sourceParagraphIndex": 20,
+        "supIndex": 0,
+        "text": "3",
+        "before": " (247 Å",
+        "after": " vs. 229 Å",
+        "rawParagraphPrehash": "84ce5d602039554b81ef69b4a8801d0e6a6f1dbbaa20ad0c02545136d4c2b56a",
+        "role": "true-trailing-numeric-or-unit-power",
+        "scope": "excluded-from-isotope61"
+      },
+      {
+        "sourceSection": "Results",
+        "sourceParagraphIndex": 20,
+        "supIndex": 1,
+        "text": "3",
+        "before": " vs. 229 Å",
+        "after": ") may exceed the narrow pore volume of the GABA",
+        "rawParagraphPrehash": "84ce5d602039554b81ef69b4a8801d0e6a6f1dbbaa20ad0c02545136d4c2b56a",
+        "role": "true-trailing-numeric-or-unit-power",
+        "scope": "excluded-from-isotope61"
+      }
+    ],
+    "referencePrefix": 43,
+    "creatorCount": 9,
+    "acquisitionRequests": 0,
+    "productionChanged": false
+  },
+  "omissions": [
+    "All other article prose, figures and supplementary material; no full raw capture, image binaries or credentials.",
+    "Original Results p4 two Delta12,13 bond labels are independently recorded and excluded, not rewritten as isotopes.",
+    "Untouched whole paragraphs retain Fe2(ox)3 and (CD3)2CO group trailing subscripts; these independent defects remain diagnostic. Pb(OAc)4 outside this projection remains in C source unchanged.",
+    "References44–52 omitted; source ordinal prefix1–43 retained in full. Figure2/other unretained source figure links follow existing production target-retention downgrade; original href/text preserved."
+  ],
+  "reconstruction": "Verify untouched raw Buffer/hash and actual helper Git identity; for this final recipe check every pre-sanitize block, preserve original complete text/scientific nodes/source positions/ordered creators and rights; call sanitizeNatureHtml(raw, recipe), repeat raw generation and sanitize frozen input again; exact UTF8 LF fixture bytes/signatures must match. Existing nine-role source packet is unchanged; this is the only extended recipe to independently audit."
+}

@@ -1,0 +1,478 @@
+{
+  "baseSha": "6b90413d806f7e611b00559c8208f6b95b31dd1e",
+  "fixtureSha256": "2a0e006ed9a5f0e55c2b18bf8ae4ed71ff8a689d45dcdf20a507173b481697d7",
+  "productionEdited": false,
+  "oracleEdited": false,
+  "networkRequests": 0,
+  "records": [
+    {
+      "id": "actual-model-zero-gap",
+      "synthetic": false,
+      "sourceClaim": "Verbatim actual source model fragment; full-paragraph source regression is separate.",
+      "markup": "128<i>x</i>0<i>e</i> + 64<i>x</i>1<i>x</i> + 32<i>x</i>2<i>e</i>",
+      "preparedHtml": "<p id=\"styled-boundary-control\">ACADEMICCLIPPERSCIENTIFICRUN0XACADEMICCLIPPERSCIENTIFICRUN1X + ACADEMICCLIPPERSCIENTIFICRUN2XACADEMICCLIPPERSCIENTIFICRUN3X + ACADEMICCLIPPERSCIENTIFICRUN4XACADEMICCLIPPERSCIENTIFICRUN5X</p>",
+      "converted": "ACADEMICCLIPPERSCIENTIFICRUN0XACADEMICCLIPPERSCIENTIFICRUN1X + ACADEMICCLIPPERSCIENTIFICRUN2XACADEMICCLIPPERSCIENTIFICRUN3X + ACADEMICCLIPPERSCIENTIFICRUN4XACADEMICCLIPPERSCIENTIFICRUN5X",
+      "rendered": "$128x$$0e$ + $64x$$1x$ + $32x$$2e$",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "0e",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "tex": "64x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "tex": "1x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+          "tex": "32x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+          "tex": "2e",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": false,
+        "displayMathCount": 1,
+        "inlineMathCount": 1,
+        "issueTypes": [
+          "inline-display-switch",
+          "single-dollar-in-display",
+          "single-dollar-in-display",
+          "unclosed-inline-math"
+        ]
+      }
+    },
+    {
+      "id": "synthetic-single-space",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence.",
+      "markup": "128<i>x</i> 0<i>e</i>",
+      "preparedHtml": "<p id=\"styled-boundary-control\">ACADEMICCLIPPERSCIENTIFICRUN0X ACADEMICCLIPPERSCIENTIFICRUN1X</p>",
+      "converted": "ACADEMICCLIPPERSCIENTIFICRUN0X ACADEMICCLIPPERSCIENTIFICRUN1X",
+      "rendered": "$128x$ $0e$",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "0e",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": true,
+        "displayMathCount": 0,
+        "inlineMathCount": 2,
+        "issueTypes": []
+      }
+    },
+    {
+      "id": "synthetic-thin-space",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence.",
+      "markup": "128<i>x</i> 0<i>e</i>",
+      "preparedHtml": "<p id=\"styled-boundary-control\">ACADEMICCLIPPERSCIENTIFICRUN0X ACADEMICCLIPPERSCIENTIFICRUN1X</p>",
+      "converted": "ACADEMICCLIPPERSCIENTIFICRUN0X ACADEMICCLIPPERSCIENTIFICRUN1X",
+      "rendered": "$128x$ $0e$",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "0e",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": true,
+        "displayMathCount": 0,
+        "inlineMathCount": 2,
+        "issueTypes": []
+      }
+    },
+    {
+      "id": "synthetic-operator",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence.",
+      "markup": "128<i>x</i> + 0<i>e</i>",
+      "preparedHtml": "<p id=\"styled-boundary-control\">ACADEMICCLIPPERSCIENTIFICRUN0X + ACADEMICCLIPPERSCIENTIFICRUN1X</p>",
+      "converted": "ACADEMICCLIPPERSCIENTIFICRUN0X + ACADEMICCLIPPERSCIENTIFICRUN1X",
+      "rendered": "$128x$ + $0e$",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "0e",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": true,
+        "displayMathCount": 0,
+        "inlineMathCount": 2,
+        "issueTypes": []
+      }
+    },
+    {
+      "id": "synthetic-true-sup",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence.",
+      "markup": "128<i>x</i><sup>0</sup><i>e</i>",
+      "preparedHtml": "<p id=\"styled-boundary-control\">128<i></i>ACADEMICCLIPPERSCIENTIFICRUN0X<i>e</i></p>",
+      "converted": "128ACADEMICCLIPPERSCIENTIFICRUN0X*e*",
+      "rendered": "128$x^{0}$*e*",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "x^{0}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": true,
+        "displayMathCount": 0,
+        "inlineMathCount": 1,
+        "issueTypes": []
+      }
+    },
+    {
+      "id": "synthetic-true-sub",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence.",
+      "markup": "128<i>x</i><sub>0</sub><i>e</i>",
+      "preparedHtml": "<p id=\"styled-boundary-control\">128<i></i>ACADEMICCLIPPERSCIENTIFICRUN0X<i>e</i></p>",
+      "converted": "128ACADEMICCLIPPERSCIENTIFICRUN0X*e*",
+      "rendered": "128$x_{0}$*e*",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "x_{0}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": true,
+        "displayMathCount": 0,
+        "inlineMathCount": 1,
+        "issueTypes": []
+      }
+    },
+    {
+      "id": "synthetic-bold",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence.",
+      "markup": "128<b>x</b>0<b>e</b>",
+      "preparedHtml": "<p id=\"styled-boundary-control\">ACADEMICCLIPPERSCIENTIFICRUN0XACADEMICCLIPPERSCIENTIFICRUN1X</p>",
+      "converted": "ACADEMICCLIPPERSCIENTIFICRUN0XACADEMICCLIPPERSCIENTIFICRUN1X",
+      "rendered": "$128\\mathbf{x}$$0\\mathbf{e}$",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128\\mathbf{x}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "0\\mathbf{e}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": false,
+        "displayMathCount": 0,
+        "inlineMathCount": 0,
+        "issueTypes": [
+          "inline-display-switch",
+          "unclosed-inline-math"
+        ]
+      }
+    },
+    {
+      "id": "synthetic-wrapper",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence.",
+      "markup": "128<i>x</i><span>0</span><i>e</i>",
+      "preparedHtml": "<p id=\"styled-boundary-control\">ACADEMICCLIPPERSCIENTIFICRUN0X<span>0</span><i>e</i></p>",
+      "converted": "ACADEMICCLIPPERSCIENTIFICRUN0X0*e*",
+      "rendered": "$128x$0*e*",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": true,
+        "displayMathCount": 0,
+        "inlineMathCount": 1,
+        "issueTypes": []
+      }
+    },
+    {
+      "id": "synthetic-opaque-inline",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence.",
+      "markup": "128<i>x</i> <span class=\"mathjax-tex\">$e^{0}$</span>",
+      "preparedHtml": "<p id=\"styled-boundary-control\">ACADEMICCLIPPERSCIENTIFICRUN0X ACADEMICCLIPPERINLINEMATH0X</p>",
+      "converted": "ACADEMICCLIPPERSCIENTIFICRUN0X ACADEMICCLIPPERINLINEMATH0X",
+      "rendered": "$128x$ $e^{0}$",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH0X",
+          "tex": "$e^{0}$"
+        }
+      ],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": true,
+        "displayMathCount": 0,
+        "inlineMathCount": 2,
+        "issueTypes": []
+      }
+    },
+    {
+      "id": "synthetic-adjacent-opaque-inline",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence.",
+      "markup": "<span class=\"mathjax-tex\">$x$</span><span class=\"mathjax-tex\">$e$</span>",
+      "preparedHtml": "<p id=\"styled-boundary-control\">ACADEMICCLIPPERINLINEMATH0XACADEMICCLIPPERINLINEMATH1X</p>",
+      "converted": "ACADEMICCLIPPERINLINEMATH0XACADEMICCLIPPERINLINEMATH1X",
+      "rendered": "$x$$e$",
+      "scientificRuns": [],
+      "inlineMath": [
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH0X",
+          "tex": "$x$"
+        },
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH1X",
+          "tex": "$e$"
+        }
+      ],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": false,
+        "displayMathCount": 0,
+        "inlineMathCount": 0,
+        "issueTypes": [
+          "inline-display-switch",
+          "unclosed-inline-math"
+        ]
+      }
+    },
+    {
+      "id": "synthetic-double-dollar-span-without-display-wrapper",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence. Nature types inline/display by publisher wrapper, not by dollar spelling alone.",
+      "markup": "128<i>x</i> <span class=\"mathjax-tex\">$$e^{0}$$</span>",
+      "preparedHtml": "<p id=\"styled-boundary-control\">ACADEMICCLIPPERSCIENTIFICRUN0X ACADEMICCLIPPERINLINEMATH0X</p>",
+      "converted": "ACADEMICCLIPPERSCIENTIFICRUN0X ACADEMICCLIPPERINLINEMATH0X",
+      "rendered": "$128x$ $e^{0}$",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH0X",
+          "tex": "e^{0}"
+        }
+      ],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": true,
+        "displayMathCount": 0,
+        "inlineMathCount": 2,
+        "issueTypes": []
+      }
+    },
+    {
+      "id": "synthetic-inline-code",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence.",
+      "markup": "128<i>x</i><code>$0e$$1x$</code>",
+      "preparedHtml": "<p id=\"styled-boundary-control\">ACADEMICCLIPPERSCIENTIFICRUN0X<code>$0e$$1x$</code></p>",
+      "converted": "ACADEMICCLIPPERSCIENTIFICRUN0X`$0e$$1x$`",
+      "rendered": "$128x$`$0e$$1x$`",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": true,
+        "displayMathCount": 0,
+        "inlineMathCount": 1,
+        "issueTypes": []
+      }
+    },
+    {
+      "id": "synthetic-legacy-inline",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence.",
+      "markup": "128<i>x</i> \\(e^{0}\\)",
+      "preparedHtml": "<p id=\"styled-boundary-control\">ACADEMICCLIPPERSCIENTIFICRUN0X \\(e^{0}\\)</p>",
+      "converted": "ACADEMICCLIPPERSCIENTIFICRUN0X \\\\(e^{0}\\\\)",
+      "rendered": "$128x$ $e^{0}$",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": true,
+        "displayMathCount": 0,
+        "inlineMathCount": 2,
+        "issueTypes": []
+      }
+    },
+    {
+      "id": "synthetic-legacy-display",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence.",
+      "markup": "\\[e^{0}\\]",
+      "preparedHtml": "<p id=\"styled-boundary-control\">\\[e^{0}\\]</p>",
+      "converted": "\\\\\\[e^{0}\\\\\\]",
+      "rendered": "$$\ne^{0}\n$$",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": true,
+        "displayMathCount": 1,
+        "inlineMathCount": 0,
+        "issueTypes": []
+      }
+    },
+    {
+      "id": "synthetic-citation-boundary",
+      "synthetic": true,
+      "sourceClaim": "Constructed algorithmic boundary control, not article/source evidence.",
+      "markup": "128<i>x</i>0<i>e</i><sup><a data-test=\"citation-ref\" href=\"/articles/s41586-023-06735-9#ref-CR30\">30</a></sup>",
+      "preparedHtml": "<p id=\"styled-boundary-control\">ACADEMICCLIPPERSCIENTIFICRUN0X0<i></i>ACADEMICCLIPPERSCIENTIFICRUN1X</p>",
+      "converted": "ACADEMICCLIPPERSCIENTIFICRUN0X0ACADEMICCLIPPERSCIENTIFICRUN1X",
+      "rendered": "$128x$0$e^{30}$",
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "128x",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "e^{30}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "inlineMath": [],
+      "displayMath": [],
+      "citations": [],
+      "mathValidation": {
+        "valid": true,
+        "displayMathCount": 0,
+        "inlineMathCount": 2,
+        "issueTypes": []
+      }
+    },
+    {
+      "id": "actual-source-equ1-display-control",
+      "synthetic": false,
+      "sourceClaim": "Actual whole source Equ1 copied from frozen source; diagnostic typed-marker carrier is constructed.",
+      "markup": "<div class=\"c-article-equation\" id=\"Equ1\"><div class=\"c-article-equation__content\"><span class=\"mathjax-tex\">$${\\mathcal{L}}={\\lambda }_{E}\\frac{1}{{N}_{{\\rm{b}}}}\\mathop{\\sum }\\limits_{b=1}^{b={N}_{{\\rm{b}}}}{{\\mathcal{L}}}_{{\\rm{Huber}}}\\left({\\delta }_{E},\\frac{{\\widehat{E}}_{{\\rm{b}}}}{{N}_{{\\rm{a}}}},\\frac{{E}_{{\\rm{b}}}}{{N}_{{\\rm{a}}}}\\right)+{\\lambda }_{F}\\frac{1}{{N}_{{\\rm{b}}}}\\mathop{\\sum }\\limits_{b=1}^{b={N}_{{\\rm{b}}}}\\mathop{\\sum }\\limits_{a=1}^{b={N}_{{\\rm{a}}}}{{\\mathcal{L}}}_{{\\rm{Huber}}}\\left({\\delta }_{F},-\\frac{\\partial \\widehat{{E}_{{\\rm{b}}}}}{\\partial {r}_{{\\rm{b}},{\\rm{a}},\\alpha }},{F}_{b,a,\\alpha }\\right)$$</span></div><div class=\"c-article-equation__number\">\n                    (1)\n                </div></div>",
+      "preparedHtml": "ACADEMICCLIPPERDISPLAYMATH0X",
+      "converted": "ACADEMICCLIPPERDISPLAYMATH0X",
+      "rendered": "$$\n{\\mathcal{L}}={\\lambda }_{E}\\frac{1}{{N}_{\\mathrm{b}}}\\mathop{\\sum }\\limits_{b=1}^{b={N}_{\\mathrm{b}}}{{\\mathcal{L}}}_{\\mathrm{Huber}}\\left({\\delta }_{E},\\frac{{\\widehat{E}}_{\\mathrm{b}}}{{N}_{\\mathrm{a}}},\\frac{{E}_{\\mathrm{b}}}{{N}_{\\mathrm{a}}}\\right)+{\\lambda }_{F}\\frac{1}{{N}_{\\mathrm{b}}}\\mathop{\\sum }\\limits_{b=1}^{b={N}_{\\mathrm{b}}}\\mathop{\\sum }\\limits_{a=1}^{b={N}_{\\mathrm{a}}}{{\\mathcal{L}}}_{\\mathrm{Huber}}\\left({\\delta }_{F},-\\frac{\\partial \\widehat{{E}_{\\mathrm{b}}}}{\\partial {r}_{\\mathrm{b},\\mathrm{a},\\alpha }},{F}_{b,a,\\alpha }\\right)\n$$",
+      "scientificRuns": [],
+      "inlineMath": [],
+      "displayMath": [
+        {
+          "marker": "ACADEMICCLIPPERDISPLAYMATH0X",
+          "tex": "{\\mathcal{L}}={\\lambda }_{E}\\frac{1}{{N}_{{\\rm{b}}}}\\mathop{\\sum }\\limits_{b=1}^{b={N}_{{\\rm{b}}}}{{\\mathcal{L}}}_{{\\rm{Huber}}}\\left({\\delta }_{E},\\frac{{\\widehat{E}}_{{\\rm{b}}}}{{N}_{{\\rm{a}}}},\\frac{{E}_{{\\rm{b}}}}{{N}_{{\\rm{a}}}}\\right)+{\\lambda }_{F}\\frac{1}{{N}_{{\\rm{b}}}}\\mathop{\\sum }\\limits_{b=1}^{b={N}_{{\\rm{b}}}}\\mathop{\\sum }\\limits_{a=1}^{b={N}_{{\\rm{a}}}}{{\\mathcal{L}}}_{{\\rm{Huber}}}\\left({\\delta }_{F},-\\frac{\\partial \\widehat{{E}_{{\\rm{b}}}}}{\\partial {r}_{{\\rm{b}},{\\rm{a}},\\alpha }},{F}_{b,a,\\alpha }\\right)"
+        }
+      ],
+      "citations": [],
+      "mathValidation": {
+        "valid": true,
+        "displayMathCount": 1,
+        "inlineMathCount": 0,
+        "issueTypes": []
+      }
+    }
+  ],
+  "version": "nature-styled-boundary-observations/1.0.0",
+  "notOracle": "Observed accepted-base diagnostic states, not source-derived expectations or snapshots to enforce after a fix. Synthetic controls are not article evidence."
+}
