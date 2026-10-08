@@ -760,6 +760,34 @@ function collectNumericSuperscriptRun(parent, startIndex) {
   };
 }
 
+function collectPlainFractionalUnitRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
+  const exponent = parent.childNodes[startIndex];
+  if (!isElement(exponent, new Set(['SUP'])) || exponent.childNodes.length !== 1
+    || exponent.firstChild.nodeType !== 3) return null;
+  const base = exponent.previousSibling;
+  const unit = base?.nodeType === 3 ? base.textContent.match(/(?:pc|km)$/u)?.[0] : null;
+  // Only these source-backed factor/exponent pairs are proved here. Neither
+  // a measurement prefix nor an adjacent unit belongs to this exponent.
+  if (!unit || exponent.textContent !== (unit === 'pc' ? '−2/3' : '−1/3')) return null;
+  const offset = base.textContent.length - unit.length;
+  if (offset === 0 ? base.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(base.textContent.slice(0, offset))) return null;
+  const next = exponent.nextSibling;
+  // Unknown topology and lexical continuations cannot prove a factor edge.
+  // A typed citation SUP keeps its original independent ownership.
+  if (next && !(next.nodeType === 3 && /^[\s\p{P}]/u.test(next.textContent)
+      && !next.textContent.startsWith('_'))
+    && !(next.nodeType === 1 && next.tagName === 'SUP'
+      && next.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]'))) return null;
+  return {
+    start: { node: base, offset },
+    end: { node: exponent, after: true },
+    tex: `\\mathrm{${unit}}^{${exponent.textContent}}`,
+  };
+}
+
 function collectQualifiedMetricRun(parent, startIndex) {
   if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
   if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
@@ -975,6 +1003,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
         : collectStyledRun(parent, index)
           || collectTextAndStyledSymbolRun(parent, index, inlineMathByMarker, displayMath)
           || collectNumericAttachmentRun(parent, index)
+          || collectPlainFractionalUnitRun(parent, index)
           || collectQualifiedMetricRun(parent, index)
           || collectPlainScriptedIdentifierRun(parent, index)
           || collectCompoundConductivityRun(parent, index)
