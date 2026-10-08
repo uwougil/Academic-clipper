@@ -20,7 +20,7 @@
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
 | A / B immutable source inputs | DONE | A reviewed actual e56 interface；B b718fa8 source-only；nine articles/four resources/85 expectations |
-| C assertion framework / oracle audit | RUNNING affected heading-consumer compatibility | API1.0/5a420d8 adopted4e8；实际Materials六clips四guards/原native11与headingidentity PASS，24/27source PASS、3旧扁平headingconsumer FAIL；限定C消费者修正中；全255/27未验收 |
+| C assertion framework / oracle audit | RUNNING independent consumer delta review | API1.0/5a420d8 adopted4e8；实际Materials六clips四guards/native11 PASS；918901c新consumer7/7PASS，无新clip，24原runtime+3cached新heading构成27记录；finaledd8dbb待独审，全255/27未验收 |
 | D seam / controller review | DONE for implementation | exact4649 independent zero blockers；最终真实source-controller acceptance DEPENDENCY_PENDING |
 | Footer45、caption47、units48、tableMathJax51、literal53、sparse55、citation56 | DONE | 各独立PR与成功mergedMain receipts见后续历史；accepted mainac86 |
 | styled-adjacency57 / PR62 | DONE | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523与Secrets成功、57 automation completed |
@@ -30,8 +30,8 @@
 | reference2 literal inequality65 / PR70 | DONE | final7c32/676full/十门槛；squashf4a5 Main37725961177与Secrets SUCCESS；65 automation completed |
 | Greek64 / PR77 | DONE | final2a231/code07be，93focused/181affected/830full/build/golden/独立zero blockers/三平台CI/Secrets全部通过；squash134ba67 Main37740911355 SUCCESS，64 automation completed；C实际Quantum全部四guards已通过 |
 | compound-unit67 / PR78 | DONE | final5e1/codeab589；59focused/309affected/889full/build/golden/三平台CI/Secrets/最终独审零阻塞十gates；squash36c93ca，mergedMain37749675660/Secrets SUCCESS，67 automation completed |
-| Materials identifier68 / PR79 | DONE | exact1be7/code976f479全部十gates；squash4e8dcd9 Main37764888330与Secrets37764888340 SUCCESS，68 automation COMPLETED；C实际Materials delta待执行 |
-| Other mandatory scientific71–75 | RUNNING71 sole Nature production / implementation review | 71codebba4/final039fc5d实际43focused PASS/独审中；72fbc5c59及73最终69088a1 PLAN_ONLY_CLEAR；74新964f643 tail53PASS待独审；75新41d47b6预检50=42PASS8真RED、1P2共享sourceoracle尾段中；串行生产 |
+| Materials identifier68 / PR79 | DONE | exact1be7/code976f479全部十gates；squash4e8dcd9 Main37764888330与Secrets37764888340 SUCCESS，68 automation COMPLETED；C唯一实际Materials六clips已执行，consumer增量独审待完成 |
+| Other mandatory scientific71–75 | RUNNING71 publication only / remaining read-only reviews | 71codebba4/final039fc5d实施独审CLEAR，43focused/760affected/1024full/build/golden PASS，复用closed receipts只补DOC/PR；72fbc5c59、73最终69088a1、74最终964f643 PLAN_ONLY_CLEAR；75新3e4c12e tail80PASS待只读独审；串行生产 |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
 当前 host 并发上限为 4（含 orchestrator）。优先同时运行 C、D、table-footer bug；其余节点在名额空出并满足 dependency 后启动，重复恢复同一 C / D child。
@@ -811,3 +811,13 @@ C旧orderedBodyHeadings/level断言只接受source flatten文字r2SCAN，拒绝�
 74 exact964f6436127b8d53d8e2ae7b9911552e37e465c1 clean/pushed，root读strictsharedwholeformulahelper、纯controls/sourcewiring/plan与receipt。53/53PASS736.9922ms=42purestrings+11NEWnegatives，0old26/source65/old3clips；recipe科学/protectedquiet，futuremodified18/default37仍UNRUN。Receipt19479 SHA5041dd190565356924db83d90df44307b0659f8ff2f8d78b09405ff9961f176e，正待same reviewer只读tail。
 
 75独审human5549 SHAabe6f7d3120e507efcb29047b373f898505ad7716a5e370abc97aa8007f5ee99/machine25787 SHA2c6b99a90bc0c275002fc86b3e79682a505d3f1d44be756e52ed85b17da6a182 root完整读human/关键数值fields+hash；P2=1真实sourceattachedRole子串匹配与newstricthelper未共享。Rootsameauthor放ONLYtesthelper/source调用/NEWpurestrings/receipt/plan尾修，保持允许π和/8在平方BASE外的有界等价数学atom。新pure80/80PASS70.482ms0parse/clip，ownerpackaging未root审最终bytes/未PLANclear；原50/source48/source15/3clips未重做。
+
+## 11:15 UTC：恢复遵守不重复劳动，#71 closed broader 直接复用
+
+用户再次要求继续goal时避免重复劳动。Root完整读取原autonomous goal后 actual agent inventory仅root，依§22恢复三个精确剩余scope：#71仅closed receipt核验/DOC/publication；C仅918/edd8 changedconsumer独立只读review；#75仅3e4 sharedoracle tail独立只读review。没有恢复已结束测试/采集、没有重建旧snapshot、没有重复旧source/A/projection/wholematrix。Accepted仍4e8；actual最新Main37764888330/Secrets37764888340/Finalizer37765615066均SUCCESS。
+
+#71 independent implementation exact039fc5d已CLEAR numericalblocking0，root此前完整read human7083 SHA7b8cfa08b5c9fead5481f7ae0ddb7af06dadc696aa2819b068e055bf13ee59b2/machine40302 SHAba090b42f1125b9a7f30d6c26b8af1e2e23199610d742901e469468f44bf0eed。Actual broader外部academic-clipper-issue71-broader-bba4ea7四receipt终态status0：760/760affected10019.6027ms、1024/1024full80098.308ms、build与read-onlygolden（四validators true、scientific0）均完成。Root读取实际closed字段/logs/两newmodulefullguard与hash：affected receipt33807ad6724a0943c6f1e2b704accddbfb7109f227d34fe88fd064e7c0bde82c/logfef6a6659a977bfede348ac37548816b27bdeefe5b67bdbe5ab4adacc5f1abe6；fullfc52b399e30c64edc28c327760b497cec3b9ca2deb42da780841f7f08751fc60/log5b9d9f788d2852430359dd29b584121bda6f3dde6605927d0c9b2702b7c2eba6；build764ffae93f0ed55ed6c119cef9b7aea59af9a34cd2ac6f39c9daab62887ba14b/logbf0d10be2634028ba22eabad6c6b1ecc40dc634e0b88fdddae8fa96bd44ef340；golden1ff7c0c88b3a2c778b3476bcb72f1951c4f79e47da2ac6f14a9d1160c8c48da5/loga5117f116c1d285880129194d874ffe7812eaa6bd8634838524e53bfa131dbfe。每份248unchanged identities全true，goldenBefore/After exact相等；full source3windows/sourceDOM1、boundary35DOM全close，HTTP/DNS[]exactrestore。只复用本codebba4/current039相同输入，没有fullsuite writer/networkspy的虚假宽泛声明。剩余是author DOC_ONLY/单Refs71PR、freshCI/Secrets及finalpublicationreview/十门槛；不重已关闭1024运行。
+
+C当前clean fullHEADedd8dbb215a00cf3012e2b3aa3c142fb67fffa17，consumer918901c/helperblob8897a61e3ac044442c5e7bcc1a59b2c292ff5d3d。Root读取updatedhand off末段及reconciliation关键字段：7/7focused957.3729ms/no新clip，两guardedDOM关闭；六cached changedheadingconsumer baseline3/repeat3全PASS、每份14mutation rejects。47927receipt SHA1dc7eac9bad6f4b5dab67a234c0caf15e8052e19b2c3c93a6130da1e7a36ec39，当前composite27=24原runtime+3changedcached，228历史不称current；原37/30PASS7FAIL和after missing24硬FAIL保存。只读reviewer检验newhelper科学sourcebound/wholeheadinglevelorder/exportsAPI1.0/closed身份，清关前不交D新helper、不称全255/27。
+
+#74最终same reviewer PLAN_ONLY_CLEAR exact964f643 numericalblocking0/三P2resolved；root已完整read human5400 SHAbfcb1940c5d49a7ea5c13be96612bc01324ed2b98613fe14307a07405cdc6ba6/machine9404 SHAd57ee826df9ce84ca51a483122416da58c860de39c95e6e77ed1a9f946cfd3c2。53NEWtail已验证/source65/旧26/真实18没有重复，candidate37/18仍UNRUN。#75 clean3e4c12e859d91091d97ba99acd0d854c1d6d8c16共享有界wholeformulaoracle已接realconsumer；80NEWpure controls70.482ms实际PASS，旧source48/15/50/三clips不重做，缺失最终独立P2tailreview精确恢复。全部为AGENT_RESOLVABLE或DEPENDENCY_PENDING，未达到integrator startgate，不称Issue10 complete。
