@@ -1,0 +1,948 @@
+{
+  "version": "issue71-qualified-metric-production/1.0.0",
+  "status": "LOCAL_GATES_GREEN_PENDING_PUBLICATION_HEAD_REVIEW_AND_FRESH_CI",
+  "baseSha": "4e8dcd9ce4998c3f8f373daecf332e7f9bfcfb74",
+  "branch": "codex/issue-10-bug-alpha-qualifier",
+  "worktree": "C:/Users/guoli/.codex/worktrees/issue-10-bug-alpha-qualifier/academic-clipper",
+  "preflightHead": "5841be890004706e4e48b1ee7675b17db656189e",
+  "dependencyAdoption": "7f957a38a3a045ae2e61d9c009edba38641c8451",
+  "codeHead": "bba4ea72864326eb781ac4bf493d17b9d8f8becf",
+  "codeTree": "a61c6cec3954ddbab09bb1c52b5fda4ee2746a5a",
+  "authorOrderedCommits": [
+    "c12e774096cf69be6c90f06cc773c7a97d6e5795 test(nature): preserve source-backed qualified RMSD metric regression",
+    "c701894bac719ec8c5ae83d45c1d89ffa86cf240 docs: hand off AlphaFold qualified metric source evidence",
+    "405a93c6d579b37817633c4e19b756b0b77af4c2 test(nature): preflight qualified metric DOM boundaries",
+    "a10b453eb7ca9fff99d9e15ac3d8dcbd5e2d0643 test: 严格校验 Issue 71 指标下标分组并记录外部隔离",
+    "5841be890004706e4e48b1ee7675b17db656189e test: 将 Issue 71 历史缓存诊断移出默认测试",
+    "7f957a38a3a045ae2e61d9c009edba38641c8451 Merge commit '4e8dcd9ce4998c3f8f373daecf332e7f9bfcfb74' into codex/issue-10-bug-alpha-qualifier",
+    "bba4ea72864326eb781ac4bf493d17b9d8f8becf fix: 保留 Nature r.m.s.d. 的完整 95 限定下标"
+  ],
+  "sourceReuse": {
+    "independentSourceStatus": "SOURCE_PROJECTION_CLEAR_ONLY",
+    "blocks": 58,
+    "helperBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "recipeSerializerSchemaProjectionVersion": "1.0.0",
+    "rawReadsThisPhase": 0,
+    "sourceAuditRunsThisPhase": 0
+  },
+  "productionScope": {
+    "file": "src/adapters/nature.mjs",
+    "addedLines": 26,
+    "privateCollector": "collectQualifiedMetricRun",
+    "sourceTex": "\\mathrm{r.m.s.d.}_{95}",
+    "otherProductionChanges": []
+  },
+  "firstRun": {
+    "status": 1,
+    "summary": {
+      "tests": 43,
+      "pass": 36,
+      "fail": 7,
+      "duration_ms": 1091.0887,
+      "skipped": 0,
+      "cancelled": 0,
+      "todo": 0
+    },
+    "classification": "7 harness failures: 6 links/quarto consequences of prematurely closed first Defuddle DOMParser window, 1 inherited roman Nres equivalence mismatch. Original outputs retained.",
+    "receiptSummaryLimitation": "First default spec reporter used informational summary, original wrapper TAP-only extraction returned empty summary. Original file preserved; counts independently read from original log."
+  },
+  "correction": {
+    "productionUnchangedAfterFirstRun": true,
+    "closure": "Hold all three actual clip windows until the three-style conversion batch completes; close all in finally.",
+    "inheritedPresentation": "Exact N_{\\mathrm{res}} equivalent of already supported N_{res}; grouped95 matcher unchanged.",
+    "scope": "Test-only corrections, no scientific input/oracle changes."
+  },
+  "finalRun": {
+    "acceptedMain": "4e8dcd9ce4998c3f8f373daecf332e7f9bfcfb74",
+    "dependencyAdoption": "7f957a38a3a045ae2e61d9c009edba38641c8451",
+    "phase": "focused-production",
+    "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-alpha-qualifier/academic-clipper",
+    "executable": "C:\\nvm4w\\nodejs\\node.exe",
+    "node": "v24.14.1",
+    "args": [
+      "--test",
+      "--test-reporter=tap",
+      "test/nature-alpha-qualifier.test.mjs",
+      "test/nature-alpha-qualifier-boundaries.test.mjs",
+      "test/nature-alpha-qualifier-oracle.test.mjs"
+    ],
+    "env": {
+      "NATURE_ALPHA_QUALIFIER_RECEIPT_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue71-production-4e8/final-focused",
+      "NATURE_ALPHA_QUALIFIER_BOUNDARY_RECEIPT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue71-production-4e8\\final-focused\\boundary-guard.json"
+    },
+    "startedAt": "2026-10-08T10:50:18.469Z",
+    "finishedAt": "2026-10-08T10:50:19.538Z",
+    "elapsedMs": 1060.33,
+    "status": 0,
+    "signal": null,
+    "error": null,
+    "summary": {
+      "tests": 43,
+      "suites": 0,
+      "pass": 43,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 1021.2667
+    },
+    "inputs": {
+      "src/adapters/nature.mjs": {
+        "bytes": 56927,
+        "sha256": "4a2b33fbdaa33b01bf0b7b75a0c01407844873f9f0b671fb131e821d762b7a07"
+      },
+      "test/nature-alpha-qualifier.test.mjs": {
+        "bytes": 10819,
+        "sha256": "4900a0e6fba11ca81eb2a341ff099a5f690d5e2b65257c3e7c9c0335eaa519c4"
+      },
+      "test/nature-alpha-qualifier-boundaries.test.mjs": {
+        "bytes": 7632,
+        "sha256": "65336f6a474dfeeed09290331f7edf82008b05cb15cb2f541dbc2543aeb72169"
+      },
+      "test/nature-alpha-qualifier-oracle.test.mjs": {
+        "bytes": 1798,
+        "sha256": "a64d48738476dbed01cb9c04bccefa0313278f9409537ce0a2cdc67af9130086"
+      },
+      "test/helpers/nature-alpha-qualifier-oracle.mjs": {
+        "bytes": 1086,
+        "sha256": "f786312786f1cd0fd31b9659e964219ebecd935ffedb29c3785d51eac103771d"
+      },
+      "test/fixtures/nature-alpha-qualifier/.gitattributes": {
+        "bytes": 50,
+        "sha256": "01ad48184330b33a6da952764a2e17e47a0f0072c6955436e0e16f58402f8cc6"
+      },
+      "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.excerpt.html": {
+        "bytes": 24257,
+        "sha256": "696660069bd881a163722fc020b22d0f6af5cc3387decacfd8c78789574ef634"
+      },
+      "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.provenance.json": {
+        "bytes": 21819,
+        "sha256": "f2e4fda7018aa124407ae63fe78abe534dd277a5f0327a3a75b984589a46dcf0"
+      },
+      "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.recipe.json": {
+        "bytes": 8922,
+        "sha256": "eadaf88466d38ca428b6157baa91f8756a6ed6366fed7ab1042fc8b6c7d35b88"
+      },
+      "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.source-oracle.json": {
+        "bytes": 17908,
+        "sha256": "713e657713555bb686618b4f10e086654263287dbbb824922eebfc2d0bd7d4b4"
+      },
+      "test/fixtures/nature-alpha-qualifier/accepted-a5b6-diagnosis.json": {
+        "bytes": 27530,
+        "sha256": "b28211322f8f6a0585167a119b13c2359d89dc592d498eed2d85cb0fea61c15b"
+      },
+      "test/fixtures/nature-alpha-qualifier/README.md": {
+        "bytes": 1321,
+        "sha256": "de5cfb0023db0e52b1e64837a8a914efb1b2264aa662339a064b733b46f0a6ac"
+      }
+    },
+    "unchanged": {
+      "src/adapters/nature.mjs": true,
+      "test/nature-alpha-qualifier.test.mjs": true,
+      "test/nature-alpha-qualifier-boundaries.test.mjs": true,
+      "test/nature-alpha-qualifier-oracle.test.mjs": true,
+      "test/helpers/nature-alpha-qualifier-oracle.mjs": true,
+      "test/fixtures/nature-alpha-qualifier/.gitattributes": true,
+      "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.excerpt.html": true,
+      "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.provenance.json": true,
+      "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.recipe.json": true,
+      "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.source-oracle.json": true,
+      "test/fixtures/nature-alpha-qualifier/accepted-a5b6-diagnosis.json": true,
+      "test/fixtures/nature-alpha-qualifier/README.md": true
+    },
+    "artifacts": {
+      "focused.log": {
+        "bytes": 12885,
+        "sha256": "9595330cdd0354d5a7b9542efa6f5adc7ff3def8971dc0a90a2927b6722d6e03"
+      },
+      "source-guard.json": {
+        "bytes": 250,
+        "sha256": "5378c87ca9acdfc0ad299f7e48b92346f7b03be03401131998fbbf7c838db289"
+      },
+      "boundary-guard.json": {
+        "bytes": 131,
+        "sha256": "03a24a2c860ebcf2a35b9974495b89119082ce77a868dff0f590a39807f0e67d"
+      },
+      "markdown.actual-cache.json": {
+        "bytes": 69134,
+        "sha256": "32fa883543083b9661caa14147d4849a87bb8ad922818739055893339071c9cc"
+      },
+      "markdown.actual.md": {
+        "bytes": 4058,
+        "sha256": "a430cb7c200054efd30b09d6631bc3e76f07bd7726a8d02cf1c6ef162eb3b077"
+      },
+      "links.actual-cache.json": {
+        "bytes": 69778,
+        "sha256": "41b586cabb1af91207615112a3defefcc580531f563bdf537a8ad0020664e523"
+      },
+      "links.actual.md": {
+        "bytes": 4132,
+        "sha256": "3776a3548f70d9271e07055d3efa5b1e271eb3219840327f77fc70117e0939da"
+      },
+      "quarto.actual-cache.json": {
+        "bytes": 69868,
+        "sha256": "ac061f6d1802209c6eb4cbafa8ee0f75f88aaf9dafd3ddec0c521a33edcfcf48"
+      },
+      "quarto.actual.md": {
+        "bytes": 4172,
+        "sha256": "01e186c426fac8322f0346599bb51b000c0254ca178a20fbd92bdc7178ee7105"
+      }
+    }
+  },
+  "sourceGuard": {
+    "realClips": 3,
+    "clipWindowsOpened": 3,
+    "clipWindowsClosed": 3,
+    "sourceDomsOpened": 1,
+    "sourceDomsClosed": 1,
+    "ledger": {
+      "http": [],
+      "dns": []
+    },
+    "restored": true,
+    "writer": "Static clipNature-only path, no writer spy"
+  },
+  "boundaryGuard": {
+    "syntheticParses": 35,
+    "domsClosed": 35,
+    "ledger": {
+      "http": [],
+      "dns": []
+    },
+    "restored": true,
+    "clips": 0
+  },
+  "identities": {
+    "src/adapters/nature.mjs": {
+      "git": {
+        "bytes": 55594,
+        "sha256": "e85dfae9fa9c51fee7df32ca7fc383b20df99b2145367d0aa5dc95f16fa5b7af",
+        "blob": "93142f8430636076a56b0391c5aa8f2b6e832245"
+      },
+      "physical": {
+        "bytes": 56927,
+        "sha256": "4a2b33fbdaa33b01bf0b7b75a0c01407844873f9f0b671fb131e821d762b7a07"
+      },
+      "sourceQuiet": null
+    },
+    "test/nature-alpha-qualifier.test.mjs": {
+      "git": {
+        "bytes": 10819,
+        "sha256": "4900a0e6fba11ca81eb2a341ff099a5f690d5e2b65257c3e7c9c0335eaa519c4",
+        "blob": "f1298f4e5aacc6cd4ce034cbfccf1cc40f5b6a7e"
+      },
+      "physical": {
+        "bytes": 10819,
+        "sha256": "4900a0e6fba11ca81eb2a341ff099a5f690d5e2b65257c3e7c9c0335eaa519c4"
+      },
+      "sourceQuiet": null
+    },
+    "test/nature-alpha-qualifier-boundaries.test.mjs": {
+      "git": {
+        "bytes": 7632,
+        "sha256": "65336f6a474dfeeed09290331f7edf82008b05cb15cb2f541dbc2543aeb72169",
+        "blob": "607b2f4db9ad17514d61cf27a593d326c18abdbc"
+      },
+      "physical": {
+        "bytes": 7632,
+        "sha256": "65336f6a474dfeeed09290331f7edf82008b05cb15cb2f541dbc2543aeb72169"
+      },
+      "sourceQuiet": null
+    },
+    "test/nature-alpha-qualifier-oracle.test.mjs": {
+      "git": {
+        "bytes": 1798,
+        "sha256": "a64d48738476dbed01cb9c04bccefa0313278f9409537ce0a2cdc67af9130086",
+        "blob": "5bd6079f9c1b2d814bd401d1a4756177b31b8184"
+      },
+      "physical": {
+        "bytes": 1798,
+        "sha256": "a64d48738476dbed01cb9c04bccefa0313278f9409537ce0a2cdc67af9130086"
+      },
+      "sourceQuiet": null
+    },
+    "test/helpers/nature-alpha-qualifier-oracle.mjs": {
+      "git": {
+        "bytes": 1086,
+        "sha256": "f786312786f1cd0fd31b9659e964219ebecd935ffedb29c3785d51eac103771d",
+        "blob": "732c7cbad73263c82837dda217d8b7959b01c121"
+      },
+      "physical": {
+        "bytes": 1086,
+        "sha256": "f786312786f1cd0fd31b9659e964219ebecd935ffedb29c3785d51eac103771d"
+      },
+      "sourceQuiet": null
+    },
+    "test/fixtures/nature-alpha-qualifier/.gitattributes": {
+      "git": {
+        "bytes": 50,
+        "sha256": "01ad48184330b33a6da952764a2e17e47a0f0072c6955436e0e16f58402f8cc6",
+        "blob": "f84580e87d8e2f507b7ae335503f2eb4efcd35d5"
+      },
+      "physical": {
+        "bytes": 50,
+        "sha256": "01ad48184330b33a6da952764a2e17e47a0f0072c6955436e0e16f58402f8cc6"
+      },
+      "sourceQuiet": true
+    },
+    "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.excerpt.html": {
+      "git": {
+        "bytes": 24257,
+        "sha256": "696660069bd881a163722fc020b22d0f6af5cc3387decacfd8c78789574ef634",
+        "blob": "2a8c58c2b2f91d6c0ec05fcb76c5cafe8a4b0148"
+      },
+      "physical": {
+        "bytes": 24257,
+        "sha256": "696660069bd881a163722fc020b22d0f6af5cc3387decacfd8c78789574ef634"
+      },
+      "sourceQuiet": true
+    },
+    "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.provenance.json": {
+      "git": {
+        "bytes": 21819,
+        "sha256": "f2e4fda7018aa124407ae63fe78abe534dd277a5f0327a3a75b984589a46dcf0",
+        "blob": "265375627a2294eb9ac348be231c26858b312b4b"
+      },
+      "physical": {
+        "bytes": 21819,
+        "sha256": "f2e4fda7018aa124407ae63fe78abe534dd277a5f0327a3a75b984589a46dcf0"
+      },
+      "sourceQuiet": true
+    },
+    "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.recipe.json": {
+      "git": {
+        "bytes": 8922,
+        "sha256": "eadaf88466d38ca428b6157baa91f8756a6ed6366fed7ab1042fc8b6c7d35b88",
+        "blob": "cc6481ee09dc9b09844e59fdaf3e82e4e76aa28c"
+      },
+      "physical": {
+        "bytes": 8922,
+        "sha256": "eadaf88466d38ca428b6157baa91f8756a6ed6366fed7ab1042fc8b6c7d35b88"
+      },
+      "sourceQuiet": true
+    },
+    "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.source-oracle.json": {
+      "git": {
+        "bytes": 17908,
+        "sha256": "713e657713555bb686618b4f10e086654263287dbbb824922eebfc2d0bd7d4b4",
+        "blob": "4aaed23c5dfa4a0beb55a5d1a70e343635274416"
+      },
+      "physical": {
+        "bytes": 17908,
+        "sha256": "713e657713555bb686618b4f10e086654263287dbbb824922eebfc2d0bd7d4b4"
+      },
+      "sourceQuiet": true
+    },
+    "test/fixtures/nature-alpha-qualifier/accepted-a5b6-diagnosis.json": {
+      "git": {
+        "bytes": 27530,
+        "sha256": "b28211322f8f6a0585167a119b13c2359d89dc592d498eed2d85cb0fea61c15b",
+        "blob": "4a91c74a2cf154b56f94df20e2fa448b1ff32bae"
+      },
+      "physical": {
+        "bytes": 27530,
+        "sha256": "b28211322f8f6a0585167a119b13c2359d89dc592d498eed2d85cb0fea61c15b"
+      },
+      "sourceQuiet": true
+    },
+    "test/fixtures/nature-alpha-qualifier/README.md": {
+      "git": {
+        "bytes": 1321,
+        "sha256": "de5cfb0023db0e52b1e64837a8a914efb1b2264aa662339a064b733b46f0a6ac",
+        "blob": "8ad6ef18ed38dd55d0dace77659f364337b582e0"
+      },
+      "physical": {
+        "bytes": 1321,
+        "sha256": "de5cfb0023db0e52b1e64837a8a914efb1b2264aa662339a064b733b46f0a6ac"
+      },
+      "sourceQuiet": true
+    }
+  },
+  "evidence": {
+    "focused/focused.log": {
+      "bytes": 27271,
+      "sha256": "b6ae52218d7c69b6fec7f623ad8bd5aadaca092ba41c90df21569ab3b31472e3"
+    },
+    "focused/focused-receipt.json": {
+      "bytes": 5206,
+      "sha256": "aae4ee0a14d47333618c896659a53abe6818259caeb33515b428dc6f5a103d08"
+    },
+    "focused/source-guard.json": {
+      "bytes": 250,
+      "sha256": "5378c87ca9acdfc0ad299f7e48b92346f7b03be03401131998fbbf7c838db289"
+    },
+    "focused/boundary-guard.json": {
+      "bytes": 131,
+      "sha256": "03a24a2c860ebcf2a35b9974495b89119082ce77a868dff0f590a39807f0e67d"
+    },
+    "focused/run-focused.mjs": {
+      "bytes": 3340,
+      "sha256": "308f11c252da3eae7788df10d21ed4afa8e296c49d96e75fe5efa748d2d2b6b2"
+    },
+    "focused/markdown.actual-cache.json": {
+      "bytes": 69134,
+      "sha256": "32fa883543083b9661caa14147d4849a87bb8ad922818739055893339071c9cc"
+    },
+    "focused/markdown.actual.md": {
+      "bytes": 4058,
+      "sha256": "a430cb7c200054efd30b09d6631bc3e76f07bd7726a8d02cf1c6ef162eb3b077"
+    },
+    "focused/links.actual-cache.json": {
+      "bytes": 74137,
+      "sha256": "c074655fe423b5970aa03dd27f5e1b626b8db7c6d8cd22d50bcffbba1bf284bc"
+    },
+    "focused/links.actual.md": {
+      "bytes": 4514,
+      "sha256": "d3fc4dd9864907f31b9d3d73a3ec6e408a70852d622b0065808fc6ff44da462c"
+    },
+    "focused/quarto.actual-cache.json": {
+      "bytes": 74195,
+      "sha256": "2d8074d42211dad714d511592285eed826891247bf5646db67ebefa30ef4d3ad"
+    },
+    "focused/quarto.actual.md": {
+      "bytes": 4538,
+      "sha256": "c4686a10e554bf2ceba46e6d43480497d841ad2c58667c5ef46678db3fea0355"
+    },
+    "final-focused/focused.log": {
+      "bytes": 12885,
+      "sha256": "9595330cdd0354d5a7b9542efa6f5adc7ff3def8971dc0a90a2927b6722d6e03"
+    },
+    "final-focused/focused-receipt.json": {
+      "bytes": 5393,
+      "sha256": "1a1d42fc309599911449b6be13549c665f5850e218100ba5affacb426324b8d7"
+    },
+    "final-focused/source-guard.json": {
+      "bytes": 250,
+      "sha256": "5378c87ca9acdfc0ad299f7e48b92346f7b03be03401131998fbbf7c838db289"
+    },
+    "final-focused/boundary-guard.json": {
+      "bytes": 131,
+      "sha256": "03a24a2c860ebcf2a35b9974495b89119082ce77a868dff0f590a39807f0e67d"
+    },
+    "final-focused/run-focused.mjs": {
+      "bytes": 3368,
+      "sha256": "7f93493b5d192301b44abecd53c822e089c8e592a3b8c3b2f1b7dcc68de923fa"
+    },
+    "final-focused/markdown.actual-cache.json": {
+      "bytes": 69134,
+      "sha256": "32fa883543083b9661caa14147d4849a87bb8ad922818739055893339071c9cc"
+    },
+    "final-focused/markdown.actual.md": {
+      "bytes": 4058,
+      "sha256": "a430cb7c200054efd30b09d6631bc3e76f07bd7726a8d02cf1c6ef162eb3b077"
+    },
+    "final-focused/links.actual-cache.json": {
+      "bytes": 69778,
+      "sha256": "41b586cabb1af91207615112a3defefcc580531f563bdf537a8ad0020664e523"
+    },
+    "final-focused/links.actual.md": {
+      "bytes": 4132,
+      "sha256": "3776a3548f70d9271e07055d3efa5b1e271eb3219840327f77fc70117e0939da"
+    },
+    "final-focused/quarto.actual-cache.json": {
+      "bytes": 69868,
+      "sha256": "ac061f6d1802209c6eb4cbafa8ee0f75f88aaf9dafd3ddec0c521a33edcfcf48"
+    },
+    "final-focused/quarto.actual.md": {
+      "bytes": 4172,
+      "sha256": "01e186c426fac8322f0346599bb51b000c0254ca178a20fbd92bdc7178ee7105"
+    }
+  },
+  "outputs": [
+    {
+      "style": "markdown",
+      "validators": {
+        "mathValidation": true,
+        "markdownStructure": true,
+        "rawHtmlValidation": true,
+        "crossReferenceValidation": true
+      },
+      "scientificFragments": {
+        "valid": true,
+        "counts": {
+          "isolatedSubscript": 0,
+          "isolatedSuperscript": 0,
+          "boldThenSubscript": 0,
+          "italicThenSuperscript": 0
+        },
+        "issues": []
+      },
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "\\mathrm{r.m.s.d.}_{95}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "\\mathrm{r.m.s.d.}_{95}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "tex": "\\mathrm{r.m.s.d.}_{95}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "tex": "\\mathrm{r.m.s.d.}_{95}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+          "tex": "N_{\\mathrm{seq}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+          "tex": "N_{\\mathrm{res}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "paragraphLine": 51,
+      "metricSourcePositions": [
+        "0.96 Å",
+        "2.8 Å",
+        "1.5 Å",
+        "3.5 Å"
+      ],
+      "orderedAuthorCount": 34,
+      "figures": [
+        {
+          "id": "Fig1",
+          "captionMarkdownHash": {
+            "bytes": 1272,
+            "sha256": "d5d8a7dd0e9441ea3af0c04b9521f23a9c3bab0219f37fe9c41da94f18ca31b8"
+          },
+          "imageUrl": "https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-021-03819-2/MediaObjects/41586_2021_3819_Fig1_HTML.png?as=webp"
+        }
+      ],
+      "referenceCount": 0,
+      "citationCount": 0,
+      "tableCount": 0,
+      "warnings": [
+        "No equation nodes were detected.",
+        "No Nature reference list was detected."
+      ],
+      "output": {
+        "bytes": 4058,
+        "sha256": "a430cb7c200054efd30b09d6631bc3e76f07bd7726a8d02cf1c6ef162eb3b077"
+      }
+    },
+    {
+      "style": "links",
+      "validators": {
+        "mathValidation": true,
+        "markdownStructure": true,
+        "rawHtmlValidation": true,
+        "crossReferenceValidation": true
+      },
+      "scientificFragments": {
+        "valid": true,
+        "counts": {
+          "isolatedSubscript": 0,
+          "isolatedSuperscript": 0,
+          "boldThenSubscript": 0,
+          "italicThenSuperscript": 0
+        },
+        "issues": []
+      },
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "\\mathrm{r.m.s.d.}_{95}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "\\mathrm{r.m.s.d.}_{95}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "tex": "\\mathrm{r.m.s.d.}_{95}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "tex": "\\mathrm{r.m.s.d.}_{95}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+          "tex": "N_{\\mathrm{seq}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+          "tex": "N_{\\mathrm{res}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "paragraphLine": 51,
+      "metricSourcePositions": [
+        "0.96 Å",
+        "2.8 Å",
+        "1.5 Å",
+        "3.5 Å"
+      ],
+      "orderedAuthorCount": 34,
+      "figures": [
+        {
+          "id": "Fig1",
+          "captionMarkdownHash": {
+            "bytes": 1272,
+            "sha256": "d5d8a7dd0e9441ea3af0c04b9521f23a9c3bab0219f37fe9c41da94f18ca31b8"
+          },
+          "imageUrl": "https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-021-03819-2/MediaObjects/41586_2021_3819_Fig1_HTML.png?as=webp"
+        }
+      ],
+      "referenceCount": 0,
+      "citationCount": 0,
+      "tableCount": 0,
+      "warnings": [
+        "No equation nodes were detected.",
+        "No Nature reference list was detected."
+      ],
+      "output": {
+        "bytes": 4132,
+        "sha256": "3776a3548f70d9271e07055d3efa5b1e271eb3219840327f77fc70117e0939da"
+      }
+    },
+    {
+      "style": "quarto",
+      "validators": {
+        "mathValidation": true,
+        "markdownStructure": true,
+        "rawHtmlValidation": true,
+        "crossReferenceValidation": true
+      },
+      "scientificFragments": {
+        "valid": true,
+        "counts": {
+          "isolatedSubscript": 0,
+          "isolatedSuperscript": 0,
+          "boldThenSubscript": 0,
+          "italicThenSuperscript": 0
+        },
+        "issues": []
+      },
+      "scientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "\\mathrm{r.m.s.d.}_{95}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "\\mathrm{r.m.s.d.}_{95}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "tex": "\\mathrm{r.m.s.d.}_{95}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "tex": "\\mathrm{r.m.s.d.}_{95}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+          "tex": "N_{\\mathrm{seq}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+          "tex": "N_{\\mathrm{res}}",
+          "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+        }
+      ],
+      "paragraphLine": 52,
+      "metricSourcePositions": [
+        "0.96 Å",
+        "2.8 Å",
+        "1.5 Å",
+        "3.5 Å"
+      ],
+      "orderedAuthorCount": 34,
+      "figures": [
+        {
+          "id": "Fig1",
+          "captionMarkdownHash": {
+            "bytes": 1272,
+            "sha256": "d5d8a7dd0e9441ea3af0c04b9521f23a9c3bab0219f37fe9c41da94f18ca31b8"
+          },
+          "imageUrl": "https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-021-03819-2/MediaObjects/41586_2021_3819_Fig1_HTML.png?as=webp"
+        }
+      ],
+      "referenceCount": 0,
+      "citationCount": 0,
+      "tableCount": 0,
+      "warnings": [
+        "No equation nodes were detected.",
+        "No Nature reference list was detected."
+      ],
+      "output": {
+        "bytes": 4172,
+        "sha256": "01e186c426fac8322f0346599bb51b000c0254ca178a20fbd92bdc7178ee7105"
+      }
+    }
+  ],
+  "notRun": [
+    "npm ci locally (existing committed-lockfile dependencies reused; fresh CI owns clean install)",
+    "fresh PR CI",
+    "Secrets",
+    "final publication exact-head review",
+    "merge",
+    "merged Main CI"
+  ],
+  "notRunReason": "Local gates and different-owner stable implementation review are complete; root owns fresh publication/merge/Main gates.",
+  "writerEvidence": "Static clipNature-only execution path; no writer invoked or runtime writer spy claimed.",
+  "sourceResources": [],
+  "specChanges": [],
+  "agentCUnblocking": "Await final publication head review, fresh three-platform CI/Secrets and successful merged-main acceptance; then Agent C independently verifies the original qualified-metric source contract.",
+  "independentImplementationReview": {
+    "status": "IMPLEMENTATION_CLEAR",
+    "head": "039fc5daf47da4aa0e34e22cee0055a21e672c1e",
+    "tree": "d978e830c05b748369d530bb896091644b242f26",
+    "blockingFindings": 0,
+    "externalRoot": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue71-implementation-review-039fc5d",
+    "artifacts": {
+      "human": {
+        "bytes": 7083,
+        "sha256": "7b8cfa08b5c9fead5481f7ae0ddb7af06dadc696aa2819b068e055bf13ee59b2"
+      },
+      "machine": {
+        "bytes": 40302,
+        "sha256": "ba090b42f1125b9a7f30d6c26b8af1e2e23199610d742901e469468f44bf0eed"
+      }
+    },
+    "execution": "Existing different-owner review reused; no new implementation review/probe executed."
+  },
+  "broader": {
+    "externalRoot": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue71-broader-bba4ea7",
+    "executedHead": "039fc5daf47da4aa0e34e22cee0055a21e672c1e",
+    "codeHead": "bba4ea72864326eb781ac4bf493d17b9d8f8becf",
+    "inputCount": 248,
+    "physicalCurrentMatches": 248,
+    "goldenTrackedFiles": 9,
+    "phases": {
+      "affected": {
+        "command": [
+          "C:\\nvm4w\\nodejs\\node.exe",
+          "--test",
+          "--test-reporter=tap",
+          "test/nature-adapter.test.mjs",
+          "test/nature-caption-citations.test.mjs",
+          "test/nature-compound-unit-boundaries.test.mjs",
+          "test/nature-compound-unit.test.mjs",
+          "test/nature-greek-subscript-boundaries.test.mjs",
+          "test/nature-greek-subscript-context-boundaries.test.mjs",
+          "test/nature-greek-subscript.test.mjs",
+          "test/nature-isotope-mass-boundaries.test.mjs",
+          "test/nature-isotope-mass-coverage.test.mjs",
+          "test/nature-isotope-mass.test.mjs",
+          "test/nature-literal-brackets.test.mjs",
+          "test/nature-materials-identifier-boundaries.test.mjs",
+          "test/nature-materials-identifier.test.mjs",
+          "test/nature-reference-literal.test.mjs",
+          "test/nature-scientific-citation-boundaries.test.mjs",
+          "test/nature-scientific-citations.test.mjs",
+          "test/nature-scientific-units.test.mjs",
+          "test/nature-sparse-figure-alt.test.mjs",
+          "test/nature-split-power-boundaries.test.mjs",
+          "test/nature-split-power.test.mjs",
+          "test/nature-styled-adjacency-boundaries.test.mjs",
+          "test/nature-styled-adjacency.test.mjs",
+          "test/nature-table-caption-clip.test.mjs",
+          "test/nature-table-caption.test.mjs",
+          "test/nature-table-mathjax.test.mjs",
+          "test/nature-table-notes.test.mjs",
+          "test/output-quality.test.mjs",
+          "test/network-boundaries.test.mjs"
+        ],
+        "environment": {},
+        "startedAt": "2026-10-08T11:02:05.307Z",
+        "finishedAt": "2026-10-08T11:02:15.487Z",
+        "elapsedMs": 10065.2429,
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "summary": {
+          "tests": 760,
+          "suites": 0,
+          "pass": 760,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0,
+          "duration_ms": 10019.6027
+        },
+        "log": {
+          "bytes": 193696,
+          "sha256": "fef6a6659a977bfede348ac37548816b27bdeefe5b67bdbe5ab4adacc5f1abe6"
+        },
+        "receipt": {
+          "bytes": 121389,
+          "sha256": "33807ad6724a0943c6f1e2b704accddbfb7109f227d34fe88fd064e7c0bde82c"
+        },
+        "allInputsUnchanged": true,
+        "goldenUnchanged": true
+      },
+      "full": {
+        "command": [
+          "npm",
+          "test"
+        ],
+        "environment": {
+          "NATURE_ALPHA_QUALIFIER_RECEIPT_ROOT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue71-broader-bba4ea7\\full-source",
+          "NATURE_ALPHA_QUALIFIER_BOUNDARY_RECEIPT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue71-broader-bba4ea7\\full-source\\boundary-guard.json"
+        },
+        "startedAt": "2026-10-08T11:02:37.847Z",
+        "finishedAt": "2026-10-08T11:03:58.416Z",
+        "elapsedMs": 80462.48950000001,
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "summary": {
+          "tests": 1024,
+          "suites": 0,
+          "pass": 1024,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0,
+          "duration_ms": 80098.308
+        },
+        "log": {
+          "bytes": 124350,
+          "sha256": "5b9d9f788d2852430359dd29b584121bda6f3dde6605927d0c9b2702b7c2eba6"
+        },
+        "receipt": {
+          "bytes": 120269,
+          "sha256": "fc52b399e30c64edc28c327760b497cec3b9ca2deb42da780841f7f08751fc60"
+        },
+        "allInputsUnchanged": true,
+        "goldenUnchanged": true
+      },
+      "build": {
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "environment": {},
+        "startedAt": "2026-10-08T11:04:24.109Z",
+        "finishedAt": "2026-10-08T11:04:24.570Z",
+        "elapsedMs": 362.7526,
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "summary": {},
+        "log": {
+          "bytes": 167,
+          "sha256": "bf0d10be2634028ba22eabad6c6b1ecc40dc634e0b88fdddae8fa96bd44ef340"
+        },
+        "receipt": {
+          "bytes": 119811,
+          "sha256": "764ffae93f0ed55ed6c119cef9b7aea59af9a34cd2ac6f39c9daab62887ba14b"
+        },
+        "allInputsUnchanged": true,
+        "goldenUnchanged": true
+      },
+      "golden": {
+        "command": [
+          "npm",
+          "run",
+          "validate:paper",
+          "--",
+          "--file",
+          "./papers/s41586-026-10401-1/index.md",
+          "--citation-style",
+          "auto"
+        ],
+        "environment": {},
+        "startedAt": "2026-10-08T11:04:25.135Z",
+        "finishedAt": "2026-10-08T11:04:25.616Z",
+        "elapsedMs": 379.418,
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "summary": {},
+        "log": {
+          "bytes": 2893,
+          "sha256": "a5117f116c1d285880129194d874ffe7812eaa6bd8634838524e53bfa131dbfe"
+        },
+        "receipt": {
+          "bytes": 119935,
+          "sha256": "1ff7c0c88b3a2c778b3476bcb72f1951c4f79e47da2ac6f14a9d1160c8c48da5"
+        },
+        "allInputsUnchanged": true,
+        "goldenUnchanged": true
+      }
+    },
+    "fullSourceGuards": {
+      "source-guard.json": {
+        "realClips": 3,
+        "clipWindowsOpened": 3,
+        "clipWindowsClosed": 3,
+        "sourceDomsOpened": 1,
+        "sourceDomsClosed": 1,
+        "ledger": {
+          "http": [],
+          "dns": []
+        },
+        "restored": true,
+        "writer": "Static clipNature-only path, no writer spy",
+        "artifact": {
+          "bytes": 250,
+          "sha256": "5378c87ca9acdfc0ad299f7e48b92346f7b03be03401131998fbbf7c838db289"
+        }
+      },
+      "boundary-guard.json": {
+        "syntheticParses": 35,
+        "domsClosed": 35,
+        "ledger": {
+          "http": [],
+          "dns": []
+        },
+        "restored": true,
+        "clips": 0,
+        "artifact": {
+          "bytes": 131,
+          "sha256": "03a24a2c860ebcf2a35b9974495b89119082ce77a868dff0f590a39807f0e67d"
+        }
+      }
+    },
+    "goldenValidators": {
+      "valid": true,
+      "scientificFragments": true,
+      "markdownStructure": true,
+      "rawHtmlValidation": true,
+      "crossReferenceValidation": true
+    },
+    "evidenceScope": "Existing accepted security/mocked transport tests plus scoped new qualifier module guard receipts in full. No full-suite writer or network spy is claimed."
+  },
+  "publicationRecovery": {
+    "recoveredFrom": "039fc5daf47da4aa0e34e22cee0055a21e672c1e",
+    "observedAt": "2026-10-08T11:15:55.888Z",
+    "runtimeInputChecks": 248,
+    "reruns": {
+      "tests": 0,
+      "build": 0,
+      "golden": 0,
+      "sourceAudits": 0,
+      "rawReads": 0,
+      "productionImports": 0,
+      "parses": 0,
+      "clips": 0,
+      "probes": 0,
+      "installs": 0,
+      "ciPolls": 0
+    },
+    "docOnly": true
+  }
+}

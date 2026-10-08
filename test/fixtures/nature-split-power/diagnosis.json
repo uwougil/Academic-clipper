@@ -1,0 +1,521 @@
+{
+  "version": "nature-split-power-diagnosis/1.0.0",
+  "base": "ac86b2fa509653dfeb43b968472ce6280a51de2c",
+  "fixtureSha256": "dc1136a1c70a66e63cce9bbe696b9cd790eb8eefbad3b499cce04dc140b16ad0",
+  "scope": "External one-shot source diagnosis; three final outputs come from permanent real clipNature test same-run cache",
+  "stages": [
+    {
+      "name": "Nature adapter cleanedHtml",
+      "sourceAttachmentContext": "logical error probability ~10<sup>−</sup><sup>15</sup> even with a small SC "
+    },
+    {
+      "name": "Defuddle body conversion",
+      "sourceAttachmentContext": "logical error probability ~10 <sup>−</sup> <sup>15</sup> even with a small SC "
+    },
+    {
+      "name": "normalizeMath",
+      "sourceAttachmentContext": "logical error probability ~10 <sup>−</sup> <sup>15</sup> even with a small SC "
+    },
+    {
+      "name": "normalizeAcademicInline",
+      "sourceAttachmentContext": "logical error probability ~10$^{−}$ $^{15}$ even with a small SC ",
+      "mathValidation": {
+        "valid": false,
+        "inlineMathCount": 5,
+        "displayMathCount": 0,
+        "issues": [
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 1,
+            "column": 334,
+            "delimiter": "$",
+            "context": "…dissipative SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. [4d](#ACADEMICCLIPPERCROSSREFERENCEfigure-…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          },
+          {
+            "type": "scientific-isolatedSuperscript",
+            "line": 1,
+            "column": 341,
+            "delimiter": "$",
+            "context": "…tive SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. [4d](#ACADEMICCLIPPERCROSSREFERENCEfigure-1X)). I…",
+            "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+          }
+        ],
+        "scientificFragments": {
+          "valid": false,
+          "counts": {
+            "isolatedSubscript": 0,
+            "isolatedSuperscript": 2,
+            "boldThenSubscript": 0,
+            "italicThenSuperscript": 0
+          },
+          "issues": [
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 1,
+              "column": 334,
+              "delimiter": "$",
+              "context": "…dissipative SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. [4d](#ACADEMICCLIPPERCROSSREFERENCEfigure-…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 1,
+              "column": 341,
+              "delimiter": "$",
+              "context": "…tive SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. [4d](#ACADEMICCLIPPERCROSSREFERENCEfigure-1X)). I…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ]
+        },
+        "states": {
+          "TEXT": 656,
+          "INLINE_MATH": 41,
+          "DISPLAY_MATH": 0,
+          "INLINE_CODE": 0,
+          "FENCED_CODE": 0
+        }
+      }
+    }
+  ],
+  "final": [
+    {
+      "dialect": "markdown",
+      "validators": {
+        "math": {
+          "valid": false,
+          "inlineMathCount": 32,
+          "displayMathCount": 0,
+          "issues": [
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 26,
+              "column": 334,
+              "delimiter": "$",
+              "context": "…dissipative SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. 4d). It is worth noticing that the thresho…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 26,
+              "column": 341,
+              "delimiter": "$",
+              "context": "…tive SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. 4d). It is worth noticing that the thresholds for…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ],
+          "scientificFragments": {
+            "valid": false,
+            "counts": {
+              "isolatedSubscript": 0,
+              "isolatedSuperscript": 2,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": [
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 26,
+                "column": 334,
+                "delimiter": "$",
+                "context": "…dissipative SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. 4d). It is worth noticing that the thresho…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 26,
+                "column": 341,
+                "delimiter": "$",
+                "context": "…tive SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. 4d). It is worth noticing that the thresholds for…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ]
+          },
+          "states": {
+            "TEXT": 12010,
+            "INLINE_MATH": 316,
+            "DISPLAY_MATH": 0,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "rawHtml": {
+          "valid": true,
+          "violations": []
+        },
+        "structure": {
+          "valid": true,
+          "citationStyle": "markdown",
+          "sections": {
+            "references": {
+              "headingCount": 1,
+              "itemCount": 58,
+              "definitionCount": 58,
+              "anchorCount": 0,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "crossrefs": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "autonomous-quantum-error-correction-and-fault-tolerant-quantum-computation-with-squeezed-cat-qubits",
+            "results",
+            "references"
+          ],
+          "links": []
+        }
+      },
+      "warnings": [
+        "No equation nodes were detected."
+      ],
+      "sourceAttachmentContext": "logical error probability ~10$^{−}$ $^{15}$ even with a small SC "
+    },
+    {
+      "dialect": "links",
+      "validators": {
+        "math": {
+          "valid": false,
+          "inlineMathCount": 32,
+          "displayMathCount": 0,
+          "issues": [
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 27,
+              "column": 334,
+              "delimiter": "$",
+              "context": "…dissipative SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. [4d](#figure-1)). It is worth noticing tha…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 27,
+              "column": 341,
+              "delimiter": "$",
+              "context": "…tive SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. [4d](#figure-1)). It is worth noticing that the t…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ],
+          "scientificFragments": {
+            "valid": false,
+            "counts": {
+              "isolatedSubscript": 0,
+              "isolatedSuperscript": 2,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": [
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 27,
+                "column": 334,
+                "delimiter": "$",
+                "context": "…dissipative SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. [4d](#figure-1)). It is worth noticing tha…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 27,
+                "column": 341,
+                "delimiter": "$",
+                "context": "…tive SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. [4d](#figure-1)). It is worth noticing that the t…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ]
+          },
+          "states": {
+            "TEXT": 13089,
+            "INLINE_MATH": 316,
+            "DISPLAY_MATH": 0,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "rawHtml": {
+          "valid": true,
+          "violations": []
+        },
+        "structure": {
+          "valid": true,
+          "citationStyle": "links",
+          "sections": {
+            "references": {
+              "headingCount": 1,
+              "itemCount": 58,
+              "anchorCount": 58,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "crossrefs": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "figure-1",
+            "ref-1",
+            "ref-2",
+            "ref-3",
+            "ref-4",
+            "ref-5",
+            "ref-6",
+            "ref-7",
+            "ref-8",
+            "ref-9",
+            "ref-10",
+            "ref-11",
+            "ref-12",
+            "ref-13",
+            "ref-14",
+            "ref-15",
+            "ref-16",
+            "ref-17",
+            "ref-18",
+            "ref-19",
+            "ref-20",
+            "ref-21",
+            "ref-22",
+            "ref-23",
+            "ref-24",
+            "ref-25",
+            "ref-26",
+            "ref-27",
+            "ref-28",
+            "ref-29",
+            "ref-30",
+            "ref-31",
+            "ref-32",
+            "ref-33",
+            "ref-34",
+            "ref-35",
+            "ref-36",
+            "ref-37",
+            "ref-38",
+            "ref-39",
+            "ref-40",
+            "ref-41",
+            "ref-42",
+            "ref-43",
+            "ref-44",
+            "ref-45",
+            "ref-46",
+            "ref-47",
+            "ref-48",
+            "ref-49",
+            "ref-50",
+            "ref-51",
+            "ref-52",
+            "ref-53",
+            "ref-54",
+            "ref-55",
+            "ref-56",
+            "ref-57",
+            "ref-58",
+            "autonomous-quantum-error-correction-and-fault-tolerant-quantum-computation-with-squeezed-cat-qubits",
+            "results",
+            "references"
+          ],
+          "links": [
+            {
+              "label": "58",
+              "target": "ref-58",
+              "category": "reference",
+              "index": 1728
+            },
+            {
+              "label": "4d",
+              "target": "figure-1",
+              "category": "figure",
+              "index": 2135
+            },
+            {
+              "label": "4a, c",
+              "target": "figure-1",
+              "category": "figure",
+              "index": 2234
+            },
+            {
+              "label": "4d",
+              "target": "figure-1",
+              "category": "figure",
+              "index": 2391
+            },
+            {
+              "label": "58",
+              "target": "ref-58",
+              "category": "reference",
+              "index": 2732
+            },
+            {
+              "label": "8",
+              "target": "ref-8",
+              "category": "reference",
+              "index": 3205
+            },
+            {
+              "label": "51",
+              "target": "ref-51",
+              "category": "reference",
+              "index": 3218
+            },
+            {
+              "label": "58",
+              "target": "ref-58",
+              "category": "reference",
+              "index": 3448
+            }
+          ]
+        }
+      },
+      "warnings": [
+        "No equation nodes were detected."
+      ],
+      "sourceAttachmentContext": "logical error probability ~10$^{−}$ $^{15}$ even with a small SC "
+    },
+    {
+      "dialect": "quarto",
+      "validators": {
+        "math": {
+          "valid": false,
+          "inlineMathCount": 32,
+          "displayMathCount": 0,
+          "issues": [
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 27,
+              "column": 334,
+              "delimiter": "$",
+              "context": "…dissipative SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. [4d](#fig-figure-1)). It is worth noticing…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSuperscript",
+              "line": 27,
+              "column": 341,
+              "delimiter": "$",
+              "context": "…tive SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. [4d](#fig-figure-1)). It is worth noticing that t…",
+              "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ],
+          "scientificFragments": {
+            "valid": false,
+            "counts": {
+              "isolatedSubscript": 0,
+              "isolatedSuperscript": 2,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": [
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 27,
+                "column": 334,
+                "delimiter": "$",
+                "context": "…dissipative SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. [4d](#fig-figure-1)). It is worth noticing…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSuperscript",
+                "line": 27,
+                "column": 341,
+                "delimiter": "$",
+                "context": "…tive SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10$^{−}$ $^{15}$ even with a small SC $\\bar{n}=4$ (see Fig. [4d](#fig-figure-1)). It is worth noticing that t…",
+                "message": "An isolated superscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ]
+          },
+          "states": {
+            "TEXT": 3817,
+            "INLINE_MATH": 316,
+            "DISPLAY_MATH": 0,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "rawHtml": {
+          "valid": true,
+          "violations": []
+        },
+        "structure": {
+          "valid": true,
+          "citationStyle": "quarto",
+          "sections": {
+            "references": {
+              "headingCount": 1,
+              "itemCount": 0,
+              "definitionCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "crossrefs": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "fig-figure-1",
+            "refs",
+            "autonomous-quantum-error-correction-and-fault-tolerant-quantum-computation-with-squeezed-cat-qubits",
+            "results",
+            "references"
+          ],
+          "links": [
+            {
+              "label": "4d",
+              "target": "fig-figure-1",
+              "category": "figure",
+              "index": 2164
+            },
+            {
+              "label": "4a, c",
+              "target": "fig-figure-1",
+              "category": "figure",
+              "index": 2267
+            },
+            {
+              "label": "4d",
+              "target": "fig-figure-1",
+              "category": "figure",
+              "index": 2428
+            }
+          ]
+        }
+      },
+      "warnings": [
+        "No equation nodes were detected."
+      ],
+      "sourceAttachmentContext": "logical error probability ~10$^{−}$ $^{15}$ even with a small SC "
+    }
+  ],
+  "firstInvalidState": "Nature numeric-run recognition does not create one attachment for original sibling SUP sign-only minus then digits. Both original SUPs survive adapter; Defuddle inserts presentation space between them; academic renderRange serializes them separately as orphan inline fragments. combineLiteralPowers accepts signed digits, not a sign-only first fragment; no step forms original negative power.",
+  "proposal": "Unimplemented: recognize only an unambiguous preceding numeric base followed by contiguous source SUP sign then numeric digits as one typed numeric exponent at the existing Nature scientific DOM boundary. Use existing markers, retain source role/citation/opaque boundaries; do not globally merge adjacent dollars or alter validators.",
+  "captureLimitations": [
+    "First trace attempt passed nonexistent page.bodyHtml (undefined) from a different pipeline version; converter error is a harness mistake, not parser evidence.",
+    "Actual ac86 finishClip uses defuddleToMarkdown(page.document); corrected trace retained the DOM until completion. A subsequent assertion expected no space before first SUP; saved actual stages show presentation spaces before both SUPs. This finalization verifies that saved same-run capture, without another converter or clip call.",
+    "Focused initial harness expected missing selected canonical and a non-existent raw-rights field, omitted Fig4 citation from expected whole-document list, and tested raw HTML code beyond this scope. Source selection/rights evidence/test expectations were corrected from untouched source; initial logs remain external."
+  ]
+}
