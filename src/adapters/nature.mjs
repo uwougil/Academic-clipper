@@ -760,6 +760,34 @@ function collectNumericSuperscriptRun(parent, startIndex) {
   };
 }
 
+function collectPlainGreekSubscriptRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  // Literal math/code can span siblings. This narrow DOM role leaves that
+  // opaque context to existing paths rather than interpreting its delimiters.
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
+  const subscript = parent.childNodes[startIndex];
+  if (!isElement(subscript, new Set(['SUB'])) || subscript.childNodes.length !== 1) return null;
+  const child = subscript.firstChild;
+  const atom = child.nodeType === 3 ? child
+    : child.nodeType === 1 && child.tagName === 'I' && child.childNodes.length === 1
+      && child.firstChild.nodeType === 3 ? child.firstChild : null;
+  // Preserve the source-backed atoms without flattening nested, mixed, linked
+  // or typed-math children into a guessed index.
+  if (!atom || !/^[abi0]$/u.test(atom.textContent)) return null;
+  const previous = subscript.previousSibling;
+  if (previous?.nodeType !== 3 || !/[ΓΩ]$/u.test(previous.textContent)) return null;
+  const offset = previous.textContent.length - 1;
+  if (offset === 0 ? previous.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(previous.textContent.slice(0, offset))) return null;
+  // Additional mathematical attachments are ambiguous here. A following
+  // citation SUP remains independent, as defined by isElement's typed guard.
+  if (isElement(subscript.nextSibling, SCIENTIFIC_ATTACHMENT_TAGS)) return null;
+  return {
+    start: { node: previous, offset },
+    end: { node: subscript, after: true },
+  };
+}
+
 function collectSplitNumericSuperscriptRun(parent, startIndex) {
   if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
   // Literal math/code cues can span inline siblings. This DOM role does not
@@ -868,6 +896,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
         : collectStyledRun(parent, index)
           || collectTextAndStyledSymbolRun(parent, index, inlineMathByMarker, displayMath)
           || collectNumericAttachmentRun(parent, index)
+          || collectPlainGreekSubscriptRun(parent, index)
           || collectSplitNumericSuperscriptRun(parent, index)
           || collectNumericSuperscriptRun(parent, index)
           || collectLeadingIsotopeRun(parent, index)
