@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
+import dns from 'node:dns';
+import dnsPromises from 'node:dns/promises';
 import {readFile, writeFile} from 'node:fs/promises';
+import {syncBuiltinESMExports} from 'node:module';
 import {after, test} from 'node:test';
 import {JSDOM} from 'jsdom';
 import {clipNature} from '../src/clip.mjs';
@@ -15,6 +18,20 @@ assert.equal(bytes.length,provenance.fixture.bytes);
 assert.equal(createHash('sha256').update(bytes).digest('hex'),provenance.fixture.sha256);
 const html=bytes.toString('utf8'), doms=[], receipts=[];
 const sourceDom=new JSDOM(html);doms.push(sourceDom);
+const networkAttempts=[];
+const originalNetwork={fetch:globalThis.fetch,lookup:dns.lookup,promiseLookup:dnsPromises.lookup};
+globalThis.fetch=async(...args)=>{networkAttempts.push({kind:'HTTP',url:String(args[0])});throw new Error('Unexpected split-power HTTP');};
+dns.lookup=(...args)=>{networkAttempts.push({kind:'DNS',host:String(args[0])});throw new Error('Unexpected split-power DNS');};
+dnsPromises.lookup=async(...args)=>{networkAttempts.push({kind:'DNS-promise',host:String(args[0])});throw new Error('Unexpected split-power DNS');};
+syncBuiltinESMExports();
+after(async()=>{
+  globalThis.fetch=originalNetwork.fetch;dns.lookup=originalNetwork.lookup;dnsPromises.lookup=originalNetwork.promiseLookup;syncBuiltinESMExports();
+  if(process.env.SPLIT_POWER_RECEIPT_ROOT){
+    for(const receipt of receipts)await writeFile(`${process.env.SPLIT_POWER_RECEIPT_ROOT}/green-${receipt.dialect}.md`,receipt.markdown);
+    await writeFile(`${process.env.SPLIT_POWER_RECEIPT_ROOT}/network-ledger.json`,JSON.stringify({networkAttempts,writerProof:'Static: tests only call clipNature, which returns a result and does not invoke writePaper/image download. No writer spy claimed.'},null,2)+'\n');
+  }
+  assert.deepEqual(networkAttempts,[],'No HTTP/DNS attempts, including caught fallback errors');
+});
 const sourceCitationClusters=[...sourceDom.window.document.querySelector('.c-article-body').querySelectorAll('sup:has(a[href*="#ref-CR"])')].map(sup=>[...sup.querySelectorAll('a[href*="#ref-CR"]')].map(a=>Number(a.getAttribute('href').match(/#ref-CR(\d+)/u)[1])));
 after(async()=>{if(process.env.SPLIT_POWER_RECEIPT)await writeFile(process.env.SPLIT_POWER_RECEIPT,JSON.stringify(receipts,null,2)+'\n');for(const dom of doms)dom.window.close();});
 

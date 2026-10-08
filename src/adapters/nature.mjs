@@ -597,12 +597,12 @@ function setRangeEnd(range, end) {
   else range.setEnd(end.node, end.offset);
 }
 
-function replaceRangeWithScientificMarker(parent, start, end, values, inlineMathByMarker, provenance) {
+function replaceRangeWithScientificMarker(parent, start, end, values, inlineMathByMarker, provenance, sourceTex) {
   const range = parent.ownerDocument.createRange();
   range.setStart(start.node, start.offset);
   setRangeEnd(range, end);
   const fragment = range.extractContents();
-  let tex = Array.from(fragment.childNodes)
+  let tex = sourceTex ?? Array.from(fragment.childNodes)
     .map((node) => scientificTex(node, inlineMathByMarker))
     .join('')
     .replace(/[ \t\r\n\u00a0\u2009]+/gu, '');
@@ -760,6 +760,33 @@ function collectNumericSuperscriptRun(parent, startIndex) {
   };
 }
 
+function collectSplitNumericSuperscriptRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  const sign = parent.childNodes[startIndex];
+  const digits = sign?.nextSibling;
+  const plainSup = (node) => isElement(node, new Set(['SUP']))
+    && node.childNodes.length === 1 && node.firstChild.nodeType === 3;
+  // These are two original, contiguous plain SUP nodes forming one signed
+  // integer exponent. Whitespace, comments and styled/citation children are
+  // boundaries; scientificTex must not serialize this as two exponent groups.
+  if (!plainSup(sign) || !/^[−+\-]$/u.test(sign.textContent)
+    || !plainSup(digits) || !/^\d+$/u.test(digits.textContent)) return null;
+  const previous = sign.previousSibling;
+  if (previous?.nodeType !== 3) return null;
+  const text = previous.textContent;
+  if (!/(?:^|[\s~=(,:;+\-*/×])10$/u.test(text) || /[$`]/u.test(text)) return null;
+  const offset = text.length - 2;
+  if (offset === 0 && previous.previousSibling?.nodeName === 'SUP') return null;
+  // A subsequent citation keeps its own typed role. A third scientific SUP
+  // instead makes this an ambiguous chain, which this narrow role cannot infer.
+  if (isElement(digits.nextSibling, new Set(['SUP']))) return null;
+  return {
+    start: { node: previous, offset },
+    end: { node: digits, after: true },
+    tex: `10^{${sign.textContent}${digits.textContent}}`,
+  };
+}
+
 function collectLeadingIsotopeRun(parent, startIndex) {
   const mass = parent.childNodes[startIndex];
   if (!isElement(mass, new Set(['SUP'])) || mass.firstElementChild
@@ -836,6 +863,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
         : collectStyledRun(parent, index)
           || collectTextAndStyledSymbolRun(parent, index, inlineMathByMarker, displayMath)
           || collectNumericAttachmentRun(parent, index)
+          || collectSplitNumericSuperscriptRun(parent, index)
           || collectNumericSuperscriptRun(parent, index)
           || collectLeadingIsotopeRun(parent, index)
           || collectDetachedSuperscriptRun(parent, index);
@@ -852,6 +880,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
         node.nodeType === 3
           ? 'Nature MathJax plus adjacent inline scientific nodes'
           : 'Nature inline style nodes (<i>/<b>/<sub>/<sup>)',
+        range.tex,
       );
       if (!replaced) {
         index += 1;
