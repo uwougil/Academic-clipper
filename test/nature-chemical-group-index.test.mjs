@@ -4,30 +4,62 @@ import dns from 'node:dns';
 import dnsPromises from 'node:dns/promises';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {syncBuiltinESMExports} from 'node:module';
-import {after,test} from 'node:test';
+import {after,before,test} from 'node:test';
 import {JSDOM} from 'jsdom';
-import {clipNature,referencesBib} from '../src/clip.mjs';
-import {parseNaturePage} from '../src/adapters/nature.mjs';
-import {normalizeAcademicInline} from '../src/normalizers/academic-inline.mjs';
-import {validateMathDelimiters} from '../src/validators/math-delimiters.mjs';
 import {assertChemicalGroupFormula} from './helpers/chemical-group-output-oracle.mjs';
 
 const directory=new URL('./fixtures/nature-chemical-group-index/',import.meta.url);
 const provenance=JSON.parse(await readFile(new URL('s41467-023-44030-3.provenance.json',directory),'utf8'));
 const bytes=await readFile(new URL(provenance.fixture.path,directory)),html=bytes.toString('utf8');
-const dom=new JSDOM(html),source=dom.window.document,page=parseNaturePage(html,provenance.source.url);
-const attempts=[],original={fetch:globalThis.fetch,lookup:dns.lookup,promiseLookup:dnsPromises.lookup};
-globalThis.fetch=async(...args)=>{attempts.push({kind:'HTTP',url:String(args[0])});throw new Error('Unexpected chemical-group-test HTTP');};
-dns.lookup=(...args)=>{attempts.push({kind:'DNS',host:String(args[0])});throw new Error('Unexpected chemical-group-test DNS');};
-dnsPromises.lookup=async(...args)=>{attempts.push({kind:'DNS-promise',host:String(args[0])});throw new Error('Unexpected chemical-group-test DNS');};
-syncBuiltinESMExports();
+const attempts=[],originals=[],results=new Map(),clipWindows=new Set(),closedWindows=new Set();
+const domKeys=['window','document','DOMParser','XMLSerializer','Node','NodeFilter','HTMLElement','Element','SVGElement','Document'];
+const descriptors=new Map(domKeys.map(key=>[key,Object.getOwnPropertyDescriptor(globalThis,key)]));
+let referencesBib,parseNaturePage,normalizeAcademicInline,validateMathDelimiters,sourceDomsOpened=0,sourceDomsClosed=0;
+before(async()=>{
+ for(const [owner,kind,methods]of [[globalThis,'HTTP',['fetch']],
+  [dns,'DNS-callback',['lookup','resolve','resolve4','resolve6','reverse']],
+  [dnsPromises,'DNS-promise',['lookup','resolve','resolve4','resolve6','reverse']]])for(const method of methods){
+   originals.push({owner,method,value:owner[method]});
+   owner[method]=(...args)=>{attempts.push({kind,method,value:String(args[0])});throw new Error(`Unexpected chemical-group-test ${kind}`);};
+ }
+ syncBuiltinESMExports();
+ let currentWindow=globalThis.window;
+ Object.defineProperty(globalThis,'window',{configurable:true,get:()=>currentWindow,set:value=>{
+  currentWindow=value;if(value?.document&&typeof value.close==='function')clipWindows.add(value);
+ }});
+ const {clipNature,referencesBib:bib}=await import('../src/clip.mjs');referencesBib=bib;
+ ({parseNaturePage}=await import('../src/adapters/nature.mjs'));
+ ({normalizeAcademicInline}=await import('../src/normalizers/academic-inline.mjs'));
+ ({validateMathDelimiters}=await import('../src/validators/math-delimiters.mjs'));
+ try{for(const citationStyle of ['markdown','links','quarto']){
+  const r=await clipNature({html,url:provenance.source.url,citationStyle});
+  assert.equal(r.rawHtml,html);assert.equal(r.citationStyle,citationStyle);results.set(citationStyle,r);
+  if(process.env.CHEMICAL_GROUP_RECEIPT_ROOT){const root=process.env.CHEMICAL_GROUP_RECEIPT_ROOT;await mkdir(root,{recursive:true});await writeFile(`${root}/${citationStyle}.result.json`,JSON.stringify(r,null,2)+'\n');await writeFile(`${root}/${citationStyle}.md`,r.markdown);}
+ }}finally{
+  // Defuddle retains the first DOMParser. Keep all real clip windows alive
+  // until the complete three-dialect batch ends, then close every window.
+  for(const window of clipWindows){window.close();closedWindows.add(window);}
+ }
+});
 after(async()=>{
- globalThis.fetch=original.fetch;dns.lookup=original.lookup;dnsPromises.lookup=original.promiseLookup;syncBuiltinESMExports();dom.window.close();page.dom.window.close();
- if(process.env.CHEMICAL_GROUP_RECEIPT_ROOT)await writeFile(`${process.env.CHEMICAL_GROUP_RECEIPT_ROOT}/network-ledger.json`,JSON.stringify({attempts,writerProof:'Static clipNature returns data without invoking writePaper; no writer spy claimed.'},null,2)+'\n');
- assert.deepEqual(attempts,[],'Unexpected operations recorded before throw even if fallback catches the error');
+ try{
+  assert.deepEqual(attempts,[],'Unexpected operations recorded before throw even if fallback catches the error');
+  assert.equal(results.size,3);assert.equal(clipWindows.size,3);assert.equal(closedWindows.size,3);
+  assert.equal(sourceDomsOpened,sourceDomsClosed);
+ }finally{
+  for(const window of clipWindows)if(!closedWindows.has(window)){window.close();closedWindows.add(window);}
+  for(const {owner,method,value}of originals)owner[method]=value;syncBuiltinESMExports();
+  for(const [key,descriptor]of descriptors){if(descriptor)Object.defineProperty(globalThis,key,descriptor);else delete globalThis[key];}
+  const restoredBindings=originals.every(({owner,method,value})=>owner[method]===value);
+  const restoredDomGlobals=[...descriptors].every(([key,descriptor])=>assert.deepEqual(Object.getOwnPropertyDescriptor(globalThis,key),descriptor)===undefined);
+  assert.ok(restoredBindings&&restoredDomGlobals);
+  if(process.env.CHEMICAL_GROUP_RECEIPT_ROOT)await writeFile(`${process.env.CHEMICAL_GROUP_RECEIPT_ROOT}/network-ledger.json`,JSON.stringify({attempts,realClipCalls:results.size,clipWindowsOpened:clipWindows.size,clipWindowsClosed:closedWindows.size,sourceDomsOpened,sourceDomsClosed,guardedMethods:originals.length,restoredBindings,restoredDomGlobals,writerProof:'Static clipNature returns data without invoking writePaper; no writer spy claimed.'},null,2)+'\n');
+ }
 });
 
 test('source chemical-group projection retains three whole paragraphs, all scripts, creators, rights and target closure',()=>{
+ const dom=new JSDOM(html),source=dom.window.document,page=parseNaturePage(html,provenance.source.url);sourceDomsOpened+=2;
+ try{
  assert.equal(bytes.length,provenance.fixture.bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),provenance.fixture.sha256);assert.equal(bytes.includes(13),false);
  assert.equal(source.querySelector('link[rel="canonical"]').href,provenance.source.url);assert.equal(source.querySelector('meta[name="citation_doi"]').content,provenance.source.doi);
  assert.deepEqual([...source.querySelectorAll('meta[name="citation_author"]')].map(n=>n.content),provenance.sourceRights.orderedSourceCreators);assert.equal(provenance.sourceRights.orderedSourceCreators.length,9);
@@ -40,6 +72,7 @@ test('source chemical-group projection retains three whole paragraphs, all scrip
  assert.equal(source.querySelector('p.c-footer__legal').textContent,provenance.sourceRights.siteFooterNotice.text);
  assert.equal(provenance.fixture.repeatBytesEqual,true);assert.equal(provenance.fixture.idempotentBytesEqual,true);
  assert.deepEqual(page.figures.map(f=>f.id),['Fig2','Fig3']);assert.deepEqual(page.tables,[]);
+ }finally{dom.window.close();page.dom.window.close();sourceDomsClosed+=2;}
 });
 
 function context(markdown,index){
@@ -52,13 +85,7 @@ function context(markdown,index){
 }
 function readable(text){return text.replace(/\\(?:mathrm|text)\{([^{}]*)\}/gu,'$1').replace(/(?<!\$)\$([^$\n]+)\$(?!\$)/gu,(_,s)=>s).replace(/[{}]/gu,'').replace(/\s+/gu,' ');}
 for(const dialect of ['markdown','links','quarto']){
- let promise;
- const result=()=>promise??=(async()=>{
-  const r=process.env.CHEMICAL_GROUP_CACHE_ROOT?JSON.parse(await readFile(`${process.env.CHEMICAL_GROUP_CACHE_ROOT}/${dialect}.result.json`,'utf8')):await clipNature({html,url:provenance.source.url,citationStyle:dialect});
-  assert.equal(r.rawHtml,html);assert.equal(r.citationStyle,dialect);
-  if(process.env.CHEMICAL_GROUP_RECEIPT_ROOT){const root=process.env.CHEMICAL_GROUP_RECEIPT_ROOT;await mkdir(root,{recursive:true});await writeFile(`${root}/${dialect}.result.json`,JSON.stringify(r,null,2)+'\n');await writeFile(`${root}/${dialect}.md`,r.markdown);}
-  return r;
- })();
+ const result=async()=>results.get(dialect);
  for(const[pIndex,p]of provenance.paragraphs.entries())test(`real ${p.id} outer count belongs to complete original chemical group (${dialect})`,async()=>{const r=await result();assertChemicalGroupFormula(context(r.markdown,pIndex),pIndex);});
  test(`three real group contexts pass unchanged strict math validator (${dialect})`,async()=>{const r=await result();assert.equal(r.debug.mathValidation.valid,true,JSON.stringify(r.debug.mathValidation));});
  test(`ordinary chemical counts, measured NMR values, citations and target resources remain valid (${dialect})`,async()=>{
