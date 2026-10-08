@@ -20,7 +20,7 @@
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
 | A / B immutable source inputs | DONE | A reviewed actual e56 interface；B b718fa8 source-only；nine articles/four resources/85 expectations |
-| C assertion framework / oracle audit | DONE for implementation | reviewed9c5/API1.0；clean7ab2/2973f adopted36c；Materials27source/3repeat PASS，compound修复，math剩9identifier；Quantum四validators PASS為歷史Q134；全255/27未驗收 |
+| C assertion framework / oracle audit | RUNNING affected heading-consumer compatibility | API1.0/5a420d8 adopted4e8；实际Materials六clips四guards/原native11与headingidentity PASS，24/27source PASS、3旧扁平headingconsumer FAIL；限定C消费者修正中；全255/27未验收 |
 | D seam / controller review | DONE for implementation | exact4649 independent zero blockers；最终真实source-controller acceptance DEPENDENCY_PENDING |
 | Footer45、caption47、units48、tableMathJax51、literal53、sparse55、citation56 | DONE | 各独立PR与成功mergedMain receipts见后续历史；accepted mainac86 |
 | styled-adjacency57 / PR62 | DONE | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523与Secrets成功、57 automation completed |
@@ -31,7 +31,7 @@
 | Greek64 / PR77 | DONE | final2a231/code07be，93focused/181affected/830full/build/golden/独立zero blockers/三平台CI/Secrets全部通过；squash134ba67 Main37740911355 SUCCESS，64 automation completed；C实际Quantum全部四guards已通过 |
 | compound-unit67 / PR78 | DONE | final5e1/codeab589；59focused/309affected/889full/build/golden/三平台CI/Secrets/最终独审零阻塞十gates；squash36c93ca，mergedMain37749675660/Secrets SUCCESS，67 automation completed |
 | Materials identifier68 / PR79 | DONE | exact1be7/code976f479全部十gates；squash4e8dcd9 Main37764888330与Secrets37764888340 SUCCESS，68 automation COMPLETED；C实际Materials delta待执行 |
-| Other mandatory scientific71–75 | RUNNING71 sole Nature production | 71最终5841be8 PLAN_TAIL_CLEAR/已正式releaseaccepted4e8；72fbc5c59及73最终69088a1 PLAN_ONLY_CLEAR；74独审3P2新增tail实际53PASS待提交复审；75新41d47b6预检50=42PASS8真RED独审中；串行生产 |
+| Other mandatory scientific71–75 | RUNNING71 sole Nature production / implementation review | 71codebba4/final039fc5d实际43focused PASS/独审中；72fbc5c59及73最终69088a1 PLAN_ONLY_CLEAR；74新964f643 tail53PASS待独审；75新41d47b6预检50=42PASS8真RED、1P2共享sourceoracle尾段中；串行生产 |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
 当前 host 并发上限为 4（含 orchestrator）。优先同时运行 C、D、table-footer bug；其余节点在名额空出并满足 dependency 后启动，重复恢复同一 C / D child。
@@ -797,3 +797,17 @@ Root唯一mergedMainwatch24792实际terminalexit0/chunkd6c70d，不重新watch/C
 75 cleanpushed41d47b6a47cbd048f7c92972e0b5c9ddc6f50c5b，root完整读newplan/test与receiptprocess/lifecycle/cachetail/status并核actualhash。50=42PASS8真missing-roleRED931.9007ms/49parse49windowclose/0clip/attempts[]exactrestore，继承mixed4roles/cites/inline同批cache-only已核；后续candidateownership仍unproven。Differentowner审查发现sourceattachedRole unanchoredincludes仍可能接受同mathatom额外数字/重复，newpurestringoracle未接到real3styles；只test-only共享完整formula predicate与必要新purestrings可修，不重新source48/旧3clips/50matrix。数学等价必须区分π与/8在平方base外而不是强迫它们总在mathatom外：例如原兼容 $\pi(5/60)^{2}/8$ 可为合法有界等价表示，不静默缩小源验收。
 
 74三P2tail新controls actual53/53PASS736.9922ms=42purestrings0parse+11新negativeparse/11returnedwindowclosed，ledger[]exactnetwork+DOMrestore；owner仍packaging，未rootreadfinalbytes或独审CLEAR。旧26/source65/原real18/3clips未重复。FinalIssue10integration gate仍未满足，goal持续active。
+
+## 10:55 UTC：#71 定向 GREEN 与 C 实际 source-consumer 差异
+
+71 ownbranch正式dependency-only7f957a38a3a045ae2e61d9c009edba38641c8451 adopted4e8，code bba4ea72864326eb781ac4bf493d17b9d8f8becf treea61c6cec3954ddbab09bb1c52b5fda4ee2746a5a、finalDOC_ONLY039fc5daf47da4aa0e34e22cee0055a21e672c1e treed978e830c05b748369d530bb896091644b242f26，clean/pushed。Root完整读26lineprivatecollector/实际source与boundary/testhelperdelta/finalfocusedreceipt/guards。最终43/43PASS1021.2667ms exit0 skip/cancel/todo0：12source registrations+28boundarytests(35actualsyntheticparse)+3purestrings；source3clipwindows持有到batch末全部close，独立sourceDOM1close，HTTP/DNSledger[]、11bindings/10DOMdescriptors恢复。First43=36PASS7harnessFAIL1091.0887ms因过早关闭Defuddle缓存DOMParser影响6后续方言与既有Nres字体1，首次cache/log保留；仅修harness关闭时机/明确原roman Nres等价后必要corrected focused，不放宽原grouped95/sourceinputs。外部finalreceipt5393 SHA1a1d42fc309599911449b6be13549c665f5850e218100ba5affacb426324b8d7/log12885 SHA9595330cdd0354d5a7b9542efa6f5adc7ff3def8971dc0a90a2927b6722d6e03。Source58/A/旧preflight未重复，broader/full/build/golden/PR未release。Differentowner独立实施审核exact039，不得重43/35/source58/原clips。
+
+C samebranch dependency-only5a420d80891f0f4eb332e72dde5abf8ee2fa768f adopted4e8，32protected Git objects/sourcepacket/scienceinput unchanged。外部observer只在original execute() return追加receipt记录，不改assertions；初launcher --import Windows路径scheme错误在test import前止，42.8252ms/1launcherFAIL/0clips单独保留。修正为file:///URL后唯一实际六clipbatchsession12291exit1：37tests30PASS7FAIL16437.6854ms/zero skips。27source24PASS3headingconsumerFAIL、3repeatPASS，三个父test aggregate失败及afterhookmissing24硬FAIL；不是parser4guards失败。
+
+Root读actualterminal尾段与更新receipt161016 SHA4f717d7ae01a710ec9883db8579bcbb4d866d23dc0bee897644e75b51aad648d、observer3192 SHA60dbe4e4efb0a1f959b70514485b6a880a3cbeb24cf1a37abbaf0a0679275358及三dialect字段：全部fourstrictvalidators true；9bodycaption+2H3/H4原native r^{2}SCAN准确；Sec7/Sec33原labels/slugs准确，13identifier ranges含2原refs同形角色；refPREFIX71/citeclusters79/Bib/warnings/resources/p42已修unit保留；完整MD对旧36c只改变9identifier+2原headingattachment；repeatMarkdown/Bib/summaries/ledger各项一致，attempts[]exactbindings/DOMrestore。观察sixcaptures实际路径/hash保留；source records仍3/missing24/errors[]unexpected[]completefalse，不冒全255/27/最终ABA完成。
+
+C旧orderedBodyHeadings/level断言只接受source flatten文字r2SCAN，拒绝正确native脚本。这是C-owned consumer compatibility，root限放sharedhelper/新focusedcontrols：保持B源expectations/manifest不变，以原SUP2源身份和原level/order/label/slug核wholecase/base/groupedexponent；拒绝flat/wrongexp/extra/duplicates，不泛化删除数学braces。修正consumer后只用已保存六outputs和新反例做定点验证，不重clip/来源审计/框架/旧24sourcechecks。因actualsharedconsumer需sourceDocument，必要ONE已冻结B fixture的guarded sourceDOM parse明确允许，用于新消费者验收，关闭实际DOM并计数；不发明contract-double/学术DOM，不当raw/A/sourceaudit。这是changedfunction scope的新验证，旧actual37FAIL历史不得改GREEN。待新helpercommit/receipt后不同owner只审核该Cdelta；最终全current联合执行仍mandatory。
+
+74 exact964f6436127b8d53d8e2ae7b9911552e37e465c1 clean/pushed，root读strictsharedwholeformulahelper、纯controls/sourcewiring/plan与receipt。53/53PASS736.9922ms=42purestrings+11NEWnegatives，0old26/source65/old3clips；recipe科学/protectedquiet，futuremodified18/default37仍UNRUN。Receipt19479 SHA5041dd190565356924db83d90df44307b0659f8ff2f8d78b09405ff9961f176e，正待same reviewer只读tail。
+
+75独审human5549 SHAabe6f7d3120e507efcb29047b373f898505ad7716a5e370abc97aa8007f5ee99/machine25787 SHA2c6b99a90bc0c275002fc86b3e79682a505d3f1d44be756e52ed85b17da6a182 root完整读human/关键数值fields+hash；P2=1真实sourceattachedRole子串匹配与newstricthelper未共享。Rootsameauthor放ONLYtesthelper/source调用/NEWpurestrings/receipt/plan尾修，保持允许π和/8在平方BASE外的有界等价数学atom。新pure80/80PASS70.482ms0parse/clip，ownerpackaging未root审最终bytes/未PLANclear；原50/source48/source15/3clips未重做。
