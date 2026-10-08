@@ -1,6 +1,6 @@
 # Agent C — 来源核验与离线回归检查点
 
-状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线 accepted `73d6cfafba9bb33149959e315ab29b5b0bc24d75`（PR #76 / Issue #63），dependency-only `12ec9e76b9fce6942997ebd79da4da55458e5853` 接入。C-owned reviewed9c5 / API/schema1.0保持不变。最新实际 Quantum30来源/3repeat PASS；40tests33PASS7FAIL，math每方言17Greek FAIL、其他三validators PASS。当前85行registry是30 `Q73d6_NEW` 加225历史记录的合成255PASS，不是最新main全255/27验收。Materials27/3repeat与Chemistry27/3repeat仍分别属于f4a5/a5b6历史，见文末。
+状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线 accepted `134ba67a9eefe8763314454183a625f83a34837b`（PR #77 / Issue #64），dependency-only `d3dd8573560be019164698f726425294a5101239` 接入。C-owned reviewed9c5 / API/schema1.0保持不变。最新实际 Quantum30来源/3repeat及三方言四validators全PASS；40tests39PASS1FAIL仅partial after缺24组合。当前85行registry为30 `Q134_NEW` 加225历史记录的合成255PASS，不是最新main全255/27验收。Materials/Chemistry/Alpha/FRB所需科学角色仍待accepted prerequisites，见末尾。
 
 历史 e2c1 轮仅复验 Quantum `s41534-023-00746-0` × 三方言：30 条来源记录 27 PASS / 3 FAIL；3 个 Markdown / Bib / semantics / replay repeat 全部 PASS。实际 session22332：40 tests = 30 PASS / 10 FAIL，0 skip / todo / cancel，43,193.7263ms。10 FAIL 包含 3 个 citation 子测试、3 个 validator 子测试、3 个 parents 及 receipt 缺 24 个组合的硬 FAIL。每方言完整 source-crossrefs 已恢复；原 12 个 table-caption MathJax 产生的 24 legacy delimiter issues 消失。其余 math 仍 19 issues（17 Greek isolatedSubscript、2 split isolatedSuperscript），整篇不通过。
 
@@ -111,7 +111,7 @@ Fixture 总计 `1,577,502` bytes（13 files）。本分支原 B 输入的 Git tr
 
 ## 每条期待与三个方言的实际执行状态
 
-下表85行使用各文章最近一次实际 execution scope：Quantum30 `Q73d6_NEW`（本轮）、Materials27 `Mf4a5_NEW`、Chemistry27 `Ca5b6_NEW`、Pangenome27 `AC86_NEW`、其余144 `F0DE`。合成255PASS/0sourceFAIL、85来源consumers有PASS记录；其中225记录没有在当前73d6重新执行。历史e2c1三citation FAIL及旧252/3 receipt保留在原外部文件与下文历史段，reviewed9c5已解释容器归属，本轮实际生产30记录确认修正。该source registry不替代整篇四validators、required科学角色、完整27组合/ABA/resources/golden验收；17Greek等math失败继续独立阻塞。
+下表85行使用各文章最近一次实际 execution scope：Quantum30 `Q134_NEW`（本轮）、Materials27 `Mf4a5_NEW`、Chemistry27 `Ca5b6_NEW`、Pangenome27 `AC86_NEW`、其余144 `F0DE`。合成255PASS/0sourceFAIL、85来源consumers有PASS记录；225历史记录未在当前134重新执行。原e2c1三citation FAIL与73d6 native17Greek math FAIL保留在旧外部cache及历史章节；本轮Quantum30source与全部四validators实际通过。Registry不替代全部27组合/255records/ABA/resources/golden及final npmchecks验收，其它论文required math失败继续独立阻塞。
 
 | Article | Expectation ID | Assertion ID | Source pointer (`articles[i].expectations[j]`) | markdown | links | quarto | State | Record scope | 阻塞证据 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -125,16 +125,16 @@ Fixture 总计 `1,577,502` bytes（13 files）。本分支原 B 输入的 Git tr
 | s41586-026-10401-1 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [0][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-026-10401-1 | source-ui-v1 | nature-source-ui-v1 | [0][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-026-10401-1 | source-tables-v1 | nature-source-tables-v1 | [0][9] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
-| s41534-023-00746-0 | source-metadata-v1 | nature-source-metadata-v1 | [1][0] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
-| s41534-023-00746-0 | source-abstract-v1 | nature-source-abstract-v1 | [1][1] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
-| s41534-023-00746-0 | source-headings-v1 | nature-source-headings-v1 | [1][2] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
-| s41534-023-00746-0 | source-equations-v1 | nature-source-equations-v1 | [1][3] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
-| s41534-023-00746-0 | source-figures-v1 | nature-source-figures-v1 | [1][4] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
-| s41534-023-00746-0 | source-citations-v1 | nature-source-citations-v1 | [1][5] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
-| s41534-023-00746-0 | source-inline-v1 | nature-source-inline-v1 | [1][6] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
-| s41534-023-00746-0 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [1][7] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
-| s41534-023-00746-0 | source-ui-v1 | nature-source-ui-v1 | [1][8] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
-| s41534-023-00746-0 | source-tables-v1 | nature-source-tables-v1 | [1][9] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
+| s41534-023-00746-0 | source-metadata-v1 | nature-source-metadata-v1 | [1][0] | PASS | PASS | PASS | EXECUTABLE_NOW | Q134_NEW ×3 | — |
+| s41534-023-00746-0 | source-abstract-v1 | nature-source-abstract-v1 | [1][1] | PASS | PASS | PASS | EXECUTABLE_NOW | Q134_NEW ×3 | — |
+| s41534-023-00746-0 | source-headings-v1 | nature-source-headings-v1 | [1][2] | PASS | PASS | PASS | EXECUTABLE_NOW | Q134_NEW ×3 | — |
+| s41534-023-00746-0 | source-equations-v1 | nature-source-equations-v1 | [1][3] | PASS | PASS | PASS | EXECUTABLE_NOW | Q134_NEW ×3 | — |
+| s41534-023-00746-0 | source-figures-v1 | nature-source-figures-v1 | [1][4] | PASS | PASS | PASS | EXECUTABLE_NOW | Q134_NEW ×3 | — |
+| s41534-023-00746-0 | source-citations-v1 | nature-source-citations-v1 | [1][5] | PASS | PASS | PASS | EXECUTABLE_NOW | Q134_NEW ×3 | — |
+| s41534-023-00746-0 | source-inline-v1 | nature-source-inline-v1 | [1][6] | PASS | PASS | PASS | EXECUTABLE_NOW | Q134_NEW ×3 | — |
+| s41534-023-00746-0 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [1][7] | PASS | PASS | PASS | EXECUTABLE_NOW | Q134_NEW ×3 | — |
+| s41534-023-00746-0 | source-ui-v1 | nature-source-ui-v1 | [1][8] | PASS | PASS | PASS | EXECUTABLE_NOW | Q134_NEW ×3 | — |
+| s41534-023-00746-0 | source-tables-v1 | nature-source-tables-v1 | [1][9] | PASS | PASS | PASS | EXECUTABLE_NOW | Q134_NEW ×3 | — |
 | s41586-021-03819-2 | source-metadata-v1 | nature-source-metadata-v1 | [2][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-021-03819-2 | source-abstract-v1 | nature-source-abstract-v1 | [2][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-021-03819-2 | source-headings-v1 | nature-source-headings-v1 | [2][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
@@ -792,3 +792,63 @@ External cached诊断经历两次独立harness修正，均不算scienceRED：首
 | quarto | 108069 / f325c702199165922d7c75924a6026139ed171cdae0cb3d86dd22d91d53c08ab | 83523 / 01a2350c40afe7fc9db194ecf8c979abeff3d79e2c9ef763774bcf3d629aa702 |
 
 C仍DEPENDENCY_PENDING；#63原split科学角色已在wholecorpus实际解除，#64 native17Greek、Materials/Chemistry/Alpha/FRB等requiredroles仍待各自accepted prerequisites。按受影响范围继续必要delta；最终combinedacceptedhead仍须canonical全部255/27/四validators、determinism/ABA/resources/golden/npmchecks/三平台CI。没有spec changes，不声明Quantum、C或Issue #10 complete，不开partial普通PR。
+
+
+## Accepted134 Native Greek — Quantum 实际增量执行
+
+Root正式release：PR #77 / Issue #64 squashmerged07:01:18Z，accepted main `134ba67a9eefe8763314454183a625f83a34837b`。Root唯一watch75708 actualterminalexit0与API核验 Main `37740911355` 三jobs：Ubuntu24 `113191151412`07:05:57Z、Ubuntu20 `113191151772`07:09:22Z、Windows24 `113191151763`07:09:35Z全部success；Secrets `37740911189` 同merged SHA success。Issue64由automation于07:09:48Z completed，见 [验收comment](https://github.com/uwougil/Academic-clipper/issues/64#issuecomment-6054575816)。C没有重复poll这些CI；`git fetch origin main` + nonFF dependency-only merge `d3dd8573560be019164698f726425294a5101239` 接入该accepted代码，原C authored SHAs不重写。
+
+复用外部 `pending64-quantum-791d-preflight.json` 的source/fixture/resource identity、原reviewed9c5 API1.0与准确正向filter，合并后32protected Gitobjects逐项unchanged。没有修改corpus/manifest/expectations/helper/tests/validators/production/spec，没有source85/raw/A重审。新prefix `accepted-greek-quantum-delta` 在启动前确认无文件，仅启动一次唯一batch：三baseline+三repeat=六actualclips。
+
+Actual session `9983` confirmed live后同handle terminalexit1，`40 tests = 39 PASS / 1 FAIL`、`53572.4901ms`、0skip/todo/cancel。**Quantum十个source IDs ×3 =30PASS，三个MD/Bib/semanticSummary/ledger repeat PASS，三个方言全部四production validators PASS**。Math scientificFragments全部counts为0，原17isolatedSUB和旧2splitSUP均不存在；并不是只看validator绿色。唯一FAIL为existing afterhook记录3baseline、缺24article/dialect组合的硬FAIL：records3、missing24、errors[]、unexpected[]、completefalse。该局部证据不伪称full255/27或全C验收，repeat完整result未另保存，只声明实际repeat测试通过。
+
+同次cached postcheck首次exit0：复用已sealed独立source64机器packet `67736 bytes / 628be3bf139544503f38b17614489a42e8ec95dfd43c1007c80a33753b84e0cd`。七完整原段 native17=15body+2Fig5caption；逐段用唯一源句定位，检查所有native与原typedMathJax Greek roles交织序列完全相同。Gamma/Omega与script必须在同一inline表达式，不能用globalcontains代替；对完整旧/新段落仅将native attachment拼写与其生成boundary ASCIIspace正规化，其他TeX/邻文/citation保持逐字相等。含source paragraph6的完整Fig5 caption内两个原Γ关系；typed与native合计依次4/1/2/9/5/2/1，每方言全通过。原源段raw/frozen digests复用，未重新parse原始来源或sanitizer。
+
+| Original Methods paragraph / role | Native roles | Native + typed Greek roles | Raw prehash | Frozen paragraph digest |
+| --- | ---: | ---: | --- | --- |
+| 4 / body | 2 | 4 | d4b9cd5027373869e427abe3a356010ce137ee71232ba6fe10fa326e619e4636 | 74a9ca9392ba1e49f63b27c7dd139332ab694b2c99d96345da9bbca9654e8a0a |
+| 5 / body | 1 | 1 | 7917cafd5d18cb35e336b2dc2f3a83ea9c35d2e81f9e5e8c8ea513825b5ca19a | 3605d4ae2cb313d0f68293ec7698dfc605544315b6d02dabc6a2050bf3b75aff |
+| 6 / Fig5 caption | 2 | 2 | 6b5529fa2fc0f7054db8ddff9f5845f04f47dc09a92c9b6c84c6e402cd3af866 | f7f86bf155d5aa1ce3e2adc5f646839344901c4c2aa29ee7ecfa7289a32a0062 |
+| 7 / body | 7 | 9 | 41fe93f90327d2058184f53f70b106f365fec54bac3569302d2621b4e6b379a7 | 1399a9b8f93b285f03f15b8d51e9cbc5cae6c3d6205a0888e98881557c151fa4 |
+| 9 / body | 2 | 5 | 4df3e18987d23972b091c9e456138caf31e752848220bd87f716839e8bf298ad | 629a487989b7da126377e8b992c13abc2c89cd839b807066ab0144fa0d02fd6c |
+| 13 / body | 2 | 2 | a5560c83a39e0275742a9c3d0dd8c0830be4cfc503882f9def1a6c06a13ac969 | 28ea00ca891ecb94f15283d49e5fe2bee14c7a92e22a065cb6f735986288fc8e |
+| 15 / body | 1 | 1 | 71d264e4fec89fd459f23ccf020b4a263bfee0b83e3a37ef201f6437a89f3fda | d614ce67b9f636f349b500a929acaf960a7000a57efed1329d546ae35a8f8b2e |
+
+原Results p33 `~10<sup>−</sup><sup>15</sup>` 仍准确为单一 `$10^{−15}$`，原前~、后“even with a small SC”和p37的五singleSUP controls均保持；ref prefix77、semantic citation77有序序列、Table1 summary与73d6真实cache完全相等。完整source-citations/figures/tables/inline等十consumers仍实际PASS；不是为17新角色修改B oracle。
+
+每baseline实际ledger只服务声明GET `https://www.nature.com/articles/s41534-023-00746-0/tables/1`，redirectmanual、mockresolver `www.nature.com` all:true/verbatim:true一次；unexpected[]。每repeat完整ledger equality通过。Warnings expected/actual/missing/unexpected皆[]。既有受审A replay和D seam注入路径finally严格记录并reject未声明操作，没有global network patch/newspy；零ordinary liveDNS/HTTP证明范围同既有受审执行路径，声明回放请求不能称零request。Corpus路径仅clipNature返回结果，不调用writer，未增加writer spy。
+
+85行currentregistry只更新Quantum10行scope到 `Q134_NEW`（30records），另225历史records保持 `Mf4a5_NEW`27 / `Ca5b6_NEW`27 / `AC86_NEW`27 / `F0DE`144。合成255PASS/0sourceFAIL、85uniqueconsumers有执行记录；没有将225旧记录改成current PASS。其它Materials #67 compoundunit/#68 identifier、Alpha #71 qualifier、FRB #72 fractionalunits/#75 wholeparenthesizedpower、Chemistry #73 Δbond/#74 groupindex仍待root各accepted prerequisites，再继续受影响delta或最终combinedhead验证。
+
+实际commands/results：
+
+| Command | Result |
+| --- | --- |
+| `git fetch origin main`；`git merge --no-ff 134ba67a9eefe8763314454183a625f83a34837b -m 'chore(corpus): adopt accepted native Greek subscript prerequisite'` | exit0，dependency d3dd857；32protectedblobs unchanged |
+| `node --test --test-name-pattern $cGreekPlan.pattern test/nature-corpus.test.mjs`；env `ACADEMIC_CLIPPER_CORPUS_RECEIPT_PREFIX=<TEMP>/accepted-greek-quantum-delta` | session9983 terminalexit1、40/39PASS1FAIL、53572.4901ms；唯一六clips |
+| `node <TEMP>/accepted-greek-quantum-receipt.mjs`（同run cache only） | 首次exit0；30TAP IDs/status、17native+typed source order/fullneighbors、四validators、refs/cites/table/strictwarnings/exactledgers、85registry assertions |
+| `git diff --check` / stageddiffcheck / trackedfilenames / `git status --short` / push | 本轮authored只本handoff，末尾commit由git log与交接消息重建；未重复build/full/golden/其它文章/Dcontroller |
+
+Filter完整复用：`^(?:s41534-023-00746-0)/(?:markdown|links|quarto): (?:every source expectation through the complete production chain|repeat Markdown, bibliography, semantics and replay operations)$`。初始read-onlyprep的两处externalharness假设曾exit1：摘要抄错sealedhash（实际文件及sealed-packets一致以上628…e0cd），以及宽p4sentinel匹配三个不同段落；已保留两原版脚本，并分别改用actualsealedhash、唯一源句“modes act as a Markovian reservoir for mode”。这两个失败都是只读缓存检查，无source/production改变、无新clip；production后的postcheck无需修正或重跑。
+
+外部TEMP为 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c`，下列同run证据未提交：
+
+| File | Bytes | SHA256 |
+| --- | ---: | --- |
+| accepted-greek-quantum-delta.log | 5337 | baeab79c63aedd097b9cbdfdfde0c2c2fa6628134ccb68de4a58578374884d9c |
+| accepted-greek-quantum-delta.comparisons.json | 252791 | 93a7481f8dfbd5abf0c675d4a0479ae249b2e03b15b329b125cdf8c54047b782 |
+| accepted-greek-quantum-delta-receipt-status.json | 1812 | 1a8e036ac6e52f4bc77634623ad8293e2135c8069d03bc22dfaba6eea638a450 |
+| accepted-greek-quantum-delta-process-exit.txt | 1 | 6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b |
+| pending64-quantum-791d-preflight.json | 46335 | 7990bec3507251400ce701fa149bd521091ee2f7882362d63d37552bf717b884 |
+| accepted-greek-quantum-delta-receipt.json | 113076 | b604628f6d917a1d1ce3a3e653b65255647c177d753caf4b723155711226094d |
+| accepted-greek-quantum-receipt.mjs | 9906 | b2ac8ea3c678a945279d25d0913a19a3155390f60acd41a0e3797a2902766b32 |
+
+方言文件前缀 `accepted-greek-quantum-delta.s41534-023-00746-0.`：
+
+| Dialect | Actual validators | Comparison bytes / SHA256 | MD bytes / SHA256 |
+| --- | --- | --- | --- |
+| markdown | all four PASS / scientific fragments zero | 48675 / c08f6102de95e13e6aeba6bb3879a0afc463da85c18be0977d827faaff074b0c | 91205 / bba068d969a1f52ed2ee27a0921764a5001e46b817f8114fd75a0fa437bc131c |
+| links | all four PASS / scientific fragments zero | 115349 / 59f9b4d488c202fcd4e24fed1dd4e75234b27e6d5d2e9f0e838443ff41ce30f4 | 95861 / 211b3ed9e66de986c9bba2d29bcf39c97462d5ac828483baf47987151770717f |
+| quarto | all four PASS / scientific fragments zero | 72754 / ee21fdda2cdba31a5cb9136faf44da281a695466e472ff7baa522afca37b44f3 | 83515 / 29c7aad4cba1b4377c3a0086fe08e40e5dc7555a90b4be83cbe74d5a8e362526 |
+
+C仍DEPENDENCY_PENDING；当前Quantum适用的30source/四validators/repeat已在accepted134实际通过。最终combinedacceptedhead仍须canonical全部255/27、ABA/resource scenarios/golden/npmchecks/三平台CI；其它required科学角色不能以历史sourcePASS替代。没有spec changes、不声明Issue#10完成、没有partial delivery PR、没有重做旧来源/framework/审查。Integrator选择C authored docs与原framework commits，不能whole-branch合并覆盖B后补rights。
