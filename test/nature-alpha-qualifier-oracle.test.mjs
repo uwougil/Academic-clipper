@@ -23,6 +23,7 @@ test('pure-string metric oracle rejects split, ungrouped, extra and mismatched a
   assert.equal(isQualifiedMetricTex(undefined), false);
 });
 test('pure-string run comparison keeps separate inherited styled roles and complete order', () => {
+  assert.equal(normalizeQualifierRun('N_{\\mathrm{res}}'), 'N_res');
   assert.deepEqual(['N_{res}', '\\mathrm{r.m.s.d.}_{95}', '_{95}', '\\mathrm{r.m.s.d.}_{9}5'].map(normalizeQualifierRun),
     ['N_res', 'r.m.s.d._{95}', '_95', '\\mathrm{r.m.s.d.}_{9}5']);
 });

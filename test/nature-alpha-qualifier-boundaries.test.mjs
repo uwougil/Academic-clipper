@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import dns from 'node:dns';
+import { writeFile } from 'node:fs/promises';
 import { syncBuiltinESMExports } from 'node:module';
-import { resolve } from 'node:path';
+import { isAbsolute, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { after, before, test } from 'node:test';
 import { normalizeQualifierRun } from './helpers/nature-alpha-qualifier-oracle.mjs';
@@ -10,7 +11,7 @@ import { normalizeQualifierRun } from './helpers/nature-alpha-qualifier-oracle.m
 const url = 'https://www.nature.com/articles/synthetic-qualified-metric';
 const metric = 'r.m.s.d.<sub>95</sub>';
 const ledger = { http: [], dns: [] };
-const originals = { fetch: globalThis.fetch, lookup: dns.lookup, promiseLookup: dns.promises.lookup };
+const originals = [];
 let parseNaturePage;
 let opened = 0;
 let closed = 0;
@@ -19,28 +20,35 @@ const deny = kind => (...args) => {
   throw new Error(`Undeclared ${kind} in synthetic qualifier boundary test`);
 };
 before(async () => {
-  globalThis.fetch = deny('http');
-  dns.lookup = deny('dns');
-  dns.promises.lookup = deny('dns');
+  for (const [owner, kind, methods] of [[globalThis, 'http', ['fetch']],
+    [dns, 'dns', ['lookup', 'resolve', 'resolve4', 'resolve6', 'reverse']],
+    [dns.promises, 'dns', ['lookup', 'resolve', 'resolve4', 'resolve6', 'reverse']]]) {
+    for (const method of methods) {
+      originals.push({ owner, method, value: owner[method] });
+      owner[method] = deny(kind);
+    }
+  }
   syncBuiltinESMExports();
   const target = process.env.NATURE_ALPHA_QUALIFIER_SRC_ROOT
     ? pathToFileURL(resolve(process.env.NATURE_ALPHA_QUALIFIER_SRC_ROOT, 'adapters/nature.mjs'))
     : new URL('../src/adapters/nature.mjs', import.meta.url);
   ({ parseNaturePage } = await import(target.href));
 });
-after(() => {
+after(async () => {
   try {
     // Independent of case assertions; attempted requests cannot hide in catches.
     assert.deepEqual(ledger, { http: [], dns: [] });
     assert.equal(closed, opened, 'Every parser-owned DOM is closed');
   } finally {
-    globalThis.fetch = originals.fetch;
-    dns.lookup = originals.lookup;
-    dns.promises.lookup = originals.promiseLookup;
+    for (const { owner, method, value } of originals) owner[method] = value;
     syncBuiltinESMExports();
-    assert.equal(globalThis.fetch, originals.fetch);
-    assert.equal(dns.lookup, originals.lookup);
-    assert.equal(dns.promises.lookup, originals.promiseLookup);
+    const restored = originals.every(({ owner, method, value }) => owner[method] === value);
+    assert.equal(restored, true);
+    if (process.env.NATURE_ALPHA_QUALIFIER_BOUNDARY_RECEIPT) {
+      assert.ok(isAbsolute(process.env.NATURE_ALPHA_QUALIFIER_BOUNDARY_RECEIPT));
+      await writeFile(process.env.NATURE_ALPHA_QUALIFIER_BOUNDARY_RECEIPT,
+        JSON.stringify({ syntheticParses: opened, domsClosed: closed, ledger, restored, clips: 0 }, null, 2) + '\n');
+    }
   }
 });
 function withPage(content, inspect) {
@@ -77,7 +85,8 @@ for (const [name, value] of [
 for (const [name, content, inherited = []] of [
   ['unknown metric and extended base', '<p>unknown<sub>95</sub>; r.m.s.d.extra<sub>95</sub>.</p>'],
   ['wrong qualifier and superscript', '<p>r.m.s.d.<sub>96</sub>; r.m.s.d.<sup>95</sup>.</p>'],
-  ['cross sibling and comment', `<p><span>word</span>${metric}; word<!-- boundary -->${metric}.</p>`],
+  ['cross sibling and comment', `<p><span>word</span>${metric}; word<!-- boundary -->${metric}.</p>`
+    + `<p>${metric}<span>word</span>; ${metric}<!-- continuation -->word; ${metric}<span></span>.</p>`],
   ['wrapper around base', '<p><span>r.m.s.d.</span><sub>95</sub>.</p>'],
   ['wrapper around qualifier', '<p>r.m.s.d.<span><sub>95</sub></span>.</p>'],
   ['empty styled sibling', '<p>r.m.s.d.<i></i><sub>95</sub>.</p>', ['_95']],

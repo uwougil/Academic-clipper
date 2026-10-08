@@ -15,7 +15,7 @@ export function attachedQualifiers(value) {
 export function normalizeQualifierRun(tex) {
   if (isQualifiedMetricTex(tex)) return 'r.m.s.d._{95}';
   // Separate inherited styled roles; all other runs keep their exact TeX.
-  if (/^(?:N|\\(?:mathrm|text|mathit)\{N\})_\{res\}$/u.test(tex)) return 'N_res';
+  if (/^(?:N|\\(?:mathrm|text|mathit)\{N\})_\{(?:res|\\mathrm\{res\})\}$/u.test(tex)) return 'N_res';
   if (tex === '_{95}') return '_95';
   return tex;
 }
