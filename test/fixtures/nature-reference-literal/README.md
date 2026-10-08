@@ -14,6 +14,8 @@
 
 后续独立 source projection 审核已通过，packet SHA-256 `c3177a697b871a68a60a88674e2bdf1bae512cbe00928de3bf7c76a6bb317521`。原来源 bytes/provenance/oracles 均保持；原 SOURCE_ONLY RED 历史如上，不将新执行结果倒写到旧日志。
 
-在 accepted main `a5b6acc2984af5cb8b82106291e963f4f413f5ac` 上，最小 reference renderer 修复只在 Defuddle/normalization 后、DOI/兼容 anchor 拼接前编码字面 `<` 与 `&`，保护既有完整 math/code。新增明确 synthetic 边界覆盖未闭合/成对 dollars、合法数学与 literal HTML 混合、escaped currency、实体拼写、原 literal backslash 与 strict anchors。当前36 focused tests一次执行36 PASS / 0 FAIL；实际三个 source dialect 结果各保存一次到显式外部临时 evidence 路径，所有四 production validators PASS。HTTP/DNS attempts ledger为空；测试结束复原全局/builtin bindings。Writer未调用依据真实 `clipNature` 调用边界的静态证明，未声称存在 writer spy。
+在 accepted main `a5b6acc2984af5cb8b82106291e963f4f413f5ac` 上，最小 reference renderer 修复只在 Defuddle/normalization 后、DOI/兼容 anchor 拼接前编码字面 `<` 与 `&`，保护既有完整 math/code。原36 focused/640 full结果属于旧f740/ecc，后来独立review发现拒绝literal dollar candidate后重用closing dollar，会破坏相邻合法数学operator；旧GREEN不能覆盖该语义缺陷。
+
+修正code `97c5640dda1166a8f4804a213ebb7e19e07686d7` 让已匹配candidate的两个endpoints无论接受/拒绝都被消费，仍由既有math/strictHTML validators决定opacity，没有制造TeX或新增parser。18个明确synthetic邻接strings×两references方言的36条新边界，在旧ecc真实10PASS/26FAIL，修正后36PASS；含quote实体的比较器double-decode错误单列保存并改成one-pass decoding，不修改source科学期待。当前72 focused一次执行72PASS/0FAIL，43直接相关tests PASS；独立reviewer新增36+6边界delta clear后，一次immutable full **676/676 PASS80015.307ms**、build/golden exit0。实际三个source dialect各保存同次结果，四productionvalidators/source原值/refs/DOI/keys/作者/warnings PASS，原source/provenance/30-blockreview不变。HTTP/DNS attempted-call ledger为空，结束复原全局/builtin bindings；writer非调用仍是静态调用边界证据，没有runtime spy。Final publication exact-head独立review/freshCI仍待通过，不能复用旧640/GREEN。
 
 完整 commands/results、selected commits、源审核复用、fresh CI 与独立实现 review gate见 `docs/goals/issue-10/bug-reference-literal-handoff.md`。Issue #65 仍须独立实现 review、fresh CI 和 merged-main 验证后由 automation 完成；本摘录不使其他 Materials science 角色或 Issue #10 完成。

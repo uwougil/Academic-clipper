@@ -1,6 +1,6 @@
 # Issue #65 — reference literal 交接
 
-当前状态：`IMPLEMENTATION_VERIFIED_REVIEW_CI_PENDING`。独立 Work Contract [Issue #65](https://github.com/uwougil/Academic-clipper/issues/65) 仍 OPEN / bug。下方原 SOURCE_ONLY 阶段内容保持历史证据，其 pending/未实施措辞只描述旧 checkpoint；最新 accepted main、实施结果及交付 gates 在末尾恢复交接。Issue #10 未完成。
+当前状态：`REVIEW_CORRECTION_VERIFIED_FINAL_REVIEW_CI_PENDING`。独立 Work Contract [Issue #65](https://github.com/uwougil/Academic-clipper/issues/65) 仍 OPEN / bug，唯一 PR 为 [#70](https://github.com/uwougil/Academic-clipper/pull/70)。旧 ecc implementation review发现P2，原640/full/CI只适用于旧head；最新97c修正已通过新的676 full/build/golden，final-head review/freshCI仍待完成，详见末尾。下方 SOURCE_ONLY/f740内容保留为历史证据，不是当前状态。Issue #10 未完成。
 
 ## 基线、所有权与 commit 选择
 
@@ -175,3 +175,62 @@ Same actual focused3 clips在 `green-a5b6-final/`，不是额外clips或committe
 仅为 #65 创建唯一final bug PR，exact standalone `Refs #65`；不承担普通Issue10 delivery PR责任。Owner不merge、不手动close。需要fresh三platformCI/Secrets、不同owner exact-final-head implementation review zero blockers，root十项gate全部满足才可自动squash merge；mergedMain同SHA成功后接受base并由automation完成#65。
 
 独立source gate已清；independent implementation review与freshCI在final PR发布时pending，不能由producer640PASS替代。C下一步在accepted #65 fix上使用既有oracle、做Materials三dialect source delta，原reference2 rawHTML必须真实PASS；不要重审raw30或替换source值。r²SCAN/compound units等其余science缺陷仍独立，wholeMaterials与Issue10尚未完成。未修改intent/spec，未提spec changes。
+
+## 独立审阅修正 — 97c5640 immutable code
+
+独立 reviewer `/root/reference_literal_review` 在精确 `ecc46fcbcb3ca16bd8c859b240a3a5ace4830bbd` 发现真实 P2：`Synthetic. $<span>bad</span>$ then $x<1$ & literal.` 的原合法 `$x<1$` 经 Defuddle/normalizers仍未变，encoder拒绝前一个span dollar candidate后重用其 closing `$`为opener，吞掉后一个math的opening `$`，把合法operator改成`$x&lt;1$`。Raw HTML与math-delimiter guards依旧valid；semantic exact-byte guard不可省。PR70旧CI37720683740与Secrets37720683661虽然绿色，不能清除此finding或授权merge。
+
+阻塞报告为外部 `academic-clipper-issue65-implementation-independent-review/issue65-implementation-review.md`，10085 bytes / SHA `e639e567a201bd6f5838e36b3bcd97d03cbb2cc4cde95a970294b6a59353a7b5`；machine7325 SHA `a813951fb8cedbdbe98252d96ac5a222879e5da5ba6aced4d64d6436a0a21478`；14-case proposed strategy6433 SHA `fdfef32da9899ddc8a8844c6729e19d5cb6cbc5518e7dda6319c39e94aa97228`。其他strategy cases在review时未执行，不捏造其RED。含 `<B>` 的初次independent entity测试失败已证明来自既有academic normalization，未当成新encoder defect，不混入此次修复。
+
+Root按orchestrator §22转交相同existing owned branch：启动 HEAD/upstream均ecc、status clean、无属于该分支的live Node authorprocess；Alpha来源分支保持clean c701不变。基线仍accepted a5b6，来源raw30/projection/CCrights/A e56均已独立clear、bytes quiet，复用原packet不重抓/再sanitize/re-audit。只修改 `src/clip.mjs` 的原private encoder扫描与永久synthetic边界断言，无source/science/oracle/security/validator修改。
+
+追加 ordered commits：
+
+1. `c16ac7175f74cb3767a39b8e577b08447bc20537`：在旧ecc生产上冻结18个明确synthetic strings ×markdown/links的36项邻接边界。
+2. `97c5640dda1166a8f4804a213ebb7e19e07686d7`：9-line生产diff（6add/3del），`mathEnd`→`candidateEnd`，匹配到candidate closing delimiter后**无论是否满足opacity guards都推进end**，禁止endpoint重匹配。只有通过两个既有validators的candidate仍被mask；未生成或修改TeX、未引入second parser、未放宽malformedmath，也没增加通用currency词法分类。附带test-readableText的一次entity解码纠正（下方独立证明），不改变输入strings/科学期望。
+
+新矩阵覆盖同种inline/display拒绝对之后、合法math在前/后/两侧/连续、多个reject、mixed delimiter spans、pairedcurrency及literalHTML、原odd/even backslash经过Defuddle的actual presentation、ampersand数学/文字区分、foreign anchor、字面named/numeric entities、原DOI/owned ref anchor。每项先断言原math token在Defuddle/math/academic后的exact bytes存在，再断言renderer exact token保留，独立断言literal-readable order/strictHTML/DOI/ownedanchors；不能用guards成功代替数学语义。原typed DOM code/MathJax/citation control复用原永久test。未将zero-whitespace `$$$`歧义或孤立currency提升成合法数学合同；原malformed控制只要求literal安全，不强求mathvalidatorPASS。
+
+`node --test --test-name-pattern='synthetic rejected-dollar boundary:' test/nature-reference-literal.test.mjs` 对旧ecc生产一次真实执行 **36 /10 PASS /26 FAIL，723.7579ms，exit1，0skip/todo/cancel**，没有real source clip；全部26FAIL来自exact原mathoperator在encoder后丢失，upstream guard均先PASS。不是再次执行旧36测试（名称/内容为新范围）。
+
+最小cursor修正后的第一次同scope **34 PASS /2 FAIL，691.5395ms，exit1**：数学26项已恢复，剩余两项含source literal `&quot;`/`&apos;`的新比较器失败。原test-readableText链式先`&amp;`再`&quot;`解码，会把实际安全`&amp;quot;`变成`"`，误损原字面拼写。外部 `node <EXTERNAL>/rejected-dollar-entity-preflight.mjs` exit0保存实际renderer output与旧/单次比较结果：`&amp;quot;`、`&amp;apos;`、numeric/lt/amp/copy spellings都仍正确，`$x<1$`精确未变；因此是测试comparison bug，不是扩大production修复。只把比较器改成单次regex entity replacement；原scientific source/oracle、matrix inputstrings全部不变。旧失败log保留。最终新scope **36/36 PASS，695.6271ms，exit0**。
+
+执行代码身份：src tree `c452b9ab2b6f582f8948c4535808a142bdf00380`；`src/clip.mjs` blob `daeed3c9eff8bc12e011e0a5274fb1f4b5701b66`、Git40191 bytes / SHA `5abc6dfda4995a0a736e88386469b0c91fb824155ea8700568cf77bde5f50f56`；test blob `3ba7fa20fa8a4d602bd6734ac649f83497994767`、Git21699 bytes / SHA `828b8b8f544f42993214fcc7668661cc6a19fbaa740eed9ce0c32094ac89ff5c`。Source excerpt13671/provenance21728 hashes与原审阅aea完全不变。
+
+| 当前exact97c checks | Terminal result |
+| --- | --- |
+| `node --test test/nature-reference-literal.test.mjs`，`NATURE_REFERENCE_RECEIPT_ROOT=<EXTERNAL>/green-97c5640` | **72/72 PASS，1238.5998ms，exit0，0skip/todo/cancel**；原36+新36；real source styles各一次保存同次完整cache/MD/attemptledger |
+| `node --test test/nature-adapter.test.mjs test/output-quality.test.mjs test/aip-adapter.test.mjs` | **43/43 PASS，6085.4111ms，exit0，0skip/todo/cancel** |
+| `node <EXTERNAL>/receipt-97c5640.mjs` | exit0，只读取Git源/test/来源blob及上述实际logs/caches；核验四guards/refs/6creators/原MD字节/emptyledger/protected diff，零新raw parse/audit/clip |
+
+`green-97c5640` 三actual MD和完整cache的bytes/hashes与上方旧`green-a5b6-final` **完全相同**；receipt按真实新同run核对后复用相同identity，不意味着复用旧clip来冒称新执行。所有四productionvalidators PASS、refs2/keys/order/DOI/metadata6作者/原 `(0<x<-1)` unchanged、exactNoFigures/NoEquation warnings、networkAttempts[]（135bytes/SHA同e30d...）和staticwriterproof保持。这里新增3个real source clips用于变更后的必要focused，一次/style；没有额外补证据clips、来源生成或raw30审计。
+
+| 新外部evidence（原目录 `<EXTERNAL>`） | bytes / SHA256 |
+| --- | --- |
+| rejected-dollar-ecc46fc-red.log | 22167 / fd9c93ae8c54910cb3e670325c4a1354d374d398c5e14e55e20604815d0e49d5 |
+| rejected-dollar-candidate-cursor-green.log（34/2比较错误历史） | 5186 / 997d9e8b8a5ffdcb5146d7c2d8b279b4c079216ce02bf5823d77f5fdd9041a74 |
+| rejected-dollar-entity-preflight.json | 738 / 9a050fa97b3fb9e00b4fbd133becd1502a3f5544930ae18970618554396f0212 |
+| rejected-dollar-candidate-cursor-final-green.log | 3729 / 7b8218cabbe88dd1441f8f166e9915f7b17d0d79231ca510c53ba736332ed574 |
+| focused-97c5640-green.log | 7008 / c3dcfe113ebc2af8eca4ac6829a66d18ba42a2ca3db35ceb3d57b5829fb6a84c |
+| affected-97c5640-green.log | 3679 / d84231a27cfabe2923095379524dff6ac6f2c6e08c9ee3f296800e5758637c2d |
+
+本修正应先由same不同owner独立reviewer做unique scan delta核验，再在stable tree执行一次新的full/build/golden及最终immutableheadreview/freshCI。旧640及旧PRCI是历史，不能移作97c验证；没有为每个patch重复full，也没再clip旧source solely for docs。尚未merge/close；未提出spec changes。
+
+### 新 immutable verification 与发布交接
+
+独立 reviewer在自己的detached exact97c checkout给出 `NEW_CODE_DELTA_CLEAR_ONLY` / zero blocking findings：新36项PASS741.0737ms，加6个不同的alternating inline/display rejected/valid math和zero-whitespace safety-only probes，source clips0/raw audits0/full reruns0。外部 `delta-97c-results.json` SHA `cd594fe6e1ef7ecc43764b472ed5a325395283055c63def53237b69fa699ac63`。Zero-whitespace `$$$` case在before/after数学validator均INVALID，明确不声称是合法原math受损或以此放宽canonical。本delta clearance仅解除昂贵verification的实施风险，不代替final publication exact-head review。
+
+Root释放后对97c固定src/test执行 **唯一一次**新full与后续build/golden；期间只有handoff/README文档改动：
+
+| 实际command | 终态 |
+| --- | --- |
+| `npm test` | **676/676 PASS，80015.307ms，exit0，0fail/skip/todo/cancel**；实际exec session15578由返回live handle确认并轮询同一个handle到exit0，没有重启或重复full |
+| `npm run build` | exit0；生成dist仍ignored，没有提交 |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0，valid=true，250inline/13display/50references/all4validators PASS/scientificFragments零issues；golden零diff |
+| `node <EXTERNAL>/final-receipt-97c5640.mjs` | exit0，核对full terminal totals、Git src/test/source bytes/blobs、独立delta packet和protectedzero diff；只是记录/校验既有evidence，没有再执行clip/full/raw审计 |
+
+外部 `full-97c5640.log` **87629 bytes / SHA `2e76c58eb15049925c29bf965b82dce8de1ee441e1d37bc103f2f567f93c75bd`**；`build-97c5640.log`174 / SHA `29bb2fc3db9bbbaa086603e3760889fc756348e7a100307b70d3b1ca87609e1c`；`golden-97c5640.log`3018 / SHA `49fe118cfcf91bcbef91e1ec9ffad67f8807589431c6179ffc5cd1a8f8a36498`。Build/golden hash与历史相同是新的真实execution输出相同，不能把旧logs冒充新命令。
+
+`implementation-receipt-97c5640.json`保留full启动前checkpoint；`implementation-final-receipt-97c5640.json`汇总完整实际新results、execution session、Git LF hashes、3新same-run caches/原MD equality、networkledger与source-review/delta-review复用。不得覆盖旧receipt或删去34/2测试comparison错误历史。
+
+发布后ordered authored追加一个DOC_ONLY handoff/README commit，实际finalhead由`git log --format='%H %s' ecc46fc..HEAD`与PRreadback给出；该commit不改已执行src/test/source blob。`git diff --check`、cleanstatus、tracked/diffnames/protectedpaths通过后只push同existingbranch，更新**原 PR70**（body-file，exact standalone `Refs #65`），不创建重复PR。此次新head fresh三平台CI/Secrets和same独立reviewer finalexacthead仍需通过；owner不merge。Root十项门槛满足后才可merge，merged-main CI/Secrets验证后C做Materials必要delta；整篇Materials/Issue10依然未完成。
