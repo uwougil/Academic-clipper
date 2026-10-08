@@ -1,0 +1,234 @@
+{
+  "evidenceVersion": "nature-isotope-mass-diagnosis/1.0.0",
+  "sourceFixtureSha256": "3c68fff1660b3b861da7432e9d96ce9957649adca7105646e4ee206e531365f0",
+  "acceptedMain": "b88653a4be3dcf30cd487365d033f1e7a7c3da0a",
+  "workContract": 61,
+  "source": [
+    {
+      "id": "results",
+      "rawPreSanitizationSha256": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+      "frozenParagraphSha256": "1d03f1991268ca7b64f42caa0f4a5e348594a8d2c129ce9cd756ff5ca7b1359f",
+      "roles": [
+        {
+          "mass": "3",
+          "element": "H",
+          "measurement": null
+        },
+        {
+          "mass": "3",
+          "element": "H",
+          "measurement": null
+        }
+      ]
+    },
+    {
+      "id": "caption",
+      "rawPreSanitizationSha256": "21ed9ff8a20bc5a6cc7724c2027e9ca7ab3578ee98ecf38e0f3fb39b52336b73",
+      "frozenParagraphSha256": "21ed9ff8a20bc5a6cc7724c2027e9ca7ab3578ee98ecf38e0f3fb39b52336b73",
+      "roles": [
+        {
+          "mass": "3",
+          "element": "H",
+          "measurement": null
+        }
+      ]
+    },
+    {
+      "id": "methods",
+      "rawPreSanitizationSha256": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "frozenParagraphSha256": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "roles": [
+        {
+          "mass": "1",
+          "element": "H",
+          "measurement": "7.26"
+        },
+        {
+          "mass": "13",
+          "element": "C",
+          "measurement": "77.16"
+        },
+        {
+          "mass": "1",
+          "element": "H",
+          "measurement": "2.05"
+        },
+        {
+          "mass": "13",
+          "element": "C",
+          "measurement": "206.26"
+        },
+        {
+          "mass": "1",
+          "element": "H",
+          "measurement": "3.31"
+        },
+        {
+          "mass": "13",
+          "element": "C",
+          "measurement": "49.00"
+        }
+      ]
+    }
+  ],
+  "actualBodyStages": {
+    "defuddle": "NMR spectra were recorded on Bruker DRX-600 (equipped with a 5 mm DCH Cryoprobe), AV-600, DRX-500 or DPX-400 and calibrated using residual non-deuterated solvent as an internal reference (CHCl <sub>3</sub> @ 7.26 ppm <sup>1</sup> H NMR, 77.16 ppm <sup>13</sup> C NMR; (CD <sub>3</sub>) <sub>2</sub> CO @ 2.05 <sup>1</sup> H NMR, 206.26 <sup>13</sup> C NMR; CD <sub>3</sub> OD @ 3.31 <sup>1</sup> H NMR, 49.00 <sup>13</sup> C NMR). ",
+    "math": "NMR spectra were recorded on Bruker DRX-600 (equipped with a 5 mm DCH Cryoprobe), AV-600, DRX-500 or DPX-400 and calibrated using residual non-deuterated solvent as an internal reference (CHCl <sub>3</sub> @ 7.26 ppm <sup>1</sup> H NMR, 77.16 ppm <sup>13</sup> C NMR; (CD <sub>3</sub>) <sub>2</sub> CO @ 2.05 <sup>1</sup> H NMR, 206.26 <sup>13</sup> C NMR; CD <sub>3</sub> OD @ 3.31 <sup>1</sup> H NMR, 49.00 <sup>13</sup> C NMR). ",
+    "academic": "NMR spectra were recorded on Bruker DRX-600 (equipped with a 5 mm DCH Cryoprobe), AV-600, DRX-500 or DPX-400 and calibrated using residual non-deuterated solvent as an internal reference (CHCl$_{3}$ @ 7.26 ppm$^{1}$ H NMR, 77.16 ppm$^{13}$ C NMR; (CD$_{3}$)$_{2}$ CO @ $2.05^{1}$ H NMR, $206.26^{13}$ C NMR; CD$_{3}$OD @ $3.31^{1}$ H NMR, $49.00^{13}$ C NMR). "
+  },
+  "history": [
+    {
+      "sha": "e2d32e9ec819692a1f08075636c3a168f15ad20b",
+      "actualDefuddleInput": "NMR spectra were recorded on Bruker DRX-600 (equipped with a 5 mm DCH Cryoprobe), AV-600, DRX-500 or DPX-400 and calibrated using residual non-deuterated solvent as an internal reference (CHCl <sub>3</sub> @ 7.26 ppm <sup>1</sup> H NMR, 77.16 ppm <sup>13</sup> C NMR; (CD <sub>3</sub>) <sub>2</sub> CO @ 2.05 <sup>1</sup> H NMR, 206.26 <sup>13</sup> C NMR; CD <sub>3</sub> OD @ 3.31 <sup>1</sup> H NMR, 49.00 <sup>13</sup> C NMR). ",
+      "output": "NMR spectra were recorded on Bruker DRX-600 (equipped with a 5 mm DCH Cryoprobe), AV-600, DRX-500 or DPX-400 and calibrated using residual non-deuterated solvent as an internal reference (CHCl$_{3}$ @ 7.26 ppm$^{1}$ H NMR, 77.16 ppm$^{13}$ C NMR; (CD$_{3}$)$_{2}$ CO @ 2.05$^{1}$ H NMR, 206.26$^{13}$ C NMR; CD$_{3}$OD @ 3.31$^{1}$ H NMR, 49.00$^{13}$ C NMR). "
+    },
+    {
+      "sha": "6b90413d806f7e611b00559c8208f6b95b31dd1e",
+      "actualDefuddleInput": "NMR spectra were recorded on Bruker DRX-600 (equipped with a 5 mm DCH Cryoprobe), AV-600, DRX-500 or DPX-400 and calibrated using residual non-deuterated solvent as an internal reference (CHCl <sub>3</sub> @ 7.26 ppm <sup>1</sup> H NMR, 77.16 ppm <sup>13</sup> C NMR; (CD <sub>3</sub>) <sub>2</sub> CO @ 2.05 <sup>1</sup> H NMR, 206.26 <sup>13</sup> C NMR; CD <sub>3</sub> OD @ 3.31 <sup>1</sup> H NMR, 49.00 <sup>13</sup> C NMR). ",
+      "output": "NMR spectra were recorded on Bruker DRX-600 (equipped with a 5 mm DCH Cryoprobe), AV-600, DRX-500 or DPX-400 and calibrated using residual non-deuterated solvent as an internal reference (CHCl$_{3}$ @ 7.26 ppm$^{1}$ H NMR, 77.16 ppm$^{13}$ C NMR; (CD$_{3}$)$_{2}$ CO @ $2.05^{1}$ H NMR, $206.26^{13}$ C NMR; CD$_{3}$OD @ $3.31^{1}$ H NMR, $49.00^{13}$ C NMR). "
+    },
+    {
+      "sha": "b88653a4be3dcf30cd487365d033f1e7a7c3da0a",
+      "actualDefuddleInput": "NMR spectra were recorded on Bruker DRX-600 (equipped with a 5 mm DCH Cryoprobe), AV-600, DRX-500 or DPX-400 and calibrated using residual non-deuterated solvent as an internal reference (CHCl <sub>3</sub> @ 7.26 ppm <sup>1</sup> H NMR, 77.16 ppm <sup>13</sup> C NMR; (CD <sub>3</sub>) <sub>2</sub> CO @ 2.05 <sup>1</sup> H NMR, 206.26 <sup>13</sup> C NMR; CD <sub>3</sub> OD @ 3.31 <sup>1</sup> H NMR, 49.00 <sup>13</sup> C NMR). ",
+      "output": "NMR spectra were recorded on Bruker DRX-600 (equipped with a 5 mm DCH Cryoprobe), AV-600, DRX-500 or DPX-400 and calibrated using residual non-deuterated solvent as an internal reference (CHCl$_{3}$ @ 7.26 ppm$^{1}$ H NMR, 77.16 ppm$^{13}$ C NMR; (CD$_{3}$)$_{2}$ CO @ $2.05^{1}$ H NMR, $206.26^{13}$ C NMR; CD$_{3}$OD @ $3.31^{1}$ H NMR, $49.00^{13}$ C NMR). "
+    }
+  ],
+  "dialects": [
+    {
+      "dialect": "markdown",
+      "mathIssues": [
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 45,
+          "column": 1563
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 29,
+          "column": 732
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 29,
+          "column": 777
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 39,
+          "column": 69
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 45,
+          "column": 1515
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 45,
+          "column": 1538
+        }
+      ],
+      "structureValid": true,
+      "rawHtmlValid": true,
+      "crossReferencesValid": true,
+      "warnings": [
+        "No equation nodes were detected."
+      ]
+    },
+    {
+      "dialect": "links",
+      "mathIssues": [
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 46,
+          "column": 1563
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 29,
+          "column": 792
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 29,
+          "column": 837
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 40,
+          "column": 69
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 46,
+          "column": 1515
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 46,
+          "column": 1538
+        }
+      ],
+      "structureValid": true,
+      "rawHtmlValid": true,
+      "crossReferencesValid": true,
+      "warnings": [
+        "No equation nodes were detected."
+      ]
+    },
+    {
+      "dialect": "quarto",
+      "mathIssues": [
+        {
+          "type": "scientific-isolatedSubscript",
+          "line": 40,
+          "column": 1563
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 28,
+          "column": 791
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 28,
+          "column": 836
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 36,
+          "column": 69
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 40,
+          "column": 1515
+        },
+        {
+          "type": "scientific-isolatedSuperscript",
+          "line": 40,
+          "column": 1538
+        }
+      ],
+      "structureValid": true,
+      "rawHtmlValid": true,
+      "crossReferencesValid": true,
+      "warnings": [
+        "No equation nodes were detected."
+      ]
+    }
+  ],
+  "diagnosis": {
+    "trigger": "Plain leading SUP mass immediately followed by source H/C, separated from prior measurement by source whitespace.",
+    "protectionGap": "Nature replaceScientificRuns() does not create a typed scientific run for the plain numeric SUP plus following element. SUP/element DOM bytes remain present.",
+    "firstInvalidState": "normalizeAcademicInline() renderRange() creates an orphan $^{mass}$ fragment apart from the following element and removes prior attachment spacing.",
+    "secondaryMisattachment": "Defuddle body presentation space after SUP makes combineLiteralPowers() consider four prior numeric measurements as bases; its adjacent-character isotope guard is insufficient for this actual conversion.",
+    "classification": "Existing implementation bug for missing prefix role; read-only historical replay proves #48 pass participates in four added backward measurement bindings. It does not prove earlier isotope conversion was correct."
+  },
+  "proposal": {
+    "applied": false,
+    "requiredProductionPath": "src/adapters/nature.mjs",
+    "boundary": "Use original Nature SUP plus its immediate following source element and existing typed scientific Range/marker path. Keep prior measurement outside the range. Preserve existing numeric/unit/true exponent collectors, citation cues, typed math/code and unproven words; no global Markdown isotope guess.",
+    "gate": "Shared Nature gate remains locked; no production changes authorized in this source-only checkpoint."
+  }
+}
