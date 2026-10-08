@@ -1,0 +1,1718 @@
+{
+  "version": "nature-table-caption-source/1.0.0",
+  "base": "0de5c8b5c4c51a9231f250c336216598c10f27ae",
+  "sourceContractCommit": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330",
+  "dependencies": [
+    {
+      "source": "scripts/lib/nature-corpus-infrastructure.mjs",
+      "commit": "3754d3a781459635e719859353fe3cbdf8741897",
+      "blob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+      "bytes": 34946,
+      "sha256": "a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c"
+    },
+    {
+      "source": "test/corpus/corpus-schema.json",
+      "commit": "3754d3a781459635e719859353fe3cbdf8741897",
+      "blob": "3edf568bc82f9b0302f737acb5e0b19295cb927b",
+      "bytes": 12843,
+      "sha256": "7f0563889be154bcb91633ee48d5ce1218d9b8aa6c46614a07bf461bd3e03915"
+    }
+  ],
+  "source": {
+    "url": "https://www.nature.com/articles/s41534-023-00746-0",
+    "canonical": "https://www.nature.com/articles/s41534-023-00746-0",
+    "doi": "10.1038/s41534-023-00746-0",
+    "title": "Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits",
+    "journal": "npj Quantum Information",
+    "observedAt": "2026-10-03T16:44:08.251Z",
+    "bytes": 511799,
+    "sourceSha256": "6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e",
+    "publicAccess": {
+      "articleLabel": "Article Open access Published: 03 August 2023",
+      "jsonLdIsAccessibleForFree": true,
+      "jsonLdSameAs": "https://doi.org/10.1038/s41534-023-00746-0"
+    },
+    "bodyCharacters": 98354
+  },
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41534-023-00746-0",
+    "sourceObservedAt": "2026-10-03T16:44:08.251Z",
+    "sourceSha256": "6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Xu, Qian",
+      "Zheng, Guo",
+      "Wang, Yu-Xin",
+      "Zoller, Peter",
+      "Clerk, Aashish A.",
+      "Jiang, Liang"
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [
+      {
+        "resourceId": "table-1",
+        "sourceUrl": "https://www.nature.com/articles/s41534-023-00746-0/tables/1",
+        "sourceSha256": "7772399037acb3ba4dfc100bc6c9a8fdf4f82c56d8836e65fcb761294e9ee069",
+        "observedTableLicenseLinks": [],
+        "attributionSource": "https://www.nature.com/articles/s41534-023-00746-0",
+        "licenseEvidenceLocation": "sourceRights.notices in this article source-evidence.json",
+        "basis": "The table is an excerpt of this article. The article rights notice is recorded separately; an absent table-page license link is not claimed as an observed link."
+      }
+    ],
+    "technicalTransformations": "Recipe-selected excerpts and original ancestors, A sanitizer 1.1.0, deterministic serialization and LF normalization. Advertising, navigation, executable content and unselected source blocks are omitted as recorded in the manifest/handoff. Retained scholarly prose, TeX, captions, authors, citation data and table cells are preserved; image binaries and full live captures are not included.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "rawCopyrightMetadata": [
+    {
+      "name": "dc.copyright",
+      "content": "2023 The Author(s)",
+      "sourceSubtreeSha256": "e81e3995c3ad7b32c7b69ed7d4f2fc726b492adba03ec988f532a05fd6cbb91f"
+    },
+    {
+      "name": "dc.rights",
+      "content": "2023 The Author(s)",
+      "sourceSubtreeSha256": "47b461ef0638028e90e7de128b921665bb1ba9e20417a0c9b2ce6f10eaf66f44"
+    },
+    {
+      "name": "prism.copyright",
+      "content": "2023 The Author(s)",
+      "sourceSubtreeSha256": "e4a7967d6c475c4d6964e2d990fc05f071ac3f84c7b191891a8ff61998f10343"
+    }
+  ],
+  "fixture": {
+    "path": "s41534-023-00746-0.article.excerpt.html",
+    "bytes": 76331,
+    "sha256": "0f45652f6fb88406a34bbe244236d0ad61b24d90bdcff8165f2ec3591ca0e52d",
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41534-023-00746-0-table-caption-source-v1",
+      "articleUrl": "https://www.nature.com/articles/s41534-023-00746-0",
+      "blocks": [
+        {
+          "id": "a-meta-11",
+          "selector": "head > meta[name=\"dc.title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-36",
+          "selector": "head > meta[name=\"citation_journal_title\"][content=\"npj Quantum Information\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-40",
+          "selector": "head > meta[name=\"citation_title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-41",
+          "selector": "head > meta[name=\"citation_volume\"][content=\"9\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-42",
+          "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-43",
+          "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/08/03\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-44",
+          "selector": "head > meta[name=\"citation_firstpage\"][content=\"78\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-45",
+          "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-49",
+          "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41534-023-00746-0\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-52",
+          "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41534-023-00746-0\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-140",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Xu, Qian\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-142",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Zheng, Guo\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-144",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Wang, Yu-Xin\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-146",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Zoller, Peter\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-149",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Clerk, Aashish A.\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-151",
+          "selector": "head > meta[name=\"citation_author\"][content=\"Jiang, Liang\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-160",
+          "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41534-023-00746-0\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-161",
+          "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-meta-163",
+          "selector": "head > meta[property=\"og:title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits - npj Quantum Information\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-canonical",
+          "selector": "link[rel=\"canonical\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-jsonld",
+          "selector": "script[type=\"application/ld+json\"]",
+          "role": "metadata"
+        },
+        {
+          "id": "a-title",
+          "selector": "h1.c-article-title",
+          "role": "title"
+        },
+        {
+          "id": "caption-context-0",
+          "selector": "#Sec7-content > p:has(a[href=\"/articles/s41534-023-00746-0#Equ33\"])",
+          "role": "complete-adjacent-source-context"
+        },
+        {
+          "id": "caption-context-1",
+          "selector": "#table-1",
+          "role": "complete-table-caption-wrapper"
+        },
+        {
+          "id": "caption-context-2",
+          "selector": "#Sec7-content > p:has(a[id=\"ref-link-section-d102805164e14997\"])",
+          "role": "complete-adjacent-source-context"
+        },
+        {
+          "id": "caption-context-3",
+          "selector": "#Sec2-content > p:has(a[id=\"ref-link-section-d102805164e5156\"])",
+          "role": "complete-adjacent-source-context"
+        },
+        {
+          "id": "caption-context-4",
+          "selector": "#Equ7",
+          "role": "caption-equation-target"
+        },
+        {
+          "id": "caption-context-5",
+          "selector": "#Equ7 + p",
+          "role": "complete-adjacent-source-context"
+        },
+        {
+          "id": "caption-context-6",
+          "selector": "#Sec7-content > p:has(a[href=\"/articles/s41534-023-00746-0#Equ7\"])",
+          "role": "complete-adjacent-source-context"
+        },
+        {
+          "id": "caption-context-7",
+          "selector": "#Equ15",
+          "role": "caption-equation-target"
+        },
+        {
+          "id": "caption-context-8",
+          "selector": "#Sec7-content > p:has(a[id=\"ref-link-section-d102805164e13021\"])",
+          "role": "complete-adjacent-source-context"
+        },
+        {
+          "id": "source-heading-Sec7",
+          "selector": "#Sec7",
+          "role": "section-heading"
+        },
+        {
+          "id": "source-heading-Sec2",
+          "selector": "#Sec2",
+          "role": "section-heading"
+        },
+        {
+          "id": "source-reference-1",
+          "selector": "li:has(#ref-CR1)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-2",
+          "selector": "li:has(#ref-CR2)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-3",
+          "selector": "li:has(#ref-CR3)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-4",
+          "selector": "li:has(#ref-CR4)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-5",
+          "selector": "li:has(#ref-CR5)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-6",
+          "selector": "li:has(#ref-CR6)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-7",
+          "selector": "li:has(#ref-CR7)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-8",
+          "selector": "li:has(#ref-CR8)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-9",
+          "selector": "li:has(#ref-CR9)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-10",
+          "selector": "li:has(#ref-CR10)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-11",
+          "selector": "li:has(#ref-CR11)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-12",
+          "selector": "li:has(#ref-CR12)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-13",
+          "selector": "li:has(#ref-CR13)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-14",
+          "selector": "li:has(#ref-CR14)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-15",
+          "selector": "li:has(#ref-CR15)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-16",
+          "selector": "li:has(#ref-CR16)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-17",
+          "selector": "li:has(#ref-CR17)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-18",
+          "selector": "li:has(#ref-CR18)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-19",
+          "selector": "li:has(#ref-CR19)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-20",
+          "selector": "li:has(#ref-CR20)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-21",
+          "selector": "li:has(#ref-CR21)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-22",
+          "selector": "li:has(#ref-CR22)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-23",
+          "selector": "li:has(#ref-CR23)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-24",
+          "selector": "li:has(#ref-CR24)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-25",
+          "selector": "li:has(#ref-CR25)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-26",
+          "selector": "li:has(#ref-CR26)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-27",
+          "selector": "li:has(#ref-CR27)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-28",
+          "selector": "li:has(#ref-CR28)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-29",
+          "selector": "li:has(#ref-CR29)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-30",
+          "selector": "li:has(#ref-CR30)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-31",
+          "selector": "li:has(#ref-CR31)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-32",
+          "selector": "li:has(#ref-CR32)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-33",
+          "selector": "li:has(#ref-CR33)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-34",
+          "selector": "li:has(#ref-CR34)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-35",
+          "selector": "li:has(#ref-CR35)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-36",
+          "selector": "li:has(#ref-CR36)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-37",
+          "selector": "li:has(#ref-CR37)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-38",
+          "selector": "li:has(#ref-CR38)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-39",
+          "selector": "li:has(#ref-CR39)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-40",
+          "selector": "li:has(#ref-CR40)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-41",
+          "selector": "li:has(#ref-CR41)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-42",
+          "selector": "li:has(#ref-CR42)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-43",
+          "selector": "li:has(#ref-CR43)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-44",
+          "selector": "li:has(#ref-CR44)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-45",
+          "selector": "li:has(#ref-CR45)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-46",
+          "selector": "li:has(#ref-CR46)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-47",
+          "selector": "li:has(#ref-CR47)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-48",
+          "selector": "li:has(#ref-CR48)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-49",
+          "selector": "li:has(#ref-CR49)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-50",
+          "selector": "li:has(#ref-CR50)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-51",
+          "selector": "li:has(#ref-CR51)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-52",
+          "selector": "li:has(#ref-CR52)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-53",
+          "selector": "li:has(#ref-CR53)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-54",
+          "selector": "li:has(#ref-CR54)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-55",
+          "selector": "li:has(#ref-CR55)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-56",
+          "selector": "li:has(#ref-CR56)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-57",
+          "selector": "li:has(#ref-CR57)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-58",
+          "selector": "li:has(#ref-CR58)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-59",
+          "selector": "li:has(#ref-CR59)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-60",
+          "selector": "li:has(#ref-CR60)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-61",
+          "selector": "li:has(#ref-CR61)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-62",
+          "selector": "li:has(#ref-CR62)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-63",
+          "selector": "li:has(#ref-CR63)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-64",
+          "selector": "li:has(#ref-CR64)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-65",
+          "selector": "li:has(#ref-CR65)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-66",
+          "selector": "li:has(#ref-CR66)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-67",
+          "selector": "li:has(#ref-CR67)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-68",
+          "selector": "li:has(#ref-CR68)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-69",
+          "selector": "li:has(#ref-CR69)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-70",
+          "selector": "li:has(#ref-CR70)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "source-reference-71",
+          "selector": "li:has(#ref-CR71)",
+          "role": "complete-ordered-reference-prefix"
+        },
+        {
+          "id": "original-article-rights",
+          "selector": "section[data-title=\"Rights and permissions\"]",
+          "role": "source-rights-notice"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "recipeSha256": "b80e54325f6ae00e24e39b64e05eec838f92358e0e90a2214709c8d4b26b62ab",
+    "retainedBlocks": [
+      {
+        "id": "a-meta-11",
+        "selector": "head > meta[name=\"dc.title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "e0d4beaaaa87eec85fa146464f916c7c8f5703b2c0f81dbec687c66de50702e1"
+      },
+      {
+        "id": "a-meta-36",
+        "selector": "head > meta[name=\"citation_journal_title\"][content=\"npj Quantum Information\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "ed88053f1288a4dc68b6da4c8f4eaabf3424ec7cb616aa1d0c723a9d274b1aa2"
+      },
+      {
+        "id": "a-meta-40",
+        "selector": "head > meta[name=\"citation_title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "ecf37d16d7270373d42e8accffe6ecef46eaf6d1d60b242576020d3a02aab695"
+      },
+      {
+        "id": "a-meta-41",
+        "selector": "head > meta[name=\"citation_volume\"][content=\"9\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "287b7c72329f2a716ae7cb52dc7abc0eb6cd915eca14d157d41b0f1610bc7a56"
+      },
+      {
+        "id": "a-meta-42",
+        "selector": "head > meta[name=\"citation_issue\"][content=\"1\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "ed1801e512cd04c79001567258d9938bff6132aa5dd4e064b95179536e4cdde8"
+      },
+      {
+        "id": "a-meta-43",
+        "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/08/03\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "5f3278f3f500a9005cd3955db04616b14e5c43c933f19b05749e5a9e9e4947dc"
+      },
+      {
+        "id": "a-meta-44",
+        "selector": "head > meta[name=\"citation_firstpage\"][content=\"78\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "de244358874ddb6179096cda6c5efb375858a93dbdfca6cfb120fabce8340377"
+      },
+      {
+        "id": "a-meta-45",
+        "selector": "head > meta[name=\"citation_lastpage\"][content=\"\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "aeb52796a9a520993fee49b41ab2b5460c5dcfe24a657aaee093d4618fd9e1c6"
+      },
+      {
+        "id": "a-meta-49",
+        "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41534-023-00746-0\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "29a0a9417afec2e6db9c624241c317ea47b8954abae9b55c414aff8de98cf924"
+      },
+      {
+        "id": "a-meta-52",
+        "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41534-023-00746-0\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "b9936a9e2953f4d42f767a5fb5edc8c92306f7e5aa10e4d9b7d55d6679c10200"
+      },
+      {
+        "id": "a-meta-140",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Xu, Qian\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "140c45e64f6916f2fc4d259bdb484474d5efcc8905bfb175bc9167f6466e24e0"
+      },
+      {
+        "id": "a-meta-142",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zheng, Guo\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "a5c721d0d06bc27f6e4a4ecc2a5418fac2bbd9b4c8d8e0646cd773d86607ff5e"
+      },
+      {
+        "id": "a-meta-144",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Wang, Yu-Xin\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "d0a369cbd1c1d8153babc145c5dbb0592db314fd4f63437c2289bfe0e0ae3a54"
+      },
+      {
+        "id": "a-meta-146",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Zoller, Peter\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "058404d464b506847d521e9d16f225c57f842690d89e3588e5504ba27e544459"
+      },
+      {
+        "id": "a-meta-149",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Clerk, Aashish A.\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "f67cdd4dc2539cf492df6cbcb9c3f7d4aa74cc7684af44f18032ccdd83b56e58"
+      },
+      {
+        "id": "a-meta-151",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Jiang, Liang\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "391b875ffdf08da1d48fa5be4c13c307c35881d5988917e5465a797b4299cb93"
+      },
+      {
+        "id": "a-meta-160",
+        "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41534-023-00746-0\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "fc4177be945599466fdddfac68db535aa9cedb409758a5a1a58d9cff15c8dc64"
+      },
+      {
+        "id": "a-meta-161",
+        "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "e2a47d03efa7114d4bc8e65c0fba2e84722b49e6e718eb787898c3c61ac5bcc9"
+      },
+      {
+        "id": "a-meta-163",
+        "selector": "head > meta[property=\"og:title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits - npj Quantum Information\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "64a66f6ef0a2bd2abcf91192b2d45a18014a9937864a8d21780cda209d19cd00"
+      },
+      {
+        "id": "a-canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "c43c8acd8c08fb8377a3edef39fe8361076bd5da6b782ec20da729349bb3c0a2"
+      },
+      {
+        "id": "a-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata",
+        "sourceSubtreeSha256": "55fd311e8bb6f50f9068e873af6eb72bdd01db59996a87d928640920c2f931ec"
+      },
+      {
+        "id": "a-title",
+        "selector": "h1.c-article-title",
+        "role": "title",
+        "sourceSubtreeSha256": "b9b00030d89a629955e6a0ce9dc70bb185226b6b2f3e5441d443342c571fe8a6"
+      },
+      {
+        "id": "caption-context-0",
+        "selector": "#Sec7-content > p:has(a[href=\"/articles/s41534-023-00746-0#Equ33\"])",
+        "role": "complete-adjacent-source-context",
+        "sourceSubtreeSha256": "f9fd42a89ad5b85ff6cf46d76aa480d04c17de3e69bd5557f95948e86edbded5"
+      },
+      {
+        "id": "caption-context-1",
+        "selector": "#table-1",
+        "role": "complete-table-caption-wrapper",
+        "sourceSubtreeSha256": "95bebc1ba1a15431c82fd82d9cfbbe387fc66f3ddfd0487a6e767053e680fc22"
+      },
+      {
+        "id": "caption-context-2",
+        "selector": "#Sec7-content > p:has(a[id=\"ref-link-section-d102805164e14997\"])",
+        "role": "complete-adjacent-source-context",
+        "sourceSubtreeSha256": "12e32b2d045fdc9e328de37c6c3f96dbac6841a670f624d1db0e8ec23e1996af"
+      },
+      {
+        "id": "caption-context-3",
+        "selector": "#Sec2-content > p:has(a[id=\"ref-link-section-d102805164e5156\"])",
+        "role": "complete-adjacent-source-context",
+        "sourceSubtreeSha256": "e7e164ebd6257026096e88267f83c234593c44021a1dfaaece6319d14deb7409"
+      },
+      {
+        "id": "caption-context-4",
+        "selector": "#Equ7",
+        "role": "caption-equation-target",
+        "sourceSubtreeSha256": "4122520b3efe88d19f23427009715f07e5b16aefe1d0fd9982da5e76e54270c8"
+      },
+      {
+        "id": "caption-context-5",
+        "selector": "#Equ7 + p",
+        "role": "complete-adjacent-source-context",
+        "sourceSubtreeSha256": "8171243836dd8fd8e9e57d67de37cb6a5c96531823435f198ffe80cbbb297164"
+      },
+      {
+        "id": "caption-context-6",
+        "selector": "#Sec7-content > p:has(a[href=\"/articles/s41534-023-00746-0#Equ7\"])",
+        "role": "complete-adjacent-source-context",
+        "sourceSubtreeSha256": "6dfa82350bf640ad9eea984b532696814eb020a2452b94b398001e4dc38e21d6"
+      },
+      {
+        "id": "caption-context-7",
+        "selector": "#Equ15",
+        "role": "caption-equation-target",
+        "sourceSubtreeSha256": "be806297133d95723d0cfe051a600535ce047160ce7a0f3e84a25af412ec65aa"
+      },
+      {
+        "id": "caption-context-8",
+        "selector": "#Sec7-content > p:has(a[id=\"ref-link-section-d102805164e13021\"])",
+        "role": "complete-adjacent-source-context",
+        "sourceSubtreeSha256": "39d07855b459f3a64f46c44b9f0630d61bc45c0a25b889c1d804dc39e9b8e5e4"
+      },
+      {
+        "id": "source-heading-Sec7",
+        "selector": "#Sec7",
+        "role": "section-heading",
+        "sourceSubtreeSha256": "b10538220d4938b5634f0cb6109c9433f16e266d9be31bfff5bc630702e2098c"
+      },
+      {
+        "id": "source-heading-Sec2",
+        "selector": "#Sec2",
+        "role": "section-heading",
+        "sourceSubtreeSha256": "b05d837b4acc0107b3277337c107f65be4a18c0bd31c2db268b4ce350058bb02"
+      },
+      {
+        "id": "source-reference-1",
+        "selector": "li:has(#ref-CR1)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "f6e3ab681f25646ff4977c679cfd5869d3cd2734de392909c88529b40d1905bf"
+      },
+      {
+        "id": "source-reference-2",
+        "selector": "li:has(#ref-CR2)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "55fa4e01c7eac518984948854a28404860c9fba082c7c5506ddc80f42de11769"
+      },
+      {
+        "id": "source-reference-3",
+        "selector": "li:has(#ref-CR3)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "acd53f6390fe3b0b9fb32ff4a15dec61ff6685c1304eb227b11edba975df1791"
+      },
+      {
+        "id": "source-reference-4",
+        "selector": "li:has(#ref-CR4)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "8f1fb630ca7680ba2b910c3e392e22c7f031b3914398be8d7cd9292427b22643"
+      },
+      {
+        "id": "source-reference-5",
+        "selector": "li:has(#ref-CR5)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "3204ff6b0d808a04bffec1a619bc1b8f41f37a076b1bc007e961fb359004bcfd"
+      },
+      {
+        "id": "source-reference-6",
+        "selector": "li:has(#ref-CR6)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "05d380fc956b357bc46f07c76f5af0ad7552a4341172c96f3681345019624128"
+      },
+      {
+        "id": "source-reference-7",
+        "selector": "li:has(#ref-CR7)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "0db6c03461e22a6bd3c3463ef8ca8ef60df78a0f6572b9356f6df53e44d512bc"
+      },
+      {
+        "id": "source-reference-8",
+        "selector": "li:has(#ref-CR8)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "a284c60112e13225f88b281e68ba18e7405d0822f7f61b622c64ba6d49ff9b59"
+      },
+      {
+        "id": "source-reference-9",
+        "selector": "li:has(#ref-CR9)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "9555d5501c755611f5a88af39d1bb5b5f1cb9f5c964c613adc7c85f5b5418f51"
+      },
+      {
+        "id": "source-reference-10",
+        "selector": "li:has(#ref-CR10)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "1a538b4795a50acb5cc0c64f6f5b203dc25bb309944635422df9d43802dd85ad"
+      },
+      {
+        "id": "source-reference-11",
+        "selector": "li:has(#ref-CR11)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "c99a7c2f99a412334bb516c81608c120de571dca035322ff23f773b149e7a54d"
+      },
+      {
+        "id": "source-reference-12",
+        "selector": "li:has(#ref-CR12)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "5b25495b08873ebcb2350af31cc9b949ad4f680e88fd9c932a4427833ad090d4"
+      },
+      {
+        "id": "source-reference-13",
+        "selector": "li:has(#ref-CR13)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "6e514b5edf03bc106f50585711763e5dbe65a57c28bb6dd535bbe8a4b1be6b70"
+      },
+      {
+        "id": "source-reference-14",
+        "selector": "li:has(#ref-CR14)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "51e51da51b8b371759b1bbe5897842c4b82dd306d064167de4b6a34e64bdb2e8"
+      },
+      {
+        "id": "source-reference-15",
+        "selector": "li:has(#ref-CR15)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "111d45f80a74beaefc03d3ff2c8bead569b0e62ac6ee724b6877057d86d2fffd"
+      },
+      {
+        "id": "source-reference-16",
+        "selector": "li:has(#ref-CR16)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "cb79c49c7a0fee0af6066198990fb146bfdcd6cd4feacec8c466fe21cc5b1028"
+      },
+      {
+        "id": "source-reference-17",
+        "selector": "li:has(#ref-CR17)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "2655c6db42776ead10da8851a46b64bfcc0d4f2f2e5960671fe34e23540fe62a"
+      },
+      {
+        "id": "source-reference-18",
+        "selector": "li:has(#ref-CR18)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "cbdf5c6803bf8ce1855a297b1b526853823be17b02dbc3dbb485f6a64514e6be"
+      },
+      {
+        "id": "source-reference-19",
+        "selector": "li:has(#ref-CR19)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "fcb0da9f2c941794ffcf9f6869d28de73e56ae8530b156c587369853053deed2"
+      },
+      {
+        "id": "source-reference-20",
+        "selector": "li:has(#ref-CR20)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "9ef2a15c5dee4894e93e2aae695b23812b31bfaa725468d2038f67bdb54be05a"
+      },
+      {
+        "id": "source-reference-21",
+        "selector": "li:has(#ref-CR21)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "bf02b64c7fd772129b4d46b7ee718975aacdd4b3b53251940de88aa41d921c14"
+      },
+      {
+        "id": "source-reference-22",
+        "selector": "li:has(#ref-CR22)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "f8c75d824ec88e1efa91379731c88e86d53be1a54d01e57b4541775eb99c77b5"
+      },
+      {
+        "id": "source-reference-23",
+        "selector": "li:has(#ref-CR23)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "8b58779e4443cd91358f88d73c8b9292c3a7934a5ea7d689e0c3300c99828f01"
+      },
+      {
+        "id": "source-reference-24",
+        "selector": "li:has(#ref-CR24)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "0be5eebb615c4396f75f91c8c607a8450b8fac383847e46f259c881e4de87cc6"
+      },
+      {
+        "id": "source-reference-25",
+        "selector": "li:has(#ref-CR25)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "7d6d083f4f10be65edb7f3d026c110142e79d005999176e959c1f3efcd1e2639"
+      },
+      {
+        "id": "source-reference-26",
+        "selector": "li:has(#ref-CR26)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "4c070da976d6b49aa19f35a2fc99306fd4e23d213eefda910551ca70c54bca52"
+      },
+      {
+        "id": "source-reference-27",
+        "selector": "li:has(#ref-CR27)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "267db9015dfc153e5aed8fd8642a9dd7812fa5d9c7c2f04362adeaabb00ea2b2"
+      },
+      {
+        "id": "source-reference-28",
+        "selector": "li:has(#ref-CR28)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "80b0b02428979cd4c5ae5c8414a1d49d6eadf6945560cb79b5aecc9c162f4dd3"
+      },
+      {
+        "id": "source-reference-29",
+        "selector": "li:has(#ref-CR29)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "4d65ae72765f49de544d8a92407a6c9112c7bfe1aae79d22156c12241397c3dc"
+      },
+      {
+        "id": "source-reference-30",
+        "selector": "li:has(#ref-CR30)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "65fd6e30bbf8284dd96b608044f68e623c157621d615bedfedfa5572f9d164d1"
+      },
+      {
+        "id": "source-reference-31",
+        "selector": "li:has(#ref-CR31)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "c79571e340313d5e49fb8649e07232b5e952b0fd6bc93ac62f3fc19a6d7356d3"
+      },
+      {
+        "id": "source-reference-32",
+        "selector": "li:has(#ref-CR32)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "cb1c1a139bb616a789d4b9bf4068a43d470a0239bd985ad0c368184a29543eed"
+      },
+      {
+        "id": "source-reference-33",
+        "selector": "li:has(#ref-CR33)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "375079272093db900f183110aa70586f448cd4c1e65b68bb98b3d148098e19f7"
+      },
+      {
+        "id": "source-reference-34",
+        "selector": "li:has(#ref-CR34)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "e356f081f8124530461b2363533f6584b1c9951d6327117f80526a8d349fe559"
+      },
+      {
+        "id": "source-reference-35",
+        "selector": "li:has(#ref-CR35)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "ee745614636edbfdd5e1a0653682467c5b6c622e641aec7b4df0794af2d49b59"
+      },
+      {
+        "id": "source-reference-36",
+        "selector": "li:has(#ref-CR36)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "2e6c1dd205920233463203592ad0bc0cd6a4825b975c354366d3d42fa027cc5b"
+      },
+      {
+        "id": "source-reference-37",
+        "selector": "li:has(#ref-CR37)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "7975a944a16a096952d06d9581d55c55701099fba973d37b437d3069a02d6142"
+      },
+      {
+        "id": "source-reference-38",
+        "selector": "li:has(#ref-CR38)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "b19552672b16c5efcdd116f6b34a645a3eac566a3302c880100470efd8617c58"
+      },
+      {
+        "id": "source-reference-39",
+        "selector": "li:has(#ref-CR39)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "84dc2b1c4add88a65dd3b3fe2f09d236c88e48adcbc3fd6284229921f23eab77"
+      },
+      {
+        "id": "source-reference-40",
+        "selector": "li:has(#ref-CR40)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "4e7e515d26dda03a2b71f0bff2c7d94e612910e32a7f9a916258245490d0eae9"
+      },
+      {
+        "id": "source-reference-41",
+        "selector": "li:has(#ref-CR41)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "65fb53ae0e79d7bb2d9b4a3839cdc36bfabeb604af2821072950e9977765374c"
+      },
+      {
+        "id": "source-reference-42",
+        "selector": "li:has(#ref-CR42)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "87ca3b1f65f31d38e0d420eb20fd37bb396a5bf488e6450efed486645cdcf172"
+      },
+      {
+        "id": "source-reference-43",
+        "selector": "li:has(#ref-CR43)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "62534db8a11b3b2fb1891a522b65f6b3c779de21c317a10c7ff81db1657f84cb"
+      },
+      {
+        "id": "source-reference-44",
+        "selector": "li:has(#ref-CR44)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "c12f34b45951659b4b20e098b368193bb83064781b43fc5dbb25d4a1a91afad3"
+      },
+      {
+        "id": "source-reference-45",
+        "selector": "li:has(#ref-CR45)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "192b4021ae3d64fb7fe49f11887a5130a37a9842a816657d5aad6261144ece22"
+      },
+      {
+        "id": "source-reference-46",
+        "selector": "li:has(#ref-CR46)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "de79967fd03d633bd8777b5521d090a306312d67c4cec692c6fefd151896c235"
+      },
+      {
+        "id": "source-reference-47",
+        "selector": "li:has(#ref-CR47)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "2a13d1b421039631f3b050f66323fcaff53fd316b6730b77cef2c1eb69235e67"
+      },
+      {
+        "id": "source-reference-48",
+        "selector": "li:has(#ref-CR48)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "fa309e1119a29ea1b314d4fd9fc5a57966357e1c0ae0c5b5efd2e584467b3355"
+      },
+      {
+        "id": "source-reference-49",
+        "selector": "li:has(#ref-CR49)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "88b9b557aeb9fbcb5128325551fbaa8a6a3ae3960f5600daa2e5af55ea596002"
+      },
+      {
+        "id": "source-reference-50",
+        "selector": "li:has(#ref-CR50)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "91dd01a899c17ece913eeaf05d3a65c4d2464e66d2434e86acb224b09a7c938e"
+      },
+      {
+        "id": "source-reference-51",
+        "selector": "li:has(#ref-CR51)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "7e9cf265c7cba3d666ca57bd3aaeed74029edd097ba541d4167032887c765f41"
+      },
+      {
+        "id": "source-reference-52",
+        "selector": "li:has(#ref-CR52)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "b0e5fabd645e5685e65d07c3e813b15c49e3f5ff602ca346862c265519ae7221"
+      },
+      {
+        "id": "source-reference-53",
+        "selector": "li:has(#ref-CR53)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "9007ecf26ba6e61bbe64ab2daa1683e1f4d8e478ca1cf162c31508174172f1e5"
+      },
+      {
+        "id": "source-reference-54",
+        "selector": "li:has(#ref-CR54)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "482d3d3cb4521aa5699c9187f137e64dd8273ffb6bf9826a42f641647d8a618b"
+      },
+      {
+        "id": "source-reference-55",
+        "selector": "li:has(#ref-CR55)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "07e55d22e4d2324e4974f726a8cc8ab4a78fde3374eb7a41ddeea4d10d02b884"
+      },
+      {
+        "id": "source-reference-56",
+        "selector": "li:has(#ref-CR56)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "c8876c6312293da9baee27ecce5dd2802575f18081e61a9124116de1e9a139e1"
+      },
+      {
+        "id": "source-reference-57",
+        "selector": "li:has(#ref-CR57)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "67effb793dfe19bfa474b17985f9628ab6da6d1dfece5fd0e1173a9f657adec3"
+      },
+      {
+        "id": "source-reference-58",
+        "selector": "li:has(#ref-CR58)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "5b733179af01ee38366ba3b3e08b20f8796f39612969429357cfc6486327c836"
+      },
+      {
+        "id": "source-reference-59",
+        "selector": "li:has(#ref-CR59)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "40c689204d92020e18d9ebc3fcf0109b5de5cb85c879fef3f37d4b288165a2a3"
+      },
+      {
+        "id": "source-reference-60",
+        "selector": "li:has(#ref-CR60)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "1851f8cd938fed521ef5ffa59f799b64bfc02b810e540508e37aa125d6f8badd"
+      },
+      {
+        "id": "source-reference-61",
+        "selector": "li:has(#ref-CR61)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "eda19e0803798c03b676847051ddc114a9f2bd4a3701717c2114e94bdb1da31c"
+      },
+      {
+        "id": "source-reference-62",
+        "selector": "li:has(#ref-CR62)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "491eca47aab0bb0a614086d6463f870d88d47dfa2cdac30e2854c53148c4b62c"
+      },
+      {
+        "id": "source-reference-63",
+        "selector": "li:has(#ref-CR63)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "b23519fccf91e29068da93a94b1b59323bb8d7af27c0b4be73cde32bc1b901e3"
+      },
+      {
+        "id": "source-reference-64",
+        "selector": "li:has(#ref-CR64)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "499a90464847b75a8326076920fa6815d85c1786f8061130d76bc56280db647f"
+      },
+      {
+        "id": "source-reference-65",
+        "selector": "li:has(#ref-CR65)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "4f5915b209709c85f174b409fbd04297b8ed051a41deffb4c3cddc49d8b82e1f"
+      },
+      {
+        "id": "source-reference-66",
+        "selector": "li:has(#ref-CR66)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "267fb41882e73167cbf8c2382ab5dc3920d59a0caede8fdadd3a0d05d84e15b5"
+      },
+      {
+        "id": "source-reference-67",
+        "selector": "li:has(#ref-CR67)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "5a0eb8e24968818ebbc7fe61948d9b43506cce2486e8c0be936242ebbbd17a0a"
+      },
+      {
+        "id": "source-reference-68",
+        "selector": "li:has(#ref-CR68)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "640b7dec1204367bb62caaf1b510ab07d044d324d14b513e7879b4af8bce2edc"
+      },
+      {
+        "id": "source-reference-69",
+        "selector": "li:has(#ref-CR69)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "6f00f27cd2eba87639712065ac1e705e3fd9642589ecea54b191100785548bfe"
+      },
+      {
+        "id": "source-reference-70",
+        "selector": "li:has(#ref-CR70)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "a38fae7999e878b33e3f0589881d61a818298a8d903cba978af8a3022bd09c3e"
+      },
+      {
+        "id": "source-reference-71",
+        "selector": "li:has(#ref-CR71)",
+        "role": "complete-ordered-reference-prefix",
+        "sourceSubtreeSha256": "e7eba2f7b5bd0d6492a0358ad12c6336d2942a83004665c6f894b79c310314aa"
+      },
+      {
+        "id": "original-article-rights",
+        "selector": "section[data-title=\"Rights and permissions\"]",
+        "role": "source-rights-notice",
+        "sourceSubtreeSha256": "97b4d3c3d96d646f72702a400f6728cd31a2b0f5272bbd1c93bdfd7c622a3e83"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 105
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "trim-json-ld-to-article-object",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 738
+      },
+      {
+        "operation": "sanitize-resource-urls",
+        "count": 64
+      }
+    ],
+    "signatures": {
+      "projectionVersion": "nature-corpus-projection/1.0.0",
+      "serializerVersion": "nature-corpus-subtree/1.0.0",
+      "recipeSha256": "b80e54325f6ae00e24e39b64e05eec838f92358e0e90a2214709c8d4b26b62ab",
+      "structureSha256": "e2a3dffb103c9f03ab3b684fb5a5718b6942a55a9049e9b82266a8117a7c6dbf",
+      "payloadSha256": "40ef73370857f70df3471b393fbae50185f1d2b88f0eb933f3ccf78c6cecc5ab"
+    },
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true,
+    "omittedContent": [
+      "Unselected source article blocks, all other equations/figures and author-information sections are omitted; only original caption Table1 wrapper, complete immediate source contexts, original Equ7/15 targets and their contexts, required headings, full reference prefix and article metadata/rights retained. No full raw captures, navigation/session/analytics/image binaries or manufactured scientific nodes."
+    ]
+  },
+  "caption": {
+    "selector": "#Tab1[data-test=\"table-caption\"]",
+    "sourceText": "Table 1 Comparison of the optimal gate error rates for the SC and the cat. All errors are normalized by the optimal gate errors of the cat, which are given by \\({p}_{Z(\\theta )}=\\frac{\\theta }{2}\\sqrt{\\frac{1}{\\bar{n}}\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\) and \\({p}_{{{{\\rm{CNOT}}}}}=\\frac{\\pi }{2\\sqrt{2}}\\sqrt{\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\)58. The definitions of \\(\\hat{F}\\) and \\({\\hat{F}}^{{\\prime} }\\) are given in Eq. (7) and Eq. (15) respectively. The optimal gate errors for SC are reached at \\(\\eta \\approx \\frac{1}{2}\\). The optima Z(θ) gate time for SC with \\({\\hat{F}}^{{\\prime} }\\) and \\(\\hat{F}\\) are approximately \\(\\frac{\\pi }{4\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\) and \\(\\frac{\\pi }{4\\sqrt{3{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-7/2}\\) respectively. The gate times for CNOT are approximately \\(\\frac{\\pi }{4\\sqrt{2{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-3/2}\\) and \\(\\frac{\\pi }{12\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\) respectively. Since the cooling time is mostly assumed to be constant in our gate scheme, it is neglected for simplicity. We only provide the scaling of the gate errors with \\(\\bar{n}\\) for the SC since the exact expressions are complicated, as shown in Methods.",
+    "rawPreSanitizationSha256": "f3b0491bc1cce00b208266b23277279d4f368fa7a2752e104b2fb2e0c6a19249",
+    "bFrozenSha256": "23d81f6b93cdfdbfe357c9726209878bf28a55c0952dd19c4ce0290cb90806fc",
+    "ownFrozenSha256": "23d81f6b93cdfdbfe357c9726209878bf28a55c0952dd19c4ce0290cb90806fc",
+    "inlineMath": [
+      {
+        "index": 0,
+        "originalTeX": "\\({p}_{Z(\\theta )}=\\frac{\\theta }{2}\\sqrt{\\frac{1}{\\bar{n}}\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\)",
+        "tex": "{p}_{Z(\\theta )}=\\frac{\\theta }{2}\\sqrt{\\frac{1}{\\bar{n}}\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}",
+        "renderedTeX": "{p}_{Z(\\theta )}=\\frac{\\theta }{2}\\sqrt{\\frac{1}{\\bar{n}}\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}",
+        "sourceSubtreeSha256": "529edd4d225ea04e3326399e1c8de65bded9b0ab945fb0b8faa35d26bdfdb420"
+      },
+      {
+        "index": 1,
+        "originalTeX": "\\({p}_{{{{\\rm{CNOT}}}}}=\\frac{\\pi }{2\\sqrt{2}}\\sqrt{\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\)",
+        "tex": "{p}_{{{{\\rm{CNOT}}}}}=\\frac{\\pi }{2\\sqrt{2}}\\sqrt{\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}",
+        "renderedTeX": "{p}_{{{\\mathrm{CNOT}}}}=\\frac{\\pi }{2\\sqrt{2}}\\sqrt{\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}",
+        "sourceSubtreeSha256": "4412d4b96326f9a5a5e06bc7ea83777958318c5da2fc9eeafad6c49d3e9736d8"
+      },
+      {
+        "index": 2,
+        "originalTeX": "\\(\\hat{F}\\)",
+        "tex": "\\hat{F}",
+        "renderedTeX": "\\hat{F}",
+        "sourceSubtreeSha256": "0b10ececbccd8822e92deaea7ae96f5af15fc231a3a815fc9e74c76a35b165a6"
+      },
+      {
+        "index": 3,
+        "originalTeX": "\\({\\hat{F}}^{{\\prime} }\\)",
+        "tex": "{\\hat{F}}^{{\\prime} }",
+        "renderedTeX": "{\\hat{F}}^{{\\prime} }",
+        "sourceSubtreeSha256": "fbfec636adb077d95caf208dbd1b8779d6184bcfb567ccce21119ef6eda50775"
+      },
+      {
+        "index": 4,
+        "originalTeX": "\\(\\eta \\approx \\frac{1}{2}\\)",
+        "tex": "\\eta \\approx \\frac{1}{2}",
+        "renderedTeX": "\\eta \\approx \\frac{1}{2}",
+        "sourceSubtreeSha256": "2c83ee895ebf613bf9c821b5e4677edf5b0068851c1d6da3c5898bf04a6bb0b7"
+      },
+      {
+        "index": 5,
+        "originalTeX": "\\({\\hat{F}}^{{\\prime} }\\)",
+        "tex": "{\\hat{F}}^{{\\prime} }",
+        "renderedTeX": "{\\hat{F}}^{{\\prime} }",
+        "sourceSubtreeSha256": "fbfec636adb077d95caf208dbd1b8779d6184bcfb567ccce21119ef6eda50775"
+      },
+      {
+        "index": 6,
+        "originalTeX": "\\(\\hat{F}\\)",
+        "tex": "\\hat{F}",
+        "renderedTeX": "\\hat{F}",
+        "sourceSubtreeSha256": "0b10ececbccd8822e92deaea7ae96f5af15fc231a3a815fc9e74c76a35b165a6"
+      },
+      {
+        "index": 7,
+        "originalTeX": "\\(\\frac{\\pi }{4\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\)",
+        "tex": "\\frac{\\pi }{4\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}",
+        "renderedTeX": "\\frac{\\pi }{4\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}",
+        "sourceSubtreeSha256": "6409ea6a3c04303e936df2dc8170600d5806e9a35a331c43e88afb6cd51e4a8b"
+      },
+      {
+        "index": 8,
+        "originalTeX": "\\(\\frac{\\pi }{4\\sqrt{3{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-7/2}\\)",
+        "tex": "\\frac{\\pi }{4\\sqrt{3{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-7/2}",
+        "renderedTeX": "\\frac{\\pi }{4\\sqrt{3{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-7/2}",
+        "sourceSubtreeSha256": "ac39f28a7767a1622ba80cbe3be464643b6a05bf41f1bc78f2b731ddd6ad9522"
+      },
+      {
+        "index": 9,
+        "originalTeX": "\\(\\frac{\\pi }{4\\sqrt{2{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-3/2}\\)",
+        "tex": "\\frac{\\pi }{4\\sqrt{2{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-3/2}",
+        "renderedTeX": "\\frac{\\pi }{4\\sqrt{2{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-3/2}",
+        "sourceSubtreeSha256": "c58291a750c821f8c86ce843a6d9ef461fbfbfd12d8279160d00f68d3d7bc8ca"
+      },
+      {
+        "index": 10,
+        "originalTeX": "\\(\\frac{\\pi }{12\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\)",
+        "tex": "\\frac{\\pi }{12\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}",
+        "renderedTeX": "\\frac{\\pi }{12\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}",
+        "sourceSubtreeSha256": "a2d28622bf00083e14613653b0e0c7a77be23bcc5b2773b76c4600a59768e1f5"
+      },
+      {
+        "index": 11,
+        "originalTeX": "\\(\\bar{n}\\)",
+        "tex": "\\bar{n}",
+        "renderedTeX": "\\bar{n}",
+        "sourceSubtreeSha256": "178a2bee23af5c214ab73e3dd041e3073d7bce5a8950f5d92f8b30b06c89618a"
+      }
+    ],
+    "citations": [
+      {
+        "number": 58,
+        "sourceText": "58",
+        "originalHref": "/articles/s41534-023-00746-0#ref-CR58",
+        "sourceId": "ref-link-section-d102805164e14011",
+        "sourceSubtreeSha256": "4ed733fca0029ad5ccf3d5fa2f5f61d9279b30361905b290b4842f0213bdebe5"
+      }
+    ],
+    "crossReferences": [
+      {
+        "originalHref": "/articles/s41534-023-00746-0#Equ7",
+        "sourceText": "7",
+        "natureId": "Equ7",
+        "sourceSubtreeSha256": "96b333f17c4e73a4bbc1894e8535cd957e33d952c7cb9c13e7418523a8c1296e"
+      },
+      {
+        "originalHref": "/articles/s41534-023-00746-0#Equ15",
+        "sourceText": "15",
+        "natureId": "Equ15",
+        "sourceSubtreeSha256": "c92ec2d74e8f0328acee270cde6bb92e2f1f631986110b123dc113bd6c77f135"
+      }
+    ],
+    "orderedScientificNodes": [
+      {
+        "tag": "SPAN",
+        "text": "\\({p}_{Z(\\theta )}=\\frac{\\theta }{2}\\sqrt{\\frac{1}{\\bar{n}}\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\)",
+        "href": null
+      },
+      {
+        "tag": "SPAN",
+        "text": "\\({p}_{{{{\\rm{CNOT}}}}}=\\frac{\\pi }{2\\sqrt{2}}\\sqrt{\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\)",
+        "href": null
+      },
+      {
+        "tag": "SUP",
+        "text": "58",
+        "href": null
+      },
+      {
+        "tag": "A",
+        "text": "58",
+        "href": "/articles/s41534-023-00746-0#ref-CR58"
+      },
+      {
+        "tag": "SPAN",
+        "text": "\\(\\hat{F}\\)",
+        "href": null
+      },
+      {
+        "tag": "SPAN",
+        "text": "\\({\\hat{F}}^{{\\prime} }\\)",
+        "href": null
+      },
+      {
+        "tag": "A",
+        "text": "7",
+        "href": "/articles/s41534-023-00746-0#Equ7"
+      },
+      {
+        "tag": "A",
+        "text": "15",
+        "href": "/articles/s41534-023-00746-0#Equ15"
+      },
+      {
+        "tag": "SPAN",
+        "text": "\\(\\eta \\approx \\frac{1}{2}\\)",
+        "href": null
+      },
+      {
+        "tag": "I",
+        "text": "Z",
+        "href": null
+      },
+      {
+        "tag": "I",
+        "text": "θ",
+        "href": null
+      },
+      {
+        "tag": "SPAN",
+        "text": "\\({\\hat{F}}^{{\\prime} }\\)",
+        "href": null
+      },
+      {
+        "tag": "SPAN",
+        "text": "\\(\\hat{F}\\)",
+        "href": null
+      },
+      {
+        "tag": "SPAN",
+        "text": "\\(\\frac{\\pi }{4\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\)",
+        "href": null
+      },
+      {
+        "tag": "SPAN",
+        "text": "\\(\\frac{\\pi }{4\\sqrt{3{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-7/2}\\)",
+        "href": null
+      },
+      {
+        "tag": "SPAN",
+        "text": "\\(\\frac{\\pi }{4\\sqrt{2{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-3/2}\\)",
+        "href": null
+      },
+      {
+        "tag": "SPAN",
+        "text": "\\(\\frac{\\pi }{12\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\)",
+        "href": null
+      },
+      {
+        "tag": "SPAN",
+        "text": "\\(\\bar{n}\\)",
+        "href": null
+      }
+    ]
+  },
+  "expected": {
+    "equationIds": [
+      "Equ7",
+      "Equ15"
+    ],
+    "equations": [
+      {
+        "natureId": "Equ7",
+        "number": "\n                    (7)\n                ",
+        "originalTeX": [
+          "$$\\hat{F}=({\\hat{Z}}_{L}\\otimes \\hat{\\tilde{I}})\\hat{S}(r)({\\hat{a}}^{2}-{\\alpha }^{{\\prime} 2}){\\hat{S}}^{{\\dagger} }(r),$$"
+        ],
+        "renderedTeX": [
+          "\\hat{F}=({\\hat{Z}}_{L}\\otimes \\hat{\\tilde{I}})\\hat{S}(r)({\\hat{a}}^{2}-{\\alpha }^{{\\prime} 2}){\\hat{S}}^{{\\dagger} }(r),"
+        ],
+        "sourceSubtreeSha256": "4122520b3efe88d19f23427009715f07e5b16aefe1d0fd9982da5e76e54270c8",
+        "sourceRows": [
+          0
+        ]
+      },
+      {
+        "natureId": "Equ15",
+        "number": "\n                    (15)\n                ",
+        "originalTeX": [
+          "$${\\hat{F}}^{{\\prime} }=\\hat{S}(r)({\\hat{a}}^{2}-{\\alpha }^{{\\prime} 2}){\\hat{S}}^{{\\dagger} }(r)\\approx 2{\\alpha }^{{\\prime} }{\\hat{I}}_{L}\\otimes \\hat{\\tilde{a}},$$"
+        ],
+        "renderedTeX": [
+          "{\\hat{F}}^{{\\prime} }=\\hat{S}(r)({\\hat{a}}^{2}-{\\alpha }^{{\\prime} 2}){\\hat{S}}^{{\\dagger} }(r)\\approx 2{\\alpha }^{{\\prime} }{\\hat{I}}_{L}\\otimes \\hat{\\tilde{a}},"
+        ],
+        "sourceSubtreeSha256": "be806297133d95723d0cfe051a600535ce047160ce7a0f3e84a25af412ec65aa",
+        "sourceRows": [
+          0
+        ]
+      }
+    ],
+    "sourceDisplayCount": 2,
+    "sourceCaptionInlineMathCount": 12,
+    "referencePrefix": 71,
+    "reference58": {
+      "text": "Chamberland, C. et al. Building a fault-tolerant quantum computer using concatenated cat codes. PRX Quantum 3, 010329 (2022).ADS \n    \n                    Google Scholar \n                ",
+      "sourceSubtreeSha256": "5b733179af01ee38366ba3b3e08b20f8796f39612969429357cfc6486327c836",
+      "citationKey": "Chamberland2022"
+    },
+    "contextRecords": [
+      {
+        "selector": "#Sec7-content > p:has(a[href=\"/articles/s41534-023-00746-0#Equ33\"])",
+        "tag": "P",
+        "id": "",
+        "text": "Regarding the gate operations, we take the Z rotation and the CNOT gate as examples. For the Z rotation, a SC stabilized by \\({\\hat{F}}^{{\\prime} }\\) only enjoys a suppression in the non-adiabatic errors by the the increased adiabatic gap, \\(4{\\kappa }_{2}{\\alpha }^{{\\prime} 2}\\), compared to conventional cat of the same \\(\\bar{n}\\). In contrast, a SC stabilized by \\(\\hat{F}\\) corrects the leading-order non-adiabatic error in \\(1/{\\alpha }^{{\\prime} 2}\\), since the the extra \\({\\hat{Z}}_{L}\\) in \\(\\hat{F}\\) compensates the parity-flip associated with the non-adiabatic transition (to the leading order). The residual errors are proportion to the correction factor, \\(\\xi \\propto 1/{\\alpha }^{{\\prime} 2}\\), as discussed in Methods (see Eq. (33)). Therefore, while the minimal Z(θ) gate error for the SC with \\({\\hat{F}}^{{\\prime} }\\) is roughly suppressed by a factor \\(1/\\bar{n}\\) compared to the cat, that for the SC with \\(\\hat{F}\\) is suppressed by an \\(1/{\\bar{n}}^{2}\\) factor (see Table 1).",
+        "sourceSubtreeSha256": "f9fd42a89ad5b85ff6cf46d76aa480d04c17de3e69bd5557f95948e86edbded5"
+      },
+      {
+        "selector": "#table-1",
+        "tag": "DIV",
+        "id": "table-1",
+        "text": "Table 1 Comparison of the optimal gate error rates for the SC and the cat. All errors are normalized by the optimal gate errors of the cat, which are given by \\({p}_{Z(\\theta )}=\\frac{\\theta }{2}\\sqrt{\\frac{1}{\\bar{n}}\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\) and \\({p}_{{{{\\rm{CNOT}}}}}=\\frac{\\pi }{2\\sqrt{2}}\\sqrt{\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\)58. The definitions of \\(\\hat{F}\\) and \\({\\hat{F}}^{{\\prime} }\\) are given in Eq. (7) and Eq. (15) respectively. The optimal gate errors for SC are reached at \\(\\eta \\approx \\frac{1}{2}\\). The optima Z(θ) gate time for SC with \\({\\hat{F}}^{{\\prime} }\\) and \\(\\hat{F}\\) are approximately \\(\\frac{\\pi }{4\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\) and \\(\\frac{\\pi }{4\\sqrt{3{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-7/2}\\) respectively. The gate times for CNOT are approximately \\(\\frac{\\pi }{4\\sqrt{2{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-3/2}\\) and \\(\\frac{\\pi }{12\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\) respectively. Since the cooling time is mostly assumed to be constant in our gate scheme, it is neglected for simplicity. We only provide the scaling of the gate errors with \\(\\bar{n}\\) for the SC since the exact expressions are complicated, as shown in Methods.Full size table",
+        "sourceSubtreeSha256": "95bebc1ba1a15431c82fd82d9cfbbe387fc66f3ddfd0487a6e767053e680fc22"
+      },
+      {
+        "selector": "#Sec7-content > p:has(a[id=\"ref-link-section-d102805164e14997\"])",
+        "tag": "P",
+        "id": "",
+        "text": "The errors of CNOT operation can be analyzed in a similar fashion. Due to the enlarged adiabatic gap, the minimal Z error rate of our SC gate with \\({\\hat{F}}^{{\\prime} }\\) is a factor of \\(\\frac{2}{\\sqrt{\\bar{n}+1}}\\) smaller than that of the cat gate30. For the mean excitation number we consider, \\(\\bar{n}=4\\), this factor is only slightly less than 1. However, with the parity-flipping dissipator \\(\\hat{F}\\), the gate error enjoys a η suppression in the loss errors and an additional \\(\\propto 1/{\\alpha }^{{\\prime} 2}\\) suppression in the non-adiabatic error. Combining these advantages, the CNOT gate error ratio with that of the cat roughly scales as \\({\\bar{n}}^{-3/2}\\) (see Table 1).",
+        "sourceSubtreeSha256": "12e32b2d045fdc9e328de37c6c3f96dbac6841a670f624d1db0e8ec23e1996af"
+      },
+      {
+        "selector": "#Sec2-content > p:has(a[id=\"ref-link-section-d102805164e5156\"])",
+        "tag": "P",
+        "id": "",
+        "text": "As shown by the blue arrow in Fig. 1, we can, in principle, perform photon counting measurement on a probe field that is weakly coupled to the gauge mode, and apply a feedback parity flip \\({\\hat{Z}}_{L}\\) on the logical qubit upon detecting an excitation in the probe field61. Such measurement and feedback process can be equivalently implemented by applying the dissipative dynamics as described by Lindblad master equation \\(\\frac{d\\hat{\\rho }}{dt}={\\kappa }_{2}{{{\\mathcal{D}}}}[\\hat{F}]\\), with the jump operator \\(\\hat{F}\\) given by",
+        "sourceSubtreeSha256": "e7e164ebd6257026096e88267f83c234593c44021a1dfaaece6319d14deb7409"
+      },
+      {
+        "selector": "#Equ7",
+        "tag": "DIV",
+        "id": "Equ7",
+        "text": "$$\\hat{F}=({\\hat{Z}}_{L}\\otimes \\hat{\\tilde{I}})\\hat{S}(r)({\\hat{a}}^{2}-{\\alpha }^{{\\prime} 2}){\\hat{S}}^{{\\dagger} }(r),$$\n                    (7)\n                ",
+        "sourceSubtreeSha256": "4122520b3efe88d19f23427009715f07e5b16aefe1d0fd9982da5e76e54270c8"
+      },
+      {
+        "selector": "#Equ7 + p",
+        "tag": "P",
+        "id": "",
+        "text": "and \\({{{\\mathcal{D}}}}[\\hat{A}]\\hat{\\rho }:= \\hat{A}\\hat{\\rho }{\\hat{A}}^{{\\dagger} }-\\frac{1}{2}\\{{\\hat{A}}^{{\\dagger} }\\hat{A},\\hat{\\rho }\\}\\). When \\({\\alpha }^{{\\prime} }\\gg 1\\), \\(\\hat{F}\\propto {\\hat{Z}}_{L}\\otimes \\hat{\\tilde{a}}\\) represents a logical phase flip conditioned on the gauge mode losing an excitation. In the Fock basis, such an operator can be approximately given by",
+        "sourceSubtreeSha256": "8171243836dd8fd8e9e57d67de37cb6a5c96531823435f198ffe80cbbb297164"
+      },
+      {
+        "selector": "#Sec7-content > p:has(a[href=\"/articles/s41534-023-00746-0#Equ7\"])",
+        "tag": "P",
+        "id": "",
+        "text": "To better understand the novelty and necessity of the partity-flipping dissipator \\(\\hat{F}\\) we introduced in Eq. (7), we compare it with a parity-preserving dissipator",
+        "sourceSubtreeSha256": "6dfa82350bf640ad9eea984b532696814eb020a2452b94b398001e4dc38e21d6"
+      },
+      {
+        "selector": "#Equ15",
+        "tag": "DIV",
+        "id": "Equ15",
+        "text": "$${\\hat{F}}^{{\\prime} }=\\hat{S}(r)({\\hat{a}}^{2}-{\\alpha }^{{\\prime} 2}){\\hat{S}}^{{\\dagger} }(r)\\approx 2{\\alpha }^{{\\prime} }{\\hat{I}}_{L}\\otimes \\hat{\\tilde{a}},$$\n                    (15)\n                ",
+        "sourceSubtreeSha256": "be806297133d95723d0cfe051a600535ce047160ce7a0f3e84a25af412ec65aa"
+      },
+      {
+        "selector": "#Sec7-content > p:has(a[id=\"ref-link-section-d102805164e13021\"])",
+        "tag": "P",
+        "id": "",
+        "text": "which is a straightforward extension from \\({\\hat{a}}^{2}-{\\alpha }^{2}\\) that stabilizes the cat. Such a dissipator was recently considered in ref. 71 for stabilizing the SC. We show that the extra phase-flip correction in \\(\\hat{F}\\) is essential for reducing SC’s error rate in both the memory level and gate operations, which then leads to better logical performance in the concatenated level.",
+        "sourceSubtreeSha256": "39d07855b459f3a64f46c44b9f0630d61bc45c0a25b889c1d804dc39e9b8e5e4"
+      }
+    ]
+  },
+  "resource": {
+    "id": "table-1",
+    "kind": "table",
+    "url": "https://www.nature.com/articles/s41534-023-00746-0/tables/1",
+    "method": "GET",
+    "redirect": "manual",
+    "status": 200,
+    "responseMocked": false,
+    "contentType": "text/html; charset=utf-8",
+    "fixturePath": "s41534-023-00746-0.table-1.excerpt.html",
+    "sourceSha256": "7772399037acb3ba4dfc100bc6c9a8fdf4f82c56d8836e65fcb761294e9ee069",
+    "fixtureSha256": "90670968407415e1f7e7c624b3244330015a4e52bc9790e811d2992205851c2d",
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "recipe": {
+      "version": "1.0.0",
+      "id": "s41534-023-00746-0-table-1-source-v1",
+      "articleUrl": "https://www.nature.com/articles/s41534-023-00746-0",
+      "blocks": [
+        {
+          "id": "t1-content",
+          "selector": "#content",
+          "role": "table-response"
+        }
+      ],
+      "removeSelectors": []
+    },
+    "retainedBlocks": [
+      {
+        "id": "t1-content",
+        "selector": "#content",
+        "role": "table-response",
+        "sourceSubtreeSha256": "cce27a4a2cbb6e4fab61a8decd636f830d54b3a18ede2b4d4d15d355005c26c0"
+      }
+    ],
+    "transformations": [
+      {
+        "operation": "select-complete-source-blocks-with-ancestors",
+        "count": 1
+      },
+      {
+        "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+        "count": 1
+      },
+      {
+        "operation": "remove-attributes",
+        "count": 23
+      }
+    ],
+    "omittedContent": [
+      "Full raw response, page head/footer, scripts and session/access material omitted; original #content scientific blocks retained; no image/PDF/XLSX bytes"
+    ],
+    "observedAt": "2026-10-03T16:47:53.404Z",
+    "captureMode": "guarded-http",
+    "rawPath": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue10-agent-b\\s41534-023-00746-0.table-1.anonymous.raw.html",
+    "rawBytes": 169146,
+    "rawSha256": "7772399037acb3ba4dfc100bc6c9a8fdf4f82c56d8836e65fcb761294e9ee069",
+    "fixtureBytes": 4299,
+    "repeatEqual": true,
+    "idempotentEqual": true,
+    "rows": 3,
+    "physicalCellCounts": [
+      3,
+      3,
+      3
+    ],
+    "attributionSource": "https://www.nature.com/articles/s41534-023-00746-0"
+  },
+  "cachedAcceptedC": [
+    {
+      "dialect": "markdown",
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue10-agent-c\\accepted-units-literals.s41534-023-00746-0.markdown.md",
+      "bytes": 91035,
+      "sha256": "e02f2b1bc5691e4a8f5300acbf9192cbc43f7d384f2c2433c9f677685af04542",
+      "captionLine": "**Table 1.** Comparison of the optimal gate error rates for the SC and the cat. All errors are normalized by the optimal gate errors of the cat, which are given by \\({p}_{Z(\\theta )}=\\frac{\\theta }{2}\\sqrt{\\frac{1}{\\bar{n}}\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\) and \\({p}_{{{{\\rm{CNOT}}}}}=\\frac{\\pi }{2\\sqrt{2}}\\sqrt{\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\)58. The definitions of \\(\\hat{F}\\) and \\({\\hat{F}}^{{\\prime} }\\) are given in Eq. (7) and Eq. (15) respectively. The optimal gate errors for SC are reached at \\(\\eta \\approx \\frac{1}{2}\\). The optima Z(θ) gate time for SC with \\({\\hat{F}}^{{\\prime} }\\) and \\(\\hat{F}\\) are approximately \\(\\frac{\\pi }{4\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\) and \\(\\frac{\\pi }{4\\sqrt{3{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-7/2}\\) respectively. The gate times for CNOT are approximately \\(\\frac{\\pi }{4\\sqrt{2{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-3/2}\\) and \\(\\frac{\\pi }{12\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\) respectively. Since the cooling time is mostly assumed to be constant in our gate scheme, it is neglected for simplicity. We only provide the scaling of the gate errors with \\(\\bar{n}\\) for the SC since the exact expressions are complicated, as shown in Methods."
+    },
+    {
+      "dialect": "links",
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue10-agent-c\\accepted-units-literals.s41534-023-00746-0.links.md",
+      "bytes": 95616,
+      "sha256": "1d81addd92c357a74cd4e0e7c164cd86a97ae0f18e5329bada788f35d0638b23",
+      "captionLine": "**Table 1.** Comparison of the optimal gate error rates for the SC and the cat. All errors are normalized by the optimal gate errors of the cat, which are given by \\({p}_{Z(\\theta )}=\\frac{\\theta }{2}\\sqrt{\\frac{1}{\\bar{n}}\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\) and \\({p}_{{{{\\rm{CNOT}}}}}=\\frac{\\pi }{2\\sqrt{2}}\\sqrt{\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\)58. The definitions of \\(\\hat{F}\\) and \\({\\hat{F}}^{{\\prime} }\\) are given in Eq. (7) and Eq. (15) respectively. The optimal gate errors for SC are reached at \\(\\eta \\approx \\frac{1}{2}\\). The optima Z(θ) gate time for SC with \\({\\hat{F}}^{{\\prime} }\\) and \\(\\hat{F}\\) are approximately \\(\\frac{\\pi }{4\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\) and \\(\\frac{\\pi }{4\\sqrt{3{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-7/2}\\) respectively. The gate times for CNOT are approximately \\(\\frac{\\pi }{4\\sqrt{2{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-3/2}\\) and \\(\\frac{\\pi }{12\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\) respectively. Since the cooling time is mostly assumed to be constant in our gate scheme, it is neglected for simplicity. We only provide the scaling of the gate errors with \\(\\bar{n}\\) for the SC since the exact expressions are complicated, as shown in Methods. <a id=\"table-1\"></a>"
+    },
+    {
+      "dialect": "quarto",
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue10-agent-c\\accepted-units-literals.s41534-023-00746-0.quarto.md",
+      "bytes": 83442,
+      "sha256": "fe336506536c9bf13aa7d0208a8d2447b9e088d3f1a5ed9ac0aeb3f61b2c4b7e",
+      "captionLine": "**Table 1.** Comparison of the optimal gate error rates for the SC and the cat. All errors are normalized by the optimal gate errors of the cat, which are given by \\({p}_{Z(\\theta )}=\\frac{\\theta }{2}\\sqrt{\\frac{1}{\\bar{n}}\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\) and \\({p}_{{{{\\rm{CNOT}}}}}=\\frac{\\pi }{2\\sqrt{2}}\\sqrt{\\frac{{\\kappa }_{1}}{{\\kappa }_{2}}}\\)58. The definitions of \\(\\hat{F}\\) and \\({\\hat{F}}^{{\\prime} }\\) are given in Eq. (7) and Eq. (15) respectively. The optimal gate errors for SC are reached at \\(\\eta \\approx \\frac{1}{2}\\). The optima Z(θ) gate time for SC with \\({\\hat{F}}^{{\\prime} }\\) and \\(\\hat{F}\\) are approximately \\(\\frac{\\pi }{4\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\) and \\(\\frac{\\pi }{4\\sqrt{3{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-7/2}\\) respectively. The gate times for CNOT are approximately \\(\\frac{\\pi }{4\\sqrt{2{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-3/2}\\) and \\(\\frac{\\pi }{12\\sqrt{{\\kappa }_{1}{\\kappa }_{2}}}{\\bar{n}}^{-5/2}\\) respectively. Since the cooling time is mostly assumed to be constant in our gate scheme, it is neglected for simplicity. We only provide the scaling of the gate errors with \\(\\bar{n}\\) for the SC since the exact expressions are complicated, as shown in Methods. {#tbl-table-1}"
+    }
+  ],
+  "scope": "SOURCE_ONLY. No production change/full test/implementation PR; Table1 caption math/citation58/Equ7&15 targets only. Body-independent SUP #56, adjacency #57, sparse-alt #55 and unrelated full-article scientific failures excluded."
+}
