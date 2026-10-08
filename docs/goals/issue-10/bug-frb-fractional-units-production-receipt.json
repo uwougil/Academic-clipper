@@ -1,6 +1,6 @@
 {
   "schemaVersion": "issue72-production-evidence/1.0.0",
-  "status": "FOCUSED_GREEN_AWAITING_INDEPENDENT_IMPLEMENTATION_REVIEW",
+  "status": "LOCAL_VERIFICATION_GREEN_AWAITING_PUBLICATION_REVIEW_AND_FRESH_CI",
   "acceptedBase": "3dba1bbccddb43e0ba22fa7b7717dc559b7f3494",
   "dependencyCommit": "2d6cee2ad760be0ce1cf9f08ff126a8548e8b480",
   "implementationCommit": "2dcaaf926a4a424fda20b6c61148c12b916de0d1",
@@ -42,7 +42,28 @@
       "sha256": "26c7f603959e9a24b547c1070f3d7164b8fce6a0bac0e6b3f2f85c285f67b939"
     },
     "planDecision": "PLAN_ONLY_CLEAR",
-    "independentProductionReview": "NOT_RUN_ROOT_GATE"
+    "independentProductionReview": {
+      "decision": "IMPLEMENTATION_CLEAR",
+      "blockingFindings": 0,
+      "severityCounts": {
+        "P0": 0,
+        "P1": 0,
+        "P2": 0,
+        "P3": 0
+      },
+      "head": "cc2178f420a370db00a6bb8bf8e7a118cbe013f6",
+      "tree": "581db1d21cd1143971c866d48b84d294a0c57b3f",
+      "human": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-implementation-review-cc2178-recovery\\implementation-review.md",
+        "bytes": 5712,
+        "sha256": "15f42dc3b9f97b3e828e2ce43c2213793d4bd466b8a72d2a62d8f9c6cd6d7154"
+      },
+      "machine": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-implementation-review-cc2178-recovery\\implementation-review.json",
+        "bytes": 40864,
+        "sha256": "b02c405494c6e5fe5e54601ac382c80f0b2a5241fb99be3aede53daa7b95bc4f"
+      }
+    }
   },
   "commands": [
     {
@@ -2836,13 +2857,13 @@
     }
   ],
   "limitations": {
-    "broader": "NOT_RUN_ROOT_REVIEW_GATE",
-    "full": "NOT_RUN_ROOT_REVIEW_GATE",
-    "build": "NOT_RUN_ROOT_REVIEW_GATE",
-    "golden": "NOT_RUN_ROOT_REVIEW_GATE",
-    "freshCI": "NOT_RUN_ROOT_REVIEW_GATE",
-    "secretScan": "NOT_RUN_ROOT_REVIEW_GATE",
-    "pr": "NOT_CREATED",
+    "broader": "CLOSED_GREEN_SEE_closedBroaderVerification",
+    "full": "CLOSED_GREEN_SEE_closedBroaderVerification",
+    "build": "CLOSED_GREEN_SEE_closedBroaderVerification",
+    "golden": "CLOSED_GREEN_SEE_closedBroaderVerification",
+    "freshCI": "PENDING_FRESH_EXACT_HEAD_ROOT_GATE",
+    "secretScan": "PENDING_FRESH_EXACT_HEAD_ROOT_GATE",
+    "pr": "PUBLICATION_IN_PROGRESS",
     "writer": "Static production clipNature-only call graph, no runtime writer spy",
     "determinism": "No new repeat-source clip or full-document snapshot added",
     "parenthesizedNumericPower": "#75 separate required p22 family remains outside this bounded bug"
@@ -2867,5 +2888,259 @@
     "firstClosedReceiptCounts": null,
     "reason": "Wrapper expected TAP summary while actual Node emitted spec reporter. Original log/receipt/runner preserved. Counts above were read from same closed logs; zero test reruns.",
     "commitPackagingShell": "Commit2dca succeeded; trailing unquoted PowerShell HEAD^{tree} expanded incorrectly and failed. Correct tree queried using child_process argument array only; no test or code failure."
+  },
+  "closedBroaderVerification": {
+    "stages": [
+      {
+        "receipt": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\affected-receipt.json",
+          "bytes": 78486,
+          "sha256": "c3b5d52f4564786f28a18851e89eb42c9dbef0beeebc4fb9ea2afa1512c2d99e"
+        },
+        "name": "affected",
+        "command": "node --test --test-reporter=tap test/nature-adapter.test.mjs test/nature-alpha-qualifier-boundaries.test.mjs test/nature-alpha-qualifier-oracle.test.mjs test/nature-alpha-qualifier.test.mjs test/nature-caption-citations.test.mjs test/nature-compound-unit-boundaries.test.mjs test/nature-compound-unit.test.mjs test/nature-greek-subscript-boundaries.test.mjs test/nature-greek-subscript-context-boundaries.test.mjs test/nature-greek-subscript.test.mjs test/nature-isotope-mass-boundaries.test.mjs test/nature-isotope-mass-coverage.test.mjs test/nature-isotope-mass.test.mjs test/nature-literal-brackets.test.mjs test/nature-materials-identifier-boundaries.test.mjs test/nature-materials-identifier.test.mjs test/nature-reference-literal.test.mjs test/nature-scientific-citation-boundaries.test.mjs test/nature-scientific-citations.test.mjs test/nature-scientific-units.test.mjs test/nature-sparse-figure-alt.test.mjs test/nature-split-power-boundaries.test.mjs test/nature-split-power.test.mjs test/nature-styled-adjacency-boundaries.test.mjs test/nature-styled-adjacency.test.mjs test/nature-table-caption-clip.test.mjs test/nature-table-caption.test.mjs test/nature-table-mathjax.test.mjs test/nature-table-notes.test.mjs test/bridge-security.test.mjs test/infrastructure-hardening.test.mjs test/network-boundaries.test.mjs test/output-quality.test.mjs test/stability-regressions.test.mjs",
+        "argv": [
+          "--test",
+          "--test-reporter=tap",
+          "test/nature-adapter.test.mjs",
+          "test/nature-alpha-qualifier-boundaries.test.mjs",
+          "test/nature-alpha-qualifier-oracle.test.mjs",
+          "test/nature-alpha-qualifier.test.mjs",
+          "test/nature-caption-citations.test.mjs",
+          "test/nature-compound-unit-boundaries.test.mjs",
+          "test/nature-compound-unit.test.mjs",
+          "test/nature-greek-subscript-boundaries.test.mjs",
+          "test/nature-greek-subscript-context-boundaries.test.mjs",
+          "test/nature-greek-subscript.test.mjs",
+          "test/nature-isotope-mass-boundaries.test.mjs",
+          "test/nature-isotope-mass-coverage.test.mjs",
+          "test/nature-isotope-mass.test.mjs",
+          "test/nature-literal-brackets.test.mjs",
+          "test/nature-materials-identifier-boundaries.test.mjs",
+          "test/nature-materials-identifier.test.mjs",
+          "test/nature-reference-literal.test.mjs",
+          "test/nature-scientific-citation-boundaries.test.mjs",
+          "test/nature-scientific-citations.test.mjs",
+          "test/nature-scientific-units.test.mjs",
+          "test/nature-sparse-figure-alt.test.mjs",
+          "test/nature-split-power-boundaries.test.mjs",
+          "test/nature-split-power.test.mjs",
+          "test/nature-styled-adjacency-boundaries.test.mjs",
+          "test/nature-styled-adjacency.test.mjs",
+          "test/nature-table-caption-clip.test.mjs",
+          "test/nature-table-caption.test.mjs",
+          "test/nature-table-mathjax.test.mjs",
+          "test/nature-table-notes.test.mjs",
+          "test/bridge-security.test.mjs",
+          "test/infrastructure-hardening.test.mjs",
+          "test/network-boundaries.test.mjs",
+          "test/output-quality.test.mjs",
+          "test/stability-regressions.test.mjs"
+        ],
+        "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+        "node": "v24.14.1",
+        "nodeExecutable": "C:\\nvm4w\\nodejs\\node.exe",
+        "head": "cc2178f420a370db00a6bb8bf8e7a118cbe013f6",
+        "tree": "581db1d21cd1143971c866d48b84d294a0c57b3f",
+        "startedAt": "2026-10-08T12:41:54.401Z",
+        "finishedAt": "2026-10-08T12:42:08.239Z",
+        "processDurationMs": 13837.5681,
+        "exitCode": 0,
+        "signal": null,
+        "error": null,
+        "counts": {
+          "tests": 831,
+          "suites": 0,
+          "pass": 831,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0,
+          "duration_ms": 13782.7969
+        },
+        "log": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\affected.log",
+          "bytes": 212676,
+          "sha256": "ed0dba717f05f4f18fcfc37d8f5ef742491bc3316cb49589f2df63973b38ccb1"
+        },
+        "environment": {
+          "receiptCacheSourceRootOverrides": null
+        },
+        "changedInputs": [],
+        "inputBytesUnchanged": true,
+        "trackedStatus": "",
+        "inputCount": 273
+      },
+      {
+        "receipt": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\full-receipt.json",
+          "bytes": 75877,
+          "sha256": "29a70aabf8db20c75563ce208eeb1086e27fbf8314934e492934742ac029e949"
+        },
+        "name": "full",
+        "command": "npm test",
+        "argv": [
+          "C:\\nvm4w\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+          "test"
+        ],
+        "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+        "node": "v24.14.1",
+        "nodeExecutable": "C:\\nvm4w\\nodejs\\node.exe",
+        "head": "cc2178f420a370db00a6bb8bf8e7a118cbe013f6",
+        "tree": "581db1d21cd1143971c866d48b84d294a0c57b3f",
+        "startedAt": "2026-10-08T12:42:08.366Z",
+        "finishedAt": "2026-10-08T12:43:45.003Z",
+        "processDurationMs": 96637.4331,
+        "exitCode": 0,
+        "signal": null,
+        "error": null,
+        "counts": {
+          "tests": 1118,
+          "suites": 0,
+          "pass": 1118,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0,
+          "duration_ms": 96368.7189
+        },
+        "log": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\full.log",
+          "bytes": 130449,
+          "sha256": "3d168a4eb7796d6f65b5213304ff5dd3cf671f264984bb17ee6fe460a0c39a6d"
+        },
+        "environment": {
+          "FRB_FRACTIONAL_RECEIPT_ROOT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\full\\source",
+          "FRB_PREFLIGHT_RECEIPT_ROOT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\full\\matrix",
+          "FRB_FRACTIONAL_CACHE_ROOT": null,
+          "FRB_PREFLIGHT_MIXED_CACHE_ROOT": null,
+          "FRB_PREFLIGHT_SOURCE_ROOT": null
+        },
+        "changedInputs": [],
+        "inputBytesUnchanged": true,
+        "trackedStatus": "",
+        "inputCount": 273
+      },
+      {
+        "receipt": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\build-receipt.json",
+          "bytes": 75406,
+          "sha256": "e341548a715acd78b8cd4eecb71eab037d3a23f56db2760544313b63e0f40694"
+        },
+        "name": "build",
+        "command": "npm run build",
+        "argv": [
+          "C:\\nvm4w\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+          "run",
+          "build"
+        ],
+        "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+        "node": "v24.14.1",
+        "nodeExecutable": "C:\\nvm4w\\nodejs\\node.exe",
+        "head": "cc2178f420a370db00a6bb8bf8e7a118cbe013f6",
+        "tree": "581db1d21cd1143971c866d48b84d294a0c57b3f",
+        "startedAt": "2026-10-08T12:43:45.114Z",
+        "finishedAt": "2026-10-08T12:43:45.355Z",
+        "processDurationMs": 241.24989999999525,
+        "exitCode": 0,
+        "signal": null,
+        "error": null,
+        "counts": null,
+        "log": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\build.log",
+          "bytes": 172,
+          "sha256": "ea58ab778b84082d2a39b5fa8e7e598bd0c3794758fbeb2c57589eccd66ee4cd"
+        },
+        "environment": {
+          "receiptCacheSourceRootOverrides": null
+        },
+        "changedInputs": [],
+        "inputBytesUnchanged": true,
+        "trackedStatus": "",
+        "inputCount": 273
+      },
+      {
+        "receipt": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\golden-receipt.json",
+          "bytes": 75600,
+          "sha256": "1863a9495f9d2685a2592745e3620d37c92f6a290ebb6a79049495971540126e"
+        },
+        "name": "golden",
+        "command": "npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto",
+        "argv": [
+          "C:\\nvm4w\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+          "run",
+          "validate:paper",
+          "--",
+          "--file",
+          "./papers/s41586-026-10401-1/index.md",
+          "--citation-style",
+          "auto"
+        ],
+        "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-frb-fractional-units/academic-clipper",
+        "node": "v24.14.1",
+        "nodeExecutable": "C:\\nvm4w\\nodejs\\node.exe",
+        "head": "cc2178f420a370db00a6bb8bf8e7a118cbe013f6",
+        "tree": "581db1d21cd1143971c866d48b84d294a0c57b3f",
+        "startedAt": "2026-10-08T12:43:45.459Z",
+        "finishedAt": "2026-10-08T12:43:45.732Z",
+        "processDurationMs": 273.04700000000594,
+        "exitCode": 0,
+        "signal": null,
+        "error": null,
+        "counts": null,
+        "log": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\golden.log",
+          "bytes": 2893,
+          "sha256": "a5117f116c1d285880129194d874ffe7812eaa6bd8634838524e53bfa131dbfe"
+        },
+        "environment": {
+          "receiptCacheSourceRootOverrides": null
+        },
+        "changedInputs": [],
+        "inputBytesUnchanged": true,
+        "trackedStatus": "",
+        "inputCount": 273
+      }
+    ],
+    "currentTrackedInputVerification": {
+      "count": 273,
+      "mismatches": [],
+      "matchedAt": "2026-10-08T20:22:59.191Z",
+      "historicalInputsReceipt": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\full-receipt.json",
+        "bytes": 75877,
+        "sha256": "29a70aabf8db20c75563ce208eeb1086e27fbf8314934e492934742ac029e949"
+      }
+    },
+    "fullSourceGuard": {
+      "artifact": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue72-broader-2dcaaf9\\full\\source\\network-ledger.json",
+        "bytes": 345,
+        "sha256": "35e64a149323a54d38160e1f89dc167554df29001214b38c9b15eb54d59f3aa2"
+      },
+      "attempts": [],
+      "realClipCalls": 3,
+      "clipWindowsOpened": 3,
+      "clipWindowsClosed": 3,
+      "sourceDomsOpened": 1,
+      "sourceDomsClosed": 1,
+      "guardedMethods": 11,
+      "restoredBindings": true,
+      "restoredDomGlobals": true,
+      "writerProof": "Static call graph: clipNature returns data and does not invoke writePaper. No writer spy claimed."
+    },
+    "runtimeScope": "Original closed runs only; publication recovery executed no tests, parses, clips, build, golden, source audit, sanitizer, network probe or dependency install."
+  },
+  "publication": {
+    "reviewedPrePublicationHead": "cc2178f420a370db00a6bb8bf8e7a118cbe013f6",
+    "reviewedPrePublicationTree": "581db1d21cd1143971c866d48b84d294a0c57b3f",
+    "scope": "Two production handoff/receipt documents only",
+    "freshCi": "NOT_YET_OBSERVED_ROOT_GATE",
+    "secrets": "NOT_YET_OBSERVED_ROOT_GATE",
+    "finalPublicationReview": "NOT_YET_RUN_ROOT_GATE",
+    "mergedMain": "NOT_MERGED",
+    "localDependencies": "Closed runs used existing read-only junction. At publication recovery the junction points to C:/Users/guoli/.codex/worktrees/3417/academic-clipper/node_modules and its target is unavailable; no npm ci or repair was run. Fresh three-platform CI must prove clean npm ci.",
+    "originalFocusedEvidencePreserved": true
   }
 }

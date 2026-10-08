@@ -1,6 +1,6 @@
 # Issue #72 — 原分数单位因子的 focused 生产交接
 
-状态：**FOCUSED GREEN / AWAITING INDEPENDENT IMPLEMENTATION REVIEW**。首次 candidate 的真实三方言来源检查和完整 synthetic 矩阵均通过；此交接尚未运行 affected/full/build/golden、创建 PR 或检查 fresh CI/Secrets。Root 的不同作者 implementation review 与后续十项门槛仍须完成。#72 尚未完成，#10 尚未完成。本文是原 source-only handoff 和 production-locked preflight 的后续阶段，不追改那些历史执行结论。
+状态：**LOCAL VERIFICATION GREEN / AWAITING PUBLICATION REVIEW AND FRESH CI**。首次 source15 + matrix79 focused、独立 implementation review、affected831、full1118、build 与只读 golden 均已完成。本文追加闭合 broader 证据；原 focused-stage 执行记录与 null-summary 更正保留。最终 publication exact-head review、fresh 三平台 CI/Secrets 和 root 十项 gate 仍待完成。#72 尚未完成，#10 尚未完成。
 
 ## 基线与精确 commit 顺序
 
@@ -63,8 +63,29 @@ Machine receipt 记录 raw fixture 身份、所有执行输入、两个 child �
 
 Wrapper 初版 summary regex 预期 TAP，但 Node 实际输出 spec reporter，于是第一份 receipt 的 summary 字段为 null。原 wrapper/receipt/log 保留；`assemble-focused.mjs` 只读取同一 closed log 修正 summary，没有重跑或改 reporter。Commit 成功后的 trailing PowerShell 未引号 `HEAD^{tree}` 查询被 shell 错展开；树 SHA 随后通过 argv 数组正确只读查询，原 command 输出保留。两项均不是 parser/test 失败。
 
-## 后续解除条件
+## 原 focused 阶段解除条件（历史记录）
 
 Root 必须让不同作者审查精确最终 head：最小 collector、source-derived whole-factor/full-context oracle、79-case complete registry、zero-network/lifecycle/inputs/guard receipts、native fixture quiet、继承 Nature families 和安全边界。独立 review 前不运行 broader/full/build/golden、不创建 delivery PR。随后这些检查、fresh三平台 CI/Secrets 和 root 十项门槛全满足才可处理唯一 `Refs #72` delivery PR。Merged Main 成功与既有 automation 完成合同之后，C 从原 frozen B FRB oracle 执行受影响 delta，并继续保留 #75 必需 numeric roles 的真实失败。
 
 本次无 canonical/spec/PRD/EDD/security semantic change 提案。原 source103、旧67/41/17 preflight、历史 clips/A sanitizer/原projection全部复用，新增 runtime 仅94个当前必需 focused cases（实际 six clips，其中三次 synthetic）。
+
+## 闭合 broader 与 publication 交接
+
+独立 reviewer 对 clean `cc2178f420a370db00a6bb8bf8e7a118cbe013f6` / tree `581db1d21cd1143971c866d48b84d294a0c57b3f` 报告 **IMPLEMENTATION_CLEAR / blockingFindings=0 / P0–P3 全零**。Human packet 5712 bytes / SHA-256 `15f42dc3b9f97b3e828e2ce43c2213793d4bd466b8a72d2a62d8f9c6cd6d7154`；machine packet 40864 / `b02c405494c6e5fe5e54601ac382c80f0b2a5241fb99be3aede53daa7b95bc4f`；均在 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-implementation-review-cc2178-recovery/`。复用既有 source103、plan 与 focused94 审查，没有新 reviewer runtime。
+
+以下原进程均已关闭且 exit0。没有因为后续 goal 恢复而重启原 full handle；当前 publication 只读核对同一 closed artifacts。所有 273 个 tracked runtime/source/lockfile/golden 输入与 full receipt 的 bytes/SHA-256 精确匹配，mismatch=[]；四次原执行均 inputBytesUnchanged=true、changedInputs=[]、trackedStatus clean。
+
+| 原 command | UTC start → finish | 闭合结果 | receipt SHA-256 |
+| --- | --- | --- | --- |
+| `node --test --test-reporter=tap（34 个显式文件，完整 argv 见 machine receipt）` | 2026-10-08T12:41:54.401Z → 2026-10-08T12:42:08.239Z | 831/831 PASS；13782.7969ms；skip/cancel/todo/fail=0 | `c3b5d52f4564786f28a18851e89eb42c9dbef0beeebc4fb9ea2afa1512c2d99e` |
+| `npm test` | 2026-10-08T12:42:08.366Z → 2026-10-08T12:43:45.003Z | 1118/1118 PASS；96368.7189ms；skip/cancel/todo/fail=0 | `29a70aabf8db20c75563ce208eeb1086e27fbf8314934e492934742ac029e949` |
+| `npm run build` | 2026-10-08T12:43:45.114Z → 2026-10-08T12:43:45.355Z | exit0 | `e341548a715acd78b8cd4eecb71eab037d3a23f56db2760544313b63e0f40694` |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | 2026-10-08T12:43:45.459Z → 2026-10-08T12:43:45.732Z | exit0 | `1863a9495f9d2685a2592745e3620d37c92f6a290ebb6a79049495971540126e` |
+
+原 affected 的完整 command/argv、所有 log bytes/hash、process timings 与输入身份由 [machine receipt](bug-frb-fractional-units-production-receipt.json) 的 `closedBroaderVerification` 保留；external directory 为 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue72-broader-2dcaaf9/`。Full log 130449 bytes / `3d168a4eb7796d6f65b5213304ff5dd3cf671f264984bb17ee6fe460a0c39a6d`。Golden 全四 validators valid，scientificFragments.valid=true、issues=[]；完整已提交 golden 与源码输入保持原 bytes。
+
+Full 再次执行 source harness 的同次 ledger：attempts=[]；真实三方言 clips=3、observed windows 3 opened/3 closed、source DOM 1 opened/1 closed、11 fetch/callback/promise DNS methods 与10 DOM bindings 恢复。其 writer 证据是既有 static call graph，不虚称动态 writer spy。Focused matrix 的73 parses/3 synthetic clips/闭合 windows 与 guards 原记录继续保留，不能把 focused guard冒充 broader全部测试的全局网络拦截。
+
+Local 闭合测试使用既有 read-only dependency junction，没有新 npm ci/install。Publication recovery 时 junction 仍指向 `C:/Users/guoli/.codex/worktrees/3417/academic-clipper/node_modules`，但目标现已不可用；未修复或探测依赖。原相同源码/lockfile上的 closed GREEN 继续作为历史证据，当前环境不声称可重跑；fresh CI 的三个 jobs 必须各执行现有 workflow 的 `npm ci`、tests、build、golden。
+
+当前新增仅两份 production handoff/receipt 文档。既有 `cc2178f` focused packaging 后的 publication docs-only commit 从 git log 获取，避免 self-reference。Root 接收唯一 standalone `Refs #72` 前置 bug PR 后须完成 final publication review、fresh CI/Secrets、精确 head 未变检查及其余十项 gate；本 author 不 merge、watch、close Issue 或声明 #10 完成。Merged Main 成功且 automation完成 #72 后，C 执行原 B FRB affected delta；独立 #75 numeric powers仍须完成，不能把本单位修复替代完整 FRB acceptance。
