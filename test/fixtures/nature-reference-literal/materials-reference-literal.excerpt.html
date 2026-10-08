@@ -1,0 +1,459 @@
+<!doctype html>
+<html class="grade-c" lang="en"><head>
+    
+    
+    
+
+
+
+    
+        
+
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+     
+    
+    
+        
+    
+    
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+
+
+
+
+        
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link href="https://www.nature.com/articles/s41586-023-06735-9" rel="canonical">
+
+
+
+
+
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","author":[{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google DeepMind, Mountain View, USA"},"name":"Google DeepMind"}],"email":"amilmerchant@google.com","name":"Amil Merchant","url":"http://orcid.org/0000-0001-5262-6599"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google DeepMind, Mountain View, USA"},"name":"Google DeepMind"}],"name":"Simon Batzner"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google DeepMind, Mountain View, USA"},"name":"Google DeepMind"}],"name":"Samuel S. Schoenholz"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google DeepMind, Mountain View, USA"},"name":"Google DeepMind"}],"name":"Muratahan Aykol","url":"http://orcid.org/0000-0001-6433-7217"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google Research, Mountain View, USA"},"name":"Google Research"}],"name":"Gowoon Cheon"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"Google DeepMind, Mountain View, USA"},"name":"Google DeepMind"}],"email":"cubuk@google.com","name":"Ekin Dogus Cubuk","url":"http://orcid.org/0000-0003-0524-2837"}],"dateModified":"2023-11-29T00:00:00Z","datePublished":"2023-11-29T00:00:00Z","description":"Novel functional materials enable fundamental breakthroughs across technological applications from clean energy to information processing1–11. From microchips to batteries and photovoltaics, discovery of inorganic crystals has been bottlenecked by expensive trial-and-error approaches. Concurrently, deep-learning models for language, vision and biology have showcased emergent predictive capabilities with increasing data and computation12–14. Here we show that graph networks trained at scale can reach unprecedented levels of generalization, improving the efficiency of materials discovery by an order of magnitude. Building on 48,000 stable crystals identified in continuing studies15–17, improved efficiency enables the discovery of 2.2 million structures below the current convex hull, many of which escaped previous human chemical intuition. Our work represents an order-of-magnitude expansion in stable materials known to humanity. Stable discoveries that are on the final convex hull will be made available to screen for technological applications, as we demonstrate for layered materials and solid-electrolyte candidates. Of the stable structures, 736 have already been independently experimentally realized. The scale and diversity of hundreds of millions of first-principles calculations also unlock modelling capabilities for downstream applications, leading in particular to highly accurate and robust learned interatomic potentials that can be used in condensed-phase molecular-dynamics simulations and high-fidelity zero-shot prediction of ionic conductivity. A protocol using large-scale training of graph networks enables high-throughput discovery of novel stable structures and led to the identification of 2.2 million crystal structures, of which 381,000 are newly discovered stable materials.","headline":"Scaling deep learning for materials discovery","image":["https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-023-06735-9/MediaObjects/41586_2023_6735_Fig1_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-023-06735-9/MediaObjects/41586_2023_6735_Fig2_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-023-06735-9/MediaObjects/41586_2023_6735_Fig3_HTML.png"],"isAccessibleForFree":true,"isPartOf":{"@type":["Periodical","PublicationVolume"],"issn":["1476-4687","0028-0836"],"name":"Nature","volumeNumber":"624"},"keywords":["Scaling laws","Computer science","Science","Humanities and Social Sciences","multidisciplinary"],"license":"http://creativecommons.org/licenses/by/4.0/","pageEnd":"85","pageStart":"80","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.springernature.com/app-sn/public/images/logo-springernature.png"},"name":"Nature Publishing Group UK"},"sameAs":"https://doi.org/10.1038/s41586-023-06735-9"}</script>
+
+
+
+
+    
+    
+    
+    <meta content="Scaling deep learning for materials discovery" name="dc.title">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta content="Nature" name="citation_journal_title">
+    
+    
+    
+    <meta content="Scaling deep learning for materials discovery" name="citation_title">
+    <meta content="624" name="citation_volume">
+    <meta content="7990" name="citation_issue">
+    <meta content="2023/12" name="citation_publication_date">
+    <meta content="2023/11/29" name="citation_online_date">
+    <meta content="80" name="citation_firstpage">
+    <meta content="85" name="citation_lastpage">
+    
+    
+    
+    <meta content="doi:10.1038/s41586-023-06735-9" name="dc.identifier">
+    
+    
+    <meta content="10.1038/s41586-023-06735-9" name="citation_doi">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta content="Merchant, Amil" name="citation_author">
+    
+    <meta content="Batzner, Simon" name="citation_author">
+    
+    <meta content="Schoenholz, Samuel S." name="citation_author">
+    
+    <meta content="Aykol, Muratahan" name="citation_author">
+    
+    <meta content="Cheon, Gowoon" name="citation_author">
+    
+    <meta content="Cubuk, Ekin Dogus" name="citation_author">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    <meta content="https://www.nature.com/articles/s41586-023-06735-9" property="og:url">
+    <meta content="article" property="og:type">
+    
+    <meta content="Scaling deep learning for materials discovery - Nature" property="og:title">
+    
+    
+    
+
+
+
+
+    
+    
+    
+
+
+
+</head>
+<body class="article-page">
+
+
+
+
+
+
+    
+        
+    
+
+
+
+    
+        
+    
+        
+    
+
+    
+
+
+    
+
+
+
+
+
+    <div class="c-article-main u-container u-mt-24 u-mb-32 eds-l-with-sidebar" id="content">
+        <main class="c-article-main-column js-main-column">
+            
+                
+            
+
+            <article lang="en">
+                
+                    
+                        
+                            
+                        
+                    
+                
+                <div class="c-article-header">
+                    <header>
+                        
+
+                        <h1 class="c-article-title" data-test="article-title">Scaling deep learning for materials discovery</h1>
+                        
+
+                        
+
+                        
+                        
+                            
+                        
+                        
+        
+        
+    
+                        
+                    </header>
+
+                    
+    
+    
+
+    
+    
+
+                    
+                </div>
+
+                <div class="c-article-body">
+                    
+                    
+    
+
+
+                    
+                        
+                        
+                        
+    
+        
+    
+
+                        
+
+                        
+                    
+
+                    <div class="u-mt-32">
+                        <section data-title="Code availability"><div class="c-article-section" id="code-availability-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="code-availability">Code availability</h2><div class="c-article-section__content" id="code-availability-content">
+              
+              <p>Software to analyse stable crystals and associated phase diagrams, as well as the software implementation of the static GNN and the interatomic potentials, will be made available at <a href="https://github.com/google-deepmind/materials_discovery">https://github.com/google-deepmind/materials_discovery</a>.</p>
+            </div></div></section><div id="MagazineFulltextArticleBodySuffix"><section aria-labelledby="Bib1" data-title="References"><div class="c-article-section" id="Bib1-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Bib1">References</h2><div class="c-article-section__content" id="Bib1-content"><div><ol class="c-article-references"><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR1">Green, M. A., Ho-Baillie, A. &amp; Snaith, H. J. The emergence of perovskite solar cells. <i>Nat. Photon.</i> <b>8</b>, 506–514 (2014).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 1" data-doi="10.1038/nphoton.2014.134" href="https://doi.org/10.1038%2Fnphoton.2014.134" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 1" href="/articles/cas-redirect/1:CAS:528:DC%2BC2cXhtVGqu7zN" rel="nofollow noopener">CAS</a> 
+    <a aria-label="ADS reference 1" href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?link_type=ABSTRACT&amp;bibcode=2014NaPho...8..506G" rel="nofollow noopener">ADS</a> 
+    <a aria-label="Google Scholar reference 1" href="http://scholar.google.com/scholar_lookup?&amp;title=The%20emergence%20of%20perovskite%20solar%20cells&amp;journal=Nat.%20Photon.&amp;doi=10.1038%2Fnphoton.2014.134&amp;volume=8&amp;pages=506-514&amp;publication_year=2014" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item"><p class="c-article-references__text" id="ref-CR2">Mizushima, K., Jones, P., Wiseman, P. &amp; Goodenough, J. B. Li<sub><i>x</i></sub>CoO<sub>2</sub> (0&lt;<i>x</i>&lt;-1): a new cathode material for batteries of high energy density. <i>Mater. Res. Bull.</i> <b>15</b>, 783–789 (1980).</p><p class="c-article-references__links u-hide-print"><a aria-label="Article reference 2" data-doi="10.1016/0025-5408(80)90012-4" href="https://doi.org/10.1016%2F0025-5408%2880%2990012-4" rel="nofollow noopener">Article</a> 
+    <a aria-label="CAS reference 2" href="/articles/cas-redirect/1:CAS:528:DyaL3cXkvFyntr0%3D" rel="nofollow noopener">CAS</a> 
+    <a aria-label="Google Scholar reference 2" href="http://scholar.google.com/scholar_lookup?&amp;title=LixCoO2%20%280%3Cx%3C-1%29%3A%20a%20new%20cathode%20material%20for%20batteries%20of%20high%20energy%20density&amp;journal=Mater.%20Res.%20Bull.&amp;doi=10.1016%2F0025-5408%2880%2990012-4&amp;volume=15&amp;pages=783-789&amp;publication_year=1980" rel="nofollow noopener">
+                    Google Scholar</a> 
+                </p></li></ol></div></div></div></section></div><section data-title="Rights and permissions"><div class="c-article-section" id="rightslink-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="rightslink">Rights and permissions</h2><div class="c-article-section__content" id="rightslink-content">
+                <p><b>Open Access</b>  This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">http://creativecommons.org/licenses/by/4.0/</a>.</p>
+              </div></div></section>
+                    </div>
+
+                    
+                        
+                            
+                        
+                    
+
+                    
+                </div>
+            </article>
+        </main>
+        
+            
+
+        
+    </div>
+
+    
+
+
+
+
+    
+        
+    
+    
+        
+            
+        
+
+        
+            
+        
+    
+    
+
+
+
+
+<footer class="composite-layer">
+        
+        
+
+        
+
+    <div class="c-footer">
+        
+
+
+        <div class="c-footer__container">
+    
+    <p class="c-footer__legal" data-test="copyright">© 2026 Springer Nature Limited</p>
+</div>
+
+    </div>
+    
+</footer>
+
+
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+</body></html>
