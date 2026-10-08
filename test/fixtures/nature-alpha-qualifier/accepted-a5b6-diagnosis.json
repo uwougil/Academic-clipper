@@ -1,0 +1,686 @@
+{
+  "version": "alpha-qualifier-diagnosis/1.0.0",
+  "classification": "Implementation bug; missing typed literal qualified metric recognition before Defuddle. No regression introduction proven.",
+  "authority": [
+    "PRD §3 scientific sub/sup semantics and original scholarly values",
+    "EDD §2.3–2.5 Nature DOM roles, Defuddle reuse and validators",
+    "canonical Issue #10 §5 truthful topology and §7 scientific attachment/all four production validators"
+  ],
+  "acceptedBase": "a5b6acc2984af5cb8b82106291e963f4f413f5ac",
+  "styles": [
+    {
+      "citationStyle": "markdown",
+      "acceptedProductionBase": "a5b6acc2984af5cb8b82106291e963f4f413f5ac",
+      "sourceKind": "real-source",
+      "actualFiles": [
+        {
+          "name": "markdown.actual-cache.json",
+          "bytes": 72347,
+          "sha256": "77f5d766925288ac85587df15f749c3696a3029d3bfbdc41291235e801817b1f"
+        },
+        {
+          "name": "markdown.actual.md",
+          "bytes": 4022,
+          "sha256": "28efbf1bdf177ee9680fbe82532f209654e54c5c489cf63a1e267faaccaf5bc4"
+        }
+      ],
+      "firstInvalidState": {
+        "sourceMetricBase": "r.m.s.d.",
+        "sourceQualifier": "95",
+        "defuddle": [
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>"
+        ],
+        "mathNormalizer": [
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>"
+        ],
+        "academicInline": [
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$"
+        ],
+        "final": [
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$"
+        ]
+      },
+      "validators": {
+        "math": {
+          "valid": false,
+          "inlineMathCount": 6,
+          "displayMathCount": 0,
+          "issues": [
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 51,
+              "column": 153,
+              "delimiter": "$",
+              "context": "…urate than competing methods. AlphaFold structures had a median backbone accuracy of 0.96 Å r.m.s.d.$_{95}$ (Cα root-mean-square deviation at 95% residue coverage) (95% confidence interval = 0.85–1.16…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 51,
+              "column": 345,
+              "delimiter": "$",
+              "context": "….85–1.16 Å) whereas the next best performing method had a median backbone accuracy of 2.8 Å r.m.s.d.$_{95}$ (95% confidence interval = 2.7–4.0 Å) (measured on CASP domains; see Fig. 1a for backbone ac…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 51,
+              "column": 966,
+              "delimiter": "$",
+              "context": "…hods even when strong templates are available. The all-atom accuracy of AlphaFold was 1.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.$_{95}$ (95% confidenc…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 51,
+              "column": 1044,
+              "delimiter": "$",
+              "context": "…old was 1.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 3.1–4.2 Å) of the best alternative method. Our methods are scalab…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ],
+          "scientificFragments": {
+            "valid": false,
+            "counts": {
+              "isolatedSubscript": 4,
+              "isolatedSuperscript": 0,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": [
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 51,
+                "column": 153,
+                "delimiter": "$",
+                "context": "…urate than competing methods. AlphaFold structures had a median backbone accuracy of 0.96 Å r.m.s.d.$_{95}$ (Cα root-mean-square deviation at 95% residue coverage) (95% confidence interval = 0.85–1.16…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 51,
+                "column": 345,
+                "delimiter": "$",
+                "context": "….85–1.16 Å) whereas the next best performing method had a median backbone accuracy of 2.8 Å r.m.s.d.$_{95}$ (95% confidence interval = 2.7–4.0 Å) (measured on CASP domains; see Fig. 1a for backbone ac…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 51,
+                "column": 966,
+                "delimiter": "$",
+                "context": "…hods even when strong templates are available. The all-atom accuracy of AlphaFold was 1.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.$_{95}$ (95% confidenc…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 51,
+                "column": 1044,
+                "delimiter": "$",
+                "context": "…old was 1.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 3.1–4.2 Å) of the best alternative method. Our methods are scalab…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ]
+          },
+          "states": {
+            "TEXT": 3935,
+            "INLINE_MATH": 58,
+            "DISPLAY_MATH": 0,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "structure": {
+          "valid": true,
+          "citationStyle": "markdown",
+          "sections": {
+            "references": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "definitionCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "rawHtml": {
+          "valid": true,
+          "violations": []
+        },
+        "crossReferences": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "highly-accurate-protein-structure-prediction-with-alphafold",
+            "main"
+          ],
+          "links": []
+        }
+      },
+      "warnings": [
+        "No equation nodes were detected.",
+        "No Nature reference list was detected."
+      ],
+      "resources": {
+        "tableCount": 0,
+        "requests": [],
+        "dns": []
+      },
+      "counts": {
+        "figures": 1,
+        "authors": 34,
+        "references": 0,
+        "citations": 0,
+        "displayMath": 0
+      }
+    },
+    {
+      "citationStyle": "links",
+      "acceptedProductionBase": "a5b6acc2984af5cb8b82106291e963f4f413f5ac",
+      "sourceKind": "real-source",
+      "actualFiles": [
+        {
+          "name": "links.actual-cache.json",
+          "bytes": 72993,
+          "sha256": "df45f76c0282bee74292204cc2a9c212198794d8b1c5e61d96377929c9d44a7b"
+        },
+        {
+          "name": "links.actual.md",
+          "bytes": 4096,
+          "sha256": "9c4db38bf226ef5f098233b33425077e1aeea8b552b8ccb8cf3d881a91469214"
+        }
+      ],
+      "firstInvalidState": {
+        "sourceMetricBase": "r.m.s.d.",
+        "sourceQualifier": "95",
+        "defuddle": [
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>"
+        ],
+        "mathNormalizer": [
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>"
+        ],
+        "academicInline": [
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$"
+        ],
+        "final": [
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$"
+        ]
+      },
+      "validators": {
+        "math": {
+          "valid": false,
+          "inlineMathCount": 6,
+          "displayMathCount": 0,
+          "issues": [
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 51,
+              "column": 153,
+              "delimiter": "$",
+              "context": "…urate than competing methods. AlphaFold structures had a median backbone accuracy of 0.96 Å r.m.s.d.$_{95}$ (Cα root-mean-square deviation at 95% residue coverage) (95% confidence interval = 0.85–1.16…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 51,
+              "column": 345,
+              "delimiter": "$",
+              "context": "….85–1.16 Å) whereas the next best performing method had a median backbone accuracy of 2.8 Å r.m.s.d.$_{95}$ (95% confidence interval = 2.7–4.0 Å) (measured on CASP domains; see Fig. [1a](#figure-1) fo…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 51,
+              "column": 1005,
+              "delimiter": "$",
+              "context": "…hods even when strong templates are available. The all-atom accuracy of AlphaFold was 1.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.$_{95}$ (95% confidenc…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 51,
+              "column": 1083,
+              "delimiter": "$",
+              "context": "…old was 1.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 3.1–4.2 Å) of the best alternative method. Our methods are scalab…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ],
+          "scientificFragments": {
+            "valid": false,
+            "counts": {
+              "isolatedSubscript": 4,
+              "isolatedSuperscript": 0,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": [
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 51,
+                "column": 153,
+                "delimiter": "$",
+                "context": "…urate than competing methods. AlphaFold structures had a median backbone accuracy of 0.96 Å r.m.s.d.$_{95}$ (Cα root-mean-square deviation at 95% residue coverage) (95% confidence interval = 0.85–1.16…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 51,
+                "column": 345,
+                "delimiter": "$",
+                "context": "….85–1.16 Å) whereas the next best performing method had a median backbone accuracy of 2.8 Å r.m.s.d.$_{95}$ (95% confidence interval = 2.7–4.0 Å) (measured on CASP domains; see Fig. [1a](#figure-1) fo…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 51,
+                "column": 1005,
+                "delimiter": "$",
+                "context": "…hods even when strong templates are available. The all-atom accuracy of AlphaFold was 1.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.$_{95}$ (95% confidenc…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 51,
+                "column": 1083,
+                "delimiter": "$",
+                "context": "…old was 1.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 3.1–4.2 Å) of the best alternative method. Our methods are scalab…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ]
+          },
+          "states": {
+            "TEXT": 4009,
+            "INLINE_MATH": 58,
+            "DISPLAY_MATH": 0,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "structure": {
+          "valid": true,
+          "citationStyle": "links",
+          "sections": {
+            "references": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "rawHtml": {
+          "valid": true,
+          "violations": []
+        },
+        "crossReferences": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "figure-1",
+            "highly-accurate-protein-structure-prediction-with-alphafold",
+            "main"
+          ],
+          "links": [
+            {
+              "label": "1a",
+              "target": "figure-1",
+              "category": "figure",
+              "index": 1540
+            },
+            {
+              "label": "1b",
+              "target": "figure-1",
+              "category": "figure",
+              "index": 1834
+            },
+            {
+              "label": "1c",
+              "target": "figure-1",
+              "category": "figure",
+              "index": 1915
+            },
+            {
+              "label": "1d",
+              "target": "figure-1",
+              "category": "figure",
+              "index": 2372
+            }
+          ]
+        }
+      },
+      "warnings": [
+        "No equation nodes were detected.",
+        "No Nature reference list was detected."
+      ],
+      "resources": {
+        "tableCount": 0,
+        "requests": [],
+        "dns": []
+      },
+      "counts": {
+        "figures": 1,
+        "authors": 34,
+        "references": 0,
+        "citations": 0,
+        "displayMath": 0
+      }
+    },
+    {
+      "citationStyle": "quarto",
+      "acceptedProductionBase": "a5b6acc2984af5cb8b82106291e963f4f413f5ac",
+      "sourceKind": "real-source",
+      "actualFiles": [
+        {
+          "name": "quarto.actual-cache.json",
+          "bytes": 73083,
+          "sha256": "cd2feb61e97f9bb7979ff2d9d51bf598a73ff98944b69a06bd5559afe0499199"
+        },
+        {
+          "name": "quarto.actual.md",
+          "bytes": 4136,
+          "sha256": "73a53101457751b0232ebd690bf946971548ab634091cf65d6a7e6f20f5aaf6b"
+        }
+      ],
+      "firstInvalidState": {
+        "sourceMetricBase": "r.m.s.d.",
+        "sourceQualifier": "95",
+        "defuddle": [
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>"
+        ],
+        "mathNormalizer": [
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>",
+          "r.m.s.d.<sub>95</sub>"
+        ],
+        "academicInline": [
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$"
+        ],
+        "final": [
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$",
+          "r.m.s.d.$_{95}$"
+        ]
+      },
+      "validators": {
+        "math": {
+          "valid": false,
+          "inlineMathCount": 6,
+          "displayMathCount": 0,
+          "issues": [
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 52,
+              "column": 153,
+              "delimiter": "$",
+              "context": "…urate than competing methods. AlphaFold structures had a median backbone accuracy of 0.96 Å r.m.s.d.$_{95}$ (Cα root-mean-square deviation at 95% residue coverage) (95% confidence interval = 0.85–1.16…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 52,
+              "column": 345,
+              "delimiter": "$",
+              "context": "….85–1.16 Å) whereas the next best performing method had a median backbone accuracy of 2.8 Å r.m.s.d.$_{95}$ (95% confidence interval = 2.7–4.0 Å) (measured on CASP domains; see Fig. [1a](#fig-figure-1…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 52,
+              "column": 1017,
+              "delimiter": "$",
+              "context": "…hods even when strong templates are available. The all-atom accuracy of AlphaFold was 1.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.$_{95}$ (95% confidenc…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 52,
+              "column": 1095,
+              "delimiter": "$",
+              "context": "…old was 1.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 3.1–4.2 Å) of the best alternative method. Our methods are scalab…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ],
+          "scientificFragments": {
+            "valid": false,
+            "counts": {
+              "isolatedSubscript": 4,
+              "isolatedSuperscript": 0,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": [
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 52,
+                "column": 153,
+                "delimiter": "$",
+                "context": "…urate than competing methods. AlphaFold structures had a median backbone accuracy of 0.96 Å r.m.s.d.$_{95}$ (Cα root-mean-square deviation at 95% residue coverage) (95% confidence interval = 0.85–1.16…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 52,
+                "column": 345,
+                "delimiter": "$",
+                "context": "….85–1.16 Å) whereas the next best performing method had a median backbone accuracy of 2.8 Å r.m.s.d.$_{95}$ (95% confidence interval = 2.7–4.0 Å) (measured on CASP domains; see Fig. [1a](#fig-figure-1…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 52,
+                "column": 1017,
+                "delimiter": "$",
+                "context": "…hods even when strong templates are available. The all-atom accuracy of AlphaFold was 1.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.$_{95}$ (95% confidenc…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 52,
+                "column": 1095,
+                "delimiter": "$",
+                "context": "…old was 1.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.$_{95}$ (95% confidence interval = 3.1–4.2 Å) of the best alternative method. Our methods are scalab…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ]
+          },
+          "states": {
+            "TEXT": 4049,
+            "INLINE_MATH": 58,
+            "DISPLAY_MATH": 0,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "structure": {
+          "valid": true,
+          "citationStyle": "quarto",
+          "sections": {
+            "references": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "definitionCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "rawHtml": {
+          "valid": true,
+          "violations": []
+        },
+        "crossReferences": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "fig-figure-1",
+            "highly-accurate-protein-structure-prediction-with-alphafold",
+            "main"
+          ],
+          "links": [
+            {
+              "label": "1a",
+              "target": "fig-figure-1",
+              "category": "figure",
+              "index": 1571
+            },
+            {
+              "label": "1b",
+              "target": "fig-figure-1",
+              "category": "figure",
+              "index": 1869
+            },
+            {
+              "label": "1c",
+              "target": "fig-figure-1",
+              "category": "figure",
+              "index": 1954
+            },
+            {
+              "label": "1d",
+              "target": "fig-figure-1",
+              "category": "figure",
+              "index": 2415
+            }
+          ]
+        }
+      },
+      "warnings": [
+        "No equation nodes were detected.",
+        "No Nature reference list was detected."
+      ],
+      "resources": {
+        "tableCount": 0,
+        "requests": [],
+        "dns": []
+      },
+      "counts": {
+        "figures": 1,
+        "authors": 34,
+        "references": 0,
+        "citations": 0,
+        "displayMath": 0
+      }
+    }
+  ],
+  "execution": {
+    "productionClips": 3,
+    "oncePerStyle": true,
+    "fullTests": 0,
+    "build": 0,
+    "goldenRerun": 0,
+    "sourceAcquisitions": 0
+  },
+  "focusedHistory": {
+    "original": {
+      "command": "node --test test/nature-alpha-qualifier.test.mjs",
+      "nodeExitCode": 1,
+      "tests": 11,
+      "pass": 2,
+      "fail": 9,
+      "durationMs": 1056.6811,
+      "realFailureTests": 6,
+      "testOverconstraintFailures": 3,
+      "log": {
+        "name": "accepted-a5b6-red.log",
+        "bytes": 25310,
+        "sha256": "4255c8d878a1bfe01566e11ac165c9c70136a20e1b20fc514868dd0f8fc176bf"
+      }
+    },
+    "correctedChangedScope": {
+      "command": "node --test --test-name-pattern='preserve source context|synthetic qualifier recognizer' <external>/cache-only-test.mjs",
+      "nodeExitCode": 0,
+      "tests": 4,
+      "pass": 4,
+      "fail": 0,
+      "durationMs": 496.5255,
+      "newClips": 0,
+      "log": {
+        "name": "corrected-cache-context.log",
+        "bytes": 519,
+        "sha256": "4c6f3440e25e89bed6924dd521bc6805965298829ec87e76071c536d8870eec7"
+      }
+    },
+    "finalRegistry": {
+      "tests": 12,
+      "verifiedPassingScopes": "2 original source/network tests unchanged +3 corrected cached context tests +1 pure recognizer",
+      "knownFailureScopes": "3 actual source attachment tests +3 math validator tests remain FAIL; original actual [] attachment result is still false with corrected literalBase output shape. No new12-test full run claimed."
+    },
+    "harnessCorrection": "Initial final-output PDF expectation exceeded existing contract: retained complete MOESM1 source is intentionally excluded by renderer, original paragraph Supplementary Fig.14 remains its Nature article#MOESM1 link in all styles. Corrected assertion checks that original link. literalBase object key corrected to predeclared source oracle key. No fixture or scientific expected value changed.",
+    "finalContextCoverage": {
+      "nodeExitCode": 0,
+      "tests": 4,
+      "pass": 4,
+      "fail": 0,
+      "durationMs": 519.0361,
+      "newClips": 0,
+      "scope": "Adds final complete Fig1 description exactly-once check; changed checks reuse same actual caches",
+      "log": {
+        "name": "corrected-cache-context-final.log",
+        "bytes": 520,
+        "sha256": "35d1e50c29b580e952f2d65199ff8081e07d327301c9a4ef8b322c3ce6fbb01f"
+      }
+    }
+  },
+  "futureScope": "Recognize the source-qualified literal metric base with its immediate source SUB; preserve measurements/95% prose/source neighbors, citations/code/existing math/units/styled figure atoms. No generic all-SUB or all-plainword collector. No current production changes authorized.",
+  "limitations": [
+    "No full corpus/article acceptance claimed; only selected paragraph, complete Fig1 context, metadata and supporting supplementary target were reproduced.",
+    "writer not called by static clipNature preview API path; no writer spy claim.",
+    "Independent source projection review still required; producer repeat/idempotence and truthful preflight are not independent acceptance."
+  ]
+}
