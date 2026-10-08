@@ -1,6 +1,6 @@
 # Issue #64 — plain Greek + SUB 来源预检交接
 
-当前状态：`IMPLEMENTATION_FOCUSED_GREEN / INDEPENDENT_DELTA_REVIEW_PENDING`。下文原source-only交接保留历史证据，最新生产授权与实际focused见末尾续章。已核验 [Issue #64](https://github.com/uwougil/Academic-clipper/issues/64) 为 OPEN、唯一 type label 为 `bug`；尚无本bug实现PR或完成声明，Issue #10未完成。消费 `create-issue` intake与 `fix-bug` evidence-first流程，full/build/golden等到不同owner稳定代码增量审查通过后由root释放。
+当前状态：`LOCAL_VERIFIED / FINAL_PUBLICATION_REVIEW_PENDING`。下文原source-only/focused交接保留历史证据，最新生产授权、独立增量CLEAR和实际full/build/golden见末尾续章。已核验 [Issue #64](https://github.com/uwougil/Academic-clipper/issues/64) 为 OPEN、唯一 type label 为 `bug`；PR发布、鲜CI/Secrets与最终exact-head审查仍是下一门槛，Issue #10未完成。消费 `create-issue` intake与 `fix-bug` evidence-first流程，root按十gates决定独立bug合并。
 
 ## 基线、所有权与提交
 
@@ -137,4 +137,34 @@ Source/test implementation identity ataeaac76：Nature blob `5342e79f65b8209f597
 
 修正production后必要focused再执行同命令：**93/93PASS，2234.6298ms，exit0，0skip/cancel/todo**，scope原27+45+21；真实3clips与synthetic3clips的同run network ledger=[]、bindingsRestored=true。新三份source MD/cache与此前88-case GREEN bytes完全相同，原scientific17/全4validators/严格warnings[]保持。最新 `focused-green-unicode.log` 7143 bytes/SHA `83660e50a6c7255f6fb8ff5b841a7660e7c3372b1c50cf26a785ed29e3aa0af9`；`context-green-unicode.json` 5817/SHA `0b8a6294c61c973a6e9110c1d26127d7afb4d3e3b352af911162bd008b637e68`，`boundary-green-unicode.json` 11007/SHA `92d230c5aa0a573d9133d0298ea14a933155e96ab78f30339af0a2e85396ca53`。最新same-run结果前缀为 `green-unicode`；对应MD/cache/network hashes复用前表身份，但scope证明来自新的必要运行。93-case证据是最新focused门槛，旧88-only成功不替代Unicode修正后验证。
 
-当前不是PR-ready或accepted bug：stablecode已发送不同owner做增量审查，full/affected/build/golden/freshCI/Secrets/finalexact-headreview尚未执行，按root门槛顺序继续。独立增量CLEAR后才一次全量验收；source/oracle无改动无需重做原120blocks来源审计。只有所有十gates满足才允许root narrow #64 PR squashmerge，mergedMain success后自动完成#64并解阻C；Issue10仍须最终统一集成与human-review PR。
+上述focused checkpoint时尚未接受bug，增量审查/全量门槛当时pending；下列续章记录实际后续验收。Source/oracle无改动无需重做原120blocks来源审计。只有所有十gates满足才允许root narrow #64 PR squashmerge，mergedMain success后自动完成#64并解阻C；Issue10仍须最终统一集成与human-review PR。
+
+## 独立增量 CLEAR 与唯一 full 验证
+
+不同owner报告 `implementation-review-07be843-CLEAR.md`：6223 bytes / SHA256 `a117898de46a31bb6720e8989cdef51029525bbfc9a6c06cd17aeca9d364c8d1`；机器 `independent-delta-07be843.json`：2901 / SHA256 `a2676c87e354a2e8161e93f76ed9a2afaf34c37ad400977a2e1a533456aa313c`，均在外部 `academic-clipper-issue64-implementation-independent-review/`。Root全文核读后明确释放一次full。Reviewer实际只执行5旧P2 failures+3必要positive独立probes，8/8PASS，actual exit0/HTTPDNS[]/restored；不重45/21/source3styles/raw/A120。Source旧CLEAR、最新93同run/cache与protected-scope证明复用。这个incremental CLEAR不自动批准未知未来PR head。
+
+本阶段runtime code `07be843` 与doc checkpoint `7dd01296d9681f9fb4579cd7da0c62d20ae2a3d4` 相同：src tree `ee112c7574f553a0a020bd40d2feab1f262a48c5`，test tree `403d52f3605b6ef15dd2c65bf02c29daa2f69e07`。仅最后README/handoff文档更新不会使源码/测试输入失效，故不重93或full。WindowsNode24.14.1，local committedlockfile/package未变化，原source阶段成功`npm ci`可复用；不宣称本阶段fresh npmci，freshCI负责三平台clean install。
+
+实际执行：
+
+```powershell
+node --test test/nature-adapter.test.mjs test/nature-scientific-units.test.mjs test/nature-styled-adjacency-boundaries.test.mjs test/nature-split-power-boundaries.test.mjs test/nature-scientific-citation-boundaries.test.mjs test/nature-caption-citations.test.mjs test/output-quality.test.mjs
+npm test
+npm run build
+npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto
+git diff --check
+git status --short
+```
+
+Affected实际181/181PASS、7229.1683ms、exit0（7个明确文件，不包含原93focused重跑）。唯一 `npm test` actual unified-exec session37892确认live后等待同一handle，terminal exit0：**830/830PASS、98732.2914ms、0skip/todo/cancel**。未因观察等待重启process。Build exit0；只读golden exit0，250inline/13display/50references、math/rawHTML/structure/crossrefs全PASS，原golden无diff。该full是本修复稳定code增量审通过之后的一次必要执行，既有focused/sourceaudit没有为填字段重复。
+
+| Closed final local log | Bytes | SHA256 |
+| --- | ---: | --- |
+| affected.log | 31441 | `9d394fba266ab3b922c616262f15696c6b43ef42f2c2ae1d1f9f36a94532cc5d` |
+| full.log | 99859 | `e2af491fef8c0b7e9211efaf3972b82b625c1efde03e1a0df9de5e796125fd7f` |
+| build.log | 164 | `8ef6f2380d64f5c6d9d53d347b10e0f9be3606efae0ccb732bdae148e5a7453f` |
+| golden.log | 3018 | `49fe118cfcf91bcbef91e1ec9ffad67f8807589431c6179ffc5cd1a8f8a36498` |
+
+这些closed logs位于同一外部 `academic-clipper-issue64-production/`；各对应`*-exit.txt`为1byte `0` / SHA256 `5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9`。日志不入Git，没有live capture、cookie或credential。最终本docs/README提交的SHA以Gitlog重建；README增加明确简单Γ/Ω-SUB资格与whole-parent literalcue保守边界，没有其他产品/架构语义变更。
+
+Publication：在 same `codex/issue-10-bug-greek-subscript` 固定head发布唯一 narrow bug PR，exact standalone `Refs #64`；PR URL/immutable head/fresh checks由GitHub与root orchestration handoff保存，不创建Issue10delivery PR。最终different-owner publication-head review和鲜三平台CI/Secrets仍必须真实PASS，root才有十gates合并权。不能把本local GREEN称已merged或已完成bug。MergedMain成功后SAME C增量恢复Quantum17body/caption、source expectations与四guards，保持旧source/oracle；完整Issue10验收另由integrator最终统一完成。
