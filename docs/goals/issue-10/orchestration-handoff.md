@@ -15,7 +15,7 @@
 
 ## DAG / 文件所有权
 
-当前 checkpoint（2026-10-08 UTC；以下 startup 表及正文执行日志为历史；accepted main `3dba1bbccddb43e0ba22fa7b7717dc559b7f3494`）：
+当前 checkpoint（2026-10-08 UTC；以下 startup 表及正文执行日志为历史；accepted main `0d5972e5cb5827c1aee9610323cb702482a217d6`）：
 
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
@@ -32,7 +32,8 @@
 | compound-unit67 / PR78 | DONE | final5e1/codeab589；59focused/309affected/889full/build/golden/三平台CI/Secrets/最终独审零阻塞十gates；squash36c93ca，mergedMain37749675660/Secrets SUCCESS，67 automation completed |
 | Materials identifier68 / PR79 | DONE | exact1be7/code976f479全部十gates；squash4e8dcd9 Main37764888330与Secrets37764888340 SUCCESS，68 automation COMPLETED；C唯一实际Materials六clips已执行，consumer增量独审待完成 |
 | Alpha qualified metric71 / PR80 | DONE | exactc65/codebba4十gates/freshCI/Secrets/finalreview CLEAR，squash3dba1bb；mergedMain37770933630/Secrets37770933677 SUCCESS，71 automation COMPLETED；C同源Alpha实际增量已释放 |
-| Other mandatory scientific72–75 | RUNNING72 independent implementation review | exactcc2178/code2dcaaf9采用3dba，29privateNature lines；FIRSTcandidate source15/matrix79全GREEN/生命周期guards恢复；不同owner实施review中，broader/full未释放；73最终69088a1/74最终964f643/75最终3e4c12e PLAN_ONLY_CLEAR |
+| FRB fractional units72 / PR81 | DONE | exact4e9/code2dcaaf9/94focused/831affected/1118full/十gates/freshCI/Secrets/finalreview CLEAR，squash0d597；Main37840170270/Secrets37840170195 SUCCESS，72 automation COMPLETED |
+| Other mandatory scientific73–75 | RUNNING73 sole Nature production | 73 SAME69088a1已正式释放adoptaccepted0d597最小Delta范围与source15/full47首次候选；74最终964f643/75最终3e4c12e PLAN_ONLY_CLEAR待前置acceptedMain；C wholeChemistry/FRB按同篇requiredroles统一验收 |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
 当前 host 并发上限为 4（含 orchestrator）。优先同时运行 C、D、table-footer bug；其余节点在名额空出并满足 dependency 后启动，重复恢复同一 C / D child。
@@ -880,3 +881,9 @@ Author仅完成DOC_ONLY4e9a545b2825e0799e45bdec92fcd12c08f709a1/tree591a0fd7e3bd
 Finalpublicationdifferentowner PUBLICATION_CLEAR exact4e9/tree591，blockingFindings0/P0–P3全0；root全文readhuman4070SHA77b39fd1160051b322ffa2e39b350ea136185d6530bf10e74d629947e8be14cb/machine93316SHA20995e0dd0fbd56f3155f5a02a57b973f3c397d8725e95f70da7e51b89f836f8 actualhead/tree/blocking/current273identity/zero-runtime，源/计划/实施review复用，仅2docdelta。RootfreshCI唯一watch97446terminalexit0/chunkf8141e observed20:31:09Z；actualAPI CI37839270049same4e9 SUCCESS U20job11352419684520:28:37Z/Win24job11352419710420:30:11Z/U24job11352419729120:29:35Z，Secrets37839270013same4e9SUCCESSupdated20:25:09Z。Currentownclean/exact4e9/lastPR OPEN/CLEAN/base3dba/head4e9/diffcheck0；Source103/first94/831affected/1118full/build/golden/unchanged273与9golden全部十gate已满足，公开receipt https://github.com/uwougil/Academic-clipper/pull/81#issuecomment-6068511187。
 
 `gh pr merge81 --squash --match-head-commit4e9...` actualexit0/chunk703d03，mergedAt20:32:05Z squash0d5972e5cb5827c1aee9610323cb702482a217d6；actualfetchorigin/main一致。MergedMain37840170270same0d597queued，root唯一interval60watch实际live。Accepted仍3dba直到MainSUCCESS/Secrets与automation核验，不提前放73修改Nature/不手动close72/10。Cblockedrole登记72接纳后可解除但wholeFRB等75统一验收以避免重复knownRED六clips；原计划/科学oracle/框架照常复用，最终required255/27不减少。NoIssue10complete/finalPRmerge。
+
+## 20:38 UTC：0d597 accepted与#73串行生产正式释放
+
+Root唯一Mainwatch25389 actualterminalexit0/chunk154303 observed20:38:16Z；actualAPI mergedMain37840170270same0d5972e5cb5827c1aee9610323cb702482a217d6 SUCCESS Win24job11352723576620:37:46Z/U20job11352723608820:37:44Z/U24job11352723638520:37:19Z，Secrets37840170195同SHA SUCCESS。Issue72automationCLOSED/COMPLETED20:37:59Z，root全文实际readcomment https://github.com/uwougil/Academic-clipper/issues/72#issuecomment-6068605736（created20:37:58Z引用Main37840170270/commit0d597），Finalizer37840872745SUCCESS；fetchorigin/main一致，accepted更新0d597。不手动close任何Issue，不重watch/旧run。
+
+Root正式释放SAME#73readinessowner/branch69088a1：source57/planCLEAR已读复用，不重新old43/tail5/raw/A/sourceaudit；dependency-only接纳0d597、privateΔ+nativeplainSUP精确12,13/12/13关系，最小range.tex/harness beforeimportguard/whole3styleclipwindowclosure，必要current source15/full47第一次候选GREEN后stableimplementationreview BEFOREbroader/full/buildgolden/PR。当前junction目标可能不可用，允许确认absoluteownlink后只移除自己的link、committed-lockfile隔离依赖安装，不对anotherworktree/target写入；这是新当前环境setup而不是重测旧结果。C role登记72已解除，整篇FRB等75统一actual契约，Chemistry等73+74统一actual契约；最终255/27/currentvalidators/ABA/resources/Dsourcecontroller/integration全部仍mandatory，不把节省重复劳动当缩减scope。Nohuman-onlyblocker，goalactive。
