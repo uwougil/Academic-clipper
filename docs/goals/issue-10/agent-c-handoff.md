@@ -1,10 +1,10 @@
 # Agent C — 来源核验与离线回归检查点
 
-状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线为 accepted `f4a5f2ad74546ea54b990c6080e480871ee98e09`（PR #70 / Issue #65），通过 dependency-only `99282d167c400d556fd115ae049466a716b63dff` 接入。C-owned `9c5c3ff9f232ecc3d9eb03b579fb04eef45a4fce` citation consumer 已经独立审查零阻塞；API/schema仍 `1.0.0`。最新实际 Materials27来源/3repeat PASS，三方言 rawHtml PASS，math每方言10FAIL，37tests30PASS7FAIL；前一 Chemistry27来源/3repeat PASS、math每方言5FAIL 保持历史 scope，见文末。下述 d99340tests/85行map/252–3是保留历史，consumer-only与新实际生产scope分开；不宣称最新255/27全验收。
+状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线 accepted `73d6cfafba9bb33149959e315ab29b5b0bc24d75`（PR #76 / Issue #63），dependency-only `12ec9e76b9fce6942997ebd79da4da55458e5853` 接入。C-owned reviewed9c5 / API/schema1.0保持不变。最新实际 Quantum30来源/3repeat PASS；40tests33PASS7FAIL，math每方言17Greek FAIL、其他三validators PASS。当前85行registry是30 `Q73d6_NEW` 加225历史记录的合成255PASS，不是最新main全255/27验收。Materials27/3repeat与Chemistry27/3repeat仍分别属于f4a5/a5b6历史，见文末。
 
-本轮仅复验 Quantum `s41534-023-00746-0` × 三方言：30 条来源记录 27 PASS / 3 FAIL；3 个 Markdown / Bib / semantics / replay repeat 全部 PASS。实际 session22332：40 tests = 30 PASS / 10 FAIL，0 skip / todo / cancel，43,193.7263ms。10 FAIL 包含 3 个 citation 子测试、3 个 validator 子测试、3 个 parents 及 receipt 缺 24 个组合的硬 FAIL。每方言完整 source-crossrefs 已恢复；原 12 个 table-caption MathJax 产生的 24 legacy delimiter issues 消失。其余 math 仍 19 issues（17 Greek isolatedSubscript、2 split isolatedSuperscript），整篇不通过。
+历史 e2c1 轮仅复验 Quantum `s41534-023-00746-0` × 三方言：30 条来源记录 27 PASS / 3 FAIL；3 个 Markdown / Bib / semantics / replay repeat 全部 PASS。实际 session22332：40 tests = 30 PASS / 10 FAIL，0 skip / todo / cancel，43,193.7263ms。10 FAIL 包含 3 个 citation 子测试、3 个 validator 子测试、3 个 parents 及 receipt 缺 24 个组合的硬 FAIL。每方言完整 source-crossrefs 已恢复；原 12 个 table-caption MathJax 产生的 24 legacy delimiter issues 消失。其余 math 仍 19 issues（17 Greek isolatedSubscript、2 split isolatedSuperscript），整篇不通过。
 
-当前 85 行按实际基线区分：30 条 `Qe2c1_NEW`、27 条 `M3889_NEW`、54 条 `AC86_NEW`、144 条 `F0DE`，合成 252 PASS / 3 FAIL、84 条来源 consumer 通过 / 1 条尚未通过。**这不是最新 e2c1 的全 255 条或完整 suite 验收。** 唯一剩余 source failure 为 Quantum `rendered.orderedSourceClusters`：source/semantic/final 均 77 clusters，原 caption cluster[59] 的 citation58 已保留一次，但在既有末尾 Tables section 成为 rendered[76]；其他 76 clusters 相对顺序不变。该失败保持，归因待独立审查现有 source 与 renderer 顺序契约，不提前声称 parser 或 C helper 缺陷。旧证据保留；本轮没有重跑 13 raw / 85 oracle audit、27/full380、60 mutations、ac86 九组合或其他论文。
+历史 e2c1 当时的85行按实际基线区分：30 条 `Qe2c1_NEW`、27 条 `M3889_NEW`、54 条 `AC86_NEW`、144 条 `F0DE`，合成 252 PASS / 3 FAIL、84 条来源 consumer 通过 / 1 条尚未通过。**这不是最新 e2c1 的全 255 条或完整 suite 验收。** 唯一剩余 source failure 为 Quantum `rendered.orderedSourceClusters`：source/semantic/final 均 77 clusters，原 caption cluster[59] 的 citation58 已保留一次，但在既有末尾 Tables section 成为 rendered[76]；其他 76 clusters 相对顺序不变。该失败保持，归因待独立审查现有 source 与 renderer 顺序契约，不提前声称 parser 或 C helper 缺陷。旧证据保留；本轮没有重跑 13 raw / 85 oracle audit、27/full380、60 mutations、ac86 九组合或其他论文。
 
 ## 基线、依赖与提交选择
 
@@ -111,7 +111,7 @@ Fixture 总计 `1,577,502` bytes（13 files）。本分支原 B 输入的 Git tr
 
 ## 每条期待与三个方言的实际执行状态
 
-下表85行按真实 execution scope 逐条区分。`Qe2c1_NEW` 为本轮 Quantum 三组合 / 30 records；`M3889_NEW` 为此前 Materials 三组合 / 27 records；`AC86_NEW` 为此前 Pangenome/Chemistry 六组合 / 54 records；`F0DE` 为原 full 中其余 144 records。225 条历史记录未在 e2c1 复验，不能借其 PASS 建立最新 main 完整验收。合成 252/3；reconciler 根据 PASS/FAIL 得到 84 EXECUTABLE / 1 BLOCKED。失败行暂保留其机械 `BLOCKED_BY_PARSER_DEFECT` 标签以与未经修改的 receipt classifier 对账，**该标签不证明根因**；Quantum ordered-cluster contract 的来源/renderer/C consumer 归因等待独立审查，不把审查解释问题升级成需改 spec 的 human-only blocker。D seam 已可用；任何 required validator FAIL 均未 skip、允许为 warning 或计作通过。
+下表85行使用各文章最近一次实际 execution scope：Quantum30 `Q73d6_NEW`（本轮）、Materials27 `Mf4a5_NEW`、Chemistry27 `Ca5b6_NEW`、Pangenome27 `AC86_NEW`、其余144 `F0DE`。合成255PASS/0sourceFAIL、85来源consumers有PASS记录；其中225记录没有在当前73d6重新执行。历史e2c1三citation FAIL及旧252/3 receipt保留在原外部文件与下文历史段，reviewed9c5已解释容器归属，本轮实际生产30记录确认修正。该source registry不替代整篇四validators、required科学角色、完整27组合/ABA/resources/golden验收；17Greek等math失败继续独立阻塞。
 
 | Article | Expectation ID | Assertion ID | Source pointer (`articles[i].expectations[j]`) | markdown | links | quarto | State | Record scope | 阻塞证据 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -125,16 +125,16 @@ Fixture 总计 `1,577,502` bytes（13 files）。本分支原 B 输入的 Git tr
 | s41586-026-10401-1 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [0][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-026-10401-1 | source-ui-v1 | nature-source-ui-v1 | [0][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-026-10401-1 | source-tables-v1 | nature-source-tables-v1 | [0][9] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
-| s41534-023-00746-0 | source-metadata-v1 | nature-source-metadata-v1 | [1][0] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
-| s41534-023-00746-0 | source-abstract-v1 | nature-source-abstract-v1 | [1][1] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
-| s41534-023-00746-0 | source-headings-v1 | nature-source-headings-v1 | [1][2] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
-| s41534-023-00746-0 | source-equations-v1 | nature-source-equations-v1 | [1][3] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
-| s41534-023-00746-0 | source-figures-v1 | nature-source-figures-v1 | [1][4] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
-| s41534-023-00746-0 | source-citations-v1 | nature-source-citations-v1 | [1][5] | FAIL | FAIL | FAIL | BLOCKED_BY_PARSER_DEFECT | Qe2c1_NEW ×3 | caption59已保留但末尾Tables为rendered76；仅顺序失败，归因待独立审查 |
-| s41534-023-00746-0 | source-inline-v1 | nature-source-inline-v1 | [1][6] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
-| s41534-023-00746-0 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [1][7] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
-| s41534-023-00746-0 | source-ui-v1 | nature-source-ui-v1 | [1][8] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
-| s41534-023-00746-0 | source-tables-v1 | nature-source-tables-v1 | [1][9] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
+| s41534-023-00746-0 | source-metadata-v1 | nature-source-metadata-v1 | [1][0] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
+| s41534-023-00746-0 | source-abstract-v1 | nature-source-abstract-v1 | [1][1] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
+| s41534-023-00746-0 | source-headings-v1 | nature-source-headings-v1 | [1][2] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
+| s41534-023-00746-0 | source-equations-v1 | nature-source-equations-v1 | [1][3] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
+| s41534-023-00746-0 | source-figures-v1 | nature-source-figures-v1 | [1][4] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
+| s41534-023-00746-0 | source-citations-v1 | nature-source-citations-v1 | [1][5] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
+| s41534-023-00746-0 | source-inline-v1 | nature-source-inline-v1 | [1][6] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
+| s41534-023-00746-0 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [1][7] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
+| s41534-023-00746-0 | source-ui-v1 | nature-source-ui-v1 | [1][8] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
+| s41534-023-00746-0 | source-tables-v1 | nature-source-tables-v1 | [1][9] | PASS | PASS | PASS | EXECUTABLE_NOW | Q73d6_NEW ×3 | — |
 | s41586-021-03819-2 | source-metadata-v1 | nature-source-metadata-v1 | [2][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-021-03819-2 | source-abstract-v1 | nature-source-abstract-v1 | [2][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-021-03819-2 | source-headings-v1 | nature-source-headings-v1 | [2][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
@@ -163,24 +163,24 @@ Fixture 总计 `1,577,502` bytes（13 files）。本分支原 B 输入的 Git tr
 | s41586-023-05896-x | source-inline-v1 | nature-source-inline-v1 | [4][6] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
 | s41586-023-05896-x | source-crossrefs-v1 | nature-source-crossrefs-v1 | [4][7] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
 | s41586-023-05896-x | source-ui-v1 | nature-source-ui-v1 | [4][8] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41586-023-06735-9 | source-metadata-v1 | nature-source-metadata-v1 | [5][0] | PASS | PASS | PASS | EXECUTABLE_NOW | M3889_NEW ×3 | — |
-| s41586-023-06735-9 | source-abstract-v1 | nature-source-abstract-v1 | [5][1] | PASS | PASS | PASS | EXECUTABLE_NOW | M3889_NEW ×3 | — |
-| s41586-023-06735-9 | source-headings-v1 | nature-source-headings-v1 | [5][2] | PASS | PASS | PASS | EXECUTABLE_NOW | M3889_NEW ×3 | — |
-| s41586-023-06735-9 | source-equations-v1 | nature-source-equations-v1 | [5][3] | PASS | PASS | PASS | EXECUTABLE_NOW | M3889_NEW ×3 | — |
-| s41586-023-06735-9 | source-figures-v1 | nature-source-figures-v1 | [5][4] | PASS | PASS | PASS | EXECUTABLE_NOW | M3889_NEW ×3 | — |
-| s41586-023-06735-9 | source-citations-v1 | nature-source-citations-v1 | [5][5] | PASS | PASS | PASS | EXECUTABLE_NOW | M3889_NEW ×3 | — |
-| s41586-023-06735-9 | source-inline-v1 | nature-source-inline-v1 | [5][6] | PASS | PASS | PASS | EXECUTABLE_NOW | M3889_NEW ×3 | — |
-| s41586-023-06735-9 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [5][7] | PASS | PASS | PASS | EXECUTABLE_NOW | M3889_NEW ×3 | — |
-| s41586-023-06735-9 | source-ui-v1 | nature-source-ui-v1 | [5][8] | PASS | PASS | PASS | EXECUTABLE_NOW | M3889_NEW ×3 | — |
-| s41467-023-44030-3 | source-metadata-v1 | nature-source-metadata-v1 | [6][0] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41467-023-44030-3 | source-abstract-v1 | nature-source-abstract-v1 | [6][1] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41467-023-44030-3 | source-headings-v1 | nature-source-headings-v1 | [6][2] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41467-023-44030-3 | source-equations-v1 | nature-source-equations-v1 | [6][3] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41467-023-44030-3 | source-figures-v1 | nature-source-figures-v1 | [6][4] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41467-023-44030-3 | source-citations-v1 | nature-source-citations-v1 | [6][5] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41467-023-44030-3 | source-inline-v1 | nature-source-inline-v1 | [6][6] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41467-023-44030-3 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [6][7] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41467-023-44030-3 | source-ui-v1 | nature-source-ui-v1 | [6][8] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41586-023-06735-9 | source-metadata-v1 | nature-source-metadata-v1 | [5][0] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
+| s41586-023-06735-9 | source-abstract-v1 | nature-source-abstract-v1 | [5][1] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
+| s41586-023-06735-9 | source-headings-v1 | nature-source-headings-v1 | [5][2] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
+| s41586-023-06735-9 | source-equations-v1 | nature-source-equations-v1 | [5][3] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
+| s41586-023-06735-9 | source-figures-v1 | nature-source-figures-v1 | [5][4] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
+| s41586-023-06735-9 | source-citations-v1 | nature-source-citations-v1 | [5][5] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
+| s41586-023-06735-9 | source-inline-v1 | nature-source-inline-v1 | [5][6] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
+| s41586-023-06735-9 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [5][7] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
+| s41586-023-06735-9 | source-ui-v1 | nature-source-ui-v1 | [5][8] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
+| s41467-023-44030-3 | source-metadata-v1 | nature-source-metadata-v1 | [6][0] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
+| s41467-023-44030-3 | source-abstract-v1 | nature-source-abstract-v1 | [6][1] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
+| s41467-023-44030-3 | source-headings-v1 | nature-source-headings-v1 | [6][2] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
+| s41467-023-44030-3 | source-equations-v1 | nature-source-equations-v1 | [6][3] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
+| s41467-023-44030-3 | source-figures-v1 | nature-source-figures-v1 | [6][4] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
+| s41467-023-44030-3 | source-citations-v1 | nature-source-citations-v1 | [6][5] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
+| s41467-023-44030-3 | source-inline-v1 | nature-source-inline-v1 | [6][6] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
+| s41467-023-44030-3 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [6][7] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
+| s41467-023-44030-3 | source-ui-v1 | nature-source-ui-v1 | [6][8] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
 | s41586-022-04755-5 | source-metadata-v1 | nature-source-metadata-v1 | [7][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-022-04755-5 | source-abstract-v1 | nature-source-abstract-v1 | [7][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-022-04755-5 | source-headings-v1 | nature-source-headings-v1 | [7][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
@@ -739,3 +739,56 @@ Registry仍85 admitted expectations /10 consumers。本次只为 Materials 的27
 | quarto | 71680 / b733bc1874328711ba153263b594c7ba169ceb3efbe9798a67ee5bfe6b9bbfa5 | 67777 / 960f2a1ed3c405beb147191185fe5d5ee56613b7a3fdd6f7e515318aa55a7e7d |
 
 C仍DEPENDENCY_PENDING。#65在此次实际 Materials source/linksrawHtml已解除；#67/#68、Quantum Greek/split、ChemistryΔ/group、Alpha/FRB required roles仍待accepted prerequisite，再按需delta或最终combinedhead canonical全验收。此轮没有full255、golden/build/npmtest、A/B/source重审或Dcontroller重复运行；没有修改spec、扩大安全/架构范围或新PR；不声明Materials或Issue#10完成。
+
+## Accepted73d6 Split power — Quantum 实际增量执行
+
+Root正式release之后 independently readback Main `37734814590` / Secrets `37734814595` 同 merged SHA `73d6cfafba9bb33149959e315ab29b5b0bc24d75`：Ubuntu20 job `113171838806` completed06:04:14Z、Ubuntu24 `113171838941`06:02:32Z、Windows24 `113171838734`06:05:44Z，全部success；Secrets completed/success。Fetch origin/main同SHA，non-destructive dependency merge `12ec9e76b9fce6942997ebd79da4da55458e5853` 接入。Root另验证 Finalize `37735759743` / Issue #63 automation completed06:05:56Z；该finalizer非C重复查询。C原 authored SHAs不重写，integrator只选C authored，不能whole-branch合并覆盖B后补rights。
+
+复用此前只读 `pending63-quantum-c508-preflight.json` / `.mjs`，没有再运行它、重新解析raw、A regeneration、source85独审或框架重写。接入后按预检32 protected Gitobjects逐个assert unchanged：29corpus files与helper `f9144ce6f40653061ee57164d6612860c47da981`、test `9530e0f194f78cc7d0ff9a9e98fb4b660873585f`、golden test `74b776eece94dc8402844ed1edc95fd6847250a4`。沿用独立 reviewed `9c5c3ff9f232ecc3d9eb03b579fb04eef45a4fce` / API1.0，未改source/manifest/helper/tests/validators/production/canonical。
+
+只执行 admitted `s41534-023-00746-0` 的3 source parents 与3repeat。十个 IDs为 source-metadata-v1、source-abstract-v1、source-headings-v1、source-equations-v1、source-figures-v1、source-citations-v1、source-inline-v1、source-crossrefs-v1、source-ui-v1、source-tables-v1。Actual session `95973` confirmed live 后同handle terminal **exit1**：40tests=33PASS/7FAIL、61747.9297ms、0skip/todo/cancel。**30source records全PASS、3repeat全PASS**；7FAIL为三个math validator子测试、三个parents、after缺24组合硬FAIL。三baseline+三repeat为六actualclips，postcheck只读同次cache没有额外clip。
+
+Four production validators全部执行；每方言 mathFAIL、structure/rawHtml/crossReferences PASS。Math原19issues变为17，全部 `scientific-isolatedSubscript`；isolatedSuperscript由2归零，其他scientific fragment类型零。仍然是17个native Γ/Ω subscript科学角色，受独立 Issue #64 阻塞，不允许warnings替代或宣称Quantum整篇通过。每baseline warnings expected/actual均[]、missing/unexpected[]。Source真实 table1为 `full-size-html`，表格cells/TeX/summary与原e2c1 unchanged。
+
+Actual replay每baseline恰好一个GET `https://www.nature.com/articles/s41534-023-00746-0/tables/1` / redirect `manual`，DNS `www.nature.com` / all:true / verbatim:true；unexpected[]。Repeat测试严格比较MD bytes、referencesBib bytes、semanticSummary与整个ledger equality，全部PASS；repeat完整result未另保存，不声称独立repeatcache。现有 reviewed execute() 使用A replay注入到D seam，finally严格assert resources，记录后拒绝未声明请求，catch不能吞掉unexpected；没有global fetch/DNS mutation。本轮没有另加process-wide spy；零ordinary live操作的证据范围是既有受审生产注入路径与exact replay ledger，不能把声明table回放说成零request。Corpus执行路径不调用writer。
+
+原source Results p33的完整段落仍对应 `a-section-2`、raw prehash `76701dc7ea4f491570f57d3ae1329c472eb812a2454237392b6f0d99c8a55435`、frozen `d9fd04d9e40ad364d1c122769be3e2f4d318ea429dfc158c9bcd66575c02c3a4`。原直接相邻 `<sup>−</sup><sup>15</sup>` 在真实whole B corpus三方言都成为同一个 `$10^{−15}$`，保留前 `~`、后“even with a small SC”及相邻Fig4d。Actual MD行markdown244/links248/quarto207。原Results p37完整段落raw `28e06f2eac7ed32e9dca4b87991c85cc120323782c2dbe1c980cdaa669af9f64`、frozen `db986d752212798179907747abd707b3a96a2aa6fa5f9a33569798f8bba453b1`，五singleSUP controls为−3两次、−15、−2、−5，均准确。引用原科研结论和数值未修改；sourcepacket复用既有 `303930308cf9b1ff949e793440fe5ef3845433b78a89714e9f8ad9062c1794a5` 身份，无新raw/sourceparse。
+
+Reviewed9c5 source-owned table relocation消费者现在actual source-citations全三方言PASS。原semantic/source77citationclusters、有序77 references和table summary与历史e2c1缓存全等，source58图注引用仍在原table caption语境，原全局差异由严格container归属、内部顺序、多重性和非迁移cluster顺序断言判定。此轮不改sourceoracle或caption内容，也不把旧历史FAIL擦掉。
+
+Optional existing a9 after hook保存本次3baseline comparison（含完整expectations/summary/四validators/warnings）和3MD；这些不是完整Defuddle DOM/result。Receipt records3/missing24/errors[]/unexpected[]/completefalse，after继续硬FAIL，scope与测试结果如实保留。Current85行map为30 `Q73d6_NEW`、27 `Mf4a5_NEW`、27 `Ca5b6_NEW`、27 `AC86_NEW`、144 `F0DE`；合成255PASS/0sourceFAIL，仅本轮30是current accepted73d6实际执行。仍没有最新全部255/27、全篇validator PASS、ABA/resource scenarios/golden、final npmchecks/CI验收。
+
+External cached诊断经历两次独立harness修正，均不算scienceRED：首次exit1误用了reduced #64 refsPREFIX76，B admitted source-citations.referenceCount与old/newactual均77，改external数值检查；第二次exit1把三方言p37都定位为literal `In Fig. 4d,`，实际links/quarto保留4d的链接，改定位为同一完整源段唯一正文短语 `we plot the minimal total logical error probability`。所有scientific atoms/control仍严格相同；最后postcheck exit0。原两版脚本 `.initial-harness.mjs` / `.second-harness.mjs`在TEMP保留，未重新clip。以后直接从manifest取full prefix，使用已有方言兼容定位，避免这两类重复误判。
+
+实际命令（C ownworktree）：
+
+| Command | Result |
+| --- | --- |
+| `gh run view 37734814590 --repo uwougil/Academic-clipper --json headSha,status,conclusion,jobs`；Secrets37734814595；`git fetch origin main` | exact73d6 Main三jobs/Secrets success，origin/main同SHA |
+| `git merge --no-ff 73d6cfafba9bb33149959e315ab29b5b0bc24d75 -m 'chore(corpus): adopt accepted split numeric power prerequisite'`；32protected Gitblobs逐项比较 | exit0，dependency12ec，全部unchanged |
+| `node --test --test-name-pattern $cQuantumPlan.pattern test/nature-corpus.test.mjs`；env `ACADEMIC_CLIPPER_CORPUS_RECEIPT_PREFIX=<TEMP>/accepted-split-power-quantum-delta` | session95973 terminalexit1、40/33PASS7FAIL、61747.9297ms；30source+3repeat PASS；仅六clips，missing24硬FAIL |
+| `node <TEMP>/accepted-split-power-quantum-receipt.mjs`（仅读同runcache） | finalexit0；30TAP IDs/status、32blobs、原split+五controls、ref/cite/table不变、四validators/strictwarnings/exactledgers、85mixedregistry全部assert。此前两次externalharness exit1如上保留 |
+| `git diff --check`；`git diff --cached --check`；`git status --short`；changed tracked paths审计；`git push` | 本轮authored仅本handoff；最终clean/push SHA由交接消息标识 |
+
+`$cQuantumPlan.pattern`复用preflight.property，准确正向filter：`^(?:s41534-023-00746-0)/(?:markdown|links|quarto): (?:every source expectation through the complete production chain|repeat Markdown, bibliography, semantics and replay operations)$`。Prefix起初不存在，只启动一次，没有empty filter、full suite/其他文章/newraw/Aaudit/review/source重做/build/golden/npmtest/Dcontroller重复。
+
+外部TEMP为 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c`，以下cache/MD/log没有提交：
+
+| File | Bytes | SHA256 |
+| --- | ---: | --- |
+| pending63-quantum-c508-preflight.json | 33137 | 1cd21c705ec7753dae9bcdf0ba3e2af3fcbf32212588040135f54159666181d3 |
+| accepted-split-power-quantum-delta.log | 51481 | 6db670cb59d462a2e209fccf3242e48ead3fa023bf12e35205227cbc97be5a82 |
+| accepted-split-power-quantum-delta.comparisons.json | 362040 | ccf254d14934f234bcfb08504b3419f95b35a5abaea1298e46bdb7d9110962f2 |
+| accepted-split-power-quantum-delta-receipt-status.json | 1812 | 1a8e036ac6e52f4bc77634623ad8293e2135c8069d03bc22dfaba6eea638a450 |
+| accepted-split-power-quantum-delta-process-exit.txt | 1 | 6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b |
+| accepted-split-power-quantum-delta-receipt.json | 107388 | 28ea340fee8a3467640d1513bc39ca43dc539b5190b21d559a58a90db5192dd6 |
+
+每方言文件前缀 `accepted-split-power-quantum-delta.s41534-023-00746-0.`：
+
+| Dialect | Comparison bytes / SHA256 | MD bytes / SHA256 |
+| --- | --- | --- |
+| markdown | 84006 / b2ee3d6519da3a9cd7c3e38695bc9ec5bd7819f89f9adf38a07bc64acc591803 | 91213 / 8009d348593686693d5b8569d65c380346da8862ad2931ea0e710060ae607b6e |
+| links | 150664 / a427b53a685add22df1693b213cf964abfe2b219ab78a55350c1866ecacd6814 | 95869 / 164882290c2388ba0b0da54e2a10ad43b29339c49f38bfc4d0d308c28e32e373 |
+| quarto | 108069 / f325c702199165922d7c75924a6026139ed171cdae0cb3d86dd22d91d53c08ab | 83523 / 01a2350c40afe7fc9db194ecf8c979abeff3d79e2c9ef763774bcf3d629aa702 |
+
+C仍DEPENDENCY_PENDING；#63原split科学角色已在wholecorpus实际解除，#64 native17Greek、Materials/Chemistry/Alpha/FRB等requiredroles仍待各自accepted prerequisites。按受影响范围继续必要delta；最终combinedacceptedhead仍须canonical全部255/27/四validators、determinism/ABA/resources/golden/npmchecks/三平台CI。没有spec changes，不声明Quantum、C或Issue #10 complete，不开partial普通PR。
