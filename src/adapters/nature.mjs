@@ -760,6 +760,32 @@ function collectNumericSuperscriptRun(parent, startIndex) {
   };
 }
 
+function collectCompoundConductivityRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
+  const exponent = parent.childNodes[startIndex];
+  // This source-backed conductivity role has two factors: mS stays a
+  // multiplier, and only cm has the inverse exponent. Never invert mScm.
+  if (!isElement(exponent, new Set(['SUP'])) || exponent.childNodes.length !== 1
+    || exponent.firstChild.nodeType !== 3 || !/^[−-]1$/u.test(exponent.textContent)) return null;
+  const previous = exponent.previousSibling;
+  if (previous?.nodeType !== 3 || !/mScm$/u.test(previous.textContent)) return null;
+  const offset = previous.textContent.length - 4;
+  if (offset === 0 ? previous.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(previous.textContent.slice(0, offset))) return null;
+  const next = exponent.nextSibling;
+  // A following typed citation owns its SUP. Other nodes can continue an
+  // unknown token or attachment; do not flatten those into a guessed unit.
+  if (next && !(next.nodeType === 3 && /^[\s.,;:!?()[\]{}+−\-*/=×]/u.test(next.textContent))
+    && !(next.nodeType === 1 && next.tagName === 'SUP'
+      && next.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]'))) return null;
+  return {
+    start: { node: previous, offset },
+    end: { node: exponent, after: true },
+    tex: '\\mathrm{mS}\\,\\mathrm{cm}^{-1}',
+  };
+}
+
 function collectPlainGreekSubscriptRun(parent, startIndex) {
   if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
   // Literal math/code can span siblings. This narrow DOM role leaves that
@@ -896,6 +922,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
         : collectStyledRun(parent, index)
           || collectTextAndStyledSymbolRun(parent, index, inlineMathByMarker, displayMath)
           || collectNumericAttachmentRun(parent, index)
+          || collectCompoundConductivityRun(parent, index)
           || collectPlainGreekSubscriptRun(parent, index)
           || collectSplitNumericSuperscriptRun(parent, index)
           || collectNumericSuperscriptRun(parent, index)
