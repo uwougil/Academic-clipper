@@ -145,3 +145,10 @@ test('synthetic strict HTML policy continues to reject foreign or malformed anch
   }
   assert.equal(validateRawHtml('`<span>payload</span>`').valid, true);
 });
+test('synthetic existing reference math keeps its original less-than operator', async () => {
+  const text = 'Synthetic only. Existing math $x<1$ and $x+1$ (2020).';
+  const rendered = await withDomGlobals(page.dom, () => referencesMarkdown(syntheticReference(text), provenance.source.url, outputPolicy('links')));
+  assert.ok(rendered.includes('$x<1$'), 'Encoding literal reference text must not turn an existing TeX operator into an HTML entity');
+  assert.ok(rendered.includes('$x+1$'));
+  assert.equal(validateRawHtml(rendered,{allowHtmlAnchors:true}).valid, true);
+});
