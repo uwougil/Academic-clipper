@@ -1,6 +1,6 @@
 # Agent C — 来源核验与离线回归检查点
 
-状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线 accepted `36c93ca81236705912c25db391d611ee28405dca`（PR #78 / Issue #67），dependency-only `2973fbe27ad47ab26b0c9a7e920d6075ac10087e` 接入。C-owned reviewed9c5 / API/schema1.0保持不变。最新实际 Materials27来源/3repeat全PASS，compound conductivity恢复准确mS×cm^-1；四validators全部执行，math仍9个r²SCAN fragments FAIL，其余三个全PASS。37tests30PASS7FAIL包括3validator、3parent与partial after缺24组合硬FAIL。当前85行registry为27 `M36c_NEW` 加228历史记录（含已通过四validators的Quantum30 `Q134_NEW`）；仅是分基线的合成255sourcePASS，不是当前main全255/27验收。#68的9正文/图注与2heading identifier角色、Chemistry/Alpha/FRB所需科学角色仍待accepted prerequisites，见末尾。
+状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线 accepted `4e8dcd9ce4998c3f8f373daecf332e7f9bfcfb74`（PR #79 / Issue #68），dependency-only `5a420d80891f0f4eb332e72dde5abf8ee2fa768f` 接入。Materials 的实际六 clips 四 validators 均 GREEN；原9正文/图注与2标题 identifier 的完整脚本恢复，compound mS×cm^-1 与全部其它内容保持。原37 tests仍30PASS/7FAIL：C旧标题consumer不接受正确带脚本标题，3source失败、3parents、partial after缺24组合硬FAIL。窄C consumer修正 `918901c0957b5021f1712594e6c83f33d7384490` 的实际7focused tests全PASS；仅对六份原缓存重新执行标题consumer，零新clip。当前27 Materials composite来源记录为24原runtime PASS加3新cached consumer PASS；228历史记录明确分开，不是当前main全255/27验收。API/schema1.0不变，但新helper blob `8897a61e3ac044442c5e7bcc1a59b2c292ff5d3d` 尚待独立delta审查，旧f914审查不覆盖它。其它Chemistry/Alpha/FRB科学角色和最终combined验收仍待，见末尾。
 
 历史 e2c1 轮仅复验 Quantum `s41534-023-00746-0` × 三方言：30 条来源记录 27 PASS / 3 FAIL；3 个 Markdown / Bib / semantics / replay repeat 全部 PASS。实际 session22332：40 tests = 30 PASS / 10 FAIL，0 skip / todo / cancel，43,193.7263ms。10 FAIL 包含 3 个 citation 子测试、3 个 validator 子测试、3 个 parents 及 receipt 缺 24 个组合的硬 FAIL。每方言完整 source-crossrefs 已恢复；原 12 个 table-caption MathJax 产生的 24 legacy delimiter issues 消失。其余 math 仍 19 issues（17 Greek isolatedSubscript、2 split isolatedSuperscript），整篇不通过。
 
@@ -111,7 +111,7 @@ Fixture 总计 `1,577,502` bytes（13 files）。本分支原 B 输入的 Git tr
 
 ## 每条期待与三个方言的实际执行状态
 
-下表85行使用各文章最近一次实际 execution scope：Materials27 `M36c_NEW`（本轮）；Quantum30 `Q134_NEW`、Chemistry27 `Ca5b6_NEW`、Pangenome27 `AC86_NEW`、其余144 `F0DE`均是228条历史记录。合成255PASS/0sourceFAIL、85来源consumers有PASS记录；228历史记录未在当前36c重新执行。原e2c1三citation FAIL与73d6 native17Greek math FAIL保留在旧外部cache及历史章节；此前Quantum30source与四validators通过的b604receipt本轮只读复用。本轮Materials27source/repeat通过而math9仍FAIL，另两heading科学attachment未恢复；registry不替代全部27组合/255records/ABA/resources/golden及final npmchecks验收。
+下表85行使用各文章最近一次实际 execution scope：Materials24 `M4e8_RUNTIME_5a420d` 与3 `M4e8_CACHED_918901c`（本轮composite）；Quantum30 `Q134_NEW`、Chemistry27 `Ca5b6_NEW`、Pangenome27 `AC86_NEW`、其余144 `F0DE`均是228条历史记录。合成255PASS/0sourceFAIL、85来源consumers有PASS记录；228历史记录未在当前4e8重新执行。原e2c1三citation FAIL、73d6 Greek math FAIL与本轮旧consumer三heading FAIL保留在原外部cache及历史章节。此次Materials四validators在原六clips全PASS，native11脚本及两heading identity有显式来源定位/整个旧新MD比较证据；3修正headingconsumer PASS来自缓存新执行，不冒称原37全GREEN。registry不替代全部27组合/255records/ABA/resources/golden及final npmchecks验收。
 
 | Article | Expectation ID | Assertion ID | Source pointer (`articles[i].expectations[j]`) | markdown | links | quarto | State | Record scope | 阻塞证据 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -163,15 +163,15 @@ Fixture 总计 `1,577,502` bytes（13 files）。本分支原 B 输入的 Git tr
 | s41586-023-05896-x | source-inline-v1 | nature-source-inline-v1 | [4][6] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
 | s41586-023-05896-x | source-crossrefs-v1 | nature-source-crossrefs-v1 | [4][7] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
 | s41586-023-05896-x | source-ui-v1 | nature-source-ui-v1 | [4][8] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41586-023-06735-9 | source-metadata-v1 | nature-source-metadata-v1 | [5][0] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
-| s41586-023-06735-9 | source-abstract-v1 | nature-source-abstract-v1 | [5][1] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
-| s41586-023-06735-9 | source-headings-v1 | nature-source-headings-v1 | [5][2] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
-| s41586-023-06735-9 | source-equations-v1 | nature-source-equations-v1 | [5][3] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
-| s41586-023-06735-9 | source-figures-v1 | nature-source-figures-v1 | [5][4] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
-| s41586-023-06735-9 | source-citations-v1 | nature-source-citations-v1 | [5][5] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
-| s41586-023-06735-9 | source-inline-v1 | nature-source-inline-v1 | [5][6] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
-| s41586-023-06735-9 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [5][7] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
-| s41586-023-06735-9 | source-ui-v1 | nature-source-ui-v1 | [5][8] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
+| s41586-023-06735-9 | source-metadata-v1 | nature-source-metadata-v1 | [5][0] | PASS | PASS | PASS | EXECUTABLE_NOW | M4e8_RUNTIME_5a420d ×3 | — |
+| s41586-023-06735-9 | source-abstract-v1 | nature-source-abstract-v1 | [5][1] | PASS | PASS | PASS | EXECUTABLE_NOW | M4e8_RUNTIME_5a420d ×3 | — |
+| s41586-023-06735-9 | source-headings-v1 | nature-source-headings-v1 | [5][2] | PASS | PASS | PASS | EXECUTABLE_NOW | M4e8_CACHED_918901c ×3 | 原runtime3FAIL保留；缓存新consumer3PASS |
+| s41586-023-06735-9 | source-equations-v1 | nature-source-equations-v1 | [5][3] | PASS | PASS | PASS | EXECUTABLE_NOW | M4e8_RUNTIME_5a420d ×3 | — |
+| s41586-023-06735-9 | source-figures-v1 | nature-source-figures-v1 | [5][4] | PASS | PASS | PASS | EXECUTABLE_NOW | M4e8_RUNTIME_5a420d ×3 | — |
+| s41586-023-06735-9 | source-citations-v1 | nature-source-citations-v1 | [5][5] | PASS | PASS | PASS | EXECUTABLE_NOW | M4e8_RUNTIME_5a420d ×3 | — |
+| s41586-023-06735-9 | source-inline-v1 | nature-source-inline-v1 | [5][6] | PASS | PASS | PASS | EXECUTABLE_NOW | M4e8_RUNTIME_5a420d ×3 | — |
+| s41586-023-06735-9 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [5][7] | PASS | PASS | PASS | EXECUTABLE_NOW | M4e8_RUNTIME_5a420d ×3 | — |
+| s41586-023-06735-9 | source-ui-v1 | nature-source-ui-v1 | [5][8] | PASS | PASS | PASS | EXECUTABLE_NOW | M4e8_RUNTIME_5a420d ×3 | — |
 | s41467-023-44030-3 | source-metadata-v1 | nature-source-metadata-v1 | [6][0] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
 | s41467-023-44030-3 | source-abstract-v1 | nature-source-abstract-v1 | [6][1] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
 | s41467-023-44030-3 | source-headings-v1 | nature-source-headings-v1 | [6][2] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
@@ -912,3 +912,63 @@ TEMP仍 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c`，�
 | quarto | 69578 / 400f65a9ac702cb1576bed018fb5974b235d71e51646fe11ad6c7409ae923b53 | 67795 / 094a4e9e70c79113bbd518ac7a94d29a49d42b80df1be0b2cff9f6ae471f28e7 |
 
 C仍DEPENDENCY_PENDING；#67在真实完整admitted Materials中此role已解除，#68全部11identifier科学角色仍required。其它Chemistry/Alpha/FRB角色继续待各窄accepted prerequisites。最终combinedacceptedhead仍须canonical全255/27、四validators/strictwarnings、repeat/ABA/resources/golden/npmchecks/三平台CI；本partial不能代替它们。无spec change/Issue10完成声明/partial普通PR/manualclose。Integrator采用accepted main→A→完整B（含b718rights）→C authoredONLY；不能whole-C dependency branch合并覆盖B后补source rights。
+
+## Accepted4e8 Identifier — Materials 实际六 clips 与窄标题 consumer 增量
+
+Root release 的 accepted main 为 `4e8dcd9ce4998c3f8f373daecf332e7f9bfcfb74`（PR #79 / Issue #68）。Root 已核 Main `37764888330` 的 Ubuntu20、Ubuntu24、Windows24 jobs 分别于10:43:52Z、10:42:26Z、10:45:49Z全部success，Secrets `37764888340` 同head success；automation于10:46:02Z完成Issue68，见 [验收comment](https://github.com/uwougil/Academic-clipper/issues/68#issuecomment-6058158852)。C复用此接受证据，没有重新pollCI；own branch `codex/issue-10-agent-c` / worktree `C:/Users/guoli/.codex/worktrees/issue-10-offline/academic-clipper` 从clean7ab2恢复。Dependency-only `5a420d80891f0f4eb332e72dde5abf8ee2fa768f` 接入accepted4e8，不选择whole bug/C branch为delivery。
+
+复用原pending67计划、完整admitted Materials fixture（201653 LF bytes / SHA256 `c997a761f1dea592df1d1b6007d338bf028de4825e48acdd94645cd2eba05517`）、source packet34429 / SHA256 `84d93cc4261471a9c5ce20df73a214d8078be5d8d78e0c85211e07436a54ec35` 和32protected Gitobjects。原B/A/source inputs均未改，没有raw获取/解析、sanitizer、source audit、Quantum/full255/fullframework/production980重复。
+
+本轮需要保存六份返回值，故使用外部Node24 `registerHooks()` observer，只在原corpus test `execute()` 唯一return之前记录该返回值的MD、Bib、semanticSummary、comparison、request/DNS ledger、完整scientificRuns和sectiontargets；没有改assertions/cache/afterhook或tracked原test。实际网络 guards 在lazy imports之前安装，覆盖globalfetch、Node DNS callback/promises、HTTP/HTTPS get/request、net.connect/createConnection、tls.connect，任何attempt先入账再throw；beforeExit恢复原bindings和builtin exports，DOMglobals恢复亦核同一身份。Observer六captures、attempts[]、restored/domRestoredtrue。Writer证据限定本existing execute→clipNature调用链，没有writer import/invocation或未监测的writerCalls计数。
+
+首launch使用Windows路径作为`--import`参数，test导入前即`ERR_UNSUPPORTED_ESM_URL_SCHEME`，1launcherFAIL、42.8252ms、实际clips0。原log/exit已保存为`accepted-identifier-launch-import-scheme-failed.*`。改为`file:///C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c/accepted-identifier-observer.mjs`后，唯一实际batch为session12291，samehandle terminalexit1：**37 tests /30PASS7FAIL/16437.6854ms/0skip/cancel/todo**。六clips=三baseline+三repeat；24source PASS、3source-headings FAIL、3repeat PASS，另3parents和既有after缺24组合硬FAIL。Status records3、missing24、errors[]、unexpected[]、completefalse；没有改为green/complete。
+
+四production validators及scientificFragments在每方言均GREEN，issues[]、所有orphan counts0、display1保持。显式postcheck证明整个旧/new Markdown bytes只变化**9原body/caption identifier和2原heading**：旧`r$^{2}$ SCAN`/caption无space等价位置成为`$r^{2}SCAN$`；两个标题为原H3 `Validation through experimental matching and $r^{2}SCAN$` 与H4 `$r^{2}SCAN$`。Quarto原IDs `sec-validation-through-experimental-matching-and-r2scan` / `sec-r2scan`保留，semantic `Sec7` / `Sec33`仍是原sourceText label与dialect-free anchors。不是凭validator绿色推断silent headings。
+
+11target原source位置与prehash/digests复用：Main a-section-1/p2×1，Fig2caption a-section-4/p2×1，a-section-4/p5×3，Methods a-section-6/p25×3，Dataavailability/p0×1，H3 #Sec7×1、H4 #Sec33×1。两heading原subtree digests `e1ba1824e3e1a4d84358faa175b14c30f234cfddf3af996eb0060851b035de00` / `233ddf198b2cef3cea8b897146077c29ca65bdbff5e2bf817d082155f2ed7b3f`来自已sealed source68契约，未重新source audit。完整fullB semantic array另含ref29/ref43两个原同形identifier，合计13typed identifier ranges；全部ordered scientific ranges保存在六captures与receipt。其余metadata/orderedauthors/reference-prefix71/citation-clusters79/equation/tables/warnings逐字与36c缓存相等；完整Fig2 caption仅该identifier变化。Methods/p42全部旧段落包括原101.18、σ/1,000K、native `mS×cm^-1`、citation69、Supplementary Information链接与邻文保持；每baseline/repeat资源/ledger/warnings均准确empty。六保存值的MD/Bib/summary/comparison/ledger/scientificRuns/sectiontargets/body/referenceMD都确定性相等（run ordinal独立）。
+
+### 原consumer假失败与最小C修正
+
+原source-headings期待保存plaintext `r2SCAN` identity，C旧consumer直接比较finalheading字面文本，因此正确带脚本两个标题引起orderedBodyHeadings与两level predicates失败。没有生产/source/oracle缺陷。Root在保留证据后明确释放C-owned窄修正；authored `918901c0957b5021f1712594e6c83f33d7384490`仅helper与新focused test。
+
+Private `sourceIdentifierHeading()`从实际retainedheading直接text/native单text SUP2/uppercase suffix读取whole identifier；构造有限whole表达式等价形式（原case、单base、指数2、完整suffix、romanfont或Unicode²）。它不删除一般math/braces、不凭semantic parser输出发明source期待；平`r2SCAN`继续FAIL，split/orphan、错误指数/case/grouping、未知多余内容、duplicate/missing/level/order继续拒绝。实际sourceText仍与原B value相等；完整orderedheading检查保留。没有新增exports、API/schema仍1.0.0；新helper Git blob `8897a61e3ac044442c5e7bcc1a59b2c292ff5d3d`，57879 Git/physical bytes / SHA256 `660c8f04c317c55afd1ab4082999e4a162e02aa24f3b7050d8b7d5461a7b07c6`。旧reviewed f914不覆盖该delta，独立审查尚待root安排；D须在其完成后消费exact新blob，不把旧consumer检查当新实现acceptance。
+
+新`test/nature-corpus-heading-identifiers.test.mjs` blob `954b2610d6d16bc7823b1c6f1842c7d3e175af80`，7181bytes / SHA256 `849871fcde797c0e0b766b5c0f9a7533185b56665e0f9602a9ed8ea53c5f185f`。三方言explicit synthetic q/SUP2/MODEL有限合法编码与拒绝控制常规执行；设置external cache prefix时附加诊断，六份返回值逐一执行**只改变的heading consumer**，每份14个实际heading mutations拒绝，并显式核两个originalsemantic label/slug。Root特许一次frozenfullB Materials DOM解析供该sourceDocument-dependent断言使用，不是新source audit；另1个明确synthetic DOM。Both DOMs关闭、fetch/DNS guards入账[]、exactbindings恢复；新clip invocations0由实际调用链仅consumer说明，不声称有parser/writer spy。
+
+唯一focused run：**7/7 PASS，957.3729ms，exit0，skip/cancel/todo0**。该run没有clip，亦没有再执行其它24未变sourceconsumers或raw/A审计。原37 remains30/7；只将原24runtimePASS加3baseline新cachedheadingPASS组成当前27source acceptance记录；重复cached3headingPASS另记录。85行registry为24`M4e8_RUNTIME_5a420d` +3`M4e8_CACHED_918901c` +228historical（Q13430/Ca5b627/AC8627/F0DE144），不能宣称新全255/27。
+
+### 本轮确切命令和外部证据
+
+External root仍`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c`；六capture文件包含返回值，不提交Markdown快照。首postcheck与consumer reconciliation均第一次exit0，无新clip/sourceparse。
+
+| Command | Actual result |
+| --- | --- |
+| `git fetch origin main`；`git merge --no-ff 4e8dcd9ce4998c3f8f373daecf332e7f9bfcfb74 -m 'chore(corpus): adopt accepted scripted identifier prerequisite'` | dependency5a420d，32protected identities/sourcepacket/plan/旧receipt hashes unchanged |
+| `node --import file:///C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c/accepted-identifier-observer.mjs --test --test-name-pattern $cPlan.pattern test/nature-corpus.test.mjs`；env `ACADEMIC_CLIPPER_CORPUS_RECEIPT_PREFIX=<TEMP>/accepted-identifier-materials-delta` | session12291 closedexit1；37/30PASS7FAIL16437.6854ms；exact3+3clips |
+| `node <TEMP>/accepted-identifier-materials-receipt.mjs` | exit0，cached完整MD仅11originalscript变化/全部nativeheading身份/4guards/refs/cites/p42/repeat/strictledger与原失败一致；newclips0 |
+| `node --test test/nature-corpus-heading-identifiers.test.mjs`；env `ACADEMIC_CLIPPER_HEADING_CACHE_PREFIX=<TEMP>/accepted-identifier-materials-delta` | 7/7PASS957.3729ms；6cachedheadingconsumer，sourceDOM1+syntheticDOM1/2closed，新clips0 |
+| `node <TEMP>/accepted-identifier-consumer-reconciliation.mjs` | exit0，27currentcomposite/228history，原37/30/7未变、24未变consumers复用、新3baseline/3repeatheading结果与same6outputs对账 |
+| `git diff --check`；stageddiffcheck、trackedfilenames/status、commit/push | consumer authored仅上述2files；doc-only本handoff另提交，finalSHA由交接消息标识；没有为文档重跑tests |
+
+`$cPlan.pattern`仍exact正向filter：`^(?:s41586-023-06735-9)/(?:markdown|links|quarto): (?:every source expectation through the complete production chain|repeat Markdown, bibliography, semantics and replay operations)$`。
+
+| Artifact | Bytes / SHA256 |
+| --- | --- |
+| `accepted-identifier-materials-delta.log` | 56517 / `42142886eb5bb2ea37373b1b462b25f2faffe305a1709bb29ad83b761656880a` |
+| `accepted-identifier-materials-delta-observer.json` | 3192 / `60dbe4e4efb0a1f959b70514485b6a880a3cbeb24cf1a37abbaf0a0679275358` |
+| `accepted-identifier-materials-delta.comparisons.json` | 222889 / `532261304d306550a284178c1cb0ddaf329d2eb74d8a6d93e5b1caf53d530ad0` |
+| `accepted-identifier-materials-delta-receipt.json`（原actual六clip/source24/3失败/native11全部证据） | 161016 / `4f717d7ae01a710ec9883db8579bcbb4d866d23dc0bee897644e75b51aad648d` |
+| `accepted-identifier-consumer-focused.log` | SHA256 `6b4db31abaa90404457ec2befbe2167e52aa3af3fa14c3aabc84746d9a34273c` |
+| `accepted-identifier-materials-delta-consumer-results.json` | SHA256 `69a692f1d86bc832989f5a0f9f053327d18f46e60647cd9240f9e1417f5dc876` |
+| `accepted-identifier-materials-delta-consumer-guard.json` | SHA256 `302abb2f74a0290f92de8d781687154bded5aad94cfd0bcba14e92e64a82d5b0` |
+| `accepted-identifier-materials-delta-consumer-reconciliation.json` | 47927 / `1dc7eac9bad6f4b5dab67a234c0caf15e8052e19b2c3c93a6130da1e7a36ec39` |
+
+Six full-return captures prefix `accepted-identifier-materials-delta.<dialect>.run<N>.json`：
+
+| Dialect | Baseline bytes / SHA256 | Repeat bytes / SHA256 |
+| --- | --- | --- |
+| markdown | 303549 / `1447335cfc83c5a3b93a9afc27e9d4bd07976e7fe6791d731fe83c46b0c7713c` | 303549 / `cbef5d6a0bbf03f463b3cce3dc25955d5761398f41026b72a2c5a04d223c640a` |
+| links | 375375 / `dc0c0e8ac15ca19c060588e2ff75c4d89a5755b800f92fe71d3629b34008ba9d` | 375375 / `4c35e3b7e691dbb8f1a40ce7ed16ebf803e47cbece83493ff7481caceccda90c` |
+| quarto | 290854 / `7e17ec665b486201747a28ec63fdd1879bdd41f73961baabbe525701443bd91e` | 290854 / `dd988306115a0f6fc8f3945ac2f46679e2e39dafb89d44dc7eeea3fe206fee05` |
+
+No proposed spec changes/新生产parser缺陷/sourceinput修改。下一步root不同owner审查exact918consumerdelta与scope receipt；D接入新helper须等待该CLEAR。C仍待其它accepted科学修复与最终currentcombined255/27、全部4validators、repeat/ABA/resources/golden与canonical npmchecks/三平台CI。Integrator在explicit C authored序列后选择918及本doc commit，新增focused模块应纳入最终明确corpus文件列表；不要whole-C merge覆盖完整B含b718rights。此次不建立ordinaryPR、不手动关闭任何Issue、不宣称Materials/C/Issue10最终complete。
