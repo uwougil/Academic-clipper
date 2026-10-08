@@ -1,6 +1,6 @@
 # Agent C — 来源核验与离线回归检查点
 
-状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线为 accepted `e2c1faddf7219f1886f0fa846353f0f667358375`（PR #66 / Issue #60 table caption）。Reviewed ec53 / helper e3ff、API `1.0.0`、C tests 和 B 科学输入均未变。
+状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线仍为 accepted `e2c1faddf7219f1886f0fa846353f0f667358375`（PR #66 / Issue #60 table caption）。新 C-owned consumer commit `9c5c3ff9f232ecc3d9eb03b579fb04eef45a4fce` 修正独立仲裁确认的容器顺序过度约束，等待不同 owner 的 implementation review。API/schema 仍 `1.0.0`，B 科学输入、生产实现和四 validators 未改。下述 d993 40tests / 85行 map / 252–3 均为保留的历史检查点；最新 consumer-only 范围见文末，不把其缓存检查冒充新生产全套验收。
 
 本轮仅复验 Quantum `s41534-023-00746-0` × 三方言：30 条来源记录 27 PASS / 3 FAIL；3 个 Markdown / Bib / semantics / replay repeat 全部 PASS。实际 session22332：40 tests = 30 PASS / 10 FAIL，0 skip / todo / cancel，43,193.7263ms。10 FAIL 包含 3 个 citation 子测试、3 个 validator 子测试、3 个 parents 及 receipt 缺 24 个组合的硬 FAIL。每方言完整 source-crossrefs 已恢复；原 12 个 table-caption MathJax 产生的 24 legacy delimiter issues 消失。其余 math 仍 19 issues（17 Greek isolatedSubscript、2 split isolatedSuperscript），整篇不通过。
 
@@ -61,7 +61,9 @@ C authored delivery 顺序：
 13. `3006f0f7381ba843efc3c17b98370194b0a04017` — 前一accepted0de/e3ff scoped241/14与来源角色handoff；独立review已clear。只包含本文件。
 14. `19e09534736ff77b673fd289ea0b63a91514c7e3` — accepted ac86 三篇九组合的真实 source / validators / cache / 85 scope handoff；只包含本文件。
 15. `3d533fb15115ad670e30b52b11ac6435d654c53a` — accepted3889 Materials 定点 handoff；只包含本文件。
-16. 本次 accepted e2c1 Quantum 定点 handoff commit；其准确 SHA 由 `git log -1 --format=%H -- docs/goals/issue-10/agent-c-handoff.md` 取得，并在交接消息报告。该 commit 只包含本文件。
+16. `d9939c650a3756232857c09bb08194483c4fb315` — accepted e2c1 Quantum 定点 handoff；只包含本文件。
+17. `9c5c3ff9f232ecc3d9eb03b579fb04eef45a4fce` — 按独立容器顺序仲裁修正 citation consumer，并增加真实/明确 synthetic mutations；只含 helper 与 corpus test。
+18. 本文末 consumer-only receipt 的 doc-only commit；准确 SHA 由交接消息与 `git log -1 --format=%H -- docs/goals/issue-10/agent-c-handoff.md` 取得。
 
 ## 实际接口
 
@@ -602,3 +604,31 @@ External source / rights 审计此前 13 raw / 85 oracle 全部 valid，本轮�
 3. 85registry当前30 Qe2c1_NEW、27 M3889_NEW、54 AC86_NEW、144 F0DE；252/255仅合成，不声称最新main full通过。Source剩余3FAIL只为Quantum caption59→final76的ordered-cluster predicate；citation58和crossrefs43/44已真实恢复，准确顺序契约待独立审查。各known scientificvalidator FAIL还必须独立通过。D采用 actual reviewed e3ff helper / API1.0；controller修复属D，不改C helper来通过provider。
 4. 下一实际accepted prerequisites改变失败后恢复SAME C运行必要scope。最终canonical验收仍要85×3、27validators/warnings/repeat/ABA/resource/golden和§9 checks / matrixCI；本轮仅Quantum3combos，缺24 hook硬FAIL不可mockcomplete。无必要不重复13raw/85sourceaudit、旧full或60mutations；必须完整验收时另在固定combinedacceptedbase执行。Root可仅用本次 immutable source / actual cache 进行独立顺序契约审核，不能补跑本批来制造不同结果。
 5. 当前clean checkpoint为DEPENDENCY_PENDING，不宣称C或Issue #10完成、不打开ordinary partialPR。Canonical/PRD/EDD/Bscientificoracle/production/validators由C保持原样；无spec语义改动提案。
+
+## 9c5c3ff 容器 citation consumer-only 检查点
+
+本节覆盖新的 C-owned implementation，不改上述 d993 历史执行记录或 85 行 map。独立合同仲裁已确认：canonical §7 的 cluster 内有序 numbers 与 definitions/keys，并未新增所有 tables 必须 inline 的输出行为；accepted B base e85 已把 tables 放到末尾 `## Tables`。旧全文扁平比较把合法 table relocation 当成 failure，属于 `AGENT_RESOLVABLE` 的 C consumer 缺陷。独立报告为 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-cluster-order-arbitration/cluster-order-arbitration.md`，13171 bytes / SHA256 `9ee18b07e54dbbff2db07bd8f9466b5a04a656ee604fed65871e2aad1cc7fffb`；本 implementation 尚待另一 owner 独立审查。
+
+固定 code head 为 `9c5c3ff9f232ecc3d9eb03b579fb04eef45a4fce`，生产基线 e2c1 不变。API/schema仍 `1.0.0`。helper blob `f9144ce6f40653061ee57164d6612860c47da981`，55520 Git/working bytes / SHA256 `120b67bb02bf0d209b2e0a47bb7a8f24424a2b23792604db42ab67cba2347cf4`；test blob `9530e0f194f78cc7d0ff9a9e98fb4b660873585f`，36099 Git/working bytes / SHA256 `2b71573750c6f614ecce7855270e165841aa31f05721295452208737524a1a04`。`git diff --quiet d9939c650a3756232857c09bb08194483c4fb315 -- src test/corpus papers docs/specs docs/PRD.md docs/EDD.md` exit0，确认科学 source/oracle、生产实现、四 validators、golden、意图未改。
+
+新消费者从 immutable retained DOM 识别真实 table caption owner：必须有唯一 caption ID、原 label、唯一声明的 full-size resource URL。最终每个 table frame 必须按原 source table 顺序具有唯一 label、匹配 URL 以及方言 target；模糊/重复 framing fail closed。只允许这个已有 output container relocation。semantic/source 的全文 cluster 顺序仍严格相等；非 relocation 正文 cluster 顺序、每个 table caption 的 cluster 顺序、每簇内 numbers/key/token、完整 occurrence 总数、references/Bib keys 顺序保持严格检查。每个 citation 绑定对应 occurrence 和该容器内原 before/after 邻居，不能由别处相同号码或正文命中替代。不排序 oracle/output，不按 Quantum ID/index59/citation58 特判。
+
+该步重用原实际 Markdown、references、semantic citation arrays：Quantum 取 e2c1 packet，Materials 取3889，Pangenome/Chemistry取ac86，其余取0de；这些输入的生产基线分别保留，**不是 e2c1 新27 clips**。外部 harness 只重建 citation consumer 所需的 result 字段，不冒充完整 production result 或重新运行 `compareArticleResult()`。旧 helper 同缓存27 cases为24 PASS / 3真实 Quantum FAIL；固定9c5 helper为27/27 PASS。真实 source mutation function bodies 从永久 test 精确提取，对同缓存三方言运行8项各方言，共24 checks：删原引用而别处同号码仍在、重复、错号码、移到正文、改邻词、交换正文簇、增加 unmatched 引用、簇内号码倒序，均拒绝，semantic 对象保持原件。
+
+明确 synthetic 的双表/多簇补充永久 tests 实际3/3 PASS、0 skip/todo/cancel、682.2205ms，共33 rejection checks：错误 owner、簇内/容器顺序、缺失/重复、错误号码/邻词、跨 owner 移动、重复 frame、错误 resource、unmatched token 和原 caption identity 歧义。Synthetic 不算真实文章或 scholarly oracle。该缓存步骤与 synthetic tests 的 new clips/raw parses/sanitizer regenerations/network/full suites 均为0。外部初始 harness 的 bibliography 缺字段、caption label range、有限 JSON diagnostic 纠正不属于真实科学 RED；不借这些 harness 故障充当 regression。
+
+外部文件均在 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c/`，没有提交 raw capture、Markdown snapshot 或生成结果：
+
+| Filename | Bytes | SHA256 |
+| --- | ---: | --- |
+| citation-container-cache-check.mjs | 4943 | 8ca94d1d53ff2ab204dd348c0924e0165dc62367f39d649e402c3ec251e12179 |
+| citation-container-old-helper.mjs | 51215 | 38a8a95bfa4ccb365aa0828272ffa13d5bb329b13084680b8a6a5aa980969656 |
+| citation-container-red-cached-results.json | 35368 | 5b9cdfd696057bf0b97091d524d2ddf4108074435531ac527e067fee7fae74d7 |
+| citation-container-green-cached-results.json | 8178 | d937861747b52e3b83dbbc50007351bb67c642490837a2f40bfe4d7aaea4b976 |
+| citation-container-final-exact-cache.log | 93 | 9ab2d511f1550e167dde868ddf5d5414c6854f50c68f1779f39e114ae8cd3cc7 |
+| citation-container-final-synthetic.log | 452 | c842d5f710edd461b0fad6df3276c176a90a071453f7fbaed8202691ccf7d426 |
+| citation-container-identity-receipt.json | 3341 | f6ef5fa728a5cbe9be95a1dd4ffe3fd1772863d05e3c159abc8aeac29ec70a84 |
+
+可复现的原 scoped 命令为 `node <TEMP>/citation-container-cache-check.mjs red`、同脚本 `green`，以及 `node --test --test-name-pattern="^synthetic citation containers reject wrong owner, caption order and ambiguous framing/(?:markdown|links|quarto)$" test/nature-corpus.test.mjs`（无 receipt env）。旧 red 是脚本报告三个真实 consumer FAIL，非声明旧脚本 process exit1；最终 exact-cache log 报27/27与24 mutations，synthetic TAP 报3/3。恢复者读取既有完成输出并核对7份 evidence 的 bytes/SHA256、27 reports/current helper/test身份和保护路径 quiet diff，没有重复这些命令。9c5实施者与独立 reviewer 的职责保持分开。
+
+旧 d993 实际40tests30PASS/10FAIL、receipt24missing硬FAIL与 Quantum每方言19 math issues 继续作为历史事实保留；本节只证明 source-citations consumer 范围修正，不把整篇 validator FAIL 或 unconsumed receipt 改成PASS，不推导新255全来源/27全生产验收。真实 mutations在最终 canonical batch会由永久 test 的 `run()` 消费完整生产结果；当前只是其准确函数体的缓存执行。下一步先独立审查 immutable helper/test，接入 root释放的 accepted dependency，按准确 article/dialect filter运行受影响来源与repeat；最终 full255/27、四 validators/strictwarnings、replay/resources、determinism/ABA、golden、npm checks与三平台CI仍必需。D消费新 helper 时须核对上述 blobs/API；C、D、Issue #10均未声称完成。Canonical无需语义修订。
