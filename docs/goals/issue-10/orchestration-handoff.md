@@ -15,7 +15,7 @@
 
 ## DAG / 文件所有权
 
-当前 checkpoint（2026-10-08 UTC；以下 startup 表及正文执行日志为历史；accepted main `73d6cfafba9bb33149959e315ab29b5b0bc24d75`）：
+当前 checkpoint（2026-10-08 UTC；以下 startup 表及正文执行日志为历史；accepted main `134ba67a9eefe8763314454183a625f83a34837b`）：
 
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
@@ -28,8 +28,9 @@
 | leading-isotope61 | DONE | PR69 exacte88独立零阻塞及十门槛通过；squasha5b6acc；Main37716530268/Secrets37716530267SUCCESS；61automationCOMPLETED |
 | split-power63 / PR76 | DONE | final993/737full/十门槛；squash73d6 Main37734814590与Secrets SUCCESS；63 automation completed；C actual拆分SUP归零 |
 | reference2 literal inequality65 / PR70 | DONE | final7c32/676full/十门槛；squashf4a5 Main37725961177与Secrets SUCCESS；65 automation completed |
-| Greek64 | RUNNING required full verification | code07be + DOC7dd012，93focused PASS / independent8delta PASS零阻塞；120source审核复用；唯一Nature production owner，full/build/golden已root release，尚无PR |
-| Materials identifier68 / compound-unit67 | DONE for source inputs / production pending | 67 clean961092的99block、68 cleand501e4的81block均独立SOURCE_CLEAR_ONLY；67仅新preflight并行，Nature写权等待64 accepted Main |
+| Greek64 / PR77 | DONE | final2a231/code07be，93focused/181affected/830full/build/golden/独立zero blockers/三平台CI/Secrets全部通过；squash134ba67 Main37740911355 SUCCESS，64 automation completed；C定点实际复验进行中 |
+| compound-unit67 | RUNNING sole Nature production | source99 CLEAR，preflight38d236与独立计划8047dd兼容；accepted134ba67正式release，最小collector先focused和独审，full尚未释放 |
+| Materials identifier68 | DONE for source inputs / preflight additions | source81 CLEAR，新48=39PASS9RED/6442d6，两gap仅新10cases补证中；生产不得与67并发，尚未release |
 | Other mandatory scientific71–75 | DONE for source inputs / production pending | 独立各来源清关与真实RED已保存；正确roles仍必须修复，按窄合同串行Nature生产，不重做有效采集/审核 |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
@@ -703,3 +704,11 @@ FreshPRCI37737285330 exact2a231全部SUCCESS：U20job11317961158306:32:48Z、U24
 `gh pr merge 77 --repo uwougil/Academic-clipper --squash --match-head-commit 2a231aa24f6d4ceaf0d9113dca68b2f8692473d5` exit0；mergedAt07:01:18Z、squash `134ba67a9eefe8763314454183a625f83a34837b`。Fetchorigin/main同SHA。MergedMain37740911355与Secrets37740911189实际live，root唯一watch interval60 session75708；三个Mainjobs U24 113191151412/Win24 113191151763/U20 113191151772。Accepted仍73d6直到MainSuccess，#67生产/Cadopt与actualdelta未release，不manualclose64/10。
 
 C原恢复尝试usage limit失败、原791d2clean数据全部保留；§22另一samebranchrole只读准备pending64定点，没有重clip/schema/source框架。67原newmatrix53scope分两run46=38PASS8RED、7=6PASS1RED，并非53整轮；stable38d236b4462d0dce4cb7f5592c2e8b15060f314c干净，原99source/真实3clips未重做；不同owner计划review尾段只读继续。利用Main等待时68 SAMEsourcebranch新preflight准备，原source81/old真实RED审核全复用，只有缺失synthetic边界；不得与67未来Nature生产并行写共享文件。
+
+## 07:12 UTC：134ba Main 接纳、C实际恢复与 #67 单生产写权
+
+Root唯一Mainwatch75708实际terminalexit0；随后API读取same134ba mergedMain37740911355所有三jobs success U24 11319115141207:05:57Z/U20 11319115177207:09:22Z/Win24 11319115176307:09:35Z，mergedSecrets37740911189 same134ba success。Issue64由github-actions自动CLOSED/COMPLETED07:09:48Z，root完整读实际comment https://github.com/uwougil/Academic-clipper/issues/64#issuecomment-6054575816；fetchorigin/main134ba相同。Accepted更新134ba，不人工关闭Issue，未重启CI或full。
+
+Same C的新只读pending64-quantum-791d-preflight.json46335/SHA7990bec3507251400ce701fa149bd521091ee2f7882362d63d37552bf717b884 root核actualhash/plan；17source roles/bodycaption/sourceparagraphorder/exactreplay与32protected输入冻结。Source64机器证据真实hash为628be3bf139544503f38b17614489a42e8ec95dfd43c1007c80a33753b84e0cd，先前summary手打末尾差异不权威，root实际GetHash确认，不重新来源审计。Formalrelease后 dependency-only d3dd8573560be019164698f726425294a5101239 adopted134ba，32objectsquiet/prefixabsent，唯一actualQuantum session9983 confirmedLIVE；尚不称PASS。仍3baseline+3repeat、30current source+3repeat/fourvalidators/17originalnative科学roles，partialafter24missing必须HARDFAIL，不伪255/27。
+
+67不同ownerplan-review-38d236b.md4424/SHA8047dd9fc8b315751c4e940648dd9e0144f392ae7a00de4ffc7975217405d97d与machine1381SHAc661af0da8fe6582912bf899b9148d87e213ff05b15a82c7bc3a138e0e4aba46 root全文read，zero planfindings不是implCLEAR。Formalrelease SAME sourcebranch38d236最小mS×cm逆幂privatecollector，唯一Nature owner；source99/A/old46+7baseline/old3clips不重做。必要stablefocused后不同owner先审再一次full，防止全量后边界返工。68 source81/A已CLEAR不重采，新48 constructed一次39PASS9missingRED1012.9236ms，6442d6仅test/doc；root完整读计划。Differentowner计划report4717/SHAbd2a2629a5f287a6dbf6f63b40111eb0cfd500e42075dd64ebaf3457e8fe0177明确两证据gap：negativefilter-only可漏错误typedrecord，以及没有动态fetchDNSguard。Owner仅新10cases8PASS2missingRED717.5275ms、record-beforethrow ledger[]/restoretrue完成，原48不重跑/staticscope不冒充动态proof；doc/commit/最终计划尾审进行中。DOMshape保存原脚本，q²MODEL明确syntheticanti-hardcode而非功能推断，无需allowlist/specchange；68生产仍锁，禁止与67写共享Nature。
