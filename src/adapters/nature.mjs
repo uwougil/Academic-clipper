@@ -228,6 +228,7 @@ function captionFor(figure, { includeFigureDescription = false } = {}) {
     : null;
   const html = [element?.innerHTML, description?.innerHTML].filter(Boolean).join(' ');
   return {
+    element,
     text: cleanText([element?.textContent, description?.textContent].filter(Boolean).join(' ')),
     html,
   };
@@ -312,19 +313,24 @@ function tableNotes(root) {
 function extractTables(body, url) {
   let number = 0;
   return Array.from(body.querySelectorAll('figure')).flatMap((figure) => {
-    const caption = captionFor(figure).text;
+    const captionData = captionFor(figure);
+    const caption = captionData.text;
     if (!/^Table\b|^Extended Data Table\b/i.test(caption)) return [];
     number += 1;
+    const identity = `inline-table-${number}`;
+    figure.setAttribute(FIGURE_IDENTITY_ATTR, identity);
     const link = figure.querySelector('[data-test="table-link"]')?.getAttribute('href')
       || figure.querySelector('a[href]')?.getAttribute('href');
     const id = figure.id || figure.querySelector('[id^="Tab"]')?.id || '';
     const tableElement = figure.querySelector('table');
     return [{
+      identity,
       id,
       natureId: id,
       anchor: `table-${number}`,
       label: tableLabel(caption, `Table ${number}`),
       caption,
+      captionHtml: captionData.html,
       url: normalizeUrl(link, url),
       tableHtml: tableElement?.outerHTML || '',
       notes: tableNotes(figure),
@@ -442,9 +448,19 @@ function extractMathSource(value) {
   return text;
 }
 
-function replaceDisplayMath(body) {
+function replaceDisplayMath(body, tables) {
   const values = [];
-  for (const element of Array.from(body.querySelectorAll('.c-article-equation .mathjax-tex'))) {
+  const tableDisplayMath = [];
+  for (const table of tables) {
+    const figure = body.querySelector(`[${FIGURE_IDENTITY_ATTR}="${table.identity}"]`);
+    if (!figure) continue;
+    for (const element of captionFor(figure).element?.querySelectorAll('.mathjax-tex') || []) {
+      const source = element.textContent.trim();
+      if (!element.closest('pre, code') && (source.startsWith('\\[') && source.endsWith('\\]')
+        || source.startsWith('$$') && source.endsWith('$$'))) tableDisplayMath.push(element);
+    }
+  }
+  for (const element of new Set([...body.querySelectorAll('.c-article-equation .mathjax-tex'), ...tableDisplayMath])) {
     const tex = extractMathSource(element.textContent);
     if (!tex) continue;
     const marker = semanticMarker('DISPLAYMATH', values.length);
@@ -581,12 +597,12 @@ function setRangeEnd(range, end) {
   else range.setEnd(end.node, end.offset);
 }
 
-function replaceRangeWithScientificMarker(parent, start, end, values, inlineMathByMarker, provenance) {
+function replaceRangeWithScientificMarker(parent, start, end, values, inlineMathByMarker, provenance, sourceTex) {
   const range = parent.ownerDocument.createRange();
   range.setStart(start.node, start.offset);
   setRangeEnd(range, end);
   const fragment = range.extractContents();
-  let tex = Array.from(fragment.childNodes)
+  let tex = sourceTex ?? Array.from(fragment.childNodes)
     .map((node) => scientificTex(node, inlineMathByMarker))
     .join('')
     .replace(/[ \t\r\n\u00a0\u2009]+/gu, '');
@@ -744,6 +760,86 @@ function collectNumericSuperscriptRun(parent, startIndex) {
   };
 }
 
+function collectPlainGreekSubscriptRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  // Literal math/code can span siblings. This narrow DOM role leaves that
+  // opaque context to existing paths rather than interpreting its delimiters.
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
+  const subscript = parent.childNodes[startIndex];
+  if (!isElement(subscript, new Set(['SUB'])) || subscript.childNodes.length !== 1) return null;
+  const child = subscript.firstChild;
+  const atom = child.nodeType === 3 ? child
+    : child.nodeType === 1 && child.tagName === 'I' && child.childNodes.length === 1
+      && child.firstChild.nodeType === 3 ? child.firstChild : null;
+  // Preserve the source-backed atoms without flattening nested, mixed, linked
+  // or typed-math children into a guessed index.
+  if (!atom || !/^[abi0]$/u.test(atom.textContent)) return null;
+  const previous = subscript.previousSibling;
+  if (previous?.nodeType !== 3 || !/[ΓΩ]$/u.test(previous.textContent)) return null;
+  const offset = previous.textContent.length - 1;
+  if (offset === 0 ? previous.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(previous.textContent.slice(0, offset))) return null;
+  // Additional mathematical attachments are ambiguous here. A following
+  // citation SUP remains independent, as defined by isElement's typed guard.
+  if (isElement(subscript.nextSibling, SCIENTIFIC_ATTACHMENT_TAGS)) return null;
+  return {
+    start: { node: previous, offset },
+    end: { node: subscript, after: true },
+  };
+}
+
+function collectSplitNumericSuperscriptRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  // Literal math/code cues can span inline siblings. This DOM role does not
+  // parse those opaque syntaxes: leave the whole candidate to existing paths.
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
+  const sign = parent.childNodes[startIndex];
+  const digits = sign?.nextSibling;
+  const plainSup = (node) => isElement(node, new Set(['SUP']))
+    && node.childNodes.length === 1 && node.firstChild.nodeType === 3;
+  // These are two original, contiguous plain SUP nodes forming one signed
+  // integer exponent. Whitespace, comments and styled/citation children are
+  // boundaries; scientificTex must not serialize this as two exponent groups.
+  if (!plainSup(sign) || !/^[−+\-]$/u.test(sign.textContent)
+    || !plainSup(digits) || !/^\d+$/u.test(digits.textContent)) return null;
+  const previous = sign.previousSibling;
+  if (previous?.nodeType !== 3) return null;
+  const text = previous.textContent;
+  if (!/(?:^|[\s~=(,:;+\-*/×])10$/u.test(text)) return null;
+  const offset = text.length - 2;
+  // A text-node edge is not a lexical edge. An unknown sibling/comment can
+  // continue a word, decimal or identifier; require a boundary in this text.
+  if (offset === 0 && previous.previousSibling) return null;
+  // A subsequent citation keeps its own typed role. A third scientific SUP
+  // instead makes this an ambiguous chain, which this narrow role cannot infer.
+  if (isElement(digits.nextSibling, new Set(['SUP']))) return null;
+  return {
+    start: { node: previous, offset },
+    end: { node: digits, after: true },
+    tex: `10^{${sign.textContent}${digits.textContent}}`,
+  };
+}
+
+function collectLeadingIsotopeRun(parent, startIndex) {
+  const mass = parent.childNodes[startIndex];
+  if (!isElement(mass, new Set(['SUP'])) || mass.firstElementChild
+    || !/^[1-9]\d*$/u.test(mass.textContent)
+    || mass.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  const element = mass.nextSibling;
+  // These are the source-backed element roles. A whole word, another element,
+  // or presentation whitespace after SUP is not evidence of this prefix role.
+  if (element?.nodeType !== 3 || !/^[HCF](?![\p{L}\p{N}_])/u.test(element.textContent)) return null;
+  const previous = mass.previousSibling;
+  // Contiguous numeric/styled bases belong to the existing exponent collectors.
+  // A measurement's original separating whitespace stays outside this range.
+  if (previous && (previous.nodeType !== 3
+    || !/[\s\u2009\[(]$/u.test(previous.textContent))) return null;
+  return {
+    start: { node: parent, offset: startIndex },
+    end: { node: element, offset: 1 },
+  };
+}
+
 function collectTextAndStyledSymbolRun(parent, startIndex, inlineMathByMarker, displayMath) {
   const node = parent.childNodes[startIndex];
   if (!isElement(node, new Set(['I', 'B']))) return null;
@@ -800,7 +896,10 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
         : collectStyledRun(parent, index)
           || collectTextAndStyledSymbolRun(parent, index, inlineMathByMarker, displayMath)
           || collectNumericAttachmentRun(parent, index)
+          || collectPlainGreekSubscriptRun(parent, index)
+          || collectSplitNumericSuperscriptRun(parent, index)
           || collectNumericSuperscriptRun(parent, index)
+          || collectLeadingIsotopeRun(parent, index)
           || collectDetachedSuperscriptRun(parent, index);
       if (!range) {
         index += 1;
@@ -815,6 +914,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
         node.nodeType === 3
           ? 'Nature MathJax plus adjacent inline scientific nodes'
           : 'Nature inline style nodes (<i>/<b>/<sub>/<sup>)',
+        range.tex,
       );
       if (!replaced) {
         index += 1;
@@ -955,7 +1055,7 @@ function insertAnchorMarker(parent, marker) {
 }
 
 function prepareSemanticNodes(body, url, figures, tables) {
-  const displayMath = replaceDisplayMath(body);
+  const displayMath = replaceDisplayMath(body, tables);
   const inlineMath = replaceInlineMath(body);
   const scientificRuns = replaceScientificRuns(body, inlineMath, displayMath);
   const literalText = replaceScientificBracketText(body);
@@ -986,6 +1086,11 @@ function prepareSemanticNodes(body, url, figures, tables) {
   // Capture the protected caption DOM, including citations and typed math,
   // before main figures become placeholders or supplementary sections vanish.
   for (const element of body.querySelectorAll(`[${FIGURE_IDENTITY_ATTR}]`)) {
+    const table = tables.find((candidate) => candidate.identity === element.getAttribute(FIGURE_IDENTITY_ATTR));
+    if (table) {
+      table.captionHtml = captionFor(element).html;
+      continue;
+    }
     const data = figures.find((candidate) => candidate.identity === element.getAttribute(FIGURE_IDENTITY_ATTR));
     if (!data) continue;
     data.captionHtml = data.source === 'inline figure'

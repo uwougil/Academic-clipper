@@ -1,0 +1,1355 @@
+{
+  "version": "nature-split-power-provenance/1.0.0",
+  "source": {
+    "articleId": "s41534-023-00746-0",
+    "url": "https://www.nature.com/articles/s41534-023-00746-0",
+    "title": "Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits",
+    "doi": "10.1038/s41534-023-00746-0",
+    "journal": "npj Quantum Information",
+    "observedAt": "2026-10-03T16:44:08.251Z",
+    "captureMode": "guarded-http",
+    "rawBytes": 511799,
+    "sha256": "6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e",
+    "sourceContractSha": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330"
+  },
+  "dependencies": {
+    "helper": {
+      "gitBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+      "bytes": 34946,
+      "sha256": "a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c"
+    },
+    "sourceOracleCheckpoint": "19e09534736ff77b673fd289ea0b63a91514c7e3"
+  },
+  "fixture": {
+    "path": "s41534-023-00746-0.excerpt.html",
+    "bytes": 62731,
+    "sha256": "dc1136a1c70a66e63cce9bbe696b9cd790eb8eefbad3b499cce04dc140b16ad0",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+  "serializerVersion": "nature-corpus-subtree/1.0.0",
+  "projectionVersion": "nature-corpus-projection/1.0.0",
+  "recipe": {
+    "version": "1.0.0",
+    "id": "s41534-023-00746-0-split-negative-power-v1",
+    "articleUrl": "https://www.nature.com/articles/s41534-023-00746-0",
+    "blocks": [
+      {
+        "id": "metadata-0",
+        "selector": "meta[name=\"citation_journal_title\"][content=\"npj Quantum Information\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-1",
+        "selector": "meta[name=\"citation_title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-2",
+        "selector": "meta[name=\"citation_online_date\"][content=\"2023/08/03\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-3",
+        "selector": "meta[name=\"citation_doi\"][content=\"10.1038/s41534-023-00746-0\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-4",
+        "selector": "meta[name=\"citation_author\"][content=\"Xu, Qian\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-5",
+        "selector": "meta[name=\"citation_author\"][content=\"Zheng, Guo\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-6",
+        "selector": "meta[name=\"citation_author\"][content=\"Wang, Yu-Xin\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-7",
+        "selector": "meta[name=\"citation_author\"][content=\"Zoller, Peter\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-8",
+        "selector": "meta[name=\"citation_author\"][content=\"Clerk, Aashish A.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-9",
+        "selector": "meta[name=\"citation_author\"][content=\"Jiang, Liang\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "identity"
+      },
+      {
+        "id": "article-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "article-title",
+        "selector": "h1.c-article-title",
+        "role": "title"
+      },
+      {
+        "id": "results-heading",
+        "selector": "#Sec2",
+        "role": "heading"
+      },
+      {
+        "id": "split-paragraph",
+        "selector": "section[data-title=\"Results\"] p:has(> sup + sup):not(:has(sup a)):has(a[href=\"/articles/s41534-023-00746-0#Fig4\"])",
+        "role": "split-negative-numeric-power"
+      },
+      {
+        "id": "single-paragraph",
+        "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d102805164e12113)",
+        "role": "single-sup-positive-control"
+      },
+      {
+        "id": "figure-4",
+        "selector": "figure:has(#Fig4)",
+        "role": "original-referenced-figure-context"
+      },
+      {
+        "id": "reference-1",
+        "selector": "ol.c-article-references li:has(#ref-CR1)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-2",
+        "selector": "ol.c-article-references li:has(#ref-CR2)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-3",
+        "selector": "ol.c-article-references li:has(#ref-CR3)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-4",
+        "selector": "ol.c-article-references li:has(#ref-CR4)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-5",
+        "selector": "ol.c-article-references li:has(#ref-CR5)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-6",
+        "selector": "ol.c-article-references li:has(#ref-CR6)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-7",
+        "selector": "ol.c-article-references li:has(#ref-CR7)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-8",
+        "selector": "ol.c-article-references li:has(#ref-CR8)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-9",
+        "selector": "ol.c-article-references li:has(#ref-CR9)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-10",
+        "selector": "ol.c-article-references li:has(#ref-CR10)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-11",
+        "selector": "ol.c-article-references li:has(#ref-CR11)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-12",
+        "selector": "ol.c-article-references li:has(#ref-CR12)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-13",
+        "selector": "ol.c-article-references li:has(#ref-CR13)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-14",
+        "selector": "ol.c-article-references li:has(#ref-CR14)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-15",
+        "selector": "ol.c-article-references li:has(#ref-CR15)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-16",
+        "selector": "ol.c-article-references li:has(#ref-CR16)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-17",
+        "selector": "ol.c-article-references li:has(#ref-CR17)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-18",
+        "selector": "ol.c-article-references li:has(#ref-CR18)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-19",
+        "selector": "ol.c-article-references li:has(#ref-CR19)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-20",
+        "selector": "ol.c-article-references li:has(#ref-CR20)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-21",
+        "selector": "ol.c-article-references li:has(#ref-CR21)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-22",
+        "selector": "ol.c-article-references li:has(#ref-CR22)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-23",
+        "selector": "ol.c-article-references li:has(#ref-CR23)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-24",
+        "selector": "ol.c-article-references li:has(#ref-CR24)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-25",
+        "selector": "ol.c-article-references li:has(#ref-CR25)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-26",
+        "selector": "ol.c-article-references li:has(#ref-CR26)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-27",
+        "selector": "ol.c-article-references li:has(#ref-CR27)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-28",
+        "selector": "ol.c-article-references li:has(#ref-CR28)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-29",
+        "selector": "ol.c-article-references li:has(#ref-CR29)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-30",
+        "selector": "ol.c-article-references li:has(#ref-CR30)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-31",
+        "selector": "ol.c-article-references li:has(#ref-CR31)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-32",
+        "selector": "ol.c-article-references li:has(#ref-CR32)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-33",
+        "selector": "ol.c-article-references li:has(#ref-CR33)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-34",
+        "selector": "ol.c-article-references li:has(#ref-CR34)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-35",
+        "selector": "ol.c-article-references li:has(#ref-CR35)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-36",
+        "selector": "ol.c-article-references li:has(#ref-CR36)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-37",
+        "selector": "ol.c-article-references li:has(#ref-CR37)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-38",
+        "selector": "ol.c-article-references li:has(#ref-CR38)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-39",
+        "selector": "ol.c-article-references li:has(#ref-CR39)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-40",
+        "selector": "ol.c-article-references li:has(#ref-CR40)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-41",
+        "selector": "ol.c-article-references li:has(#ref-CR41)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-42",
+        "selector": "ol.c-article-references li:has(#ref-CR42)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-43",
+        "selector": "ol.c-article-references li:has(#ref-CR43)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-44",
+        "selector": "ol.c-article-references li:has(#ref-CR44)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-45",
+        "selector": "ol.c-article-references li:has(#ref-CR45)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-46",
+        "selector": "ol.c-article-references li:has(#ref-CR46)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-47",
+        "selector": "ol.c-article-references li:has(#ref-CR47)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-48",
+        "selector": "ol.c-article-references li:has(#ref-CR48)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-49",
+        "selector": "ol.c-article-references li:has(#ref-CR49)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-50",
+        "selector": "ol.c-article-references li:has(#ref-CR50)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-51",
+        "selector": "ol.c-article-references li:has(#ref-CR51)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-52",
+        "selector": "ol.c-article-references li:has(#ref-CR52)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-53",
+        "selector": "ol.c-article-references li:has(#ref-CR53)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-54",
+        "selector": "ol.c-article-references li:has(#ref-CR54)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-55",
+        "selector": "ol.c-article-references li:has(#ref-CR55)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-56",
+        "selector": "ol.c-article-references li:has(#ref-CR56)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-57",
+        "selector": "ol.c-article-references li:has(#ref-CR57)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-58",
+        "selector": "ol.c-article-references li:has(#ref-CR58)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "article-rights",
+        "selector": "section[data-title=\"Rights and permissions\"] p:has(a[rel=\"license\"])",
+        "role": "original-rights-notice"
+      },
+      {
+        "id": "site-footer",
+        "selector": "p.c-footer__legal",
+        "role": "publisher-footer"
+      }
+    ],
+    "removeSelectors": []
+  },
+  "recipeSha256": "5f151afd8f9b481b567dfb75a17d4884814dd431018da7bdb00dce1e79e232db",
+  "retainedBlocks": [
+    {
+      "id": "metadata-0",
+      "selector": "meta[name=\"citation_journal_title\"][content=\"npj Quantum Information\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ed88053f1288a4dc68b6da4c8f4eaabf3424ec7cb616aa1d0c723a9d274b1aa2"
+    },
+    {
+      "id": "metadata-1",
+      "selector": "meta[name=\"citation_title\"][content=\"Autonomous quantum error correction and fault-tolerant quantum computation with squeezed cat qubits\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ecf37d16d7270373d42e8accffe6ecef46eaf6d1d60b242576020d3a02aab695"
+    },
+    {
+      "id": "metadata-2",
+      "selector": "meta[name=\"citation_online_date\"][content=\"2023/08/03\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "5f3278f3f500a9005cd3955db04616b14e5c43c933f19b05749e5a9e9e4947dc"
+    },
+    {
+      "id": "metadata-3",
+      "selector": "meta[name=\"citation_doi\"][content=\"10.1038/s41534-023-00746-0\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b9936a9e2953f4d42f767a5fb5edc8c92306f7e5aa10e4d9b7d55d6679c10200"
+    },
+    {
+      "id": "metadata-4",
+      "selector": "meta[name=\"citation_author\"][content=\"Xu, Qian\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "140c45e64f6916f2fc4d259bdb484474d5efcc8905bfb175bc9167f6466e24e0"
+    },
+    {
+      "id": "metadata-5",
+      "selector": "meta[name=\"citation_author\"][content=\"Zheng, Guo\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a5c721d0d06bc27f6e4a4ecc2a5418fac2bbd9b4c8d8e0646cd773d86607ff5e"
+    },
+    {
+      "id": "metadata-6",
+      "selector": "meta[name=\"citation_author\"][content=\"Wang, Yu-Xin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d0a369cbd1c1d8153babc145c5dbb0592db314fd4f63437c2289bfe0e0ae3a54"
+    },
+    {
+      "id": "metadata-7",
+      "selector": "meta[name=\"citation_author\"][content=\"Zoller, Peter\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "058404d464b506847d521e9d16f225c57f842690d89e3588e5504ba27e544459"
+    },
+    {
+      "id": "metadata-8",
+      "selector": "meta[name=\"citation_author\"][content=\"Clerk, Aashish A.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "f67cdd4dc2539cf492df6cbcb9c3f7d4aa74cc7684af44f18032ccdd83b56e58"
+    },
+    {
+      "id": "metadata-9",
+      "selector": "meta[name=\"citation_author\"][content=\"Jiang, Liang\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "391b875ffdf08da1d48fa5be4c13c307c35881d5988917e5465a797b4299cb93"
+    },
+    {
+      "id": "canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "identity",
+      "sourceSubtreeSha256": "c43c8acd8c08fb8377a3edef39fe8361076bd5da6b782ec20da729349bb3c0a2"
+    },
+    {
+      "id": "article-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "55fd311e8bb6f50f9068e873af6eb72bdd01db59996a87d928640920c2f931ec"
+    },
+    {
+      "id": "article-title",
+      "selector": "h1.c-article-title",
+      "role": "title",
+      "sourceSubtreeSha256": "b9b00030d89a629955e6a0ce9dc70bb185226b6b2f3e5441d443342c571fe8a6"
+    },
+    {
+      "id": "results-heading",
+      "selector": "#Sec2",
+      "role": "heading",
+      "sourceSubtreeSha256": "b05d837b4acc0107b3277337c107f65be4a18c0bd31c2db268b4ce350058bb02"
+    },
+    {
+      "id": "split-paragraph",
+      "selector": "section[data-title=\"Results\"] p:has(> sup + sup):not(:has(sup a)):has(a[href=\"/articles/s41534-023-00746-0#Fig4\"])",
+      "role": "split-negative-numeric-power",
+      "sourceSubtreeSha256": "76701dc7ea4f491570f57d3ae1329c472eb812a2454237392b6f0d99c8a55435"
+    },
+    {
+      "id": "single-paragraph",
+      "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d102805164e12113)",
+      "role": "single-sup-positive-control",
+      "sourceSubtreeSha256": "28e06f2eac7ed32e9dca4b87991c85cc120323782c2dbe1c980cdaa669af9f64"
+    },
+    {
+      "id": "figure-4",
+      "selector": "figure:has(#Fig4)",
+      "role": "original-referenced-figure-context",
+      "sourceSubtreeSha256": "866e9a463f9222566c9bcfabd7d66135da8ea4cbe234aad238fed941fe162e25"
+    },
+    {
+      "id": "reference-1",
+      "selector": "ol.c-article-references li:has(#ref-CR1)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "f6e3ab681f25646ff4977c679cfd5869d3cd2734de392909c88529b40d1905bf"
+    },
+    {
+      "id": "reference-2",
+      "selector": "ol.c-article-references li:has(#ref-CR2)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "55fa4e01c7eac518984948854a28404860c9fba082c7c5506ddc80f42de11769"
+    },
+    {
+      "id": "reference-3",
+      "selector": "ol.c-article-references li:has(#ref-CR3)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "acd53f6390fe3b0b9fb32ff4a15dec61ff6685c1304eb227b11edba975df1791"
+    },
+    {
+      "id": "reference-4",
+      "selector": "ol.c-article-references li:has(#ref-CR4)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "8f1fb630ca7680ba2b910c3e392e22c7f031b3914398be8d7cd9292427b22643"
+    },
+    {
+      "id": "reference-5",
+      "selector": "ol.c-article-references li:has(#ref-CR5)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "3204ff6b0d808a04bffec1a619bc1b8f41f37a076b1bc007e961fb359004bcfd"
+    },
+    {
+      "id": "reference-6",
+      "selector": "ol.c-article-references li:has(#ref-CR6)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "05d380fc956b357bc46f07c76f5af0ad7552a4341172c96f3681345019624128"
+    },
+    {
+      "id": "reference-7",
+      "selector": "ol.c-article-references li:has(#ref-CR7)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "0db6c03461e22a6bd3c3463ef8ca8ef60df78a0f6572b9356f6df53e44d512bc"
+    },
+    {
+      "id": "reference-8",
+      "selector": "ol.c-article-references li:has(#ref-CR8)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "a284c60112e13225f88b281e68ba18e7405d0822f7f61b622c64ba6d49ff9b59"
+    },
+    {
+      "id": "reference-9",
+      "selector": "ol.c-article-references li:has(#ref-CR9)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "9555d5501c755611f5a88af39d1bb5b5f1cb9f5c964c613adc7c85f5b5418f51"
+    },
+    {
+      "id": "reference-10",
+      "selector": "ol.c-article-references li:has(#ref-CR10)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "1a538b4795a50acb5cc0c64f6f5b203dc25bb309944635422df9d43802dd85ad"
+    },
+    {
+      "id": "reference-11",
+      "selector": "ol.c-article-references li:has(#ref-CR11)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "c99a7c2f99a412334bb516c81608c120de571dca035322ff23f773b149e7a54d"
+    },
+    {
+      "id": "reference-12",
+      "selector": "ol.c-article-references li:has(#ref-CR12)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "5b25495b08873ebcb2350af31cc9b949ad4f680e88fd9c932a4427833ad090d4"
+    },
+    {
+      "id": "reference-13",
+      "selector": "ol.c-article-references li:has(#ref-CR13)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "6e514b5edf03bc106f50585711763e5dbe65a57c28bb6dd535bbe8a4b1be6b70"
+    },
+    {
+      "id": "reference-14",
+      "selector": "ol.c-article-references li:has(#ref-CR14)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "51e51da51b8b371759b1bbe5897842c4b82dd306d064167de4b6a34e64bdb2e8"
+    },
+    {
+      "id": "reference-15",
+      "selector": "ol.c-article-references li:has(#ref-CR15)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "111d45f80a74beaefc03d3ff2c8bead569b0e62ac6ee724b6877057d86d2fffd"
+    },
+    {
+      "id": "reference-16",
+      "selector": "ol.c-article-references li:has(#ref-CR16)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "cb79c49c7a0fee0af6066198990fb146bfdcd6cd4feacec8c466fe21cc5b1028"
+    },
+    {
+      "id": "reference-17",
+      "selector": "ol.c-article-references li:has(#ref-CR17)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "2655c6db42776ead10da8851a46b64bfcc0d4f2f2e5960671fe34e23540fe62a"
+    },
+    {
+      "id": "reference-18",
+      "selector": "ol.c-article-references li:has(#ref-CR18)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "cbdf5c6803bf8ce1855a297b1b526853823be17b02dbc3dbb485f6a64514e6be"
+    },
+    {
+      "id": "reference-19",
+      "selector": "ol.c-article-references li:has(#ref-CR19)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "fcb0da9f2c941794ffcf9f6869d28de73e56ae8530b156c587369853053deed2"
+    },
+    {
+      "id": "reference-20",
+      "selector": "ol.c-article-references li:has(#ref-CR20)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "9ef2a15c5dee4894e93e2aae695b23812b31bfaa725468d2038f67bdb54be05a"
+    },
+    {
+      "id": "reference-21",
+      "selector": "ol.c-article-references li:has(#ref-CR21)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "bf02b64c7fd772129b4d46b7ee718975aacdd4b3b53251940de88aa41d921c14"
+    },
+    {
+      "id": "reference-22",
+      "selector": "ol.c-article-references li:has(#ref-CR22)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "f8c75d824ec88e1efa91379731c88e86d53be1a54d01e57b4541775eb99c77b5"
+    },
+    {
+      "id": "reference-23",
+      "selector": "ol.c-article-references li:has(#ref-CR23)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "8b58779e4443cd91358f88d73c8b9292c3a7934a5ea7d689e0c3300c99828f01"
+    },
+    {
+      "id": "reference-24",
+      "selector": "ol.c-article-references li:has(#ref-CR24)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "0be5eebb615c4396f75f91c8c607a8450b8fac383847e46f259c881e4de87cc6"
+    },
+    {
+      "id": "reference-25",
+      "selector": "ol.c-article-references li:has(#ref-CR25)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "7d6d083f4f10be65edb7f3d026c110142e79d005999176e959c1f3efcd1e2639"
+    },
+    {
+      "id": "reference-26",
+      "selector": "ol.c-article-references li:has(#ref-CR26)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "4c070da976d6b49aa19f35a2fc99306fd4e23d213eefda910551ca70c54bca52"
+    },
+    {
+      "id": "reference-27",
+      "selector": "ol.c-article-references li:has(#ref-CR27)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "267db9015dfc153e5aed8fd8642a9dd7812fa5d9c7c2f04362adeaabb00ea2b2"
+    },
+    {
+      "id": "reference-28",
+      "selector": "ol.c-article-references li:has(#ref-CR28)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "80b0b02428979cd4c5ae5c8414a1d49d6eadf6945560cb79b5aecc9c162f4dd3"
+    },
+    {
+      "id": "reference-29",
+      "selector": "ol.c-article-references li:has(#ref-CR29)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "4d65ae72765f49de544d8a92407a6c9112c7bfe1aae79d22156c12241397c3dc"
+    },
+    {
+      "id": "reference-30",
+      "selector": "ol.c-article-references li:has(#ref-CR30)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "65fd6e30bbf8284dd96b608044f68e623c157621d615bedfedfa5572f9d164d1"
+    },
+    {
+      "id": "reference-31",
+      "selector": "ol.c-article-references li:has(#ref-CR31)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "c79571e340313d5e49fb8649e07232b5e952b0fd6bc93ac62f3fc19a6d7356d3"
+    },
+    {
+      "id": "reference-32",
+      "selector": "ol.c-article-references li:has(#ref-CR32)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "cb1c1a139bb616a789d4b9bf4068a43d470a0239bd985ad0c368184a29543eed"
+    },
+    {
+      "id": "reference-33",
+      "selector": "ol.c-article-references li:has(#ref-CR33)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "375079272093db900f183110aa70586f448cd4c1e65b68bb98b3d148098e19f7"
+    },
+    {
+      "id": "reference-34",
+      "selector": "ol.c-article-references li:has(#ref-CR34)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "e356f081f8124530461b2363533f6584b1c9951d6327117f80526a8d349fe559"
+    },
+    {
+      "id": "reference-35",
+      "selector": "ol.c-article-references li:has(#ref-CR35)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "ee745614636edbfdd5e1a0653682467c5b6c622e641aec7b4df0794af2d49b59"
+    },
+    {
+      "id": "reference-36",
+      "selector": "ol.c-article-references li:has(#ref-CR36)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "2e6c1dd205920233463203592ad0bc0cd6a4825b975c354366d3d42fa027cc5b"
+    },
+    {
+      "id": "reference-37",
+      "selector": "ol.c-article-references li:has(#ref-CR37)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "7975a944a16a096952d06d9581d55c55701099fba973d37b437d3069a02d6142"
+    },
+    {
+      "id": "reference-38",
+      "selector": "ol.c-article-references li:has(#ref-CR38)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "b19552672b16c5efcdd116f6b34a645a3eac566a3302c880100470efd8617c58"
+    },
+    {
+      "id": "reference-39",
+      "selector": "ol.c-article-references li:has(#ref-CR39)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "84dc2b1c4add88a65dd3b3fe2f09d236c88e48adcbc3fd6284229921f23eab77"
+    },
+    {
+      "id": "reference-40",
+      "selector": "ol.c-article-references li:has(#ref-CR40)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "4e7e515d26dda03a2b71f0bff2c7d94e612910e32a7f9a916258245490d0eae9"
+    },
+    {
+      "id": "reference-41",
+      "selector": "ol.c-article-references li:has(#ref-CR41)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "65fb53ae0e79d7bb2d9b4a3839cdc36bfabeb604af2821072950e9977765374c"
+    },
+    {
+      "id": "reference-42",
+      "selector": "ol.c-article-references li:has(#ref-CR42)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "87ca3b1f65f31d38e0d420eb20fd37bb396a5bf488e6450efed486645cdcf172"
+    },
+    {
+      "id": "reference-43",
+      "selector": "ol.c-article-references li:has(#ref-CR43)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "62534db8a11b3b2fb1891a522b65f6b3c779de21c317a10c7ff81db1657f84cb"
+    },
+    {
+      "id": "reference-44",
+      "selector": "ol.c-article-references li:has(#ref-CR44)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "c12f34b45951659b4b20e098b368193bb83064781b43fc5dbb25d4a1a91afad3"
+    },
+    {
+      "id": "reference-45",
+      "selector": "ol.c-article-references li:has(#ref-CR45)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "192b4021ae3d64fb7fe49f11887a5130a37a9842a816657d5aad6261144ece22"
+    },
+    {
+      "id": "reference-46",
+      "selector": "ol.c-article-references li:has(#ref-CR46)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "de79967fd03d633bd8777b5521d090a306312d67c4cec692c6fefd151896c235"
+    },
+    {
+      "id": "reference-47",
+      "selector": "ol.c-article-references li:has(#ref-CR47)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "2a13d1b421039631f3b050f66323fcaff53fd316b6730b77cef2c1eb69235e67"
+    },
+    {
+      "id": "reference-48",
+      "selector": "ol.c-article-references li:has(#ref-CR48)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "fa309e1119a29ea1b314d4fd9fc5a57966357e1c0ae0c5b5efd2e584467b3355"
+    },
+    {
+      "id": "reference-49",
+      "selector": "ol.c-article-references li:has(#ref-CR49)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "88b9b557aeb9fbcb5128325551fbaa8a6a3ae3960f5600daa2e5af55ea596002"
+    },
+    {
+      "id": "reference-50",
+      "selector": "ol.c-article-references li:has(#ref-CR50)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "91dd01a899c17ece913eeaf05d3a65c4d2464e66d2434e86acb224b09a7c938e"
+    },
+    {
+      "id": "reference-51",
+      "selector": "ol.c-article-references li:has(#ref-CR51)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "7e9cf265c7cba3d666ca57bd3aaeed74029edd097ba541d4167032887c765f41"
+    },
+    {
+      "id": "reference-52",
+      "selector": "ol.c-article-references li:has(#ref-CR52)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "b0e5fabd645e5685e65d07c3e813b15c49e3f5ff602ca346862c265519ae7221"
+    },
+    {
+      "id": "reference-53",
+      "selector": "ol.c-article-references li:has(#ref-CR53)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "9007ecf26ba6e61bbe64ab2daa1683e1f4d8e478ca1cf162c31508174172f1e5"
+    },
+    {
+      "id": "reference-54",
+      "selector": "ol.c-article-references li:has(#ref-CR54)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "482d3d3cb4521aa5699c9187f137e64dd8273ffb6bf9826a42f641647d8a618b"
+    },
+    {
+      "id": "reference-55",
+      "selector": "ol.c-article-references li:has(#ref-CR55)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "07e55d22e4d2324e4974f726a8cc8ab4a78fde3374eb7a41ddeea4d10d02b884"
+    },
+    {
+      "id": "reference-56",
+      "selector": "ol.c-article-references li:has(#ref-CR56)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "c8876c6312293da9baee27ecce5dd2802575f18081e61a9124116de1e9a139e1"
+    },
+    {
+      "id": "reference-57",
+      "selector": "ol.c-article-references li:has(#ref-CR57)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "67effb793dfe19bfa474b17985f9628ab6da6d1dfece5fd0e1173a9f657adec3"
+    },
+    {
+      "id": "reference-58",
+      "selector": "ol.c-article-references li:has(#ref-CR58)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "5b733179af01ee38366ba3b3e08b20f8796f39612969429357cfc6486327c836"
+    },
+    {
+      "id": "article-rights",
+      "selector": "section[data-title=\"Rights and permissions\"] p:has(a[rel=\"license\"])",
+      "role": "original-rights-notice",
+      "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69"
+    },
+    {
+      "id": "site-footer",
+      "selector": "p.c-footer__legal",
+      "role": "publisher-footer",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3"
+    }
+  ],
+  "transformations": [
+    {
+      "operation": "select-complete-source-blocks-with-ancestors",
+      "count": 77
+    },
+    {
+      "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+      "count": 1
+    },
+    {
+      "operation": "trim-json-ld-to-article-object",
+      "count": 1
+    },
+    {
+      "operation": "remove-attributes",
+      "count": 578
+    },
+    {
+      "operation": "sanitize-resource-urls",
+      "count": 51
+    }
+  ],
+  "retainedProjection": {
+    "projectionVersion": "nature-corpus-projection/1.0.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "recipeSha256": "5f151afd8f9b481b567dfb75a17d4884814dd431018da7bdb00dce1e79e232db",
+    "structureSha256": "ad1a188a1c9818ffc45e9a84c34f5dc2412576e581cd301842e8a154dfab8919",
+    "payloadSha256": "3ab9343c0813229eb8a0eaee22d7192d72f7dec4a3099546efdbe429340a0064"
+  },
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41534-023-00746-0",
+    "sourceObservedAt": "2026-10-03T16:44:08.251Z",
+    "sourceSha256": "6b2bb78e5f3038d6281eac00b60dc90aa58bdd9ac185ca2d4b9b0de362bbe28e",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Xu, Qian",
+      "Zheng, Guo",
+      "Wang, Yu-Xin",
+      "Zoller, Peter",
+      "Clerk, Aashish A.",
+      "Jiang, Liang"
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "sourceRawNoticeText": "Open Access  This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [
+      {
+        "resourceId": "table-1",
+        "sourceUrl": "https://www.nature.com/articles/s41534-023-00746-0/tables/1",
+        "sourceSha256": "7772399037acb3ba4dfc100bc6c9a8fdf4f82c56d8836e65fcb761294e9ee069",
+        "observedTableLicenseLinks": [],
+        "attributionSource": "https://www.nature.com/articles/s41534-023-00746-0",
+        "licenseEvidenceLocation": "sourceRights.notices in this article source-evidence.json",
+        "basis": "The table is an excerpt of this article. The article rights notice is recorded separately; an absent table-page license link is not claimed as an observed link."
+      }
+    ],
+    "technicalTransformations": "Recipe-selected excerpts and original ancestors, A sanitizer 1.1.0, deterministic serialization and LF normalization. Advertising, navigation, executable content and unselected source blocks are omitted as recorded in the manifest/handoff. Retained scholarly prose, TeX, captions, authors, citation data and table cells are preserved; image binaries and full live captures are not included.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "paragraphs": [
+    {
+      "id": "split",
+      "selector": "section[data-title=\"Results\"] p:has(> sup + sup):not(:has(sup a)):has(a[href=\"/articles/s41534-023-00746-0#Fig4\"])",
+      "sourceSectionBlock": "a-section-2",
+      "sourceParagraphIndex": 33,
+      "sourceSubtreeSha256": "76701dc7ea4f491570f57d3ae1329c472eb812a2454237392b6f0d99c8a55435",
+      "sourceSerializedBytes": 981,
+      "frozenSubtreeSha256": "d9fd04d9e40ad364d1c122769be3e2f4d318ea429dfc158c9bcd66575c02c3a4",
+      "sourceText": "In the following, we will show that these challenges can be overcome by using the dissipative SC. The κ1/κ2 thresholds for both the surface code and the repetition code can be significantly improved by concatenating with the dissipative SC. Moreover, the repetition-SC can reach sufficiently low logical error probability ~10−15 even with a small SC \\(\\bar{n}=4\\) (see Fig. 4d). It is worth noticing that the thresholds for concatenated cat code shown in Fig. 4a, c are approximately independent of the size of the cat since the optimal CNOT gate error is independent of \\(\\bar{n}\\) for cat code.",
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 1,
+          "tag": "SUB",
+          "text": "1",
+          "html": "<sub>1</sub>"
+        },
+        {
+          "index": 2,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 3,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 4,
+          "tag": "SUP",
+          "text": "−",
+          "html": "<sup>−</sup>"
+        },
+        {
+          "index": 5,
+          "tag": "SUP",
+          "text": "15",
+          "html": "<sup>15</sup>"
+        },
+        {
+          "index": 6,
+          "tag": "SPAN",
+          "text": "\\(\\bar{n}=4\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\bar{n}=4\\)</span>"
+        },
+        {
+          "index": 7,
+          "tag": "SPAN",
+          "text": "\\(\\bar{n}\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\bar{n}\\)</span>"
+        }
+      ],
+      "sourceSupNodes": [
+        {
+          "html": "<sup>−</sup>",
+          "text": "−",
+          "citation": false
+        },
+        {
+          "html": "<sup>15</sup>",
+          "text": "15",
+          "citation": false
+        }
+      ],
+      "correctRole": {
+        "base": "10",
+        "exponent": "−15",
+        "precedingText": "~",
+        "nodeCount": 2,
+        "sourceAttachmentDirection": "preceding-numeric-base",
+        "sourceExponentParts": [
+          "−",
+          "15"
+        ]
+      }
+    },
+    {
+      "id": "single",
+      "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d102805164e12113)",
+      "sourceSectionBlock": "a-section-2",
+      "sourceParagraphIndex": 37,
+      "sourceSubtreeSha256": "28e06f2eac7ed32e9dca4b87991c85cc120323782c2dbe1c980cdaa669af9f64",
+      "sourceSerializedBytes": 3706,
+      "frozenSubtreeSha256": "db986d752212798179907747abd707b3a96a2aa6fa5f9a33569798f8bba453b1",
+      "sourceText": "In Fig. 4d, we plot the minimal total logical error probability \\({p}_{L}={p}_{L}^{Z}+{p}_{L}^{X}\\) of the repetition-SC by optimizing dZ and κ2T for \\(\\bar{n}=4\\) and η = 1/4. As a comparison, we also include minimal logical error probabilities of the repetition-cat with \\(\\bar{n}=4\\) using the physical error rates in ref. 58. When κ1/κ2 ≥ 10−3, the optimal gate error is no longer attained under the long gate time constraint, κ2T ≥ 1 for the SC. Therefore, in that regime, the SC results can be understood as an upper bound of the minimum total logical error rates. For a practical noise ratio κ1/κ2 = 10−3, the minimal logical error probability of the repetition-SC can reach ~10−15, which suffices for many useful quantum computational tasks8,51. In contrast, the logical error probability of the repetition-cat (with \\(\\bar{n}=4\\)) can only reach ~10−2, which is far from being useful. Even with a larger cat size of \\(\\bar{n}=8\\) as considered in, e.g., ref. 58, the minimum logical error probability is still roughly ~10−5 at such a noise ratio. To reach a similar level of logical error probability as the repetition-SC, we need either a much larger cat with \\(\\bar{n}\\gg 10\\) (with the repetition code), or a more sophisticated outer code, e.g., the surface code. We attribute the drastic reduction in the minimal logical error rate of the repetition-SC to the significantly enhanced noise bias, or equivalently, the reduced physical bit-flip rates of the SC, which are exponentially suppressed by \\({\\bar{n}}^{2}\\), instead of \\(\\bar{n}\\) for the cat.",
+      "orderedScientificNodes": [
+        {
+          "index": 0,
+          "tag": "SPAN",
+          "text": "\\({p}_{L}={p}_{L}^{Z}+{p}_{L}^{X}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({p}_{L}={p}_{L}^{Z}+{p}_{L}^{X}\\)</span>"
+        },
+        {
+          "index": 1,
+          "tag": "I",
+          "text": "d",
+          "html": "<i>d</i>"
+        },
+        {
+          "index": 2,
+          "tag": "SUB",
+          "text": "Z",
+          "html": "<sub><i>Z</i></sub>"
+        },
+        {
+          "index": 3,
+          "tag": "I",
+          "text": "Z",
+          "html": "<i>Z</i>"
+        },
+        {
+          "index": 4,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 5,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 6,
+          "tag": "I",
+          "text": "T",
+          "html": "<i>T</i>"
+        },
+        {
+          "index": 7,
+          "tag": "SPAN",
+          "text": "\\(\\bar{n}=4\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\bar{n}=4\\)</span>"
+        },
+        {
+          "index": 8,
+          "tag": "I",
+          "text": "η",
+          "html": "<i>η</i>"
+        },
+        {
+          "index": 9,
+          "tag": "SPAN",
+          "text": "\\(\\bar{n}=4\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\bar{n}=4\\)</span>"
+        },
+        {
+          "index": 10,
+          "tag": "SUP",
+          "text": "58",
+          "html": "<sup><a aria-label=\"Reference 58\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41534-023-00746-0#ref-CR58\" id=\"ref-link-section-d102805164e12113\" title=\"Chamberland, C. et al. Building a fault-tolerant quantum computer using concatenated cat codes. PRX Quantum 3, 010329 (2022).\">58</a></sup>"
+        },
+        {
+          "index": 11,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 12,
+          "tag": "SUB",
+          "text": "1",
+          "html": "<sub>1</sub>"
+        },
+        {
+          "index": 13,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 14,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 15,
+          "tag": "SUP",
+          "text": "−3",
+          "html": "<sup>−3</sup>"
+        },
+        {
+          "index": 16,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 17,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 18,
+          "tag": "I",
+          "text": "T",
+          "html": "<i>T</i>"
+        },
+        {
+          "index": 19,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 20,
+          "tag": "SUB",
+          "text": "1",
+          "html": "<sub>1</sub>"
+        },
+        {
+          "index": 21,
+          "tag": "I",
+          "text": "κ",
+          "html": "<i>κ</i>"
+        },
+        {
+          "index": 22,
+          "tag": "SUB",
+          "text": "2",
+          "html": "<sub>2</sub>"
+        },
+        {
+          "index": 23,
+          "tag": "SUP",
+          "text": "−3",
+          "html": "<sup>−3</sup>"
+        },
+        {
+          "index": 24,
+          "tag": "SUP",
+          "text": "−15",
+          "html": "<sup>−15</sup>"
+        },
+        {
+          "index": 25,
+          "tag": "SUP",
+          "text": "8,51",
+          "html": "<sup><a aria-label=\"Reference 8\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41534-023-00746-0#ref-CR8\" id=\"ref-link-section-d102805164e12147\" title=\"Fowler, A. G., Mariantoni, M., Martinis, J. M. &amp; Cleland, A. N. Surface codes: towards practical large-scale quantum computation. Phys. Rev. A 86, 032324 (2012).\">8</a>,<a aria-label=\"Reference 51\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41534-023-00746-0#ref-CR51\" id=\"ref-link-section-d102805164e12150\" title=\"O’Gorman, J. &amp; Campbell, E. T. Quantum computation with realistic magic-state factories. Phys. Rev. A 95, 032338 (2017).\">51</a></sup>"
+        },
+        {
+          "index": 26,
+          "tag": "SPAN",
+          "text": "\\(\\bar{n}=4\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\bar{n}=4\\)</span>"
+        },
+        {
+          "index": 27,
+          "tag": "SUP",
+          "text": "−2",
+          "html": "<sup>−2</sup>"
+        },
+        {
+          "index": 28,
+          "tag": "SPAN",
+          "text": "\\(\\bar{n}=8\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\bar{n}=8\\)</span>"
+        },
+        {
+          "index": 29,
+          "tag": "SUP",
+          "text": "58",
+          "html": "<sup><a aria-label=\"Reference 58\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41534-023-00746-0#ref-CR58\" id=\"ref-link-section-d102805164e12221\" title=\"Chamberland, C. et al. Building a fault-tolerant quantum computer using concatenated cat codes. PRX Quantum 3, 010329 (2022).\">58</a></sup>"
+        },
+        {
+          "index": 30,
+          "tag": "SUP",
+          "text": "−5",
+          "html": "<sup>−5</sup>"
+        },
+        {
+          "index": 31,
+          "tag": "SPAN",
+          "text": "\\(\\bar{n}\\gg 10\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\bar{n}\\gg 10\\)</span>"
+        },
+        {
+          "index": 32,
+          "tag": "SPAN",
+          "text": "\\({\\bar{n}}^{2}\\)",
+          "html": "<span class=\"mathjax-tex\">\\({\\bar{n}}^{2}\\)</span>"
+        },
+        {
+          "index": 33,
+          "tag": "SPAN",
+          "text": "\\(\\bar{n}\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\bar{n}\\)</span>"
+        }
+      ],
+      "sourceSupNodes": [
+        {
+          "html": "<sup><a aria-label=\"Reference 58\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41534-023-00746-0#ref-CR58\" id=\"ref-link-section-d102805164e12113\" title=\"Chamberland, C. et al. Building a fault-tolerant quantum computer using concatenated cat codes. PRX Quantum 3, 010329 (2022).\">58</a></sup>",
+          "text": "58",
+          "citation": true
+        },
+        {
+          "html": "<sup>−3</sup>",
+          "text": "−3",
+          "citation": false
+        },
+        {
+          "html": "<sup>−3</sup>",
+          "text": "−3",
+          "citation": false
+        },
+        {
+          "html": "<sup>−15</sup>",
+          "text": "−15",
+          "citation": false
+        },
+        {
+          "html": "<sup><a aria-label=\"Reference 8\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41534-023-00746-0#ref-CR8\" id=\"ref-link-section-d102805164e12147\" title=\"Fowler, A. G., Mariantoni, M., Martinis, J. M. &amp; Cleland, A. N. Surface codes: towards practical large-scale quantum computation. Phys. Rev. A 86, 032324 (2012).\">8</a>,<a aria-label=\"Reference 51\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41534-023-00746-0#ref-CR51\" id=\"ref-link-section-d102805164e12150\" title=\"O’Gorman, J. &amp; Campbell, E. T. Quantum computation with realistic magic-state factories. Phys. Rev. A 95, 032338 (2017).\">51</a></sup>",
+          "text": "8,51",
+          "citation": true
+        },
+        {
+          "html": "<sup>−2</sup>",
+          "text": "−2",
+          "citation": false
+        },
+        {
+          "html": "<sup><a aria-label=\"Reference 58\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41534-023-00746-0#ref-CR58\" id=\"ref-link-section-d102805164e12221\" title=\"Chamberland, C. et al. Building a fault-tolerant quantum computer using concatenated cat codes. PRX Quantum 3, 010329 (2022).\">58</a></sup>",
+          "text": "58",
+          "citation": true
+        },
+        {
+          "html": "<sup>−5</sup>",
+          "text": "−5",
+          "citation": false
+        }
+      ],
+      "correctRole": {
+        "base": "10",
+        "exponent": "−15",
+        "precedingText": "~",
+        "nodeCount": 1,
+        "sourceAttachmentDirection": "preceding-numeric-base",
+        "sourceExponentParts": [
+          "−15"
+        ]
+      }
+    }
+  ],
+  "referencePrefix": 58,
+  "retainedCitationClusters": [
+    [
+      58
+    ],
+    [
+      58
+    ],
+    [
+      8,
+      51
+    ],
+    [
+      58
+    ]
+  ],
+  "figure": {
+    "selector": "figure:has(#Fig4)",
+    "sourceSubtreeSha256": "866e9a463f9222566c9bcfabd7d66135da8ea4cbe234aad238fed941fe162e25",
+    "sourceText": "Fig. 4: Logical errors of the SC and the cat concatenated with repetition codes or surface codes.Full size imagea Surface code logical Z error probabilities for a range of code distance dZ = 3, 5, 7,...,15 (from red to brown) with fixed dX = 3. The SC is fixed to \\(\\bar{n}=4,\\eta =1/4\\). The dashed lines indicate the threshold values of κ1/κ2. b Surface code thresholds in κ1/κ2 varying with the average excitation number of the SC or the cat. c Repetition code logical Z error probabilities for a range of code size dZ. d Repetition code minimum total logical error probabilities, under the long gate time constraint T≥1/κ2. Both the cat and the SC have an average excitation number \\(\\bar{n}=4\\). The logical error probabilities for both the surface codes and the repetition codes are obtained from Monte Carlo simulations of dZ code cycles and one final round of perfect stabilizer measurement. We use the same minimum-weight-perfect-matching (MWPM) decoder as described in Ref. 58."
+  },
+  "omittedContent": [
+    "Other body paragraphs, figures, equations, Methods, author information and affiliations",
+    "Reference entries after 58; retained original ordered prefix without renumbering",
+    "Unselected UI, executable/tracking/session material removed by unchanged sanitizer",
+    "Image/PDF/binary downloads and complete raw response never committed"
+  ],
+  "reproduction": "Apply recorded recipe with the exact unchanged A helper to verified external raw Buffer; source hash precedes decode; repeated and idempotent UTF-8 LF bytes must equal fixture. No acquisition required.",
+  "contract": {
+    "issue": 63,
+    "type": "bug",
+    "scope": "source-only RED preflight; production locked until orchestrator explicitly releases shared Nature file gate"
+  }
+}

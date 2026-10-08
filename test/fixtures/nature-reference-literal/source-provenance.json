@@ -1,0 +1,539 @@
+{
+  "version": "nature-reference-literal-source/1.0.0",
+  "classification": "SOURCE_ONLY_UNFIXED",
+  "baseSha": "3889f7396eab99060bec88fc8b0dcd3e6712024e",
+  "source": {
+    "articleId": "s41586-023-06735-9",
+    "url": "https://www.nature.com/articles/s41586-023-06735-9",
+    "doi": "10.1038/s41586-023-06735-9",
+    "title": "Scaling deep learning for materials discovery",
+    "journal": "Nature",
+    "observedAt": "2026-10-03T16:44:22.324Z",
+    "captureMode": "guarded-http",
+    "sourceBytes": 506351,
+    "sourceSha256": "79f575e1941633c2dbd036682977ea6c274acd5c8c44fdb4648856a00a8d7cc6",
+    "acquisition": "Reused B original anonymous guarded-public body; no new acquisition, credentials or browser state."
+  },
+  "dependencies": {
+    "bCommit": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330",
+    "cCommit": "3d533fb15115ad670e30b52b11ac6435d654c53a",
+    "cPacket": {
+      "bytes": 34429,
+      "sha256": "84d93cc4261471a9c5ce20df73a214d8078be5d8d78e0c85211e07436a54ec35"
+    },
+    "helper": {
+      "gitBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+      "gitBytes": 34946,
+      "gitSha256": "a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c",
+      "physicalBytes": 35430,
+      "physicalSha256": "6fef175f944a6d1abd36be9d8709a128ffe6668603eea6496cf3e38bd7862ea9",
+      "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+      "serializerVersion": "nature-corpus-subtree/1.0.0",
+      "recipeVersion": "1.0.0",
+      "projectionVersion": "nature-corpus-projection/1.0.0"
+    }
+  },
+  "fixture": {
+    "path": "materials-reference-literal.excerpt.html",
+    "bytes": 13671,
+    "sha256": "89001940e39557ec3d170e70979ce3477757ef107b616d2e77ff83b3ce2b249e",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "recipe": {
+    "version": "1.0.0",
+    "id": "materials-reference-literal-prefix-2-v1",
+    "articleUrl": "https://www.nature.com/articles/s41586-023-06735-9",
+    "blocks": [
+      {
+        "id": "a-meta-11",
+        "selector": "head > meta[name=\"dc.title\"][content=\"Scaling deep learning for materials discovery\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-36",
+        "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-40",
+        "selector": "head > meta[name=\"citation_title\"][content=\"Scaling deep learning for materials discovery\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-41",
+        "selector": "head > meta[name=\"citation_volume\"][content=\"624\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-42",
+        "selector": "head > meta[name=\"citation_issue\"][content=\"7990\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-43",
+        "selector": "head > meta[name=\"citation_publication_date\"][content=\"2023/12\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-44",
+        "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/11/29\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-45",
+        "selector": "head > meta[name=\"citation_firstpage\"][content=\"80\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-46",
+        "selector": "head > meta[name=\"citation_lastpage\"][content=\"85\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-50",
+        "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41586-023-06735-9\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-53",
+        "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41586-023-06735-9\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-135",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Merchant, Amil\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-137",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Batzner, Simon\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-139",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Schoenholz, Samuel S.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-141",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Aykol, Muratahan\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-143",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Cheon, Gowoon\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-145",
+        "selector": "head > meta[name=\"citation_author\"][content=\"Cubuk, Ekin Dogus\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-154",
+        "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41586-023-06735-9\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-155",
+        "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-meta-157",
+        "selector": "head > meta[property=\"og:title\"][content=\"Scaling deep learning for materials discovery - Nature\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "a-title",
+        "selector": "h1.c-article-title",
+        "role": "title"
+      },
+      {
+        "id": "code-availability",
+        "selector": "section[data-title=\"Code availability\"]",
+        "role": "complete-source-body-section"
+      },
+      {
+        "id": "references-heading",
+        "selector": "#Bib1",
+        "role": "source-heading"
+      },
+      {
+        "id": "reference-1",
+        "selector": "ol.c-article-references > li:nth-child(1)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "reference-2",
+        "selector": "ol.c-article-references > li:nth-child(2)",
+        "role": "complete-original-reference-prefix"
+      },
+      {
+        "id": "rights-heading",
+        "selector": "section[data-title=\"Rights and permissions\"] h2",
+        "role": "source-rights-heading"
+      },
+      {
+        "id": "article-rights",
+        "selector": "section[data-title=\"Rights and permissions\"] p:has(a[href=\"http://creativecommons.org/licenses/by/4.0/\"])",
+        "role": "complete-original-article-notice"
+      },
+      {
+        "id": "publisher-footer",
+        "selector": "p.c-footer__legal",
+        "role": "original-publisher-footer-notice"
+      }
+    ],
+    "removeSelectors": []
+  },
+  "recipeSha256": "b68658098974cd675033c747d4f8bf380b3ca7d18f27e97521739be1698fa519",
+  "retainedBlocks": [
+    {
+      "id": "a-meta-11",
+      "selector": "head > meta[name=\"dc.title\"][content=\"Scaling deep learning for materials discovery\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "61c7a4f7321ddfa29e5655316c8776b8b4bd8d338660fa81088b807c366f7e21"
+    },
+    {
+      "id": "a-meta-36",
+      "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d624cd945018592d96ac7b5f06c775fab966979552e03ab8f4185895ea0af853"
+    },
+    {
+      "id": "a-meta-40",
+      "selector": "head > meta[name=\"citation_title\"][content=\"Scaling deep learning for materials discovery\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a05d3a33622845f8eb9ab600da14551813cfc9c398f22011f581f2521031946e"
+    },
+    {
+      "id": "a-meta-41",
+      "selector": "head > meta[name=\"citation_volume\"][content=\"624\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ac01c2e3681bba8a7eaa43f8be16c71b72d31744f8661dc9582e82b66dea8933"
+    },
+    {
+      "id": "a-meta-42",
+      "selector": "head > meta[name=\"citation_issue\"][content=\"7990\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "11cad9dfe1acce932f6ac7b076e5cc288e98f7a46c4c02138a268250ae9bcad4"
+    },
+    {
+      "id": "a-meta-43",
+      "selector": "head > meta[name=\"citation_publication_date\"][content=\"2023/12\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b6a249eddd52f456a71a79cf09d928bdf1c086afdf2a6f22d4e83638125a1595"
+    },
+    {
+      "id": "a-meta-44",
+      "selector": "head > meta[name=\"citation_online_date\"][content=\"2023/11/29\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "cf0749fcad2dc59601f7aee322bdb8c69e141cdf4eb6a343c20be5e9bd6a28a3"
+    },
+    {
+      "id": "a-meta-45",
+      "selector": "head > meta[name=\"citation_firstpage\"][content=\"80\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "8789b8a9d6d54d04737a08a848d29206f04fb466506b3604df208d879c13bd29"
+    },
+    {
+      "id": "a-meta-46",
+      "selector": "head > meta[name=\"citation_lastpage\"][content=\"85\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "37fd1b50119910b5d21de4da01e9a1ee329633f97342b5d4a1b0f47f58979abd"
+    },
+    {
+      "id": "a-meta-50",
+      "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41586-023-06735-9\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "f8b6b0b6041427a132114ad7f02db35f7eb6605f1a7ee00e4e756c5b17da9648"
+    },
+    {
+      "id": "a-meta-53",
+      "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41586-023-06735-9\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "2c06653c30093f479b8357e97c9063d42de3b9781d3bcda0214e41baddeeac34"
+    },
+    {
+      "id": "a-meta-135",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Merchant, Amil\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "dabf5d7c8fc8c8360cb067e9422a17b4d68c01d521f6095e247c6741363d13e2"
+    },
+    {
+      "id": "a-meta-137",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Batzner, Simon\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c86b50bf8c91b1c8991421a145394a8bf0a732384ab53e281f0da622a58fabf6"
+    },
+    {
+      "id": "a-meta-139",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Schoenholz, Samuel S.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "cee789311c615fb5384a3cd6e5e635c7cd49c5f630fc95ee335f2920c7edc7e1"
+    },
+    {
+      "id": "a-meta-141",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Aykol, Muratahan\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "9e3c08ae6cbdac1d4c05fbef6ec521506e271512fa5015da047891ad01567794"
+    },
+    {
+      "id": "a-meta-143",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Cheon, Gowoon\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "92ddc3b6597ead189e9f4a4c952763da89ead760f2435c7ed1f4d9d9a5f1d481"
+    },
+    {
+      "id": "a-meta-145",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Cubuk, Ekin Dogus\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "6f939b2a9791bf96098a2b0008913174fb2808c54371aad960663af16ed81810"
+    },
+    {
+      "id": "a-meta-154",
+      "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41586-023-06735-9\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "eaae4c91d4e056b7c898de9dd35d25ebe38e904272654f32a4a1bec4a815db03"
+    },
+    {
+      "id": "a-meta-155",
+      "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e2a47d03efa7114d4bc8e65c0fba2e84722b49e6e718eb787898c3c61ac5bcc9"
+    },
+    {
+      "id": "a-meta-157",
+      "selector": "head > meta[property=\"og:title\"][content=\"Scaling deep learning for materials discovery - Nature\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "6537488db88a7eb2fa9ba2ad2a75600fda874f440cbc9fc85e59154e2d3810ac"
+    },
+    {
+      "id": "a-canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "757097cc5a5f1877ab6fa08fc9ea48e109bd80b0fa17799fd0ea971351d070a8"
+    },
+    {
+      "id": "a-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a5388a86ff4278af3c4aeebb7860e666f73474d5a54b0e55d6bdc9eb58c93e16"
+    },
+    {
+      "id": "a-title",
+      "selector": "h1.c-article-title",
+      "role": "title",
+      "sourceSubtreeSha256": "d702370f138bffc1df55a66ca7d7149e0778587a3e6b48ec0079e58bc8cbd745"
+    },
+    {
+      "id": "code-availability",
+      "selector": "section[data-title=\"Code availability\"]",
+      "role": "complete-source-body-section",
+      "sourceSubtreeSha256": "e587516d3f96db9c46da60fe143eaa4eae36dc0df8b998404ce8c79732d69ef7"
+    },
+    {
+      "id": "references-heading",
+      "selector": "#Bib1",
+      "role": "source-heading",
+      "sourceSubtreeSha256": "af92342e8974526976997242004de48e6fcf9aef95e778bf2972d4199120887d"
+    },
+    {
+      "id": "reference-1",
+      "selector": "ol.c-article-references > li:nth-child(1)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "84f5d0b182626bfcfbcfee7dac7eef33bd7ce85d5967ff55287e2ce0926da6e6"
+    },
+    {
+      "id": "reference-2",
+      "selector": "ol.c-article-references > li:nth-child(2)",
+      "role": "complete-original-reference-prefix",
+      "sourceSubtreeSha256": "0e255b91a472bfacada32b8041e736dbe7ccbae15e28f00a75db89cb113217cb"
+    },
+    {
+      "id": "rights-heading",
+      "selector": "section[data-title=\"Rights and permissions\"] h2",
+      "role": "source-rights-heading",
+      "sourceSubtreeSha256": "9115d872cc0109bd3832220805f3ad60bde8fdc4c49fbee3fbb3745051a947c5"
+    },
+    {
+      "id": "article-rights",
+      "selector": "section[data-title=\"Rights and permissions\"] p:has(a[href=\"http://creativecommons.org/licenses/by/4.0/\"])",
+      "role": "complete-original-article-notice",
+      "sourceSubtreeSha256": "84ab88094d2cd6f87d0a2a8abbb091db26a34a50a7701aa2a706a9a1a4b4dafd"
+    },
+    {
+      "id": "publisher-footer",
+      "selector": "p.c-footer__legal",
+      "role": "original-publisher-footer-notice",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3"
+    }
+  ],
+  "transformations": [
+    {
+      "operation": "select-complete-source-blocks-with-ancestors",
+      "count": 30
+    },
+    {
+      "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+      "count": 1
+    },
+    {
+      "operation": "trim-json-ld-to-article-object",
+      "count": 1
+    },
+    {
+      "operation": "remove-attributes",
+      "count": 46
+    },
+    {
+      "operation": "sanitize-resource-urls",
+      "count": 2
+    }
+  ],
+  "omittedContent": [
+    "All unselected source body and scientific roles, abstract, figures/tables/equations, references 3–71, navigation/advertisements/executable/session state are omitted.",
+    "Complete Code availability section, original reference prefix1–2, all six article creators/canonical/DOI/JSON-LD, original article CC notice and publisher footer retain source topology/text.",
+    "No images, PDF, table response, full raw page or Markdown snapshots are committed.",
+    "A sanitizer selects ancestors, sorts attributes, uses fixed scaffold/LF, trims related JSON-LD and removes tracking attrs; no source prose/equation/title correction or inline pretty printing."
+  ],
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41586-023-06735-9",
+    "sourceObservedAt": "2026-10-03T16:44:22.324Z",
+    "sourceSha256": "79f575e1941633c2dbd036682977ea6c274acd5c8c44fdb4648856a00a8d7cc6",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Merchant, Amil",
+      "Batzner, Simon",
+      "Schoenholz, Samuel S.",
+      "Aykol, Muratahan",
+      "Cheon, Gowoon",
+      "Cubuk, Ekin Dogus"
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "84ab88094d2cd6f87d0a2a8abbb091db26a34a50a7701aa2a706a9a1a4b4dafd",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [],
+    "technicalTransformations": "Recipe-selected excerpts and original ancestors, A sanitizer 1.1.0, deterministic serialization and LF normalization. Advertising, navigation, executable content and unselected source blocks are omitted as recorded in the manifest/handoff. Retained scholarly prose, TeX, captions, authors, citation data and table cells are preserved; image binaries and full live captures are not included.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "references": [
+    {
+      "number": 1,
+      "selector": "ol.c-article-references > li:nth-child(1)",
+      "sourceAnchorId": "ref-CR1",
+      "sourceText": "Green, M. A., Ho-Baillie, A. & Snaith, H. J. The emergence of perovskite solar cells. Nat. Photon. 8, 506–514 (2014).",
+      "normalizedSourceText": "Green, M. A., Ho-Baillie, A. & Snaith, H. J. The emergence of perovskite solar cells. Nat. Photon. 8, 506–514 (2014).",
+      "sourceSubtreeSha256": "84f5d0b182626bfcfbcfee7dac7eef33bd7ce85d5967ff55287e2ce0926da6e6",
+      "frozenSubtreeSha256": "c074c5a85f81f504f2971adcc3c6122e126c5f76ca277c7ca0fc095c582593ed",
+      "sourceScientificNodes": [
+        {
+          "tag": "I",
+          "text": "Nat. Photon."
+        },
+        {
+          "tag": "B",
+          "text": "8"
+        }
+      ],
+      "doi": "10.1038/nphoton.2014.134",
+      "sourceDoiHref": "https://doi.org/10.1038%2Fnphoton.2014.134"
+    },
+    {
+      "number": 2,
+      "selector": "ol.c-article-references > li:nth-child(2)",
+      "sourceAnchorId": "ref-CR2",
+      "sourceText": "Mizushima, K., Jones, P., Wiseman, P. & Goodenough, J. B. LixCoO2 (0<x<-1): a new cathode material for batteries of high energy density. Mater. Res. Bull. 15, 783–789 (1980).",
+      "normalizedSourceText": "Mizushima, K., Jones, P., Wiseman, P. & Goodenough, J. B. LixCoO2 (0<x<-1): a new cathode material for batteries of high energy density. Mater. Res. Bull. 15, 783–789 (1980).",
+      "sourceSubtreeSha256": "0e255b91a472bfacada32b8041e736dbe7ccbae15e28f00a75db89cb113217cb",
+      "frozenSubtreeSha256": "9892d49c445a2e6e0321a3c4865b1fd7c52de6e379be2ac212ba1f34ed7c3f7f",
+      "sourceScientificNodes": [
+        {
+          "tag": "SUB",
+          "text": "x"
+        },
+        {
+          "tag": "I",
+          "text": "x"
+        },
+        {
+          "tag": "SUB",
+          "text": "2"
+        },
+        {
+          "tag": "I",
+          "text": "x"
+        },
+        {
+          "tag": "I",
+          "text": "Mater. Res. Bull."
+        },
+        {
+          "tag": "B",
+          "text": "15"
+        }
+      ],
+      "doi": "10.1016/0025-5408(80)90012-4",
+      "sourceDoiHref": "https://doi.org/10.1016%2F0025-5408%2880%2990012-4"
+    }
+  ],
+  "body": {
+    "selector": "section[data-title=\"Code availability\"] p",
+    "sourceText": "Software to analyse stable crystals and associated phase diagrams, as well as the software implementation of the static GNN and the interatomic potentials, will be made available at https://github.com/google-deepmind/materials_discovery.",
+    "sourceSubtreeSha256": "de524ff737fcd33c9202e1b6828e7997e07c4baaf1b84e8e2c19ea95493b8bdd"
+  },
+  "expectations": {
+    "titleLiteral": "(0<x<-1)",
+    "sourceRole": "Two original literal less-than characters surrounding italic x, no active HTML, no correction of published negative bound.",
+    "referencesCount": 2,
+    "orderedSourceIds": [
+      "ref-CR1",
+      "ref-CR2"
+    ],
+    "noTables": true,
+    "noFigures": true,
+    "noSourceDisplayMath": true,
+    "expectedWarnings": [
+      "No Nature figures were detected.",
+      "No equation nodes were detected."
+    ],
+    "dialects": [
+      "markdown",
+      "links",
+      "quarto"
+    ],
+    "zeroLiveDnsHttp": true,
+    "writerNeverCalled": true
+  },
+  "independentReview": "Pending. B/C reviews of other projections do not certify this new excerpt."
+}
