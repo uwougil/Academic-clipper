@@ -8,8 +8,8 @@
 - Base：`a5b6acc2984af5cb8b82106291e963f4f413f5ac`。Main CI [37716530268](https://github.com/uwougil/Academic-clipper/actions/runs/37716530268) 与 Secret scan [37716530267](https://github.com/uwougil/Academic-clipper/actions/runs/37716530267) 均为该 SHA 的 completed/success；本次恢复已重新读取两 run 身份。后续生产修复须采用届时最新 accepted main。
 - Branch：`codex/issue-10-bug-chemistry-delta`。
 - Worktree：`C:/Users/guoli/.codex/worktrees/issue-10-bug-chemistry-delta/academic-clipper`。
-- Ordered commits：来源/test/diagnosis `8301a6465ef112a31fb8891bc75a0796e34e838f` → 原 DOCONLY handoff `c754d545b03045fb9d161a41174d067ff5dea781` → 本轮 synthetic-only test/plan（由最终 HEAD 标识）。不需要重复选择来源，也不 merge 此 RED branch。
-- Owned files：`test/fixtures/nature-chemistry-delta/{.gitattributes,README.md,diagnosis.json,s41467-023-44030-3.excerpt.html,s41467-023-44030-3.provenance.json}`、`test/nature-chemistry-delta.test.mjs`、本文件。
+- Ordered commits：来源/test/diagnosis `8301a6465ef112a31fb8891bc75a0796e34e838f` → 原 DOCONLY handoff `c754d545b03045fb9d161a41174d067ff5dea781` → 首次 synthetic-only test/plan `7d04f7e79af7666632c392a40be09780fd6c5932` → 四项独立审查 tail controls/计划澄清（由最终 HEAD 标识）。不需要重复选择来源，也不 merge 此 RED branch。
+- Owned files：`test/fixtures/nature-chemistry-delta/{.gitattributes,README.md,diagnosis.json,s41467-023-44030-3.excerpt.html,s41467-023-44030-3.provenance.json}`、`test/nature-chemistry-delta.test.mjs`、`test/nature-chemistry-delta-boundary.test.mjs`、本文件。
 - `src/`、golden、B corpus、canonical spec、PRD/EDD、依赖、security/writer、C/D files 均无修改；无 PR。后续一个独立 #73 delivery PR 必须使用精确独立 `Refs #73` 行，且满足 orchestrator 的十项合并条件。
 
 ## 来源与科学 oracle
@@ -113,10 +113,31 @@ guard在所有 dynamic production imports与 parse之前安装：global fetch、
 
 ### 尚未实施的 Nature private typed-label 计划
 
-1. 在既有 `replaceScientificRuns()` 内增加一个 Nature private collector；它只接受 plain contiguous text Δ + 一个 plain-text SUP 的 typed label slot。原 `12,13` 是唯一真实已证明 chemistry value；synthetic12/13只证明同 glyph的源分组必须完整保留，不推断 exponent或键位。初始允许值限定这些明确已验证slot，未知Δ值继续原路径，不建立 generic Greek/SUP scanner。原源码位置、作者/文章ID不参与识别。
-2. 检查完整前后source词边界，使用 Unicode `\p{L}\p{N}\p{M}_`，按code points覆盖astral。文本节点开始且前面已有未知sibling/comment/wrapper不能假定lexical boundary；source Δ与SUP之间的空白/comment/wrapper、复杂/styled SUP或额外非citation attachment均不进入此role。SUP后紧接的正文Unicode词/数字/mark/underscore不得在中间截断。原 `-alkene` 保持在range外。明确 typed citation SUP依据现有两个anchor cues保持独立，direct after label也不能被吸收。
+1. 在既有 `replaceScientificRuns()` 内增加一个 Nature private collector；它只接受 plain contiguous text Δ + 一个 plain-text SUP 的 typed label slot。原 `12,13` 是唯一真实已证明 chemistry value；synthetic12/13只证明同 glyph的源分组必须完整保留，不推断 exponent或键位。SUP exact `textContent` 必须属于 `new Set(['12,13','12','13'])`，不使用通用数字/comma grammar、清洗/去空白后匹配或新增values。未知Δ值（包括clean numeric14）继续原路径，不建立 generic Greek/SUP scanner。原源码位置、作者/文章ID不参与识别。
+2. 检查完整前后source词边界，使用 Unicode `\p{L}\p{N}\p{M}_`，按code points覆盖astral。文本节点开始且前面已有未知sibling/comment/wrapper不能假定lexical boundary；source Δ与SUP之间的空白/comment/wrapper、复杂/styled SUP或额外非citation attachment均不进入此role。SUP右侧只允许parent end、立即非空Text以whitespace或合格Unicode punctuation起始（排除underscore），或由既有两个citation anchor cues独立证明的typed citation SUP。其它element/comment/empty wrapper等未知continuation均拒绝，不跨node查找下一个看似合法边界；立即Text中的Unicode词/数字/mark/underscore亦不得截断。原 `-alkene` 的hyphen是合格punctuation且保持在range外；direct citation正例维持独立，不能被吸收。
 3. `parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')` 不消费；对跨inline siblings的闭合literal math/code采用保守whole-parent delimiter-cue排除，而不是在text-node局部猜测。检查 dollar/backtick/fence以及 `\(...\)`/`\[...\]`闭合来源；这些synthetic opacity预检只声明新增collector不应介入，不重写既有MathJax/MathML/code语义。
 4. range只提取完整Δ和该plain SUP，给已有 `replaceRangeWithScientificMarker(..., range.tex)` 写精确原 `Δ^{12,13}`（synthetic对应完整 `Δ^{12}`/`Δ^{13}`）。复用现有 `range.tex` 接口、semantic marker编号、renderer与Defuddle；既有styled/numeric/MathJax/citation路径、body/caption共享collector顺序保持。Δsource字体/glyph保持，不强制改为roman text、decimal、fraction、citation或numeric power。
 5. 新矩阵全部ALL ordered runs与markers、inline/citations、严格grouped ALL final atoms及body/caption placement必须GREEN；旧source test三方言在最新accepted实现首次fresh no-cache执行、原来源 bytes/oracle保持、四validators必须GREEN。未来修复再按root gate执行focused/affected/full/build/golden、独立implementation review、fresh三平台CI/Secret scan，后续successfulmerged-main完成#73。
 
 本计划尚未获得 independent plan/implementation CLEAR，也未改生产代码。root仍把Nature生产owner锁在#68及其accepted dependency顺序#68→#71→#72；#73只能在该gate释放及最新accepted base确认之后开始。当前稳定checkpoint只为下一位独立read-only plan reviewer与未来production owner准备，不宣称bug已修复、#73完成或#10 ready。
+
+### 两项独立 plan findings 的窄 tail（四个新controls）
+
+不同作者报告：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue73-plan-independent-review/plan-review-7d04f7e-FINDINGS.md`，4991 bytes/SHA-256 `42d373279915112ad4d1f8458975d52e0c503a61b292f80fd2f1a39b7614fcc3`；同根 `plan-review-7d04f7e-FINDINGS.json`，5353 bytes/SHA-256 `7ff15e2f8d28152773bbc36078fbe1ebf8a562e9a9abfba65eb967297d212bac`。本owner读完整报告并核对原bytes。审阅结论 `PLAN_REQUIRES_TWO_NARROW_CORRECTIONS`，两个P2只涉及明确value set及SUP右侧资格；原 source CLEAR保留，不重审来源、不声称candidate实现发现。
+
+上方计划第1项现在明确exact string集合 `new Set(['12,13','12','13'])`；第2项明确右侧只接受end、立即非空Text的whitespace/合格punctuation（排除underscore），或独立typed citation。unknown wrapper/comment/empty-wrapper不跨越、不推测，原hyphenated `-alkene` 和direct-citation正例继续保留。只新增四个synthetic controls：clean unknown numeric14、SUP后`<span>A</span>`、SUP后`<!--edge-->A`、SUP后空`<span></span>`，全部预期ALL ordered scientific runs和markers为空，inline/display/citations全为空。
+
+为避免旧矩阵重做，测试新增明确 `CHEMISTRY_DELTA_BOUNDARY_SCOPE=review-tail` 入口：在case loop之前仅选这四个IDs，assert其数量恰好4；loop结束直接return，甚至不import `clip.mjs`，不注册旧oracle或三个mixed clips，不执行window observer。默认scope仍为`all`，future正常candidate必须消费原42 children+新4 children，共46children/47含aggregate；本轮没有运行这个47-test全量，也没有把旧43结果改为GREEN。
+
+唯一实际新运行：`node C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemistry-delta/run-review-tail.cjs` exit0；其子命令仍为 `node --test test/nature-chemistry-delta-boundary.test.mjs`，设置上述scope、原 `CHEMISTRY_DELTA_PRODUCTION_ROOT=<根>/preflight-36c93ca` 与新的 `CHEMISTRY_DELTA_PREFLIGHT_RECEIPT_ROOT=<根>/preflight-36c93ca/review-tail-7d04f7e`。Node v24.14.1；原36文件snapshot bytes逐项只读验证相同，未重建snapshot或写dependency target。真实5tests（仅4新children+aggregate）5PASS/0FAIL、640.6308ms、0skip/cancel/todo。动态guard仍在production import与parse之前，四个DOM在finally关闭、exact fetch/callback+promise DNS bindings恢复、独立final attempts`[]`；新的synthetic/real clips、internal window observer、source audit/projection、旧case/runtime/43矩阵/15-test/旧真实三clips均0。
+
+Evidence相对`preflight-36c93ca/review-tail-7d04f7e/`：
+
+| 同次新 tail evidence | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `executed-test.mjs` | 11184 | `9c0de9d06caadd1d730bd89344f5d3a6bcfb8ebd0db40bd837c09501c105d1fe` |
+| `stdout.log` | 441 | `71354e962d0afa1fb8fa97f8c1496516e412b97f8ee89d25ad7add972fd951b6` |
+| `process.json` | 716 | `cf9527ae588e0a7ebb7f2e27725ac58a04c2418caf9c1b01b08d36e9ca23d487` |
+| `synthetic-results.json` | 3477 | `071cb37b655658a84bed0451f80809943ced27dea19e62523991cecadaab8114` |
+
+同根`summary.json`存四个actual records的完整run/inline/display/citation arrays、scope/count/ledger/closure与上述hash；stderr0bytes。旧initial/preflight/cache/postcheck/原source文件及证据全保留，原八个genuine RED与后续assertion未执行状态不变。没有修改production、adopt其它owner/current#68/source inputs/validator/security，没有full/build/golden/PR CI/live/merge。`node --check`及`git diff --check`通过，最终own HEAD/push/clean receipt另行提供。两项tail已提交给root指定的不同作者再次静态review；未经其零blocking结论不自宣plan CLEAR，生产锁顺序仍为#68→#71→#72→#73。

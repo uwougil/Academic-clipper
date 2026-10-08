@@ -48,10 +48,20 @@ const cases=[
   {id:'equation-opaque',html:String.raw`<div class="c-article-equation" id="Equ1"><p>Δ<sup>12,13</sup>-alkene</p><span class="mathjax-tex">\[\Delta^{12,13}\]</span></div>`,runs:[],display:['\\Delta^{12,13}']},
   {id:'closed-dollar-across-span',body:'$<span>q+</span>Δ<sup>12,13</sup>$',runs:[]},
   {id:'closed-parens-across-span',body:String.raw`\(<span>q+</span>Δ<sup>12,13</sup>\)`,runs:[]},
+  // Four unique controls requested by the independent plan review. The
+  // review-tail scope executes ONLY these rows, without old rows or clips.
+  {id:'review-tail-unknown-value-14',body:'Δ<sup>14</sup>-alkene',runs:[]},
+  {id:'review-tail-right-word-wrapper',body:'Δ<sup>12,13</sup><span>A</span>',runs:[]},
+  {id:'review-tail-right-comment-word',body:'Δ<sup>12,13</sup><!--edge-->A',runs:[]},
+  {id:'review-tail-right-empty-wrapper',body:'Δ<sup>12,13</sup><span></span>',runs:[]},
 ];
+const scope=process.env.CHEMISTRY_DELTA_BOUNDARY_SCOPE||'all';
+assert.ok(['all','review-tail'].includes(scope),'Unknown boundary scope');
+const selectedCases=scope==='review-tail'?cases.filter(item=>item.id.startsWith('review-tail-')):cases;
+if(scope==='review-tail')assert.equal(selectedCases.length,4,'Exactly four new controls; no old matrix discovery');
 
 test('synthetic Chemistry Delta preflight (no production edits)',async t=>{
-  const attempts=[],records=[],doms=[],clipWindows=new Set();
+  const attempts=[],records=[],doms=[],clipWindows=new Set();let syntheticClips=0;
   const original={fetch:globalThis.fetch,lookup:dns.lookup,promiseLookup:dnsPromises.lookup};
   // Guards precede dynamic production imports and all DOM/parser operations.
   globalThis.fetch=async(...args)=>{attempts.push({kind:'HTTP',url:String(args[0])});throw Error('Unexpected synthetic Delta HTTP');};
@@ -60,8 +70,7 @@ test('synthetic Chemistry Delta preflight (no production edits)',async t=>{
   syncBuiltinESMExports();
   try{
     const {parseNaturePage}=await import(new URL('src/adapters/nature.mjs',production));
-    const {clipNature}=await import(new URL('src/clip.mjs',production));
-    for(const item of cases)await t.test(item.id,()=>{
+    for(const item of selectedCases)await t.test(item.id,()=>{
       const html=fixture(item.html||`<p>BEGIN ${item.body} END</p>`),page=parseNaturePage(html,url);doms.push(page.dom);
       const record={id:item.id,input:html,runs:page.semantic.scientificRuns.map(({marker,tex})=>({marker,tex})),inline:page.semantic.inlineMath.map(({marker,tex})=>({marker,tex})),display:page.semantic.displayMath.map(({marker,tex})=>({marker,tex})),citations:page.semantic.citations.map(c=>c.numbers),cleanedHtml:page.cleanedHtml,expected:item};records.push(record);
       assert.deepEqual(record.runs.map(r=>r.tex),item.runs,'Full ordered scientific runs retain only proven roles');
@@ -71,6 +80,10 @@ test('synthetic Chemistry Delta preflight (no production edits)',async t=>{
       assert.deepEqual(record.citations,item.citations||[]);
       assert.deepEqual(attempts,[],'Even swallowed transport attempts fail independently');
     });
+    // Return before registering the old oracle or mixed clip tests. This also
+    // avoids importing clip.mjs or exercising the future window observer.
+    if(scope==='review-tail')return;
+    const {clipNature}=await import(new URL('src/clip.mjs',production));
     await t.test('grouped-atom-oracle-rejects-valid-looking-counterfeits',()=>{
       assert.deepEqual(atoms('$Δ^{12}$; $Δ^{13}$'),['Δ^{12}','Δ^{13}']);
       for(const [counterfeit,expected] of [['$Δ^{1}2$','Δ^{12}'],['$Δ^{1}3$','Δ^{13}'],['$Δ^{12.13}$','Δ^{12,13}'],['$Δ^{12/13}$','Δ^{12,13}'],['Δ$^{12,13}$','Δ^{12,13}']])assert.notDeepEqual(atoms(counterfeit),[expected]);
@@ -83,7 +96,7 @@ test('synthetic Chemistry Delta preflight (no production edits)',async t=>{
       const previousWindow=globalThis.window;
       let value=previousWindow,result;
       Object.defineProperty(globalThis,'window',{configurable:true,get:()=>value,set:next=>{value=next;if(next!==previousWindow&&next?.close&&next?.document)clipWindows.add(next);}});
-      try{result=await clipNature({html:mixed,url,citationStyle:dialect});}
+      try{syntheticClips+=1;result=await clipNature({html:mixed,url,citationStyle:dialect});}
       finally{if(descriptor)Object.defineProperty(globalThis,'window',descriptor);else delete globalThis.window;assert.deepEqual(Object.getOwnPropertyDescriptor(globalThis,'window'),descriptor);}
       records.push({id:`mixed-${dialect}`,synthetic:true,result});
       const runs=['x^{2}','10^{3}','Δ^{12,13}','y^{2}','Δ^{13}'];
@@ -103,7 +116,7 @@ test('synthetic Chemistry Delta preflight (no production edits)',async t=>{
     try{for(const dom of doms)dom.window.close();for(const window of clipWindows)window.close();}
     finally{globalThis.fetch=original.fetch;dns.lookup=original.lookup;dnsPromises.lookup=original.promiseLookup;syncBuiltinESMExports();}
     assert.equal(globalThis.fetch,original.fetch);assert.equal(dns.lookup,original.lookup);assert.equal(dnsPromises.lookup,original.promiseLookup);
-    if(process.env.CHEMISTRY_DELTA_PREFLIGHT_RECEIPT_ROOT){const root=process.env.CHEMISTRY_DELTA_PREFLIGHT_RECEIPT_ROOT;await mkdir(root,{recursive:true});await writeFile(`${root}/synthetic-results.json`,JSON.stringify({synthetic:true,production:String(production),node:process.version,newRealClips:0,newSourceProjections:0,closedParserDoms:doms.length,closedInternalClipWindows:clipWindows.size,restoredExactBindings:true,attempts,records},null,2)+'\n');}
+    if(process.env.CHEMISTRY_DELTA_PREFLIGHT_RECEIPT_ROOT){const root=process.env.CHEMISTRY_DELTA_PREFLIGHT_RECEIPT_ROOT;await mkdir(root,{recursive:true});await writeFile(`${root}/synthetic-results.json`,JSON.stringify({synthetic:true,scope,production:String(production),node:process.version,newRealClips:0,newSourceProjections:0,newSyntheticClips:syntheticClips,closedParserDoms:doms.length,closedInternalClipWindows:clipWindows.size,restoredExactBindings:true,attempts,records},null,2)+'\n');}
     assert.deepEqual(attempts,[],'Global final ledger assertion after all attempts and restoration');
   }
 });
