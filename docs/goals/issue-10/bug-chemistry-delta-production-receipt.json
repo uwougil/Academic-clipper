@@ -429,14 +429,15 @@
     "newAffectedTests": 0,
     "newBuilds": 0,
     "newGoldenRuns": 0,
-    "prs": 0
+    "prs": 0,
+    "scope": "Historical focused-only stage, before implementation review and broader release; broader counters/results are separate."
   },
   "pending": [
-    "Different-owner exact-head implementation review",
-    "Root release for affected/full/build/golden",
-    "Publication/fresh PR CI/Secret scan",
-    "Final exact-head independent publication review and ten merge gates",
-    "Successful merged-main acceptance"
+    "Exact publication-head independent review",
+    "Fresh three-platform PR CI",
+    "Fresh Secret scan / Gitleaks",
+    "Root ten-gate audit and matched-head merge",
+    "Successful merged-main CI and automation acceptance"
   ],
   "specChanges": [],
   "reviewedHead": "2f66f8e76b93413f2779e5b45568b525b5c0b27a",
