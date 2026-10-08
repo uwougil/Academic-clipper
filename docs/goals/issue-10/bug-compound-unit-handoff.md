@@ -25,11 +25,9 @@ HTTP/fetch、DNS lookup/promise lookup record-before-throw guards 覆盖所有�
 | quarto.actual-cache.json | 132436 | 5f57ea747251ba45ac507b6ff80731d356a42e40d5a8d08ee194112da03e8e8c |
 | quarto.actual.md | 1029 | 9ed64f2071e6b53511b05d5eca204abd0f798cc3296ccd7d8c3e7d96704f8545 |
 
-`git diff --check` exit0；protected fixture diff against source e8a exit0。Stable ab589 src tree `54c78d6bd5d6b4e986a116cf3e113dd1e12161df` / test tree `93d80cd26da3f95d159e704c4787bf6f59df44bb`。尚未独立 implementation review、affected/full/build/golden/fresh CI/Secrets/PR；先审实现再释放 full，避免提前全量后返工。没有 spec change 或 Issue10 完成声明。
+`git diff --check` exit0；protected fixture diff against source e8a exit0。Stable ab589 src tree `54c78d6bd5d6b4e986a116cf3e113dd1e12161df` / test tree `93d80cd26da3f95d159e704c4787bf6f59df44bb`。以上 focused checkpoint 当时尚未独立 implementation review、affected/full/build/golden/fresh CI/Secrets/PR；后续完成情况见下一节，先审实现再运行 full。没有 spec change 或 Issue10 完成声明。
 
-## 原 SOURCE_ONLY_RED 历史（以下保留当时事实）
-
-### 最终本地验证增量
+## 最终本地验证增量
 
 独立 implementation review `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue67-implementation-independent-review/implementation-review-ab58913-CLEAR.md` 6061 bytes / SHA256 `82ba83a61ee9cb93d62e423f92bbefe6a6195e84d0c767aafce93d27d6b5b89c`，**zero blocking findings**。另一 owner 在独立 checkout 实际执行4个新 parse-only probes 全 PASS 并只读核验3个 same-run source cache，没有重复来源审核/clip/full；root 全文审核后释放 broader gates。Future publication head 仍需独立审查。
 
@@ -38,6 +36,8 @@ HTTP/fetch、DNS lookup/promise lookup record-before-throw guards 覆盖所有�
 TEMP `academic-clipper-issue67-production` 新同轮 logs：`affected-ab58913.log` 47081 / `04c6689a35e330ca5068a45ac010176a7be57649a28afd83203baae51db01e6b`；`full-ab58913.log` 111713 / `87a64b920c7d0bf5753c6a45bdc195d925cc921b35df1f0302d069c22acfcfbf`；`build-ab58913.log` 170 / `5c002db451662f43a1cac695dcf443b08bd445910fe9e92976e002bf9a83c4f3`；`golden-ab58913.log` 3018 / `49fe118cfcf91bcbef91e1ec9ffad67f8807589431c6179ffc5cd1a8f8a36498`。Final local receipt `final-local-ab58913-receipt.json` **6882 bytes / `e2d031287d8baee22dfe8da4024f4b90e0d6a9d7cbe5384a532091bed084ae0e`** 包含 exact commands/terminal/full count/runtime trees/golden result/protected scope。这些外部日志/缓存不是 committed full snapshots。
 
 实际 `git diff --check` exit0；against accepted134 的 papers/golden、clip/normalizers/validators/security、extension、package/lock、canonical/PRD/EDD 均 exit0/no diff；against e8a 所有来源 fixture/provenance/diagnosis/attributes exit0。Final diff 仅11 owned files，Nature production27新增行，无 credentials/full captures。后继 publication 是 docs-only，src/test trees保持上述 codeab589。尚需 fresh PR 三平台 CI/Secrets 与 immutable final head 独审；仅 root 在十 gate 全部成立后可 merge，本 owner 不 merge/手动 close。Merged Main 成功才接纳并由 automation 完成 #67；C 随后在该 accepted SHA 复验 Materials 中此角色，其余 #68 保持独立。Issue10 不完成，无 spec proposal。
+
+## 原 SOURCE_ONLY_RED 历史（以下保留当时事实）
 
 状态：`SOURCE_ONLY_RED / PRODUCTION_GATE_LOCKED`。已经建立 [独立 bug Work Contract #67](https://github.com/uwougil/Academic-clipper/issues/67) 与一个完整真实来源投影、永久正确期待和三方言真实RED，没有生产修复、implementation PR或#10完成声明。新投影须由另一owner独立核验；shared Nature gate仅由root释放，不能把本RED branch合入main。
 
