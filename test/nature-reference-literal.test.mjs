@@ -51,11 +51,15 @@ assert.equal(source.querySelectorAll('table,a[href*="/tables/"]').length, 0);
 
 function readableText(text) {
   return text.replace(/\\([<>])/gu, '$1')
-    .replace(/&lt;|&#0*60;|&#x0*3c;/giu, '<')
-    .replace(/&gt;|&#0*62;|&#x0*3e;/giu, '>')
-    .replace(/&amp;/gu, '&')
-    .replace(/&quot;/gu, '"')
-    .replace(/&#0*39;|&apos;/gu, "'");
+    // Decode one Markdown entity layer. Chained replacement would decode
+    // source literal '&quot;' twice after '&amp;quot;' becomes '&quot;'.
+    .replace(/&(?:lt|gt|amp|quot|apos);|&#0*(?:39|60|62);|&#x0*(?:27|3c|3e);/giu, entity => {
+      const lower = entity.toLowerCase();
+      if (lower === '&amp;') return '&';
+      if (lower === '&quot;') return '"';
+      if (lower === '&apos;' || /^&#(?:0*39|x0*27);$/u.test(lower)) return "'";
+      return lower === '&lt;' || /^&#(?:0*60|x0*3c);$/u.test(lower) ? '<' : '>';
+    });
 }
 
 test('real reference projection retains original prefix, creators, DOM science and rights', () => {

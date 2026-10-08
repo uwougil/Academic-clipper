@@ -145,9 +145,9 @@ function encodeReferenceLiterals(value) {
     for (let cursor = index - 1; cursor >= 0 && value[cursor] === '\\'; cursor -= 1) backslashes += 1;
     return backslashes % 2 === 1;
   };
-  let mathEnd = 0;
+  let candidateEnd = 0;
   for (const opening of prose.matchAll(/\$\$|\$/gu)) {
-    if (opening.index < mathEnd || escaped(opening.index)) continue;
+    if (opening.index < candidateEnd || escaped(opening.index)) continue;
     const closingPattern = /\$\$|\$/gu;
     closingPattern.lastIndex = opening.index + opening[0].length;
     let closing;
@@ -155,9 +155,12 @@ function encodeReferenceLiterals(value) {
       if (closing[0] !== opening[0] || escaped(closing.index)) continue;
       const end = closing.index + closing[0].length;
       const candidate = prose.slice(opening.index, end);
+      // Both endpoints belong to this candidate even when literal HTML makes
+      // it ineligible for opacity. Reusing its closing dollar as a new opener
+      // would steal the next math opener and encode that math's operators.
+      candidateEnd = end;
       if (validateMathDelimiters(candidate).valid && validateRawHtml(candidate).valid) {
         prose = prose.slice(0, opening.index) + ' '.repeat(candidate.length) + prose.slice(end);
-        mathEnd = end;
       }
       break;
     }
