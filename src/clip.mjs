@@ -300,7 +300,12 @@ async function finishClip(parsedPage, { url, rawHtml, citationStyle, policy, art
       policy,
       headingContext: bodyMarkdown,
     });
-    await normalizeTableContents(parsedPage.tables, url);
+    await normalizeTableContents(parsedPage.tables, url, {
+      semantic: parsedPage.semantic,
+      references: parsedPage.references,
+      policy,
+      headingContext: bodyMarkdown,
+    });
     return {
       parsed,
       markdown: bodyMarkdown,
