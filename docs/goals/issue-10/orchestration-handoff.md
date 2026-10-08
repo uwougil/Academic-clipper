@@ -15,7 +15,7 @@
 
 ## DAG / 文件所有权
 
-当前 checkpoint（2026-10-07 21:43 UTC；以下 startup 表为历史）：
+当前 checkpoint（2026-10-08 00:24 UTC；以下 startup 表为历史）：
 
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
@@ -24,10 +24,10 @@
 | D seam / controller review | DONE for implementation | exact4649 independent zero blockers；最终真实source-controller acceptance DEPENDENCY_PENDING |
 | Footer45、caption47、units48、tableMathJax51、literal53、sparse55、citation56 | DONE | 各独立PR与成功mergedMain receipts见后续历史；accepted mainac86 |
 | styled-adjacency57 / PR62 | DONE | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523与Secrets成功、57 automation completed |
-| table-caption60 | RUNNING production | source-only5c9dd2独立105+1 projection已清关；SAME owner获3889 accepted gate；未来implementation exact-head审查仍未执行 |
-| leading-isotope61 | RUNNING source coverage extension | owncc83c89 dependency3889；真实15roles/old9缺6，保留旧source新增最终all15 projection；Nature生产gate仍锁60→61 |
+| table-caption60 | RUNNING independent implementation review | PR66 exact3a7ab0b，三平台CI37700211291与Secrets37700211155全SUCCESS；full540/build/golden已验证，最终十门槛尚待独立packet |
+| leading-isotope61 | RUNNING independent source review | clean87224b4/all15source a91645f；83245bytes/83blocks/15roles，唯一新25tests1PASS24真实FAIL；Nature生产gate仍锁60→61 |
 | Greek / split-power source contracts | DONE for source inputs | Greek64 cleanfcb116e / split63 clean4376aa8；两新projection独立CLEAR，production gate仍锁 |
-| reference2 literal inequality | RUNNING source preflight | reference_literal_source新隔离branch；原Materials raw/frozen/ref2与C3889缓存；不改生产 |
+| reference2 literal inequality | RUNNING source receipt recovery | source65 a07c827已commit；恢复原未提交README/test/handoff，真实11tests8PASS3FAIL复用；不改生产 |
 | Other mandatory scientific / Ref2 roles | PENDING | C冻结历史source evidence；需各独立窄合同/正确覆盖，不计现有PASS |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
@@ -440,3 +440,13 @@ Root提前指出NEW predictableTABLECODE marker+replaceAll可能替换原caption
 Reference literal source preflight新OPENbug65实际rootreadback title/buglabel，隔离branchcodex/issue-10-bug-reference-literal、base3889 accepted。作者lawfulexcerpt13671bytes/SHA89001940e39557ec3d170e70979ce3477757ef107b616d2e77ff83b3ce2b249e，原refs1–2/Codeavailability/完整6作者/canonicalDOIJSONLD/rightsfooter，raw/frozenref2与C原hash一致；小于20KiB软target仅因最小bug投影，不填冗余prose追尺寸。Externalstage3styles只linksrawHTML xline31col72，converter裸literal<之后anchor拼接暴露首失效；不修原(0<x<-1)、不放宽validator。永久RED/cleanhandoff尚未最终交付，futureuniqueprojection独立审查仍需，source-only不merge。
 
 61最终新all15projection作者freeze83245bytes/SHAca8665672f96c5590bb0767cab0448f60305f3b916b8e743e478766975a3ea81，83blocks/recipeSHA733e4d843d613e887f2184b1cef439c2c7687ff71ae8d3d61d0e7fa570e7677d。全部15source与C原raw/frozen逐项对应，额外11noncitationSUP明列排除；原9fixture/provenance/diagnosisGitbytes未改。完整Results p0/5/6/20、Fig3与Fig5、Methods p0、necessary真实headings/refs1–43（源最高43）/9作者/原CC与footer，actualA repeat/idem PASS仅作者audit不代独立。现在只执行一次新真实all15×3RED及whole同runcache，不再换recipe或跑full/production；63/64生产同样继续锁在60→61之后。
+
+## 2026-10-08 00:24 UTC：PR66 新 checks 与 final source checkpoint 接续
+
+上一 goal turn 分类 PROGRESS：实际60全540通过、61最终15角色源提交、C新真实Materials27/3缓存收尾及63/64独立sourceclear均改变后续行动。当前continuation完整读取用户pasted orchestration goal；actual list_agents仅root，旧child handles已消失，不能继续称verified live wait。依§22分别恢复只读PR66独立review、61唯一新83block source review及65原ownbranch未提交receipt；没有重做已成功source/full。
+
+Fetch/currentremote accepted仍3889f7396eab99060bec88fc8b0dcd3e6712024e。60现在clean/pushed最终doc-only3a7ab0b7d2e3fd68085f78ad65df4f89fdcf359f，PR66唯一Refs60；root完整readback body/10paths，src/test与validated9d9一致，来源4blobs不变。Fresh CI37700211291 exact3a7三jobs U20 113061583975、U24 113061583667、Win24 113061583976全SUCCESS；Secrets37700211155/Gitleaks113061583068 exact同headSUCCESS。Root直接读取build/golden原logs并核SHA796a329b35866d12f711357bb0edadb7e702cf70a19b9b08a0b26254feee736a /49fe118cfcf91bcbef91e1ec9ffad67f8807589431c6179ffc5cd1a8f8a36498：golden250inline13display50refs，全部validatorsvalid。完整productiondiff再读仅已授权三文件。尚须最终独立implementationpacket，不能因CI绿提前merge；3legacyparity控制不算semantic admission。
+
+61 clean/published最终87224b40394e9bee00eb896406442b4c789d131a：原2d038→b78c39→dependencycc83c89→新a91645f54bb2a23026986adf6dce6ad336db186c→doc-only87224。Root读新增完整handoff及137line永久all15test；旧9fixture/provenance/diagnosis/test unchanged，新5ownedsourcepaths。唯一实际focused25tests1PASS24FAIL/0skip/todo/cancel2131.9855ms，完整7context×3 attachment与四measurementwrongpower禁用，3actualwholeclips同次缓存保存。原raw枚举26非citationSUP=15mass11排除，source15=11orphan+4silentmisbinding；83245bytes/SHAca8665672f96c5590bb0767cab0448f60305f3b916b8e743e478766975a3ea81/83blocks/refs1–43/9creators/rights与原caption拓扑不变。每方言math13FAIL/other3validatorsPASS/exactwarningNoequation，另2trailinggroups不捆本合同。独立review只对最终新recipe一次raw/prehash/Aregen/repeatidem，不重复旧9、actualRED/C9/27/full；productiongate仍锁在60acceptedMain之前。
+
+65原reference owner句柄已消失但ownbranch a07c827源提交存在；README/test与handoff原delta保留。恢复child核实际日志11tests8PASS3FAIL1242.0399ms与仅新增mathcontrol1PASS709.4158ms，实际进程terminal，未需要重clip。接续只固化已有7行syntheticmathdelta/README/handoff和issue65精确receipt，冻结来源13671bytes/SHA89001940e39557ec3d170e70979ce3477757ef107b616d2e77ff83b3ce2b249e不变。30block新投影独立审查尚待；不将无学术来源的code/math边界算source、生产/API/validator/golden仍无改。
