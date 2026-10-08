@@ -1,10 +1,10 @@
 # Agent C — 来源核验与离线回归检查点
 
-状态：`DEPENDENCY_PENDING`，2026-10-07。当前生产基线为 accepted `3889f7396eab99060bec88fc8b0dcd3e6712024e`（PR #62 / Issue #57 styled source boundaries）。Reviewed ec53 / helper e3ff、API `1.0.0`、C tests 和 B 科学输入均未变。
+状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线为 accepted `e2c1faddf7219f1886f0fa846353f0f667358375`（PR #66 / Issue #60 table caption）。Reviewed ec53 / helper e3ff、API `1.0.0`、C tests 和 B 科学输入均未变。
 
-本轮仅复验 Materials `s41586-023-06735-9` × 三方言：27 条来源断言全部 PASS，3 个 Markdown / Bib / semantics / replay repeat 全部 PASS。实际 session20692：37 tests = 30 PASS / 7 FAIL，0 skip / todo / cancel，15,697.2445ms。7 FAIL 包括 3 个 validator 子测试及其 parents、receipt 缺 24 个组合的硬 FAIL；不将 partial receipt 伪造为 complete。原 Equ1 / 源 TeX 和 styled group 已恢复，原 4 个 adjacency delimiter issues 消失。整篇仍 FAIL：每方言 10 个 scientific-isolatedSuperscript（9 个 identifier-power、1 个 compound-unit）；links 的 reference2 字面 `(0<x<-1)` 仍触发 rawHtml `x` violation。
+本轮仅复验 Quantum `s41534-023-00746-0` × 三方言：30 条来源记录 27 PASS / 3 FAIL；3 个 Markdown / Bib / semantics / replay repeat 全部 PASS。实际 session22332：40 tests = 30 PASS / 10 FAIL，0 skip / todo / cancel，43,193.7263ms。10 FAIL 包含 3 个 citation 子测试、3 个 validator 子测试、3 个 parents 及 receipt 缺 24 个组合的硬 FAIL。每方言完整 source-crossrefs 已恢复；原 12 个 table-caption MathJax 产生的 24 legacy delimiter issues 消失。其余 math 仍 19 issues（17 Greek isolatedSubscript、2 split isolatedSuperscript），整篇不通过。
 
-当前 85 行是按实际基线标注的已知 registry：27 条 `M3889_NEW`、前轮 ac86 实测 84 条 `AC86_NEW`、原 0de full 的 144 条 `F0DE`，合成 250 PASS / 5 FAIL、83 `EXECUTABLE_NOW` / 2 `BLOCKED_BY_PARSER_DEFECT`。**这不是最新 3889 的全 255 条或完整 suite 验收。** 剩余 source FAIL 仅是前轮 Quantum citation cluster[59] / Equ7、Equ15 occurrence 记录；科学 validators 的既有 FAIL 仍必须通过。原 full380、ec53 partial6、ac86 partial9 的所有 evidence 保留，不覆盖、不重复。本轮没有重跑 13 raw / 85 oracle audit、27/full380、60 mutations、ac86 九组合或任何其他论文。
+当前 85 行按实际基线区分：30 条 `Qe2c1_NEW`、27 条 `M3889_NEW`、54 条 `AC86_NEW`、144 条 `F0DE`，合成 252 PASS / 3 FAIL、84 条来源 consumer 通过 / 1 条尚未通过。**这不是最新 e2c1 的全 255 条或完整 suite 验收。** 唯一剩余 source failure 为 Quantum `rendered.orderedSourceClusters`：source/semantic/final 均 77 clusters，原 caption cluster[59] 的 citation58 已保留一次，但在既有末尾 Tables section 成为 rendered[76]；其他 76 clusters 相对顺序不变。该失败保持，归因待独立审查现有 source 与 renderer 顺序契约，不提前声称 parser 或 C helper 缺陷。旧证据保留；本轮没有重跑 13 raw / 85 oracle audit、27/full380、60 mutations、ac86 九组合或其他论文。
 
 ## 基线、依赖与提交选择
 
@@ -17,7 +17,8 @@
 - Branch：`codex/issue-10-agent-c`。
 - Worktree：`C:/Users/guoli/.codex/worktrees/issue-10-offline/academic-clipper`。
 - 前轮 accepted `ac86b2fa509653dfeb43b968472ce6280a51de2c`（PR58/Issue55 sparse-alt与PR59/Issue56 citation eligibility）：C independently readback Main `37681190063` 的Windows24 `112997400634`、Ubuntu24 `112997400858`、Ubuntu20 `112997401004` 全SUCCESS，Secrets `37681189875`同head SUCCESS。Dependency-only merge `889eb55c613e606a634ce0dfd41dee78f26fd8cd`；不重写原authored SHAs。
-- 当前 accepted `3889f7396eab99060bec88fc8b0dcd3e6712024e`：root release 后 C independently readback Main `37691610523` 同 head 三 jobs（Ubuntu20 `113032907666`、Ubuntu24 `113032907843`、Windows24 `113032907867`）全部 SUCCESS，Secrets `37691610455` SUCCESS。Issue #57 automation 于21:56:25Z completed（root evidence）。Dependency-only merge `0a52908f36a161ccc6fe9495bf5505263cbc69f6`；没有消费 pending head。
+- 前轮 accepted `3889f7396eab99060bec88fc8b0dcd3e6712024e`：root release 后 C independently readback Main `37691610523` 同 head 三 jobs（Ubuntu20 `113032907666`、Ubuntu24 `113032907843`、Windows24 `113032907867`）全部 SUCCESS，Secrets `37691610455` SUCCESS。Issue #57 automation 于21:56:25Z completed（root evidence）。Dependency-only merge `0a52908f36a161ccc6fe9495bf5505263cbc69f6`；没有消费 pending head。
+- 当前 accepted `e2c1faddf7219f1886f0fa846353f0f667358375`：root release 后 C independently readback Main `37707702765` 同 head 三 jobs（Ubuntu20 `113085922063`、Ubuntu24 `113085921991`、Windows24 `113085921818`）全部 SUCCESS，Secrets `37707702972` SUCCESS；fetch 后 origin/main 为同 SHA。Issue #60 automation 于00:33:59Z completed（root evidence）。Dependency-only merge `ff6a6c9a360ac9f5e6210a36f241c927c5b9a52c`；原 C authored SHAs 均保留，没有消费 pending head。
 - Runtime：Windows / Node `v24.14.1`；没有代替最终 Ubuntu Node 20/24、Windows Node 24 CI。
 - C 自己编写的文件只有 `scripts/lib/nature-corpus-assertions.mjs`、`test/nature-corpus.test.mjs`、`test/golden-paper.test.mjs`、本 handoff。没有修改 canonical spec、B oracle/HTML、生产 parser/security、golden artifact、PRD/EDD、dependencies 或 CI。
 
@@ -39,6 +40,7 @@
 | accepted main `0de5c8b5c4c51a9231f250c336216598c10f27ae` | dependency merge `b0cee6620a2aa8ae63bddea9e5c7cbdca78c9c78` | literal brackets；不选择此 merge 为 C authored delivery |
 | accepted main `ac86b2fa509653dfeb43b968472ce6280a51de2c` | dependency merge `889eb55c613e606a634ce0dfd41dee78f26fd8cd` | sparse-alt / citation eligibility；不选择此merge为C authored delivery |
 | accepted main `3889f7396eab99060bec88fc8b0dcd3e6712024e` | dependency merge `0a52908f36a161ccc6fe9495bf5505263cbc69f6` | styled source boundaries；不选择此 merge 为 C authored delivery |
+| accepted main `e2c1faddf7219f1886f0fa846353f0f667358375` | dependency merge `ff6a6c9a360ac9f5e6210a36f241c927c5b9a52c` | table caption；不选择此 merge 为 C authored delivery |
 
 B source originals 由 integrator 选择：`bee3910240c83789dcb6f8ae530c233289fda737`、`61e19e0981d4e82a5a6fb2d8f3c5dd9a0578fc2e`、`f4cafa32274bf0b1ab427c82c950457feb68fa78`、`cd176742ef8733b31c6e6d60814183e0a5eb9eb0`、`143fc77ebdc4bf15dd1cdca63afcddb91e6b55f5`、上述 attribution-only commit。
 
@@ -58,7 +60,8 @@ C authored delivery 顺序：
 12. `ec53d6578c3103a95c9334f71f5ef14ef597303b` — 仅 source citation literal `_` / `*` 邻居投影及六个来源回归；只改 helper、corpus test。API仍1.0.0；实际范围、旧RED/新partial和mutation证据见下文。
 13. `3006f0f7381ba843efc3c17b98370194b0a04017` — 前一accepted0de/e3ff scoped241/14与来源角色handoff；独立review已clear。只包含本文件。
 14. `19e09534736ff77b673fd289ea0b63a91514c7e3` — accepted ac86 三篇九组合的真实 source / validators / cache / 85 scope handoff；只包含本文件。
-15. 本次 accepted3889 Materials 定点 handoff commit；其准确 SHA 由 `git log -1 --format=%H -- docs/goals/issue-10/agent-c-handoff.md` 取得，并在交接消息报告。该 commit 只包含本文件。
+15. `3d533fb15115ad670e30b52b11ac6435d654c53a` — accepted3889 Materials 定点 handoff；只包含本文件。
+16. 本次 accepted e2c1 Quantum 定点 handoff commit；其准确 SHA 由 `git log -1 --format=%H -- docs/goals/issue-10/agent-c-handoff.md` 取得，并在交接消息报告。该 commit 只包含本文件。
 
 ## 实际接口
 
@@ -105,7 +108,7 @@ Fixture 总计 `1,577,502` bytes（13 files）。本分支原 B 输入的 Git tr
 
 ## 每条期待与三个方言的实际执行状态
 
-下表85行按实际执行基线和范围逐条区分。`M3889_NEW` 为本轮 Materials 三组合 / 27 source records；`AC86_NEW` 是上次 accepted ac86 三篇九组合 / 84 records；`F0DE` 是原 a9 / 55a 的 accepted0de full / 144 records。后两类228条未在3889复验，不能借其 PASS 建立最新 main 的完整验收。此前 P0DE 的 Materials27条已被本轮真实结果替换；原文件仍保留。合成250/5、83EXECUTABLE/2BLOCKED仅为明确 scope 的 registry。`BLOCKED_BY_D_TRANSPORT_SEAM=0`、`BLOCKED_BY_SPEC_QUESTION=0`；必需 parser / validator FAIL 均未 skip 或降级 warning。
+下表85行按真实 execution scope 逐条区分。`Qe2c1_NEW` 为本轮 Quantum 三组合 / 30 records；`M3889_NEW` 为此前 Materials 三组合 / 27 records；`AC86_NEW` 为此前 Pangenome/Chemistry 六组合 / 54 records；`F0DE` 为原 full 中其余 144 records。225 条历史记录未在 e2c1 复验，不能借其 PASS 建立最新 main 完整验收。合成 252/3；reconciler 根据 PASS/FAIL 得到 84 EXECUTABLE / 1 BLOCKED。失败行暂保留其机械 `BLOCKED_BY_PARSER_DEFECT` 标签以与未经修改的 receipt classifier 对账，**该标签不证明根因**；Quantum ordered-cluster contract 的来源/renderer/C consumer 归因等待独立审查，不把审查解释问题升级成需改 spec 的 human-only blocker。D seam 已可用；任何 required validator FAIL 均未 skip、允许为 warning 或计作通过。
 
 | Article | Expectation ID | Assertion ID | Source pointer (`articles[i].expectations[j]`) | markdown | links | quarto | State | Record scope | 阻塞证据 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -119,16 +122,16 @@ Fixture 总计 `1,577,502` bytes（13 files）。本分支原 B 输入的 Git tr
 | s41586-026-10401-1 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [0][7] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-026-10401-1 | source-ui-v1 | nature-source-ui-v1 | [0][8] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-026-10401-1 | source-tables-v1 | nature-source-tables-v1 | [0][9] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
-| s41534-023-00746-0 | source-metadata-v1 | nature-source-metadata-v1 | [1][0] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41534-023-00746-0 | source-abstract-v1 | nature-source-abstract-v1 | [1][1] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41534-023-00746-0 | source-headings-v1 | nature-source-headings-v1 | [1][2] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41534-023-00746-0 | source-equations-v1 | nature-source-equations-v1 | [1][3] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41534-023-00746-0 | source-figures-v1 | nature-source-figures-v1 | [1][4] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41534-023-00746-0 | source-citations-v1 | nature-source-citations-v1 | [1][5] | FAIL | FAIL | FAIL | BLOCKED_BY_PARSER_DEFECT | AC86_NEW ×3 | ac86历史：caption source cluster59/ref58缺最终citation |
-| s41534-023-00746-0 | source-inline-v1 | nature-source-inline-v1 | [1][6] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41534-023-00746-0 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [1][7] | PASS | FAIL | FAIL | BLOCKED_BY_PARSER_DEFECT | AC86_NEW ×3 | ac86历史：caption internal43/44 Equ7/15缺links/quarto occurrence目标 |
-| s41534-023-00746-0 | source-ui-v1 | nature-source-ui-v1 | [1][8] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41534-023-00746-0 | source-tables-v1 | nature-source-tables-v1 | [1][9] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
+| s41534-023-00746-0 | source-metadata-v1 | nature-source-metadata-v1 | [1][0] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
+| s41534-023-00746-0 | source-abstract-v1 | nature-source-abstract-v1 | [1][1] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
+| s41534-023-00746-0 | source-headings-v1 | nature-source-headings-v1 | [1][2] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
+| s41534-023-00746-0 | source-equations-v1 | nature-source-equations-v1 | [1][3] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
+| s41534-023-00746-0 | source-figures-v1 | nature-source-figures-v1 | [1][4] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
+| s41534-023-00746-0 | source-citations-v1 | nature-source-citations-v1 | [1][5] | FAIL | FAIL | FAIL | BLOCKED_BY_PARSER_DEFECT | Qe2c1_NEW ×3 | caption59已保留但末尾Tables为rendered76；仅顺序失败，归因待独立审查 |
+| s41534-023-00746-0 | source-inline-v1 | nature-source-inline-v1 | [1][6] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
+| s41534-023-00746-0 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [1][7] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
+| s41534-023-00746-0 | source-ui-v1 | nature-source-ui-v1 | [1][8] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
+| s41534-023-00746-0 | source-tables-v1 | nature-source-tables-v1 | [1][9] | PASS | PASS | PASS | EXECUTABLE_NOW | Qe2c1_NEW ×3 | — |
 | s41586-021-03819-2 | source-metadata-v1 | nature-source-metadata-v1 | [2][0] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-021-03819-2 | source-abstract-v1 | nature-source-abstract-v1 | [2][1] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
 | s41586-021-03819-2 | source-headings-v1 | nature-source-headings-v1 | [2][2] | PASS | PASS | PASS | EXECUTABLE_NOW | F0DE ×3 | — |
@@ -296,6 +299,52 @@ Reference2 原 literal `(0<x<-1)` 保持，source block `a-reference-2` / `ol.c-
 
 本轮全部3comparisons `pass=false`，math均10issues，structure/crossReferences各3PASS、rawHtml2PASS/1FAIL、warnings精确none3PASS；ledger requests/resolutions/unexpected全部[]、实际 HTTP/DNS0。3repeat的MD/Bib/semanticSummary/ledger全部PASS。A9 afterhook保存3真实 comparisons与3MD；missing24、errors[]、unexpected[]、completefalse硬FAIL，0 omitted/fabricated记录。此 batch 共37 tests30PASS/7FAIL（session20692 /15,697.2445ms），没有后置重新clip取cache。
 
+## Accepted e2c1 Quantum 定点结果与未决顺序契约
+
+本轮固定 code head 为 dependency merge `ff6a6c9a360ac9f5e6210a36f241c927c5b9a52c`，实际 production accepted base 为 `e2c1faddf7219f1886f0fa846353f0f667358375`。32 个 Git objects（29 corpus files、C helper、corpus test、golden test）与 reviewed `3006f0f` 逐字节相同；原始 B fixture `b32d31f2389e8c052f990812cfd86441172538fd66e37fa17f97704d8795d9fc`、table fixture `90670968407415e1f7e7c624b3244330015a4e52bc9790e811d2992205851c2d` 不变。没有采用 bug projection 替换 admitted corpus article；没有重新解析 raw body。
+
+源 `#Tab1` caption 的 raw prehash 沿用 `f3b0491bc1cce00b208266b23277279d4f368fa7a2752e104b2fb2e0c6a19249`，本轮 frozen serializer digest 核对仍为 `23d81f6b93cdfdbfe357c9726209878bf28a55c0952dd19c4ce0290cb90806fc`。source packet 保存原 12 MathJax sourceTeX/DOM 与实际最终 12 inline TeX；原 caption citation58 在 markdown `[^58]`、links `[58](#ref-58)`、quarto `[@Chamberland2022]` 各出现一次。实际 caption 行分别 578 / 584 / 481，位于现有 `## Tables` 后。source-crossrefs 完整 PASS 包括 internal[43]/[44] 的 Equ7 / Equ15 原 occurrence。24 caption legacy-delimiter issues 已消失；不能据此称整篇 math 或 source-citations PASS。
+
+source/semantic/final 均 77 clusters，reference numbers 严格 1–77；Markdown 77 definitions、links 77 strict reference anchors 保留。实际 ordered source consumer 只剩 `rendered.orderedSourceClusters` FAIL：原 source[59] caption58 在渲染末尾成为 final[76]，原 body source[60…76] 在其前，其他 76 clusters 相对顺序不变。same-run failure arrays 精确满足 `actual = expected.slice(0,59) + expected.slice(60) + expected[59]`，semantic source order 完全等于原 expected。没有把全篇 source count、别处 citation58 或无缺项充当顺序 PASS。Root 将交独立审查判断 existing renderer 的 table relocation 与 canonical source ordering 的准确关系；C 不预判根因，不改 helper、B oracle 或科学输入。本轮没有 spec 语义改动提案。
+
+每方言 math FAIL 为 17 Greek isolatedSubscript + 2 split isolatedSuperscript；structure/rawHtml/crossReferences 均 PASS。原 17 Greek primitive、2 split 与 5 numeric-power controls 的共 24 来源位置从未变旧 packet 复用，并核对 frozen paragraph digests，没有声称做了新的 raw audit。3 warnings 的 expected/actual/missing/unexpected 都准确为 []；每 baseline/repeat 仅声明的 table-1 GET/manual 和 www.nature.com resolver(all/verbatim) 各一次，ledger unexpected=[]，实际 HTTP/DNS 0。3 repeat 的 Markdown/Bib/semanticSummary/ledger 全部 PASS。after hook 只保存同次 actual 3 comparisons/MD，records3、missing24、errors[]、unexpected[]、completefalse；硬 FAIL 不改为 complete。
+
+本轮确切命令如下，`<TEMP>` / `<C-worktree>` 使用下文已列绝对路径；native PowerShell 先从 inventory.pattern 赋 `$cQuantumPattern`，静态确认准确 3 source + 3 repeat / 30 expectation IDs 后，仅执行一次。
+
+| Command | Actual result |
+| --- | --- |
+| `gh run view 37707702765 --json headSha,status,conclusion,jobs`；`gh run view 37707702972 --json headSha,status,conclusion`；`git fetch origin main` | 同 e2c1 SHA Main 三 jobs / Secrets completed success；origin/main 同 SHA |
+| `git merge --no-ff e2c1faddf7219f1886f0fa846353f0f667358375 -m 'chore(corpus): adopt accepted table caption prerequisite'` | exit0；dependency-only ff6a6c9，原 C authored commits 不重写 |
+| `node <TEMP>/accepted-delta-inventory.mjs <C-worktree> <TEMP>/accepted-e2c1-quantum-caption-delta s41534-023-00746-0` | exit0；32 immutable Git identities、API1.0/85registry/10consumers，准确 3+3 title / 30 source records |
+| `node --test --test-name-pattern $cQuantumPattern test/nature-corpus.test.mjs`；env `ACADEMIC_CLIPPER_CORPUS_RECEIPT_PREFIX=<TEMP>/accepted-e2c1-quantum-caption-delta` | exit1；session22332 terminal，40 tests30PASS/10FAIL，0skip/cancel/todo，43193.7263ms；source30=27PASS/3FAIL，3repeatPASS，receipt24missing硬FAIL |
+| `node <TEMP>/accepted-e2c1-quantum-receipt.mjs <C-worktree> <TEMP>/accepted-e2c1-quantum-caption-delta <TEMP>/accepted-3889-materials-delta` | exit0；全部30 TAP/cache ordered IDs/status 一致；225 历史记录仅合成 scope，无新 full |
+| `node <TEMP>/accepted-e2c1-quantum-source-packet.mjs <C-worktree> <TEMP>/accepted-e2c1-quantum-caption-delta` | exit0；cache/frozen only，caption59→76、12原/最终TeX、77reference identities、24 unchanged scientific positions、全部 validators/warnings/ledgers；new clip/raw parse/network 0 |
+| 外部旧 evidence manifest 按 bytes/SHA256 逐项核对 | ac86 原29文件、3889 原16文件全部 unchanged；旧0de84 identity inventory 保存 |
+| `node <TEMP>/accepted-e2c1-quantum-checkpoint-audit.mjs <C-worktree> <TEMP>/accepted-e2c1-quantum-caption-delta` | exit0；85 doc rows/255 scoped statuses 与 receipt 逐项相同，252/3、Q30/M27/AC54/F144；32 immutable Git objects、29/16/84 旧证据字节核对；只读，无新 clips |
+| `git diff --check`；`git diff --cached --check`；`git diff --cached --name-only`；`git status --short` | authored delta 仅本 handoff；immutable inputs/golden quiet；最终 clean checkpoint SHA 在交接消息报告 |
+
+`$cQuantumPattern` 精确为 `^(?:s41534-023-00746-0)/(?:markdown|links|quarto): (?:every source expectation through the complete production chain|repeat Markdown, bibliography, semantics and replay operations)$`。运行前 prefix log 不存在，没有错误 filter 启动、覆盖旧证据或再 clip 取 cache。外部 receipt harness 仅由已用 Materials reconciler 改 accepted-base 和 Qe2c1 scope 标签；不修改 test receipt hook、consumer 或 oracle。
+
+| External filename | Bytes | SHA256 |
+| --- | ---: | --- |
+| accepted-e2c1-quantum-caption-delta.log | 92082 | 896a9bc1682a5b6613f67fd3e570f4e29d5fa4af5472b393821e618e51e41b55 |
+| accepted-e2c1-quantum-caption-delta.comparisons.json | 407799 | e78b114900df5bbe8c0b8939ef234bb4bf7b3aaef62bb0642f9ac747cc67e9d2 |
+| accepted-e2c1-quantum-caption-delta-receipt-status.json | 1812 | 1a8e036ac6e52f4bc77634623ad8293e2135c8069d03bc22dfaba6eea638a450 |
+| accepted-e2c1-quantum-caption-delta-receipt.json | 98877 | 70dae5a39bdae88c6f7b2d0aacb490d9f1e728dd3552a55ce8bec2673f199f3c |
+| accepted-e2c1-quantum-caption-delta-execution.json | 3769 | 89e84507b71e29517871c9aac91dd786141e4f38a4a423300f99b21383dd7a7c |
+| accepted-e2c1-quantum-caption-delta-source-packet.json | 87805 | 303930308cf9b1ff949e793440fe5ef3845433b78a89714e9f8ad9062c1794a5 |
+| accepted-e2c1-quantum-caption-delta-inventory.json | 26645 | 524d5779a39b869eadd6177c3debeaaf04a2066634a9b070f5667c23564ea775 |
+
+各组合文件共用 prefix `accepted-e2c1-quantum-caption-delta.s41534-023-00746-0.`：
+
+| Dialect | Comparison bytes / SHA256 | MD bytes / SHA256 |
+| --- | --- | --- |
+| markdown | 97909 / 79d38c60730dfbee17e924e70da8c9039e14bbc6367cf48b901f3426d6c214bf | 91027 / 4530d8fa6059bc3dd79ff3b9eedbee6fe0f7e7258f95d4ba9b960c663d213870 |
+| links | 164567 / 5de32221ba4c837a2ca9b031c476db25e5d79e3caa6a4274b1246f870d67b361 | 95683 / 3c38065d06812995ad6f8bc33afe093d85d0b519bcf3091d5f62f29a8d427cde |
+| quarto | 121972 / 4875ef80d7df5364e14ac318f1a9ed13095cdca004fb45785ffecac111bce2c6 | 83529 / ba75a44883df53856b38b9679d87de8a851b5377de1dc0a30fef854a9995d94c |
+
+以下 Materials/ac86/full packets 和命令记录是各自旧检查点，不冒充本轮 e2c1 全验收。
+
 ## Parser defect packets
 
 下列既有 packets 保留历史原 source / output 证据，未经再次 clip。当前状态以顶部85行scope及上面的3889/ac86定点packet为准：Pangenome short-alt、Quantum clusters[37]/[57]、Chemistry clusters[40]/[49] 已解除；Materials styled case已在3889新27 source records中解除，scientific10及links ref2仍FAIL。旧计数、旧错误输出和旧wrapper hashes不代表本轮3889结果。
@@ -404,7 +453,7 @@ Materials links 方言 production rawHtml validator 另报 `unpermitted-html-tag
 
 在上列Cworktree执行，外部logs目录为 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c`。
 
-本轮 accepted3889 的实际命令/结果：
+历史 accepted3889 的实际命令/结果：
 
 | Command | Actual result |
 | --- | --- |
@@ -435,7 +484,7 @@ Materials links 方言 production rawHtml validator 另报 `unpermitted-html-tag
 新9actualcomparison/per-comboJSON/MD、math+scientificFragments/semantic summary/ledger与receiptstatus全部在`<TEMP>/accepted-ac86-delta.*`；`accepted-ac86-delta-evidence.json`保存每文件bytes/SHA256、固定codehead/helper/source身份、独立reviewpacket身份和旧evidence未覆盖证明。不是fullparsedDefuddleDOM或D9cache；完整raw仍外部B只读目录，不commitcapture。Core保持ec53/e3ff，本轮无新helper/test delta，accepted-main已有CI/golden/build证据复用；未为docs或known-red另跑full/npmtest/build。
 
 
-### 本轮3889外部证据身份
+### 历史3889外部证据身份
 
 固定生产dependency head为 `0a52908f36a161ccc6fe9495bf5505263cbc69f6`；以下均在TEMP、只有同一次actualcache。`accepted-3889-materials-delta-evidence.json` 留全部当前证据身份、32Gitobject身份和旧84/29证据未覆盖核验。
 
@@ -544,12 +593,12 @@ Materials links 方言 production rawHtml validator 另报 `unpermitted-html-tag
 
 External source / rights 审计此前 13 raw / 85 oracle 全部 valid，本轮复用未变 Git 身份，没有重做或 live reacquire。Ordinary tests 使用 frozen excerpt / replay，不依赖 raw 文件；只有显式 external-temp env 收集实际 cache / MD，不额外 clip。原 `accepted-units-literals-execution.json` / `-receipt.json` 的完整 255 / 27 records，以及 ec53 的 `accepted-units-literals-context-partial-reconciled-receipt.json` 均保留；本次 `accepted-3889-materials-delta-receipt.json` 与当前85行scope逐条对应；原ac86 receipt留历史。所有 raw / Markdown / comparison logs 仅留外部 temp，不提交 capture 或 snapshot。
 
-本次没有执行 `npm test`、build、golden 或完整 C suite。它们的历史结果已标明基线，accepted3889 的 Main CI 提供依赖检查证据，不能替代最终 corpus 验收。最终 integrator 仍须在 parser prerequisites accepted 后运行 canonical §9 全部 checks 和 CI matrix。
+本次没有执行 `npm test`、build、golden 或完整 C suite。它们的历史结果已标明基线，accepted e2c1 的 Main CI 提供依赖检查证据，不能替代最终 corpus 验收。最终 integrator 仍须在 parser prerequisites accepted 后运行 canonical §9 全部 checks 和 CI matrix。
 
 ## 恢复 C / D / integrator 的解除阻塞条件
 
-1. 采用 original A/B/D 与 C authored SHAs；不要选择 dependency merges0a52908/889eb等作为 authored delivery。当前生产为accepted3889，source / helper / tests未改；原B b718fa8 rights addition仍由 integrator采用。
+1. 采用 original A/B/D 与 C authored SHAs；不要选择 dependency mergesff6a6c9/0a52908/889eb等作为 authored delivery。当前生产为accepted e2c1，source / helper / tests未改；原B b718fa8 rights addition仍由 integrator采用。
 2. Issue #57 styled-group/source-equation期待已经在本轮27 source records真实解除，整篇required math10（9identifier、1compound）和links reference2 rawHtml仍FAIL。Root各窄source契约继续；现有 #60 / #61 / #63 / #64 按各自 authoritative goal 的来源角色和冻结范围处理。额外identifier/compound/reference机制的intake由root安排，不替他人扩大scope，不放宽oracle。
-3. 85registry当前27 M3889_NEW、84 AC86_NEW、144 F0DE；250/255仅合成，不声称最新main full通过。Source剩余5FAIL是Quantum前轮真实captioncitation59/internal43/44；各known scientificvalidator FAIL还必须独立通过。D采用 actual reviewed e3ff helper / API1.0；controller修复属D，不改C helper来通过provider。
-4. 下一实际accepted prerequisites改变失败后恢复SAME C运行必要scope。最终canonical验收仍要85×3、27validators/warnings/repeat/ABA/resource/golden和§9 checks / matrixCI；本轮仅Materials3combos，缺24 hook硬FAIL不可mockcomplete。无必要不重复13raw/85sourceaudit、旧full或60mutations；必须完整验收时另在固定combinedacceptedbase执行。
+3. 85registry当前30 Qe2c1_NEW、27 M3889_NEW、54 AC86_NEW、144 F0DE；252/255仅合成，不声称最新main full通过。Source剩余3FAIL只为Quantum caption59→final76的ordered-cluster predicate；citation58和crossrefs43/44已真实恢复，准确顺序契约待独立审查。各known scientificvalidator FAIL还必须独立通过。D采用 actual reviewed e3ff helper / API1.0；controller修复属D，不改C helper来通过provider。
+4. 下一实际accepted prerequisites改变失败后恢复SAME C运行必要scope。最终canonical验收仍要85×3、27validators/warnings/repeat/ABA/resource/golden和§9 checks / matrixCI；本轮仅Quantum3combos，缺24 hook硬FAIL不可mockcomplete。无必要不重复13raw/85sourceaudit、旧full或60mutations；必须完整验收时另在固定combinedacceptedbase执行。Root可仅用本次 immutable source / actual cache 进行独立顺序契约审核，不能补跑本批来制造不同结果。
 5. 当前clean checkpoint为DEPENDENCY_PENDING，不宣称C或Issue #10完成、不打开ordinary partialPR。Canonical/PRD/EDD/Bscientificoracle/production/validators由C保持原样；无spec语义改动提案。
