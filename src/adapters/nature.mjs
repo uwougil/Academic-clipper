@@ -788,6 +788,34 @@ function collectPlainFractionalUnitRun(parent, startIndex) {
   };
 }
 
+function collectDeltaPositionRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  // Literal math/code may span siblings; keep the whole opaque context with
+  // its existing collector rather than interpreting its delimiters here.
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}|\\[([]/u.test(parent.textContent)) return null;
+  const position = parent.childNodes[startIndex];
+  if (!isElement(position, new Set(['SUP'])) || position.childNodes.length !== 1
+    || position.firstChild.nodeType !== 3
+    || !new Set(['12,13', '12', '13']).has(position.textContent)) return null;
+  const base = position.previousSibling;
+  if (base?.nodeType !== 3 || !base.textContent.endsWith('Δ')) return null;
+  const offset = base.textContent.length - 1;
+  if (offset === 0 ? base.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(base.textContent.slice(0, offset))) return null;
+  const next = position.nextSibling;
+  // A complete label ends at a known lexical boundary. Its alkene suffix and
+  // a proven citation stay outside the attachment; unknown nodes are opaque.
+  if (next && !(next.nodeType === 3 && /^[\s\p{P}]/u.test(next.textContent)
+      && !next.textContent.startsWith('_'))
+    && !(next.nodeType === 1 && next.tagName === 'SUP'
+      && next.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]'))) return null;
+  return {
+    start: { node: base, offset },
+    end: { node: position, after: true },
+    tex: `Δ^{${position.textContent}}`,
+  };
+}
+
 function collectQualifiedMetricRun(parent, startIndex) {
   if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
   if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
@@ -1005,6 +1033,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
           || collectNumericAttachmentRun(parent, index)
           || collectPlainFractionalUnitRun(parent, index)
           || collectQualifiedMetricRun(parent, index)
+          || collectDeltaPositionRun(parent, index)
           || collectPlainScriptedIdentifierRun(parent, index)
           || collectCompoundConductivityRun(parent, index)
           || collectPlainGreekSubscriptRun(parent, index)
