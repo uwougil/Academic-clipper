@@ -1,6 +1,6 @@
 # Agent C — 来源核验与离线回归检查点
 
-状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线 accepted `134ba67a9eefe8763314454183a625f83a34837b`（PR #77 / Issue #64），dependency-only `d3dd8573560be019164698f726425294a5101239` 接入。C-owned reviewed9c5 / API/schema1.0保持不变。最新实际 Quantum30来源/3repeat及三方言四validators全PASS；40tests39PASS1FAIL仅partial after缺24组合。当前85行registry为30 `Q134_NEW` 加225历史记录的合成255PASS，不是最新main全255/27验收。Materials/Chemistry/Alpha/FRB所需科学角色仍待accepted prerequisites，见末尾。
+状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线 accepted `36c93ca81236705912c25db391d611ee28405dca`（PR #78 / Issue #67），dependency-only `2973fbe27ad47ab26b0c9a7e920d6075ac10087e` 接入。C-owned reviewed9c5 / API/schema1.0保持不变。最新实际 Materials27来源/3repeat全PASS，compound conductivity恢复准确mS×cm^-1；四validators全部执行，math仍9个r²SCAN fragments FAIL，其余三个全PASS。37tests30PASS7FAIL包括3validator、3parent与partial after缺24组合硬FAIL。当前85行registry为27 `M36c_NEW` 加228历史记录（含已通过四validators的Quantum30 `Q134_NEW`）；仅是分基线的合成255sourcePASS，不是当前main全255/27验收。#68的9正文/图注与2heading identifier角色、Chemistry/Alpha/FRB所需科学角色仍待accepted prerequisites，见末尾。
 
 历史 e2c1 轮仅复验 Quantum `s41534-023-00746-0` × 三方言：30 条来源记录 27 PASS / 3 FAIL；3 个 Markdown / Bib / semantics / replay repeat 全部 PASS。实际 session22332：40 tests = 30 PASS / 10 FAIL，0 skip / todo / cancel，43,193.7263ms。10 FAIL 包含 3 个 citation 子测试、3 个 validator 子测试、3 个 parents 及 receipt 缺 24 个组合的硬 FAIL。每方言完整 source-crossrefs 已恢复；原 12 个 table-caption MathJax 产生的 24 legacy delimiter issues 消失。其余 math 仍 19 issues（17 Greek isolatedSubscript、2 split isolatedSuperscript），整篇不通过。
 
@@ -111,7 +111,7 @@ Fixture 总计 `1,577,502` bytes（13 files）。本分支原 B 输入的 Git tr
 
 ## 每条期待与三个方言的实际执行状态
 
-下表85行使用各文章最近一次实际 execution scope：Quantum30 `Q134_NEW`（本轮）、Materials27 `Mf4a5_NEW`、Chemistry27 `Ca5b6_NEW`、Pangenome27 `AC86_NEW`、其余144 `F0DE`。合成255PASS/0sourceFAIL、85来源consumers有PASS记录；225历史记录未在当前134重新执行。原e2c1三citation FAIL与73d6 native17Greek math FAIL保留在旧外部cache及历史章节；本轮Quantum30source与全部四validators实际通过。Registry不替代全部27组合/255records/ABA/resources/golden及final npmchecks验收，其它论文required math失败继续独立阻塞。
+下表85行使用各文章最近一次实际 execution scope：Materials27 `M36c_NEW`（本轮）；Quantum30 `Q134_NEW`、Chemistry27 `Ca5b6_NEW`、Pangenome27 `AC86_NEW`、其余144 `F0DE`均是228条历史记录。合成255PASS/0sourceFAIL、85来源consumers有PASS记录；228历史记录未在当前36c重新执行。原e2c1三citation FAIL与73d6 native17Greek math FAIL保留在旧外部cache及历史章节；此前Quantum30source与四validators通过的b604receipt本轮只读复用。本轮Materials27source/repeat通过而math9仍FAIL，另两heading科学attachment未恢复；registry不替代全部27组合/255records/ABA/resources/golden及final npmchecks验收。
 
 | Article | Expectation ID | Assertion ID | Source pointer (`articles[i].expectations[j]`) | markdown | links | quarto | State | Record scope | 阻塞证据 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -163,15 +163,15 @@ Fixture 总计 `1,577,502` bytes（13 files）。本分支原 B 输入的 Git tr
 | s41586-023-05896-x | source-inline-v1 | nature-source-inline-v1 | [4][6] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
 | s41586-023-05896-x | source-crossrefs-v1 | nature-source-crossrefs-v1 | [4][7] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
 | s41586-023-05896-x | source-ui-v1 | nature-source-ui-v1 | [4][8] | PASS | PASS | PASS | EXECUTABLE_NOW | AC86_NEW ×3 | — |
-| s41586-023-06735-9 | source-metadata-v1 | nature-source-metadata-v1 | [5][0] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
-| s41586-023-06735-9 | source-abstract-v1 | nature-source-abstract-v1 | [5][1] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
-| s41586-023-06735-9 | source-headings-v1 | nature-source-headings-v1 | [5][2] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
-| s41586-023-06735-9 | source-equations-v1 | nature-source-equations-v1 | [5][3] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
-| s41586-023-06735-9 | source-figures-v1 | nature-source-figures-v1 | [5][4] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
-| s41586-023-06735-9 | source-citations-v1 | nature-source-citations-v1 | [5][5] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
-| s41586-023-06735-9 | source-inline-v1 | nature-source-inline-v1 | [5][6] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
-| s41586-023-06735-9 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [5][7] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
-| s41586-023-06735-9 | source-ui-v1 | nature-source-ui-v1 | [5][8] | PASS | PASS | PASS | EXECUTABLE_NOW | Mf4a5_NEW ×3 | — |
+| s41586-023-06735-9 | source-metadata-v1 | nature-source-metadata-v1 | [5][0] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
+| s41586-023-06735-9 | source-abstract-v1 | nature-source-abstract-v1 | [5][1] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
+| s41586-023-06735-9 | source-headings-v1 | nature-source-headings-v1 | [5][2] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
+| s41586-023-06735-9 | source-equations-v1 | nature-source-equations-v1 | [5][3] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
+| s41586-023-06735-9 | source-figures-v1 | nature-source-figures-v1 | [5][4] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
+| s41586-023-06735-9 | source-citations-v1 | nature-source-citations-v1 | [5][5] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
+| s41586-023-06735-9 | source-inline-v1 | nature-source-inline-v1 | [5][6] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
+| s41586-023-06735-9 | source-crossrefs-v1 | nature-source-crossrefs-v1 | [5][7] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
+| s41586-023-06735-9 | source-ui-v1 | nature-source-ui-v1 | [5][8] | PASS | PASS | PASS | EXECUTABLE_NOW | M36c_NEW ×3 | — |
 | s41467-023-44030-3 | source-metadata-v1 | nature-source-metadata-v1 | [6][0] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
 | s41467-023-44030-3 | source-abstract-v1 | nature-source-abstract-v1 | [6][1] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
 | s41467-023-44030-3 | source-headings-v1 | nature-source-headings-v1 | [6][2] | PASS | PASS | PASS | EXECUTABLE_NOW | Ca5b6_NEW ×3 | — |
@@ -852,3 +852,63 @@ Filter完整复用：`^(?:s41534-023-00746-0)/(?:markdown|links|quarto): (?:ever
 | quarto | all four PASS / scientific fragments zero | 72754 / ee21fdda2cdba31a5cb9136faf44da281a695466e472ff7baa522afca37b44f3 | 83515 / 29c7aad4cba1b4377c3a0086fe08e40e5dc7555a90b4be83cbe74d5a8e362526 |
 
 C仍DEPENDENCY_PENDING；当前Quantum适用的30source/四validators/repeat已在accepted134实际通过。最终combinedacceptedhead仍须canonical全部255/27、ABA/resource scenarios/golden/npmchecks/三平台CI；其它required科学角色不能以历史sourcePASS替代。没有spec changes、不声明Issue#10完成、没有partial delivery PR、没有重做旧来源/framework/审查。Integrator选择C authored docs与原framework commits，不能whole-branch合并覆盖B后补rights。
+
+## Accepted36c Compound conductivity — Materials 实际增量执行
+
+Root正式release：PR #78 / Issue #67于08:24:52Z squash merged为 `36c93ca81236705912c25db391d611ee28405dca`。Root唯一Main watch25317同handle实际terminalexit0，随后API核验 Main `37749675660` 同merged SHA三个jobs全部success：Ubuntu20 `113219545270`08:31:03Z、Windows24 `113219545717`08:33:45Z、Ubuntu24 `113219545774`08:32:48Z；Secrets `37749675621`同SHA success。Issue67 automation于08:33:57Z completed，见[验收comment](https://github.com/uwougil/Academic-clipper/issues/67#issuecomment-6055991162)。C未再次poll CI，正式release后 `git fetch origin main`，以non-FF dependency-only `2973fbe27ad47ab26b0c9a7e920d6075ac10087e` 接入完整accepted36c，保留原C authored originals。没有接入pending #68或修改他人checkout。
+
+复用先前read-only `pending67-materials-7b419-preflight.json`（18261bytes / `c442d5f02f529b7f95967f9e7c54c44b92e5f1034294a4dd05253d2e58be9531`）；没有再次执行preflight/source plan/source85/raw/A/旧Quantum或framework。实际计划command identity `aa7b854c040087045493a9ddba8637af25c428eed9da39a83814bf94582975db`未变。采用dependency之后32 protected Gitobjects逐项unchanged：29corpus files、helper `f9144ce6f40653061ee57164d6612860c47da981`、test `9530e0f194f78cc7d0ff9a9e98fb4b660873585f`、golden test `74b776eece94dc8402844ed1edc95fd6847250a4`。C复用独立reviewed9c5/API1.0，不改fixture/manifest/source expectations/helper/tests/validators/production/spec。
+
+新prefix `accepted-compound-materials-delta`启动前确认不存在，仅启动一次实际batch：admitted `s41586-023-06735-9` × markdown/links/quarto，三baseline加三repeat，共六actualclips。九个source IDs仍为source-metadata-v1、source-abstract-v1、source-headings-v1、source-equations-v1、source-figures-v1、source-citations-v1、source-inline-v1、source-crossrefs-v1、source-ui-v1。Actual session **78155** confirmed live后只wait同handle，terminal **exit1**：**37tests =30PASS/7FAIL，19162.4229ms，0skip/todo/cancel；27source records与3repeat全部PASS**。七FAIL为三个math validator子测试、三个parents与after缺24combos硬FAIL，不能把来源PASS称Materials整篇PASS。
+
+本轮各方言全部四production validators均执行并保存：math FAIL恰好9个 `scientific-isolatedSuperscript`，均是原r²SCAN identifier；structure/rawHtml/crossReferences全PASS。Scientific fragments counts为isolatedSuperscript9、isolatedSubscript0、boldThenSubscript0、italicThenSuperscript0。每方言warnings expected/actual/missing/unexpected全[]；resources[]，baseline ledger requests/resolutions/unexpected全[]，repeat严格比较完整ledger与Markdown/Bib/semanticSummary全部PASS。既有受审A replay注入D seam，finally严格assertClean不能让catch吞掉未声明操作；没有global fetch/DNS mutation或新spy。零ordinary liveDNS/HTTP的证据范围是既有受审production injection与exact replay ledger；Corpus路径只调用clipNature，不调用writer，没有新增运行时writer spy。
+
+原compound位置Methods `a-section-6` p42（zero-based），source hierarchy Methods→MLIPs→AIMD conductivity experiments，沿用raw paragraph prehash `7f1338d170c587581f6886da41018abd505a2e25e2522e988d6348aa9c3b2eb4`、frozen paragraph digest `07309b9556b82a5861cc8b3278e520106710bdf20e8464ca5af636dbb64b7550`。Immutable source packet仍34429bytes / `84d93cc4261471a9c5ce20df73a214d8078be5d8d78e0c85211e07436a54ec35`；没有新raw读取/重新source audit/sanitizer。原packet历史family prose保留，其正确解释采用已独立核验的#67因子关系：**mS乘因子、cm取−1幂**；不把整个mScm或mS取逆，不把ordinary101.18改成10^1.18。
+
+Same-run完整paragraph三个方言均只在原unit处成为 `$\mathrm{mS}\,\mathrm{cm}^{-1}$`，位置markdown357/links360/quarto264。原citation69、conductivity italicσ、temperature1,000 K、`$σ_{1,000K}$`、关系符号/薄空格/普通阈值101.18与后继完整“Refer to the original paper…”/Supplementary href/text均保留。Cache-only postcheck首次exit0：逐方言完整原段与f4a5保存段落仅替换原unit attachment后逐字相同；整个same-runMD亦与原f4a5 bytes在这个唯一replacement以外相同。没有为了报告再clip，也没有提交full Markdown snapshot。
+
+Ordered71references、79source/semantic citationclusters、metadata、figures、equations、tables、warnings summary均与f4a5 actualcache深相等；前缀71与clusters79直接取B admitted source-citations contract，未误用独立bounded67投影的69reference count。Ref2仍原 `(0<x<-1)`，markdown/links最终编码保留，rawHtml PASS。原Equ1与邻接typed128x0e/64x1x/32x2e输出完全未变。三repeat真实测试检查bibliography bytes deterministic；repeat完整result没有另保存，不声称另有repeatcache。
+
+Independent #68继续有**9body/caption orphan +2silent heading roles**，本轮没有修复或降级。九个math issues与旧f4a5剔除compound issue后的array完全相等；九identifier源码位置沿用本handoff/immutable source packet，两个heading保持同一H3/H4文本/级别/位置。
+
+| Dialect | 九identifier orphan行（重复表示不同出现） | 两个silently flattened heading行 | compound行 / guards |
+| --- | --- | --- | --- |
+| markdown | 33,81,91,91,91,259,259,259,379 | 87,257 | 357；math9FAIL，另三PASS |
+| links | 33,83,93,93,93,262,262,262,382 | 89,260 | 360；math9FAIL，另三PASS |
+| quarto | 32,70,78,78,78,196,196,196,280 | 74,194 | 264；math9FAIL，另三PASS |
+
+现有a9 afterhook保存同一次三baseline comparison（全部expectations/semantic summary/四validators/strictwarnings）与三MD；不是完整Defuddle DOM/result。Status records3、missing24、errors[]、unexpected[]、completefalse，after仍硬FAIL；没有补造cache/skip afterhook。Postcheck逐条27TAP IDs/status与cache相同，并保持85行registry：本轮27 `M36c_NEW`明确CURRENT，另228历史为30 `Q134_NEW`、27 `Ca5b6_NEW`、27 `AC86_NEW`、144 `F0DE`。Quantum `b604628f6d917a1d1ce3a3e653b65255647c177d753caf4b723155711226094d` receipt未变，只复用accepted134历史30source/四guardPASS；不把历史228说成36c新255/27。
+
+实际commands/results（C ownworktree）：
+
+| Command | Result |
+| --- | --- |
+| `git fetch origin main`；`git merge --no-ff 36c93ca81236705912c25db391d611ee28405dca -m 'chore(corpus): adopt accepted compound conductivity prerequisite'` | exit0；dependency-only2973fbe；原authored SHAs保留 |
+| Saved preflight hash核验；32 protected `HEAD:<path>` Gitblobs逐项比较；clean/prefix不存在核验 | 全部PASS；没有重新运行preflight/sourceaudit |
+| `node --test --test-name-pattern $cMaterialsPattern test/nature-corpus.test.mjs`；env `ACADEMIC_CLIPPER_CORPUS_RECEIPT_PREFIX=<TEMP>/accepted-compound-materials-delta` | session78155 samehandle terminalexit1；37/30PASS7FAIL、19162.4229ms；唯一六clips |
+| `node <TEMP>/accepted-compound-materials-receipt.mjs`（same-run cache only） | 首次exit0；27source/3repeat、准确factor/fullparagraph/refs71/cites79/原9identifier+2headings/四guards/严格warnings/零ledgers/32blobs/85mixedtiers全部assert；新clips0 |
+| `git diff --check` / stageddiffcheck / tracked filenames / `git status --short` / push | 本轮authored仅本handoff；final SHA由git log及交接消息标识 |
+
+`$cMaterialsPattern`直接从savedpreflight.pattern赋值，精确正向filter：`^(?:s41586-023-06735-9)/(?:markdown|links|quarto): (?:every source expectation through the complete production chain|repeat Markdown, bibliography, semantics and replay operations)$`。没有empty-filter启动、timeoutrestart、其它article/fullsuite/source/framework/mutation/golden/build/npmtest/Dcontroller重复。
+
+TEMP仍 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c`，以下本轮实际证据未提交：
+
+| File | Bytes | SHA256 |
+| --- | ---: | --- |
+| pending67-materials-7b419-preflight.json | 18261 | c442d5f02f529b7f95967f9e7c54c44b92e5f1034294a4dd05253d2e58be9531 |
+| accepted-compound-materials-delta.log | 31189 | ebab7d40be4de24e8a40edbd963698afc6d8357781b524a9ee1c12f52884885a |
+| accepted-compound-materials-delta.comparisons.json | 243910 | 05c2c6a42b73e713b4e92072dc8dc4095ef2b5f1a79da1306f3bee1a9c4444e5 |
+| accepted-compound-materials-delta-receipt-status.json | 1812 | 6ca5cebff2ac0be8601682e1f74abc355117d9565c97a066eb9add7c8ff00973 |
+| accepted-compound-materials-delta-process-exit.txt | 1 | 6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b |
+| accepted-compound-materials-delta-receipt.json | 81326 | e23b206d958c3a483365f7aae1497a276124a0601bcc81e3e30258ea44b8a488 |
+| accepted-compound-materials-receipt.mjs | 10929 | f5eb9f86a43883dec618297db0103e325e0a16b65a13c3870082ac02888547d9 |
+
+方言文件前缀 `accepted-compound-materials-delta.s41586-023-06735-9.`：
+
+| Dialect | Comparison bytes / SHA256 | MD bytes / SHA256 |
+| --- | --- | --- |
+| markdown | 59334 / 9ef1d5408eefe0dbf20bc01eaa45f2e68b5fcdd9cf8e2b86c7acb59456080f85 | 80637 / c90bcd3c23a5e77733145242653ef3676ffa25267eda9737ca6e84173b0b29b0 |
+| links | 101459 / 1d590551b8ce4b07ce2a6a614ec5a4297b5c4f26d18b5ce8b8c6fcbfaaede05c | 83207 / e36f178618e45fb268abd33af4055aedc1c5f450a993db746d6e373d1d47364a |
+| quarto | 69578 / 400f65a9ac702cb1576bed018fb5974b235d71e51646fe11ad6c7409ae923b53 | 67795 / 094a4e9e70c79113bbd518ac7a94d29a49d42b80df1be0b2cff9f6ae471f28e7 |
+
+C仍DEPENDENCY_PENDING；#67在真实完整admitted Materials中此role已解除，#68全部11identifier科学角色仍required。其它Chemistry/Alpha/FRB角色继续待各窄accepted prerequisites。最终combinedacceptedhead仍须canonical全255/27、四validators/strictwarnings、repeat/ABA/resources/golden/npmchecks/三平台CI；本partial不能代替它们。无spec change/Issue10完成声明/partial普通PR/manualclose。Integrator采用accepted main→A→完整B（含b718rights）→C authoredONLY；不能whole-C dependency branch合并覆盖B后补source rights。
