@@ -15,7 +15,7 @@
 
 ## DAG / 文件所有权
 
-当前 checkpoint（2026-10-08 UTC；以下 startup 表及正文执行日志为历史；accepted main `4e8dcd9ce4998c3f8f373daecf332e7f9bfcfb74`）：
+当前 checkpoint（2026-10-08 UTC；以下 startup 表及正文执行日志为历史；accepted main `3dba1bbccddb43e0ba22fa7b7717dc559b7f3494`）：
 
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
@@ -31,7 +31,8 @@
 | Greek64 / PR77 | DONE | final2a231/code07be，93focused/181affected/830full/build/golden/独立zero blockers/三平台CI/Secrets全部通过；squash134ba67 Main37740911355 SUCCESS，64 automation completed；C实际Quantum全部四guards已通过 |
 | compound-unit67 / PR78 | DONE | final5e1/codeab589；59focused/309affected/889full/build/golden/三平台CI/Secrets/最终独审零阻塞十gates；squash36c93ca，mergedMain37749675660/Secrets SUCCESS，67 automation completed |
 | Materials identifier68 / PR79 | DONE | exact1be7/code976f479全部十gates；squash4e8dcd9 Main37764888330与Secrets37764888340 SUCCESS，68 automation COMPLETED；C唯一实际Materials六clips已执行，consumer增量独审待完成 |
-| Other mandatory scientific71–75 | RUNNING71 merged Main gate | PR80 exactc65十gates/freshCI/Secrets/最终独审CLEAR，squash3dba1bb；mergedMain37770933630与Secrets37770933677待接纳，accepted仍4e8；72fbc5c59/73最终69088a1/74最终964f643/75最终3e4c12e全部PLAN_ONLY_CLEAR；串行生产 |
+| Alpha qualified metric71 / PR80 | DONE | exactc65/codebba4十gates/freshCI/Secrets/finalreview CLEAR，squash3dba1bb；mergedMain37770933630/Secrets37770933677 SUCCESS，71 automation COMPLETED；C同源Alpha实际增量已释放 |
+| Other mandatory scientific72–75 | RUNNING72 sole Nature production | 72fbc5c59已释放adoptaccepted3dba最小修复+必要source3/current79；73最终69088a1/74最终964f643/75最终3e4c12e全部PLAN_ONLY_CLEAR，依赖前置acceptedMain串行生产 |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
 当前 host 并发上限为 4（含 orchestrator）。优先同时运行 C、D、table-footer bug；其余节点在名额空出并满足 dependency 后启动，重复恢复同一 C / D child。
@@ -834,3 +835,11 @@ C different-owner scopeddelta exactedd8 tree3b323566228b6b9d5ba479fd13516201db61
 Root唯一freshCIwatch24022 terminalexit0/chunkcba5a8，实际API exactc65 CI37769058702 SUCCESS（U20job11328377057011:22:56Z、U24job11328377047411:20:56Z、Win24job11328377031311:21:44Z）、Secrets37769059013/Gitleaks11328377281111:17:34Z SUCCESS；观察11:24:27Z与后续API核对，未用completion冒充观察。Final differentowner PUBLICATION_CLEAR exactc65 tre e1aded35f256916326e69b5c399cf3954c1e40307/blocking0，root全文read actualhuman5318 SHA4506728d3cc3b051b304fa3638272750bd7d3945f751db0e921c76f0c6074802/关键machine123525 SHA59de7bd3fa2e5ab5a5813885239797d8a3a52081cece4ecd8cf6478a287d0337。248inputs/43artifacts、closedlogs/guards/golden/PRbody16paths/delta2docs均匹配，原source58/plan/实施review复用，新runtime全部0。Actual最后PR OPEN/CLEAN/base4e8/headc65/checkrollup全SUCCESS/ownclean/diffcheck0满足十gate；公开receipt https://github.com/uwougil/Academic-clipper/pull/80#issuecomment-6058944021。
 
 `gh pr merge 80 --repo uwougil/Academic-clipper --squash --match-head-commit c65aeb7595aee0e1c9472cc5ff7a3e0e455ba51b` actualexit0/chunka0c395，mergedAt11:34:17Z、squash3dba1bbccddb43e0ba22fa7b7717dc559b7f3494；actualfetchorigin/main一致。MergedMain37770933630與Secrets37770933677同3dba queued，root唯一interval60mergedMainwatch真实live；此时accepted仍4e8，不提前release72生产/C71实际delta，也不手动close71/10。FinalIssue10integration startgate尚未达，最终PR不自动merge。
+
+## 11:42 UTC：3dba accepted，72生产与CAlpha独立增量并行
+
+Root唯一mergedMainwatch16305 actualterminalexit0/chunke35320；实际API Main37770933630 exact3dba1bbccddb43e0ba22fa7b7717dc559b7f3494 SUCCESS U20job11329003926511:38:29Z/U24job11329003956111:38:51Z/Win24job11329003973311:39:32Z。Secrets37770933677同3dba SUCCESS；71 automation CLOSED/COMPLETED11:39:42Z，root全文实际read comment https://github.com/uwougil/Academic-clipper/issues/71#issuecomment-6059056591（created11:39:41Z，body引用exactMain37770933630/commit3dba）。Fetchorigin/main同3dba，accepted更新，不手动关闭任何Issue，不重watch/source/tests。
+
+等待期间72/C只读准备各自own branch/filter/contracts，没有mutation/DOM/parser/clip/test。Accepted后root正式RELEASE72 SAMEfbc5branch唯一Naturewriter：dependency-only接纳3dba、finitefractionalunit range minimalproduction+必要真实三方言/全部当前79candidate GREEN，stablecode后不同owner实施review BEFORE broader/full/build/golden/PR。Source103/A/raw/旧67/41/17预检/历史三clips复用不重做，变量canonicalCinterface不自行改造。
+
+C SAMEedd8 branch另正式RELEASE only fullBAlpha s41586-021-03819-2 affectedbaseline3+repeat3；不改production/原Bsource85contracts/Materialshelper已审8897。各requiredoriginalsourceconsumers/fourvalidators/四完整r.m.s.d.SUB95关系/测量值、Fig1/NseqNres/creators/warnings/resources/精确零replayledger保存actualsixwhole-return evidence。Evidence-onlyexternalobserver延用originalreturnhook，观察真实生产withDomGlobals clipwindows和actualsource/consumerDOMclosure，全batch后关闭，不在首方言提前破坏Defuddle缓存DOMParser。原testassertions不变；partialafterhookmissing24仍硬FAIL，不冒fullcurrent255/27。若truthfuloutput暴露旧consumer误拒，只在同批cache定点修正经root授权的C-owned兼容断言，不重clip/raw/A/sourceoracle框架。D新helperhandoff exact8897/API1.0已durable记录，最终source9controller仍等待所有mandatoryproductionaccepted。
