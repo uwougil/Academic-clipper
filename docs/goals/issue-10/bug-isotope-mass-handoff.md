@@ -1,4 +1,76 @@
-# Issue #61 — leading isotope mass source-only 检查点
+# Issue #61 — leading isotope mass 交接
+
+## 2026-10-08 — 最小实现与独立 review 待办
+
+当前状态：`IMPLEMENTATION_GREEN / INDEPENDENT_REVIEW_PENDING`。下文 source-only 状态是保留的历史。没有声称整篇 chemistry、Issue #10 或 merged-main acceptance 已完成；author 不执行 merge。
+
+### 基线、恢复与提交
+
+Root 显式释放唯一 Nature 生产 gate 后，在同一 `codex/issue-10-bug-isotope-mass` / `C:/Users/guoli/.codex/worktrees/issue-10-bug-isotope-mass/academic-clipper` 恢复。最新 accepted main 为 `e2c1faddf7219f1886f0fa846353f0f667358375`（PR #66）：Main `37707702765` 的 Ubuntu20 job `113085922063`、Ubuntu24 `113085921991`、Windows24 `113085921818` 全成功；同 head Secrets `37707702972` 成功。#60 的 finalizer `37708426019` 成功、Issue completed。没有在 pending Main 上冻结实现。
+
+有序历史保持原样：`2d038beaef441b346bd341c0783fba2d317ef8c6` → `b78c39a55ffccf00c4a8f8085f5b91ece55f4b6b` → dependency `cc83c89180875299f362ff6e09bbad7328b1fad5` → all15 source RED `a91645f54bb2a23026986adf6dce6ad336db186c` → doc checkpoint `87224b40394e9bee00eb896406442b4c789d131a` → 新 accepted-main dependency merge `a09d00264a3c2e170a3f105db46e78f20e659543` → 新 boundary RED `2558b065a9db14d5afe0367b520e852fee4b9ece` → 最小实现/测试 `1320d8be97a1cbce331ef9b766ff84523acf36c3` → 本 doc-only receipt 后继。没有 rebase、force-push 或修改别人的 worktree/index。
+
+验证实现 commit 的 tree `5c692be08c232003d49fbf5390634c1f2335cb5b`；src tree `c0866aaf71b67330bec26190536f7e832b7517a8`；test tree `72263cab2fe02b57d37aab94d66daa5dfe089958`。后继只修改本交接文档，代码、测试、package/lock、golden 与 CI 树不变，不因文档重复 full。
+
+### 已独立核验的来源与 RED
+
+最终83-block / all15投影在 `87224…` 已由另一 owner 独立审计：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-review-isotope-source15/issue61-source15-review.md`，SHA `1aa8686082fb47d171d4d2c99837492a33f6421b7b2a88952ac01f5d037ed3e6`；manifest SHA `5e8e7f5310d47092cece9d6501c3e4be7c2f9aee736a9287bc9adef710b1c961`。结论 `SOURCE_CLEAR_ONLY` / zero blocking source findings，不是 implementation review。
+
+原 all15 excerpt 83245bytes / `ca8665672f96c5590bb0767cab0448f60305f3b916b8e743e478766975a3ea81`、old9 excerpt 53436bytes / `3c68fff1660b3b861da7432e9d96ce9957649adca7105646e4ee206e531365f0`，provenance/recipe/全部source roles/rights/diagnosis与两份原永久测试的 Git bytes相对 `87224…` 不变。实际 A helper `e56f140d…`、sanitizer1.1 / serializer-recipe-projection1.0、raw/retained hashes和全部15位置沿用下文与独立 packet；未重采、重新 sanitizer 或重做旧9/83来源审核。
+
+原 all15 真 RED `25 =1PASS/24FAIL, 2131.9855ms` 复用。对 `3889…→e2c1…` 做静态依赖差异核验：shared scientific collectors/normalizers/validators未变，新增仅 table caption 路径；本 source tables0，原 attachment 原因仍适用，不为状态重复跑25 RED。
+
+新24个明确 synthetic boundary tests先冻结并在未改 e2c1 生产上执行：`24=15PASS/9FAIL, 1086.002ms, exit1`。六个 prefix collector断言缺少 typed mass/element run、三个完整 rendering断言缺失独立 measurement/isotope，因此最先失败均是真 implementation缺口。15 PASS保护true numeric/styled exponents、Delta labels、unknown words/element、signed exponent、source-after-SUP空白、code/pre、两citation cues与typed MathJax；synthetic不计入 Nature source admission。
+
+### 最小修改与实际中间失败
+
+生产只在 `src/adapters/nature.mjs` 加21行。`collectLeadingIsotopeRun()` 从原 numeric-only、无child elements的非citation SUP出发，必须直接紧邻 exact H/C/F text token；previous source必须为start或whitespace/open bracket boundary。原 styled/numeric collectors仍优先。排除pre/code/math/MathJax/equation祖先、unknown word、其他未证明element、signed superscript与真正 contiguous exponent base。Range 从整个 SUP之前开始，止于following element一个字符，使用原 `replaceRangeWithScientificMarker()` / `scientificTex()` / Defuddle / academic normalizers。原 NMR measurement与源分隔空白留在range外，图注走既有semantic保护/recapture，不另建caption或Markdown isotope parser。
+
+最初 focused64 有60PASS/4FAIL：source15与old9语义已经PASS，但synthetic无figures/refs的warning期待只写equation absence，另typedRange start-inside-SUP留下empty SUP被measurement-left边界control检出。只把synthetic warning期待补为精确3条既有absence warnings（无wildcard），然后改range从whole SUP之前开始；中间63PASS/1FAIL记录也保留。最终 focused64/64全部PASS。没有改科学输入、source expectations、validators或绕过任何failure。
+
+受影响319测试初轮316PASS/3FAIL，只是既有 `test/nature-literal-brackets.test.mjs` 的chemistry三方言regex要求 `H` 紧挨 `]`，不接受正确 `[$^{3}H$]`。最小6行测试/注释更新为exact literal brackets包含完整mass→H math atom（接受empty TeX base/roman H），仍要求原2次、原质量数、完整prose/context/TBOB与no phantom display。没有改其fixture、provenance或literalOccurrences；新断言拒绝原cached orphan，三方言旧cache匹配0、新same-run cache匹配2。只重跑实际修改的24-test文件24/24PASS，其余295未变PASS复用。随后最终完整604/604同轮通过，覆盖全部affected。
+
+### 最终命令与结果
+
+所有测试zero skip/cancel/todo。External logs与same-run actual caches均保留在 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-isotope-mass`，没有提交captured Markdown/full raw/credentials。普通测试只使用committed excerpts与标明synthetic controls；本真实输入tables0，没有Nature resource operation、writer或live acquisition。没有调用 `clip:live`，没有添加fetch或修改DNS/security/transport。完整既有network/security tests仍执行。
+
+| 命令 / exact scope | 实际结果 |
+| --- | --- |
+| `npm ci` | exit0；lock/dependencies未变；现有npm high advisory保留，没有audit fix |
+| `node --test test/nature-isotope-mass-boundaries.test.mjs`（e2c1、生产未改） | exit1，24=15PASS/9真实RED，1086.002ms |
+| `node --test test/nature-isotope-mass-boundaries.test.mjs test/nature-isotope-mass.test.mjs test/nature-isotope-mass-coverage.test.mjs` | exit0，64/64PASS，1555.2543ms；实际三style all15 cache由同runner保存，无报告额外clip |
+| `node --test test/nature-adapter.test.mjs test/nature-caption-citations.test.mjs test/nature-literal-brackets.test.mjs test/nature-scientific-units.test.mjs test/nature-scientific-citations.test.mjs test/nature-scientific-citation-boundaries.test.mjs test/nature-styled-adjacency.test.mjs test/nature-styled-adjacency-boundaries.test.mjs test/nature-sparse-figure-alt.test.mjs test/nature-table-notes.test.mjs test/nature-table-mathjax.test.mjs test/nature-table-caption.test.mjs test/nature-table-caption-clip.test.mjs test/output-quality.test.mjs test/stability-regressions.test.mjs` | 初轮exit1，319=316PASS/3旧bracket regex FAIL，14134.5046ms；不是319全PASS claim |
+| `node --test test/nature-literal-brackets.test.mjs`（唯一affected test delta后） | exit0，24/24PASS，1996.6682ms |
+| `npm test`（immutable1320树、唯一author full） | exit0，604/604PASS，79335.4132ms |
+| `npm run build` | exit0，生成ignored dist/extension |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0，valid=true / citationStyle markdown；math、structure、rawHTML、crossrefs均PASS，golden bytes不变 |
+| `node <external-root>/implementation-receipt.mjs` | exit0，只读same-run缓存、hashes、scope/diff与旧→新bracket atom；没有新parse/clip/sanitizer |
+| `git diff --check` / status / tracked filenames / protected diff | PASS；production仅Nature21行；src normalizers/validators/security/clip、canonical/PRD/EDD、package/lock、golden、B/C corpus、scripts、CI无diff |
+
+### 结果范围与消费者
+
+三方言全部15 original source roles与four silent backward measurement misbindings通过；原brackets/sourceorder/六个NMR measurements保持。Whole all15 projection仍 math FAIL **2个独立group SUB**：Fe₂(ox)₃、(CD₃)₂CO；leading isolated SUP从11→0。Structure/rawHTML/crossrefs均PASS，exact warning只有 `No equation nodes were detected.`。保留全部source contexts的两个group失败，不放宽validator、不包装为warning/pass。C其他Pb(OAc)₄/Delta、Materials/FRB/Greek等mandatory角色仍由其它合同处理；本修复不宣称whole chemistry/corpus通过。
+
+实际 final same-run caches继承source provenance `acceptedMain=3889…` 字段；它是原source checkpoint基线，**不是本次执行基线**。新implementation receipt明确 `executionAcceptedMain=e2c1…` / code1320树，防止混淆。三actual Markdown/caches保存于 `green-e2c1-final/`；no post-cache clips。
+
+| dialect | cache bytes / SHA256 | same-run MD bytes / SHA256 |
+| --- | --- | --- |
+| markdown | 257249 / `7ba1ae815842fb9528c066f6cef5811093117bfd4c01174c23c1a657279fe440` | 21693 / `3ebc25ff49560763855035092df8792677ab881cb6ca06018c3cec1f4c5ee2dd` |
+| links | 263747 / `02312511dda763942b25774aad21820175d743af6d9e55334d0f18639295bd47` | 22687 / `c570f0eb939108bd27478a3cb3ea310c06ef12183b46bf1c990858988b93784c` |
+| quarto | 239743 / `4fbd296cc77f00f4a4fcd170a0297730b26c3d6065310c9b8a0267d647711e7e` | 12627 / `69d1b238bb456bf696372ed74e82ebd824614c4b1ddd7662861fc6c64efb749a` |
+
+| external evidence | bytes / SHA256 |
+| --- | --- |
+| `isotope-implementation-receipt-1320d8b.json` | 12256 / `7ff347856c55058bc4abc8c358e01450b6dcb1000d9efdd567c506b98238a0cd` |
+| `isotope-boundaries-red-e2c1.log` | 10893 / `725f442a551745508ac539bf371f7538dc0fe6b8216b170330fa81d4d4ee3560` |
+| `isotope-focused-green-complete.log` | 10757 / `35abaf69b0e7e3ec16683da4b5c8d9d314fe3a7f41e502fb7230bc8170fab77f` |
+| `isotope-affected-e2c1.log` | 53853 / `0e35ce6c56e3f21a04f34629aaf0a610907aa495f78fe28c720da7c294080d45` |
+| `isotope-literal-bracket-delta.log` | 2503 / `361c46b043ca7663d83e9120ee20884321a9c267f7cd85f27d01cc3fe7b6df54` |
+| `isotope-full-1320d8b.log` | 80768 / `c25b4158cbc407d727cbea9229573070bbceb48254c9b3e91a5eeb810648c204` |
+| `isotope-build-1320d8b.log` | 169 / `abd5f04ce72b095f718346705baa7f1b928090d232e100c7a6967fb68f9ae7a5` |
+| `isotope-golden-1320d8b.log` | 3018 / `49fe118cfcf91bcbef91e1ec9ffad67f8807589431c6179ffc5cd1a8f8a36498` |
+
+实施最终唯一PR必须exact standalone `Refs #61`，fresh3平台CI/Secrets与独立exact-head implementation review仍待执行；source-only clear不替代这些gate，author不merge。Root只有全部10gates通过且head未变时才可squash-merge；成功mergedMain之后才能通知SAME C消费未改chemistry源oracle重验受影响覆盖。C不得把本64 tests当作其全部255expectations或whole-corpus validators验收。无spec change proposal。
 
 ## 2026-10-07 — mandatory chemistry leading-mass coverage extension
 
