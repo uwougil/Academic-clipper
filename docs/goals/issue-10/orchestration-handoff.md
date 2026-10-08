@@ -15,7 +15,7 @@
 
 ## DAG / 文件所有权
 
-当前 checkpoint（2026-10-08 00:24 UTC；以下 startup 表为历史）：
+当前 checkpoint（2026-10-08 00:38 UTC；以下 startup 表为历史）：
 
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
@@ -24,10 +24,10 @@
 | D seam / controller review | DONE for implementation | exact4649 independent zero blockers；最终真实source-controller acceptance DEPENDENCY_PENDING |
 | Footer45、caption47、units48、tableMathJax51、literal53、sparse55、citation56 | DONE | 各独立PR与成功mergedMain receipts见后续历史；accepted mainac86 |
 | styled-adjacency57 / PR62 | DONE | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523与Secrets成功、57 automation completed |
-| table-caption60 | RUNNING independent implementation review | PR66 exact3a7ab0b，三平台CI37700211291与Secrets37700211155全SUCCESS；full540/build/golden已验证，最终十门槛尚待独立packet |
-| leading-isotope61 | RUNNING independent source review | clean87224b4/all15source a91645f；83245bytes/83blocks/15roles，唯一新25tests1PASS24真实FAIL；Nature生产gate仍锁60→61 |
+| table-caption60 | DONE | PR66 exact3a7ab0b独立zero findings与十门槛通过，squashe2c1fad；mergedMain37707702765/Secrets37707702972 SUCCESS，60automationCOMPLETED |
+| leading-isotope61 | PENDING production resumption | clean87224b4/all15source a91645f独立SOURCE_CLEAR_ONLY；minimaltypedDOM preflight ready，唯一Nature生产gate已可释放；受4-slot调度约束 |
 | Greek / split-power source contracts | DONE for source inputs | Greek64 cleanfcb116e / split63 clean4376aa8；两新projection独立CLEAR，production gate仍锁 |
-| reference2 literal inequality | RUNNING source receipt recovery | source65 a07c827已commit；恢复原未提交README/test/handoff，真实11tests8PASS3FAIL复用；不改生产 |
+| reference2 literal inequality | DONE for source inputs | cleanaea33123/a07c827；新30block独立SOURCE_PROJECTION_CLEAR，生产修复仍pending |
 | Other mandatory scientific / Ref2 roles | PENDING | C冻结历史source evidence；需各独立窄合同/正确覆盖，不计现有PASS |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
@@ -462,3 +462,15 @@ Root全文读取61独立SOURCE_CLEAR_ONLY packet12880bytes/SHA1aa8686082fb47d171
 65最终clean/pushedaea33123c464c45273b6d3ced83a8d4478a1d88b，上游same，ordered a07c82734c3e4e8c54b8be9901cf236ffe88092a→aea331；root全文读取17651Gitbytehandof/SHAa729c78f87433db119cebae09a05ce1f59aa2bc21a4fbff39c546e01f1fe5ab6与OPEN65完整合同。Original13671HTML/21728provenance不变；6ownedpaths；12registry不是新12次全跑，原11actual8PASS3FAIL1242ms+仅newmath1PASS709ms分别记账，复用无reclip。首次pushremote packpath临时错误，一次boundedretry成功，publiccheckpoint6049576027实际readback；不是externalaccess人类blocker。65新30projection独立tail仍需finalpacket，root未重复该raw审计。
 
 因旧61owneractualhandle消失依§22恢复replacement到原61ownbranch，当前只读收全15/现有collector与边界计划，待root确认Main成功后才adopt依赖/唯一Nature production实施。没有新孤立C/D implementation分叉。Materialidentifier新sourcepreflight明确9body/caption；额外两必要heading原SUP角色静态发现后完整保留/单独分类，不能按validatororphan数推导源覆盖或先freeze错subset；另一compoundunit不捆。Finalintegrationstartgate仍未达。
+
+## 00:38 UTC：e2c1 接纳、C 真正 caption delta 与65来源清关
+
+Main37707702765 exacte2c1faddf7219f1886f0fa846353f0f667358375 completedSUCCESS：U20job11308592206300:32:54Z/U24job11308592199100:31:11Z/Win24job11308592181800:33:49Z，Secrets37707702972 sameSHA SUCCESS；remote main仍e2c1。Finalize37708426019SUCCESS，60automationCLOSED/COMPLETED00:33:59Z。Accepted更新为e2c1，root没有manualclose，Issue10保持open/unmergedfinalPR边界不变。
+
+依恢复§22原C分支继续同一API/tests而非新实现；旧agent_cactualhandle缺失，replacementagent_c_recovery只接既有clean3d533/branch。Rootactualrelease后ownnon-destructive dependencymergeff6a6c9a360ac9f5e6210a36f241c927c5b9a52c；一次真正Quantum3source+3repeat session22332 terminalexit1，40tests30PASS10FAIL/0skip/todo/cancel43193.7263ms。静态preflight纠正root先前27估计：Quantum实际10expects，3styles为30source records，不漏source-tables-v1。当前30source27PASS3FAIL，ONLY source-citations-v1 rendered.orderedSourceClusters FAIL；source-crossrefs43/44全部PASS，12表注legacy转换问题消失，原58真正渲染；math43→19=Greek17+split2仍FAIL，structure/rawHTML/crossReferencesPASS，warnings[]exact，3repeatPASS。Partialhook3records/missing24 HARDFAIL保留，未伪造27complete，不重clip其他论文/full/rawaudit。
+
+Source/semantic/rendered引用clusters都77，source caption citation58 index59移到既有最终Tables section，rendered index76；正文source60–76先输出，caption58仍正确附着原公式。C只读同runcache定位，不再clip。Root读canonical§7、实际CassertCitations及Bimmutablecluster58上下文：规范要求cluster有序numbers/定义、sourceadjacency；C目前另外强制全篇所有body/tablecontainers与sourceDOM同一全局sequence。此差异必须独立规范/实现审核，不能直接sourceoracle改序或宣称消失。当前3FAIL仍保留，待独立review判断lawful原Tables relocation是否被C过度约束或真实production顺序缺陷；未决定修C/修parser，未静默accept。
+
+65新projection独立packetroot全文读10776bytes/SHAc3177a697b871a68a60a88674e2bdf1bae512cbe00928de3bf7c76a6bb317521，machine14899/SHA987fba2eb9b0d05ded08201c33d044ec5baef86f962eb26f82ab891b9e467ccc。Exactaea331/a07，actualA e56helperGit/schema、30prehash/科学DOM/原(0<x<-1)/refs1–2/完整六作者/Codeavailability/canonicalDOIJSONLD/原CCnotice/footer、deterministicregen/repeatidem/signatures全PASS，zeroSOURCEfindings。首次reviewer额外standaloneJSDOM外documentLF签名假设错误，必要3sanitizeprefix已成功；tail-onlyactualAAPI/inputpolicy复核，不重复3calls，initialexit1/tail0与两次rawprocess读取如实保留。No newclips/tests/full/network，原真实linksHTMLxFAIL仍需生产修复。
+
+独立61sourceclear/minimalDOMguardpreflight已完成；e2c1accepted后生产gate可释放，但当前4slots为root/C delta收尾/Materialidentifier source/compoundunit source，先冻结C同runcache/doc清单释放slot再恢复61owner，不抢其他worktree。Materialidentifier来源fullinventory11=9bodycaption+2necessaryheadings，source68630/81blocks作者冻结、真实32scope4PASS28FAIL正在固化；code旧directnormalizer限制与unitcontrolpresentationharness仅独立记录，source11RED不得隐藏。Compoundunit一原mScmSUP−1与101.18sourcevalue核实，正确mS·cm^{-1}因子意义，不是(mScm)^{-1}；citation69需refs1–69，包含独立Ref2HTMLFAIL如实保留，不裁困难refs。两个source任务均无生产授权，无newfull。
