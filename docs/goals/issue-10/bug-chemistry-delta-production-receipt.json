@@ -1,0 +1,442 @@
+{
+  "status": "FOCUSED_IMPLEMENTATION_READY_FOR_INDEPENDENT_REVIEW_ONLY",
+  "acceptedBase": "0d5972e5cb5827c1aee9610323cb702482a217d6",
+  "dependencyCommit": "2b1c61b200ec9433bf00fa531c4b937b1d4e9a00",
+  "codeCommit": "3232733729a05bf9e2979387bde2e095ab5aaa21",
+  "branch": "codex/issue-10-bug-chemistry-delta",
+  "worktree": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemistry-delta/academic-clipper",
+  "sourceClearReused": "c754d545b03045fb9d161a41174d067ff5dea781 / source57 independent SOURCE_PROJECTION_CLEAR_ONLY",
+  "planClearReused": "69088a1cbad628acebfc8c4073b5c6ce119341fc / PLAN_ONLY_CLEAR blocking0",
+  "inputFixture": {
+    "path": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemistry-delta/academic-clipper/test/fixtures/nature-chemistry-delta/s41467-023-44030-3.excerpt.html",
+    "bytes": 57405,
+    "sha256": "50e7bd3c941c8b448e49357109c38d1842821ce4ef2d270580a3663c1ae27030"
+  },
+  "provenance": {
+    "path": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemistry-delta/academic-clipper/test/fixtures/nature-chemistry-delta/s41467-023-44030-3.provenance.json",
+    "bytes": 34944,
+    "sha256": "0fb4c17500d9d2d5d878196d7f9788a6005d90e4dfa5c8cbfafca001d85e91d4"
+  },
+  "first": {
+    "tests": 62,
+    "pass": 59,
+    "fail": 3,
+    "durationMs": 11081.5818,
+    "exit": 1,
+    "source": {
+      "tests": 15,
+      "pass": 12,
+      "harnessFailures": 3
+    },
+    "boundary": {
+      "tests": 47,
+      "pass": 47,
+      "fail": 0
+    },
+    "failure": "New whole-prose display projection retained ^ after removing braces; original scientific grouping assertions passed. Saved-output pointed check also detected links citation internal comma, solved by exact whole original typed clusters only."
+  },
+  "sameOutputReconciliation": {
+    "status": "POINTED_PRESENTATION_CORRECTION_PASS",
+    "entries": [
+      {
+        "style": "markdown",
+        "cacheSha256": "f437955028793c0d5b7eaba00647ba5e2197d5c8e03d7d002e101dcbbc200167",
+        "wholeParagraph": true,
+        "strictAtoms": [
+          "Δ^{12,13}",
+          "_{A}",
+          "Δ^{12,13}",
+          "_{2}"
+        ]
+      },
+      {
+        "style": "links",
+        "cacheSha256": "d9e15ff2a2aee1cebdaa8bfb60c82463edf1f74c7ae679f011096c49341ef750",
+        "wholeParagraph": true,
+        "strictAtoms": [
+          "Δ^{12,13}",
+          "_{A}",
+          "Δ^{12,13}",
+          "_{2}"
+        ]
+      },
+      {
+        "style": "quarto",
+        "cacheSha256": "8e97d21465e3c55a9d3cafee4b4abaf7afc1e734f0d9d687d381a79a33b78cd4",
+        "wholeParagraph": true,
+        "strictAtoms": [
+          "Δ^{12,13}",
+          "_{A}",
+          "Δ^{12,13}",
+          "_{2}"
+        ]
+      }
+    ],
+    "newClips": 0,
+    "newDom": 0,
+    "newParses": 0,
+    "productionImports": 0,
+    "sourceAudits": 0
+  },
+  "finalSource": {
+    "tests": 15,
+    "pass": 15,
+    "fail": 0,
+    "durationMs": 1195.3061,
+    "exit": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0
+  },
+  "boundaryReuse": {
+    "tests": 47,
+    "pass": 47,
+    "scope": "Original full matrix, unchanged production and boundary input identities vs final source run",
+    "closedParserDoms": 42,
+    "syntheticClips": 3,
+    "closedInternalClipWindows": 3,
+    "attempts": [],
+    "restoredExactBindings": true
+  },
+  "sourceGuard": {
+    "first": {
+      "attempts": [],
+      "realClipCalls": 3,
+      "clipWindowsOpened": 3,
+      "clipWindowsClosed": 3,
+      "sourceDomsOpened": 2,
+      "sourceDomsClosed": 2,
+      "guardedMethods": 11,
+      "restoredBindings": true,
+      "restoredDomGlobals": true,
+      "writerProof": "Static clipNature returns data without invoking writePaper; no writer spy claimed."
+    },
+    "final": {
+      "attempts": [],
+      "realClipCalls": 3,
+      "clipWindowsOpened": 3,
+      "clipWindowsClosed": 3,
+      "sourceDomsOpened": 2,
+      "sourceDomsClosed": 2,
+      "guardedMethods": 11,
+      "restoredBindings": true,
+      "restoredDomGlobals": true,
+      "writerProof": "Static clipNature returns data without invoking writePaper; no writer spy claimed."
+    }
+  },
+  "entries": [
+    {
+      "style": "markdown",
+      "result": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/source-final/markdown.result.json",
+        "bytes": 106465,
+        "sha256": "f437955028793c0d5b7eaba00647ba5e2197d5c8e03d7d002e101dcbbc200167"
+      },
+      "markdown": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/source-final/markdown.md",
+        "bytes": 9746,
+        "sha256": "f00733e4a82a2642d1ab423da77e7235ee24f47f6caa89756e880fc924a3b20d"
+      },
+      "sameBytesAsFirstCandidate": true,
+      "creators": [
+        "Tong, Guanghu",
+        "Griffin, Samantha",
+        "Sader, Avery",
+        "Crowell, Anna B.",
+        "Beavers, Ken",
+        "Watson, Jerry",
+        "Buchan, Zachary",
+        "Chen, Shuming",
+        "Shenvi, Ryan A."
+      ],
+      "refs": 36,
+      "citations": [
+        [
+          5
+        ],
+        [
+          27,
+          36
+        ]
+      ],
+      "runs": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "Δ^{12,13}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "Δ^{12,13}"
+        }
+      ],
+      "validators": {
+        "mathValidation": true,
+        "rawHtmlValidation": true,
+        "markdownStructure": true,
+        "crossReferenceValidation": true
+      },
+      "warnings": [
+        "No Nature figures were detected.",
+        "No equation nodes were detected."
+      ],
+      "figures": 0,
+      "tables": 0,
+      "displayMath": 0
+    },
+    {
+      "style": "links",
+      "result": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/source-final/links.result.json",
+        "bytes": 108847,
+        "sha256": "d9e15ff2a2aee1cebdaa8bfb60c82463edf1f74c7ae679f011096c49341ef750"
+      },
+      "markdown": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/source-final/links.md",
+        "bytes": 10374,
+        "sha256": "2da726680ce19656a4f345f9c3b2baebb761e261f5b73599e87967e51a6e9929"
+      },
+      "sameBytesAsFirstCandidate": true,
+      "creators": [
+        "Tong, Guanghu",
+        "Griffin, Samantha",
+        "Sader, Avery",
+        "Crowell, Anna B.",
+        "Beavers, Ken",
+        "Watson, Jerry",
+        "Buchan, Zachary",
+        "Chen, Shuming",
+        "Shenvi, Ryan A."
+      ],
+      "refs": 36,
+      "citations": [
+        [
+          5
+        ],
+        [
+          27,
+          36
+        ]
+      ],
+      "runs": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "Δ^{12,13}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "Δ^{12,13}"
+        }
+      ],
+      "validators": {
+        "mathValidation": true,
+        "rawHtmlValidation": true,
+        "markdownStructure": true,
+        "crossReferenceValidation": true
+      },
+      "warnings": [
+        "No Nature figures were detected.",
+        "No equation nodes were detected."
+      ],
+      "figures": 0,
+      "tables": 0,
+      "displayMath": 0
+    },
+    {
+      "style": "quarto",
+      "result": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/source-final/quarto.result.json",
+        "bytes": 90182,
+        "sha256": "8e97d21465e3c55a9d3cafee4b4abaf7afc1e734f0d9d687d381a79a33b78cd4"
+      },
+      "markdown": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/source-final/quarto.md",
+        "bytes": 1699,
+        "sha256": "3b30c57d4a51cb8b90c3343b9b370a915ec492b513fa539e90865ad19e491b3c"
+      },
+      "sameBytesAsFirstCandidate": true,
+      "creators": [
+        "Tong, Guanghu",
+        "Griffin, Samantha",
+        "Sader, Avery",
+        "Crowell, Anna B.",
+        "Beavers, Ken",
+        "Watson, Jerry",
+        "Buchan, Zachary",
+        "Chen, Shuming",
+        "Shenvi, Ryan A."
+      ],
+      "refs": 36,
+      "citations": [
+        [
+          5
+        ],
+        [
+          27,
+          36
+        ]
+      ],
+      "runs": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "Δ^{12,13}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "Δ^{12,13}"
+        }
+      ],
+      "validators": {
+        "mathValidation": true,
+        "rawHtmlValidation": true,
+        "markdownStructure": true,
+        "crossReferenceValidation": true
+      },
+      "warnings": [
+        "No Nature figures were detected.",
+        "No equation nodes were detected."
+      ],
+      "figures": 0,
+      "tables": 0,
+      "displayMath": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/dependency-setup-before.json",
+      "bytes": 509,
+      "sha256": "78246a8378b37032d69dba20f7024c7e9075be1213e354bc14e8c2e671ef9af2"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/dependency-setup-after.json",
+      "bytes": 267,
+      "sha256": "384606f318ce384240d22ffa4defb5d9cc9c3c411587a6094c1426a550e0614b"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/npm-ci.log",
+      "bytes": 234,
+      "sha256": "726460a4aa8a76a1dace984e22e52215c6d1d317a7e401ca78f69fcd5469a49c"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/focused-first/process.json",
+      "bytes": 17832,
+      "sha256": "99d8835dc9e9457840e284215114de1ec212d024264185eae75daa95a6cd96b9"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/focused-first/focused.log",
+      "bytes": 16356,
+      "sha256": "177682d6cba44ffd1bdf97d34a1a60ae87c44ea1f5ae6c32fb3565013df2757c"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/focused-first/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/focused-first/launch.json",
+      "bytes": 9300,
+      "sha256": "c7ff01e210cf0435cb792f2758451357a14fc7859969d521afbb3d1ce6b98053"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/focused-first/network-ledger.json",
+      "bytes": 330,
+      "sha256": "912eac19fcde4785e4c90992f9b60e1919fffcdf83402fd285b32e201382ee13"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/focused-first/synthetic-results.json",
+      "bytes": 60050,
+      "sha256": "75f3046cdb5ac58679322b001aaa1247d937343d14d1710d59db148c77003bd8"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/source-final/process.json",
+      "bytes": 17778,
+      "sha256": "e0bfc57349a6a3aa9a7caaf41fad75505b4433d5d93b79d318079ceb36e99043"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/source-final/focused.log",
+      "bytes": 1614,
+      "sha256": "e03cc1e733be79cb72327f830531e67e09ddd72911c87ce78c574a80049c8ee6"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/source-final/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/source-final/launch.json",
+      "bytes": 9245,
+      "sha256": "41a8ba4515acbb1ca404a787d38cdf3a49f363663adf9d1b37d273685a76eabc"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/source-final/network-ledger.json",
+      "bytes": 330,
+      "sha256": "912eac19fcde4785e4c90992f9b60e1919fffcdf83402fd285b32e201382ee13"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/cached-readable-reconciliation.json",
+      "bytes": 961,
+      "sha256": "0ed4106b27300270590e4d01cf3c33fc66637900bc7e013dcb308cf9eba48ea0"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/check-readable-cache-first.cjs",
+      "bytes": 1841,
+      "sha256": "4c076a410bc74581f6109c5deeb3d42269662788d5ca83af248fdace32c06156"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/check-readable-cache.cjs",
+      "bytes": 2316,
+      "sha256": "2c8e62ab5cc28fe3ca0cc45ea850f003a616d40d5e6fb70828f9f284f2f2147b"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/run-focused.cjs",
+      "bytes": 2856,
+      "sha256": "896458bcd1f36670145bf9e7dcb64f802f4d21e1a012f3546a323df6f7de9fe1"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue73-production-0d597/final-receipt.cjs",
+      "bytes": 7452,
+      "sha256": "8a110f034e33719227d120e26306f8f232ac7e1d4112c260a7d86ad67a4b167c"
+    }
+  ],
+  "protectedFilesQuiet": true,
+  "dependencies": {
+    "setupBefore": {
+      "lockSha": "5563C3EC2AC88844CE89F6034B69B31D4DBA84BEF84DF80CE9EBBED8EF42A7A1",
+      "target": "C:\\Users\\guoli\\.codex\\worktrees\\3417\\academic-clipper\\node_modules",
+      "targetUsable": false,
+      "operation": "Directory.Delete(link,false): only verified junction, no target recursion",
+      "link": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemistry-delta\\academic-clipper\\node_modules",
+      "ownRoot": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemistry-delta\\academic-clipper"
+    },
+    "setupAfter": {
+      "linkType": null,
+      "ownNodeModules": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemistry-delta\\academic-clipper\\node_modules",
+      "node": "v24.14.1",
+      "lockSha": "5563C3EC2AC88844CE89F6034B69B31D4DBA84BEF84DF80CE9EBBED8EF42A7A1",
+      "exit": 0
+    },
+    "lockfileUnchanged": true,
+    "isolatedOwnDirectory": true
+  },
+  "execution": {
+    "newSourceAudits": 0,
+    "newRawFetches": 0,
+    "newSanitizations": 0,
+    "historicalSourceReclips": 0,
+    "newRealClips": 6,
+    "newSyntheticClips": 3,
+    "oldPreflightRuns": 0,
+    "newFullTests": 0,
+    "newAffectedTests": 0,
+    "newBuilds": 0,
+    "newGoldenRuns": 0,
+    "prs": 0
+  },
+  "pending": [
+    "Different-owner exact-head implementation review",
+    "Root release for affected/full/build/golden",
+    "Publication/fresh PR CI/Secret scan",
+    "Final exact-head independent publication review and ten merge gates",
+    "Successful merged-main acceptance"
+  ],
+  "specChanges": []
+}
