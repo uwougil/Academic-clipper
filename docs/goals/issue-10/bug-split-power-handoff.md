@@ -98,3 +98,51 @@ External evidence root：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-iss
 4. 成功 merged-main CI 后才告诉 SAME C actual accepted SHA + Issue63/source test/source p33/prehash/frozen identity；C 执行受影响真实 Quantum source/validator scope，确认原两个 isolatedSuperscript 解除，同时单列 #60 caption、Greek17或其他仍存问题，不声明 full corpus自动通过。
 
 Greek plain-base scripts、leading isotope61、table caption60、styled adjacency57、compound/parenthesized/fractional powers、AlphaFold/r²SCAN/FRB 科学角色都不在本修复 scope。无需 spec change、人类政策决定或 source reacquisition；当前依赖为 agent-resolvable parser prerequisite / shared file sequencing。
+
+## 2026-10-08 production checkpoint（增量 review 前）
+
+上文保留 source-only 历史证据；本节描述当前状态。Root 已按 orchestration goal §22 恢复原分支的唯一 Nature production owner 并明确释放 #63 生产 gate。Accepted dependency main 为 `f4a5f2ad74546ea54b990c6080e480871ee98e09`；实际再次查询 main API 同 SHA，Main `37725961177` / Secrets `37725961084` completed/success，Ubuntu Node20 `113144056165`、Ubuntu Node24 `113144056319`、Windows Node24 `113144056321` 均 success。Dependency-only merge `524ba8927fe8d2bd09b4d4eb71292a9bf2d9c41b` 不替代原 source authored commits。
+
+新 77-block source 独立审核已 CLEAR：external `academic-clipper-issue10-review-63-64-source/issue63-source-review.md`，4802 bytes，SHA-256 `124d4443e2165a7df99b164d6636c155e16daa466af343d932a2a99a82b51fa5`；machine evidence 36653 bytes，SHA-256 `97c3c3ba3c8f9675c7894184ed03849f8698976e8028942690b0ffc342b8e0d0`。该 source identity 未变化，恢复后不重复 raw/A/source audit 或原三方言 baseline clips。
+
+新增 ordered commits：
+
+1. `e6305d3f83d86032ba42be7f57f424af95329ade`：40 项明确 synthetic 的 qualification/rejection matrix，复用原 owner 已完成的 `boundary-red-f4a5.log/json`。
+2. `314967658d1403f4fbbb2dcfc785244de0a91949`：Nature private collector / typed exponent rendering 和 focused source HTTP/DNS guards。Production `src` tree 为 `ea74e67375491610bdba66767a62c513aebbdee6`，Nature blob 为 `e1e7f088c2910b01a1f8a2670d70b00e19ee575b`。
+3. 本节后续 docs-only commit（使用 `git log` 重建），不改变已验证 source/code/test tree。
+
+原 owner 的 synthetic RED terminal log 是 **40 tests / 32 PASS / 8 FAIL / 10658.4171 ms / 0 skip**：6 个 plain sign+digits qualification 失败对应本缺陷；另 2 个 nested-style SUP 项误要求空 `scientificRuns`，但 baseline 实际既有 detached roles 为 `^{−}` / `^{15}`。新 matrix 严格保留这两个已有角色并拒绝把它们合并为 numeric exponent；没有修复其既有 orphan validator 状态。旧 log/hash 原样保留。恢复 owner 未掌握该旧 shell 的 exit receipt，不为补写 exit 字段重复运行；terminal failure text 和 JSON 证明其实际失败范围。
+
+最小修复在 `collectSplitNumericSuperscriptRun` 识别原直接相邻的 sign-only SUP 和 digits SUP，每个 SUP 只有一个原 text child。只接 source token `10` 的明确分隔边界，不接别的 numeric base、identifier/decimal/word tail、source whitespace/comment、wrapped/nested children、citation children、math/code ancestor、literal dollar/backtick context、额外连续 SUP。之后的 typed citation SUP 保留自己的引用角色。返回的 explicit source TeX 是 `10^{<原 sign><原 digits>}`，交给已有 range/semantic marker；generic `scientificTex`、Defuddle、normalizers、validators 不变，避免它把原两个 SUP 串成两组 exponent。ASCII minus/Unicode minus/plus 仅作为明确 synthetic 的同一 signed-integer attachment controls，不冒充新增真实文章。
+
+实际 focused 命令（外部 receipt 环境变量只影响证据写入，不影响 oracle）：
+
+```text
+SPLIT_POWER_RECEIPT=<external-root>/green-source-f4a5.json
+SPLIT_POWER_RECEIPT_ROOT=<external-root>
+SPLIT_POWER_BOUNDARY_RECEIPT=<external-root>/boundary-green-f4a5.json
+node --test test/nature-split-power.test.mjs test/nature-split-power-boundaries.test.mjs
+exit 0; 49 tests / 49 PASS / 0 FAIL / 0 skipped/todo/cancelled; 1848.4829 ms
+```
+
+三方言实际 source clips 每个仅一次并复用同一 promise/result；另有原 synthetic DOM protection 的一次 clip，共 3 real + 1 synthetic。三份完整最终 Markdown 和三 source caches 同次保存。原 p33 单一 `10 / −15` 与 neighboring prose、p37 五个 single-SUP powers、原四 ordered citation clusters `[[58],[58],[8,51],[58]]` 均 PASS。三 source 结果实际四 validators 全 valid，精确 warning 只有 `No equation nodes were detected.`，tables/resources 为空。
+
+Global HTTP、callback DNS、promise DNS guard 均先记账再 throw；after hook 复原三 bindings 并 `syncBuiltinESMExports()`，最后严格检查 ledger 空，即使 resource fallback 捕获异常也不能掩盖尝试。Writer 证明为静态 call graph：tests 只调用返回 result 的 `clipNature()`；不调用 `writePaper()`，不宣称有 runtime writer spy。
+
+External root 仍是 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-split-power`：
+
+| Evidence | bytes / SHA-256 |
+| --- | --- |
+| `boundary-red-f4a5.log` | 11516 / `9a6957838f11939e024199fcf3fed5cb27da6cc650c5844ce747d7182e1e228c` |
+| `boundary-red-f4a5.json` | 365730 / `5e167ba70302c81bbc36200a7f60d3ee242cebaa1d47cdf0ddc7b1185dbf81c7` |
+| `focused-green-f4a5.log` | 4096 / `875bcc0b8e9c4158d634b66ddffd6b2526e7fa61bfbaf4d0f6469b587aaf36fa` |
+| `boundary-green-f4a5.json` | 365919 / `e059ed8968ec9715f1eb303986a1d9cd755f90ab9fb0baebb831f3fac8f7e17f` |
+| `green-source-f4a5.json` | 92793 / `2ef9dea42c8e212949323f4e900ab0543f626228e98bcc17eea0b8934c5ba28f` |
+| `green-markdown.md` | 12552 / `b129f16453561224b47607a3a1a1e0578675f1ff869ca2224547ef3c96b93792` |
+| `green-links.md` | 13631 / `e29dd7ffce11c8d90626f80bea6244a3b93fec8ad7af052c47377b4e9c60b88a` |
+| `green-quarto.md` | 4187 / `88ed712bda5da54cc5227d3317ab40958cc8bf81ec10c6a234cf73179742e5f4` |
+| `network-ledger.json` | 177 / `6c839154eab57375eba590f0e749ec1d52d4806e2eca010094e7c343ded332d7` |
+
+`git diff --check` exit 0；3149676 clean。相对 dependency merge 524ba89，fixture/diagnosis/provenance、canonical/plan/PRD/EDD、golden、package/lock、security、clip、normalizers、validators、extension、CI 均无变化。仅 Nature 最小 33-line delta、原 focused test 的 17-line network evidence、40 synthetic matrix 和本 handoff 改动。
+
+**尚未完成**：不同 owner 的 incremental implementation review、affected/full tests、build/golden、新 implementation PR、fresh CI/Secrets、immutable final head review，以及 root 的十 gate merge/main acceptance。按 root 授权先等增量 review CLEAR 再跑一次必要 full/build/golden，不为 checkpoint 重跑 source clips 或旧 source audits；当前不宣称 PR-ready 或 #63 完成。成功 accepted merged main 后 SAME C 才恢复 Quantum source/validators，精确解除 p33 两 orphan SUP；Greek17 等独立缺陷继续保留。没有 spec proposal。
