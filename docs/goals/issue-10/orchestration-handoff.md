@@ -15,7 +15,7 @@
 
 ## DAG / 文件所有权
 
-当前 checkpoint（2026-10-08 UTC；以下 startup 表及正文执行日志为历史；accepted main `134ba67a9eefe8763314454183a625f83a34837b`）：
+当前 checkpoint（2026-10-08 UTC；以下 startup 表及正文执行日志为历史；accepted main `36c93ca81236705912c25db391d611ee28405dca`）：
 
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
@@ -29,9 +29,9 @@
 | split-power63 / PR76 | DONE | final993/737full/十门槛；squash73d6 Main37734814590与Secrets SUCCESS；63 automation completed；C actual拆分SUP归零 |
 | reference2 literal inequality65 / PR70 | DONE | final7c32/676full/十门槛；squashf4a5 Main37725961177与Secrets SUCCESS；65 automation completed |
 | Greek64 / PR77 | DONE | final2a231/code07be，93focused/181affected/830full/build/golden/独立zero blockers/三平台CI/Secrets全部通过；squash134ba67 Main37740911355 SUCCESS，64 automation completed；C实际Quantum全部四guards已通过 |
-| compound-unit67 / PR78 | RUNNING merged Main acceptance | final5e1/codeab589；59focused/309affected/889full/build/golden/三平台CI/Secrets/最终独审零阻塞十gates；squash36c93ca，mergedMain37749675660 live，accepted暂仍134ba |
-| Materials identifier68 | DONE for source inputs / preflight | source81 CLEAR，8f18620；原48与新10分轮baseline，两证据gap已补，独立计划零阻塞；生产待67 Main accepted |
-| Other mandatory scientific71–75 | DONE for source inputs / production pending | 71preflight405a→oracle严格分组修订a10b，计划尾审进行中；72新synthetic预检进行中；73–75来源独审CLEAR；按窄合同串行Nature生产，不重做有效采集/审核 |
+| compound-unit67 / PR78 | DONE | final5e1/codeab589；59focused/309affected/889full/build/golden/三平台CI/Secrets/最终独审零阻塞十gates；squash36c93ca，mergedMain37749675660/Secrets SUCCESS，67 automation completed |
+| Materials identifier68 | RUNNING sole Nature production | source81 CLEAR，8f18620；原48与新10分轮baseline，两证据gap已补，独立计划零阻塞；正式accepted36c release，stablefocused后先独审再full |
+| Other mandatory scientific71–75 | DONE for source inputs / production pending | 71最终5841be8 PLAN_TAIL_CLEAR；72新synthetic7de3629预检已提交，计划独审进行中；73–75来源独审CLEAR；按窄合同串行Nature生产，不重做有效采集/审核 |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
 当前 host 并发上限为 4（含 orchestrator）。优先同时运行 C、D、table-footer bug；其余节点在名额空出并满足 dependency 后启动，重复恢复同一 C / D child。
@@ -738,3 +738,13 @@ FreshPRCI37743907405 exact5e1 SUCCESS U24job11320075976807:37:04Z/U20job11320075
 71新preflight405a的独立计划报告6352 SHAae0ed577d1caa3d205bdf09c7c42482a8262fe422a7a9b6ce61bc3fd24cb7dc8发现具体testoracle P2：删braces会混同whole _{95}与 _{9}5/unbraced_95。Sameowner新test-only `a10b453eb7ca9fff99d9e15ac3d8dcbd5e2d0643` 引入精确整个base+grouped95 helper（已知fontwrapper等价），3purestringcontrols+1hashverified旧三缓存共一次4PASS59.1156ms，不import原top-levelclips/28matrix。Original4source角色与科学input未改，原28baseline22PASS6RED保留，未来source/matrix接线仍runtime未证明。Root完整读delta/外部handoff3270 SHA2882a8c5d099f6418eb1ce061c5bf81dc00d2054e0fc10ab3a5f676b4bf75d2a；独立plan-tail readonly正在检查，不冒implementationCLEAR。
 
 隔离检查发现71逻辑node_modules快照实在C dependency目录，72原sharedjunction实在3417；root即时阻止新writes/执行，71精确四snapshotbytes复制外部Temp并保留旧privatefiles只读、旧runtime receipts原样不再执行；72只移除自身新建specific namespace的已校hash文件/空dirs（无recursivedelete/otherownertracked操作），外部快照核GitRAW发现原34copies CRLF，执行前纠正为直接GitBufferLF并保留差异receipt。Rootactualaccepted134Nature50461 SHA6b3cfc9c69813b20bd20f71633dc18e52e3abcac959d366cc2841bf41fa373e8；原51707 SHA924240…不是相同bytes，已明确纠正而非重sourceaudit。72新的synthetic矩阵执行一次，真实缺失/少量harness误判分开，只有失败harness定点和同批cachedmixed检查可补，不重原source103/A/3realclips/old15/fullmatrix。所有后续Nature生产仍按67Main→68→71→72等串行；integration gate未达，不声明Issue10完成。
+
+## 08:34 UTC：36c93 Main 接纳及下一项必要生产释放
+
+Root唯一watch25317实际terminalexit0，不再重启watch/CI/full。随后actualAPI mergedMain37749675660 head36c93ca81236705912c25db391d611ee28405dca三个jobs SUCCESS：U20 11321954527008:31:03Z、Win24 11321954571708:33:45Z、U24 11321954577408:32:48Z；mergedSecrets37749675621同36cSUCCESS。Issue67由github-actions[bot] automation CLOSED/COMPLETED08:33:57Z，完整实际comment https://github.com/uwougil/Academic-clipper/issues/67#issuecomment-6055991162 引用了sameMain/squash；fetchorigin/main36c相同。Accepted更新36c，未manualclose/Issue10未完成。
+
+Same68owner只读合同准备已READY/clean8f186/no执行，root正式释放soleNature production：own dependency-only adopt36c，源81/A及旧48+10预检不重跑，只必要原source3styles+58synthetic修复后focused；stablecode/科学11roles/bodycaption+H3H4先不同owner实现审核，再受影响/一次full/build/golden/PR。SameC原7b419的 read-only pending67-materials-7b419-preflight.json18261 SHAc442d5f02f529b7f95967f9e7c54c44b92e5f1034294a4dd05253d2e58be9531 root核hash/actualplan，commandSHAaa7b854c040087045493a9ddba8637af25c428eed9da39a83814bf94582975db；27source/三repeat/6实际clip计划与32objectsquiet已完成不重预检。正式releaseaccepted36c后仅必要dependency adopt+32quiet/唯一Materials六clipdelta，依然9identifierorphans+2silentheadingloss属68，missing24硬FAIL保留，不称全篇Materials/final255/27完成。
+
+71 tinypackaging `5841be890004706e4e48b1ee7675b17db656189e`仅两tracked test/doc，committed剩三无条件purestringtests，optionalhistoricalcachecheck移external，不重原4PASS/28matrix/source3。不同ownerstaticfinal报告1842 SHA8b6109dd0e016ad458a80e01107a3bcd8065fd65efe6c4a4989be25bdd05ff3e root全文读实际hash，PLAN_TAIL_CLEAR零阻塞；原P2 grouped95与P3 optionalCIcache皆清除，helper/ source/matrix/protectedquiet。仅计划清关，production仍待68accepted。
+
+72 stableclean/pushed `7de3629334576d5cfdf0d48429802dfa4b4964d0`新synthetic67一次53PASS14FAIL1339.7254ms，harness/加严assert仅affected41一次38PASS3trueFAIL863.0192ms/0newclip；联合67distinct56PASS11真实missing-roleRED不冒单轮67GREEN。Root完整读actualpreflight/test/receipt，3syntheticclips和100syntheticparse（非real-source）/101explicitDOMclosed、初75/subset38capturedwindowsclosed/emptyattempts如实记录；source103/A/原real3/旧15未重做。Root发现部分positive/mixed/opaque filtered scientific arrays可隐藏额外错误、mixed includes+min无法证明完整shared marker顺序，且计划右边词界需明确；交不同owner只读计划审核，后续仅具体必要tail补证，不再整轮67/raw/source/clips。这是把不足检查补到要求，不能拿当前negativePASS声称未来candidate安全；生产仍锁在68/71后。
