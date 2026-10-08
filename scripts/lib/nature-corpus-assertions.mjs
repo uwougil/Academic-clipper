@@ -128,8 +128,8 @@ function sourceNeighbors(node, length = 32, project = range => sourceReadable(ra
   const before = node.ownerDocument.createRange(), after = node.ownerDocument.createRange();
   before.selectNodeContents(root); before.setEndBefore(node);
   after.selectNodeContents(root); after.setStartAfter(node);
-  return { before:project(before).slice(-length).replace(/\s/gu,''),
-    after:project(after).slice(0,length).replace(/\s/gu,'') };
+  return { before:project(before,'before').slice(-length).replace(/\s/gu,''),
+    after:project(after,'after').slice(0,length).replace(/\s/gu,'') };
 }
 
 const citationLiteral = Object.freeze({ '_':'\uE000', '*':'\uE001' });
@@ -272,6 +272,64 @@ function assertFigures(context, e, c) {
     if (context.citationStyle === 'quarto') c.truth(`figures[${i}].identifier`, result.markdown.includes(`${image}{#fig-${actual.anchor}}`), 'Quarto image must carry its figure identifier');
   });
 }
+function renderedCitationOccurrences(body, context) {
+  const keyNumbers = new Map(context.result.references.map(r=>[r.citationKey,r.number]));
+  const pattern = context.citationStyle === 'quarto' ? /\[@([^\]]+)\]/gu
+    : context.citationStyle === 'markdown' ? /(?:\[\^\d+\])+/gu
+      : /\[\d+\]\(#ref-\d+\)(?:,\s*\[\d+\]\(#ref-\d+\))*/gu;
+  return Array.from(body.matchAll(pattern)).filter(m=>!(context.citationStyle==='markdown'
+    && (m.index===0 || body[m.index-1]==='\n') && /^\[\^\d+\]:/u.test(body.slice(m.index))))
+    .map(m=>({ start:m.index,end:m.index+m[0].length,token:m[0],numbers:
+      context.citationStyle === 'quarto' ? m[1].split(/;\s*@?/u).map(k=>keyNumbers.get(k) ?? null)
+        : Array.from(m[0].matchAll(context.citationStyle === 'markdown' ? /\[\^(\d+)\]/gu : /\[(\d+)\]\(#ref-\d+\)/gu)).map(n=>Number(n[1])) }));
+}
+
+function citationContainers(context, sourceClusters, body, c) {
+  // The existing renderer relocates tables to its final Tables section. Only
+  // immutable source table captions with a declared resource may relocate.
+  const owners=[],byFigure=new Map(),sourceOwner=new Map();
+  for(const figure of retainedNodes(context,'figure')) {
+    const links=Array.from(figure.querySelectorAll('[data-test="table-link"]'));
+    if(!links.length)continue;
+    const captions=Array.from(figure.querySelectorAll('[data-test="table-caption"]'));
+    const urls=links.map(n=>new URL(n.getAttribute('href'),context.article.url).href);
+    const declared=context.article.resources.filter(r=>r.url===urls[0]);
+    c.truth('containers.sourceTableIdentity',links.length===1 && captions.length===1 && !!captions[0]?.id
+      && declared.length===1,'Source table requires one caption ID and one declared full-size URL');
+    if(links.length!==1 || captions.length!==1 || !captions[0].id || declared.length!==1)continue;
+    const label=sourceText(captions[0].textContent).match(/^(?:Extended Data )?Table\s+\d+/u)?.[0];
+    c.truth('containers.sourceTableLabel',!!label,'Source caption must declare its table label');
+    if(!label)continue;
+    const owner={captionId:captions[0].id,url:urls[0],label,figure,caption:captions[0].closest('figcaption') || captions[0],indices:[]};
+    c.truth('containers.uniqueSourceIdentity',!owners.some(o=>o.captionId===owner.captionId || o.url===owner.url || o.label===owner.label),'Table identities must be unambiguous');
+    owners.push(owner);byFigure.set(figure,owner);
+  }
+  sourceClusters.forEach((node,i)=>{
+    const owner=byFigure.get(node.closest('figure'));
+    if(owner && owner.caption.contains(node)){owner.indices.push(i);sourceOwner.set(i,owner);}
+  });
+  const headers=Array.from(body.matchAll(/^## Tables\s*$/gmu));
+  c.equal('containers.tablesSectionCount',headers.length,owners.length?1:0);
+  const sectionStart=headers[0]?.index ?? body.length;
+  const sectionEnd=body.indexOf('\n## ',sectionStart+1);
+  const section=body.slice(sectionStart,sectionEnd<0?body.length:sectionEnd);
+  const starts=Array.from(section.matchAll(/^(?:- )?\*\*((?:Extended Data )?Table\s+\d+)\.\*\*/gmu));
+  c.equal('containers.orderedTableLabels',starts.map(m=>m[1]),owners.map(o=>o.label));
+  const frames=owners.map((owner,i)=>{
+    const start=sectionStart+(starts[i]?.index ?? section.length);
+    const end=sectionStart+(starts[i+1]?.index ?? section.length);
+    const text=body.slice(start,end),paragraph=text.split(/\n\s*\n/u)[0];
+    const links=Array.from(text.matchAll(/\[Full size table\]\(([^)]+)\)/gu)).map(m=>m[1]);
+    c.equal(`containers[${i}].resourceIdentity`,links,[owner.url]);
+    const anchor=`table-${owner.label.match(/\d+/u)?.[0]}`;
+    const target=context.citationStyle==='quarto'?`{#tbl-${anchor}}`:context.citationStyle==='links'?`<a id="${anchor}"></a>`:'';
+    if(target)c.equal(`containers[${i}].targetOccurrences`,paragraph.split(target).length-1,1);
+    const captionEnd=start+paragraph.length,captionStart=start+(starts[i]?.[0].length ?? 0);
+    return {...owner,start:captionStart,end:captionEnd,text:paragraph};
+  });
+  return {sourceOwner,frames};
+}
+
 function assertCitations(context, e, c) {
   const { result, bibliography } = context, v = e.value;
   c.equal('references.count', result.references.length, v.referenceCount);
@@ -284,29 +342,38 @@ function assertCitations(context, e, c) {
   const bibKeys = Array.from(bibliography.matchAll(/^@\w+\{([^,]+),/gmu)).map(m => m[1]);
   c.equal('bibliography.orderedKeys', bibKeys, keys);
   const body = result.markdown.split(/^## References\s*$/mu)[0];
-  const contextBody=compactProse(body,result);
-  let literalContextBody;
-  const keyNumbers = new Map(result.references.map(r=>[r.citationKey,r.number]));
-  const renderedClusters = context.citationStyle === 'quarto'
-    ? Array.from(body.matchAll(/\[@([^\]]+)\]/gu)).map(m=>m[1].split(/;\s*@?/u).map(k=>keyNumbers.get(k)))
-    : context.citationStyle === 'markdown'
-      ? Array.from(body.replace(/^\[\^\d+\]:[^\n]*$/gmu,'').matchAll(/(?:\[\^\d+\])+/gu)).map(m=>Array.from(m[0].matchAll(/\[\^(\d+)\]/gu)).map(n=>Number(n[1])))
-      : Array.from(body.matchAll(/\[\d+\]\(#ref-\d+\)(?:,\s*\[\d+\]\(#ref-\d+\))*/gu)).map(m=>Array.from(m[0].matchAll(/\[(\d+)\]\(#ref-\d+\)/gu)).map(n=>Number(n[1])));
-  c.equal('rendered.orderedSourceClusters',renderedClusters,v.clusters.map(item=>item.orderedNumbers));
+  const rendered=renderedCitationOccurrences(body,context);
   const sourceClusters = retainedNodes(context,'sup',e.blockIds).filter(n=>n.querySelector('a[data-test="citation-ref"],a[href*="#ref-CR"]'));
   c.equal('source.orderedClusterTexts',sourceClusters.map(n=>sourceText(n.textContent)),v.clusters.map(item=>item.text));
+  const {sourceOwner,frames}=citationContainers(context,sourceClusters,body,c);
+  const matches=new Map(),bodyIndices=v.clusters.map((_,i)=>i).filter(i=>!sourceOwner.has(i));
+  const bodyOccurrences=rendered.filter(item=>!frames.some(f=>item.start>=f.start && item.end<=f.end));
+  c.equal('rendered.orderedSourceClusters',bodyOccurrences.map(item=>item.numbers),bodyIndices.map(i=>v.clusters[i].orderedNumbers));
+  bodyIndices.forEach((i,j)=>matches.set(i,{occurrence:bodyOccurrences[j],start:0,end:body.length}));
+  for(const [j,frame]of frames.entries()){
+    const occurrences=rendered.filter(item=>item.start>=frame.start && item.end<=frame.end);
+    c.equal(`containers[${j}].orderedSourceClusters`,occurrences.map(item=>item.numbers),frame.indices.map(i=>v.clusters[i].orderedNumbers));
+    frame.indices.forEach((i,k)=>matches.set(i,{occurrence:occurrences[k],start:frame.start,end:frame.end}));
+  }
+  c.equal('rendered.clusterCount',rendered.length,v.clusters.length);
   for (const [i, cluster] of v.clusters.entries()) {
     const expected = context.citationStyle === 'quarto'
       ? `[${cluster.orderedNumbers.map(n => `@${keys[n - 1]}`).join('; ')}]`
       : context.citationStyle === 'links' ? cluster.orderedNumbers.map(n => `[${n}](#ref-${n})`).join(', ')
         : cluster.orderedNumbers.map(n => `[^${n}]`).join('');
-    c.truth(`clusters[${i}].rendered`, body.includes(expected), `Ordered source citation cluster ${cluster.text} must be rendered`);
+    const match=matches.get(i),occurrence=match?.occurrence;
+    c.equal(`clusters[${i}].rendered`,occurrence?.token ?? null,expected);
     if (sourceClusters[i]) {
-      const literalNeighbors=sourceNeighbors(sourceClusters[i],32,citationSourceNeighbor);
+      const owner=sourceOwner.get(i),withoutLabel=(value,range,side)=>owner && side==='before'
+        && range.startContainer===owner.caption && value.startsWith(`${owner.label} `)
+        ? value.slice(owner.label.length).trimStart():value;
+      const literalNeighbors=sourceNeighbors(sourceClusters[i],32,(range,side)=>withoutLabel(citationSourceNeighbor(range),range,side));
       const hasLiteral=/[\uE000\uE001]/u.test(literalNeighbors.before+literalNeighbors.after);
-      const { before,after }=hasLiteral?literalNeighbors:sourceNeighbors(sourceClusters[i]);
-      const renderedContext=hasLiteral?(literalContextBody??=citationContextBody(body,result)):contextBody;
-      c.truth(`clusters[${i}].sourceContext`,renderedContext.includes(`${before}${compactProse(expected,result)}${after}`),
+      const { before,after }=hasLiteral?literalNeighbors:sourceNeighbors(sourceClusters[i],32,(range,side)=>withoutLabel(sourceReadable(range.toString()),range,side));
+      const project=value=>hasLiteral?citationContextBody(value,result):compactProse(value,result);
+      const preceding=occurrence?project(body.slice(match.start,occurrence.start)):'';
+      const following=occurrence?project(body.slice(occurrence.end,match.end)):'';
+      c.truth(`clusters[${i}].sourceContext`,!!occurrence && preceding.endsWith(before) && following.startsWith(after),
         'Citation cluster must remain between its original neighboring source text');
     }
   }

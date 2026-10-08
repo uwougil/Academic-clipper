@@ -313,6 +313,75 @@ for(const dialect of DIALECTS)test(`source inline cases use the complete source 
   assert.ok(inline(duplicate).failures.some(f=>f.path==='cases[16].paragraphContext'),'Duplicating the true scientific paragraph is rejected');
 });
 
+for(const dialect of DIALECTS)test(`source citations bind relocated table captions to their own occurrences/${dialect}`,async()=>{
+  const article=manifest.articles.find(a=>a.articleId==='s41534-023-00746-0'),entry=await run(article,dialect);
+  const consumer=assertionRegistry.get('nature-source-citations-v1'),e=article.expectations.find(e=>e.id==='source-citations-v1');
+  const dom=new JSDOM(entry.html,{url:article.url});
+  const check=result=>consumer.assert({article,result,sourceDocument:dom.window.document,citationStyle:dialect,bibliography:referencesBib(result.references)},e);
+  try{
+    assert.equal(check(entry.result),true,'Complete real source consumer must pass before mutation');
+    const figure=Array.from(dom.window.document.querySelectorAll('figure')).find(f=>f.querySelector('[data-test="table-link"]'));
+    const source=figure.querySelector('sup a[data-test="citation-ref"]').closest('sup');
+    const number=Number(source.textContent),label=figure.querySelector('[data-test="table-caption"]').textContent.match(/^Table\s+\d+/u)[0];
+    const token=n=>dialect==='markdown'?`[^${n}]`:dialect==='links'?`[${n}](#ref-${n})`:`[@${entry.result.references[n-1].citationKey}]`;
+    const cue=token(number),paragraphs=entry.result.markdown.split(/\n\s*\n/u),caption=paragraphs.find(p=>p.startsWith(`**${label}.**`));
+    assert.ok(caption);assert.equal(caption.split(cue).length,2);
+    const body=entry.result.markdown.split(/^## Tables\s*$/mu)[0];
+    const patterns=dialect==='markdown'?/(?:\[\^\d+\])+/gu:dialect==='links'?/\[\d+\]\(#ref-\d+\)(?:,\s*\[\d+\]\(#ref-\d+\))*/gu:/\[@[^\]]+\]/gu;
+    const bodyCues=Array.from(body.matchAll(patterns));assert.ok(bodyCues.length>2);
+    const after=source.ownerDocument.createRange();after.selectNodeContents(source.closest('figcaption'));after.setStartAfter(source);
+    const word=after.toString().match(/[\p{L}]{5,}/u)[0];assert.ok(caption.includes(word));
+    const changes=[
+      ['delete original despite same number elsewhere',entry.result.markdown.replace(caption,caption.replace(cue,'')).replace(bodyCues[0][0],cue)],
+      ['duplicate original caption citation',entry.result.markdown.replace(caption,caption.replace(cue,`${cue} ${cue}`))],
+      ['wrong number in original owner',entry.result.markdown.replace(caption,caption.replace(cue,token(number===1?2:1)))],
+      ['move caption citation into body',entry.result.markdown.replace(caption,caption.replace(cue,'')).replace(bodyCues[0][0],`${bodyCues[0][0]} ${cue}`)],
+      ['change original following source neighbor',entry.result.markdown.replace(caption,caption.replace(word,'LOST_SOURCE_NEIGHBOR'))],
+      ['swap two body clusters with semantic object unchanged',entry.result.markdown.slice(0,bodyCues[0].index)+bodyCues[1][0]+entry.result.markdown.slice(bodyCues[0].index+bodyCues[0][0].length,bodyCues[1].index)+bodyCues[0][0]+entry.result.markdown.slice(bodyCues[1].index+bodyCues[1][0].length)],
+      ['unmatched extra output citation',entry.result.markdown.replace('## Tables',`${token(1)}\n\n## Tables`)],
+    ];
+    const multi=e.value.clusters.find(cl=>cl.orderedNumbers.length>1),sequence=multi.orderedNumbers.map(token);
+    const joined=dialect==='quarto'?`[${multi.orderedNumbers.map(n=>`@${entry.result.references[n-1].citationKey}`).join('; ')}]`:sequence.join(dialect==='links'?', ':'');
+    const reverse=dialect==='quarto'?`[${multi.orderedNumbers.toReversed().map(n=>`@${entry.result.references[n-1].citationKey}`).join('; ')}]`:sequence.toReversed().join(dialect==='links'?', ':'');
+    changes.push(['reverse numbers within original cluster',entry.result.markdown.replace(joined,reverse)]);
+    for(const [name,markdown]of changes){assert.notEqual(markdown,entry.result.markdown,name);const result={...entry.result,markdown};assert.strictEqual(result.semantic,entry.result.semantic);assert.throws(()=>check(result),assert.AssertionError,name);}
+  }finally{dom.window.close();}
+});
+
+for(const dialect of DIALECTS)test(`synthetic citation containers reject wrong owner, caption order and ambiguous framing/${dialect}`,()=>{
+  // Explicit synthetic prose and objects; no corpus admission or scholarly oracle.
+  const url='https://www.nature.com/articles/synthetic-container',cite=n=>`<sup><a data-test="citation-ref" href="#ref-CR${n}">${n}</a></sup>`;
+  const html=`<section id="synthetic-root"><p>Synthetic body alpha ${cite(1)} ending.</p><p>Synthetic body beta ${cite(2)} ending.</p><figure><figcaption><b id="Tab1" data-test="table-caption">Table 1 Synthetic first caption alpha ${cite(2)} middle beta ${cite(3)} ending.</b></figcaption><a data-test="table-link" href="${url}/tables/1">Full size table</a></figure><figure><figcaption><b id="Tab2" data-test="table-caption">Table 2 Synthetic second caption gamma ${cite(2)} ending.</b></figcaption><a data-test="table-link" href="${url}/tables/2">Full size table</a></figure></section>`;
+  const dom=new JSDOM(html),references=[1,2,3].map(number=>({number,text:`Synthetic reference ${number}`,doi:'',citationKey:`Synthetic${number}`}));
+  const token=n=>dialect==='markdown'?`[^${n}]`:dialect==='links'?`[${n}](#ref-${n})`:`[@Synthetic${n}]`;
+  const target=n=>dialect==='quarto'?` {#tbl-table-${n}}`:dialect==='links'?` <a id="table-${n}"></a>`:'';
+  const caption1=`**Table 1.** Synthetic first caption alpha ${token(2)} middle beta ${token(3)} ending.${target(1)}`;
+  const caption2=`**Table 2.** Synthetic second caption gamma ${token(2)} ending.${target(2)}`;
+  const markdown=`Synthetic body alpha ${token(1)} ending.\n\nSynthetic body beta ${token(2)} ending.\n\n## Tables\n\n${caption1}\n\n[Full size table](${url}/tables/1)\n\n${caption2}\n\n[Full size table](${url}/tables/2)\n\n## References\n`;
+  const clusters=Array.from(dom.window.document.querySelectorAll('sup')).map(n=>({text:n.textContent,anchors:[{text:n.textContent,href:`#ref-CR${n.textContent}`}],orderedNumbers:[Number(n.textContent)],blockIds:['synthetic-root']}));
+  const e={id:'synthetic-citations',assertionId:'nature-source-citations-v1',blockIds:['synthetic-root'],value:{version:'1.0.0',clusters,referenceCount:3,references:references.map(r=>({number:r.number,text:r.text,doi:r.doi,id:`ref-CR${r.number}`,doiLinks:[]}))}};
+  const article={articleId:'synthetic-container',url,retainedBlocks:[{id:'synthetic-root',selector:'#synthetic-root'}],resources:[1,2].map(n=>({url:`${url}/tables/${n}`}))};
+  const result={markdown,references,semantic:{citations:clusters.map(cl=>({numbers:cl.orderedNumbers}))},debug:{references:3},referencesMarkdown:dialect==='markdown'?'[^1]: Synthetic reference 1\n[^2]: Synthetic reference 2\n[^3]: Synthetic reference 3':dialect==='links'?'<a id="ref-1"></a><a id="ref-2"></a><a id="ref-3"></a>':''};
+  const consumer=assertionRegistry.get(e.assertionId),check=output=>consumer.assert({article,result:{...result,markdown:output},sourceDocument:dom.window.document,citationStyle:dialect,bibliography:referencesBib(references)},e);
+  try{
+    assert.equal(check(markdown),true);
+    const mutations=[
+      ['missing while identical citation remains in other table',markdown.replace(caption1,caption1.replace(token(2),''))],
+      ['duplicate in same owner',markdown.replace(caption1,caption1.replace(token(2),`${token(2)} ${token(2)}`))],
+      ['wrong number',markdown.replace(caption1,caption1.replace(token(3),token(1)))],
+      ['move occurrence between owners',markdown.replace(caption1,caption1.replace(token(3),'')).replace(caption2,caption2.replace(token(2),`${token(2)} ${token(3)}`))],
+      ['swap two clusters within same caption',markdown.replace(caption1,caption1.replace(token(2),'SYNTHETIC_SWAP').replace(token(3),token(2)).replace('SYNTHETIC_SWAP',token(3)))],
+      ['wrong owner neighbor',markdown.replace(caption1,caption1.replace('middle beta','changed synthetic neighbors'))],
+      ['swap complete table frames',markdown.replace(caption1,'SYNTHETIC_FRAME').replace(caption2,caption1).replace('SYNTHETIC_FRAME',caption2)],
+      ['ambiguous repeated caption framing',markdown.replace(caption1,`${caption1}\n\n${caption1}`)],
+      ['wrong declared owner resource',markdown.replace(`${url}/tables/1`,`${url}/tables/2`)],
+      ['extra unmatched citation',markdown.replace('## Tables',`${token(1)}\n\n## Tables`)],
+    ];
+    for(const [name,changed]of mutations){assert.notEqual(changed,markdown,name);assert.throws(()=>check(changed),assert.AssertionError,name);}
+    dom.window.document.getElementById('Tab2').id='Tab1';assert.throws(()=>check(markdown),assert.AssertionError,'Ambiguous original caption identity fails closed');
+  }finally{dom.window.close();}
+});
+
 for(const dialect of DIALECTS) test(`mocked full-clip table failure and redirect contracts/${dialect}`,async t=>{
   const article=manifest.articles[0],real=(await loadReplayResources(article,corpusRoot))[0];
   const scenarios=[
