@@ -20,14 +20,14 @@
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
 | A / B immutable source inputs | DONE | A reviewed actual e56 interface；B b718fa8 source-only；nine articles/four resources/85 expectations |
-| C assertion framework / oracle audit | DONE for implementation | 9c5容器consumer独立clear，90bacdoc/84cdaccepted依赖；a5bChemistry27source/3repeat定点复验已释放，mandatory validators与全255验收仍未通过 |
+| C assertion framework / oracle audit | DONE for implementation | 9c5容器consumer独立clear；clean779fc handoff/84cdaccepted依赖；a5bChemistry27source/3repeat实际PASS，math5/全255仍未通过 |
 | D seam / controller review | DONE for implementation | exact4649 independent zero blockers；最终真实source-controller acceptance DEPENDENCY_PENDING |
 | Footer45、caption47、units48、tableMathJax51、literal53、sparse55、citation56 | DONE | 各独立PR与成功mergedMain receipts见后续历史；accepted mainac86 |
 | styled-adjacency57 / PR62 | DONE | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523与Secrets成功、57 automation completed |
 | table-caption60 | DONE | PR66 exact3a7ab0b独立zero findings与十门槛通过，squashe2c1fad；mergedMain37707702765/Secrets37707702972 SUCCESS，60automationCOMPLETED |
 | leading-isotope61 | DONE | PR69 exacte88独立零阻塞及十门槛通过；squasha5b6acc；Main37716530268/Secrets37716530267SUCCESS；61automationCOMPLETED |
 | Greek / split-power source contracts | DONE for source inputs | Greek64 cleanfcb116e / split63 clean4376aa8；两新projection独立CLEAR，production gate仍锁 |
-| reference2 literal inequality | RUNNING minimal implementation | source30原独立review复用；e410accepted依赖/1fd新边界RED；只改reference literal输出编码，full尚未执行 |
+| reference2 literal inequality | RUNNING independent review / CI | PR70 exactecc46/f740code；36focused/43affected/full640/build/golden PASS；source30复用；freshCI37720683740运行中、Secrets成功 |
 | Materials identifier68 / compound-unit67 | DONE for source inputs | 67 exact9610923的99block、68 exactd501e4的81block均独立SOURCE_CLEAR_ONLY；两者production仍pending |
 | Other mandatory scientific / Ref2 roles | PENDING | C冻结历史source evidence；需各独立窄合同/正确覆盖，不计现有PASS |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
@@ -539,3 +539,17 @@ Root释放SAMEC84cd窄Chemistrybatch：只执行预声明exact三个source-paren
 02:55最终独立review补充仅报告文字，actual最终report8964/SHA249953c6736529e2aa6e88cedf954d3d88f5478a9c64d5cf4e14f8b9fc7879db；root再次全文读取。修正cheap B comparison精确范围：manifest+13article/table excerpts对B b718实际exit0；全fixtures目录exit1仅9份source-evidence缺B后补sourceRights（586del/9add），与d993完全不变。已知继承差异不属9c5改动，final必须A→完整B含b718→仅Cauthored，不能wholebranch覆盖rights。GitLF55520/36099与ownCRLF56220/36500两域明确，结果hash与zero blockers unchanged；无newtest/reviewrerun。Root为报告补充文字不重复cache/mutations。
 
 65边界已补真实backslash奇偶判定与paired-dollar foreignHTML防护，privateencoder43行+referenceText一调用，仍仅src/clip.mjs；root读完整patch。新24scopePASS24/24 685ms，明确source-literalbackslash/code/matchedmath/ampersandentity/strictanchors/DOI；四旧escapedcurrency失败属于Defuddle继承presentation不计本sourceRED。普通HTTP/DNSattemptguards记录后throw并最终assert/restore，writer保持STATICcallgraph证明不冒充spy。下一focused一次共36注册/同runner3sourcecaptures，受影响检查完成后immutable树唯一full；root没有代作者重复执行。C releasedChemistry实际session82368live、首markdown9source与repeatPASS，后两方言仍由同一运行继续，不能以首方言宣称27全部通过。
+
+## 03:02 UTC：Chemistry 收尾与 PR70 固定验证交付
+
+C clean/pushed779fc99c4a6ffa55672da08ac6226c6b906f36f6，DOCONLY54add3del；root读取完整新增handoff与orderedSHAs、actualprotectedquiet/code9c5unchanged。实际session82368已terminalexit1：37tests30PASS7FAIL/0skip/todo/cancel/21067.6519ms；27source与3repeat全PASS；每style完整math仍5FAIL（三groupSUB、两ΔSUP），其它三guardPASS，warnings精确Noequation，所有resource/HTTP/DNS/unexpectedledgers[]。Receipt24missing硬FAIL保持，sourcePASS不等于wholeChemistry。原15mass角色及六measurements/四silent误挂均同runMD正确；初external诊断遗漏7.26/77.16原ppm而误报，仅改已有source-aware识别，不改科学/生产或重clip。
+
+Root读actualreceipt字段、TAPterminal和文件hash范围。External log21325/SHA39c82f97fc7f29d8ca26e7fc27326cb9836f7ac494abcf2615774eef3657dd61；comparisons187837/SHA9e03499a886690d8d8735cf5d088b61b747aa1efe71e0025cc402bcaefbb5ac6；status1812/SHAa2ef8b702c5c6bb9b6ec644322095042ab24e5b2dec9fee4843e07f431baefa4；source/85mixedtiersreceipt292661/SHAf236666d540c8fdd9282f6d1481fd046f5fd19d0728aac209b6dbfcc32c6afd1。Actualnew27 Chem `Ca5b6_NEW`与其它历史228records分开，Quantum3global-order历史FAIL仍保留，另独立9c5cache-only解决，不伪造新255PASS。Sourcepacket重新读取同run/frozen仅零newclips；真实batch是3baseline+3repeat，不把postprocess字段newProductionClips0当全batch0clip。下一accepted65只必要Materialsdelta，full255/27/ABA仍finalgate。
+
+65固定implementationf740caab2014985088125b6c2b3d6faad8ee38ae，src tree72387d4155e79a38224daac3de60e56c325f7768/test执行blob377787f553b62b9ccc3a5db231de97cb7fc9ac76。Root实际read43lineprivateencoder，只referenceText一调用、typed/opaque与strictHTML/truebackslashparity保持；source fixture/provenance实际quiet相对aea。Focused36/36PASS1175.7502ms（真实3same-runclips+24boundary+原controls），affectedNature/outputquality/AIP43/43PASS6264ms。唯一fullactualsession90928先confirmedlive后terminalexit0，640/640PASS81990.5797ms/0skips/todo/cancel；root终态tail/hash核84036/SHA3287666f4a9d20e21a7c8545e72039e750b10d14f6bf7e9041633d0f8eee379b。Build174/SHA29bb2fc3db9bbbaa086603e3760889fc756348e7a100307b70d3b1ca87609e1c、golden3018/SHA49fe118cfcf91bcbef91e1ec9ffad67f8807589431c6179ffc5cd1a8f8a36498均实际完整读exit0/valid四guards/250inline13display50refs。Full运行中只有README/handoff文档更改；最终test tree因README不同，不声称整个test tree同SHA，src/执行test/source/protectedpaths明确不变。
+
+最终clean/upstreamecc46fcbcb3ca16bd8c859b240a3a5ace4830bbd仅DOCafterfull；root完整读取28598Gitbytehandoff/SHA20821f84767f7b80024d5590ede3428a4749481e84c808febfd832264b2e5c4b、PR70body/七paths/Refs65及publicationreceipt。唯一[PR70](https://github.com/uwougil/Academic-clipper/pull/70)附加至chat，sameecc FreshCI37720683740实际live：U20job113127359055/U24job113127359049/Win24job113127358789；Secrets37720683661/Gitleaks113127358197sameheadSUCCESS。PublicationreceiptSHA4cff83e8dca9353a272cb24541aae8ddfddb12c20e19266c5b0c6256a34fa5bd、implementation8429/SHA382139059180e482d177cba1df97c487987108d2a1f41f0438b4719eea86d913，发布没有新tests/clips/audits/代码更改。独立review/CI仍pending，不merge。
+
+原16boundary失败精确归因现修正为10strictHTML+2literal entity readable（本65）+4继承backslash presentation比较（非parserRED）；旧logs保留，不把12全称HTML。新增8后修复boundary仅GREENprotection不伪称旧mainRED。原source `(0<x<-1)`仍负界、source30独立review复用无需新regen；writerSTATIC/attemptledgerscope明确。
+
+闲置C角色转下一FRB fractional-sourceONLY窄合同，独立新branch从a5b6，仅Methods p50/p51十二pc/km fractionalpowers；p22两parenthesizedbases另合同不捆修。重复issue/branch/Temp检查无matching已完任务，后续只有新合法projection/repro，不重clip已存在wholeFRB或C27Chem。Alpha sourceONLY同理独立新projection/全部34creators/Fig1/MOESM1/refs0；所有Nature/clipsecurity生产gates仍串行65。Root协调当前threadlimit使用实际不同owner任务自然checkpoint切换做PR70独立review，不author自审，不为换handle重复已完成工作。
