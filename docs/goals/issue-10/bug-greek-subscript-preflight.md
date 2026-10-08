@@ -88,7 +88,7 @@ Remove-Item Env:GREEK_BOUNDARY_ADAPTER_MODULE
 Remove-Item Env:GREEK_CONTEXT_BOUNDARY_RECEIPT
 ```
 
-实际 **16tests /13PASS /3 expectedRED /722.325ms，0skip/cancel/todo，exit1**。12拒绝与1旧styled-SUP角色全PASS；两个正例actualTex=[]，mixed actualTex=[v_{0}] 缺captionΓa/Γb，均为预期缺失的nativeGreek保护，未发现harness错误。HTTP/DNS attempt ledger=[]、bindingsRestored=true；每个DOM finally close。原45/真实27/A120/raw/sourceaudit/clip/full/build/golden均未重复，未消费未接受#63实现。
+实际 **16tests /13PASS /3 expectedRED /722.325ms，0skip/cancel/todo，exit1**。12拒绝与1旧styled-SUP角色全PASS；两个正例actualTex=[]，mixed actualTex=[v_{0}] 缺captionΓa/Γb，均为预期缺失的nativeGreek保护；已经执行的断言未出现harness错误，但后置断言仍需独立审查。HTTP/DNS attempt ledger=[]、bindingsRestored=true；每个DOM finally close。原45/真实27/A120/raw/sourceaudit/clip/full/build/golden均未重复，未消费未接受#63实现。
 
 同一external preflight目录的新终态证据：
 
@@ -100,6 +100,8 @@ Remove-Item Env:GREEK_CONTEXT_BOUNDARY_RECEIPT
 | new context test (LF) | 7548 | `2357356511559272aadd13798c81e1db9cb0a75dc08cc93ed3e611561c3684d8` |
 
 本补充只增加该测试与本preflight文档；原 source 与 scientific oracle不动。提交SHA可由 `git log -1 --format=%H -- test/nature-greek-subscript-context-boundaries.test.mjs` 重建，前置commit为4851903。Pending mergedMain仍由root唯一核验，本owner未poll/rebase/merge或取得Nature生产写权。
+
+后续不同owner cached/static检查指出mixed的未到达body adjacency断言要求`Body <marker>`，而accepted styled range实际留下`Body <i></i><marker>`。这是synthetic harness的潜在错误，原13/3 RED前置判断仍有效。仅调整测试允许原恰空I或无空I两种exact邻接，不删除原DOM、不为其修改production；marker exactonce、body/caption子集隔离和order断言保持。执行唯一cache-only `node C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue64-production-preflight/context-cached-body-tail-check.mjs`，exit0，核验原body adjacency与body marker exactonce/subset PASS；没有parse/clip/16suite重跑。结果JSON355 bytes / SHA256 `9f082016a94cfeeeee0f564cdca4914737a2297ac663641fcd43155b8d4d330a`。这项有限cached检查不证明新Greek/caption wiring GREEN，生产修复后的正式focused仍须实际执行完整后置断言。前表7548/SHA235735记录的是原baseline测试bytes，harness修订后版本以新commit Git object为准。
 
 ## 下一门槛
 
