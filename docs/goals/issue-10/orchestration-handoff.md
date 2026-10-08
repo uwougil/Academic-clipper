@@ -15,7 +15,7 @@
 
 ## DAG / 文件所有权
 
-当前 checkpoint（2026-10-08 UTC；以下 startup 表及正文执行日志为历史；accepted main `36c93ca81236705912c25db391d611ee28405dca`）：
+当前 checkpoint（2026-10-08 UTC；以下 startup 表及正文执行日志为历史；accepted main `4e8dcd9ce4998c3f8f373daecf332e7f9bfcfb74`）：
 
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
@@ -30,8 +30,8 @@
 | reference2 literal inequality65 / PR70 | DONE | final7c32/676full/十门槛；squashf4a5 Main37725961177与Secrets SUCCESS；65 automation completed |
 | Greek64 / PR77 | DONE | final2a231/code07be，93focused/181affected/830full/build/golden/独立zero blockers/三平台CI/Secrets全部通过；squash134ba67 Main37740911355 SUCCESS，64 automation completed；C实际Quantum全部四guards已通过 |
 | compound-unit67 / PR78 | DONE | final5e1/codeab589；59focused/309affected/889full/build/golden/三平台CI/Secrets/最终独审零阻塞十gates；squash36c93ca，mergedMain37749675660/Secrets SUCCESS，67 automation completed |
-| Materials identifier68 / PR79 | RUNNING final publication review | exact1be7/code976f479；91focused/695affected/980full/build/golden全PASS，独立实现CLEAR；fresh三平台CI37755383151与Secrets37755383180 SUCCESS；最后文档提交独审待收，未merge |
-| Other mandatory scientific71–75 | DONE for source inputs / production pending | 71最终5841be8 PLAN_TAIL_CLEAR；72fbc5c59 PLAN_ONLY_CLEAR；73最终69088a1 PLAN_ONLY_CLEAR；74新56f45db预检26=18PASS8真RED待独审；75缺失预检恢复中；按窄合同串行Nature生产 |
+| Materials identifier68 / PR79 | DONE | exact1be7/code976f479全部十gates；squash4e8dcd9 Main37764888330与Secrets37764888340 SUCCESS，68 automation COMPLETED；C实际Materials delta待执行 |
+| Other mandatory scientific71–75 | RUNNING71 sole Nature production | 71最终5841be8 PLAN_TAIL_CLEAR/已正式releaseaccepted4e8；72fbc5c59及73最终69088a1 PLAN_ONLY_CLEAR；74独审3P2新增tail实际53PASS待提交复审；75新41d47b6预检50=42PASS8真RED独审中；串行生产 |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
 当前 host 并发上限为 4（含 orchestrator）。优先同时运行 C、D、table-footer bug；其余节点在名额空出并满足 dependency 后启动，重复恢复同一 C / D child。
@@ -787,3 +787,13 @@ Root核author clean/exact1be7、diffcheck0，976到1be7只有README/productiondo
 `gh pr merge 79 --repo uwougil/Academic-clipper --squash --match-head-commit 1be7ed686aeb155f4819f13b96560cd0b10bda8c` exit0；实际mergedAt10:39:15Z、squash4e8dcd9ce4998c3f8f373daecf332e7f9bfcfb74，fetchorigin/main一致。MergedMain37764888330 same4e8实际IN_PROGRESS，U20job113269991991/Win24job113269992346/U24job113269992598；Secrets37764888340 same4e8 SUCCESS。唯一rootwatchinterval60 actualsession24792明确live。Accepted仍36c直到MainSUCCESS，不手动close68/10，未release71生产或C实际68delta。
 
 74不同ownerplan报告7787 SHA3cfc6ba0d07327efd279a74cdfd68c77354e36676f019556c24ffbd08d306034/machine7172SHA88c0722d4e9038169fdea06f62bb96b2e3f8a9b330540e4effa228c32e7a99ef root完整read：3P2为最终real-output matcher unanchored/brace擦除允许多余尾部，lowercase ligand缺prefix/nativeSUB资格negative，以及unknownsibling终点资格未定义。不是新生产故障或human/specblocker；只恢复same74branch必要test-only严格sharedwholeatommatcher/新purestrings/有限新negativecontrols与plan，不重旧26/source65/真实3clips/18/sourceA。新75matrix一次50=42PASS8真missing-roleRED931.9007ms/0harness，49parse49windowclosed/0clips/attempts[]exactnetwork+DOMrestore；owner正在提交stablepacket，尚未rootread最终artifacts/独审不称PLANclear。
+
+## 10:46 UTC：4e8dcd Main 接纳与 #71 正式释放
+
+Root唯一mergedMainwatch24792实际terminalexit0/chunkd6c70d，不重新watch/CI。ActualAPI mergedMain37764888330 exact4e8dcd9ce4998c3f8f373daecf332e7f9bfcfb74 SUCCESS：U20job11326999199110:43:52Z、U24job11326999259810:42:26Z、Win24job11326999234610:45:49Z；mergedSecrets37764888340同SHA SUCCESS。Issue68由github-actions自动CLOSED/COMPLETED10:46:02Z，root完整readactualcomment https://github.com/uwougil/Academic-clipper/issues/68#issuecomment-6058158852；origin/mainactualfetch4e8一致。Accepted更新4e8，不手动close，不重源码/测试。
+
+71同branch5841 readonly合同/严格grouped95oracle/API/独审PLAN_CLEAR准备已完成，无mutation/执行；root正式RELEASEsoleNature production接纳accepted4e8，再最小private r.m.s.d.+plainSUB95/真实3styles和必要boundaryfocused actualGREEN，stablecommit/receipts后不同owner实施独审先于broader/full/build/golden/PR。Source58/A/raw/旧28/旧3purestrings缓存不重做。C后续samebranch7ab2仅实际Materials受影响27source/3repeat/fourvalidators/native11headingroles delta；不重框架/255全轮。
+
+75 cleanpushed41d47b6a47cbd048f7c92972e0b5c9ddc6f50c5b，root完整读newplan/test与receiptprocess/lifecycle/cachetail/status并核actualhash。50=42PASS8真missing-roleRED931.9007ms/49parse49windowclose/0clip/attempts[]exactrestore，继承mixed4roles/cites/inline同批cache-only已核；后续candidateownership仍unproven。Differentowner审查发现sourceattachedRole unanchoredincludes仍可能接受同mathatom额外数字/重复，newpurestringoracle未接到real3styles；只test-only共享完整formula predicate与必要新purestrings可修，不重新source48/旧3clips/50matrix。数学等价必须区分π与/8在平方base外而不是强迫它们总在mathatom外：例如原兼容 $\pi(5/60)^{2}/8$ 可为合法有界等价表示，不静默缩小源验收。
+
+74三P2tail新controls actual53/53PASS736.9922ms=42purestrings0parse+11新negativeparse/11returnedwindowclosed，ledger[]exactnetwork+DOMrestore；owner仍packaging，未rootreadfinalbytes或独审CLEAR。旧26/source65/原real18/3clips未重复。FinalIssue10integration gate仍未满足，goal持续active。
