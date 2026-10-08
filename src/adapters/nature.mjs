@@ -762,6 +762,9 @@ function collectNumericSuperscriptRun(parent, startIndex) {
 
 function collectSplitNumericSuperscriptRun(parent, startIndex) {
   if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  // Literal math/code cues can span inline siblings. This DOM role does not
+  // parse those opaque syntaxes: leave the whole candidate to existing paths.
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
   const sign = parent.childNodes[startIndex];
   const digits = sign?.nextSibling;
   const plainSup = (node) => isElement(node, new Set(['SUP']))
@@ -774,9 +777,11 @@ function collectSplitNumericSuperscriptRun(parent, startIndex) {
   const previous = sign.previousSibling;
   if (previous?.nodeType !== 3) return null;
   const text = previous.textContent;
-  if (!/(?:^|[\s~=(,:;+\-*/×])10$/u.test(text) || /[$`]/u.test(text)) return null;
+  if (!/(?:^|[\s~=(,:;+\-*/×])10$/u.test(text)) return null;
   const offset = text.length - 2;
-  if (offset === 0 && previous.previousSibling?.nodeName === 'SUP') return null;
+  // A text-node edge is not a lexical edge. An unknown sibling/comment can
+  // continue a word, decimal or identifier; require a boundary in this text.
+  if (offset === 0 && previous.previousSibling) return null;
   // A subsequent citation keeps its own typed role. A third scientific SUP
   // instead makes this an ambiguous chain, which this narrow role cannot infer.
   if (isElement(digits.nextSibling, new Set(['SUP']))) return null;
