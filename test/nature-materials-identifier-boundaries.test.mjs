@@ -1,6 +1,11 @@
 import assert from 'node:assert/strict';
-import {test} from 'node:test';
+import {after, before, test} from 'node:test';
 import {pathToFileURL} from 'node:url';
+import dns from 'node:dns';
+import dnsPromises from 'node:dns/promises';
+import {syncBuiltinESMExports} from 'node:module';
+import {writeFile} from 'node:fs/promises';
+import path from 'node:path';
 
 // Explicitly constructed DOM qualification cases, never scholarly source.
 // A preflight can import an exact accepted-main source snapshot without
@@ -12,7 +17,41 @@ const {parseNaturePage} = await import(adapterUrl.href);
 const source = 'https://www.nature.com/articles/synthetic-identifier-boundaries';
 const identifier = 'r<sup>2</sup>SCAN';
 const equivalent = (tex) => tex.replace(/\\(?:mathrm|mathit|operatorname)\{([^{}]*)\}/gu, '$1').replace(/\s+/gu, '');
+const attempts = [];
+const originals = [];
+let constructedParses = 0;
+before(() => {
+  for (const [owner, label, methods] of [
+    [globalThis, 'global', ['fetch']],
+    [dns, 'dns', ['lookup', 'resolve', 'resolve4', 'resolve6', 'reverse']],
+    [dnsPromises, 'dnsPromises', ['lookup', 'resolve', 'resolve4', 'resolve6', 'reverse']],
+  ]) for (const method of methods) {
+    const original = owner[method];
+    originals.push({owner, method, original});
+    owner[method] = () => {
+      attempts.push(`${label}.${method}`);
+      throw new Error(`Unexpected live operation: ${label}.${method}`);
+    };
+  }
+  syncBuiltinESMExports();
+});
+after(async () => {
+  try {
+    assert.deepEqual(attempts, [], 'Record-before-throw catches even swallowed attempts');
+  } finally {
+    for (const {owner, method, original} of originals) owner[method] = original;
+    syncBuiltinESMExports();
+    const restored = originals.every(({owner, method, original}) => owner[method] === original);
+    if (process.env.ACADEMIC_CLIPPER_IDENTIFIER_GUARD_RECEIPT) {
+      assert.ok(path.isAbsolute(process.env.ACADEMIC_CLIPPER_IDENTIFIER_GUARD_RECEIPT));
+      await writeFile(process.env.ACADEMIC_CLIPPER_IDENTIFIER_GUARD_RECEIPT,
+        JSON.stringify({constructedParses, attempts, restored, newRealClips: 0}, null, 2) + '\n');
+    }
+    assert.equal(restored, true);
+  }
+});
 function parse(content, inspect) {
+  constructedParses += 1;
   const page = parseNaturePage(`<html><body><div class="c-article-body">${content}</div></body></html>`, source);
   try {
     assert.deepEqual(page.tables, []);
@@ -97,12 +136,37 @@ test('synthetic body, H3, H4 and caption share markers without changing heading 
     assert.equal(page.figures.length, 1);
     const markers = page.semantic.scientificRuns.map(({marker}) => marker);
     assert.equal(new Set(markers).size, 5);
-    assert.ok(page.document.querySelector('p').textContent.includes(markers[0]));
-    assert.ok(page.document.querySelector('p').textContent.includes(markers[1]));
-    assert.ok(page.document.querySelector('h3#Sec7').textContent.includes(markers[2]));
-    assert.ok(page.document.querySelector('h4#Sec33').textContent.includes(markers[3]));
-    assert.ok(page.figures[0].captionHtml.includes(markers[4]));
+    assert.equal(page.document.querySelector('p').textContent, `${markers[0]} then ${markers[1]}.`);
+    assert.equal(page.document.querySelector('h3#Sec7').textContent, `Constructed ${markers[2]}`);
+    assert.equal(page.document.querySelector('h4#Sec33').textContent, markers[3]);
+    assert.equal(page.figures[0].captionHtml, `Caption ${markers[4]}.`);
     for (const marker of markers.slice(0, 4)) assert.equal(page.figures[0].captionHtml.includes(marker), false);
     for (const marker of markers) assert.equal((`${page.cleanedHtml}${page.figures[0].captionHtml}`.match(new RegExp(marker, 'gu')) || []).length, 1);
+  });
+});
+
+// Incremental plan-review controls; these check every scientific range, so an
+// incorrect partial capture cannot evade an exact r²SCAN-only filter.
+for (const [name, content] of [
+  ['plain nonshape', 'ordinary<sup>2</sup>word'],
+  ['whole Unicode prefix', `𝒙${identifier}`],
+  ['whole Unicode suffix', `${identifier}\u0301`],
+  ['cross-span dollars', `<span>$</span>x<span>$</span> ${identifier}`],
+  ['cross-span backticks', `<span>\u0060</span>x<span>\u0060</span> ${identifier}`],
+  ['cross-span tilde fence', `<span>~~~</span>\n${identifier}`],
+  ['MathJax ancestor', `<span class="mathjax-tex">\\(${identifier}\\)</span>`],
+  ['equation ancestor', `<div class="c-article-equation"><p>${identifier}</p></div>`],
+]) test(`synthetic plan-tail rejects all ranges: ${name}`, () => {
+  parse(`<p>${content}</p>`, (page) => assert.deepEqual(page.semantic.scientificRuns, []));
+});
+for (const [name, cue] of [
+  ['data-test cue', 'data-test="citation-ref" href="#ref-CR1"'],
+  ['href-only cue', 'href="#ref-CR1"'],
+]) test(`synthetic plan-tail supported identifier before ${name}`, () => {
+  parse(`<p>Before ${identifier}<sup><a ${cue}>1</a></sup> after.</p>`, (page) => {
+    assert.deepEqual(page.semantic.scientificRuns.map(({tex}) => equivalent(tex)), ['r^{2}SCAN']);
+    assert.deepEqual(page.semantic.citations.map(({numbers}) => numbers), [[1]]);
+    assert.equal(page.document.querySelector('p').textContent,
+      `Before ${page.semantic.scientificRuns[0].marker}${page.semantic.citations[0].marker} after.`);
   });
 });

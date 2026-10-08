@@ -42,3 +42,15 @@ Receipt 中 source-provenance physical disk bytes/hash 为 Windows CRLF 身份�
 真实 clip 测试调用须在 network guard hooks 的有效生命周期内 lazy cache，每方言一次共享结果；ledger 在抛错之前记录 DNS/HTTP attempt，并在完成后精确检查即使 hydrator catch 的未声明操作，恢复 globals/关闭 DOM。原 fixture 0 table/resource 是静态证据，不能虚构 runtime ledger 为已覆盖。未来 focused suite 包含 unchanged real source tests + 新 matrix，全部4 production validators与原 metadata、citations、Fig2、43 references、rights source assertions保留；#65 已 accepted 时 ref2 应真实恢复，Methods p42 compound-unit 是 #67 的独立 source coverage，不得改输入或声明 whole Materials 已通过。
 
 Implementation 独审 CLEAR 后才一次 full/build/read-only golden 与 fresh CI/Gitleaks，并由 root 核 immutable reviewed PR head 十项 gates。纯文档 commit 只核 diff/hash/protected scope，不再 clip。C 在 accepted 修复后做必要 affected Materials delta 并补两原 heading source roles；85×3 final corpus 验收仍属整合阶段。无 canonical/PRD/EDD 修改提案，无完成或 merge 声明。
+
+## 独立计划审查的有限尾段补充
+
+不同 owner 接纳 shape 方案，同时指出旧 negative 的 exact `r^{2}SCAN` filter 不能发现其他错误 range，且初轮 parse-only 没有动态 network guard。本补充没有重跑初轮48，也不追认旧48为动态 guarded。仅新加10个代表 cases；原 fixture/oracle、生产和 source evidence 不变。
+
+8个新拒绝对整个 `semantic.scientificRuns` 精确断言 `[]`：plain nonshape、astral lexical prefix、combining suffix、跨 span 的 dollar/backtick/tilde opaque cue、MathJax/equation ancestor。另2个新 positive 是完整原 identifier 后的 `data-test="citation-ref"` 与 href-only `#ref-CR` SUP cue，要求各自 identifier/citation roles、numbers与完整正文 marker order 精确相等。原 mixed body/H3/H4/caption test 的宽 `includes` 改为四处完整 text/HTML 精确相等，保留原 unique/nonzero indices/exact multiplicity；原case没重跑，其 missing-role 后这些检查仍未执行。
+
+Before hook 安装 global fetch 和 Node DNS callback/promises guards，所有 attempt 在 throw 前写 ledger；独立 after hook 断言 attempts为空，即使调用被 catch 也会失败。finally 恢复所有原函数、`syncBuiltinESMExports()`，核 exact original identities，并保存 same-run receipt。`parse()` 每次 finally 关闭 DOM。此模块仅测试调用在有效 hooks 内，没有 top-level parser/clip 调用；新的 runtime proof仅覆盖这次所选10cases，不能代替真实 clip/replay guard。
+
+实际新命令 `node --test --test-name-pattern='synthetic plan-tail' test/nature-materials-identifier-boundaries.test.mjs` 使用原34-blob accepted73d6 snapshot。10 = 8 PASS / 2 expected RED，717.5275 ms，actual exit1，0 skip/cancel/todo。2 RED 都是 source shape 尚未被 typed collector 保护；之后的 citation/正文 exact order 尚未执行。没有观察到 harness failure。Actual guard receipt 为 constructedParses10、attempts[]、restored=true、newRealClips0；0 raw/source parse、0 sanitize、0 old48 reruns、0 full/build/golden/PR。没有无限新增 case 枚举或扩大 family。
+
+External same-root `plan-tail-red-73d6.log` 3232 bytes / SHA256 `36b7193b5613aa4f2bfc6248ee562f64180fe5997d0d2a5acedb167218dc1fa8`；`plan-tail-guard-73d6.json` 89 bytes / SHA256 `e8b8cd0706aa2ad7b3b6e6ba88246f9674044877b8e65eded490ca1ec8657db0`；cache-only `plan-tail-receipt.json` SHA256 `76e75aea746935c0a380f439a147007b42921f6baf349328ebce69f4ee15f2f4`。更新后 matrix 9243 LF bytes / SHA256 `d46b24e54ca8d41baf5591f8d2fb61345151f8c2f75893a112ab088d7c34abf2`，新增注册10，final registry58不代表一次新58条运行。Root仍须不同owner的计划尾段接纳和串行 production release。
