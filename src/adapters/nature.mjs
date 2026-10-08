@@ -597,7 +597,7 @@ function setRangeEnd(range, end) {
   else range.setEnd(end.node, end.offset);
 }
 
-function replaceRangeWithScientificMarker(parent, start, end, values, inlineMathByMarker, provenance, sourceTex) {
+function replaceRangeWithScientificMarker(parent, start, end, values, inlineMathByMarker, provenance, sourceTex, sourceText) {
   const range = parent.ownerDocument.createRange();
   range.setStart(start.node, start.offset);
   setRangeEnd(range, end);
@@ -609,7 +609,7 @@ function replaceRangeWithScientificMarker(parent, start, end, values, inlineMath
   if (tex.includes('||')) tex = canonicalScientificTex(tex);
   if (!tex) return false;
   const marker = semanticMarker('SCIENTIFICRUN', values.length);
-  values.push({ marker, tex, provenance });
+  values.push({ marker, tex, provenance, ...(sourceText === undefined ? {} : { sourceText }) });
   range.insertNode(parent.ownerDocument.createTextNode(marker));
   return true;
 }
@@ -757,6 +757,34 @@ function collectNumericSuperscriptRun(parent, startIndex) {
   return {
     start: { node: previous, offset: match.index },
     end: { node, after: true },
+  };
+}
+
+function collectPlainScriptedIdentifierRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
+  const exponent = parent.childNodes[startIndex];
+  if (!isElement(exponent, new Set(['SUP'])) || exponent.childNodes.length !== 1
+    || exponent.firstChild.nodeType !== 3 || exponent.textContent !== '2') return null;
+  const base = exponent.previousSibling;
+  const suffix = exponent.nextSibling;
+  if (base?.nodeType !== 3 || suffix?.nodeType !== 3 || !/[a-z]$/u.test(base.textContent)) return null;
+  const offset = base.textContent.length - 1;
+  // Node edges cannot prove a whole lexical boundary across unknown siblings.
+  if (offset === 0 ? base.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(base.textContent.slice(0, offset))) return null;
+  const acronym = suffix.textContent.match(/^[A-Z]{2,}(?![\p{L}\p{N}\p{M}_])/u)?.[0];
+  if (!acronym) return null;
+  if (acronym.length === suffix.textContent.length && suffix.nextSibling
+    && !(suffix.nextSibling.nodeType === 1 && suffix.nextSibling.tagName === 'SUP'
+      && suffix.nextSibling.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]'))) return null;
+  // Preserve the complete original base, exponent and acronym in one typed
+  // range before Defuddle can flatten heading scripts or detach body scripts.
+  return {
+    start: { node: base, offset },
+    end: { node: suffix, offset: acronym.length },
+    tex: `${base.textContent.slice(offset)}^{${exponent.textContent}}${acronym}`,
+    sourceText: `${base.textContent.slice(offset)}${exponent.textContent}${acronym}`,
   };
 }
 
@@ -922,6 +950,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
         : collectStyledRun(parent, index)
           || collectTextAndStyledSymbolRun(parent, index, inlineMathByMarker, displayMath)
           || collectNumericAttachmentRun(parent, index)
+          || collectPlainScriptedIdentifierRun(parent, index)
           || collectCompoundConductivityRun(parent, index)
           || collectPlainGreekSubscriptRun(parent, index)
           || collectSplitNumericSuperscriptRun(parent, index)
@@ -942,6 +971,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
           ? 'Nature MathJax plus adjacent inline scientific nodes'
           : 'Nature inline style nodes (<i>/<b>/<sub>/<sup>)',
         range.tex,
+        range.sourceText,
       );
       if (!replaced) {
         index += 1;
@@ -1028,7 +1058,7 @@ function replaceCitations(body) {
   return values;
 }
 
-function buildCrossReferences(body, figures, tables) {
+function buildCrossReferences(body, figures, tables, scientificRuns) {
   const references = new Map();
   const usedAnchors = new Set();
   for (const figure of figures) {
@@ -1059,14 +1089,18 @@ function buildCrossReferences(body, figures, tables) {
       || section?.querySelector(':scope > .c-article-section > h2, :scope > h2')?.textContent,
     ).toLowerCase();
     if (EXCLUDED_SECTIONS.has(sectionTitle) || heading.closest(JUNK_SELECTORS.join(','))) continue;
-    const baseAnchor = slugify(heading.textContent);
+    // The identifier range retains its original source text for section
+    // identity. A temporary scientific marker is never a scholarly label.
+    const headingText = scientificRuns.reduce((text, run) => run.sourceText === undefined
+      ? text : text.replaceAll(run.marker, run.sourceText), heading.textContent);
+    const baseAnchor = slugify(headingText);
     let anchor = baseAnchor;
     let suffix = 2;
     while (usedAnchors.has(anchor)) anchor = `${baseAnchor}-${suffix++}`;
     usedAnchors.add(anchor);
     references.set(heading.id, {
       type: 'section',
-      label: cleanText(heading.textContent),
+      label: cleanText(headingText),
       // Use the heading's natural Markdown slug. The renderer may add a
       // Quarto `sec-` identifier, but the semantic target stays dialect-free.
       anchor,
@@ -1087,7 +1121,7 @@ function prepareSemanticNodes(body, url, figures, tables) {
   const scientificRuns = replaceScientificRuns(body, inlineMath, displayMath);
   const literalText = replaceScientificBracketText(body);
   const citations = replaceCitations(body);
-  const crossReferences = buildCrossReferences(body, figures, tables);
+  const crossReferences = buildCrossReferences(body, figures, tables, scientificRuns);
 
   for (const anchor of Array.from(body.querySelectorAll('a[href]'))) {
     const href = anchor.getAttribute('href') || '';

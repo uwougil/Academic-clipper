@@ -139,6 +139,9 @@ test('synthetic body, H3, H4 and caption share markers without changing heading 
     assert.equal(page.document.querySelector('p').textContent, `${markers[0]} then ${markers[1]}.`);
     assert.equal(page.document.querySelector('h3#Sec7').textContent, `Constructed ${markers[2]}`);
     assert.equal(page.document.querySelector('h4#Sec33').textContent, markers[3]);
+    assert.deepEqual(page.semantic.crossReferences.get('Sec7'),{type:'section',label:'Constructed r2SCAN',anchor:'constructed-r2scan'});
+    assert.deepEqual(page.semantic.crossReferences.get('Sec33'),{type:'section',label:'r2SCAN',anchor:'r2scan'});
+    for(const id of ['Sec7','Sec33'])assert.ok(!/ACADEMICCLIPPER/iu.test(JSON.stringify(page.semantic.crossReferences.get(id))));
     assert.equal(page.figures[0].captionHtml, `Caption ${markers[4]}.`);
     for (const marker of markers.slice(0, 4)) assert.equal(page.figures[0].captionHtml.includes(marker), false);
     for (const marker of markers) assert.equal((`${page.cleanedHtml}${page.figures[0].captionHtml}`.match(new RegExp(marker, 'gu')) || []).length, 1);
