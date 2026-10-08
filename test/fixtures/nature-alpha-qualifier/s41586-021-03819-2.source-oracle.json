@@ -1,0 +1,333 @@
+{
+  "version": "alpha-qualified-metric-source/1.0.0",
+  "articleId": "s41586-021-03819-2",
+  "metadata": {
+    "title": "Highly accurate protein structure prediction with AlphaFold",
+    "doi": "10.1038/s41586-021-03819-2",
+    "url": "https://www.nature.com/articles/s41586-021-03819-2",
+    "journal": "Nature",
+    "orderedCreators": [
+      "Jumper, John",
+      "Evans, Richard",
+      "Pritzel, Alexander",
+      "Green, Tim",
+      "Figurnov, Michael",
+      "Ronneberger, Olaf",
+      "Tunyasuvunakool, Kathryn",
+      "Bates, Russ",
+      "Žídek, Augustin",
+      "Potapenko, Anna",
+      "Bridgland, Alex",
+      "Meyer, Clemens",
+      "Kohl, Simon A. A.",
+      "Ballard, Andrew J.",
+      "Cowie, Andrew",
+      "Romera-Paredes, Bernardino",
+      "Nikolov, Stanislav",
+      "Jain, Rishub",
+      "Adler, Jonas",
+      "Back, Trevor",
+      "Petersen, Stig",
+      "Reiman, David",
+      "Clancy, Ellen",
+      "Zielinski, Michal",
+      "Steinegger, Martin",
+      "Pacholska, Michalina",
+      "Berghammer, Tamas",
+      "Bodenstein, Sebastian",
+      "Silver, David",
+      "Vinyals, Oriol",
+      "Senior, Andrew W.",
+      "Kavukcuoglu, Koray",
+      "Kohli, Pushmeet",
+      "Hassabis, Demis"
+    ]
+  },
+  "paragraph": {
+    "rawSelector": "section[data-title=\"Main\"] p:has(a[href$=\"#MOESM1\"]):has(>sub)",
+    "section": "Main",
+    "originalParagraphIndex": 2,
+    "text": "In CASP14, AlphaFold structures were vastly more accurate than competing methods. AlphaFold structures had a median backbone accuracy of 0.96 Å r.m.s.d.95 (Cα root-mean-square deviation at 95% residue coverage) (95% confidence interval = 0.85–1.16 Å) whereas the next best performing method had a median backbone accuracy of 2.8 Å r.m.s.d.95 (95% confidence interval = 2.7–4.0 Å) (measured on CASP domains; see Fig. 1a for backbone accuracy and Supplementary Fig. 14 for all-atom accuracy). As a comparison point for this accuracy, the width of a carbon atom is approximately 1.4 Å. In addition to very accurate domain structures (Fig. 1b), AlphaFold is able to produce highly accurate side chains (Fig. 1c) when the backbone is highly accurate and considerably improves over template-based methods even when strong templates are available. The all-atom accuracy of AlphaFold was 1.5 Å r.m.s.d.95 (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.95 (95% confidence interval = 3.1–4.2 Å) of the best alternative method. Our methods are scalable to very long proteins with accurate domains and domain-packing (see Fig. 1d for the prediction of a 2,180-residue protein with no structural homologues). Finally, the model is able to provide precise, per-residue estimates of its reliability that should enable the confident use of these predictions.",
+    "html": "<p>In CASP14, AlphaFold structures were vastly more accurate than competing methods. AlphaFold structures had a median backbone accuracy of 0.96 Å r.m.s.d.<sub>95</sub> (Cα root-mean-square deviation at 95% residue coverage) (95% confidence interval = 0.85–1.16 Å) whereas the next best performing method had a median backbone accuracy of 2.8 Å r.m.s.d.<sub>95</sub> (95% confidence interval = 2.7–4.0 Å) (measured on CASP domains; see Fig. <a href=\"/articles/s41586-021-03819-2#Fig1\">1a</a> for backbone accuracy and Supplementary Fig. <a href=\"/articles/s41586-021-03819-2#MOESM1\">14</a> for all-atom accuracy). As a comparison point for this accuracy, the width of a carbon atom is approximately 1.4 Å. In addition to very accurate domain structures (Fig. <a href=\"/articles/s41586-021-03819-2#Fig1\">1b</a>), AlphaFold is able to produce highly accurate side chains (Fig. <a href=\"/articles/s41586-021-03819-2#Fig1\">1c</a>) when the backbone is highly accurate and considerably improves over template-based methods even when strong templates are available. The all-atom accuracy of AlphaFold was 1.5 Å r.m.s.d.<sub>95</sub> (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.<sub>95</sub> (95% confidence interval = 3.1–4.2 Å) of the best alternative method. Our methods are scalable to very long proteins with accurate domains and domain-packing (see Fig. <a href=\"/articles/s41586-021-03819-2#Fig1\">1d</a> for the prediction of a 2,180-residue protein with no structural homologues). Finally, the model is able to provide precise, per-residue estimates of its reliability that should enable the confident use of these predictions.</p>",
+    "rawSubtreeSha256": "0722e1e1f1fb785c0add4e0a85c04e9dca2616ec0b3a6bde07ec29710b08088d",
+    "frozenSubtreeSha256": "cdc336a22f533271dc16194b71d553f545c6c69ae7f7a5e38c91984c77a1ec9d",
+    "position": {
+      "utf16": [
+        174425,
+        176484
+      ],
+      "utf8": [
+        174554,
+        176648
+      ],
+      "rawBodyFragmentSha256": "cab085426bb1803292438706bff605776b2754bc1a4ea8b050fe2bb96a7a90d2",
+      "rawSubtreeSha256": "0722e1e1f1fb785c0add4e0a85c04e9dca2616ec0b3a6bde07ec29710b08088d"
+    }
+  },
+  "roles": [
+    {
+      "id": "rmsd95-1",
+      "index": 0,
+      "sourceTag": "SUB",
+      "base": "r.m.s.d.",
+      "qualifier": "95",
+      "rawHtml": "<sub>95</sub>",
+      "before": "In CASP14, AlphaFold structures were vastly more accurate than competing methods. AlphaFold structures had a median backbone accuracy of 0.96 Å r.m.s.d.",
+      "after": " (Cα root-mean-square deviation at 95% residue coverage) (95% confidence interval = 0.85–1.16 Å) whereas the next best performing method had a median backbone accuracy of 2.8 Å r.m.s.d.",
+      "position": {
+        "utf16": [
+          174580,
+          174593
+        ],
+        "utf8": [
+          174711,
+          174724
+        ],
+        "rawBodyFragmentSha256": "34153148ff7d80b5edc5f9369e46d45ca2834c801331adc3ed33dcaf1c2b782d",
+        "rawSubtreeSha256": "34153148ff7d80b5edc5f9369e46d45ca2834c801331adc3ed33dcaf1c2b782d"
+      },
+      "sourceMeaning": "Cα root-mean-square deviation at 95% residue coverage",
+      "expectedAttachment": {
+        "literalBase": "r.m.s.d.",
+        "script": "subscript",
+        "value": "95"
+      }
+    },
+    {
+      "id": "rmsd95-2",
+      "index": 1,
+      "sourceTag": "SUB",
+      "base": "r.m.s.d.",
+      "qualifier": "95",
+      "rawHtml": "<sub>95</sub>",
+      "before": " (Cα root-mean-square deviation at 95% residue coverage) (95% confidence interval = 0.85–1.16 Å) whereas the next best performing method had a median backbone accuracy of 2.8 Å r.m.s.d.",
+      "after": " (95% confidence interval = 2.7–4.0 Å) (measured on CASP domains; see Fig. ",
+      "position": {
+        "utf16": [
+          174778,
+          174791
+        ],
+        "utf8": [
+          174918,
+          174931
+        ],
+        "rawBodyFragmentSha256": "34153148ff7d80b5edc5f9369e46d45ca2834c801331adc3ed33dcaf1c2b782d",
+        "rawSubtreeSha256": "34153148ff7d80b5edc5f9369e46d45ca2834c801331adc3ed33dcaf1c2b782d"
+      },
+      "sourceMeaning": "Cα root-mean-square deviation at 95% residue coverage",
+      "expectedAttachment": {
+        "literalBase": "r.m.s.d.",
+        "script": "subscript",
+        "value": "95"
+      }
+    },
+    {
+      "id": "rmsd95-3",
+      "index": 2,
+      "sourceTag": "SUB",
+      "base": "r.m.s.d.",
+      "qualifier": "95",
+      "rawHtml": "<sub>95</sub>",
+      "before": ") when the backbone is highly accurate and considerably improves over template-based methods even when strong templates are available. The all-atom accuracy of AlphaFold was 1.5 Å r.m.s.d.",
+      "after": " (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.",
+      "position": {
+        "utf16": [
+          175862,
+          175875
+        ],
+        "utf8": [
+          176012,
+          176025
+        ],
+        "rawBodyFragmentSha256": "34153148ff7d80b5edc5f9369e46d45ca2834c801331adc3ed33dcaf1c2b782d",
+        "rawSubtreeSha256": "34153148ff7d80b5edc5f9369e46d45ca2834c801331adc3ed33dcaf1c2b782d"
+      },
+      "sourceMeaning": "Cα root-mean-square deviation at 95% residue coverage",
+      "expectedAttachment": {
+        "literalBase": "r.m.s.d.",
+        "script": "subscript",
+        "value": "95"
+      }
+    },
+    {
+      "id": "rmsd95-4",
+      "index": 3,
+      "sourceTag": "SUB",
+      "base": "r.m.s.d.",
+      "qualifier": "95",
+      "rawHtml": "<sub>95</sub>",
+      "before": " (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.",
+      "after": " (95% confidence interval = 3.1–4.2 Å) of the best alternative method. Our methods are scalable to very long proteins with accurate domains and domain-packing (see Fig. ",
+      "position": {
+        "utf16": [
+          175946,
+          175959
+        ],
+        "utf8": [
+          176104,
+          176117
+        ],
+        "rawBodyFragmentSha256": "34153148ff7d80b5edc5f9369e46d45ca2834c801331adc3ed33dcaf1c2b782d",
+        "rawSubtreeSha256": "34153148ff7d80b5edc5f9369e46d45ca2834c801331adc3ed33dcaf1c2b782d"
+      },
+      "sourceMeaning": "Cα root-mean-square deviation at 95% residue coverage",
+      "expectedAttachment": {
+        "literalBase": "r.m.s.d.",
+        "script": "subscript",
+        "value": "95"
+      }
+    }
+  ],
+  "figure": {
+    "id": "Fig1",
+    "selector": ".js-c-reading-companion-figures-item:has(#Fig1)",
+    "label": "Fig. 1: AlphaFold produces highly accurate structures.",
+    "captionText": "Fig. 1: AlphaFold produces highly accurate structures. a, The performance of AlphaFold on the CASP14 dataset (n = 87 protein domains) relative to the top-15 entries (out of 146 entries), group numbers correspond to the numbers assigned to entrants by CASP. Data are median and the 95% confidence interval of the median, estimated from 10,000 bootstrap samples. b, Our prediction of CASP14 target T1049 (PDB 6Y4F, blue) compared with the true (experimental) structure (green). Four residues in the C terminus of the crystal structure are B-factor outliers and are not depicted. c, CASP14 target T1056 (PDB 6YJ1). An example of a well-predicted zinc-binding site (AlphaFold has accurate side chains even though it does not explicitly predict the zinc ion). d, CASP target T1044 (PDB 6VR4)—a 2,180-residue single chain—was predicted with correct domain packing (the prediction was made after CASP using AlphaFold without intervention). e, Model architecture. Arrows show the information flow among the various components described in this paper. Array shapes are shown in parentheses with s, number of sequences (Nseq in the main text); r, number of residues (Nres in the main text); c, number of channels.",
+    "captionDescription": "a, The performance of AlphaFold on the CASP14 dataset (n = 87 protein domains) relative to the top-15 entries (out of 146 entries), group numbers correspond to the numbers assigned to entrants by CASP. Data are median and the 95% confidence interval of the median, estimated from 10,000 bootstrap samples. b, Our prediction of CASP14 target T1049 (PDB 6Y4F, blue) compared with the true (experimental) structure (green). Four residues in the C terminus of the crystal structure are B-factor outliers and are not depicted. c, CASP14 target T1056 (PDB 6YJ1). An example of a well-predicted zinc-binding site (AlphaFold has accurate side chains even though it does not explicitly predict the zinc ion). d, CASP target T1044 (PDB 6VR4)—a 2,180-residue single chain—was predicted with correct domain packing (the prediction was made after CASP using AlphaFold without intervention). e, Model architecture. Arrows show the information flow among the various components described in this paper. Array shapes are shown in parentheses with s, number of sequences (Nseq in the main text); r, number of residues (Nres in the main text); c, number of channels.",
+    "panels": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "images": [
+      {
+        "alt": "Fig. 1: AlphaFold produces highly accurate structures.",
+        "height": "439",
+        "src": "//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-021-03819-2/MediaObjects/41586_2021_3819_Fig1_HTML.png",
+        "width": "685"
+      }
+    ],
+    "rawSubtreeSha256": "b95f3e3f66252fc7c2a77822f4244f2bead7e3d66ce4a983307e632b8148dd1e",
+    "frozenSubtreeSha256": "1db6195434b8a05fcc5013d5859c3c46d555a064294e80eaf4e85d9ba0ed1326",
+    "descriptionTopology": {
+      "parentTag": "DIV",
+      "parentClass": "c-article-section__figure-content",
+      "insideFigure": true,
+      "previousSiblingTag": "DIV"
+    }
+  },
+  "headings": [
+    {
+      "id": "Sec1",
+      "level": 2,
+      "text": "Main"
+    },
+    {
+      "id": "Sec20",
+      "level": 2,
+      "text": "Supplementary information"
+    },
+    {
+      "id": "rightslink",
+      "level": 2,
+      "text": "Rights and permissions"
+    }
+  ],
+  "supplementary": {
+    "id": "MOESM1",
+    "link": {
+      "text": "Supplementary Information (download PDF )",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-021-03819-2/MediaObjects/41586_2021_3819_MOESM1_ESM.pdf"
+    },
+    "description": "Supplementary Information (download PDF )Description of the method details of the AlphaFold system, model, and analysis, including data pipeline, datasets, model blocks, loss functions, training and inference details, and ablations. Includes Supplementary Methods, Supplementary Figures, Supplementary Tables and Supplementary Algorithms.",
+    "rawSubtreeSha256": "456586d5b9548e27b871c407662a83c115dce8c07cb276b42935fa9e8892c980",
+    "frozenSubtreeSha256": "6ff6f27397e168d0c943aee13fa4740b6e9f9f97de001f163597e29bae13247b"
+  },
+  "citationCount": 0,
+  "referencePrefix": 0,
+  "resourceCount": 0,
+  "warningContract": [
+    "No equation nodes were detected.",
+    "No Nature reference list was detected."
+  ],
+  "scholarlyLinks": [
+    {
+      "text": "1a",
+      "href": "/articles/s41586-021-03819-2#Fig1"
+    },
+    {
+      "text": "14",
+      "href": "/articles/s41586-021-03819-2#MOESM1"
+    },
+    {
+      "text": "1b",
+      "href": "/articles/s41586-021-03819-2#Fig1"
+    },
+    {
+      "text": "1c",
+      "href": "/articles/s41586-021-03819-2#Fig1"
+    },
+    {
+      "text": "1d",
+      "href": "/articles/s41586-021-03819-2#Fig1"
+    }
+  ],
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41586-021-03819-2",
+    "sourceObservedAt": "2026-10-03T16:44:11.820Z",
+    "sourceSha256": "7a9843e69996c1a64a9a5ecc8b96015cfd45262e636e33e505a011d315c4310b",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Jumper, John",
+      "Evans, Richard",
+      "Pritzel, Alexander",
+      "Green, Tim",
+      "Figurnov, Michael",
+      "Ronneberger, Olaf",
+      "Tunyasuvunakool, Kathryn",
+      "Bates, Russ",
+      "Žídek, Augustin",
+      "Potapenko, Anna",
+      "Bridgland, Alex",
+      "Meyer, Clemens",
+      "Kohl, Simon A. A.",
+      "Ballard, Andrew J.",
+      "Cowie, Andrew",
+      "Romera-Paredes, Bernardino",
+      "Nikolov, Stanislav",
+      "Jain, Rishub",
+      "Adler, Jonas",
+      "Back, Trevor",
+      "Petersen, Stig",
+      "Reiman, David",
+      "Clancy, Ellen",
+      "Zielinski, Michal",
+      "Steinegger, Martin",
+      "Pacholska, Michalina",
+      "Berghammer, Tamas",
+      "Bodenstein, Sebastian",
+      "Silver, David",
+      "Vinyals, Oriol",
+      "Senior, Andrew W.",
+      "Kavukcuoglu, Koray",
+      "Kohli, Pushmeet",
+      "Hassabis, Demis"
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [],
+    "technicalTransformations": "Recipe-selected excerpts and original ancestors, A sanitizer 1.1.0, deterministic serialization and LF normalization. Advertising, navigation, executable content and unselected source blocks are omitted as recorded in the manifest/handoff. Retained scholarly prose, TeX, captions, authors, citation data and table cells are preserved; image binaries and full live captures are not included.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  }
+}
