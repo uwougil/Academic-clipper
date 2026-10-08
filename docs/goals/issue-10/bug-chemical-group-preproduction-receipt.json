@@ -1,0 +1,751 @@
+{
+  "version": "chemical-group-preproduction/1.0",
+  "outcome": "BASELINE_ONLY_PLAN_REVIEW_PENDING",
+  "sourceHead": "8ddd4f1b806b9a72e3552d75070f30b5c919ac29",
+  "acceptedImplementationBase": "36c93ca81236705912c25db391d611ee28405dca",
+  "independentSourceReview": {
+    "outcome": "SOURCE_CLEAR_ONLY",
+    "report": {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-independent-source74/source-review.md",
+      "bytes": 10841,
+      "sha256": "200dcc3fe61f117cb8e4a1165e425cc8a89216349ff1790d0d1192ac22070686"
+    },
+    "machine": {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-independent-source74/source-review.json",
+      "bytes": 92041,
+      "sha256": "4a39df68e52d7464c73d22a3109f069117757b443056f08352dfbf298cd2fee4"
+    },
+    "repeatedSourceAudit": false
+  },
+  "sourceEvidenceReused": {
+    "blocks": 65,
+    "fixture": {
+      "bytes": 72722,
+      "sha256": "a8c10a9e583c640a3adb41cf7a55f3c1a4d1a7f7b8f88b7d370afaa969c8079b"
+    },
+    "provenance": {
+      "bytes": 59160,
+      "sha256": "428ffafc1558ba0b07dadd0f48f44f29bfebe9b603f1e87ec8af4a564b949887"
+    },
+    "originalRealClips": 3,
+    "originalCorrectedTests": {
+      "total": 18,
+      "pass": 6,
+      "trueFail": 12,
+      "durationMs": 776.1531
+    },
+    "repeatedRealClips": 0,
+    "repeatedSourceTests": 0,
+    "newArticles": 0
+  },
+  "snapshot": {
+    "method": "direct Git child-process Buffer; no shell text transcoding; every written file compared byte-for-byte",
+    "root": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/preflight-36c93ca",
+    "node": "v24.14.1",
+    "dependencies": {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\node_modules",
+      "kind": "read-only consumer through junction; no install or mutation",
+      "resolved": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-reference-literal\\academic-clipper\\node_modules"
+    },
+    "identity": {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/preflight-36c93ca/snapshot-receipt.json",
+      "bytes": 8709,
+      "sha256": "aac97bf51cd03be68057e17a6920fdee48ac1c2b15b6d9639146940b00222d71"
+    },
+    "files": [
+      {
+        "path": "package-lock.json",
+        "bytes": 31708,
+        "sha256": "b9a7cc5a1c2e7b3b3080dc19171b2303cfe1368b6a6d5ae808e2f4bb62c310aa",
+        "blob": "c4883d68e0a71a4abbbab9c01b7f219c9731c08f"
+      },
+      {
+        "path": "package.json",
+        "bytes": 785,
+        "sha256": "badcd09ee49ab7a0495a499754e80e719674126f0f589fc6c2fced06ec94cf4d",
+        "blob": "8a5035e829dc6f3c7d1c597144e2cc59a7f47f17"
+      },
+      {
+        "path": "src/adapters/aaas.mjs",
+        "bytes": 20906,
+        "sha256": "e68ae9d1b9cead3ec94b6ed3c1946b15099c9dff125eb603c9fe9b11063221b0",
+        "blob": "af2abbc4bd1ac561c86a59c695e8f2b2c2eeed4a"
+      },
+      {
+        "path": "src/adapters/aip.mjs",
+        "bytes": 15005,
+        "sha256": "8ba1627f13f606d9244bcefd16a711971b85a28e32bf894b6636b5f048afacc3",
+        "blob": "93fa911559fb75420dbdb4aefa5fd2432470cff6"
+      },
+      {
+        "path": "src/adapters/iop.mjs",
+        "bytes": 20230,
+        "sha256": "9992d6f35e5a46f1e025aa16432fbf201e347543b37166d1c6bc1f294f9a991d",
+        "blob": "f5288256ab3c8b479590c63a4ba90186ab4607be"
+      },
+      {
+        "path": "src/adapters/nature.mjs",
+        "bytes": 52009,
+        "sha256": "a38a9073d1e435df42afcc9e5e4527ac1b5282c18b36307607e3b0046af2edbf",
+        "blob": "2b0311b18d9806061fd00f888d85dfd1814b692d"
+      },
+      {
+        "path": "src/adapters/pnas.mjs",
+        "bytes": 12991,
+        "sha256": "c99fd47195c5542a4c0eee882d82244c5be91f0f09019c596638b5e1a4bf6b7a",
+        "blob": "a8fd35a5ab7b0b4fbe30cae545f1533d0d4275e7"
+      },
+      {
+        "path": "src/adapters/rsc.mjs",
+        "bytes": 16355,
+        "sha256": "2e25194fb9511f12363a7975fc981f6902e0b0fc8196dd0d98fd63567d93d912",
+        "blob": "f462467ac864b5311376ad23252497f81cf25afb"
+      },
+      {
+        "path": "src/adapters/sciopen.mjs",
+        "bytes": 16484,
+        "sha256": "3ff9c25e158be3d0ac7c9f2c6ba89aeffe95691499186700820eddc908a96b92",
+        "blob": "78f1670807a90650d6710af6e99e5a9ba54f735a"
+      },
+      {
+        "path": "src/adapters/wiley-clip.mjs",
+        "bytes": 3847,
+        "sha256": "cddb60f8c30ecda98ab875a0c3d07d3be6383a28425d614a214946489e083847",
+        "blob": "978cb53123253949a965afff413740bbc009fcb6"
+      },
+      {
+        "path": "src/adapters/wiley.mjs",
+        "bytes": 16142,
+        "sha256": "d28d850d07452804bc718b0545de32a3fb964ac5b1d0f92f9b690f7fe19594a3",
+        "blob": "443eb03c2ee5da43f2d85402ca643c011ace0255"
+      },
+      {
+        "path": "src/article-fetch.mjs",
+        "bytes": 3178,
+        "sha256": "90ec9df28e05ce7ee97ed88ae2a332f0897a01fab455d1f8dc143be8d837f58c",
+        "blob": "7b1728c55a3892e7c0d3506e17812c11e31bdce5"
+      },
+      {
+        "path": "src/bridge.mjs",
+        "bytes": 8246,
+        "sha256": "e71241f9cbc79018d4480cf567ef08647fee054f57b9267a5aa34a4a9a8acaec",
+        "blob": "aa537246bcf5e034d511db1ffc6cc4d5adcbd0dc"
+      },
+      {
+        "path": "src/build.mjs",
+        "bytes": 773,
+        "sha256": "e41c92ab67fa84197c4af8155451dad007aa4e58dfd267497d745ddb74e5ce7a",
+        "blob": "8c9f125a4db0ec35eb8fd11466b37d5345adae19"
+      },
+      {
+        "path": "src/cli.mjs",
+        "bytes": 2252,
+        "sha256": "389677a8a89eb308a8ea4c4b8d9f9bae6ddf930d82fc36a8fb5d8d66c1147628",
+        "blob": "ab2fabc9dcafbde0461f50e91974f379a44c8d35"
+      },
+      {
+        "path": "src/clip.mjs",
+        "bytes": 40191,
+        "sha256": "5abc6dfda4995a0a736e88386469b0c91fb824155ea8700568cf77bde5f50f56",
+        "blob": "daeed3c9eff8bc12e011e0a5274fb1f4b5701b66"
+      },
+      {
+        "path": "src/dom-runtime.mjs",
+        "bytes": 1441,
+        "sha256": "c93d95087b7714bb1f43bcf3ab47dc085465192130c4b284b75c8c0ce1ce70c0",
+        "blob": "2214febf98d698cfe4229cb0502c46c2e443b31d"
+      },
+      {
+        "path": "src/experimental/rsc-clip.mjs",
+        "bytes": 4510,
+        "sha256": "183f2d457e93a35738810265ece66bbf24c29390be08356715d8d45fd38fa2d1",
+        "blob": "5020f77c0ea70451669c4cfd378a4ee5323a6ff2"
+      },
+      {
+        "path": "src/launcher.cs",
+        "bytes": 3145,
+        "sha256": "c28cf6e1e871f61d18776264081f2e65230e209e661192e8a7c56af099c6ecfe",
+        "blob": "59ee707186e29f81ab87eb4bad0f4913bbf8f960"
+      },
+      {
+        "path": "src/launcher.mjs",
+        "bytes": 13112,
+        "sha256": "2166d91878ec35c73cf73e84f69fa1f77089026dadded976570ee22aba0dd200",
+        "blob": "eb6a928d7fb85fdf8d630abc66ec20afbf57172f"
+      },
+      {
+        "path": "src/markdown.mjs",
+        "bytes": 1064,
+        "sha256": "6f85fe369104491eb066e7c16d897802a7031afd2d84179cae0462ed6d7785b0",
+        "blob": "1e59a6f60410952f07373b4ea7fee936ff69b406"
+      },
+      {
+        "path": "src/normalizers/academic-inline.mjs",
+        "bytes": 13076,
+        "sha256": "4d5baa998adb27d6c76567133b1c226082736254dc74d160a24eff8390b59a0d",
+        "blob": "a63eba2cacf0bc0a43552d1c16ec41e91b2cf0bc"
+      },
+      {
+        "path": "src/normalizers/citations.mjs",
+        "bytes": 4360,
+        "sha256": "154cb977c73cac5a2513ef5543ac2637ebdaff598f97ee9463742e6373b004fe",
+        "blob": "85e64aa1a23133436d9b65effce5d3a5174ae169"
+      },
+      {
+        "path": "src/normalizers/figures.mjs",
+        "bytes": 15916,
+        "sha256": "dfe4febd24a03bc1ead37df299ea5fbe1071d279d55cc428fc3d0e5c98f761cd",
+        "blob": "8a11073cf57886886bbb5ab6af7572c533ef8d17"
+      },
+      {
+        "path": "src/normalizers/markers.mjs",
+        "bytes": 128,
+        "sha256": "929109d61e08ab4cc866f925b8af08444f3e8a2893d96d4b9d219a9e5890d78f",
+        "blob": "361d79473c43474c0a22c1c6d1e5d65b40de38dd"
+      },
+      {
+        "path": "src/normalizers/math.mjs",
+        "bytes": 3686,
+        "sha256": "2ec1ecc5a387b5e3f0135bcb43d482ca3c82092741879b26ce18e29cae3e8dc6",
+        "blob": "867bca0aeebb39b459ed1b605b11050b438e1b20"
+      },
+      {
+        "path": "src/pnas-clip.mjs",
+        "bytes": 5495,
+        "sha256": "975ffd6aed97d159ec0b92959e8f08de1211c4ab61139413195bb7e08719a87e",
+        "blob": "cfc699ba2eaa7e7bee91731dc50fc8712e02f2da"
+      },
+      {
+        "path": "src/renderers/output-policy.mjs",
+        "bytes": 992,
+        "sha256": "c413fd8568881def27757971295877789930a9acf9d914d4bfc4ec8716a49126",
+        "blob": "ff89f6d7294207c8c11020c72be78f680a7836b6"
+      },
+      {
+        "path": "src/security.mjs",
+        "bytes": 6909,
+        "sha256": "a02c3bba53802f90a8b769d05e5696ff474486878f5fa9c8f7d9e9289b6c188d",
+        "blob": "67fb03c3fa49ec5832624ebdbf7b74526ad2cffd"
+      },
+      {
+        "path": "src/validate-paper.mjs",
+        "bytes": 2127,
+        "sha256": "df8256258ae6abe0e05a95418a79e1db6210e9e94a0f3095f23563a6cdc77f96",
+        "blob": "50b99a55e0fbbc2c488092f6c3628bf93a984184"
+      },
+      {
+        "path": "src/validators/citation-style.mjs",
+        "bytes": 1243,
+        "sha256": "2e0e7054390e22cf04a33a48c0597bdc30ce79f4f925f56f84bce65d46d2ae9e",
+        "blob": "ee0a4bd1755d1a3d032de12983fc6a3be94bda4d"
+      },
+      {
+        "path": "src/validators/cross-references.mjs",
+        "bytes": 3815,
+        "sha256": "73c86520874b8c4665f46d9bf57548265963de5030e33b8b7580f9e22eb5d473",
+        "blob": "5e5b34c4ac47b3f5c3aad53de3898a9ab4b2379e"
+      },
+      {
+        "path": "src/validators/html-audit.mjs",
+        "bytes": 3878,
+        "sha256": "e78cf6a1864de7defa2df21142393ec7d00af0860196c995b8f7a42fe2112c71",
+        "blob": "2dea0667fe7901bf779bf7dc1bab60c3e83dcc30"
+      },
+      {
+        "path": "src/validators/markdown-structure.mjs",
+        "bytes": 6048,
+        "sha256": "f90addbe9deb6067d3cecb735aef5c331741a464b82b7f76c05a1150963442d7",
+        "blob": "28e763ab85fa51f2ebc55caeaa7fb87cc848cb47"
+      },
+      {
+        "path": "src/validators/math-delimiters.mjs",
+        "bytes": 9609,
+        "sha256": "59e66bf87583dd9cff1d06a36cd137fcbfd1067b3db61c0501c329e1800ff22f",
+        "blob": "6a725071538641c0c99cee92b86c6632cd67b606"
+      },
+      {
+        "path": "src/version.mjs",
+        "bytes": 161,
+        "sha256": "380c1c8d3ce15a0c2039949b7153fc4eb11fafc1653476527adbf1f67dcdaa4e",
+        "blob": "158980b1f83eeb7583fc7583660c08be72377f95"
+      }
+    ]
+  },
+  "command": {
+    "launcher": "node C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/run-preflight.cjs",
+    "actualArgv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "--test",
+      "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/preflight-36c93ca/test/nature-chemical-group-index-preproduction.test.mjs"
+    ],
+    "environment": {
+      "CHEMICAL_GROUP_SNAPSHOT_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/preflight-36c93ca",
+      "CHEMICAL_GROUP_SYNTHETIC_RECEIPT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/preflight-36c93ca/observations.json"
+    },
+    "exit": {
+      "status": 1,
+      "signal": null
+    },
+    "nodeSummary": [
+      "ℹ tests 26",
+      "ℹ suites 0",
+      "ℹ pass 18",
+      "ℹ fail 8",
+      "ℹ cancelled 0",
+      "ℹ skipped 0",
+      "ℹ todo 0",
+      "ℹ duration_ms 844.8042"
+    ],
+    "duration": "duration_ms 844.8042"
+  },
+  "batch": {
+    "executions": 1,
+    "total": 26,
+    "pass": 18,
+    "genuineContractRed": 8,
+    "harnessErrors": 0,
+    "syntheticOnly": true,
+    "newClips": 0,
+    "scholarlyReads": 0,
+    "sourceAudits": 0,
+    "parseOnly": true,
+    "lifecycle": {
+      "attempts": [],
+      "parsedWindows": 26,
+      "closedWindows": 26,
+      "clips": 0,
+      "sourceReads": 0,
+      "sourceAudits": 0,
+      "synthetic": true,
+      "restoredNetworkBindings": true,
+      "restoredDomDescriptors": true
+    }
+  },
+  "cases": [
+    {
+      "id": "source-shaped Pb whole group",
+      "baselineStatus": "CONTRACT_RED",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [
+        "\\mathrm{Pb}(\\mathrm{OAc})_{4}"
+      ],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": [],
+      "error": {
+        "name": "AssertionError",
+        "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '\\\\mathrm{Pb}(\\\\mathrm{OAc})_{4}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "source-shaped Fe inner and outer counts",
+      "baselineStatus": "CONTRACT_RED",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [
+        "\\mathrm{Fe}_{2}(\\mathrm{ox})_{3}"
+      ],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": [],
+      "error": {
+        "name": "AssertionError",
+        "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '\\\\mathrm{Fe}_{2}(\\\\mathrm{ox})_{3}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "source-shaped CD inner count and outside CO",
+      "baselineStatus": "CONTRACT_RED",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [
+        "(\\mathrm{CD}_{3})_{2}\\mathrm{CO}"
+      ],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": [],
+      "error": {
+        "name": "AssertionError",
+        "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '(\\\\mathrm{CD}_{3})_{2}\\\\mathrm{CO}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "same structural family with outer 2",
+      "baselineStatus": "CONTRACT_RED",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [
+        "\\mathrm{Pb}(\\mathrm{OAc})_{2}"
+      ],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": [],
+      "error": {
+        "name": "AssertionError",
+        "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '\\\\mathrm{Pb}(\\\\mathrm{OAc})_{2}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "same inner and outer 2 remain two owners",
+      "baselineStatus": "CONTRACT_RED",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [
+        "\\mathrm{Fe}_{2}(\\mathrm{ox})_{2}"
+      ],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": [],
+      "error": {
+        "name": "AssertionError",
+        "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '\\\\mathrm{Fe}_{2}(\\\\mathrm{ox})_{2}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "native inner 3 and outer 4 remain two owners",
+      "baselineStatus": "CONTRACT_RED",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [
+        "(\\mathrm{CH}_{3})_{4}\\mathrm{CO}"
+      ],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": [],
+      "error": {
+        "name": "AssertionError",
+        "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '(\\\\mathrm{CH}_{3})_{4}\\\\mathrm{CO}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "element token family without article identity",
+      "baselineStatus": "CONTRACT_RED",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [
+        "\\mathrm{Ca}(\\mathrm{OH})_{2}"
+      ],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": [],
+      "error": {
+        "name": "AssertionError",
+        "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n-     tex: '\\\\mathrm{Ca}(\\\\mathrm{OH})_{2}'\n-   }\n- ]\n"
+      }
+    },
+    {
+      "id": "unknown word",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "element prefix cannot authorize a long unknown word",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "numeric parentheses belong to a separate contract",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "unbalanced group",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "complex inner wrapper",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "script wrapper",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "outer SUP is not a group SUB",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "code ancestor",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "literal math across siblings",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "literal code across siblings",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "typed reference child cannot become a numeric SUB",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [
+        {
+          "marker": "ACADEMICCLIPPERCITATION0X",
+          "numbers": [
+            1
+          ]
+        }
+      ],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "letter prefix and suffix boundaries",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "number prefix and suffix boundaries",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "mark prefix and suffix boundaries",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "underscore prefix and suffix boundaries",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "astral letter prefix and suffix boundaries",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "native MathML ancestor",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "opaque MathJax",
+      "baselineStatus": "PASS",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [],
+      "actualScientificRuns": [],
+      "inlineMath": [
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH0X",
+          "tex": "\\mathrm{Pb}(\\mathrm{OAc})_{4}"
+        }
+      ],
+      "citations": [],
+      "blockedDownstreamAssertions": []
+    },
+    {
+      "id": "mixed body caption",
+      "baselineStatus": "CONTRACT_RED",
+      "candidateStatus": "UNPROVEN_PRODUCTION_LOCKED",
+      "expected": [
+        "x_{2}",
+        "\\mathrm{mS}\\,\\mathrm{cm}^{-1}",
+        "10^{4}",
+        "q_{1}",
+        "\\mathrm{Pb}(\\mathrm{OAc})_{4}",
+        "\\mathrm{Fe}_{2}(\\mathrm{ox})_{3}",
+        "(\\mathrm{CD}_{3})_{2}\\mathrm{CO}",
+        "\\mathrm{Pb}(\\mathrm{OAc})_{4}"
+      ],
+      "actualScientificRuns": [
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+          "tex": "x_{2}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+          "tex": "\\mathrm{mS}\\,\\mathrm{cm}^{-1}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+          "tex": "10^{4}"
+        },
+        {
+          "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+          "tex": "q_{1}"
+        }
+      ],
+      "inlineMath": [
+        {
+          "marker": "ACADEMICCLIPPERINLINEMATH0X",
+          "tex": "q"
+        }
+      ],
+      "citations": [
+        {
+          "marker": "ACADEMICCLIPPERCITATION0X",
+          "numbers": [
+            1
+          ]
+        },
+        {
+          "marker": "ACADEMICCLIPPERCITATION1X",
+          "numbers": [
+            2
+          ]
+        }
+      ],
+      "blockedDownstreamAssertions": [
+        "candidate complete array indices4–7",
+        "candidate exact body/caption marker text"
+      ],
+      "error": {
+        "name": "AssertionError",
+        "message": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  [\n    {\n      marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n      tex: 'x_{2}'\n    },\n...\n    },\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN4X',\n-     tex: '\\\\mathrm{Pb}(\\\\mathrm{OAc})_{4}'\n-   },\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN5X',\n-     tex: '\\\\mathrm{Fe}_{2}(\\\\mathrm{ox})_{3}'\n-   },\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN6X',\n-     tex: '(\\\\mathrm{CD}_{3})_{2}\\\\mathrm{CO}'\n-   },\n-   {\n-     marker: 'ACADEMICCLIPPERSCIENTIFICRUN7X',\n-     tex: '\\\\mathrm{Pb}(\\\\mathrm{OAc})_{4}'\n-   }\n  ]\n"
+      }
+    }
+  ],
+  "cachedPostchecks": {
+    "newParses": 0,
+    "newTests": 0,
+    "newClips": 0,
+    "unchangedMixedPrefixExact": true,
+    "typedCitationsAndInlineMathExact": true,
+    "observedMarkerMultiplicityExact": true,
+    "candidateGroupOwnership": "UNPROVEN"
+  },
+  "evidence": [
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/preflight-36c93ca/baseline.log",
+      "bytes": 14409,
+      "sha256": "d880546bccd7321d79d9477d7853a8bb5854a228734f584fc5f90006531cf56b"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/preflight-36c93ca/baseline-exit.json",
+      "bytes": 36,
+      "sha256": "02a627b5e62a810759ce8bfc7dccafd7205e327e20718726a0af894a37f04ffb"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/preflight-36c93ca/observations.json",
+      "bytes": 23695,
+      "sha256": "cd54b01d08020ffe67e564ad0c7be82b195c544bc59e650357807092dfe0e2fd"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/preflight-36c93ca/snapshot-receipt.json",
+      "bytes": 8709,
+      "sha256": "aac97bf51cd03be68057e17a6920fdee48ac1c2b15b6d9639146940b00222d71"
+    }
+  ],
+  "implementation": "NOT_STARTED",
+  "fullTests": "NOT_RUN_PREPRODUCTION",
+  "build": "NOT_RUN_PREPRODUCTION",
+  "golden": "NOT_RUN_PREPRODUCTION",
+  "ci": "NOT_RUN_PREPRODUCTION",
+  "pr": "NONE",
+  "merge": "NOT_AUTHORIZED_BY_THIS_PACKET",
+  "tools": [
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/preflight-setup.cjs",
+      "bytes": 2272,
+      "sha256": "afdc67b265953f271f9827e205d803e01ee32ed23128a224dcb24413ed6b51eb"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/run-preflight.cjs",
+      "bytes": 1408,
+      "sha256": "26149fcdc91a02eaebd143e6fa1cb34dfa2fea9372f03bbcc8ee63f715f63bef"
+    },
+    {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/finalize-preflight.cjs",
+      "bytes": 5532,
+      "sha256": "1af1ea849cfdc9a88b814a5da3149a6d1cd51fe4c943ba298fc6a9aeb726baa1"
+    }
+  ],
+  "test": {
+    "path": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemical-group-index/academic-clipper/test/nature-chemical-group-index-preproduction.test.mjs",
+    "bytes": 9823,
+    "sha256": "c5b96d07d4c76d29030bfbe458d94432a314bf6340b00d0a3a8a9d4b1f5ec13d"
+  }
+}

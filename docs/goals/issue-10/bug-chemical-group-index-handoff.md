@@ -1,6 +1,20 @@
 # Issue #74 — Nature 括号化学分组下标 SOURCE_ONLY_RED handoff
 
-三个真实 whole-group SUB regression 已冻结，生产实现未修改，尚未修复。新65-block projection 的不同作者独立来源审核待进行，不能以 producer checks 或历史 B/C 全来源 audit 代替。Issue #10 未完成。
+三个真实 whole-group SUB regression 已冻结，生产实现未修改，尚未修复。新65-block projection 的不同作者独立来源审核已完成为 `SOURCE_CLEAR_ONLY`；下文原阶段的 PENDING 是历史记录，最新新增 preproduction packet 见下一节。Issue #10 未完成。
+
+## Resume — 新增 synthetic/preproduction packet（当前有效）
+
+本次 owned新增为 [有限 private Nature plan](../../plans/issue-74-chemical-group-preproduction.md)、[26-case synthetic test](../../../test/nature-chemical-group-index-preproduction.test.mjs)、[machine receipt](bug-chemical-group-preproduction-receipt.json) 和本 handoff更新。尚无 production implementation；stable head用 `git log -1 --format=%H` 重建。原 ordered source commits `4871f9779ceddcad05afd724e7cede3433b245d5` → `dfd32f5b54b0f34f0de9571b492dadaff8692b3a` → `5d4347a532d8f349e354a220de36914d7716e084` → `8ddd4f1b806b9a72e3552d75070f30b5c919ac29` 均保留。
+
+Different-owner SOURCE审核已 DONE：外部 `academic-clipper-issue10-independent-source74/source-review.md` 10841 bytes/SHA `200dcc3fe61f117cb8e4a1165e425cc8a89216349ff1790d0d1192ac22070686`，machine92041 bytes/SHA `4a39df68e52d7464c73d22a3109f069117757b443056f08352dfbf298cd2fee4`，`SOURCE_CLEAR_ONLY`、零blocking source findings。本次只读取该已完成报告/receipt，未重读raw/HTML、执行A/reprojection/source65audit/真实3clips/原18tests；scientific source bytes和counts不变。旧review的两次harness failures及原纠正后的6PASS/12trueFAIL保留，不改写为GREEN。
+
+新增 batch基于**accepted** `36c93ca81236705912c25db391d611ee28405dca` 的external physical Git-Buffer snapshot，36个src/package files逐字节验证；junction只读消费既有dependencies，实际resolved到 `C:/Users/guoli/.codex/worktrees/issue-10-bug-reference-literal/academic-clipper/node_modules`，未向任何checkout/dependency安装或写入。snapshot API仍actual `parseNaturePage()`，返回window可直接关闭，因此无需借用 #73 window setter或新增pipeline clip。guard在imports/parse前安装，ledger record-before-throw，after独立检查，finally恢复原exact network bindings/DOM descriptors；26/26 API窗口已关闭。
+
+命令：`node C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/run-preflight.cjs`。实际Node argv/child-only env、全部snapshot/code identities在machine。仅一次baseline execution：exit1，26tests、18PASS/8genuineRED/0harness errors、844.8042ms，零skip/cancel/todo。7whole-formula positives缺marker；mixed缺4group roles，已正确的原styled/unit/numeric/MathJax ordered4-item prefix保持。Zero HTTP/DNS ledger `[]`，0新clips/0source reads/0source audits。只读同批cache的后核验不新parse/test/clip，确认existing prefix、typedinline/citations和marker唯一性。所有candidate properties仍 `UNPROVEN_PRODUCTION_LOCKED`；mixed失败后的candidate exactbody/caption indices4–7 assertions明确blocked，不声称执行通过。
+
+新文件（Git UTF-8/LF）：test9823 bytes/SHA `c5b96d07d4c76d29030bfbe458d94432a314bf6340b00d0a3a8a9d4b1f5ec13d`；plan9764 bytes/SHA `2d57f2b6eee3ea9cd842abdc3bd96d87e8e824f9a1370282c220c575e00d9db3`；receipt26624 bytes/SHA `a5221c2d6b86097a5a1fdcf86cf1df36d6da7a1b135176bb12271d4f0c8ef7e6`。外部根 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/preflight-36c93ca` 内exactlogs/observations/snapshot identities及setup/run/finalize脚本bytes/hash均machine记录；不提交raw/fullsource/生成Markdown。
+
+当前状态 `BASELINE_ONLY_PLAN_REVIEW_PENDING`：private完整plain sibling group range、roman atom/ligand字体、原inner/outer脚本owner、Unicode边界、typedcitations和opaqueancestor方案待different-owner root plan review。短lowercase ligand family仅在element-led前缀加原native atomSUB时适用，作为明确待审词法边界；不以article/prose/整式allowlist或通用chemicalparser蒙混通过。未改 `src/`、fixture/source/A/B/C/D、normalizer/validator、security/writer、dependencies、PRD/EDD/spec/golden；未运行full/build/golden/PRCI/merge或新scholarlynetwork。本阶段commit/push only，随后保持只读稳定，等root按serializedproduction队列释放。实现完成仍需fresh真实三方言、全部新synthetic assertions、affected/full/build/golden/CI/Secrets/independentcode review和root十gate；本packet不授权采用生产，也不完成 #74/#10。
 
 ## 身份、base 与 ordered commits
 
