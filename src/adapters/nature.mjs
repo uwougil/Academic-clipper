@@ -760,6 +760,31 @@ function collectNumericSuperscriptRun(parent, startIndex) {
   };
 }
 
+function collectQualifiedMetricRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
+  const qualifier = parent.childNodes[startIndex];
+  if (!isElement(qualifier, new Set(['SUB'])) || qualifier.childNodes.length !== 1
+    || qualifier.firstChild.nodeType !== 3 || qualifier.textContent !== '95') return null;
+  const base = qualifier.previousSibling;
+  if (base?.nodeType !== 3 || !/r\.m\.s\.d\.$/u.test(base.textContent)) return null;
+  const offset = base.textContent.length - 'r.m.s.d.'.length;
+  if (offset === 0 ? base.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(base.textContent.slice(0, offset))) return null;
+  const next = qualifier.nextSibling;
+  // Preserve a complete literal metric, never a prefix of an unknown token or
+  // an extra attachment. A proven citation SUP retains its independent role.
+  if (next && !(next.nodeType === 3 && /^[\s\p{P}]/u.test(next.textContent)
+      && !next.textContent.startsWith('_'))
+    && !(next.nodeType === 1 && next.tagName === 'SUP'
+      && next.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]'))) return null;
+  return {
+    start: { node: base, offset },
+    end: { node: qualifier, after: true },
+    tex: '\\mathrm{r.m.s.d.}_{95}',
+  };
+}
+
 function collectPlainScriptedIdentifierRun(parent, startIndex) {
   if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
   if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
@@ -950,6 +975,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
         : collectStyledRun(parent, index)
           || collectTextAndStyledSymbolRun(parent, index, inlineMathByMarker, displayMath)
           || collectNumericAttachmentRun(parent, index)
+          || collectQualifiedMetricRun(parent, index)
           || collectPlainScriptedIdentifierRun(parent, index)
           || collectCompoundConductivityRun(parent, index)
           || collectPlainGreekSubscriptRun(parent, index)

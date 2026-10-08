@@ -1,0 +1,553 @@
+<!doctype html>
+<html class="grade-c" lang="en"><head>
+    
+    
+    
+
+
+
+    
+        
+
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+     
+    
+    
+        
+    
+    
+
+
+
+
+    
+        
+            
+            
+        
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+
+
+
+
+        
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link href="https://www.nature.com/articles/s41586-021-03819-2" rel="canonical">
+
+
+
+
+
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","author":[{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"email":"jumper@deepmind.com","name":"John Jumper","url":"http://orcid.org/0000-0001-6169-6580"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Richard Evans"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Alexander Pritzel"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Tim Green","url":"http://orcid.org/0000-0002-3227-1505"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Michael Figurnov"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Olaf Ronneberger"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Kathryn Tunyasuvunakool"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Russ Bates"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Augustin Žídek"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Anna Potapenko"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Alex Bridgland"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Clemens Meyer"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Simon A. A. Kohl","url":"http://orcid.org/0000-0003-4271-4418"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Andrew J. Ballard"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Andrew Cowie"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Bernardino Romera-Paredes"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Stanislav Nikolov"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Rishub Jain"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Jonas Adler","url":"http://orcid.org/0000-0001-9928-3407"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Trevor Back"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Stig Petersen"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"David Reiman"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Ellen Clancy"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Michal Zielinski"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"School of Biological Sciences, Seoul National University, Seoul, South Korea"},"name":"Seoul National University"},{"@type":"Organization","address":{"@type":"PostalAddress","name":"Artificial Intelligence Institute, Seoul National University, Seoul, South Korea"},"name":"Seoul National University"}],"name":"Martin Steinegger","url":"http://orcid.org/0000-0001-8781-9753"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Michalina Pacholska","url":"http://orcid.org/0000-0002-2160-6226"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Tamas Berghammer"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Sebastian Bodenstein"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"David Silver","url":"http://orcid.org/0000-0002-5197-2892"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Oriol Vinyals"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Andrew W. Senior","url":"http://orcid.org/0000-0002-2401-5691"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Koray Kavukcuoglu"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"name":"Pushmeet Kohli"},{"@type":"Person","affiliation":[{"@type":"Organization","address":{"@type":"PostalAddress","name":"DeepMind, London, UK"},"name":"DeepMind"}],"email":"dhcontact@deepmind.com","name":"Demis Hassabis","url":"http://orcid.org/0000-0003-2812-9917"}],"dateModified":"2021-07-15T00:00:00Z","datePublished":"2021-07-15T00:00:00Z","description":"Proteins are essential to life, and understanding their structure can facilitate a mechanistic understanding of their function. Through an enormous experimental effort1–4, the structures of around 100,000 unique proteins have been determined5, but this represents a small fraction of the billions of known protein sequences6,7. Structural coverage is bottlenecked by the months to years of painstaking effort required to determine a single protein structure. Accurate computational approaches are needed to address this gap and to enable large-scale structural bioinformatics. Predicting the three-dimensional structure that a protein will adopt based solely on its amino acid sequence—the structure prediction component of the ‘protein folding problem’8—has been an important open research problem for more than 50 years9. Despite recent progress10–14, existing methods fall far short of atomic accuracy, especially when no homologous structure is available. Here we provide the first computational method that can regularly predict protein structures with atomic accuracy even in cases in which no similar structure is known. We validated an entirely redesigned version of our neural network-based model, AlphaFold, in the challenging 14th Critical Assessment of protein Structure Prediction (CASP14)15, demonstrating accuracy competitive with experimental structures in a majority of cases and greatly outperforming other methods. Underpinning the latest version of AlphaFold is a novel machine learning approach that incorporates physical and biological knowledge about protein structure, leveraging multi-sequence alignments, into the design of the deep learning algorithm. AlphaFold predicts protein structures with an accuracy competitive with experimental structures in the majority of cases using a novel deep learning architecture.","headline":"Highly accurate protein structure prediction with AlphaFold","image":["https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-021-03819-2/MediaObjects/41586_2021_3819_Fig1_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-021-03819-2/MediaObjects/41586_2021_3819_Fig2_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-021-03819-2/MediaObjects/41586_2021_3819_Fig3_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-021-03819-2/MediaObjects/41586_2021_3819_Fig4_HTML.png","https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41586-021-03819-2/MediaObjects/41586_2021_3819_Fig5_HTML.png"],"isAccessibleForFree":true,"isPartOf":{"@type":["Periodical","PublicationVolume"],"issn":["1476-4687","0028-0836"],"name":"Nature","volumeNumber":"596"},"keywords":["Computational biophysics","Machine learning","Protein structure predictions","Structural biology","Science","Humanities and Social Sciences","multidisciplinary"],"license":"http://creativecommons.org/licenses/by/4.0/","pageEnd":"589","pageStart":"583","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.springernature.com/app-sn/public/images/logo-springernature.png"},"name":"Nature Publishing Group UK"},"sameAs":"https://doi.org/10.1038/s41586-021-03819-2"}</script>
+
+
+
+
+    
+    
+    
+    <meta content="Highly accurate protein structure prediction with AlphaFold" name="dc.title">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta content="Nature" name="citation_journal_title">
+    
+    
+    
+    <meta content="Highly accurate protein structure prediction with AlphaFold" name="citation_title">
+    <meta content="596" name="citation_volume">
+    <meta content="7873" name="citation_issue">
+    <meta content="2021/08" name="citation_publication_date">
+    <meta content="2021/07/15" name="citation_online_date">
+    <meta content="583" name="citation_firstpage">
+    <meta content="589" name="citation_lastpage">
+    
+    
+    
+    <meta content="doi:10.1038/s41586-021-03819-2" name="dc.identifier">
+    
+    
+    <meta content="10.1038/s41586-021-03819-2" name="citation_doi">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta content="Jumper, John" name="citation_author">
+    
+    <meta content="Evans, Richard" name="citation_author">
+    
+    <meta content="Pritzel, Alexander" name="citation_author">
+    
+    <meta content="Green, Tim" name="citation_author">
+    
+    <meta content="Figurnov, Michael" name="citation_author">
+    
+    <meta content="Ronneberger, Olaf" name="citation_author">
+    
+    <meta content="Tunyasuvunakool, Kathryn" name="citation_author">
+    
+    <meta content="Bates, Russ" name="citation_author">
+    
+    <meta content="Žídek, Augustin" name="citation_author">
+    
+    <meta content="Potapenko, Anna" name="citation_author">
+    
+    <meta content="Bridgland, Alex" name="citation_author">
+    
+    <meta content="Meyer, Clemens" name="citation_author">
+    
+    <meta content="Kohl, Simon A. A." name="citation_author">
+    
+    <meta content="Ballard, Andrew J." name="citation_author">
+    
+    <meta content="Cowie, Andrew" name="citation_author">
+    
+    <meta content="Romera-Paredes, Bernardino" name="citation_author">
+    
+    <meta content="Nikolov, Stanislav" name="citation_author">
+    
+    <meta content="Jain, Rishub" name="citation_author">
+    
+    <meta content="Adler, Jonas" name="citation_author">
+    
+    <meta content="Back, Trevor" name="citation_author">
+    
+    <meta content="Petersen, Stig" name="citation_author">
+    
+    <meta content="Reiman, David" name="citation_author">
+    
+    <meta content="Clancy, Ellen" name="citation_author">
+    
+    <meta content="Zielinski, Michal" name="citation_author">
+    
+    <meta content="Steinegger, Martin" name="citation_author">
+    
+    
+    <meta content="Pacholska, Michalina" name="citation_author">
+    
+    <meta content="Berghammer, Tamas" name="citation_author">
+    
+    <meta content="Bodenstein, Sebastian" name="citation_author">
+    
+    <meta content="Silver, David" name="citation_author">
+    
+    <meta content="Vinyals, Oriol" name="citation_author">
+    
+    <meta content="Senior, Andrew W." name="citation_author">
+    
+    <meta content="Kavukcuoglu, Koray" name="citation_author">
+    
+    <meta content="Kohli, Pushmeet" name="citation_author">
+    
+    <meta content="Hassabis, Demis" name="citation_author">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    <meta content="https://www.nature.com/articles/s41586-021-03819-2" property="og:url">
+    <meta content="article" property="og:type">
+    
+    <meta content="Highly accurate protein structure prediction with AlphaFold - Nature" property="og:title">
+    
+    
+    
+
+
+
+
+    
+    
+    
+
+
+
+</head>
+<body class="article-page">
+
+
+
+
+
+
+    
+        
+    
+
+
+
+    
+        
+    
+        
+    
+
+    
+
+
+    
+
+
+
+
+
+    <div class="c-article-main u-container u-mt-24 u-mb-32 eds-l-with-sidebar" id="content">
+        <main class="c-article-main-column js-main-column">
+            
+                
+            
+
+            <article lang="en">
+                
+                    
+                        
+                            
+                        
+                    
+                
+                <div class="c-article-header">
+                    <header>
+                        
+
+                        <h1 class="c-article-title" data-test="article-title">Highly accurate protein structure prediction with AlphaFold</h1>
+                        
+
+                        
+
+                        
+                        
+                            
+                        
+                        
+        
+        
+    
+                        
+                    </header>
+
+                    
+    
+    
+
+    
+    
+
+                    
+                </div>
+
+                <div class="c-article-body">
+                    
+                    
+    
+
+
+                    
+                        
+                        
+                        
+    
+        
+    
+
+                        
+
+                        <div class="main-content">
+                            <section data-title="Main"><div class="c-article-section" id="Sec1-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec1">Main</h2><div class="c-article-section__content" id="Sec1-content"><p>In CASP14, AlphaFold structures were vastly more accurate than competing methods. AlphaFold structures had a median backbone accuracy of 0.96 Å r.m.s.d.<sub>95</sub> (Cα root-mean-square deviation at 95% residue coverage) (95% confidence interval = 0.85–1.16 Å) whereas the next best performing method had a median backbone accuracy of 2.8 Å r.m.s.d.<sub>95</sub> (95% confidence interval = 2.7–4.0 Å) (measured on CASP domains; see Fig. <a href="/articles/s41586-021-03819-2#Fig1">1a</a> for backbone accuracy and Supplementary Fig. <a href="/articles/s41586-021-03819-2#MOESM1">14</a> for all-atom accuracy). As a comparison point for this accuracy, the width of a carbon atom is approximately 1.4 Å. In addition to very accurate domain structures (Fig. <a href="/articles/s41586-021-03819-2#Fig1">1b</a>), AlphaFold is able to produce highly accurate side chains (Fig. <a href="/articles/s41586-021-03819-2#Fig1">1c</a>) when the backbone is highly accurate and considerably improves over template-based methods even when strong templates are available. The all-atom accuracy of AlphaFold was 1.5 Å r.m.s.d.<sub>95</sub> (95% confidence interval = 1.2–1.6 Å) compared with the 3.5 Å r.m.s.d.<sub>95</sub> (95% confidence interval = 3.1–4.2 Å) of the best alternative method. Our methods are scalable to very long proteins with accurate domains and domain-packing (see Fig. <a href="/articles/s41586-021-03819-2#Fig1">1d</a> for the prediction of a 2,180-residue protein with no structural homologues). Finally, the model is able to provide precise, per-residue estimates of its reliability that should enable the confident use of these predictions.</p><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-title="AlphaFold produces highly accurate structures." id="figure-1"><figure><figcaption><b class="c-article-section__figure-caption" data-test="figure-caption-text" id="Fig1">Fig. 1: AlphaFold produces highly accurate structures.</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture class="c-article-section__figure-picture"><source srcset="//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-021-03819-2/MediaObjects/41586_2021_3819_Fig1_HTML.png?as=webp" type="image/webp"><img alt="Fig. 1: AlphaFold produces highly accurate structures." aria-describedby="figure-1-desc" height="439" src="//media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41586-021-03819-2/MediaObjects/41586_2021_3819_Fig1_HTML.png" width="685"></picture><div class="c-article-section__figure-link"><a aria-label="Full size image figure 1" class="c-article__pill-button" data-test="article-link" href="/articles/s41586-021-03819-2/figures/1" rel="nofollow"><span>Full size image</span><svg aria-hidden="true" class="u-icon" height="16" width="16"><use></use></svg></a></div></div><div class="c-article-section__figure-description" data-test="bottom-caption" id="figure-1-desc"><p><b>a</b>, The performance of AlphaFold on the CASP14 dataset (<i>n</i> = 87 protein domains) relative to the top-15 entries (out of 146 entries), group numbers correspond to the numbers assigned to entrants by CASP. Data are median and the 95% confidence interval of the median, estimated from 10,000 bootstrap samples. <b>b</b>, Our prediction of CASP14 target T1049 (PDB 6Y4F, blue) compared with the true (experimental) structure (green). Four residues in the C terminus of the crystal structure are <i>B</i>-factor outliers and are not depicted. <b>c</b>, CASP14 target T1056 (PDB 6YJ1). An example of a well-predicted zinc-binding site (AlphaFold has accurate side chains even though it does not explicitly predict the zinc ion). <b>d</b>, CASP target T1044 (PDB 6VR4)—a 2,180-residue single chain—was predicted with correct domain packing (the prediction was made after CASP using AlphaFold without intervention). <b>e</b>, Model architecture. Arrows show the information flow among the various components described in this paper. Array shapes are shown in parentheses with <i>s</i>, number of sequences (<i>N</i><sub>seq</sub> in the main text); <i>r</i>, number of residues (<i>N</i><sub>res</sub> in the main text); <i>c</i>, number of channels.</p></div></div></figure></div></div></div></section>
+                        </div>
+                    
+
+                    <div class="u-mt-32">
+                        <section data-title="Supplementary information"><div class="c-article-section" id="Sec20-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec20">Supplementary information</h2><div class="c-article-section__content" id="Sec20-content"><div data-test="supplementary-info"><div class="c-article-supplementary__item" data-test="supp-item" id="MOESM1"><h3 class="c-article-supplementary__title u-h3"><a class="print-link" data-supp-info-image="" data-test="supp-info-link" href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-021-03819-2/MediaObjects/41586_2021_3819_MOESM1_ESM.pdf">Supplementary Information (download PDF <svg aria-hidden="true" class="u-icon" height="16" width="16"><use></use></svg>)</a></h3><div class="c-article-supplementary__description"><p>Description of the method details of the AlphaFold system, model, and analysis, including data pipeline, datasets, model blocks, loss functions, training and inference details, and ablations. Includes Supplementary Methods, Supplementary Figures, Supplementary Tables and Supplementary Algorithms.</p></div></div></div></div></div></section><section data-title="Rights and permissions"><div class="c-article-section" id="rightslink-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="rightslink">Rights and permissions</h2><div class="c-article-section__content" id="rightslink-content">
+                <p><b>Open Access</b>  This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">http://creativecommons.org/licenses/by/4.0/</a>.</p>
+              <p class="c-article-rights"><a href="https://s100.copyright.com/AppDispatchServlet?title=Highly%20accurate%20protein%20structure%20prediction%20with%20AlphaFold&amp;contentID=10.1038%2Fs41586-021-03819-2&amp;copyright=The%20Author%28s%29&amp;publication=0028-0836&amp;publicationDate=2021-07-15&amp;publisherName=SpringerNature&amp;orderBeanReset=true&amp;oa=CC%20BY">Reprints and permissions</a></p></div></div></section>
+                    </div>
+
+                    
+                        
+                            
+                        
+                    
+
+                    
+                        
+    
+
+                    
+                </div>
+            </article>
+        </main>
+        
+            
+
+        
+    </div>
+
+    
+
+
+
+
+    
+        
+    
+    
+        
+            
+        
+
+        
+            
+        
+    
+    
+
+
+
+
+<footer class="composite-layer">
+        
+        
+
+        
+
+    <div class="c-footer">
+        
+
+
+        <div class="c-footer__container">
+    
+    <p class="c-footer__legal" data-test="copyright">© 2026 Springer Nature Limited</p>
+</div>
+
+    </div>
+    
+</footer>
+
+
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+</body></html>
