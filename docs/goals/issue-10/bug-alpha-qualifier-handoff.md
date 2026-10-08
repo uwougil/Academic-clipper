@@ -1,6 +1,6 @@
 # Issue #71 — AlphaFold qualified metric 来源阶段交接
 
-状态：SOURCE_ONLY 已诊断，生产代码未修改；真实失败保留。后续独立来源审核已清除 source gate，新合成边界与生产等待条件见 [preflight packet](bug-alpha-qualifier-preflight.md)。Work Contract：[Issue #71](https://github.com/uwougil/Academic-clipper/issues/71)，OPEN；下文保存来源阶段记录，当前 API type 事实见 preflight。本文不声明 Issue #71 已修复，也不声明 Issue #10 完成。
+本文保存 SOURCE_ONLY 历史：已诊断，当时生产代码未修改；真实失败保留。后续独立来源与plan审核已清除前置 gates；最新生产状态、定向GREEN及尚未完成的交付 gates见 [production handoff](bug-alpha-qualifier-production.md)，原预检记录见 [preflight packet](bug-alpha-qualifier-preflight.md)。Work Contract：[Issue #71](https://github.com/uwougil/Academic-clipper/issues/71)，OPEN；当前 API type 事实见 preflight。本文不声明 Issue #71 完成，也不声明 Issue #10 完成。
 
 ## 分支、基线与选择顺序
 
