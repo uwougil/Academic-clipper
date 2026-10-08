@@ -120,3 +120,17 @@ Git diff --check、git status --short、tracked diff scope 在 docs-only 发布�
 setup 初次 physical CRLF / Git LF dependency-lock comparison错误在测试前停止；setup-tail 仅核验已经创建的36个 exact Git buffer snapshots、Git lock equality并记录 physical distinction。原脚本/错误保留，不当作 parser FAIL、不再执行 snapshot creation。唯一 matrix 的 actual process起止10:38:24.5342841Z → 10:38:25.5218610Z。packet.mjs 仅读同次缓存生成回执，另查 mixed inherited前缀/typedMath/orderedcitations相同，没有额外parse/clip。
 
 下一步：different-owner PLAN_ONLY review；#74 accepted merged Main CI 后由 root 释放串行 Nature owner，采用 plan 的有限numeric-parentheses grammar和既有 typedrange seam。生产后真实 source15/新50 GREEN、independent implementation审查、required affected/full/build/golden/fresh三平台CI/Secrets/finalhead十gates均必需；本旧日志不能替代生产完成证据。C只在修复 accepted Main CI 后解除 corresponding FRB roles，最终Issue10 remains integrator-owned/unmerged human final review。没有 spec change。
+
+## P2 尾修续交：真实三方言消费 shared whole-expression oracle
+
+独立plan review在41d47b6找到一个P2：真实 source attachedRole 的 includes 能放过平方后多数字/同atom重复base，而strict helper未接到实际source断言。现仅修改TEST-ONLY helper/consumer：test/support/parenthesized-power-oracle.mjs 的 completeOrderedParenthesizedSquares 由实际 attachedRole 调用，逐role消费 completeParenthesizedSquare 并强制两roles唯一、原序、不重叠；不会要求paragraph只有一个mathatom，原四S变量/10⁻⁶独立保留。完整atom只允许knownπ/glyph、wholebase、exactgrouped²、原外部divisor8；所有同base候选（包括good+malformed）计数，拒绝附加数字/operators/terms、duplicate/missing/reversedroles和错误base/exponent范围。WholeUnicode²使用同样unique完整性及完整Unicode边界。只处理testoracle，不新增生产parser。
+
+π和/8可以与square位于同一个mathatom，只要在平方**基底外**：原兼容 `$\pi(5/60)^{2}/8$` 与 `π$(5/60)^{2}$/8` 都接受；old50中的独立helperconsumer已静态改成sharedhelper并纠正glyphπ同atom合法case。原50/42PASS是旧input历史，current50未重跑，不能把旧PASS转移。原source15也未重跑；fixture/prov/diagnosis和其他sourceassertions保持，只改source test的sharedimport与attachedRole body。
+
+**唯一新执行**：node --test test/nature-parenthesized-power-oracle.test.mjs，80新purestringtests全部PASS、70.482ms、exit0，0skip/cancel/todo。Only node assert/test +ownpurehelper imports，无sourcefile/DOM/production/clip import，无原50/old1pure/source15/3clips/raw/A/full/build/golden/CI执行。外部目录 C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-parenthesized-power/oracle-tail-41d47b6 的 oracle.log、process-receipt、oracle-tail-receipt完整记录当前inputs/logbytes/SHA；committed preproduction receipt追加 oracleTail，不改原历史summary和artifactidentities。
+
+Ready不同作者P2 delta静态复审；仍须 #74 acceptedMain +rootserializedrelease后实际source15/current50GREEN和所有正式交付gate。没有spec/source改变，不声明修复完成。
+
+新tail固定inputs/实际logs：helper3256 bytes SHA42584ede9ff3033fab1628a206e7594f8ad106073bbb8ffd7f55a33f9464e806；puretest4155 SHA31268e9deb9518c1cb20fd9cb6270dfb833099f8d9fd17cf32c078ead840c889；source consumer8468 SHA6e1319c728e33b868c5da9ac5f27b4085b4306d5896d882cad7d28eca1677ca7；current50 consumer11721 SHAf3bba611a3c898ac3c018d881b21e79db552ffe28847440348011bfeacbf525c。oracle.log7275 SHA0b5b4249229f042f86ceafc318b5f703e1e0036372054fd99701c01727256fa7；process-receipt322 SHA49977efbb958ba27a5f3e740b6194d1e1a4b62a29f9b2bd53ad2d0feaff7972c；external oracle-tail-receipt4352 SHAcba5926516df138aa29f9d071842f5f0da4e6047b2155fb302ce54282e0777ae。
+
+Post-run receipt audit最初用string replacement重建oldsource函数时被历史literal `$&`的JS replacement semantics干扰，仅比较字符串错误，未写入source函数/未调用helper或重跑test。原receipt.mjs保留；receipt-tail.mjs用function replacement，actual其他sourceassertions byte-identical检查完成，exit0；80个puretests与其helper/input不变且不重复。

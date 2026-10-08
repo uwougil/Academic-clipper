@@ -6,6 +6,7 @@ import {writeFile} from 'node:fs/promises';
 import {syncBuiltinESMExports} from 'node:module';
 import {after, test} from 'node:test';
 import {pathToFileURL} from 'node:url';
+import {completeParenthesizedSquare} from './support/parenthesized-power-oracle.mjs';
 
 const attempts = [], observations = [], windows = new Set();
 const original = {fetch: globalThis.fetch, lookup: dns.lookup, promiseLookup: dnsPromises.lookup};
@@ -134,11 +135,11 @@ test('synthetic mixed body and caption preserve all registry positions, pi, divi
   }));
 // Test-side oracle checks exact whole math atoms; no removal of grouping braces.
 function ownsWholeSquare(markdown, expected) {
-  const atoms = [...markdown.matchAll(/(?<!\$)\$([^$\n]+)\$(?!\$)/gu)].map(m => m[1].replace(/\\(?:left|right)/gu, '').replace(/\s+/gu, ''));
-  return atoms.length === 1 && atoms[0] === expected;
+  return Boolean(completeParenthesizedSquare(markdown, {base: expected.slice(0, -'^{2}'.length)}));
 }
 test('synthetic whole-square oracle rejects exponent and base regrouping', () => {
   assert.equal(ownsWholeSquare('π$(5/60)^{2}$/8', first), true);
   assert.equal(ownsWholeSquare('π$\\left(5/60\\right)^{2}$/8', first), true);
-  for (const text of ['π(5/60)$^{2}$/8', 'π$(5/60)^{2/8}$', '$π(5/60)^{2}$/8', '$((5/60)/8)^{2}$', 'π$(5/60^{2})$/8', 'π$(5/60)^{2}2$/8', 'π$(5/60)^2$/8', 'π$(5/60)^{2}$$(5/60)^{2}$/8']) assert.equal(ownsWholeSquare(text, first), false, text);
+  assert.equal(ownsWholeSquare('$π(5/60)^{2}$/8', first), true);
+  for (const text of ['π(5/60)$^{2}$/8', 'π$(5/60)^{2/8}$', '$((5/60)/8)^{2}$', 'π$(5/60^{2})$/8', 'π$(5/60)^{2}2$/8', 'π$(5/60)^2$/8', 'π$(5/60)^{2}$$(5/60)^{2}$/8']) assert.equal(ownsWholeSquare(text, first), false, text);
 });

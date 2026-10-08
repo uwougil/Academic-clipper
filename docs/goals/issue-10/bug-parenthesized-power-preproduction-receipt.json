@@ -1,5 +1,5 @@
 {
-  "version": "issue75-preproduction/1.0",
+  "version": "issue75-preproduction/1.1",
   "issue": 75,
   "status": "PREPRODUCTION_RED_PLAN_REVIEW_READY",
   "sourceHead": "eede55ac7136467510b04507729217b15ca9224c",
@@ -949,5 +949,131 @@
     "Actual source and synthetic GREEN after minimal production",
     "Independent code review then all prerequisite delivery gates"
   ],
-  "specChanges": []
+  "specChanges": [],
+  "historicalBeforeOracleTail": {
+    "summary": {
+      "tests": 50,
+      "pass": 42,
+      "fail": 8,
+      "contractRed": 8,
+      "harnessErrors": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "todo": 0,
+      "durationMs": 931.9007,
+      "executionCount": 1,
+      "syntheticParses": 49,
+      "pureStringTests": 1
+    },
+    "newInput": {
+      "path": "C:/Users/guoli/.codex/worktrees/issue-10-bug-parenthesized-power/academic-clipper/test/nature-parenthesized-power-preproduction.test.mjs",
+      "bytes": 11685,
+      "sha256": "061c3edf88f29c132ef7d13a096ff055546dfebcfd778252a2792f2af01c2f7f"
+    },
+    "sourceTestIdentity": "sourceIdentities records original source test before test-only oracle tail; source fixture/provenance/diagnosis unchanged",
+    "old50AssertionsChanged": true,
+    "oldPassNotTransferred": true
+  },
+  "oracleTail": {
+    "finding": "P2-75-source-oracle-unwired",
+    "reviewedParent": "41d47b6a47cbd048f7c92972e0b5c9ddc6f50c5b",
+    "status": "ORACLE_TAIL_PASS_REVIEW_PENDING",
+    "receiptAuditFailure": "Original receipt.mjs used string replacement with historical $& text, corrupting the reconstructed comparison string only. No source/oracle execution or production change. receipt-tail.mjs uses function replacement; original failed audit script preserved; 80 tests not repeated.",
+    "summary": {
+      "tests": 80,
+      "pass": 80,
+      "fail": 0,
+      "harnessErrors": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "todo": 0,
+      "durationMs": 70.482,
+      "executions": 1
+    },
+    "processReceipt": {
+      "startedAt": "2026-10-08T10:53:41.2868261Z",
+      "oldSourceTests": 0,
+      "rawReads": 0,
+      "oldMatrixExecutions": 0,
+      "sourceAudits": 0,
+      "exitCode": 0,
+      "newClips": 0,
+      "command": "node --test test/nature-parenthesized-power-oracle.test.mjs",
+      "newParses": 0,
+      "endedAt": "2026-10-08T10:53:41.4212599Z"
+    },
+    "inputs": [
+      {
+        "path": "C:/Users/guoli/.codex/worktrees/issue-10-bug-parenthesized-power/academic-clipper/test/support/parenthesized-power-oracle.mjs",
+        "bytes": 3256,
+        "sha256": "42584ede9ff3033fab1628a206e7594f8ad106073bbb8ffd7f55a33f9464e806"
+      },
+      {
+        "path": "C:/Users/guoli/.codex/worktrees/issue-10-bug-parenthesized-power/academic-clipper/test/nature-parenthesized-power-oracle.test.mjs",
+        "bytes": 4155,
+        "sha256": "31268e9deb9518c1cb20fd9cb6270dfb833099f8d9fd17cf32c078ead840c889"
+      },
+      {
+        "path": "C:/Users/guoli/.codex/worktrees/issue-10-bug-parenthesized-power/academic-clipper/test/nature-parenthesized-power.test.mjs",
+        "bytes": 8468,
+        "sha256": "6e1319c728e33b868c5da9ac5f27b4085b4306d5896d882cad7d28eca1677ca7"
+      },
+      {
+        "path": "C:/Users/guoli/.codex/worktrees/issue-10-bug-parenthesized-power/academic-clipper/test/nature-parenthesized-power-preproduction.test.mjs",
+        "bytes": 11721,
+        "sha256": "f3bba611a3c898ac3c018d881b21e79db552ffe28847440348011bfeacbf525c"
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-parenthesized-power/oracle-tail-41d47b6/oracle.log",
+        "bytes": 7275,
+        "sha256": "0b5b4249229f042f86ceafc318b5f703e1e0036372054fd99701c01727256fa7"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-parenthesized-power/oracle-tail-41d47b6/process-receipt.json",
+        "bytes": 322,
+        "sha256": "49977efbb958ba27a5f3e740b6194d1e1a4b62a29f9b2bd53ad2d0feaff7972c"
+      }
+    ],
+    "sourceQuiet": [
+      {
+        "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.excerpt.html",
+        "gitBlob": "a04d8ca5d9d0774ec893b9c77c47ea430a70c928"
+      },
+      {
+        "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.provenance.json",
+        "gitBlob": "f29b5b9c5223a46ed9fe101bf5edd161105629fe"
+      },
+      {
+        "path": "test/fixtures/nature-parenthesized-power/diagnosis.json",
+        "gitBlob": "ad1848225dfacdc90dbed0f3aabbaa13491456b9"
+      }
+    ],
+    "otherSourceAssertionsByteIdentical": true,
+    "sharedConsumerProof": {
+      "actualSource": "attachedRole calls completeOrderedParenthesizedSquares(context, provenance.paragraph.roles); this maps shared completeParenthesizedSquare for both roles and checks source order",
+      "old50": "ownsWholeSquare calls same completeParenthesizedSquare; lawful glyph-pi same-atom case now positive",
+      "newPureTests": "Imports the same helper and both role bases; no source suite imports"
+    },
+    "scope": {
+      "newRawReads": 0,
+      "newSourceAudits": 0,
+      "newSanitizerCalls": 0,
+      "newDomParses": 0,
+      "newClips": 0,
+      "old50Runs": 0,
+      "old1PureRuns": 0,
+      "source15Runs": 0,
+      "fullRuns": 0,
+      "ciPolls": 0,
+      "networkEvidence": "Static zero production/network imports in new pure test/helper; no dynamic network or writer spy claimed"
+    },
+    "equivalence": "π and divisor8 outside the squared BASE, including within one complete math atom. Exact full group, uniqueness, malformed companions, both role order; known left/right + whitespace; Unicode² boundary.",
+    "futureUnrun": [
+      "Current source15/3 real clips with strengthened shared oracle",
+      "Current50 with strengthened pure helper/equivalence case"
+    ],
+    "specChanges": []
+  }
 }

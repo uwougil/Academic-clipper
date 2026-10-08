@@ -10,6 +10,7 @@ import {clipNature} from '../src/clip.mjs';
 import {parseNaturePage} from '../src/adapters/nature.mjs';
 import {normalizeAcademicInline} from '../src/normalizers/academic-inline.mjs';
 import {validateMathDelimiters} from '../src/validators/math-delimiters.mjs';
+import {completeOrderedParenthesizedSquares} from './support/parenthesized-power-oracle.mjs';
 
 const directory=new URL('./fixtures/nature-parenthesized-power/',import.meta.url);
 const provenance=JSON.parse(await readFile(new URL('s41586-022-04755-5.provenance.json',directory),'utf8'));
@@ -38,13 +39,8 @@ test('source parenthesized-power projection preserves complete paragraph, origin
 function paragraphContext(markdown){const start=markdown.indexOf('To estimate the chance coincidence probability'),end=markdown.indexOf('10',markdown.indexOf('gives the chance of coincident association',start));assert.ok(start>=0&&end>start);return markdown.slice(start,markdown.indexOf('.',end)+1);}
 function mathAtoms(text){return [...text.matchAll(/(?<!\$)\$([^$\n]+)\$(?!\$)/gu)].map(m=>({index:m.index,end:m.index+m[0].length,tex:m[1].replace(/\\(?:left|right)/gu,'').replace(/\s+/gu,'')}));}
 function attachedRole(context,role){
- const needle=role.base+'^{2}';const atoms=mathAtoms(context).filter(a=>a.tex.includes(needle));
- // Unicode power is also a source-equivalent whole-parentheses representation.
- const unicode=[...context.matchAll(new RegExp(role.base.replace(/[.*+?^${}()|[\]\\]/gu,'\\$&')+'²','gu'))].map(m=>({index:m.index,end:m.index+m[0].length,tex:needle,unicode:true}));
- assert.equal(atoms.length+unicode.length,1,'Exactly one complete original parenthesized base owns exponent2');const atom=[...atoms,...unicode][0],inside=atom.tex.indexOf(needle),before=atom.tex.slice(0,inside),after=atom.tex.slice(inside+needle.length);
- assert.ok(before.endsWith('π')||before.endsWith('\\pi')||context.slice(0,atom.index).trimEnd().endsWith('π'),'The original multiplicative π remains before, outside squared parentheses');
- assert.ok(after.startsWith('/8')||context.slice(atom.end).trimStart().startsWith('/8'),'The original divisor8 remains outside the power');
- assert.doesNotMatch(atom.tex,/\(?(?:π|\\pi)\^\{2\}/u,'Do not square π with the numeric parenthesized factor');return atom;
+ const atoms=completeOrderedParenthesizedSquares(context,provenance.paragraph.roles);
+ assert.ok(atoms,'Both original complete whole-base squares exactly once and in source order; π and divisor8 stay outside the squared base, with no extra terms or malformed duplicate');return atoms[provenance.paragraph.roles.indexOf(role)];
 }
 for(const dialect of ['markdown','links','quarto']){
  let promise;const result=()=>promise??=(async()=>{const r=process.env.PARENTHESIZED_POWER_CACHE_ROOT?JSON.parse(await readFile(`${process.env.PARENTHESIZED_POWER_CACHE_ROOT}/${dialect}.result.json`,'utf8')):await clipNature({html,url:provenance.source.url,citationStyle:dialect});assert.equal(r.rawHtml,html);assert.equal(r.citationStyle,dialect);if(process.env.PARENTHESIZED_POWER_RECEIPT_ROOT){const root=process.env.PARENTHESIZED_POWER_RECEIPT_ROOT;await mkdir(root,{recursive:true});await writeFile(`${root}/${dialect}.result.json`,JSON.stringify(r,null,2)+'\n');await writeFile(`${root}/${dialect}.md`,r.markdown);}return r;})();

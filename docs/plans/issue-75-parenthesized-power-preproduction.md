@@ -62,3 +62,17 @@ fetch/dns.lookup/dnsPromises.lookup 的 record-before-throw hooks 在 lazy produ
 4. C 在 accepted-main 后只增量解除 FRB 对应 parenthesized-power blocker；全部FRB/Issue10的其他角色与最终联合检查仍需独立完成。
 
 没有提出 spec change 或 human-only blocker。此 preproduction packet 不是 #75 修复完成，也不是 Issue #10 完成。
+
+## P2 source oracle 尾修：完整表达式与真实 source assertions 共用
+
+不同作者对41d47b6的plan review发现 P2-75-source-oracle-unwired：原 attachedRole 用 substring inclusion，可能放过 `π$(5/60)^{2}2$/8` 或同一atom内重复base；新 strict helper当时只在独立纯字符串test使用。此前50-case报告保留为历史结果；其旧独立helper PASS不能代表真实三方言source完成。
+
+尾修仅TEST-ONLY：test/support/parenthesized-power-oracle.mjs 导出 completeParenthesizedSquare/completeOrderedParenthesizedSquares。实际 source test 的 attachedRole 直接调用 ordered helper，要求两 originalroles都完整唯一、原顺序且不重叠。每role所有精确base候选（包括malformed companion）都计数，不过滤仅“看起来合法”的atoms。已知完整 math forms 是 optional原π/`\pi` + whole base + exact `^{2}`（或 whole Unicode²）+ optional外部 `/8`；缺少的π或/8必须在邻接plain context补齐，保持全部exponent/base grouping。仅允许 `\left(`/`\right)` 与presentation whitespace，不删除大括号、不解析一般TeX。Unicode²候选也要完整、唯一、边界明确；Unicode L/N/M/_（含astral）不能继续π前或/8后的token。
+
+“π 和 /8 在平方外”是**在 squared base外**，不强制它们在math delimiters外。原兼容合同已允许 `$\pi(5/60)^{2}/8$`，它与 `π$(5/60)^{2}$/8`、glyphπ同atom、knownpresentationleft/right、wholeUnicode²均等价。Preferred DOM collector 的小range仍只收完整base+SUP；source最终oracle接受这些完整等价表达，不把preferreddelimiter位置升级为canonical唯一形式。旧50文件的独立oracle已静态改为同一shared helper，并把合法glyphπ同atomcase改为positive；这项旧test改动未重跑，旧42PASS不能迁移到新input。
+
+新增 test/nature-parenthesized-power-oracle.test.mjs 的**80个全新纯字符串checks**一次执行：`node --test test/nature-parenthesized-power-oracle.test.mjs`，80/80PASS、70.482ms、exit0、0skip/cancel/todo。两sourcebase各8合法完整表示、18错误完整/唯一/范围cases、12Unicode边界cases；另外4checks覆盖S_source/S_offset与10⁻⁶其他atoms存在时两roles仍按原序匹配、duplicatefirst不能替代missingsecond、单atom混入两roles拒绝、roles反序拒绝。没有import source suite，因此无原top-levelHTML/DOM/3clips。只有node assert/test和ownpurehelper imports；零parser/DOM/clip/raw/A/source/old50/old1pure/full/build/golden/CI执行，不虚称动态network/writer spy。
+
+外部 tail root：C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-parenthesized-power/oracle-tail-41d47b6，保存实际oracle.log/process-receipt及currentinputhashes。Receipt新增 oracleTail 字段，原source/50-case记录与inputhashes明确为historical-before-tail，无改写原log/summary或伪称新sourceGREEN。Fixtures/provenance/diagnosis及其scientificoracle均未改；真实source test仅sharedimport和attachedRole body，其他assertions/normalizer/validators不变。
+
+下一步不同作者只审核这个P2 delta；生产仍locked after74。未来正式实现时实际source15和currentfull50都必须全部GREEN，new80的已通过证据只在helper/input hash相同scope复用；不以该纯字符串尾修完成 #75 或 Issue10。
