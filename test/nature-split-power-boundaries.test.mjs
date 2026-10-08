@@ -19,6 +19,18 @@ const positive=[
  ['reference immediately after exponent','10<sup>−</sup><sup>15</sup><sup><a data-test="citation-ref" href="#ref-CR58">58</a></sup> next','10^{−15}'],
 ];
 const negative=[
+ ['review boundary: styled prefix word','<span>word</span>10<sup>−</sup><sup>15</sup> next',[]],
+ ['review boundary: styled prefix numeric','<span>2</span>10<sup>−</sup><sup>15</sup> next',[]],
+ ['review boundary: styled prefix decimal','<span>0.</span>10<sup>−</sup><sup>15</sup> next',[]],
+ ['review boundary: styled prefix identifier','<i>x_</i>10<sup>−</sup><sup>15</sup> next',[]],
+ ['review boundary: comment identifier','word<!--edge-->10<sup>−</sup><sup>15</sup> next',[]],
+ ['review boundary: inline math across bold','$x+<b>z</b>10<sup>−</sup><sup>15</sup>$ next',[]],
+ ['review boundary: inline math across span','$x+<span>z</span>10<sup>−</sup><sup>15</sup>$ next',[]],
+ ['review boundary: inline code across span','`x+<span>z</span>10<sup>−</sup><sup>15</sup>` next',[]],
+ ['review boundary: fenced code across span','~~~\nx+<span>z</span>10<sup>−</sup><sup>15</sup>\n~~~',[]],
+ ['review boundary: double dollar across span','$$x+<span>z</span>10<sup>−</sup><sup>15</sup>$$ next',[]],
+ ['review boundary: malformed math cue','<span>$x</span>10<sup>−</sup><sup>15</sup>$ next',[]],
+ ['review boundary: opaque cue before spaced sibling','$x+<span>z</span> 10<sup>−</sup><sup>15</sup>$ next',[]],
  ['other numeric base','2<sup>−</sup><sup>15</sup> next',[]],
  ['unknown word','word<sup>−</sup><sup>15</sup> next',[]],
  ['word tail10','word10<sup>−</sup><sup>15</sup> next',[]],
