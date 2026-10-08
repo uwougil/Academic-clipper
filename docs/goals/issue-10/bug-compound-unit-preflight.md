@@ -16,7 +16,7 @@ SUP 只能一个直接 text child；未知 anchor/style/wrapper/comment/split ex
 
 ## 新 matrix 与唯一 baseline
 
-新增 `test/nature-compound-unit-boundaries.test.mjs`（7227 LF bytes / SHA256 `77c9212b8662f7f0ff5534c7fd5a757a21949997672e32ebc043b8be0e576666`）。明确 synthetic scaffold、parse-only，没有 scholarly metadata/prose、真实 fixture、Defuddle、hydrate、clip 或 writer。8 个 qualification 包括两种负号、完整 measurement/邻接、punctuation/operator、两种后继 citation 以及有明确空格的 styled neighbor；37 个 rejection 包括 Unicode astral L/N、combining M、跨 sibling/empty I/comment、two citation cues、opaque ancestors/literal cues、unsupported exponent/compound/continuations；1 个既有 styled/numeric/MathJax separation control。
+初轮 `5c40198c240cb19dbc311c96b8b0a9f107d2bfa1` 新增 `test/nature-compound-unit-boundaries.test.mjs`（当时7227 LF bytes / SHA256 `77c9212b8662f7f0ff5534c7fd5a757a21949997672e32ebc043b8be0e576666`）。明确 synthetic scaffold、parse-only，没有 scholarly metadata/prose、真实 fixture、Defuddle、hydrate、clip 或 writer。8 个 qualification 包括两种负号、完整 measurement/邻接、punctuation/operator、两种后继 citation 以及有明确空格的 styled neighbor；37 个 rejection 包括 Unicode astral L/N、combining M、跨 sibling/empty I/comment、two citation cues、opaque ancestors/literal cues、unsupported exponent/compound/continuations；1 个既有 styled/numeric/MathJax separation control。
 
 使用 root 已核 Main/Secrets 成功的 accepted `73d6cfafba9bb33149959e315ab29b5b0bc24d75`，src tree `9a79861e85a539b87da96e08ef855f037348cd64`；34 个原 Git `src/` blobs 只导出至 own ignored `node_modules/.cache/issue67-accepted-73d6`，per-file hashes 在 external `accepted-runtime.json`。没有 dependency merge、更改 own production、采用 pending64 或复制 A sanitizer。
 
@@ -32,6 +32,10 @@ node --test test/nature-compound-unit-boundaries.test.mjs
 External TEMP `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue67-preflight`：log `synthetic-red-73d6.log` 10989 bytes / SHA256 `66d4a0f692ddf35457766d55477e4274aadff3f80c39866f0f3d5a201f0552ed`；runtime receipt `accepted-runtime.json` 5514 bytes / `7bf51d6d2762345c17fb1bdf25788aa0df47693bcb9cef30a852c27b27f993ac`。这些记录仅此一次新 matrix，不包装成 whole Materials / canonical C acceptance。
 
 ## 后续与复用边界
+
+独立计划审查追加7个必要控制（旧46未改/未重跑）：unknown-prefix 拒绝 **任何**新 scientific record（防止错误 `mScm^{-1}` 逃过仅 mS-filter），styled SUP 精确保留继承 `^{−1}` 角色，3个跨 span 的 dollar/backtick/tilde cue，合法 MathML `<math><mtext><p>` integration point 的 actual ancestor，以及同 p 两 unit 在已有 styled/MathJax 后的非零marker与后继citation顺序。最后一个 baseline 首先因 `0 !== 2` RED，其后 exact indices/typed-order checks仍未到达；不是已证完整GREEN。
+
+唯一新运行同 accepted73d6 runtime：`node --test --test-name-pattern='synthetic compound review addition:' test/nature-compound-unit-boundaries.test.mjs`，**exit1，7=6PASS/1真实预期RED，698.4449ms，0 skip/cancel/todo/harness failure，network attempts[]**。Node runner只执行这7项，没有重执行原46，更没有 source99/raw/A/真实clips；两轮结果分别保留，不能声称执行过53项整轮。完整新test9989LF bytes / SHA256 `052435a536a4d7e6879ab25a11403302ea709e2dc4ecf8cc58b94d46f424a681`；log `review-additions-red-73d6.log`1840bytes / `27ae006f407683d9c4baacbbcfefcd4120f51ad0fa4e25ff1e23617bb076e225`，来源与原oracle完全不变。
 
 另一 owner 先独审本计划/新 matrix；保持原99-source审核不重做。只有 root 在 #64 merged Main 接纳后正式释放共享 Nature gate，SAME owner 才 adopt 届时 latest accepted main 并实施以上单 collector。新实现必须让原 truthful source regression 三方言 GREEN，并补 exact σ/temperature/quantity/citation/resource 邻接与四 validators（#65 已接纳后不再期待 links rawHTML failure）。运行 source clip 时 network guards 必须覆盖其实际调用；任何被 catch 的 attempt 仍独立 FAIL，结果每 style 缓存一次。生产改动后仅必要 focused/affected/full/build/golden/fresh3CI/Secrets/exact-head independent review，未变来源/source99/oldRED 不因角色恢复重跑。
 

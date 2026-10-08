@@ -3,6 +3,7 @@ import dns from 'node:dns';
 import {syncBuiltinESMExports} from 'node:module';
 import {after, test} from 'node:test';
 import {pathToFileURL} from 'node:url';
+import {JSDOM} from 'jsdom';
 
 // Explicitly synthetic, parse-only boundary tests; no scholarly source entry,
 // real fixture, Defuddle conversion, hydration, writer or source acquisition.
@@ -132,4 +133,48 @@ test('synthetic explicit source space after a styled neighbor establishes a lexi
   assert.equal(roles.length,1);
   assert.equal(roles[0].tex,expectedTex);
   assert.equal(page.document.querySelector('.c-article-body p').innerHTML,`<b>word</b> ${roles[0].marker} next`);
+});
+
+// Small additions requested by the independent plan reviewer. Their baseline
+// runs separately by name: the preceding 46 cases and real source are reused.
+test('synthetic compound review addition: unknown lexical prefixes create no new scientific record', () => {
+  for (const prefix of ['word','a\u0301','𐐀','𝟚']) {
+    const page=parse(`<p>${prefix}mScm<sup>−1</sup> next</p>`);
+    assert.deepEqual(page.semantic.scientificRuns,[], 'Reject every new record, including an incorrect whole-compound power');
+  }
+});
+
+test('synthetic compound review addition: styled exponent preserves its inherited detached role only', () => {
+  const page=parse('<p>mScm<sup><i>−1</i></sup> next</p>');
+  assert.deepEqual(page.semantic.scientificRuns.map(s=>s.tex),['^{−1}']);
+  assert.equal(page.document.querySelector('.c-article-body p').textContent,`mScm${page.semantic.scientificRuns[0].marker} next`);
+});
+
+for (const [name, literal] of [
+  ['cross-span dollar cue','<span>$5</span> '],
+  ['cross-span backtick cue','<span>`code`</span> '],
+  ['cross-span tilde fence','<span>~~~text</span>\n'],
+]) {
+  test(`synthetic compound review addition: ${name}`, () => {
+    const page=parse(`<p>${literal}mScm<sup>−1</sup> next</p>`);
+    assert.deepEqual(page.semantic.scientificRuns,[], 'A node edge and genuine space do not end an opaque parent context');
+  });
+}
+
+test('synthetic compound review addition: native MathML integration point keeps the actual math ancestor', () => {
+  const fragment='<math><mtext><p>mScm<sup>−1</sup> next</p></mtext></math>';
+  const input=new JSDOM(fragment); doms.push(input);
+  assert.ok(input.window.document.querySelector('p').closest('math'),'HTML integration point preserves lawful DOM ancestry');
+  assert.deepEqual(parse(fragment).semantic.scientificRuns,[]);
+});
+
+test('synthetic compound review addition: two units preserve nonzero marker indices, typed neighbors and citation order', () => {
+  const page=parse('<p><i>x</i><sup>2</sup>; <span class="mathjax-tex">\\(y^2\\)</span>; mScm<sup>−1</sup>, mScm<sup>-1</sup><sup><a href="#ref-CR7">7</a></sup> tail</p>');
+  const roles=compoundRoles(page);
+  assert.equal(roles.length,2,'Two separate supported factor roles');
+  assert.deepEqual(page.semantic.scientificRuns.map(s=>s.tex),['x^{2}',expectedTex,expectedTex]);
+  assert.deepEqual(page.semantic.inlineMath.map(s=>s.tex),['y^2']);
+  assert.deepEqual(page.semantic.citations.map(s=>s.numbers),[[7]]);
+  const [styled,first,second]=page.semantic.scientificRuns;
+  assert.equal(page.document.querySelector('.c-article-body p').textContent,`${styled.marker}; ${page.semantic.inlineMath[0].marker}; ${first.marker}, ${second.marker}${page.semantic.citations[0].marker} tail`);
 });
