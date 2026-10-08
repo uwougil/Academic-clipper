@@ -180,18 +180,58 @@ function assertAbstract(context, e, c) {
   c.equal('paragraphCount', paragraphs.length, e.value.paragraphs.length);
   e.value.paragraphs.forEach((p, i) => sameProse(c, `paragraphs[${i}]`, paragraphs[i] || '', p, result));
 }
+function sourceIdentifierHeading(node) {
+  const children = Array.from(node.childNodes), parts = [];
+  let tailOffset = 0, roles = 0;
+  for (let i = 0; i < children.length; i += 1) {
+    const child = children[i];
+    if (child.nodeType === 3) {
+      parts.push({ text: child.textContent.slice(tailOffset) }); tailOffset = 0;
+      continue;
+    }
+    const before = children[i - 1], after = children[i + 1];
+    const base = before?.nodeType === 3 ? before.textContent.match(/(?<![\p{L}\p{N}\p{M}_])([a-z])$/u)?.[1] : null;
+    const suffix = after?.nodeType === 3 ? after.textContent.match(/^[A-Z]{2,}(?![\p{L}\p{N}\p{M}_])/u)?.[0] : null;
+    if (child.tagName !== 'SUP' || child.childNodes.length !== 1 || child.firstChild.nodeType !== 3
+      || child.textContent !== '2' || !base || !suffix || !parts.at(-1)?.text.endsWith(base)) {
+      parts.push({ text: child.textContent }); continue;
+    }
+    parts.at(-1).text = parts.at(-1).text.slice(0, -1);
+    // B's plain text identifies the heading; its retained native SUP proves
+    // the attachment. Only whole, source-derived spellings are equivalent.
+    parts.push({ variants: [`$${base}^{2}${suffix}$`, `$${base}^2${suffix}$`,
+      `$\\mathrm{${base}}^{2}\\mathrm{${suffix}}$`, `$${base}^{2}\\mathrm{${suffix}}$`,
+      `$\\mathrm{${base}^{2}${suffix}}$`, `${base}²${suffix}`] });
+    tailOffset = suffix.length; roles += 1;
+  }
+  if (!roles) return null;
+  const pattern = parts.map(part => part.variants
+    ? `(?:${part.variants.map(escapeRegExp).join('|')})`
+    : escapeRegExp(part.text.replace(/\u00a0/gu, ' ').replace(/[\t\r\n ]+/gu, ' '))).join('').trim();
+  return { matches: text => new RegExp(`^${pattern}$`, 'u').test(text), roles };
+}
 function assertHeadings(context, e, c) {
   const { result, sourceDocument } = context;
-  const expected = e.value.ordered.filter(h => {
+  const retained = e.value.ordered.flatMap(h => {
     const node = h.id ? sourceDocument.getElementById(h.id) : e.blockIds.map(id => blockNode(context, id))
       .flatMap(root => root ? Array.from(root.querySelectorAll('h2,h3,h4,h5,h6')) : []).find(n => sourceText(n.textContent) === h.text);
-    return node && !excludedSection.has(sourceText(node.closest('section')?.getAttribute('data-title')).toLowerCase());
-  }).map(h => ({ level: h.level, text: h.text }));
+    return node && !excludedSection.has(sourceText(node.closest('section')?.getAttribute('data-title')).toLowerCase())
+      ? [{ heading: h, node, identifier: sourceIdentifierHeading(node) }] : [];
+  });
+  const expected = retained.map(({ heading: h }) => ({ level: h.level, text: h.text }));
   const actual = Array.from(result.markdown.matchAll(/^(#{2,6})\s+([^\n]+)$/gmu))
     .map(m => ({ level: m[1].length, text: sourceText(m[2].replace(/\s+\{#[^}]+\}$/u, '')) }))
     .filter(h => !['Extended Data', 'Tables', 'Author notes', 'Authors and affiliations', 'Author contributions', 'Correspondence', 'References'].includes(h.text));
-  c.equal('orderedBodyHeadings', actual, expected);
-  for (const h of expected) c.truth(`heading.${h.text}`, result.markdown.includes(`${'#'.repeat(h.level)} ${h.text}`), 'Source heading level must remain intact');
+  const projected = actual.map((h, i) => {
+    const source = retained[i];
+    if (!source?.identifier) return h;
+    c.equal(`heading.${source.heading.id}.sourceText`, sourceText(source.node.textContent), source.heading.text);
+    const attached = source.identifier.matches(h.text);
+    c.truth(`heading.${source.heading.id}.scriptAttachment`, attached, 'Retained native heading script must remain attached to its entire original identifier');
+    return { ...h, text: attached ? source.heading.text : h.text };
+  });
+  c.equal('orderedBodyHeadings', projected, expected);
+  for (const h of expected) c.truth(`heading.${h.text}`, projected.some(a => a.level === h.level && a.text === h.text), 'Source heading level must remain intact');
 }
 function assertEquations(context, e, c) {
   const { result } = context, v = e.value;
