@@ -1,0 +1,1125 @@
+{
+  "version": "nature-leading-isotope-coverage-checkpoint/1.0.0",
+  "workContract": 61,
+  "status": "SOURCE_ONLY_RED; production locked; no implementation PR",
+  "acceptedMain": "3889f7396eab99060bec88fc8b0dcd3e6712024e",
+  "dependencyMerge": "cc83c89180875299f362ff6e09bbad7328b1fad5",
+  "source": {
+    "url": "https://www.nature.com/articles/s41467-023-44030-3",
+    "canonical": "https://www.nature.com/articles/s41467-023-44030-3",
+    "doi": "10.1038/s41467-023-44030-3",
+    "title": "C5 methylation confers accessibility, stability and selectivity to picrotoxinin",
+    "journal": "Nature Communications",
+    "observedAt": "2026-10-03T16:44:25.253Z",
+    "bytes": 460171,
+    "sha256": "a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d",
+    "publicAccess": {
+      "articleLabel": "Article Open access Published: 14 December 2023",
+      "jsonLdIsAccessibleForFree": true,
+      "jsonLdSameAs": "https://doi.org/10.1038/s41467-023-44030-3"
+    }
+  },
+  "fixture": {
+    "path": "s41467-023-44030-3.all-leading-masses.excerpt.html",
+    "bytes": 83245,
+    "sha256": "ca8665672f96c5590bb0767cab0448f60305f3b916b8e743e478766975a3ea81",
+    "recipeSha256": "733e4d843d613e887f2184b1cef439c2c7687ff71ae8d3d61d0e7fa570e7677d",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "helper": {
+    "path": "scripts/lib/nature-corpus-infrastructure.mjs",
+    "gitBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+    "gitBytes": 34946,
+    "sha256": "a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c",
+    "schemaVersion": "1.0.0",
+    "recipeVersion": "1.0.0",
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "projectionVersion": "nature-corpus-projection/1.0.0"
+  },
+  "coverage": {
+    "originalRoles": 9,
+    "previouslyUncovered": 6,
+    "allProvenLeadingRoles": 15,
+    "sourceContexts": 7,
+    "completeFigures": 2,
+    "referencePrefix": 43,
+    "creators": 9,
+    "cAcceptedAc86Relationship": "15 = 11 actual isolated mass superscripts + 4 silently backward-bound measurement powers. The other 5 of16 validator errors are 3 compound subscripts and 2 Delta bond labels, outside Issue61.",
+    "unknownElementInference": false
+  },
+  "matrix": [
+    {
+      "id": "results-p0-SUP9",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 0,
+      "sourceSelector": "#Sec2-content > p:first-of-type",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 24198,
+        "startOffset": 153635,
+        "endLine": 1037,
+        "endCol": 24210,
+        "endOffset": 153647,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 24198,
+          "startOffset": 153635,
+          "endLine": 1037,
+          "endCol": 24203,
+          "endOffset": 153640
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 24204,
+          "startOffset": 153641,
+          "endLine": 1037,
+          "endCol": 24210,
+          "endOffset": 153647
+        },
+        "startByte": 153783,
+        "endByte": 153795
+      },
+      "rawParagraphPrehash": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+      "frozenParagraphDigest": "1d03f1991268ca7b64f42caa0f4a5e348594a8d2c129ce9cd756ff5ca7b1359f",
+      "mass": "3",
+      "followingElement": "H",
+      "measurement": null,
+      "bracketed": true,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>3</sup>H",
+      "sourceFragmentSha256": "e7e3281f400d11c8f081a0b97b9aa7aa3730f899d271f73891541a3b1f480e1a",
+      "originalNineCovered": true,
+      "newCoverage": false,
+      "cAcceptedAc86Role": "isolated-leading-mass",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "results-p0-SUP10",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 0,
+      "sourceSelector": "#Sec2-content > p:first-of-type",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 24250,
+        "startOffset": 153687,
+        "endLine": 1037,
+        "endCol": 24262,
+        "endOffset": 153699,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 24250,
+          "startOffset": 153687,
+          "endLine": 1037,
+          "endCol": 24255,
+          "endOffset": 153692
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 24256,
+          "startOffset": 153693,
+          "endLine": 1037,
+          "endCol": 24262,
+          "endOffset": 153699
+        },
+        "startByte": 153835,
+        "endByte": 153847
+      },
+      "rawParagraphPrehash": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+      "frozenParagraphDigest": "1d03f1991268ca7b64f42caa0f4a5e348594a8d2c129ce9cd756ff5ca7b1359f",
+      "mass": "3",
+      "followingElement": "H",
+      "measurement": null,
+      "bracketed": true,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>3</sup>H",
+      "sourceFragmentSha256": "e7e3281f400d11c8f081a0b97b9aa7aa3730f899d271f73891541a3b1f480e1a",
+      "originalNineCovered": true,
+      "newCoverage": false,
+      "cAcceptedAc86Role": "isolated-leading-mass",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "results-p5-fluorine-SUP0",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 5,
+      "sourceSelector": "#Sec2-content > p:has(a#ref-link-section-d76734419e1091)",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 40278,
+        "startOffset": 169715,
+        "endLine": 1037,
+        "endCol": 40291,
+        "endOffset": 169728,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 40278,
+          "startOffset": 169715,
+          "endLine": 1037,
+          "endCol": 40283,
+          "endOffset": 169720
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 40285,
+          "startOffset": 169722,
+          "endLine": 1037,
+          "endCol": 40291,
+          "endOffset": 169728
+        },
+        "startByte": 169936,
+        "endByte": 169949
+      },
+      "rawParagraphPrehash": "b128b77e64328225608d6694938fccf1aed9a9f58a0f7beb1c842d0511999947",
+      "frozenParagraphDigest": "896c0856d4585fd2b2b6df5ba7dd70bdbb466d8b1eb216d7be2d809d411fc605",
+      "mass": "19",
+      "followingElement": "F",
+      "measurement": null,
+      "bracketed": false,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>19</sup>F",
+      "sourceFragmentSha256": "9e52f1ca527f0be5c4e9ebef8efec3ef83d89c9a9f21e423692a603dba8afca0",
+      "originalNineCovered": false,
+      "newCoverage": true,
+      "cAcceptedAc86Role": "isolated-leading-mass",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "results-p5-fluorine-SUP2",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 5,
+      "sourceSelector": "#Sec2-content > p:has(a#ref-link-section-d76734419e1091)",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 41294,
+        "startOffset": 170731,
+        "endLine": 1037,
+        "endCol": 41307,
+        "endOffset": 170744,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 41294,
+          "startOffset": 170731,
+          "endLine": 1037,
+          "endCol": 41299,
+          "endOffset": 170736
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 41301,
+          "startOffset": 170738,
+          "endLine": 1037,
+          "endCol": 41307,
+          "endOffset": 170744
+        },
+        "startByte": 170965,
+        "endByte": 170978
+      },
+      "rawParagraphPrehash": "b128b77e64328225608d6694938fccf1aed9a9f58a0f7beb1c842d0511999947",
+      "frozenParagraphDigest": "896c0856d4585fd2b2b6df5ba7dd70bdbb466d8b1eb216d7be2d809d411fc605",
+      "mass": "19",
+      "followingElement": "F",
+      "measurement": null,
+      "bracketed": false,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>19</sup>F",
+      "sourceFragmentSha256": "9e52f1ca527f0be5c4e9ebef8efec3ef83d89c9a9f21e423692a603dba8afca0",
+      "originalNineCovered": false,
+      "newCoverage": true,
+      "cAcceptedAc86Role": "isolated-leading-mass",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "results-p6-nmr-SUP1",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 6,
+      "sourceSelector": "#Sec2-content > p:has(a#ref-link-section-d76734419e1122)",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 42414,
+        "startOffset": 171851,
+        "endLine": 1037,
+        "endCol": 42426,
+        "endOffset": 171863,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 42414,
+          "startOffset": 171851,
+          "endLine": 1037,
+          "endCol": 42419,
+          "endOffset": 171856
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 42420,
+          "startOffset": 171857,
+          "endLine": 1037,
+          "endCol": 42426,
+          "endOffset": 171863
+        },
+        "startByte": 172091,
+        "endByte": 172103
+      },
+      "rawParagraphPrehash": "77668daf030a601bae26e46af3b5352e4334073e3dbb2d5ed4648cc1a128a975",
+      "frozenParagraphDigest": "a65361c9ac6dceb63aef8ccedf9b90fc9848ba893b35dfb9046c7cc4fa5bd7b9",
+      "mass": "1",
+      "followingElement": "H",
+      "measurement": null,
+      "bracketed": false,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>1</sup>H",
+      "sourceFragmentSha256": "e5f549a8adfbb34d7430d7e505380894268fb60e650bbdd88cb4fe79ed4c551c",
+      "originalNineCovered": false,
+      "newCoverage": true,
+      "cAcceptedAc86Role": "isolated-leading-mass",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "figure3-caption-p7-SUP0",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 7,
+      "sourceSelector": "#figure-3-desc > p",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 48872,
+        "startOffset": 178309,
+        "endLine": 1037,
+        "endCol": 48884,
+        "endOffset": 178321,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 48872,
+          "startOffset": 178309,
+          "endLine": 1037,
+          "endCol": 48877,
+          "endOffset": 178314
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 48878,
+          "startOffset": 178315,
+          "endLine": 1037,
+          "endCol": 48884,
+          "endOffset": 178321
+        },
+        "startByte": 178586,
+        "endByte": 178598
+      },
+      "rawParagraphPrehash": "f153157ebdf38415025030538f00eb00c39f5692bb24fdbff54cc37d5462baed",
+      "frozenParagraphDigest": "8a02db586d4a4ad340dd67722dac0b67b514dbf8133f3bea956b9c2c019bf52b",
+      "mass": "1",
+      "followingElement": "H",
+      "measurement": null,
+      "bracketed": false,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>1</sup>H",
+      "sourceFragmentSha256": "e5f549a8adfbb34d7430d7e505380894268fb60e650bbdd88cb4fe79ed4c551c",
+      "originalNineCovered": false,
+      "newCoverage": true,
+      "cAcceptedAc86Role": "isolated-leading-mass",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "figure5-caption-p15-SUP0",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 15,
+      "sourceSelector": "#figure-5-desc > p",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 66462,
+        "startOffset": 195899,
+        "endLine": 1037,
+        "endCol": 66474,
+        "endOffset": 195911,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 66462,
+          "startOffset": 195899,
+          "endLine": 1037,
+          "endCol": 66467,
+          "endOffset": 195904
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 66468,
+          "startOffset": 195905,
+          "endLine": 1037,
+          "endCol": 66474,
+          "endOffset": 195911
+        },
+        "startByte": 196290,
+        "endByte": 196302
+      },
+      "rawParagraphPrehash": "21ed9ff8a20bc5a6cc7724c2027e9ca7ab3578ee98ecf38e0f3fb39b52336b73",
+      "frozenParagraphDigest": "21ed9ff8a20bc5a6cc7724c2027e9ca7ab3578ee98ecf38e0f3fb39b52336b73",
+      "mass": "3",
+      "followingElement": "H",
+      "measurement": null,
+      "bracketed": true,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>3</sup>H",
+      "sourceFragmentSha256": "e7e3281f400d11c8f081a0b97b9aa7aa3730f899d271f73891541a3b1f480e1a",
+      "originalNineCovered": true,
+      "newCoverage": false,
+      "cAcceptedAc86Role": "isolated-leading-mass",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "results-p20-binding-SUP2",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 20,
+      "sourceSelector": "#Sec2-content > p:has(a[href$=\"#Fig5\"]):has(> sup:nth-of-type(4)):not(:has(> sup:nth-of-type(5)))",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 79880,
+        "startOffset": 209317,
+        "endLine": 1037,
+        "endCol": 79892,
+        "endOffset": 209329,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 79880,
+          "startOffset": 209317,
+          "endLine": 1037,
+          "endCol": 79885,
+          "endOffset": 209322
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 79886,
+          "startOffset": 209323,
+          "endLine": 1037,
+          "endCol": 79892,
+          "endOffset": 209329
+        },
+        "startByte": 209835,
+        "endByte": 209847
+      },
+      "rawParagraphPrehash": "84ce5d602039554b81ef69b4a8801d0e6a6f1dbbaa20ad0c02545136d4c2b56a",
+      "frozenParagraphDigest": "20fc81daafd619e6c28721e07e40f5b7702e6c54e17ca0c3fb1d9ddac891c2f0",
+      "mass": "3",
+      "followingElement": "H",
+      "measurement": null,
+      "bracketed": false,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>3</sup>H",
+      "sourceFragmentSha256": "e7e3281f400d11c8f081a0b97b9aa7aa3730f899d271f73891541a3b1f480e1a",
+      "originalNineCovered": false,
+      "newCoverage": true,
+      "cAcceptedAc86Role": "isolated-leading-mass",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "results-p20-binding-SUP3",
+      "sourceBlockId": "a-section-2",
+      "sourceParagraphIndex": 20,
+      "sourceSelector": "#Sec2-content > p:has(a[href$=\"#Fig5\"]):has(> sup:nth-of-type(4)):not(:has(> sup:nth-of-type(5)))",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 80041,
+        "startOffset": 209478,
+        "endLine": 1037,
+        "endCol": 80053,
+        "endOffset": 209490,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 80041,
+          "startOffset": 209478,
+          "endLine": 1037,
+          "endCol": 80046,
+          "endOffset": 209483
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 80047,
+          "startOffset": 209484,
+          "endLine": 1037,
+          "endCol": 80053,
+          "endOffset": 209490
+        },
+        "startByte": 209996,
+        "endByte": 210008
+      },
+      "rawParagraphPrehash": "84ce5d602039554b81ef69b4a8801d0e6a6f1dbbaa20ad0c02545136d4c2b56a",
+      "frozenParagraphDigest": "20fc81daafd619e6c28721e07e40f5b7702e6c54e17ca0c3fb1d9ddac891c2f0",
+      "mass": "3",
+      "followingElement": "H",
+      "measurement": null,
+      "bracketed": false,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>3</sup>H",
+      "sourceFragmentSha256": "e7e3281f400d11c8f081a0b97b9aa7aa3730f899d271f73891541a3b1f480e1a",
+      "originalNineCovered": false,
+      "newCoverage": true,
+      "cAcceptedAc86Role": "isolated-leading-mass",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "methods-p0-SUP0",
+      "sourceBlockId": "a-section-3",
+      "sourceParagraphIndex": 0,
+      "sourceSelector": "#Sec8-content > p:first-of-type",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 89627,
+        "startOffset": 219064,
+        "endLine": 1037,
+        "endCol": 89639,
+        "endOffset": 219076,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 89627,
+          "startOffset": 219064,
+          "endLine": 1037,
+          "endCol": 89632,
+          "endOffset": 219069
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 89633,
+          "startOffset": 219070,
+          "endLine": 1037,
+          "endCol": 89639,
+          "endOffset": 219076
+        },
+        "startByte": 219639,
+        "endByte": 219651
+      },
+      "rawParagraphPrehash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "frozenParagraphDigest": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "mass": "1",
+      "followingElement": "H",
+      "measurement": "7.26",
+      "bracketed": false,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>1</sup>H",
+      "sourceFragmentSha256": "e5f549a8adfbb34d7430d7e505380894268fb60e650bbdd88cb4fe79ed4c551c",
+      "originalNineCovered": true,
+      "newCoverage": false,
+      "cAcceptedAc86Role": "isolated-leading-mass",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "methods-p0-SUP1",
+      "sourceBlockId": "a-section-3",
+      "sourceParagraphIndex": 0,
+      "sourceSelector": "#Sec8-content > p:first-of-type",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 89656,
+        "startOffset": 219093,
+        "endLine": 1037,
+        "endCol": 89669,
+        "endOffset": 219106,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 89656,
+          "startOffset": 219093,
+          "endLine": 1037,
+          "endCol": 89661,
+          "endOffset": 219098
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 89663,
+          "startOffset": 219100,
+          "endLine": 1037,
+          "endCol": 89669,
+          "endOffset": 219106
+        },
+        "startByte": 219668,
+        "endByte": 219681
+      },
+      "rawParagraphPrehash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "frozenParagraphDigest": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "mass": "13",
+      "followingElement": "C",
+      "measurement": "77.16",
+      "bracketed": false,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>13</sup>C",
+      "sourceFragmentSha256": "a7706c063c579e729cbfc37ed9919f4489175d5649e15232e7b17a7881dc2923",
+      "originalNineCovered": true,
+      "newCoverage": false,
+      "cAcceptedAc86Role": "isolated-leading-mass",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "methods-p0-SUP2",
+      "sourceBlockId": "a-section-3",
+      "sourceParagraphIndex": 0,
+      "sourceSelector": "#Sec8-content > p:first-of-type",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 89714,
+        "startOffset": 219151,
+        "endLine": 1037,
+        "endCol": 89726,
+        "endOffset": 219163,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 89714,
+          "startOffset": 219151,
+          "endLine": 1037,
+          "endCol": 89719,
+          "endOffset": 219156
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 89720,
+          "startOffset": 219157,
+          "endLine": 1037,
+          "endCol": 89726,
+          "endOffset": 219163
+        },
+        "startByte": 219726,
+        "endByte": 219738
+      },
+      "rawParagraphPrehash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "frozenParagraphDigest": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "mass": "1",
+      "followingElement": "H",
+      "measurement": "2.05",
+      "bracketed": false,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>1</sup>H",
+      "sourceFragmentSha256": "e5f549a8adfbb34d7430d7e505380894268fb60e650bbdd88cb4fe79ed4c551c",
+      "originalNineCovered": true,
+      "newCoverage": false,
+      "cAcceptedAc86Role": "silent-measurement-backbinding",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "methods-p0-SUP3",
+      "sourceBlockId": "a-section-3",
+      "sourceParagraphIndex": 0,
+      "sourceSelector": "#Sec8-content > p:first-of-type",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 89740,
+        "startOffset": 219177,
+        "endLine": 1037,
+        "endCol": 89753,
+        "endOffset": 219190,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 89740,
+          "startOffset": 219177,
+          "endLine": 1037,
+          "endCol": 89745,
+          "endOffset": 219182
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 89747,
+          "startOffset": 219184,
+          "endLine": 1037,
+          "endCol": 89753,
+          "endOffset": 219190
+        },
+        "startByte": 219752,
+        "endByte": 219765
+      },
+      "rawParagraphPrehash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "frozenParagraphDigest": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "mass": "13",
+      "followingElement": "C",
+      "measurement": "206.26",
+      "bracketed": false,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>13</sup>C",
+      "sourceFragmentSha256": "a7706c063c579e729cbfc37ed9919f4489175d5649e15232e7b17a7881dc2923",
+      "originalNineCovered": true,
+      "newCoverage": false,
+      "cAcceptedAc86Role": "silent-measurement-backbinding",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "methods-p0-SUP4",
+      "sourceBlockId": "a-section-3",
+      "sourceParagraphIndex": 0,
+      "sourceSelector": "#Sec8-content > p:first-of-type",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 89784,
+        "startOffset": 219221,
+        "endLine": 1037,
+        "endCol": 89796,
+        "endOffset": 219233,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 89784,
+          "startOffset": 219221,
+          "endLine": 1037,
+          "endCol": 89789,
+          "endOffset": 219226
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 89790,
+          "startOffset": 219227,
+          "endLine": 1037,
+          "endCol": 89796,
+          "endOffset": 219233
+        },
+        "startByte": 219796,
+        "endByte": 219808
+      },
+      "rawParagraphPrehash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "frozenParagraphDigest": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "mass": "1",
+      "followingElement": "H",
+      "measurement": "3.31",
+      "bracketed": false,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>1</sup>H",
+      "sourceFragmentSha256": "e5f549a8adfbb34d7430d7e505380894268fb60e650bbdd88cb4fe79ed4c551c",
+      "originalNineCovered": true,
+      "newCoverage": false,
+      "cAcceptedAc86Role": "silent-measurement-backbinding",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    },
+    {
+      "id": "methods-p0-SUP5",
+      "sourceBlockId": "a-section-3",
+      "sourceParagraphIndex": 0,
+      "sourceSelector": "#Sec8-content > p:first-of-type",
+      "sourcePosition": {
+        "offsetConvention": "Zero-based UTF-16 offsets; UTF-8 byte end exclusive; line/column one-based.",
+        "startLine": 1037,
+        "startCol": 89809,
+        "startOffset": 219246,
+        "endLine": 1037,
+        "endCol": 89822,
+        "endOffset": 219259,
+        "startTag": {
+          "startLine": 1037,
+          "startCol": 89809,
+          "startOffset": 219246,
+          "endLine": 1037,
+          "endCol": 89814,
+          "endOffset": 219251
+        },
+        "endTag": {
+          "startLine": 1037,
+          "startCol": 89816,
+          "startOffset": 219253,
+          "endLine": 1037,
+          "endCol": 89822,
+          "endOffset": 219259
+        },
+        "startByte": 219821,
+        "endByte": 219834
+      },
+      "rawParagraphPrehash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "frozenParagraphDigest": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "mass": "13",
+      "followingElement": "C",
+      "measurement": "49.00",
+      "bracketed": false,
+      "attachmentDirection": "following-element",
+      "sourceFragment": "<sup>13</sup>C",
+      "sourceFragmentSha256": "a7706c063c579e729cbfc37ed9919f4489175d5649e15232e7b17a7881dc2923",
+      "originalNineCovered": true,
+      "newCoverage": false,
+      "cAcceptedAc86Role": "silent-measurement-backbinding",
+      "acceptance": "Following mass/element in one expression; source context/order/brackets/measurements preserved; no preceding measurement becomes exponent base"
+    }
+  ],
+  "excludedSuperscriptRoles": [
+    {
+      "sourceSection": "Results",
+      "sourceParagraphIndex": 0,
+      "supIndex": 1,
+      "text": "3",
+      "before": " of 467.61 mcbits packaged into 228 Å",
+      "after": ", to give a density of 2.05 mcbits/Å",
+      "rawParagraphPrehash": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+      "role": "true-trailing-numeric-or-unit-power",
+      "scope": "excluded-from-isotope61"
+    },
+    {
+      "sourceSection": "Results",
+      "sourceParagraphIndex": 0,
+      "supIndex": 2,
+      "text": "3",
+      "before": ", to give a density of 2.05 mcbits/Å",
+      "after": ". Its small volume allows PXN to fit into the narrow space near the desensitization g",
+      "rawParagraphPrehash": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+      "role": "true-trailing-numeric-or-unit-power",
+      "scope": "excluded-from-isotope61"
+    },
+    {
+      "sourceSection": "Results",
+      "sourceParagraphIndex": 0,
+      "supIndex": 6,
+      "text": "3",
+      "before": " to 480.1 ( + 3%), the ligand volume by 14 Å",
+      "after": " ( + 6%), maintains the information density (1.98 mcbits/Å",
+      "rawParagraphPrehash": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+      "role": "true-trailing-numeric-or-unit-power",
+      "scope": "excluded-from-isotope61"
+    },
+    {
+      "sourceSection": "Results",
+      "sourceParagraphIndex": 0,
+      "supIndex": 7,
+      "text": "3",
+      "before": " ( + 6%), maintains the information density (1.98 mcbits/Å",
+      "after": ") and appears to access a hydrophobic pocket defined by residues L259/ T256 (β3 subun",
+      "rawParagraphPrehash": "146a939c2e4551225269d70f3ac93507bdbebc0c85ffb8629ae19c469d164f6c",
+      "role": "true-trailing-numeric-or-unit-power",
+      "scope": "excluded-from-isotope61"
+    },
+    {
+      "sourceSection": "Results",
+      "sourceParagraphIndex": 4,
+      "supIndex": 0,
+      "text": "12,13",
+      "before": "Hydration of the Δ",
+      "after": "-alkene (PXN to PTN) dramatically reduced binding affinity to GABA",
+      "rawParagraphPrehash": "5637b1cf3f747317aae12698db23ae4ff5fa708a47236179d7d2444e93c6bc99",
+      "role": "Delta-bond-position-label",
+      "scope": "excluded-from-isotope61"
+    },
+    {
+      "sourceSection": "Results",
+      "sourceParagraphIndex": 4,
+      "supIndex": 3,
+      "text": "12,13",
+      "before": ") was synthesized in 41% yield. Cobalt catalyzed Δ",
+      "after": "-alkene hydration smoothly proceeded on 6FPXN and 6F5MePXN, delivering ",
+      "rawParagraphPrehash": "5637b1cf3f747317aae12698db23ae4ff5fa708a47236179d7d2444e93c6bc99",
+      "role": "Delta-bond-position-label",
+      "scope": "excluded-from-isotope61"
+    },
+    {
+      "sourceSection": "Results",
+      "sourceParagraphIndex": 11,
+      "supIndex": 3,
+      "text": "5",
+      "before": "ning barriers for picrotoxinin and 5-Me-picrotoxinin roughly translates to a 1.6 × 10",
+      "after": "-fold difference in rate, in good agreement with the experimental differences in rate",
+      "rawParagraphPrehash": "70ba2e4614c9010d2e57050df0f110941b942e8e3e703375e5b8a660629fd6d7",
+      "role": "true-trailing-numeric-or-unit-power",
+      "scope": "excluded-from-isotope61"
+    },
+    {
+      "sourceSection": "Results",
+      "sourceParagraphIndex": 18,
+      "supIndex": 0,
+      "text": "−30",
+      "before": " = 2.95×10",
+      "after": ") and the RDL receptor (",
+      "rawParagraphPrehash": "ad972dc1cda53ec1341248ea6be122dd8252803c8c8fa674652bd51a04ba398f",
+      "role": "true-trailing-numeric-or-unit-power",
+      "scope": "excluded-from-isotope61"
+    },
+    {
+      "sourceSection": "Results",
+      "sourceParagraphIndex": 18,
+      "supIndex": 1,
+      "text": "−31",
+      "before": " = 1.22×10",
+      "after": "). Each distribution except for ",
+      "rawParagraphPrehash": "ad972dc1cda53ec1341248ea6be122dd8252803c8c8fa674652bd51a04ba398f",
+      "role": "true-trailing-numeric-or-unit-power",
+      "scope": "excluded-from-isotope61"
+    },
+    {
+      "sourceSection": "Results",
+      "sourceParagraphIndex": 20,
+      "supIndex": 0,
+      "text": "3",
+      "before": " (247 Å",
+      "after": " vs. 229 Å",
+      "rawParagraphPrehash": "84ce5d602039554b81ef69b4a8801d0e6a6f1dbbaa20ad0c02545136d4c2b56a",
+      "role": "true-trailing-numeric-or-unit-power",
+      "scope": "excluded-from-isotope61"
+    },
+    {
+      "sourceSection": "Results",
+      "sourceParagraphIndex": 20,
+      "supIndex": 1,
+      "text": "3",
+      "before": " vs. 229 Å",
+      "after": ") may exceed the narrow pore volume of the GABA",
+      "rawParagraphPrehash": "84ce5d602039554b81ef69b4a8801d0e6a6f1dbbaa20ad0c02545136d4c2b56a",
+      "role": "true-trailing-numeric-or-unit-power",
+      "scope": "excluded-from-isotope61"
+    }
+  ],
+  "sourceRed": {
+    "command": "node --test test/nature-isotope-mass-coverage.test.mjs",
+    "environment": {
+      "NATURE_ISOTOPE_RECEIPT_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-isotope-mass",
+      "node": "v24.14.1"
+    },
+    "acceptedProductionUnmodified": true,
+    "exitCode": 1,
+    "tests": 25,
+    "pass": 1,
+    "fail": 24,
+    "realContextFailures": 21,
+    "measurementRoleFailures": 3,
+    "skip": 0,
+    "todo": 0,
+    "cancelled": 0,
+    "durationMs": 2131.9855,
+    "logBytes": 76607,
+    "logSha256": "6930c530fc249ebe42a656f953a6e712edeb96cfeb27adf68bc8237441668b37"
+  },
+  "cacheReceipts": [
+    {
+      "dialect": "markdown",
+      "path": "markdown.all-leading-masses.actual-cache.json",
+      "bytes": 265528,
+      "sha256": "fc0fcc83ca0dd860621710f2ac0c0c3e086a87354f6895570297b76ba59dc532",
+      "cacheComplete": true,
+      "clipCalls": 1,
+      "counterfeitMeasurementPowers": [
+        {
+          "measurement": "2.05",
+          "mass": "1",
+          "element": "H",
+          "rendered": "$2.05^{1}$ H NMR",
+          "syntacticallyValid": true
+        },
+        {
+          "measurement": "206.26",
+          "mass": "13",
+          "element": "C",
+          "rendered": "$206.26^{13}$ C NMR",
+          "syntacticallyValid": true
+        },
+        {
+          "measurement": "3.31",
+          "mass": "1",
+          "element": "H",
+          "rendered": "$3.31^{1}$ H NMR",
+          "syntacticallyValid": true
+        },
+        {
+          "measurement": "49.00",
+          "mass": "13",
+          "element": "C",
+          "rendered": "$49.00^{13}$ C NMR",
+          "syntacticallyValid": true
+        }
+      ],
+      "warnings": [
+        "No equation nodes were detected."
+      ],
+      "resourceCounts": {
+        "tables": 0,
+        "figures": 2,
+        "references": 43
+      },
+      "validators": {
+        "math": false,
+        "mathIssueCount": 13,
+        "isolatedMassCount": 11,
+        "independentCompoundSubscripts": 2,
+        "structure": true,
+        "rawHtml": true,
+        "crossReferences": true
+      }
+    },
+    {
+      "dialect": "links",
+      "path": "links.all-leading-masses.actual-cache.json",
+      "bytes": 272024,
+      "sha256": "4aa58f9fd103e86b2bca0fd81e8c53d13ddc856da5b654a1b2ac7eed6a3c5a5d",
+      "cacheComplete": true,
+      "clipCalls": 1,
+      "counterfeitMeasurementPowers": [
+        {
+          "measurement": "2.05",
+          "mass": "1",
+          "element": "H",
+          "rendered": "$2.05^{1}$ H NMR",
+          "syntacticallyValid": true
+        },
+        {
+          "measurement": "206.26",
+          "mass": "13",
+          "element": "C",
+          "rendered": "$206.26^{13}$ C NMR",
+          "syntacticallyValid": true
+        },
+        {
+          "measurement": "3.31",
+          "mass": "1",
+          "element": "H",
+          "rendered": "$3.31^{1}$ H NMR",
+          "syntacticallyValid": true
+        },
+        {
+          "measurement": "49.00",
+          "mass": "13",
+          "element": "C",
+          "rendered": "$49.00^{13}$ C NMR",
+          "syntacticallyValid": true
+        }
+      ],
+      "warnings": [
+        "No equation nodes were detected."
+      ],
+      "resourceCounts": {
+        "tables": 0,
+        "figures": 2,
+        "references": 43
+      },
+      "validators": {
+        "math": false,
+        "mathIssueCount": 13,
+        "isolatedMassCount": 11,
+        "independentCompoundSubscripts": 2,
+        "structure": true,
+        "rawHtml": true,
+        "crossReferences": true
+      }
+    },
+    {
+      "dialect": "quarto",
+      "path": "quarto.all-leading-masses.actual-cache.json",
+      "bytes": 248020,
+      "sha256": "d272998a68a79ef7e16d1602ccdff211a75ef65ba6c118ddfa6cd94efc31b6b1",
+      "cacheComplete": true,
+      "clipCalls": 1,
+      "counterfeitMeasurementPowers": [
+        {
+          "measurement": "2.05",
+          "mass": "1",
+          "element": "H",
+          "rendered": "$2.05^{1}$ H NMR",
+          "syntacticallyValid": true
+        },
+        {
+          "measurement": "206.26",
+          "mass": "13",
+          "element": "C",
+          "rendered": "$206.26^{13}$ C NMR",
+          "syntacticallyValid": true
+        },
+        {
+          "measurement": "3.31",
+          "mass": "1",
+          "element": "H",
+          "rendered": "$3.31^{1}$ H NMR",
+          "syntacticallyValid": true
+        },
+        {
+          "measurement": "49.00",
+          "mass": "13",
+          "element": "C",
+          "rendered": "$49.00^{13}$ C NMR",
+          "syntacticallyValid": true
+        }
+      ],
+      "warnings": [
+        "No equation nodes were detected."
+      ],
+      "resourceCounts": {
+        "tables": 0,
+        "figures": 2,
+        "references": 43
+      },
+      "validators": {
+        "math": false,
+        "mathIssueCount": 13,
+        "isolatedMassCount": 11,
+        "independentCompoundSubscripts": 2,
+        "structure": true,
+        "rawHtml": true,
+        "crossReferences": true
+      }
+    }
+  ],
+  "cOriginalComparisonReceipts": [
+    {
+      "dialect": "markdown",
+      "acceptedBase": "ac86b2fa509653dfeb43b968472ce6280a51de2c",
+      "comparisonBytes": 65990,
+      "comparisonSha256": "300a8bb1bc4a1ae08350fa611de677c6a7d15f7f3c7dcba77c1fb310a2766291",
+      "markdownBytes": 50962,
+      "markdownSha256": "8ae7b29a7301dd79fedf270227a964ae19cb31589e22c96fc5a3a61d2b0a782b",
+      "totalMathIssues": 16,
+      "trailingCompoundSubscripts": 3,
+      "leadingMassOrphans": 11,
+      "DeltaBondLabels": 2,
+      "measurementRoleErrorsOutsideValidatorCount": 4
+    },
+    {
+      "dialect": "links",
+      "acceptedBase": "ac86b2fa509653dfeb43b968472ce6280a51de2c",
+      "comparisonBytes": 103160,
+      "comparisonSha256": "b95ae4813dddf91f922f6c1dba761ac768f6ce25d9a6d248cf8f09ecb6cd3f79",
+      "markdownBytes": 53160,
+      "markdownSha256": "540f37e8a3eeccb82a074b095e852bb782708f8d08c1e73e060227a1372c51be",
+      "totalMathIssues": 16,
+      "trailingCompoundSubscripts": 3,
+      "leadingMassOrphans": 11,
+      "DeltaBondLabels": 2,
+      "measurementRoleErrorsOutsideValidatorCount": 4
+    },
+    {
+      "dialect": "quarto",
+      "acceptedBase": "ac86b2fa509653dfeb43b968472ce6280a51de2c",
+      "comparisonBytes": 75805,
+      "comparisonSha256": "3cb21faf389854e9a86528f7ded6fa94a4c936e1e5d602ae035c78023fcfbc2b",
+      "markdownBytes": 40866,
+      "markdownSha256": "ed589c8b5af667dc811a415bc302f90e0a167c42fff7a55483906d6632f1c596",
+      "totalMathIssues": 16,
+      "trailingCompoundSubscripts": 3,
+      "leadingMassOrphans": 11,
+      "DeltaBondLabels": 2,
+      "measurementRoleErrorsOutsideValidatorCount": 4
+    }
+  ],
+  "firstInvalidState": {
+    "adapter": "Original numeric SUP immediately before actual following H/C/F is not protected as a typed leading role. SUP and source element survive cleaned HTML/captionHtml.",
+    "defuddle": "Actual whole-body conversion introduces spacing between SUP and element; complete captions preserve their own existing converter path.",
+    "normalization": "normalizeMath leaves the untyped leading SUP. normalizeAcademicInline renders orphan superscripts; combineLiteralPowers can then bind the four masses to preceding measurements.",
+    "history": "Original b886 diagnosis and actual e2/6b replay preserved; this is not newly introduced by3889. No repeat historical module execution."
+  },
+  "unappliedProposal": {
+    "productionPath": "src/adapters/nature.mjs",
+    "gate": "LOCKED to Issue60; no edit authorized this round",
+    "mechanism": "At original DOM typed-scientific protection, start Range at the proven leading numeric SUP and end at immediately following source element H/C/F, leaving previous measurement/source whitespace outside. Reuse existing scientific marker/serializer; do not infer isotope from global Markdown spaces or classify arbitrary uppercase letters.",
+    "compatibility": "Preserve true numeric/unit powers, Delta/bond-position labels, ordinary styled attachments, two citation-SUP cues, unknown prefix/words, code and existing opaque math; final production eligibility needs independent review and permanent boundary controls.",
+    "independentFailures": "Current complete paragraphs retain Fe2(ox)3 and (CD3)2CO trailing group subscripts; C still contains Pb(OAc)4 and two Delta bond-label failures. They remain separate scoped prerequisites."
+  },
+  "verification": {
+    "sourceRawReacquisition": false,
+    "sourceHelperCopied": false,
+    "oldNineAuditRepeated": false,
+    "projectionRegenerationRepeatIdempotent": true,
+    "productionEdited": false,
+    "fullRun": false,
+    "buildRun": false,
+    "goldenRun": false,
+    "implementationPR": false,
+    "freshBranchCI": false,
+    "newProjectionClipCalls": 3,
+    "undeclaredHTTP": 0,
+    "DNS": 0,
+    "writer": 0
+  },
+  "consumerGate": "Before implementation, independent other-owner audit of this final all15 recipe/source and role oracle. After released production, all15 rendered roles/negative controls/validators/fresh checks and accepted merged Main must pass; C then reruns its unchanged mandatory chemistry consumer. This checkpoint does not unblock it."
+}
