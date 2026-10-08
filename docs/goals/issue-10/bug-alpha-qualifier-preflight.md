@@ -1,6 +1,6 @@
 # Issue #71 — qualified metric 合成边界预检与最小计划
 
-状态：**PREFLIGHT_ONLY / 生产等待 root 释放**。本阶段只新增 test/doc；没有修改 `src/`、吸收 dependency commits、打开 PR 或修复真实 RED。分支仍为 `codex/issue-10-bug-alpha-qualifier`，工作目录为 `C:/Users/guoli/.codex/worktrees/issue-10-bug-alpha-qualifier/academic-clipper`，来源交接 head `c701894bac719ec8c5ae83d45c1d89ffa86cf240`。
+状态：**PREFLIGHT_ONLY / 生产等待 root 释放**。本阶段仅 test/doc 变更；没有修改 `src/`、吸收 dependency commits、打开 PR 或修复真实 RED。分支仍为 `codex/issue-10-bug-alpha-qualifier`，工作目录为 `C:/Users/guoli/.codex/worktrees/issue-10-bug-alpha-qualifier/academic-clipper`，来源交接 head `c701894bac719ec8c5ae83d45c1d89ffa86cf240`。
 
 ## 契约与复用证据
 
@@ -35,7 +35,7 @@ Independent `SOURCE_PROJECTION_CLEAR_ONLY` 只清除来源/provenance/oracle gat
 
 ## 实际 accepted-baseline 运行
 
-Root 提供的 accepted main 为 `134ba67a9eefe8763314454183a625f83a34837b`（其 Main/Secrets接纳由 root 管理）。本 source 分支没有 merge/adopt/rebase：只用 `git show <SHA>:<path>` 原 bytes在**自身 ignored** `node_modules/.issue71-preflight-accepted134/src` 快照中导入 Nature 与三个直接依赖。未使用 pending #67 implementation。
+Root 提供的 accepted main 为 `134ba67a9eefe8763314454183a625f83a34837b`（其 Main/Secrets接纳由 root 管理）。本 source 分支没有 merge/adopt/rebase：原运行只用 `git show <SHA>:<path>` 原 bytes在逻辑 `node_modules/.issue71-preflight-accepted134/src` 快照中导入 Nature 与三个直接依赖。独立 review 已确认该 `node_modules` 是 junction，物理 target 为 `C:/Users/guoli/.codex/worktrees/issue-10-offline/academic-clipper/node_modules`；因此原快照实际位于 Agent C checkout，不是本 checkout 的物理私有目录。原运行未使用 pending #67 implementation。
 
 | accepted Git src blob | bytes | SHA256 |
 | --- | ---: | --- |
@@ -50,11 +50,33 @@ Node `v24.14.1`，executable `C:/nvm4w/nodejs/node.exe`。唯一新矩阵运行�
 node C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue71-preflight/run-accepted-synthetic.mjs
 ```
 
-Wrapper 验证快照/复用报告 bytes 后，以 `NATURE_ALPHA_QUALIFIER_SRC_ROOT=<自身 ignored snapshot>/src` 执行实际 `node --test test/nature-alpha-qualifier-boundaries.test.mjs`。**exit1；28 tests /22 PASS /6 FAIL /0 skipped；834.1929ms**。新 test 输入7018 bytes/SHA `7d18f5a313915d35d39813a4bd57616743a2ef3e2e82fa0b2031afd0cb6a55c2`。实际 stdout/stderr 保存外部 `accepted134-synthetic.log`，SHA `342d32681f0248010035d00adcbaa8d09cfd0cb85301f137fcf5ebb3d3c48bb1`；完整 command/env/runtime/src/input hashes见同目录 `accepted134-receipt.json`。
+Wrapper 验证快照/复用报告 bytes 后，以 `NATURE_ALPHA_QUALIFIER_SRC_ROOT=<原逻辑 snapshot>/src` 执行实际 `node --test test/nature-alpha-qualifier-boundaries.test.mjs`。**exit1；28 tests /22 PASS /6 FAIL /0 skipped；834.1929ms**。该历史 test 输入7018 bytes/SHA `7d18f5a313915d35d39813a4bd57616743a2ef3e2e82fa0b2031afd0cb6a55c2`，不当作下述 precision 修订后的测试身份。实际 stdout/stderr 保存外部 `accepted134-synthetic.log`，SHA `342d32681f0248010035d00adcbaa8d09cfd0cb85301f137fcf5ebb3d3c48bb1`；完整 command/env/runtime/src/input hashes见同目录 `accepted134-receipt.json`。
 
 六个 FAIL 均在完整 scientificRuns 断言证明 missing qualified metric：四正例/typed-citation case得到 `[]`；body/caption case仅已有 `N_{res}`。没有 harness failure、after-hook failure或 undeclared HTTP/DNS attempt；全部 returned DOM 关闭，函数 identity恢复。22 个边界/opaque controls PASS。
 
 限制：typed-citation 的后续 citation-number 断言、body/caption 的后续 marker/order/multiplicity/measurement assertions，因第一条真实 RED 尚未到达，**尚未 runtime证明**；修复后必检。真实 source58 clips、source/cache checks、full/build/golden/npmci、其他 owner suites及 PR/CI本轮未运行，因仅新 synthetic preflight且未授权生产阶段。不将新矩阵与原 source registry加总成一轮测试结果。
+
+## 独立 P2 oracle precision 修订与外部隔离
+
+独立只读报告 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue71-plan-independent-review/plan-review-405a93c-PRECISION.md` 为6352 bytes / SHA256 `ae0ed577d1caa3d205bdf09c7c42482a8262fe422a7a9b6ce61bc3fd24cb7dc8`。其 P2 指出：原 source recognizer 与新 matrix map 都删除所有 braces，错误地将 `\mathrm{r.m.s.d.}_{9}5`、无分组 `r.m.s.d._95` 和完整 `\mathrm{r.m.s.d.}_{95}` 视为同一角色。前两者只有9在下标内；这是 test bug，不是已经观察到 production 输出这两种错误的证据。
+
+修订新增 test-only `test/helpers/nature-alpha-qualifier-oracle.mjs` 和独立 pure-string test，由原真实 source test 和合成 matrix 共同使用 helper。限定角色要求整个 literal `r.m.s.d.` 与精确 grouped `_{95}`；只接受既有 `\mathrm`/`\text`/`\mathit` base wrappers，保留原 Unicode `r.m.s.d.₉₅` source 支持。没有删除 braces/whitespace 或吞入测量值、额外 script、错值。完整 ordered run array 仍逐个比较；合成矩阵 expected metric 明确为 `r.m.s.d._{95}`，未通过筛选 runs 隐藏错误。既有 `N_{res}` 与空 I 的 `_{95}` 单独比较为 `N_res`/`_95`，其他 run 原样返回；没有 generic normalization 或 oracle/fixture 数值变化。
+
+唯一新运行：`node C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue71-preflight/run-oracle-precision.mjs`，wrapper 执行 `node --test test/nature-alpha-qualifier-oracle.test.mjs`，设置 `NATURE_ALPHA_QUALIFIER_CACHE_ROOT=C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-alpha-qualifier`。Node `v24.14.1` / `C:/nvm4w/nodejs/node.exe`；**exit0，4 tests /4 PASS /0 FAIL /0 skipped/cancelled/todo，59.1156ms**。三项 pure-string controls 接受完整 grouped95/font wrappers/原 Unicode，拒绝 split/unbraced/extra/mismatch/measurement/whitespace，并验证独立 inherited roles 和完整数组顺序。第四项只读原三方言 same-run cache，逐份核验原 SHA，确认原段落各4个 `r.m.s.d.$_{95}$` 仍被拒绝。没有导入原 top-level source test、matrix、parser、clip 或 source helper；没有新 DOM/source parse、原28/source3 rerun、A/raw/source58 audit、full/build/golden/npmci/live/CI。
+
+同目录外部记录：
+
+| 记录 | bytes | SHA256 |
+| --- | ---: | --- |
+| `oracle-precision.log` | 488 | `e9eefcf3e0af58840131be854b8ead96875e54328fca9698a4d9f1575d615ec1` |
+| `oracle-precision-receipt.json` | 1094 | `d6efabdc45952555280dcf0c8aa83b21e83c49cfcc46991f3add028727852c87` |
+| `snapshot-isolation-receipt.json` | 3669 | `88e82dd7f3cbd928fe132961c4934a77d4d58ea5b225aebf2925782d5e5af1ea` |
+
+精确四个旧 snapshot 文件只读后复制到 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue71-preflight/accepted-134ba67/src`；逐文件 bytes/SHA 与上表和原 receipt 完全一致，未重建 source。外部 `accepted-134ba67/node_modules` junction 仅作未来 read-only dependency lookup，target 为既有 Agent C `node_modules`；创建/写入都在外部 Temp，没有对 target 的 package/source/index 写入。未来授权使用该历史 accepted134 snapshot 时，`NATURE_ALPHA_QUALIFIER_SRC_ROOT` 应指向此 external `src`；届时 latest accepted main 仍由 root 决定，不用旧134冒充最新。
+
+原 snapshot 四文件保留 untouched，等 root 协调后续维护；未通过他人 junction 删除或改权限。原 wrapper、receipt/log 及其 runtime/input/逻辑 path/hash 完整保留为历史记录，旧 wrapper 不再执行。`accepted134-receipt.json`2169 bytes/SHA `770ebba74abbcf933ce3e19303bae05d5c7d68ebe55e80ed16f234dff87bab53`、log10330 bytes/SHA `342d32681f0248010035d00adcbaa8d09cfd0cb85301f137fcf5ebb3d3c48bb1` 均未改。外部隔离 receipt 记录每个 original physical/external file path、identity 和原 wrapper2774 bytes/SHA `de0363266db3ee4f6fd46d5c826b1bb10aa696ab34a1c0d5a5700c140a6045aa`。
+
+当前仍是 test/doc checkpoint，等 root 对 precision delta 独立只读验收与未来生产释放。修订后的原 source test/matrix 尚未运行；production whole-pipeline GREEN、原四 role 三方言、citation/marker 后续断言及所有严格交付 gates 均未完成。没有 PR、merge、CI、Issue/API type 重分类或来源 gate 重审；#67/#68 Nature production 锁次序保持。
 
 ## 最小生产计划（尚未实施）
 

@@ -10,6 +10,7 @@ import {JSDOM} from 'jsdom';
 import {clipNature} from '../src/clip.mjs';
 import {normalizeMath} from '../src/normalizers/math.mjs';
 import {normalizeAcademicInline} from '../src/normalizers/academic-inline.mjs';
+import {attachedQualifiers} from './helpers/nature-alpha-qualifier-oracle.mjs';
 
 const fixtureRoot=new URL('./fixtures/nature-alpha-qualifier/',import.meta.url);
 const provenance=JSON.parse(await readFile(new URL('s41586-021-03819-2.provenance.json',fixtureRoot),'utf8'));
@@ -45,19 +46,6 @@ const plain=value=>String(value).replace(/\[([^\]]+)\]\([^\n]*?\)/gu,'$1')
  .replace(/\\([\[\]{}|.-])/gu,'$1').replace(/[_{}*]/gu,'').replace(/\u00a0/gu,' ').replace(/\s+/gu,' ').trim();
 function paragraph(result){const p=result.markdown.split('\n').filter(line=>line.startsWith('In CASP14, AlphaFold structures were vastly more accurate'));
  assert.equal(p.length,1,'One complete original source paragraph');return p[0];}
-function attachedQualifiers(value){
- const roles=[];
- // Prose projection is checked separately; this recognizer requires the whole
- // literal base and qualifier in the SAME math atom, or literal Unicode SUB.
- // Removing delimiters before this check would falsely accept r.m.s.d.$_{95}$.
- for(const m of value.matchAll(/(?<!\$)\$([^$\n]+)\$(?!\$)/gu)){
-  const tex=m[1].replace(/\\(?:mathrm|text|mathit)\{([^{}]*)\}/gu,'$1').replace(/\\[,;!]|\\quad/gu,'').replace(/[{}\s]/gu,'');
-  if(/^r\.m\.s\.d\._95$/u.test(tex))roles.push({literalBase:'r.m.s.d.',script:'subscript',value:'95'});
- }
- for(const m of value.matchAll(/r\.m\.s\.d\.₉₅/gu))roles.push({literalBase:'r.m.s.d.',script:'subscript',value:'95'});
- return roles;
-}
-
 test('Alpha qualifier fixture preserves complete source paragraph, targets and lawful zero reference prefix',()=>{
  const dom=new JSDOM(html);try{
   const p=dom.window.document.querySelector(oracle.paragraph.rawSelector);

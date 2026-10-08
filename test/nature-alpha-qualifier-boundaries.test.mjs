@@ -4,6 +4,7 @@ import { syncBuiltinESMExports } from 'node:module';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { after, before, test } from 'node:test';
+import { normalizeQualifierRun } from './helpers/nature-alpha-qualifier-oracle.mjs';
 
 // Synthetic DOM/prose scaffolds only: no scholarly fixture or corpus admission.
 const url = 'https://www.nature.com/articles/synthetic-qualified-metric';
@@ -47,8 +48,7 @@ function withPage(content, inspect) {
   opened += 1;
   try { inspect(page); } finally { page.dom.window.close(); closed += 1; }
 }
-const metricTex = tex => String(tex).replace(/\\(?:mathrm|text|mathit)\{([^{}]*)\}/gu, '$1').replace(/[{}]/gu, '');
-const allRuns = page => page.semantic.scientificRuns.map(run => metricTex(run.tex));
+const allRuns = page => page.semantic.scientificRuns.map(run => normalizeQualifierRun(run.tex));
 const expectRuns = (content, expected) => withPage(content, page => assert.deepEqual(allRuns(page), expected));
 
 for (const [name, content] of [
@@ -58,7 +58,7 @@ for (const [name, content] of [
   ['source nonbreaking space', `<p>Start&nbsp;${metric} end.</p>`],
 ]) {
   test(`synthetic qualified metric keeps complete base and original qualifier: ${name}`, () => {
-    expectRuns(content, ['r.m.s.d._95']);
+    expectRuns(content, ['r.m.s.d._{95}']);
   });
 }
 
@@ -113,7 +113,7 @@ test('synthetic qualified metric leaves both typed citation cues separate', () =
     + `${metric}<sup><a href="#ref-CR2">2</a></sup>.</p>`
     + '<ol class="c-article-references"><li id="ref-CR1"><p>Synthetic reference one.</p></li>'
     + '<li id="ref-CR2"><p>Synthetic reference two.</p></li></ol>', page => {
-    assert.deepEqual(allRuns(page), ['r.m.s.d._95', 'r.m.s.d._95']);
+    assert.deepEqual(allRuns(page), ['r.m.s.d._{95}', 'r.m.s.d._{95}']);
     assert.deepEqual(page.semantic.citations.map(citation => citation.numbers), [[1], [2]]);
   });
 });
@@ -123,7 +123,7 @@ test('synthetic body and caption use shared nonzero markers in exact role order'
     + '<figure id="FigSynthetic"><img src="https://media.springernature.com/synthetic.png" alt="Synthetic scaffold">'
     + '<figcaption><h3>Synthetic caption.</h3>'
     + `<p>Start ${metric} end.</p></figcaption></figure>`, page => {
-    assert.deepEqual(allRuns(page), ['N_res', 'r.m.s.d._95', 'r.m.s.d._95']);
+    assert.deepEqual(allRuns(page), ['N_res', 'r.m.s.d._{95}', 'r.m.s.d._{95}']);
     assert.deepEqual(page.semantic.scientificRuns.map(run => run.marker), [
       'ACADEMICCLIPPERSCIENTIFICRUN0X', 'ACADEMICCLIPPERSCIENTIFICRUN1X', 'ACADEMICCLIPPERSCIENTIFICRUN2X',
     ]);
