@@ -15,21 +15,22 @@
 
 ## DAG / 文件所有权
 
-当前 checkpoint（2026-10-08 02:28 UTC；以下 startup 表为历史）：
+当前 checkpoint（2026-10-08 UTC；以下 startup 表及正文执行日志为历史；accepted main `73d6cfafba9bb33149959e315ab29b5b0bc24d75`）：
 
 | Node | State | Exact checkpoint / remaining dependency |
 | --- | --- | --- |
 | A / B immutable source inputs | DONE | A reviewed actual e56 interface；B b718fa8 source-only；nine articles/four resources/85 expectations |
-| C assertion framework / oracle audit | DONE for implementation | 9c5容器consumer独立clear；clean779fc handoff/84cdaccepted依赖；a5bChemistry27source/3repeat实际PASS，math5/全255仍未通过 |
+| C assertion framework / oracle audit | DONE for implementation | reviewed9c5/API1.0；clean791d2 handoff/12ec accepted依赖；73d6 Quantum30source/3repeat实际PASS，math17 Greek FAIL；其他225source记录历史，当前全255/27未验收 |
 | D seam / controller review | DONE for implementation | exact4649 independent zero blockers；最终真实source-controller acceptance DEPENDENCY_PENDING |
 | Footer45、caption47、units48、tableMathJax51、literal53、sparse55、citation56 | DONE | 各独立PR与成功mergedMain receipts见后续历史；accepted mainac86 |
 | styled-adjacency57 / PR62 | DONE | exact183ec4独立zero blockers与十门槛通过；squash3889f73，Main37691610523与Secrets成功、57 automation completed |
 | table-caption60 | DONE | PR66 exact3a7ab0b独立zero findings与十门槛通过，squashe2c1fad；mergedMain37707702765/Secrets37707702972 SUCCESS，60automationCOMPLETED |
 | leading-isotope61 | DONE | PR69 exacte88独立零阻塞及十门槛通过；squasha5b6acc；Main37716530268/Secrets37716530267SUCCESS；61automationCOMPLETED |
-| Greek / split-power source contracts | DONE for source inputs | Greek64 cleanfcb116e / split63 clean4376aa8；两新projection独立CLEAR，production gate仍锁 |
-| reference2 literal inequality | RUNNING independent review / CI | PR70 exactecc46/f740code；36focused/43affected/full640/build/golden PASS；source30复用；freshCI37720683740运行中、Secrets成功 |
-| Materials identifier68 / compound-unit67 | DONE for source inputs | 67 exact9610923的99block、68 exactd501e4的81block均独立SOURCE_CLEAR_ONLY；两者production仍pending |
-| Other mandatory scientific / Ref2 roles | PENDING | C冻结历史source evidence；需各独立窄合同/正确覆盖，不计现有PASS |
+| split-power63 / PR76 | DONE | final993/737full/十门槛；squash73d6 Main37734814590与Secrets SUCCESS；63 automation completed；C actual拆分SUP归零 |
+| reference2 literal inequality65 / PR70 | DONE | final7c32/676full/十门槛；squashf4a5 Main37725961177与Secrets SUCCESS；65 automation completed |
+| Greek64 | RUNNING required full verification | code07be + DOC7dd012，93focused PASS / independent8delta PASS零阻塞；120source审核复用；唯一Nature production owner，full/build/golden已root release，尚无PR |
+| Materials identifier68 / compound-unit67 | DONE for source inputs / production pending | 67 clean961092的99block、68 cleand501e4的81block均独立SOURCE_CLEAR_ONLY；67仅新preflight并行，Nature写权等待64 accepted Main |
+| Other mandatory scientific71–75 | DONE for source inputs / production pending | 独立各来源清关与真实RED已保存；正确roles仍必须修复，按窄合同串行Nature生产，不重做有效采集/审核 |
 | Integrator / full corpus / final PR | PENDING | mandatory source/validators未全通过，startgate未达；最终单PR必须unmerged |
 
 当前 host 并发上限为 4（含 orchestrator）。优先同时运行 C、D、table-footer bug；其余节点在名额空出并满足 dependency 后启动，重复恢复同一 C / D child。
