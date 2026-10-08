@@ -1,6 +1,6 @@
 # Agent C — 来源核验与离线回归检查点
 
-状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线为 accepted `a5b6acc2984af5cb8b82106291e963f4f413f5ac`（PR #69 / Issue #61），通过 dependency-only `84cd04e7ced048f5375fac5cb608fd0b75555263` 接入。C-owned `9c5c3ff9f232ecc3d9eb03b579fb04eef45a4fce` citation consumer 已经独立审查零阻塞；API/schema仍 `1.0.0`。最新实际 Chemistry27来源/3repeat PASS，math每方言5FAIL，37tests30PASS7FAIL，见文末。下述 d99340tests/85行map/252–3是保留历史，consumer-only与新实际生产scope分开；不宣称最新255/27全验收。
+状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前生产基线为 accepted `f4a5f2ad74546ea54b990c6080e480871ee98e09`（PR #70 / Issue #65），通过 dependency-only `99282d167c400d556fd115ae049466a716b63dff` 接入。C-owned `9c5c3ff9f232ecc3d9eb03b579fb04eef45a4fce` citation consumer 已经独立审查零阻塞；API/schema仍 `1.0.0`。最新实际 Materials27来源/3repeat PASS，三方言 rawHtml PASS，math每方言10FAIL，37tests30PASS7FAIL；前一 Chemistry27来源/3repeat PASS、math每方言5FAIL 保持历史 scope，见文末。下述 d99340tests/85行map/252–3是保留历史，consumer-only与新实际生产scope分开；不宣称最新255/27全验收。
 
 本轮仅复验 Quantum `s41534-023-00746-0` × 三方言：30 条来源记录 27 PASS / 3 FAIL；3 个 Markdown / Bib / semantics / replay repeat 全部 PASS。实际 session22332：40 tests = 30 PASS / 10 FAIL，0 skip / todo / cancel，43,193.7263ms。10 FAIL 包含 3 个 citation 子测试、3 个 validator 子测试、3 个 parents 及 receipt 缺 24 个组合的硬 FAIL。每方言完整 source-crossrefs 已恢复；原 12 个 table-caption MathJax 产生的 24 legacy delimiter issues 消失。其余 math 仍 19 issues（17 Greek isolatedSubscript、2 split isolatedSuperscript），整篇不通过。
 
@@ -683,3 +683,59 @@ Root 释放后独立读取 Main `37716530268`：同一 merged SHA `a5b6acc2984af
 | quarto | 53168 / 71ced20b6f12c9aa95a9db6e00618793230470aa3d80f90ec8d3d7265749edba | 40863 / 964045dfcb3281926ac468c5da304e84c42989c3c81adfcdd578a170499e9b0b |
 
 C保持DEPENDENCY_PENDING；等待独立Δ/group、Quantum Greek/split、Materials identifier/compound/reference及Alpha/FRB各required roles的accepted修复后继续必要delta，最终再执行固定combinedhead的canonical全255/27/repeat/ABA/resources/golden/npmchecks/CI。不得删除困难source、降低期待、把known失败计成通过，或打开Issue #10部分普通PR。没有spec changes。
+
+## Accepted f4a5 Reference literal — Materials 实际增量执行
+
+Root 确认 PR #70 的 merged main 后，C independently readback Main `37725961177` / Secrets `37725961084` 的同一 SHA `f4a5f2ad74546ea54b990c6080e480871ee98e09`：Ubuntu20 job `113144056165`（04:16:39Z）、Ubuntu24 `113144056319`（04:14:41Z）、Windows24 `113144056321`（04:17:33Z）均 completed/success，Secrets success。Fetch 后 origin/main 同 SHA；non-destructive dependency merge `99282d167c400d556fd115ae049466a716b63dff` 接入，保留全部 C authored originals。没有消费未 accepted head，也未选择其他 agent 的 whole branch。后续本节 DOCONLY commit 的最终 HEAD 由交接消息标识；integrator 从 accepted main 开始，不将 dependency merge 当作 C authored delivery。
+
+Preflight 的32个 protected Git objects（29 corpus files、C helper、corpus test、golden test）全部与 `779fc99c4a6ffa55672da08ac6226c6b906f36f6` 相同。Helper blob `f9144ce6f40653061ee57164d6612860c47da981`，test `9530e0f194f78cc7d0ff9a9e98fb4b660873585f`，golden test `74b776eece94dc8402844ed1edc95fd6847250a4`；沿用独立 reviewed 9c5 / API1.0。B attribution 后补 source-evidence rights 的既有继承差异保持原状，最终 integrator 必须先选择完整 B ordered commits；此轮不修改 fixture、manifest、scientific oracle、consumer、validator 或生产代码。
+
+准确执行 `s41586-023-06735-9` 的3 source parents 与3repeat，9 IDs为 source-metadata-v1、source-abstract-v1、source-headings-v1、source-equations-v1、source-figures-v1、source-citations-v1、source-inline-v1、source-crossrefs-v1、source-ui-v1。Actual session `45303` confirmed live 后同 handle terminal **exit1**：37tests=30PASS/7FAIL，16356.5531ms，0skip/cancel/todo。**27来源 records全部 PASS；3repeat 的 Markdown/Bib/semanticSummary/replay ledger 全部 PASS。** 七个 FAIL 为三 math validator 子测试、三个 parents 与 after 缺24 combos 的硬 FAIL。没有重新启动或运行其他文章，实际3baseline+3repeat共六次 clips。
+
+所有四 production validators 在 source comparison 中实际执行：三方言 math均FAIL、structure/rawHtml/crossReferences均PASS。每方言恰好10 `scientific-isolatedSuperscript`，其他 fragment counts零；warnings exact `[]`，missing/unexpected为[]；resources[]，baseline ledger requests/resolutions/unexpected均[]。Repeat test已严格比较全部 ledger 等值；repeat完整result没有另存，不能声称存在独立repeat缓存。现有 a9 after hook 保存同次3baseline comparison（含全部 expectation/summary/四validators/strictwarnings）与3Markdown；after `records=3`、`missing=24`、`errors=[]`、`unexpected=[]`、`complete=false`，硬FAIL原样保留。它们不是完整 Defuddle DOM/result。缓存 postcheck 没有再clip。
+
+Issue #65 的真实解除证据：links `rawHtml.valid` 从历史3889的false变为true。最终 Reference2 line411保留原 title，通过 literal `&lt;` 编码得到 `(0&lt;x&lt;-1)`；读取呈现为原 `(0<x<-1)`，不改成新的数学界限。三方言 semantic reference2仍 `Mizushima1980` / DOI `10.1016/0025-5408(80)90012-4`，完整 ordered references 与 citation summary 均和历史相同。原 `a-reference-2` subtree raw `0e255b91a472bfacada32b8041e736dbe7ccbae15e28f00a75db89cb113217cb`、frozen `9892d49c445a2e6e0321a3c4865b1fd7c52de6e379be2ac212ba1f34ed7c3f7f` 复用已完成 source audit，无新 raw 解析。
+
+剩余科学角色仍为独立 mandatory prerequisites：#68共11个 original r²SCAN identifier roles，9个正文/图注的 r$^{2}$SCAN orphan 加2个 H3/H4中 silently flattened `r2SCAN`；#67是一个 `mS × cm^-1` compound unit，负幂只属于 cm factor，不能把整个 mScm 取逆。旧3889 source packet 的 family prose曾称 exponent属于compound unit；其历史 bytes保留，此处采用已独立核验的 #67 factor oracle澄清，不改源DOM/数值。原普通 conductivity `101.18` 保持普通值，不推测为10的指数。Raw/frozen paragraph identities均复用之前已完成 source packet，六个科学 source位置与 digest见本文件历史表和新 receipt。
+
+| Dialect | 9个 identifier orphan行（重复表示同一行不同出现） | 两个 silently flattened heading行 | compound unit行 |
+| --- | --- | --- | --- |
+| markdown | 33,81,91,91,91,259,259,259,379 | 87,257 | 357 |
+| links | 33,83,93,93,93,262,262,262,382 | 89,260 | 360 |
+| quarto | 32,70,78,78,78,196,196,196,280 | 74,194 | 264 |
+
+Registry仍85 admitted expectations /10 consumers。本次只为 Materials 的27 records建立 `Mf4a5_NEW` scope；其他文章记录仍来自前一 Chemistry `Ca5b6_NEW`、Quantum `Qe2c1_NEW`、Pangenome `AC86_NEW` 和其余 `F0DE` 的历史执行，原252PASS/3历史QFAIL map留原文件，citation-container缓存独立review解释该历史Q机制已解决。这不制造最新255 execution、27组合验收、ABA/full-resource/golden或新的Quantum/其他文章pipeline。原 Materials `M3889_NEW` bytes 与原Chemistry receipt `f236666d540c8fdd9282f6d1481fd046f5fd19d0728aac209b6dbfcc32c6afd1`保留；无需为map或doc重复clips。
+
+实际命令在本 C worktree：
+
+| Command | Result |
+| --- | --- |
+| `gh run view 37725961177 --repo uwougil/Academic-clipper --json headSha,status,conclusion,jobs`；对应Secrets `37725961084`；`git fetch origin main` | exact f4a5 merged-main三jobs/Secrets success，origin/main同SHA |
+| `git merge --no-ff f4a5f2ad74546ea54b990c6080e480871ee98e09 -m 'chore(corpus): adopt accepted reference literal prerequisite'` | exit0，dependency-only99282d；32 protected Gitobjects未变 |
+| `node <TEMP>/pending65-materials-779fc99-preflight.mjs` | 已完成READONLY preflight exit0；准确3source+3repeat/27IDs、API1.0、原cache/fixture身份，无raw/sourceA audit/新clip |
+| `node --test --test-name-pattern $cMaterialsPattern test/nature-corpus.test.mjs`；env `ACADEMIC_CLIPPER_CORPUS_RECEIPT_PREFIX=<TEMP>/accepted-reference-literal-materials-delta` | session45303 terminalexit1，37/30PASS7FAIL，16356.5531ms；27source+3repeat PASS；sixactualclips；24missing硬FAIL |
+| `node <TEMP>/accepted-reference-literal-materials-receipt.mjs` | exit0，仅读同次3缓存；全部27 IDs/status与TAP对应、原refs/citations不变、9orphan+2headings+1unit位置、四validators/strictwarning/zeroledgers、32Gitobjects均严格assert；newclips/raw/A/sourceaudit0 |
+| `git diff --check`；`git diff --cached --check`；`git status --short`；tracked changed paths | 本轮authored仅本handoff；dependency production source不冒充 C authored变化；最终clean/push消息另报root |
+
+`$cMaterialsPattern`从preflight JSON.property直接赋至PowerShell变量后传native，精确正向filter：`^(?:s41586-023-06735-9)/(?:markdown|links|quarto): (?:every source expectation through the complete production chain|repeat Markdown, bibliography, semantics and replay operations)$`。Prefix原先不存在；原6titles全部实际执行，没有empty-filter启动。receipt postcheck为现有JSON/Markdown身份和语义核对，不复制sanitizer/replay/assertion框架，不调用生产链。所有失败与成功证据保留，没有harness correction。
+
+外部TEMP `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c`，不提交 generated Markdown/cache/log/raw：
+
+| File | Bytes | SHA256 |
+| --- | ---: | --- |
+| pending65-materials-779fc99-preflight.json | 14314 | 612f295085f382322ee435d7b1c8b918cb0d9e765aaac9ae752f5dd8f0b53dec |
+| accepted-reference-literal-materials-delta.log | 33702 | be496cd897a1243f3c50bd2eb098feb68b37b205471f9747272f084231a755f4 |
+| accepted-reference-literal-materials-delta.comparisons.json | 250408 | f4a2f704e73df3650fba333ca91b780b2e70a4b95f9a9d10ac6eee28cda0894b |
+| accepted-reference-literal-materials-delta-receipt-status.json | 1812 | 6ca5cebff2ac0be8601682e1f74abc355117d9565c97a066eb9add7c8ff00973 |
+| accepted-reference-literal-materials-delta-process-exit.txt | 1 | 6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b |
+| accepted-reference-literal-materials-delta-receipt.json | 40328 | 4aaa7bae7061093f80ff98d3cdcecfd50c6e020af5376b4a38b23d4c6b968aef |
+
+每方言 file prefix `accepted-reference-literal-materials-delta.s41586-023-06735-9.`：
+
+| Dialect | Comparison bytes / SHA256 | Markdown bytes / SHA256 |
+| --- | --- | --- |
+| markdown | 61436 / 54e095714fe1edf18794339d3b113d18d47225f7a6fe6a0200e8cb7c59cabf25 | 80619 / bb184af976d5c40140cfe0069bf976aa0aee4213a8983bffbba29fcd1bb7dc5f |
+| links | 103561 / ad59dd4575ebe55c7ce3b4d93f960835d875c6f571d94eeb8ad91fe5d18aaf86 | 83189 / d9cec7eb0c9411a08a9835b4c74ba4484f1a2d5211f69443b27e4fed0fd6787f |
+| quarto | 71680 / b733bc1874328711ba153263b594c7ba169ceb3efbe9798a67ee5bfe6b9bbfa5 | 67777 / 960f2a1ed3c405beb147191185fe5d5ee56613b7a3fdd6f7e515318aa55a7e7d |
+
+C仍DEPENDENCY_PENDING。#65在此次实际 Materials source/linksrawHtml已解除；#67/#68、Quantum Greek/split、ChemistryΔ/group、Alpha/FRB required roles仍待accepted prerequisite，再按需delta或最终combinedhead canonical全验收。此轮没有full255、golden/build/npmtest、A/B/source重审或Dcontroller重复运行；没有修改spec、扩大安全/架构范围或新PR；不声明Materials或Issue#10完成。
