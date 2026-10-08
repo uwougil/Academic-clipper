@@ -1,6 +1,6 @@
 # Issue #71 — 完整 qualified metric 的生产定向验收
 
-状态：**FOCUSED_GREEN / 等待独立 implementation review**。完整指标与原95下标的三方言回归通过；尚未执行 broader/full/build/golden、PR CI/Secrets 或合并。本文不声明 Issue #71 已完成，也不声明 Issue #10 完成。Work Contract：[Issue #71](https://github.com/uwougil/Academic-clipper/issues/71)；来源历史及已清除的 source/plan gates 见 [source handoff](bug-alpha-qualifier-handoff.md) 与 [preflight](bug-alpha-qualifier-preflight.md)。可重建机器证据见 [production receipt](bug-alpha-qualifier-production-receipt.json)。
+状态：**LOCAL_GATES_GREEN / 等待最终 publication head review 与 fresh CI**。完整指标与原95下标的三方言回归、独立 implementation review、affected/full/build/read-only golden 已通过；PR CI/Secrets、合并和 merged Main 接纳尚未完成。本文不声明 Issue #71 已完成，也不声明 Issue #10 完成。Work Contract：[Issue #71](https://github.com/uwougil/Academic-clipper/issues/71)；来源历史及已清除的 source/plan gates 见 [source handoff](bug-alpha-qualifier-handoff.md) 与 [preflight](bug-alpha-qualifier-preflight.md)。可重建机器证据见 [production receipt](bug-alpha-qualifier-production-receipt.json)。
 
 ## 接纳依赖与固定代码
 
@@ -67,10 +67,34 @@ Writer证据限于实际调用路径 `clipNature` → existing production render
 
 三份actual缓存/Markdown的sizes与hash、首轮全部证据、精确env/command/runtime/time、原始fixture身份和最终每份四 validators状态均在机器receipt；不提交全文Markdown snapshot。`node <external>/write-stable-receipt.mjs` **exit0**只读取同run evidence与Git/physical bytes构建交接，无新 parser/clip/source audit/test。Git LF 与 Windows physical CRLF分别记录：Nature Git55594 bytes/SHA `e85dfae9fa9c51fee7df32ca7fc383b20df99b2145367d0aa5dc95f16fa5b7af`；physical56927 bytes/SHA `4a2b33fbdaa33b01bf0b7b75a0c01407844873f9f0b671fb131e821d762b7a07`，只有换行差异，不把二者混为同一hash域。
 
+## 独立审查与已结束的 broader 验证
+
+不同 owner `/root/alpha_qualifier_implementation_independent` 对固定 `039fc5daf47da4aa0e34e22cee0055a21e672c1e` / tree `d978e830c05b748369d530bb896091644b242f26` 给出 **IMPLEMENTATION_CLEAR，P0/P1/P2/P3 blocking均0**。实际读取26行生产diff、三个tests/helper、七个source身份、原始/最终focused收据及三方言缓存；没有追加probe/source审查或测试。外部 `implementation-review.md` 7083 bytes/SHA `7b8cfa08b5c9fead5481f7ae0ddb7af06dadc696aa2819b068e055bf13ee59b2`；machine40302 bytes/SHA `ba090b42f1125b9a7f30d6c26b8af1e2e23199610d742901e469468f44bf0eed`。
+
+Root释放broader后，下列各阶段已结束，均 Node v24.14.1、同一上述head/codebba4。外部证据目录 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue71-broader-bba4ea7`，原wrapper/receipts/logs保留。
+
+| 已执行命令 | 实际结果 | 测试 / process 时间 |
+| --- | --- | --- |
+| `node --test --test-reporter=tap` + receipt明列28个affected files | exit0，760/760 PASS，0 FAIL/skipped/cancelled/todo | 10019.6027 / 10065.2429ms |
+| `npm test` | exit0，1024/1024 PASS，0 FAIL/skipped/cancelled/todo | 80098.308 / 80462.48950000001ms |
+| `npm run build` | exit0，extension构建成功 | 362.7526ms process |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0，四validators与scientificFragments全部valid | 379.418ms process |
+
+准确affected files与命令参数、四次start/finish时间、receipts/log hashes在机器production receipt `broader.phases`，没有使用模糊glob命令充当实际记录。Canonical full只执行一轮；完整spec reporter log/summary与terminal收据支持1024通过。
+
+| Phase | receipt bytes / SHA256 | log bytes / SHA256 |
+| --- | --- | --- |
+| affected | 121389 / `33807ad6724a0943c6f1e2b704accddbfb7109f227d34fe88fd064e7c0bde82c` | 193696 / `fef6a6659a977bfede348ac37548816b27bdeefe5b67bdbe5ab4adacc5f1abe6` |
+| full | 120269 / `fc52b399e30c64edc28c327760b497cec3b9ca2deb42da780841f7f08751fc60` | 124350 / `5b9d9f788d2852430359dd29b584121bda6f3dde6605927d0c9b2702b7c2eba6` |
+| build | 119811 / `764ffae93f0ed55ed6c119cef9b7aea59af9a34cd2ac6f39c9daab62887ba14b` | 167 / `bf0d10be2634028ba22eabad6c6b1ecc40dc634e0b88fdddae8fa96bd44ef340` |
+| golden | 119935 / `1ff7c0c88b3a2c778b3476bcb72f1951c4f79e47da2ac6f14a9d1160c8c48da5` | 2893 / `a5117f116c1d285880129194d874ffe7812eaa6bd8634838524e53bfa131dbfe` |
+
+所有248个tracked src/test/package/lockfile/golden runtime输入在每个阶段前后不变。恢复只读复核当前index blob与physical bytes仍逐项匹配248份身份；全部9个golden tracked artifacts不变。四个阶段没有fixture/recipe/oracle/golden变更。Build只写既有ignored dist。
+
+全量测试还生成自身 source/boundary guard receipts：真实3clips/3clip windows与1sourceDOM全部关闭，35synthetic parses/35DOM关闭、0synthetic clips；HTTP/DNS attempts均[]、restored=true。各style full-cache Markdown身份与稳定focused输出相同。此guard证据仅覆盖新增qualifier模块；整套broader的network/writer证据限于已有accepted security/mocked transport tests，不宣称whole-suite writer/network spy。
+
+`publication-recovery.mjs` 只读已有四份closed receipts/logs/248inputs/golden与独立报告hash，并更新这两份owned docs。新tests/build/golden/source audits/raw reads/production imports/parses/clips/probes/installs/CI polls均0。现有committed-lockfile依赖复用，本地未追加npmci；fresh CI必须执行clean install。
+
 ## 下一道门与消费者条件
 
-Author已执行 `git diff --check`、owned tracked filenames/status/diff审计；没有额外production/fixture/security/spec/PRD/EDD/dependency/golden/其他owner变更。当前等待不同 owner对固定 bba4代码/最终DOC_ONLY head独立 implementation review；可复用 source58与plan证据，不重复旧source/28 RED/43 focused。新增确有价值的独立 probes由reviewer锁定后单次执行，并保持普通测试零网络。
-
-Broader affected、full tests、build、read-only golden、npmci、fresh三平台 PR CI、Secrets、final-headreview与PR publication均**未运行**，因 root按 DAG要求先通过稳定实现独立review。本owner不自行开始下一阶段，也不打开普通 Issue #10 PR。最终bug PR应独立 `Refs #71`，符合全部十项auto-merge gates后才允许root接纳；successful merged-main才完成Work Contract。
-
-Agent C尚未解除真实qualified-metric coverage gate：等待独立实现review及全部broader/CI/Main接纳，再在同一C源合同上独立验证四role三方言、无孤立下标、原caption/metadata/warnings与资源账本。Spec/意图变更提案：无。
+Author交接前执行 `git diff --check`、tracked filenames/status/diff范围审计，最终改动只是这两份production handoff/receipt，source/production/tests unchanged。下一步发布独立 `Refs #71` prerequisite PR；root必须核对最终DOC_ONLY publication head、fresh三平台CI与Secrets，再按全部十项gates接纳，successful merged-main才完成Work Contract。Agent C只能在merged-main接纳后对其原Alpha合同独立执行四role三方言与caption/metadata/warnings/resources验收。此PR不交付Issue #10，也不完成Issue #10。Spec/意图变更提案：无。

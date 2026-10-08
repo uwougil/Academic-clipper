@@ -1,6 +1,6 @@
 {
   "version": "issue71-qualified-metric-production/1.0.0",
-  "status": "FOCUSED_GREEN_PENDING_INDEPENDENT_IMPLEMENTATION_REVIEW",
+  "status": "LOCAL_GATES_GREEN_PENDING_PUBLICATION_HEAD_REVIEW_AND_FRESH_CI",
   "baseSha": "4e8dcd9ce4998c3f8f373daecf332e7f9bfcfb74",
   "branch": "codex/issue-10-bug-alpha-qualifier",
   "worktree": "C:/Users/guoli/.codex/worktrees/issue-10-bug-alpha-qualifier/academic-clipper",
@@ -692,17 +692,257 @@
     }
   ],
   "notRun": [
-    "affected suite",
-    "full suite",
-    "build",
-    "golden",
-    "npm ci",
-    "PR CI",
-    "Secrets"
+    "npm ci locally (existing committed-lockfile dependencies reused; fresh CI owns clean install)",
+    "fresh PR CI",
+    "Secrets",
+    "final publication exact-head review",
+    "merge",
+    "merged Main CI"
   ],
-  "notRunReason": "Root requires different-owner stable implementation review CLEAR before broader gates.",
+  "notRunReason": "Local gates and different-owner stable implementation review are complete; root owns fresh publication/merge/Main gates.",
   "writerEvidence": "Static clipNature-only execution path; no writer invoked or runtime writer spy claimed.",
   "sourceResources": [],
   "specChanges": [],
-  "agentCUnblocking": "Focused proof only. Await independent implementation review, broader/full/build/golden/freshCI/Secrets and successful merged-main acceptance; then Agent C must independently rerun its same source-qualified metric coverage."
+  "agentCUnblocking": "Await final publication head review, fresh three-platform CI/Secrets and successful merged-main acceptance; then Agent C independently verifies the original qualified-metric source contract.",
+  "independentImplementationReview": {
+    "status": "IMPLEMENTATION_CLEAR",
+    "head": "039fc5daf47da4aa0e34e22cee0055a21e672c1e",
+    "tree": "d978e830c05b748369d530bb896091644b242f26",
+    "blockingFindings": 0,
+    "externalRoot": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue71-implementation-review-039fc5d",
+    "artifacts": {
+      "human": {
+        "bytes": 7083,
+        "sha256": "7b8cfa08b5c9fead5481f7ae0ddb7af06dadc696aa2819b068e055bf13ee59b2"
+      },
+      "machine": {
+        "bytes": 40302,
+        "sha256": "ba090b42f1125b9a7f30d6c26b8af1e2e23199610d742901e469468f44bf0eed"
+      }
+    },
+    "execution": "Existing different-owner review reused; no new implementation review/probe executed."
+  },
+  "broader": {
+    "externalRoot": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue71-broader-bba4ea7",
+    "executedHead": "039fc5daf47da4aa0e34e22cee0055a21e672c1e",
+    "codeHead": "bba4ea72864326eb781ac4bf493d17b9d8f8becf",
+    "inputCount": 248,
+    "physicalCurrentMatches": 248,
+    "goldenTrackedFiles": 9,
+    "phases": {
+      "affected": {
+        "command": [
+          "C:\\nvm4w\\nodejs\\node.exe",
+          "--test",
+          "--test-reporter=tap",
+          "test/nature-adapter.test.mjs",
+          "test/nature-caption-citations.test.mjs",
+          "test/nature-compound-unit-boundaries.test.mjs",
+          "test/nature-compound-unit.test.mjs",
+          "test/nature-greek-subscript-boundaries.test.mjs",
+          "test/nature-greek-subscript-context-boundaries.test.mjs",
+          "test/nature-greek-subscript.test.mjs",
+          "test/nature-isotope-mass-boundaries.test.mjs",
+          "test/nature-isotope-mass-coverage.test.mjs",
+          "test/nature-isotope-mass.test.mjs",
+          "test/nature-literal-brackets.test.mjs",
+          "test/nature-materials-identifier-boundaries.test.mjs",
+          "test/nature-materials-identifier.test.mjs",
+          "test/nature-reference-literal.test.mjs",
+          "test/nature-scientific-citation-boundaries.test.mjs",
+          "test/nature-scientific-citations.test.mjs",
+          "test/nature-scientific-units.test.mjs",
+          "test/nature-sparse-figure-alt.test.mjs",
+          "test/nature-split-power-boundaries.test.mjs",
+          "test/nature-split-power.test.mjs",
+          "test/nature-styled-adjacency-boundaries.test.mjs",
+          "test/nature-styled-adjacency.test.mjs",
+          "test/nature-table-caption-clip.test.mjs",
+          "test/nature-table-caption.test.mjs",
+          "test/nature-table-mathjax.test.mjs",
+          "test/nature-table-notes.test.mjs",
+          "test/output-quality.test.mjs",
+          "test/network-boundaries.test.mjs"
+        ],
+        "environment": {},
+        "startedAt": "2026-10-08T11:02:05.307Z",
+        "finishedAt": "2026-10-08T11:02:15.487Z",
+        "elapsedMs": 10065.2429,
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "summary": {
+          "tests": 760,
+          "suites": 0,
+          "pass": 760,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0,
+          "duration_ms": 10019.6027
+        },
+        "log": {
+          "bytes": 193696,
+          "sha256": "fef6a6659a977bfede348ac37548816b27bdeefe5b67bdbe5ab4adacc5f1abe6"
+        },
+        "receipt": {
+          "bytes": 121389,
+          "sha256": "33807ad6724a0943c6f1e2b704accddbfb7109f227d34fe88fd064e7c0bde82c"
+        },
+        "allInputsUnchanged": true,
+        "goldenUnchanged": true
+      },
+      "full": {
+        "command": [
+          "npm",
+          "test"
+        ],
+        "environment": {
+          "NATURE_ALPHA_QUALIFIER_RECEIPT_ROOT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue71-broader-bba4ea7\\full-source",
+          "NATURE_ALPHA_QUALIFIER_BOUNDARY_RECEIPT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue71-broader-bba4ea7\\full-source\\boundary-guard.json"
+        },
+        "startedAt": "2026-10-08T11:02:37.847Z",
+        "finishedAt": "2026-10-08T11:03:58.416Z",
+        "elapsedMs": 80462.48950000001,
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "summary": {
+          "tests": 1024,
+          "suites": 0,
+          "pass": 1024,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0,
+          "duration_ms": 80098.308
+        },
+        "log": {
+          "bytes": 124350,
+          "sha256": "5b9d9f788d2852430359dd29b584121bda6f3dde6605927d0c9b2702b7c2eba6"
+        },
+        "receipt": {
+          "bytes": 120269,
+          "sha256": "fc52b399e30c64edc28c327760b497cec3b9ca2deb42da780841f7f08751fc60"
+        },
+        "allInputsUnchanged": true,
+        "goldenUnchanged": true
+      },
+      "build": {
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "environment": {},
+        "startedAt": "2026-10-08T11:04:24.109Z",
+        "finishedAt": "2026-10-08T11:04:24.570Z",
+        "elapsedMs": 362.7526,
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "summary": {},
+        "log": {
+          "bytes": 167,
+          "sha256": "bf0d10be2634028ba22eabad6c6b1ecc40dc634e0b88fdddae8fa96bd44ef340"
+        },
+        "receipt": {
+          "bytes": 119811,
+          "sha256": "764ffae93f0ed55ed6c119cef9b7aea59af9a34cd2ac6f39c9daab62887ba14b"
+        },
+        "allInputsUnchanged": true,
+        "goldenUnchanged": true
+      },
+      "golden": {
+        "command": [
+          "npm",
+          "run",
+          "validate:paper",
+          "--",
+          "--file",
+          "./papers/s41586-026-10401-1/index.md",
+          "--citation-style",
+          "auto"
+        ],
+        "environment": {},
+        "startedAt": "2026-10-08T11:04:25.135Z",
+        "finishedAt": "2026-10-08T11:04:25.616Z",
+        "elapsedMs": 379.418,
+        "status": 0,
+        "signal": null,
+        "error": null,
+        "summary": {},
+        "log": {
+          "bytes": 2893,
+          "sha256": "a5117f116c1d285880129194d874ffe7812eaa6bd8634838524e53bfa131dbfe"
+        },
+        "receipt": {
+          "bytes": 119935,
+          "sha256": "1ff7c0c88b3a2c778b3476bcb72f1951c4f79e47da2ac6f14a9d1160c8c48da5"
+        },
+        "allInputsUnchanged": true,
+        "goldenUnchanged": true
+      }
+    },
+    "fullSourceGuards": {
+      "source-guard.json": {
+        "realClips": 3,
+        "clipWindowsOpened": 3,
+        "clipWindowsClosed": 3,
+        "sourceDomsOpened": 1,
+        "sourceDomsClosed": 1,
+        "ledger": {
+          "http": [],
+          "dns": []
+        },
+        "restored": true,
+        "writer": "Static clipNature-only path, no writer spy",
+        "artifact": {
+          "bytes": 250,
+          "sha256": "5378c87ca9acdfc0ad299f7e48b92346f7b03be03401131998fbbf7c838db289"
+        }
+      },
+      "boundary-guard.json": {
+        "syntheticParses": 35,
+        "domsClosed": 35,
+        "ledger": {
+          "http": [],
+          "dns": []
+        },
+        "restored": true,
+        "clips": 0,
+        "artifact": {
+          "bytes": 131,
+          "sha256": "03a24a2c860ebcf2a35b9974495b89119082ce77a868dff0f590a39807f0e67d"
+        }
+      }
+    },
+    "goldenValidators": {
+      "valid": true,
+      "scientificFragments": true,
+      "markdownStructure": true,
+      "rawHtmlValidation": true,
+      "crossReferenceValidation": true
+    },
+    "evidenceScope": "Existing accepted security/mocked transport tests plus scoped new qualifier module guard receipts in full. No full-suite writer or network spy is claimed."
+  },
+  "publicationRecovery": {
+    "recoveredFrom": "039fc5daf47da4aa0e34e22cee0055a21e672c1e",
+    "observedAt": "2026-10-08T11:15:55.888Z",
+    "runtimeInputChecks": 248,
+    "reruns": {
+      "tests": 0,
+      "build": 0,
+      "golden": 0,
+      "sourceAudits": 0,
+      "rawReads": 0,
+      "productionImports": 0,
+      "parses": 0,
+      "clips": 0,
+      "probes": 0,
+      "installs": 0,
+      "ciPolls": 0
+    },
+    "docOnly": true
+  }
 }
