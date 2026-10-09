@@ -1,6 +1,6 @@
 {
   "version": "issue75-production-focused/1.0",
-  "status": "FOCUSED_GREEN_P2_DELTA_REVIEW_PENDING",
+  "status": "FOCUSED_GREEN_CLOSED_PREFIX_DELTA_REVIEW_PENDING",
   "issue": 75,
   "owner": "C:/Users/guoli/.codex/worktrees/issue-10-bug-parenthesized-power/academic-clipper",
   "branch": "codex/issue-10-bug-parenthesized-power",
@@ -8,8 +8,8 @@
   "baseMainCi": 37870243865,
   "baseSecretScan": 37870244073,
   "dependencyCommit": "0d1468641092590ea1c21a29872bf710ccb33ff0",
-  "productionCommit": "39bf7bd2663616302bca466b482db52133d00877",
-  "productionTree": "935a1fe04a7f6900deb41ada074f665989fffa9d",
+  "productionCommit": "dc05eaeb794cd8a65cb86912d47a63a6c10ac959",
+  "productionTree": "b8b154bbdaca9b044193ecf88b3a935674c31c48",
   "orderedPrefixCommits": [
     "76e7bfa24217a962a0ba13753e7e2111575b57c4",
     "eede55ac7136467510b04507729217b15ca9224c",
@@ -24,7 +24,7 @@
       "test/nature-parenthesized-power.test.mjs",
       "test/nature-parenthesized-power-nesting.test.mjs"
     ],
-    "productionAddedLines": 35,
+    "productionAddedLines": 46,
     "rule": "Direct single-text-node numeric fraction, one or two slashes, unsigned integer/decimal numerator, positive integer denominator, immediate plain SUP2; original whole base squared only.",
     "boundaries": "Unknown wrappers/comments and Unicode token continuations reject; pi is an outside multiplier; original independent typed citation remains outside; math/code/equation/literal contexts remain opaque.",
     "reusedRangePipeline": true,
@@ -282,10 +282,10 @@
     ]
   },
   "execution": {
-    "stage": "p2-focused-green",
+    "stage": "p2-closed-prefix-green",
     "owner": "C:/Users/guoli/.codex/worktrees/issue-10-bug-parenthesized-power/academic-clipper",
-    "implementationHead": "d2096ddc7a9cd3a33ac6886e0e857aff9ad6750c",
-    "productionBlob": "3c4ae6f56bdafa30be076459e522c9b241a43c45",
+    "implementationHead": "5d3c353fc9a4aac29a92571d0794291c9cffc513",
+    "productionBlob": "583fa29b9242fd676336edc59f4daf0b32cf206e",
     "command": [
       "node",
       "--test",
@@ -297,12 +297,12 @@
     "executable": "C:\\nvm4w\\nodejs\\node.exe",
     "nodeVersion": "v24.14.1",
     "platform": "win32",
-    "pid": 53468,
-    "start": "2026-10-09T01:50:59.555Z",
+    "pid": 41104,
+    "start": "2026-10-09T01:58:57.645Z",
     "env": {
-      "NUMERIC_NESTING_RECEIPT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\nesting-results.json",
-      "PARENTHESIZED_POWER_RECEIPT_ROOT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source",
-      "NUMERIC_PARENTHESIS_RECEIPT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\synthetic-results.json",
+      "NUMERIC_NESTING_RECEIPT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\nesting-results.json",
+      "PARENTHESIZED_POWER_RECEIPT_ROOT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source",
+      "NUMERIC_PARENTHESIS_RECEIPT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\synthetic-results.json",
       "PARENTHESIZED_POWER_CACHE_ROOT": null,
       "NUMERIC_PARENTHESIS_SNAPSHOT_ROOT": null
     },
@@ -369,8 +369,8 @@
       },
       {
         "path": "src/adapters/nature.mjs",
-        "bytes": 66193,
-        "sha256": "8503d88ae15e28791d2587773f037a66b313773d5066d993a1281ebddd17ebf5"
+        "bytes": 66527,
+        "sha256": "64ddb3a0c00edc1a071f6a72c7b15578c106ffdd5fd196f1b61212680c0a0dfc"
       },
       {
         "path": "src/adapters/pnas.mjs",
@@ -579,21 +579,21 @@
       },
       {
         "path": "test/nature-parenthesized-power-nesting.test.mjs",
-        "bytes": 4291,
-        "sha256": "ddef9c9c4ed5dea5026be35d9354f89d5edb0b1c64122390fbe3fe64972276e4"
+        "bytes": 4373,
+        "sha256": "f0e3a656cbb2cab2c5acf65ca25fe1f30a4369111718bbcb34790784e16a49f4"
       }
     ],
-    "finish": "2026-10-09T01:51:00.670Z",
+    "finish": "2026-10-09T01:58:58.849Z",
     "exitCode": 0,
     "signal": null,
     "summary": {
-      "tests": 72,
-      "pass": 72,
+      "tests": 73,
+      "pass": 73,
       "fail": 0,
       "cancelled": 0,
       "skipped": 0,
       "todo": 0,
-      "duration_ms": 1065.4939
+      "duration_ms": 1155.0823
     },
     "post": [
       {
@@ -658,8 +658,8 @@
       },
       {
         "path": "src/adapters/nature.mjs",
-        "bytes": 66193,
-        "sha256": "8503d88ae15e28791d2587773f037a66b313773d5066d993a1281ebddd17ebf5"
+        "bytes": 66527,
+        "sha256": "64ddb3a0c00edc1a071f6a72c7b15578c106ffdd5fd196f1b61212680c0a0dfc"
       },
       {
         "path": "src/adapters/pnas.mjs",
@@ -868,17 +868,17 @@
       },
       {
         "path": "test/nature-parenthesized-power-nesting.test.mjs",
-        "bytes": 4291,
-        "sha256": "ddef9c9c4ed5dea5026be35d9354f89d5edb0b1c64122390fbe3fe64972276e4"
+        "bytes": 4373,
+        "sha256": "f0e3a656cbb2cab2c5acf65ca25fe1f30a4369111718bbcb34790784e16a49f4"
       }
     ],
     "inputsUnchanged": true,
     "log": {
-      "path": "..\\..\\..\\..\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\tests.log",
-      "bytes": 14437,
-      "sha256": "cc63d2e9816c9ad65b401e625333eb4dbbb083bd5e2159af5594031caf09b8d1"
+      "path": "..\\..\\..\\..\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\tests.log",
+      "bytes": 14668,
+      "sha256": "d2f1410cea8eb21af4b40ec811ddfc35b4edaab58091a8e707027c1a427e031b"
     },
-    "gitStatus": "M src/adapters/nature.mjs\n?? test/nature-parenthesized-power-nesting.test.mjs"
+    "gitStatus": "M src/adapters/nature.mjs\n M test/nature-parenthesized-power-nesting.test.mjs"
   },
   "sourceLifecycle": {
     "attempts": [],
@@ -896,12 +896,12 @@
     {
       "style": "markdown",
       "markdown": {
-        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\markdown.md",
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\markdown.md",
         "bytes": 2206,
         "sha256": "215f5d3c979ff6bb5d81f46a794cc052033d25a9ae42a9a01bd86d74c343dc3c"
       },
       "result": {
-        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\markdown.result.json",
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\markdown.result.json",
         "bytes": 63972,
         "sha256": "d9d8522e4a2b758411ca2c137e269d6be4e516c2e0af5ab9c2eea26ecd03024b"
       },
@@ -1074,12 +1074,12 @@
     {
       "style": "links",
       "markdown": {
-        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\links.md",
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\links.md",
         "bytes": 2206,
         "sha256": "215f5d3c979ff6bb5d81f46a794cc052033d25a9ae42a9a01bd86d74c343dc3c"
       },
       "result": {
-        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\links.result.json",
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\links.result.json",
         "bytes": 63930,
         "sha256": "810d240a8c1c21cba9ebbdac598ce499c2b271767d7b4e698664add88fbea4fc"
       },
@@ -1251,12 +1251,12 @@
     {
       "style": "quarto",
       "markdown": {
-        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\quarto.md",
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\quarto.md",
         "bytes": 2313,
         "sha256": "ef3b62c6dd7219a4fcd8c38564b6cbe9dcaf4ad716a4dad08179fcb8943caaa4"
       },
       "result": {
-        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\quarto.result.json",
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\quarto.result.json",
         "bytes": 64159,
         "sha256": "d2dd0bc0c5b3923fc58f7fc844b7c4097edc4a0982f4acd1eea8472c6db51d7c"
       },
@@ -1514,7 +1514,7 @@
       ],
       "cleanedHtml": "<html><head><title>Synthetic numeric-parenthesis control</title></head><body><div class=\"c-article-body\"><p id=\"mixed-body\"><i></i>ACADEMICCLIPPERSCIENTIFICRUN0X; ACADEMICCLIPPERSCIENTIFICRUN1X; ACADEMICCLIPPERSCIENTIFICRUN2X; ACADEMICCLIPPERSCIENTIFICRUN3X; πACADEMICCLIPPERSCIENTIFICRUN4X/8; ACADEMICCLIPPERSCIENTIFICRUN5XACADEMICCLIPPERCITATION0X.</p><figcaption id=\"mixed-caption\">πACADEMICCLIPPERSCIENTIFICRUN6X/8; ACADEMICCLIPPERSCIENTIFICRUN7XACADEMICCLIPPERCITATION1X.</figcaption></div></body></html>"
     },
-    "pure50th": "Same unchanged whole-square oracle test executed as part of required current50."
+    "pure50th": "Unchanged whole-square oracle executed within necessary current50."
   },
   "artifacts": [
     {
@@ -1699,6 +1699,121 @@
     },
     {
       "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\quarto.md",
+      "bytes": 2313,
+      "sha256": "ef3b62c6dd7219a4fcd8c38564b6cbe9dcaf4ad716a4dad08179fcb8943caaa4"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\original-5d3c353-production-receipt.json",
+      "bytes": 146795,
+      "sha256": "cf5d66c00f1ae2216c4c68f0ed6846b660adfaf24f5840a7821f19ed895be213"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\original-5d3c353-production.md",
+      "bytes": 16213,
+      "sha256": "fbfd60c5e4d93fa3334106c27fa649c4bd6c8a9939abded4eab767426c72e1f8"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-implementation-review-5d3c353\\implementation-review.md",
+      "bytes": 5218,
+      "sha256": "7d22456bd7eb3f4c562e85411208926915e9cb5f8891d20e2ec7bd8ea09f8be7"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-implementation-review-5d3c353\\implementation-review.json",
+      "bytes": 35697,
+      "sha256": "048241a1ce37bbc357d184dffd979ffcfc462fe6d1ee5ed6474e709af92c3842"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-implementation-review-5d3c353\\bounded-closed-prefix-probe.json",
+      "bytes": 837,
+      "sha256": "4e7e40f007963db213f575d7c92701fc45dda33d8020eb19a8e38149569fcdf3"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\run-closed-prefix.cjs",
+      "bytes": 3472,
+      "sha256": "e55d29804de04fc49f0f25138fbe0d5ace5493827f0c22e97fab86bc5d4d9a02"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\pack-closed-prefix.cjs",
+      "bytes": 12721,
+      "sha256": "a9520672022dddf3516103322f6a498b4ee437f14548c74ee0d5752afd4d9f25"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\closed-prefix-red\\process-start.json",
+      "bytes": 9766,
+      "sha256": "1958fae307986398727415169f5945b2156e2eed8c9fae0a1c32c7256563b2d2"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\closed-prefix-red\\process-receipt.json",
+      "bytes": 19132,
+      "sha256": "7b59de7fb60ec172a6edca9fcda5b97ef9b67be98f278a18669081a10fff86ff"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\closed-prefix-red\\tests.log",
+      "bytes": 1391,
+      "sha256": "94a7e6c37f6074dd2c916481a95f28668cfb8457547c74ccad379c9b62f5bdcb"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\closed-prefix-red\\nesting-results.json",
+      "bytes": 1048,
+      "sha256": "1066f5135bba7bfee9ae1bc3b78d932b1c87131b7fce1ffffaa400045efc6296"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\process-start.json",
+      "bytes": 10427,
+      "sha256": "37ffea85f134e02c14c25dd99ab09cc9e5779c9306a494f790561e83261ffbda"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\process-receipt.json",
+      "bytes": 20196,
+      "sha256": "f124cb40ae976d7364b71b78fb4370c3af61697cd3b1fc2fb9c8281a3ff641d7"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\tests.log",
+      "bytes": 14668,
+      "sha256": "d2f1410cea8eb21af4b40ec811ddfc35b4edaab58091a8e707027c1a427e031b"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\nesting-results.json",
+      "bytes": 2956,
+      "sha256": "51905bc889066320fd47ce80200f3e8693be0bdfffe803ac93be5ec4ec2b61ab"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\network-ledger.json",
+      "bytes": 332,
+      "sha256": "3792ab4450f27ccf9eaec4352758060cd3c9b4f7f6e57d2c85ac70dbb9dfe354"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\synthetic-results.json",
+      "bytes": 22661,
+      "sha256": "2d049fc91f7d5cbf11bb0eebdb26ef608821e602319996fceecca4ef9856b35d"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\markdown.result.json",
+      "bytes": 63972,
+      "sha256": "d9d8522e4a2b758411ca2c137e269d6be4e516c2e0af5ab9c2eea26ecd03024b"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\markdown.md",
+      "bytes": 2206,
+      "sha256": "215f5d3c979ff6bb5d81f46a794cc052033d25a9ae42a9a01bd86d74c343dc3c"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\links.result.json",
+      "bytes": 63930,
+      "sha256": "810d240a8c1c21cba9ebbdac598ce499c2b271767d7b4e698664add88fbea4fc"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\links.md",
+      "bytes": 2206,
+      "sha256": "215f5d3c979ff6bb5d81f46a794cc052033d25a9ae42a9a01bd86d74c343dc3c"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\quarto.result.json",
+      "bytes": 64159,
+      "sha256": "d2dd0bc0c5b3923fc58f7fc844b7c4097edc4a0982f4acd1eea8472c6db51d7c"
+    },
+    {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\quarto.md",
       "bytes": 2313,
       "sha256": "ef3b62c6dd7219a4fcd8c38564b6cbe9dcaf4ad716a4dad08179fcb8943caaa4"
     }
@@ -4021,6 +4136,2049 @@
       },
       {
         "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\quarto.md",
+        "bytes": 2313,
+        "sha256": "ef3b62c6dd7219a4fcd8c38564b6cbe9dcaf4ad716a4dad08179fcb8943caaa4"
+      }
+    ]
+  },
+  "secondCandidate": {
+    "head": "5d3c353fc9a4aac29a92571d0794291c9cffc513",
+    "productionCommit": "39bf7bd2663616302bca466b482db52133d00877",
+    "productionTree": "935a1fe04a7f6900deb41ada074f665989fffa9d",
+    "receipt": {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\original-5d3c353-production-receipt.json",
+      "bytes": 146795,
+      "sha256": "cf5d66c00f1ae2216c4c68f0ed6846b660adfaf24f5840a7821f19ed895be213"
+    },
+    "doc": {
+      "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\original-5d3c353-production.md",
+      "bytes": 16213,
+      "sha256": "fbfd60c5e4d93fa3334106c27fa649c4bd6c8a9939abded4eab767426c72e1f8"
+    },
+    "execution": {
+      "stage": "p2-focused-green",
+      "owner": "C:/Users/guoli/.codex/worktrees/issue-10-bug-parenthesized-power/academic-clipper",
+      "implementationHead": "d2096ddc7a9cd3a33ac6886e0e857aff9ad6750c",
+      "productionBlob": "3c4ae6f56bdafa30be076459e522c9b241a43c45",
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "test/nature-parenthesized-power.test.mjs",
+        "test/nature-parenthesized-power-preproduction.test.mjs",
+        "test/nature-parenthesized-power-nesting.test.mjs"
+      ],
+      "executable": "C:\\nvm4w\\nodejs\\node.exe",
+      "nodeVersion": "v24.14.1",
+      "platform": "win32",
+      "pid": 53468,
+      "start": "2026-10-09T01:50:59.555Z",
+      "env": {
+        "NUMERIC_NESTING_RECEIPT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\nesting-results.json",
+        "PARENTHESIZED_POWER_RECEIPT_ROOT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source",
+        "NUMERIC_PARENTHESIS_RECEIPT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\synthetic-results.json",
+        "PARENTHESIZED_POWER_CACHE_ROOT": null,
+        "NUMERIC_PARENTHESIS_SNAPSHOT_ROOT": null
+      },
+      "pre": [
+        {
+          "path": "papers/s41586-026-10401-1/debug.json",
+          "bytes": 10955,
+          "sha256": "85f6478e8bfc7b395ec310f2897617fa1e209c8614486c60beafeb622db0a8c5"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig1.webp",
+          "bytes": 49630,
+          "sha256": "81e587ee56dc9eca4dc088c513fd7668ee189c42dcae2ffe722c865347069fc8"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig2.webp",
+          "bytes": 29826,
+          "sha256": "320f625b06577492a61e094f810c576cf013c3a1b39251f10b5fabf9d25d4713"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig3.webp",
+          "bytes": 38546,
+          "sha256": "28033ea3a0a8da6c1b98c39dbcf92ca304f65cfa52e0d06df70b74736af8841d"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig4.jpg",
+          "bytes": 49049,
+          "sha256": "c0cf5cd9efb083280b026b22f5a426643b8211e03f5fe57e28bcc1b306ce5e38"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig5.jpg",
+          "bytes": 49427,
+          "sha256": "4f29f68cadc51e31651a2504fcd479162de15fcb0a1a5bdfa01f80cacb7ab25a"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig6.jpg",
+          "bytes": 44566,
+          "sha256": "7006478d43ec6f9fbf2109c17a8671e48566c0aec99d3183fbeee69bedb25ef4"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig7.jpg",
+          "bytes": 47151,
+          "sha256": "4b3b34928752fdd70b116908b7db82071f11013211b6327f2e0c4844ee047ac3"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/index.md",
+          "bytes": 65059,
+          "sha256": "33caa4997c92c8cd7d40581db3e589c260ee5d70c4bded9b2e8c981b43cffaf5"
+        },
+        {
+          "path": "src/adapters/aaas.mjs",
+          "bytes": 21207,
+          "sha256": "c52678918e22c126d9a0ff128a044fab9cd4f1995ad023f588f00fa66f50946c"
+        },
+        {
+          "path": "src/adapters/aip.mjs",
+          "bytes": 15429,
+          "sha256": "1593d3b34850c5a282829aff393ac0ac4695f257adff62860fd3f8cced3d9298"
+        },
+        {
+          "path": "src/adapters/iop.mjs",
+          "bytes": 20595,
+          "sha256": "0e633803180532090015014db7eaf98534a2e021ce155f6a4de881ba6bd26611"
+        },
+        {
+          "path": "src/adapters/nature.mjs",
+          "bytes": 66193,
+          "sha256": "8503d88ae15e28791d2587773f037a66b313773d5066d993a1281ebddd17ebf5"
+        },
+        {
+          "path": "src/adapters/pnas.mjs",
+          "bytes": 13186,
+          "sha256": "e7bd7b1409cdf31bb50844d016bf1953e18e82883fc03980877a601e57845bae"
+        },
+        {
+          "path": "src/adapters/rsc.mjs",
+          "bytes": 16616,
+          "sha256": "1a54fe1c2b4280c44d4b33a1f86597dd19a6f1172ec2b887c3cf64bde8e2c1cd"
+        },
+        {
+          "path": "src/adapters/sciopen.mjs",
+          "bytes": 16747,
+          "sha256": "75820995ce0c3e6856f2b3c2e6a541e0a9634fa4db2db1345c870265693a01ea"
+        },
+        {
+          "path": "src/adapters/wiley-clip.mjs",
+          "bytes": 3903,
+          "sha256": "1069a037f4c69492c85f9878fbafc6c4c852578098a371275728c0dbccda8f2c"
+        },
+        {
+          "path": "src/adapters/wiley.mjs",
+          "bytes": 16387,
+          "sha256": "afcc9e70bd505395d8d15561d452fc94430f190b93632335e8ffb1a45b43eaca"
+        },
+        {
+          "path": "src/article-fetch.mjs",
+          "bytes": 3263,
+          "sha256": "e779fcfe477909c86a3260154190bb19dc57d677787d85028b41f42b8e32cf66"
+        },
+        {
+          "path": "src/bridge.mjs",
+          "bytes": 8468,
+          "sha256": "be81cb8de7240731c6ee470d43c1e055ba430b0ab8bb03c30ed34be7a33830ec"
+        },
+        {
+          "path": "src/build.mjs",
+          "bytes": 792,
+          "sha256": "4bcc8c82a594d230bff2ff2dbbda4ee5cb07c00013a59502854e6b92b86bd6ef"
+        },
+        {
+          "path": "src/cli.mjs",
+          "bytes": 2304,
+          "sha256": "74f72ccc7aaebf52dc1c8a8c94924abc7abe9a26909e63d6b3ac2ab01b1f66b0"
+        },
+        {
+          "path": "src/clip.mjs",
+          "bytes": 41240,
+          "sha256": "7f10fdd09c52528b5228433f3c84aa8bcef12d3bc63cc7c03005f233a325b134"
+        },
+        {
+          "path": "src/dom-runtime.mjs",
+          "bytes": 1489,
+          "sha256": "45778aff5794d548af5a467d1eab17e62eda61796cf18254ccacd32d1158c198"
+        },
+        {
+          "path": "src/experimental/rsc-clip.mjs",
+          "bytes": 4579,
+          "sha256": "f65b936498cd67a9a2d912dcebca5effd72f965877cce87801ad1e71d868418a"
+        },
+        {
+          "path": "src/launcher.cs",
+          "bytes": 3222,
+          "sha256": "16b93e04ef388cbcfe3f44cfbb04108d83476a20390ef04763feffe3b571afe7"
+        },
+        {
+          "path": "src/launcher.mjs",
+          "bytes": 13550,
+          "sha256": "c28e501ca37f7b6fcc59ec2ee9153d737891220d387d611a5c69f10ba291fea3"
+        },
+        {
+          "path": "src/markdown.mjs",
+          "bytes": 1097,
+          "sha256": "ef4859276c23e1442de315d418347f5881164c47d1eebb58e5d6322d7a918416"
+        },
+        {
+          "path": "src/normalizers/academic-inline.mjs",
+          "bytes": 13414,
+          "sha256": "1a7e380ee2d0836533e8d7621a9d7ef4dfdfe1c43583d64abb11d4d2c3e77ce0"
+        },
+        {
+          "path": "src/normalizers/citations.mjs",
+          "bytes": 4463,
+          "sha256": "d46831bac833d3f7fc70ec03aaf3c16323814aabae34a48cd1d3c1598caed201"
+        },
+        {
+          "path": "src/normalizers/figures.mjs",
+          "bytes": 16260,
+          "sha256": "e3cb06038756a38649633cd3612edcbeca515c370dc238836cf472b6530bb8d2"
+        },
+        {
+          "path": "src/normalizers/markers.mjs",
+          "bytes": 131,
+          "sha256": "f94d063d5a0849f117b6633bf12db01588a5d6d9104ebe933eedc01c87605afc"
+        },
+        {
+          "path": "src/normalizers/math.mjs",
+          "bytes": 3771,
+          "sha256": "e646de6497838580b47d31f65ee5b50ae2f03ec3137cace1fe8225af528d1089"
+        },
+        {
+          "path": "src/pnas-clip.mjs",
+          "bytes": 5571,
+          "sha256": "7d4c52feec43db6ae9643f5d23690094767cc85036971ce42dd49d204acf89bf"
+        },
+        {
+          "path": "src/renderers/output-policy.mjs",
+          "bytes": 1027,
+          "sha256": "92d7239d5613cd8e812f7ebffb8066e19a15d180b3950d6b68130ac77233c30a"
+        },
+        {
+          "path": "src/security.mjs",
+          "bytes": 7094,
+          "sha256": "d0b8f1278532db6251e50640d2503cca1772e09c5889fb981798cb753934b0db"
+        },
+        {
+          "path": "src/validate-paper.mjs",
+          "bytes": 2166,
+          "sha256": "5fa1736ef4c72aed4bb6350b780cd0a8ada6b3ec472902681d95da589872d5d1"
+        },
+        {
+          "path": "src/validators/citation-style.mjs",
+          "bytes": 1267,
+          "sha256": "c2d511dc22296d1f56eb138c5ad7d8d4b3b43c587f51461972fe397769a099a7"
+        },
+        {
+          "path": "src/validators/cross-references.mjs",
+          "bytes": 3933,
+          "sha256": "ed0a5f751a018fe7859a880949376c7fa8390aacdf85b2565a804a395753bf5e"
+        },
+        {
+          "path": "src/validators/html-audit.mjs",
+          "bytes": 4005,
+          "sha256": "c3eb1d382f4742aaf825d186fc793bb1f4c1aa7ce6e7fdcd56bbaa320b8202fa"
+        },
+        {
+          "path": "src/validators/markdown-structure.mjs",
+          "bytes": 6179,
+          "sha256": "302303cf9fc724c9c5677ae84f3dd840ebe7a62aeee7e5eed00950d135b177a2"
+        },
+        {
+          "path": "src/validators/math-delimiters.mjs",
+          "bytes": 9885,
+          "sha256": "87d19d2bf51c4f5da87cd7d6aaf352595be537f9d1e6c28620e13701f5279284"
+        },
+        {
+          "path": "src/version.mjs",
+          "bytes": 163,
+          "sha256": "377d26da1e0336fa86ee757012a50fdd37b8868530929b59ec1a41d1be300e3b"
+        },
+        {
+          "path": "test/fixtures/nature-parenthesized-power/.gitattributes",
+          "bytes": 80,
+          "sha256": "88ea5e6fa1b78031a906f8966b9d6df30fa7c567a3a0a4c53c659625acd26166"
+        },
+        {
+          "path": "test/fixtures/nature-parenthesized-power/README.md",
+          "bytes": 2542,
+          "sha256": "b2e4638398c9e2bfb3a09871d36e4a6d283d5f0832112da2adc508fe1b0e4d42"
+        },
+        {
+          "path": "test/fixtures/nature-parenthesized-power/diagnosis.json",
+          "bytes": 11434,
+          "sha256": "968b3dc0a185ce674dce915e13e5f7af6a02e79b2e5dc65871dd9e3065f49628"
+        },
+        {
+          "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.excerpt.html",
+          "bytes": 25549,
+          "sha256": "f672ec55261b61376bb1b0a82889e05b45deec9123442dccabab9829ebcd45de"
+        },
+        {
+          "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.provenance.json",
+          "bytes": 31939,
+          "sha256": "8ed315749e0dcf860053b1bbdbe73ef910b1480415a3ba49ea1c86a4e5b9b4e3"
+        },
+        {
+          "path": "package.json",
+          "bytes": 811,
+          "sha256": "70730641b447be2c08db2b7ecd9354c1ba426f10195b2e2e8528de54fcc41d9a"
+        },
+        {
+          "path": "package-lock.json",
+          "bytes": 32599,
+          "sha256": "5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef42a7a1"
+        },
+        {
+          "path": "test/support/parenthesized-power-oracle.mjs",
+          "bytes": 3256,
+          "sha256": "42584ede9ff3033fab1628a206e7594f8ad106073bbb8ffd7f55a33f9464e806"
+        },
+        {
+          "path": "test/nature-parenthesized-power-oracle.test.mjs",
+          "bytes": 4155,
+          "sha256": "31268e9deb9518c1cb20fd9cb6270dfb833099f8d9fd17cf32c078ead840c889"
+        },
+        {
+          "path": "test/nature-parenthesized-power.test.mjs",
+          "bytes": 10257,
+          "sha256": "fde8e7c993a6c8ec7bfeecb973cb9c60b81d1616b2030bae4b4bf29297aa944f"
+        },
+        {
+          "path": "test/nature-parenthesized-power-preproduction.test.mjs",
+          "bytes": 11721,
+          "sha256": "f3bba611a3c898ac3c018d881b21e79db552ffe28847440348011bfeacbf525c"
+        },
+        {
+          "path": "test/nature-parenthesized-power-nesting.test.mjs",
+          "bytes": 4291,
+          "sha256": "ddef9c9c4ed5dea5026be35d9354f89d5edb0b1c64122390fbe3fe64972276e4"
+        }
+      ],
+      "finish": "2026-10-09T01:51:00.670Z",
+      "exitCode": 0,
+      "signal": null,
+      "summary": {
+        "tests": 72,
+        "pass": 72,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 1065.4939
+      },
+      "post": [
+        {
+          "path": "papers/s41586-026-10401-1/debug.json",
+          "bytes": 10955,
+          "sha256": "85f6478e8bfc7b395ec310f2897617fa1e209c8614486c60beafeb622db0a8c5"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig1.webp",
+          "bytes": 49630,
+          "sha256": "81e587ee56dc9eca4dc088c513fd7668ee189c42dcae2ffe722c865347069fc8"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig2.webp",
+          "bytes": 29826,
+          "sha256": "320f625b06577492a61e094f810c576cf013c3a1b39251f10b5fabf9d25d4713"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig3.webp",
+          "bytes": 38546,
+          "sha256": "28033ea3a0a8da6c1b98c39dbcf92ca304f65cfa52e0d06df70b74736af8841d"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig4.jpg",
+          "bytes": 49049,
+          "sha256": "c0cf5cd9efb083280b026b22f5a426643b8211e03f5fe57e28bcc1b306ce5e38"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig5.jpg",
+          "bytes": 49427,
+          "sha256": "4f29f68cadc51e31651a2504fcd479162de15fcb0a1a5bdfa01f80cacb7ab25a"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig6.jpg",
+          "bytes": 44566,
+          "sha256": "7006478d43ec6f9fbf2109c17a8671e48566c0aec99d3183fbeee69bedb25ef4"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig7.jpg",
+          "bytes": 47151,
+          "sha256": "4b3b34928752fdd70b116908b7db82071f11013211b6327f2e0c4844ee047ac3"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/index.md",
+          "bytes": 65059,
+          "sha256": "33caa4997c92c8cd7d40581db3e589c260ee5d70c4bded9b2e8c981b43cffaf5"
+        },
+        {
+          "path": "src/adapters/aaas.mjs",
+          "bytes": 21207,
+          "sha256": "c52678918e22c126d9a0ff128a044fab9cd4f1995ad023f588f00fa66f50946c"
+        },
+        {
+          "path": "src/adapters/aip.mjs",
+          "bytes": 15429,
+          "sha256": "1593d3b34850c5a282829aff393ac0ac4695f257adff62860fd3f8cced3d9298"
+        },
+        {
+          "path": "src/adapters/iop.mjs",
+          "bytes": 20595,
+          "sha256": "0e633803180532090015014db7eaf98534a2e021ce155f6a4de881ba6bd26611"
+        },
+        {
+          "path": "src/adapters/nature.mjs",
+          "bytes": 66193,
+          "sha256": "8503d88ae15e28791d2587773f037a66b313773d5066d993a1281ebddd17ebf5"
+        },
+        {
+          "path": "src/adapters/pnas.mjs",
+          "bytes": 13186,
+          "sha256": "e7bd7b1409cdf31bb50844d016bf1953e18e82883fc03980877a601e57845bae"
+        },
+        {
+          "path": "src/adapters/rsc.mjs",
+          "bytes": 16616,
+          "sha256": "1a54fe1c2b4280c44d4b33a1f86597dd19a6f1172ec2b887c3cf64bde8e2c1cd"
+        },
+        {
+          "path": "src/adapters/sciopen.mjs",
+          "bytes": 16747,
+          "sha256": "75820995ce0c3e6856f2b3c2e6a541e0a9634fa4db2db1345c870265693a01ea"
+        },
+        {
+          "path": "src/adapters/wiley-clip.mjs",
+          "bytes": 3903,
+          "sha256": "1069a037f4c69492c85f9878fbafc6c4c852578098a371275728c0dbccda8f2c"
+        },
+        {
+          "path": "src/adapters/wiley.mjs",
+          "bytes": 16387,
+          "sha256": "afcc9e70bd505395d8d15561d452fc94430f190b93632335e8ffb1a45b43eaca"
+        },
+        {
+          "path": "src/article-fetch.mjs",
+          "bytes": 3263,
+          "sha256": "e779fcfe477909c86a3260154190bb19dc57d677787d85028b41f42b8e32cf66"
+        },
+        {
+          "path": "src/bridge.mjs",
+          "bytes": 8468,
+          "sha256": "be81cb8de7240731c6ee470d43c1e055ba430b0ab8bb03c30ed34be7a33830ec"
+        },
+        {
+          "path": "src/build.mjs",
+          "bytes": 792,
+          "sha256": "4bcc8c82a594d230bff2ff2dbbda4ee5cb07c00013a59502854e6b92b86bd6ef"
+        },
+        {
+          "path": "src/cli.mjs",
+          "bytes": 2304,
+          "sha256": "74f72ccc7aaebf52dc1c8a8c94924abc7abe9a26909e63d6b3ac2ab01b1f66b0"
+        },
+        {
+          "path": "src/clip.mjs",
+          "bytes": 41240,
+          "sha256": "7f10fdd09c52528b5228433f3c84aa8bcef12d3bc63cc7c03005f233a325b134"
+        },
+        {
+          "path": "src/dom-runtime.mjs",
+          "bytes": 1489,
+          "sha256": "45778aff5794d548af5a467d1eab17e62eda61796cf18254ccacd32d1158c198"
+        },
+        {
+          "path": "src/experimental/rsc-clip.mjs",
+          "bytes": 4579,
+          "sha256": "f65b936498cd67a9a2d912dcebca5effd72f965877cce87801ad1e71d868418a"
+        },
+        {
+          "path": "src/launcher.cs",
+          "bytes": 3222,
+          "sha256": "16b93e04ef388cbcfe3f44cfbb04108d83476a20390ef04763feffe3b571afe7"
+        },
+        {
+          "path": "src/launcher.mjs",
+          "bytes": 13550,
+          "sha256": "c28e501ca37f7b6fcc59ec2ee9153d737891220d387d611a5c69f10ba291fea3"
+        },
+        {
+          "path": "src/markdown.mjs",
+          "bytes": 1097,
+          "sha256": "ef4859276c23e1442de315d418347f5881164c47d1eebb58e5d6322d7a918416"
+        },
+        {
+          "path": "src/normalizers/academic-inline.mjs",
+          "bytes": 13414,
+          "sha256": "1a7e380ee2d0836533e8d7621a9d7ef4dfdfe1c43583d64abb11d4d2c3e77ce0"
+        },
+        {
+          "path": "src/normalizers/citations.mjs",
+          "bytes": 4463,
+          "sha256": "d46831bac833d3f7fc70ec03aaf3c16323814aabae34a48cd1d3c1598caed201"
+        },
+        {
+          "path": "src/normalizers/figures.mjs",
+          "bytes": 16260,
+          "sha256": "e3cb06038756a38649633cd3612edcbeca515c370dc238836cf472b6530bb8d2"
+        },
+        {
+          "path": "src/normalizers/markers.mjs",
+          "bytes": 131,
+          "sha256": "f94d063d5a0849f117b6633bf12db01588a5d6d9104ebe933eedc01c87605afc"
+        },
+        {
+          "path": "src/normalizers/math.mjs",
+          "bytes": 3771,
+          "sha256": "e646de6497838580b47d31f65ee5b50ae2f03ec3137cace1fe8225af528d1089"
+        },
+        {
+          "path": "src/pnas-clip.mjs",
+          "bytes": 5571,
+          "sha256": "7d4c52feec43db6ae9643f5d23690094767cc85036971ce42dd49d204acf89bf"
+        },
+        {
+          "path": "src/renderers/output-policy.mjs",
+          "bytes": 1027,
+          "sha256": "92d7239d5613cd8e812f7ebffb8066e19a15d180b3950d6b68130ac77233c30a"
+        },
+        {
+          "path": "src/security.mjs",
+          "bytes": 7094,
+          "sha256": "d0b8f1278532db6251e50640d2503cca1772e09c5889fb981798cb753934b0db"
+        },
+        {
+          "path": "src/validate-paper.mjs",
+          "bytes": 2166,
+          "sha256": "5fa1736ef4c72aed4bb6350b780cd0a8ada6b3ec472902681d95da589872d5d1"
+        },
+        {
+          "path": "src/validators/citation-style.mjs",
+          "bytes": 1267,
+          "sha256": "c2d511dc22296d1f56eb138c5ad7d8d4b3b43c587f51461972fe397769a099a7"
+        },
+        {
+          "path": "src/validators/cross-references.mjs",
+          "bytes": 3933,
+          "sha256": "ed0a5f751a018fe7859a880949376c7fa8390aacdf85b2565a804a395753bf5e"
+        },
+        {
+          "path": "src/validators/html-audit.mjs",
+          "bytes": 4005,
+          "sha256": "c3eb1d382f4742aaf825d186fc793bb1f4c1aa7ce6e7fdcd56bbaa320b8202fa"
+        },
+        {
+          "path": "src/validators/markdown-structure.mjs",
+          "bytes": 6179,
+          "sha256": "302303cf9fc724c9c5677ae84f3dd840ebe7a62aeee7e5eed00950d135b177a2"
+        },
+        {
+          "path": "src/validators/math-delimiters.mjs",
+          "bytes": 9885,
+          "sha256": "87d19d2bf51c4f5da87cd7d6aaf352595be537f9d1e6c28620e13701f5279284"
+        },
+        {
+          "path": "src/version.mjs",
+          "bytes": 163,
+          "sha256": "377d26da1e0336fa86ee757012a50fdd37b8868530929b59ec1a41d1be300e3b"
+        },
+        {
+          "path": "test/fixtures/nature-parenthesized-power/.gitattributes",
+          "bytes": 80,
+          "sha256": "88ea5e6fa1b78031a906f8966b9d6df30fa7c567a3a0a4c53c659625acd26166"
+        },
+        {
+          "path": "test/fixtures/nature-parenthesized-power/README.md",
+          "bytes": 2542,
+          "sha256": "b2e4638398c9e2bfb3a09871d36e4a6d283d5f0832112da2adc508fe1b0e4d42"
+        },
+        {
+          "path": "test/fixtures/nature-parenthesized-power/diagnosis.json",
+          "bytes": 11434,
+          "sha256": "968b3dc0a185ce674dce915e13e5f7af6a02e79b2e5dc65871dd9e3065f49628"
+        },
+        {
+          "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.excerpt.html",
+          "bytes": 25549,
+          "sha256": "f672ec55261b61376bb1b0a82889e05b45deec9123442dccabab9829ebcd45de"
+        },
+        {
+          "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.provenance.json",
+          "bytes": 31939,
+          "sha256": "8ed315749e0dcf860053b1bbdbe73ef910b1480415a3ba49ea1c86a4e5b9b4e3"
+        },
+        {
+          "path": "package.json",
+          "bytes": 811,
+          "sha256": "70730641b447be2c08db2b7ecd9354c1ba426f10195b2e2e8528de54fcc41d9a"
+        },
+        {
+          "path": "package-lock.json",
+          "bytes": 32599,
+          "sha256": "5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef42a7a1"
+        },
+        {
+          "path": "test/support/parenthesized-power-oracle.mjs",
+          "bytes": 3256,
+          "sha256": "42584ede9ff3033fab1628a206e7594f8ad106073bbb8ffd7f55a33f9464e806"
+        },
+        {
+          "path": "test/nature-parenthesized-power-oracle.test.mjs",
+          "bytes": 4155,
+          "sha256": "31268e9deb9518c1cb20fd9cb6270dfb833099f8d9fd17cf32c078ead840c889"
+        },
+        {
+          "path": "test/nature-parenthesized-power.test.mjs",
+          "bytes": 10257,
+          "sha256": "fde8e7c993a6c8ec7bfeecb973cb9c60b81d1616b2030bae4b4bf29297aa944f"
+        },
+        {
+          "path": "test/nature-parenthesized-power-preproduction.test.mjs",
+          "bytes": 11721,
+          "sha256": "f3bba611a3c898ac3c018d881b21e79db552ffe28847440348011bfeacbf525c"
+        },
+        {
+          "path": "test/nature-parenthesized-power-nesting.test.mjs",
+          "bytes": 4291,
+          "sha256": "ddef9c9c4ed5dea5026be35d9354f89d5edb0b1c64122390fbe3fe64972276e4"
+        }
+      ],
+      "inputsUnchanged": true,
+      "log": {
+        "path": "..\\..\\..\\..\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\tests.log",
+        "bytes": 14437,
+        "sha256": "cc63d2e9816c9ad65b401e625333eb4dbbb083bd5e2159af5594031caf09b8d1"
+      },
+      "gitStatus": "M src/adapters/nature.mjs\n?? test/nature-parenthesized-power-nesting.test.mjs"
+    },
+    "sourceLifecycle": {
+      "attempts": [],
+      "realClipCalls": 3,
+      "clipWindowsOpened": 3,
+      "clipWindowsClosed": 3,
+      "sourceDomsOpened": 2,
+      "sourceDomsClosed": 2,
+      "guardedMethods": 11,
+      "restoredBindings": true,
+      "restoredDomGlobals": true,
+      "writerProof": "Static: clipNature returns data and does not call writePaper; no writer spy claimed."
+    },
+    "boundary": {
+      "lifecycle": {
+        "attempts": [],
+        "parses": 49,
+        "closedWindows": 49,
+        "clips": 0,
+        "sourceReads": 0,
+        "sourceAudits": 0,
+        "restoredNetworkBindings": true,
+        "restoredDomDescriptors": true
+      },
+      "observations": 49,
+      "statusCounts": {
+        "PASS": 49
+      },
+      "mixed": {
+        "id": "mixed complete registry",
+        "synthetic": true,
+        "expected": [
+          "x_{2}",
+          "\\mathrm{mS}\\,\\mathrm{cm}^{-1}",
+          "10^{−6}",
+          "q_{1}",
+          "(5/60)^{2}",
+          "(3/12)^{2}",
+          "(0.19/60/60)^{2}",
+          "(5/60)^{2}"
+        ],
+        "status": "PASS",
+        "scientificRuns": [
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+            "tex": "x_{2}"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+            "tex": "\\mathrm{mS}\\,\\mathrm{cm}^{-1}"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+            "tex": "10^{−6}"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+            "tex": "q_{1}"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+            "tex": "(5/60)^{2}"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+            "tex": "(3/12)^{2}"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN6X",
+            "tex": "(0.19/60/60)^{2}"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN7X",
+            "tex": "(5/60)^{2}"
+          }
+        ],
+        "inlineMath": [
+          {
+            "marker": "ACADEMICCLIPPERINLINEMATH0X",
+            "tex": "q"
+          }
+        ],
+        "citations": [
+          {
+            "marker": "ACADEMICCLIPPERCITATION0X",
+            "numbers": [
+              1
+            ]
+          },
+          {
+            "marker": "ACADEMICCLIPPERCITATION1X",
+            "numbers": [
+              2
+            ]
+          }
+        ],
+        "cleanedHtml": "<html><head><title>Synthetic numeric-parenthesis control</title></head><body><div class=\"c-article-body\"><p id=\"mixed-body\"><i></i>ACADEMICCLIPPERSCIENTIFICRUN0X; ACADEMICCLIPPERSCIENTIFICRUN1X; ACADEMICCLIPPERSCIENTIFICRUN2X; ACADEMICCLIPPERSCIENTIFICRUN3X; πACADEMICCLIPPERSCIENTIFICRUN4X/8; ACADEMICCLIPPERSCIENTIFICRUN5XACADEMICCLIPPERCITATION0X.</p><figcaption id=\"mixed-caption\">πACADEMICCLIPPERSCIENTIFICRUN6X/8; ACADEMICCLIPPERSCIENTIFICRUN7XACADEMICCLIPPERCITATION1X.</figcaption></div></body></html>"
+      },
+      "pure50th": "Same unchanged whole-square oracle test executed as part of required current50."
+    }
+  },
+  "closedPrefixRevision": {
+    "finding": "P2-75-nested-inner-qualification",
+    "reviewerHead": "5d3c353fc9a4aac29a92571d0794291c9cffc513",
+    "reviewerStatus": "CHANGES_REQUIRED",
+    "reviewArtifacts": [],
+    "syntheticInput": "((3/12)+(5/60)<sup>2</sup>)",
+    "minimalProductionDelta": "Replace the simple numeric-prefix suffix guard with a bounded backward scan of original text parenthesis depth. Reject still-open numeric enclosures including earlier closed groups; preserve separated prose. No arithmetic or general math parser.",
+    "totalProductionAddedLines": 46,
+    "newTestIdentity": {
+      "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-parenthesized-power\\academic-clipper\\test\\nature-parenthesized-power-nesting.test.mjs",
+      "bytes": 4373,
+      "sha256": "f0e3a656cbb2cab2c5acf65ca25fe1f30a4369111718bbcb34790784e16a49f4"
+    },
+    "regressionRed": {
+      "process": {
+        "stage": "closed-prefix-red",
+        "owner": "C:/Users/guoli/.codex/worktrees/issue-10-bug-parenthesized-power/academic-clipper",
+        "implementationHead": "5d3c353fc9a4aac29a92571d0794291c9cffc513",
+        "productionBlob": "3c4ae6f56bdafa30be076459e522c9b241a43c45",
+        "command": [
+          "node",
+          "--test",
+          "--test-reporter=tap",
+          "--test-name-pattern=numeric-outer-with-closed-inner-group",
+          "test/nature-parenthesized-power-nesting.test.mjs"
+        ],
+        "executable": "C:\\nvm4w\\nodejs\\node.exe",
+        "nodeVersion": "v24.14.1",
+        "platform": "win32",
+        "pid": 39452,
+        "start": "2026-10-09T01:58:05.620Z",
+        "env": {
+          "NUMERIC_NESTING_RECEIPT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\closed-prefix-red\\nesting-results.json",
+          "PARENTHESIZED_POWER_RECEIPT_ROOT": null,
+          "NUMERIC_PARENTHESIS_RECEIPT": null,
+          "PARENTHESIZED_POWER_CACHE_ROOT": null,
+          "NUMERIC_PARENTHESIS_SNAPSHOT_ROOT": null
+        },
+        "pre": [
+          {
+            "path": "papers/s41586-026-10401-1/debug.json",
+            "bytes": 10955,
+            "sha256": "85f6478e8bfc7b395ec310f2897617fa1e209c8614486c60beafeb622db0a8c5"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig1.webp",
+            "bytes": 49630,
+            "sha256": "81e587ee56dc9eca4dc088c513fd7668ee189c42dcae2ffe722c865347069fc8"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig2.webp",
+            "bytes": 29826,
+            "sha256": "320f625b06577492a61e094f810c576cf013c3a1b39251f10b5fabf9d25d4713"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig3.webp",
+            "bytes": 38546,
+            "sha256": "28033ea3a0a8da6c1b98c39dbcf92ca304f65cfa52e0d06df70b74736af8841d"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig4.jpg",
+            "bytes": 49049,
+            "sha256": "c0cf5cd9efb083280b026b22f5a426643b8211e03f5fe57e28bcc1b306ce5e38"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig5.jpg",
+            "bytes": 49427,
+            "sha256": "4f29f68cadc51e31651a2504fcd479162de15fcb0a1a5bdfa01f80cacb7ab25a"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig6.jpg",
+            "bytes": 44566,
+            "sha256": "7006478d43ec6f9fbf2109c17a8671e48566c0aec99d3183fbeee69bedb25ef4"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig7.jpg",
+            "bytes": 47151,
+            "sha256": "4b3b34928752fdd70b116908b7db82071f11013211b6327f2e0c4844ee047ac3"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/index.md",
+            "bytes": 65059,
+            "sha256": "33caa4997c92c8cd7d40581db3e589c260ee5d70c4bded9b2e8c981b43cffaf5"
+          },
+          {
+            "path": "src/adapters/aaas.mjs",
+            "bytes": 21207,
+            "sha256": "c52678918e22c126d9a0ff128a044fab9cd4f1995ad023f588f00fa66f50946c"
+          },
+          {
+            "path": "src/adapters/aip.mjs",
+            "bytes": 15429,
+            "sha256": "1593d3b34850c5a282829aff393ac0ac4695f257adff62860fd3f8cced3d9298"
+          },
+          {
+            "path": "src/adapters/iop.mjs",
+            "bytes": 20595,
+            "sha256": "0e633803180532090015014db7eaf98534a2e021ce155f6a4de881ba6bd26611"
+          },
+          {
+            "path": "src/adapters/nature.mjs",
+            "bytes": 66193,
+            "sha256": "8503d88ae15e28791d2587773f037a66b313773d5066d993a1281ebddd17ebf5"
+          },
+          {
+            "path": "src/adapters/pnas.mjs",
+            "bytes": 13186,
+            "sha256": "e7bd7b1409cdf31bb50844d016bf1953e18e82883fc03980877a601e57845bae"
+          },
+          {
+            "path": "src/adapters/rsc.mjs",
+            "bytes": 16616,
+            "sha256": "1a54fe1c2b4280c44d4b33a1f86597dd19a6f1172ec2b887c3cf64bde8e2c1cd"
+          },
+          {
+            "path": "src/adapters/sciopen.mjs",
+            "bytes": 16747,
+            "sha256": "75820995ce0c3e6856f2b3c2e6a541e0a9634fa4db2db1345c870265693a01ea"
+          },
+          {
+            "path": "src/adapters/wiley-clip.mjs",
+            "bytes": 3903,
+            "sha256": "1069a037f4c69492c85f9878fbafc6c4c852578098a371275728c0dbccda8f2c"
+          },
+          {
+            "path": "src/adapters/wiley.mjs",
+            "bytes": 16387,
+            "sha256": "afcc9e70bd505395d8d15561d452fc94430f190b93632335e8ffb1a45b43eaca"
+          },
+          {
+            "path": "src/article-fetch.mjs",
+            "bytes": 3263,
+            "sha256": "e779fcfe477909c86a3260154190bb19dc57d677787d85028b41f42b8e32cf66"
+          },
+          {
+            "path": "src/bridge.mjs",
+            "bytes": 8468,
+            "sha256": "be81cb8de7240731c6ee470d43c1e055ba430b0ab8bb03c30ed34be7a33830ec"
+          },
+          {
+            "path": "src/build.mjs",
+            "bytes": 792,
+            "sha256": "4bcc8c82a594d230bff2ff2dbbda4ee5cb07c00013a59502854e6b92b86bd6ef"
+          },
+          {
+            "path": "src/cli.mjs",
+            "bytes": 2304,
+            "sha256": "74f72ccc7aaebf52dc1c8a8c94924abc7abe9a26909e63d6b3ac2ab01b1f66b0"
+          },
+          {
+            "path": "src/clip.mjs",
+            "bytes": 41240,
+            "sha256": "7f10fdd09c52528b5228433f3c84aa8bcef12d3bc63cc7c03005f233a325b134"
+          },
+          {
+            "path": "src/dom-runtime.mjs",
+            "bytes": 1489,
+            "sha256": "45778aff5794d548af5a467d1eab17e62eda61796cf18254ccacd32d1158c198"
+          },
+          {
+            "path": "src/experimental/rsc-clip.mjs",
+            "bytes": 4579,
+            "sha256": "f65b936498cd67a9a2d912dcebca5effd72f965877cce87801ad1e71d868418a"
+          },
+          {
+            "path": "src/launcher.cs",
+            "bytes": 3222,
+            "sha256": "16b93e04ef388cbcfe3f44cfbb04108d83476a20390ef04763feffe3b571afe7"
+          },
+          {
+            "path": "src/launcher.mjs",
+            "bytes": 13550,
+            "sha256": "c28e501ca37f7b6fcc59ec2ee9153d737891220d387d611a5c69f10ba291fea3"
+          },
+          {
+            "path": "src/markdown.mjs",
+            "bytes": 1097,
+            "sha256": "ef4859276c23e1442de315d418347f5881164c47d1eebb58e5d6322d7a918416"
+          },
+          {
+            "path": "src/normalizers/academic-inline.mjs",
+            "bytes": 13414,
+            "sha256": "1a7e380ee2d0836533e8d7621a9d7ef4dfdfe1c43583d64abb11d4d2c3e77ce0"
+          },
+          {
+            "path": "src/normalizers/citations.mjs",
+            "bytes": 4463,
+            "sha256": "d46831bac833d3f7fc70ec03aaf3c16323814aabae34a48cd1d3c1598caed201"
+          },
+          {
+            "path": "src/normalizers/figures.mjs",
+            "bytes": 16260,
+            "sha256": "e3cb06038756a38649633cd3612edcbeca515c370dc238836cf472b6530bb8d2"
+          },
+          {
+            "path": "src/normalizers/markers.mjs",
+            "bytes": 131,
+            "sha256": "f94d063d5a0849f117b6633bf12db01588a5d6d9104ebe933eedc01c87605afc"
+          },
+          {
+            "path": "src/normalizers/math.mjs",
+            "bytes": 3771,
+            "sha256": "e646de6497838580b47d31f65ee5b50ae2f03ec3137cace1fe8225af528d1089"
+          },
+          {
+            "path": "src/pnas-clip.mjs",
+            "bytes": 5571,
+            "sha256": "7d4c52feec43db6ae9643f5d23690094767cc85036971ce42dd49d204acf89bf"
+          },
+          {
+            "path": "src/renderers/output-policy.mjs",
+            "bytes": 1027,
+            "sha256": "92d7239d5613cd8e812f7ebffb8066e19a15d180b3950d6b68130ac77233c30a"
+          },
+          {
+            "path": "src/security.mjs",
+            "bytes": 7094,
+            "sha256": "d0b8f1278532db6251e50640d2503cca1772e09c5889fb981798cb753934b0db"
+          },
+          {
+            "path": "src/validate-paper.mjs",
+            "bytes": 2166,
+            "sha256": "5fa1736ef4c72aed4bb6350b780cd0a8ada6b3ec472902681d95da589872d5d1"
+          },
+          {
+            "path": "src/validators/citation-style.mjs",
+            "bytes": 1267,
+            "sha256": "c2d511dc22296d1f56eb138c5ad7d8d4b3b43c587f51461972fe397769a099a7"
+          },
+          {
+            "path": "src/validators/cross-references.mjs",
+            "bytes": 3933,
+            "sha256": "ed0a5f751a018fe7859a880949376c7fa8390aacdf85b2565a804a395753bf5e"
+          },
+          {
+            "path": "src/validators/html-audit.mjs",
+            "bytes": 4005,
+            "sha256": "c3eb1d382f4742aaf825d186fc793bb1f4c1aa7ce6e7fdcd56bbaa320b8202fa"
+          },
+          {
+            "path": "src/validators/markdown-structure.mjs",
+            "bytes": 6179,
+            "sha256": "302303cf9fc724c9c5677ae84f3dd840ebe7a62aeee7e5eed00950d135b177a2"
+          },
+          {
+            "path": "src/validators/math-delimiters.mjs",
+            "bytes": 9885,
+            "sha256": "87d19d2bf51c4f5da87cd7d6aaf352595be537f9d1e6c28620e13701f5279284"
+          },
+          {
+            "path": "src/version.mjs",
+            "bytes": 163,
+            "sha256": "377d26da1e0336fa86ee757012a50fdd37b8868530929b59ec1a41d1be300e3b"
+          },
+          {
+            "path": "test/fixtures/nature-parenthesized-power/.gitattributes",
+            "bytes": 80,
+            "sha256": "88ea5e6fa1b78031a906f8966b9d6df30fa7c567a3a0a4c53c659625acd26166"
+          },
+          {
+            "path": "test/fixtures/nature-parenthesized-power/README.md",
+            "bytes": 2542,
+            "sha256": "b2e4638398c9e2bfb3a09871d36e4a6d283d5f0832112da2adc508fe1b0e4d42"
+          },
+          {
+            "path": "test/fixtures/nature-parenthesized-power/diagnosis.json",
+            "bytes": 11434,
+            "sha256": "968b3dc0a185ce674dce915e13e5f7af6a02e79b2e5dc65871dd9e3065f49628"
+          },
+          {
+            "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.excerpt.html",
+            "bytes": 25549,
+            "sha256": "f672ec55261b61376bb1b0a82889e05b45deec9123442dccabab9829ebcd45de"
+          },
+          {
+            "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.provenance.json",
+            "bytes": 31939,
+            "sha256": "8ed315749e0dcf860053b1bbdbe73ef910b1480415a3ba49ea1c86a4e5b9b4e3"
+          },
+          {
+            "path": "package.json",
+            "bytes": 811,
+            "sha256": "70730641b447be2c08db2b7ecd9354c1ba426f10195b2e2e8528de54fcc41d9a"
+          },
+          {
+            "path": "package-lock.json",
+            "bytes": 32599,
+            "sha256": "5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef42a7a1"
+          },
+          {
+            "path": "test/support/parenthesized-power-oracle.mjs",
+            "bytes": 3256,
+            "sha256": "42584ede9ff3033fab1628a206e7594f8ad106073bbb8ffd7f55a33f9464e806"
+          },
+          {
+            "path": "test/nature-parenthesized-power-oracle.test.mjs",
+            "bytes": 4155,
+            "sha256": "31268e9deb9518c1cb20fd9cb6270dfb833099f8d9fd17cf32c078ead840c889"
+          },
+          {
+            "path": "test/nature-parenthesized-power-nesting.test.mjs",
+            "bytes": 4373,
+            "sha256": "f0e3a656cbb2cab2c5acf65ca25fe1f30a4369111718bbcb34790784e16a49f4"
+          }
+        ],
+        "finish": "2026-10-09T01:58:06.273Z",
+        "exitCode": 1,
+        "signal": null,
+        "summary": {
+          "tests": 1,
+          "pass": 0,
+          "fail": 1,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0,
+          "duration_ms": 596.8056
+        },
+        "post": [
+          {
+            "path": "papers/s41586-026-10401-1/debug.json",
+            "bytes": 10955,
+            "sha256": "85f6478e8bfc7b395ec310f2897617fa1e209c8614486c60beafeb622db0a8c5"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig1.webp",
+            "bytes": 49630,
+            "sha256": "81e587ee56dc9eca4dc088c513fd7668ee189c42dcae2ffe722c865347069fc8"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig2.webp",
+            "bytes": 29826,
+            "sha256": "320f625b06577492a61e094f810c576cf013c3a1b39251f10b5fabf9d25d4713"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig3.webp",
+            "bytes": 38546,
+            "sha256": "28033ea3a0a8da6c1b98c39dbcf92ca304f65cfa52e0d06df70b74736af8841d"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig4.jpg",
+            "bytes": 49049,
+            "sha256": "c0cf5cd9efb083280b026b22f5a426643b8211e03f5fe57e28bcc1b306ce5e38"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig5.jpg",
+            "bytes": 49427,
+            "sha256": "4f29f68cadc51e31651a2504fcd479162de15fcb0a1a5bdfa01f80cacb7ab25a"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig6.jpg",
+            "bytes": 44566,
+            "sha256": "7006478d43ec6f9fbf2109c17a8671e48566c0aec99d3183fbeee69bedb25ef4"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/figures/fig7.jpg",
+            "bytes": 47151,
+            "sha256": "4b3b34928752fdd70b116908b7db82071f11013211b6327f2e0c4844ee047ac3"
+          },
+          {
+            "path": "papers/s41586-026-10401-1/index.md",
+            "bytes": 65059,
+            "sha256": "33caa4997c92c8cd7d40581db3e589c260ee5d70c4bded9b2e8c981b43cffaf5"
+          },
+          {
+            "path": "src/adapters/aaas.mjs",
+            "bytes": 21207,
+            "sha256": "c52678918e22c126d9a0ff128a044fab9cd4f1995ad023f588f00fa66f50946c"
+          },
+          {
+            "path": "src/adapters/aip.mjs",
+            "bytes": 15429,
+            "sha256": "1593d3b34850c5a282829aff393ac0ac4695f257adff62860fd3f8cced3d9298"
+          },
+          {
+            "path": "src/adapters/iop.mjs",
+            "bytes": 20595,
+            "sha256": "0e633803180532090015014db7eaf98534a2e021ce155f6a4de881ba6bd26611"
+          },
+          {
+            "path": "src/adapters/nature.mjs",
+            "bytes": 66193,
+            "sha256": "8503d88ae15e28791d2587773f037a66b313773d5066d993a1281ebddd17ebf5"
+          },
+          {
+            "path": "src/adapters/pnas.mjs",
+            "bytes": 13186,
+            "sha256": "e7bd7b1409cdf31bb50844d016bf1953e18e82883fc03980877a601e57845bae"
+          },
+          {
+            "path": "src/adapters/rsc.mjs",
+            "bytes": 16616,
+            "sha256": "1a54fe1c2b4280c44d4b33a1f86597dd19a6f1172ec2b887c3cf64bde8e2c1cd"
+          },
+          {
+            "path": "src/adapters/sciopen.mjs",
+            "bytes": 16747,
+            "sha256": "75820995ce0c3e6856f2b3c2e6a541e0a9634fa4db2db1345c870265693a01ea"
+          },
+          {
+            "path": "src/adapters/wiley-clip.mjs",
+            "bytes": 3903,
+            "sha256": "1069a037f4c69492c85f9878fbafc6c4c852578098a371275728c0dbccda8f2c"
+          },
+          {
+            "path": "src/adapters/wiley.mjs",
+            "bytes": 16387,
+            "sha256": "afcc9e70bd505395d8d15561d452fc94430f190b93632335e8ffb1a45b43eaca"
+          },
+          {
+            "path": "src/article-fetch.mjs",
+            "bytes": 3263,
+            "sha256": "e779fcfe477909c86a3260154190bb19dc57d677787d85028b41f42b8e32cf66"
+          },
+          {
+            "path": "src/bridge.mjs",
+            "bytes": 8468,
+            "sha256": "be81cb8de7240731c6ee470d43c1e055ba430b0ab8bb03c30ed34be7a33830ec"
+          },
+          {
+            "path": "src/build.mjs",
+            "bytes": 792,
+            "sha256": "4bcc8c82a594d230bff2ff2dbbda4ee5cb07c00013a59502854e6b92b86bd6ef"
+          },
+          {
+            "path": "src/cli.mjs",
+            "bytes": 2304,
+            "sha256": "74f72ccc7aaebf52dc1c8a8c94924abc7abe9a26909e63d6b3ac2ab01b1f66b0"
+          },
+          {
+            "path": "src/clip.mjs",
+            "bytes": 41240,
+            "sha256": "7f10fdd09c52528b5228433f3c84aa8bcef12d3bc63cc7c03005f233a325b134"
+          },
+          {
+            "path": "src/dom-runtime.mjs",
+            "bytes": 1489,
+            "sha256": "45778aff5794d548af5a467d1eab17e62eda61796cf18254ccacd32d1158c198"
+          },
+          {
+            "path": "src/experimental/rsc-clip.mjs",
+            "bytes": 4579,
+            "sha256": "f65b936498cd67a9a2d912dcebca5effd72f965877cce87801ad1e71d868418a"
+          },
+          {
+            "path": "src/launcher.cs",
+            "bytes": 3222,
+            "sha256": "16b93e04ef388cbcfe3f44cfbb04108d83476a20390ef04763feffe3b571afe7"
+          },
+          {
+            "path": "src/launcher.mjs",
+            "bytes": 13550,
+            "sha256": "c28e501ca37f7b6fcc59ec2ee9153d737891220d387d611a5c69f10ba291fea3"
+          },
+          {
+            "path": "src/markdown.mjs",
+            "bytes": 1097,
+            "sha256": "ef4859276c23e1442de315d418347f5881164c47d1eebb58e5d6322d7a918416"
+          },
+          {
+            "path": "src/normalizers/academic-inline.mjs",
+            "bytes": 13414,
+            "sha256": "1a7e380ee2d0836533e8d7621a9d7ef4dfdfe1c43583d64abb11d4d2c3e77ce0"
+          },
+          {
+            "path": "src/normalizers/citations.mjs",
+            "bytes": 4463,
+            "sha256": "d46831bac833d3f7fc70ec03aaf3c16323814aabae34a48cd1d3c1598caed201"
+          },
+          {
+            "path": "src/normalizers/figures.mjs",
+            "bytes": 16260,
+            "sha256": "e3cb06038756a38649633cd3612edcbeca515c370dc238836cf472b6530bb8d2"
+          },
+          {
+            "path": "src/normalizers/markers.mjs",
+            "bytes": 131,
+            "sha256": "f94d063d5a0849f117b6633bf12db01588a5d6d9104ebe933eedc01c87605afc"
+          },
+          {
+            "path": "src/normalizers/math.mjs",
+            "bytes": 3771,
+            "sha256": "e646de6497838580b47d31f65ee5b50ae2f03ec3137cace1fe8225af528d1089"
+          },
+          {
+            "path": "src/pnas-clip.mjs",
+            "bytes": 5571,
+            "sha256": "7d4c52feec43db6ae9643f5d23690094767cc85036971ce42dd49d204acf89bf"
+          },
+          {
+            "path": "src/renderers/output-policy.mjs",
+            "bytes": 1027,
+            "sha256": "92d7239d5613cd8e812f7ebffb8066e19a15d180b3950d6b68130ac77233c30a"
+          },
+          {
+            "path": "src/security.mjs",
+            "bytes": 7094,
+            "sha256": "d0b8f1278532db6251e50640d2503cca1772e09c5889fb981798cb753934b0db"
+          },
+          {
+            "path": "src/validate-paper.mjs",
+            "bytes": 2166,
+            "sha256": "5fa1736ef4c72aed4bb6350b780cd0a8ada6b3ec472902681d95da589872d5d1"
+          },
+          {
+            "path": "src/validators/citation-style.mjs",
+            "bytes": 1267,
+            "sha256": "c2d511dc22296d1f56eb138c5ad7d8d4b3b43c587f51461972fe397769a099a7"
+          },
+          {
+            "path": "src/validators/cross-references.mjs",
+            "bytes": 3933,
+            "sha256": "ed0a5f751a018fe7859a880949376c7fa8390aacdf85b2565a804a395753bf5e"
+          },
+          {
+            "path": "src/validators/html-audit.mjs",
+            "bytes": 4005,
+            "sha256": "c3eb1d382f4742aaf825d186fc793bb1f4c1aa7ce6e7fdcd56bbaa320b8202fa"
+          },
+          {
+            "path": "src/validators/markdown-structure.mjs",
+            "bytes": 6179,
+            "sha256": "302303cf9fc724c9c5677ae84f3dd840ebe7a62aeee7e5eed00950d135b177a2"
+          },
+          {
+            "path": "src/validators/math-delimiters.mjs",
+            "bytes": 9885,
+            "sha256": "87d19d2bf51c4f5da87cd7d6aaf352595be537f9d1e6c28620e13701f5279284"
+          },
+          {
+            "path": "src/version.mjs",
+            "bytes": 163,
+            "sha256": "377d26da1e0336fa86ee757012a50fdd37b8868530929b59ec1a41d1be300e3b"
+          },
+          {
+            "path": "test/fixtures/nature-parenthesized-power/.gitattributes",
+            "bytes": 80,
+            "sha256": "88ea5e6fa1b78031a906f8966b9d6df30fa7c567a3a0a4c53c659625acd26166"
+          },
+          {
+            "path": "test/fixtures/nature-parenthesized-power/README.md",
+            "bytes": 2542,
+            "sha256": "b2e4638398c9e2bfb3a09871d36e4a6d283d5f0832112da2adc508fe1b0e4d42"
+          },
+          {
+            "path": "test/fixtures/nature-parenthesized-power/diagnosis.json",
+            "bytes": 11434,
+            "sha256": "968b3dc0a185ce674dce915e13e5f7af6a02e79b2e5dc65871dd9e3065f49628"
+          },
+          {
+            "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.excerpt.html",
+            "bytes": 25549,
+            "sha256": "f672ec55261b61376bb1b0a82889e05b45deec9123442dccabab9829ebcd45de"
+          },
+          {
+            "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.provenance.json",
+            "bytes": 31939,
+            "sha256": "8ed315749e0dcf860053b1bbdbe73ef910b1480415a3ba49ea1c86a4e5b9b4e3"
+          },
+          {
+            "path": "package.json",
+            "bytes": 811,
+            "sha256": "70730641b447be2c08db2b7ecd9354c1ba426f10195b2e2e8528de54fcc41d9a"
+          },
+          {
+            "path": "package-lock.json",
+            "bytes": 32599,
+            "sha256": "5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef42a7a1"
+          },
+          {
+            "path": "test/support/parenthesized-power-oracle.mjs",
+            "bytes": 3256,
+            "sha256": "42584ede9ff3033fab1628a206e7594f8ad106073bbb8ffd7f55a33f9464e806"
+          },
+          {
+            "path": "test/nature-parenthesized-power-oracle.test.mjs",
+            "bytes": 4155,
+            "sha256": "31268e9deb9518c1cb20fd9cb6270dfb833099f8d9fd17cf32c078ead840c889"
+          },
+          {
+            "path": "test/nature-parenthesized-power-nesting.test.mjs",
+            "bytes": 4373,
+            "sha256": "f0e3a656cbb2cab2c5acf65ca25fe1f30a4369111718bbcb34790784e16a49f4"
+          }
+        ],
+        "inputsUnchanged": true,
+        "log": {
+          "path": "..\\..\\..\\..\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\closed-prefix-red\\tests.log",
+          "bytes": 1391,
+          "sha256": "94a7e6c37f6074dd2c916481a95f28668cfb8457547c74ccad379c9b62f5bdcb"
+        },
+        "gitStatus": "M test/nature-parenthesized-power-nesting.test.mjs"
+      },
+      "observations": [
+        {
+          "id": "numeric-outer-with-closed-inner-group",
+          "synthetic": true,
+          "input": "((3/12)+(5/60)<sup>2</sup>)",
+          "expected": [],
+          "status": "CONTRACT_RED",
+          "scientificRuns": [
+            {
+              "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+              "tex": "(5/60)^{2}"
+            }
+          ],
+          "inlineMath": [],
+          "citations": [],
+          "cleanedParagraph": "((3/12)+ACADEMICCLIPPERSCIENTIFICRUN0X)",
+          "error": {
+            "name": "AssertionError",
+            "message": "Entire ordered registry rejects inner roles of unqualified enclosing mathematics\n+ actual - expected\n\n+ [\n+   {\n+     marker: 'ACADEMICCLIPPERSCIENTIFICRUN0X',\n+     tex: '(5/60)^{2}'\n+   }\n+ ]\n- []\n"
+          }
+        }
+      ],
+      "lifecycle": {
+        "opened": 1,
+        "closed": 1,
+        "guardedMethods": 11,
+        "attempts": [],
+        "restoredBindings": true,
+        "restoredDomDescriptors": true
+      },
+      "execution": {
+        "parses": 1,
+        "clips": 0,
+        "sourceAudits": 0,
+        "rawReads": 0,
+        "AExecutions": 0
+      }
+    },
+    "currentGreen": {
+      "newCases": [
+        {
+          "id": "nested-inner-script",
+          "synthetic": true,
+          "input": "((5/60)<sup>2</sup>)",
+          "expected": [],
+          "status": "PASS",
+          "scientificRuns": [],
+          "inlineMath": [],
+          "citations": [],
+          "cleanedParagraph": "((5/60)2)"
+        },
+        {
+          "id": "lexical-outer-group",
+          "synthetic": true,
+          "input": "x((5/60)<sup>2</sup>)",
+          "expected": [],
+          "status": "PASS",
+          "scientificRuns": [],
+          "inlineMath": [],
+          "citations": [],
+          "cleanedParagraph": "x((5/60)2)"
+        },
+        {
+          "id": "numeric-outer-denominator",
+          "synthetic": true,
+          "input": "(5/(5/60)<sup>2</sup>)",
+          "expected": [],
+          "status": "PASS",
+          "scientificRuns": [],
+          "inlineMath": [],
+          "citations": [],
+          "cleanedParagraph": "(5/(5/60)2)"
+        },
+        {
+          "id": "numeric-outer-with-separating-space",
+          "synthetic": true,
+          "input": "(5/ (5/60)<sup>2</sup>)",
+          "expected": [],
+          "status": "PASS",
+          "scientificRuns": [],
+          "inlineMath": [],
+          "citations": [],
+          "cleanedParagraph": "(5/ (5/60)2)"
+        },
+        {
+          "id": "numeric-outer-with-pi-factor",
+          "synthetic": true,
+          "input": "(5/π(5/60)<sup>2</sup>/8)",
+          "expected": [],
+          "status": "PASS",
+          "scientificRuns": [],
+          "inlineMath": [],
+          "citations": [],
+          "cleanedParagraph": "(5/π(5/60)2/8)"
+        },
+        {
+          "id": "numeric-outer-with-closed-inner-group",
+          "synthetic": true,
+          "input": "((3/12)+(5/60)<sup>2</sup>)",
+          "expected": [],
+          "status": "PASS",
+          "scientificRuns": [],
+          "inlineMath": [],
+          "citations": [],
+          "cleanedParagraph": "((3/12)+(5/60)2)"
+        },
+        {
+          "id": "prose-parenthetical-control",
+          "synthetic": true,
+          "input": "(see (5/60)<sup>2</sup>)",
+          "expected": [
+            "(5/60)^{2}"
+          ],
+          "status": "PASS",
+          "scientificRuns": [
+            {
+              "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+              "tex": "(5/60)^{2}"
+            }
+          ],
+          "inlineMath": [],
+          "citations": [],
+          "cleanedParagraph": "(see ACADEMICCLIPPERSCIENTIFICRUN0X)"
+        },
+        {
+          "id": "prose-parenthetical-pi-and-divisor",
+          "synthetic": true,
+          "input": "(see π(0.19/60/60)<sup>2</sup>/8)",
+          "expected": [
+            "(0.19/60/60)^{2}"
+          ],
+          "status": "PASS",
+          "scientificRuns": [
+            {
+              "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+              "tex": "(0.19/60/60)^{2}"
+            }
+          ],
+          "inlineMath": [],
+          "citations": [],
+          "cleanedParagraph": "(see πACADEMICCLIPPERSCIENTIFICRUN0X/8)"
+        }
+      ],
+      "lifecycle": {
+        "opened": 8,
+        "closed": 8,
+        "guardedMethods": 11,
+        "attempts": [],
+        "restoredBindings": true,
+        "restoredDomDescriptors": true
+      },
+      "execution": {
+        "parses": 8,
+        "clips": 0,
+        "sourceAudits": 0,
+        "rawReads": 0,
+        "AExecutions": 0
+      }
+    },
+    "runHeadInterpretation": "implementationHead records prior committed 5d3c353 during dirty implementation. Actual productionBlob583fa29 and physical pre/post identities match committed dc05eaeb; no run receipt is rewritten.",
+    "currentInputComparison": [
+      {
+        "path": "papers/s41586-026-10401-1/debug.json",
+        "bytes": 10955,
+        "sha256": "85f6478e8bfc7b395ec310f2897617fa1e209c8614486c60beafeb622db0a8c5",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "papers/s41586-026-10401-1/figures/fig1.webp",
+        "bytes": 49630,
+        "sha256": "81e587ee56dc9eca4dc088c513fd7668ee189c42dcae2ffe722c865347069fc8",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "papers/s41586-026-10401-1/figures/fig2.webp",
+        "bytes": 29826,
+        "sha256": "320f625b06577492a61e094f810c576cf013c3a1b39251f10b5fabf9d25d4713",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "papers/s41586-026-10401-1/figures/fig3.webp",
+        "bytes": 38546,
+        "sha256": "28033ea3a0a8da6c1b98c39dbcf92ca304f65cfa52e0d06df70b74736af8841d",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "papers/s41586-026-10401-1/figures/fig4.jpg",
+        "bytes": 49049,
+        "sha256": "c0cf5cd9efb083280b026b22f5a426643b8211e03f5fe57e28bcc1b306ce5e38",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "papers/s41586-026-10401-1/figures/fig5.jpg",
+        "bytes": 49427,
+        "sha256": "4f29f68cadc51e31651a2504fcd479162de15fcb0a1a5bdfa01f80cacb7ab25a",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "papers/s41586-026-10401-1/figures/fig6.jpg",
+        "bytes": 44566,
+        "sha256": "7006478d43ec6f9fbf2109c17a8671e48566c0aec99d3183fbeee69bedb25ef4",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "papers/s41586-026-10401-1/figures/fig7.jpg",
+        "bytes": 47151,
+        "sha256": "4b3b34928752fdd70b116908b7db82071f11013211b6327f2e0c4844ee047ac3",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "papers/s41586-026-10401-1/index.md",
+        "bytes": 65059,
+        "sha256": "33caa4997c92c8cd7d40581db3e589c260ee5d70c4bded9b2e8c981b43cffaf5",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/adapters/aaas.mjs",
+        "bytes": 21207,
+        "sha256": "c52678918e22c126d9a0ff128a044fab9cd4f1995ad023f588f00fa66f50946c",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/adapters/aip.mjs",
+        "bytes": 15429,
+        "sha256": "1593d3b34850c5a282829aff393ac0ac4695f257adff62860fd3f8cced3d9298",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/adapters/iop.mjs",
+        "bytes": 20595,
+        "sha256": "0e633803180532090015014db7eaf98534a2e021ce155f6a4de881ba6bd26611",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/adapters/nature.mjs",
+        "bytes": 66527,
+        "sha256": "64ddb3a0c00edc1a071f6a72c7b15578c106ffdd5fd196f1b61212680c0a0dfc",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/adapters/pnas.mjs",
+        "bytes": 13186,
+        "sha256": "e7bd7b1409cdf31bb50844d016bf1953e18e82883fc03980877a601e57845bae",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/adapters/rsc.mjs",
+        "bytes": 16616,
+        "sha256": "1a54fe1c2b4280c44d4b33a1f86597dd19a6f1172ec2b887c3cf64bde8e2c1cd",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/adapters/sciopen.mjs",
+        "bytes": 16747,
+        "sha256": "75820995ce0c3e6856f2b3c2e6a541e0a9634fa4db2db1345c870265693a01ea",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/adapters/wiley-clip.mjs",
+        "bytes": 3903,
+        "sha256": "1069a037f4c69492c85f9878fbafc6c4c852578098a371275728c0dbccda8f2c",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/adapters/wiley.mjs",
+        "bytes": 16387,
+        "sha256": "afcc9e70bd505395d8d15561d452fc94430f190b93632335e8ffb1a45b43eaca",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/article-fetch.mjs",
+        "bytes": 3263,
+        "sha256": "e779fcfe477909c86a3260154190bb19dc57d677787d85028b41f42b8e32cf66",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/bridge.mjs",
+        "bytes": 8468,
+        "sha256": "be81cb8de7240731c6ee470d43c1e055ba430b0ab8bb03c30ed34be7a33830ec",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/build.mjs",
+        "bytes": 792,
+        "sha256": "4bcc8c82a594d230bff2ff2dbbda4ee5cb07c00013a59502854e6b92b86bd6ef",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/cli.mjs",
+        "bytes": 2304,
+        "sha256": "74f72ccc7aaebf52dc1c8a8c94924abc7abe9a26909e63d6b3ac2ab01b1f66b0",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/clip.mjs",
+        "bytes": 41240,
+        "sha256": "7f10fdd09c52528b5228433f3c84aa8bcef12d3bc63cc7c03005f233a325b134",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/dom-runtime.mjs",
+        "bytes": 1489,
+        "sha256": "45778aff5794d548af5a467d1eab17e62eda61796cf18254ccacd32d1158c198",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/experimental/rsc-clip.mjs",
+        "bytes": 4579,
+        "sha256": "f65b936498cd67a9a2d912dcebca5effd72f965877cce87801ad1e71d868418a",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/launcher.cs",
+        "bytes": 3222,
+        "sha256": "16b93e04ef388cbcfe3f44cfbb04108d83476a20390ef04763feffe3b571afe7",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/launcher.mjs",
+        "bytes": 13550,
+        "sha256": "c28e501ca37f7b6fcc59ec2ee9153d737891220d387d611a5c69f10ba291fea3",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/markdown.mjs",
+        "bytes": 1097,
+        "sha256": "ef4859276c23e1442de315d418347f5881164c47d1eebb58e5d6322d7a918416",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/normalizers/academic-inline.mjs",
+        "bytes": 13414,
+        "sha256": "1a7e380ee2d0836533e8d7621a9d7ef4dfdfe1c43583d64abb11d4d2c3e77ce0",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/normalizers/citations.mjs",
+        "bytes": 4463,
+        "sha256": "d46831bac833d3f7fc70ec03aaf3c16323814aabae34a48cd1d3c1598caed201",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/normalizers/figures.mjs",
+        "bytes": 16260,
+        "sha256": "e3cb06038756a38649633cd3612edcbeca515c370dc238836cf472b6530bb8d2",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/normalizers/markers.mjs",
+        "bytes": 131,
+        "sha256": "f94d063d5a0849f117b6633bf12db01588a5d6d9104ebe933eedc01c87605afc",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/normalizers/math.mjs",
+        "bytes": 3771,
+        "sha256": "e646de6497838580b47d31f65ee5b50ae2f03ec3137cace1fe8225af528d1089",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/pnas-clip.mjs",
+        "bytes": 5571,
+        "sha256": "7d4c52feec43db6ae9643f5d23690094767cc85036971ce42dd49d204acf89bf",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/renderers/output-policy.mjs",
+        "bytes": 1027,
+        "sha256": "92d7239d5613cd8e812f7ebffb8066e19a15d180b3950d6b68130ac77233c30a",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/security.mjs",
+        "bytes": 7094,
+        "sha256": "d0b8f1278532db6251e50640d2503cca1772e09c5889fb981798cb753934b0db",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/validate-paper.mjs",
+        "bytes": 2166,
+        "sha256": "5fa1736ef4c72aed4bb6350b780cd0a8ada6b3ec472902681d95da589872d5d1",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/validators/citation-style.mjs",
+        "bytes": 1267,
+        "sha256": "c2d511dc22296d1f56eb138c5ad7d8d4b3b43c587f51461972fe397769a099a7",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/validators/cross-references.mjs",
+        "bytes": 3933,
+        "sha256": "ed0a5f751a018fe7859a880949376c7fa8390aacdf85b2565a804a395753bf5e",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/validators/html-audit.mjs",
+        "bytes": 4005,
+        "sha256": "c3eb1d382f4742aaf825d186fc793bb1f4c1aa7ce6e7fdcd56bbaa320b8202fa",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/validators/markdown-structure.mjs",
+        "bytes": 6179,
+        "sha256": "302303cf9fc724c9c5677ae84f3dd840ebe7a62aeee7e5eed00950d135b177a2",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/validators/math-delimiters.mjs",
+        "bytes": 9885,
+        "sha256": "87d19d2bf51c4f5da87cd7d6aaf352595be537f9d1e6c28620e13701f5279284",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "src/version.mjs",
+        "bytes": 163,
+        "sha256": "377d26da1e0336fa86ee757012a50fdd37b8868530929b59ec1a41d1be300e3b",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "test/fixtures/nature-parenthesized-power/.gitattributes",
+        "bytes": 80,
+        "sha256": "88ea5e6fa1b78031a906f8966b9d6df30fa7c567a3a0a4c53c659625acd26166",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "test/fixtures/nature-parenthesized-power/README.md",
+        "bytes": 2542,
+        "sha256": "b2e4638398c9e2bfb3a09871d36e4a6d283d5f0832112da2adc508fe1b0e4d42",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "test/fixtures/nature-parenthesized-power/diagnosis.json",
+        "bytes": 11434,
+        "sha256": "968b3dc0a185ce674dce915e13e5f7af6a02e79b2e5dc65871dd9e3065f49628",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.excerpt.html",
+        "bytes": 25549,
+        "sha256": "f672ec55261b61376bb1b0a82889e05b45deec9123442dccabab9829ebcd45de",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "test/fixtures/nature-parenthesized-power/s41586-022-04755-5.provenance.json",
+        "bytes": 31939,
+        "sha256": "8ed315749e0dcf860053b1bbdbe73ef910b1480415a3ba49ea1c86a4e5b9b4e3",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "package.json",
+        "bytes": 811,
+        "sha256": "70730641b447be2c08db2b7ecd9354c1ba426f10195b2e2e8528de54fcc41d9a",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "package-lock.json",
+        "bytes": 32599,
+        "sha256": "5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef42a7a1",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "test/support/parenthesized-power-oracle.mjs",
+        "bytes": 3256,
+        "sha256": "42584ede9ff3033fab1628a206e7594f8ad106073bbb8ffd7f55a33f9464e806",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "test/nature-parenthesized-power-oracle.test.mjs",
+        "bytes": 4155,
+        "sha256": "31268e9deb9518c1cb20fd9cb6270dfb833099f8d9fd17cf32c078ead840c889",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "test/nature-parenthesized-power.test.mjs",
+        "bytes": 10257,
+        "sha256": "fde8e7c993a6c8ec7bfeecb973cb9c60b81d1616b2030bae4b4bf29297aa944f",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "test/nature-parenthesized-power-preproduction.test.mjs",
+        "bytes": 11721,
+        "sha256": "f3bba611a3c898ac3c018d881b21e79db552ffe28847440348011bfeacbf525c",
+        "matchesCurrentPhysical": true
+      },
+      {
+        "path": "test/nature-parenthesized-power-nesting.test.mjs",
+        "bytes": 4373,
+        "sha256": "f0e3a656cbb2cab2c5acf65ca25fe1f30a4369111718bbcb34790784e16a49f4",
+        "matchesCurrentPhysical": true
+      }
+    ],
+    "sameSourceOutputs": [
+      {
+        "style": "markdown",
+        "artifact": "result.json",
+        "current": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\markdown.result.json",
+          "bytes": 63972,
+          "sha256": "d9d8522e4a2b758411ca2c137e269d6be4e516c2e0af5ab9c2eea26ecd03024b"
+        },
+        "first": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\focused-first\\source\\markdown.result.json",
+          "bytes": 63972,
+          "sha256": "d9d8522e4a2b758411ca2c137e269d6be4e516c2e0af5ab9c2eea26ecd03024b"
+        },
+        "previous": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\markdown.result.json",
+          "bytes": 63972,
+          "sha256": "d9d8522e4a2b758411ca2c137e269d6be4e516c2e0af5ab9c2eea26ecd03024b"
+        },
+        "bytesEqual": true
+      },
+      {
+        "style": "markdown",
+        "artifact": "md",
+        "current": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\markdown.md",
+          "bytes": 2206,
+          "sha256": "215f5d3c979ff6bb5d81f46a794cc052033d25a9ae42a9a01bd86d74c343dc3c"
+        },
+        "first": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\focused-first\\source\\markdown.md",
+          "bytes": 2206,
+          "sha256": "215f5d3c979ff6bb5d81f46a794cc052033d25a9ae42a9a01bd86d74c343dc3c"
+        },
+        "previous": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\markdown.md",
+          "bytes": 2206,
+          "sha256": "215f5d3c979ff6bb5d81f46a794cc052033d25a9ae42a9a01bd86d74c343dc3c"
+        },
+        "bytesEqual": true
+      },
+      {
+        "style": "links",
+        "artifact": "result.json",
+        "current": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\links.result.json",
+          "bytes": 63930,
+          "sha256": "810d240a8c1c21cba9ebbdac598ce499c2b271767d7b4e698664add88fbea4fc"
+        },
+        "first": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\focused-first\\source\\links.result.json",
+          "bytes": 63930,
+          "sha256": "810d240a8c1c21cba9ebbdac598ce499c2b271767d7b4e698664add88fbea4fc"
+        },
+        "previous": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\links.result.json",
+          "bytes": 63930,
+          "sha256": "810d240a8c1c21cba9ebbdac598ce499c2b271767d7b4e698664add88fbea4fc"
+        },
+        "bytesEqual": true
+      },
+      {
+        "style": "links",
+        "artifact": "md",
+        "current": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\links.md",
+          "bytes": 2206,
+          "sha256": "215f5d3c979ff6bb5d81f46a794cc052033d25a9ae42a9a01bd86d74c343dc3c"
+        },
+        "first": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\focused-first\\source\\links.md",
+          "bytes": 2206,
+          "sha256": "215f5d3c979ff6bb5d81f46a794cc052033d25a9ae42a9a01bd86d74c343dc3c"
+        },
+        "previous": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\links.md",
+          "bytes": 2206,
+          "sha256": "215f5d3c979ff6bb5d81f46a794cc052033d25a9ae42a9a01bd86d74c343dc3c"
+        },
+        "bytesEqual": true
+      },
+      {
+        "style": "quarto",
+        "artifact": "result.json",
+        "current": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\quarto.result.json",
+          "bytes": 64159,
+          "sha256": "d2dd0bc0c5b3923fc58f7fc844b7c4097edc4a0982f4acd1eea8472c6db51d7c"
+        },
+        "first": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\focused-first\\source\\quarto.result.json",
+          "bytes": 64159,
+          "sha256": "d2dd0bc0c5b3923fc58f7fc844b7c4097edc4a0982f4acd1eea8472c6db51d7c"
+        },
+        "previous": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\quarto.result.json",
+          "bytes": 64159,
+          "sha256": "d2dd0bc0c5b3923fc58f7fc844b7c4097edc4a0982f4acd1eea8472c6db51d7c"
+        },
+        "bytesEqual": true
+      },
+      {
+        "style": "quarto",
+        "artifact": "md",
+        "current": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\quarto.md",
+          "bytes": 2313,
+          "sha256": "ef3b62c6dd7219a4fcd8c38564b6cbe9dcaf4ad716a4dad08179fcb8943caaa4"
+        },
+        "first": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\focused-first\\source\\quarto.md",
+          "bytes": 2313,
+          "sha256": "ef3b62c6dd7219a4fcd8c38564b6cbe9dcaf4ad716a4dad08179fcb8943caaa4"
+        },
+        "previous": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-focused-green\\source\\quarto.md",
+          "bytes": 2313,
+          "sha256": "ef3b62c6dd7219a4fcd8c38564b6cbe9dcaf4ad716a4dad08179fcb8943caaa4"
+        },
+        "bytesEqual": true
+      }
+    ],
+    "newDependencyInstalls": 0,
+    "newSourceAudits": 0,
+    "newRawReads": 0,
+    "newAExecutions": 0,
+    "newPure80Runs": 0,
+    "packagingRuntimeRuns": 0,
+    "artifacts": [
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\original-5d3c353-production-receipt.json",
+        "bytes": 146795,
+        "sha256": "cf5d66c00f1ae2216c4c68f0ed6846b660adfaf24f5840a7821f19ed895be213"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\original-5d3c353-production.md",
+        "bytes": 16213,
+        "sha256": "fbfd60c5e4d93fa3334106c27fa649c4bd6c8a9939abded4eab767426c72e1f8"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-implementation-review-5d3c353\\implementation-review.md",
+        "bytes": 5218,
+        "sha256": "7d22456bd7eb3f4c562e85411208926915e9cb5f8891d20e2ec7bd8ea09f8be7"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-implementation-review-5d3c353\\implementation-review.json",
+        "bytes": 35697,
+        "sha256": "048241a1ce37bbc357d184dffd979ffcfc462fe6d1ee5ed6474e709af92c3842"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-implementation-review-5d3c353\\bounded-closed-prefix-probe.json",
+        "bytes": 837,
+        "sha256": "4e7e40f007963db213f575d7c92701fc45dda33d8020eb19a8e38149569fcdf3"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\run-closed-prefix.cjs",
+        "bytes": 3472,
+        "sha256": "e55d29804de04fc49f0f25138fbe0d5ace5493827f0c22e97fab86bc5d4d9a02"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\pack-closed-prefix.cjs",
+        "bytes": 12721,
+        "sha256": "a9520672022dddf3516103322f6a498b4ee437f14548c74ee0d5752afd4d9f25"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\closed-prefix-red\\process-start.json",
+        "bytes": 9766,
+        "sha256": "1958fae307986398727415169f5945b2156e2eed8c9fae0a1c32c7256563b2d2"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\closed-prefix-red\\process-receipt.json",
+        "bytes": 19132,
+        "sha256": "7b59de7fb60ec172a6edca9fcda5b97ef9b67be98f278a18669081a10fff86ff"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\closed-prefix-red\\tests.log",
+        "bytes": 1391,
+        "sha256": "94a7e6c37f6074dd2c916481a95f28668cfb8457547c74ccad379c9b62f5bdcb"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\closed-prefix-red\\nesting-results.json",
+        "bytes": 1048,
+        "sha256": "1066f5135bba7bfee9ae1bc3b78d932b1c87131b7fce1ffffaa400045efc6296"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\process-start.json",
+        "bytes": 10427,
+        "sha256": "37ffea85f134e02c14c25dd99ab09cc9e5779c9306a494f790561e83261ffbda"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\process-receipt.json",
+        "bytes": 20196,
+        "sha256": "f124cb40ae976d7364b71b78fb4370c3af61697cd3b1fc2fb9c8281a3ff641d7"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\tests.log",
+        "bytes": 14668,
+        "sha256": "d2f1410cea8eb21af4b40ec811ddfc35b4edaab58091a8e707027c1a427e031b"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\nesting-results.json",
+        "bytes": 2956,
+        "sha256": "51905bc889066320fd47ce80200f3e8693be0bdfffe803ac93be5ec4ec2b61ab"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\network-ledger.json",
+        "bytes": 332,
+        "sha256": "3792ab4450f27ccf9eaec4352758060cd3c9b4f7f6e57d2c85ac70dbb9dfe354"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\synthetic-results.json",
+        "bytes": 22661,
+        "sha256": "2d049fc91f7d5cbf11bb0eebdb26ef608821e602319996fceecca4ef9856b35d"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\markdown.result.json",
+        "bytes": 63972,
+        "sha256": "d9d8522e4a2b758411ca2c137e269d6be4e516c2e0af5ab9c2eea26ecd03024b"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\markdown.md",
+        "bytes": 2206,
+        "sha256": "215f5d3c979ff6bb5d81f46a794cc052033d25a9ae42a9a01bd86d74c343dc3c"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\links.result.json",
+        "bytes": 63930,
+        "sha256": "810d240a8c1c21cba9ebbdac598ce499c2b271767d7b4e698664add88fbea4fc"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\links.md",
+        "bytes": 2206,
+        "sha256": "215f5d3c979ff6bb5d81f46a794cc052033d25a9ae42a9a01bd86d74c343dc3c"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\quarto.result.json",
+        "bytes": 64159,
+        "sha256": "d2dd0bc0c5b3923fc58f7fc844b7c4097edc4a0982f4acd1eea8472c6db51d7c"
+      },
+      {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue75-production-5c5556\\p2-closed-prefix-green\\source\\quarto.md",
         "bytes": 2313,
         "sha256": "ef3b62c6dd7219a4fcd8c38564b6cbe9dcaf4ad716a4dad08179fcb8943caaa4"
       }

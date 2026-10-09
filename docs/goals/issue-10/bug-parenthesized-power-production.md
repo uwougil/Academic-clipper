@@ -1,6 +1,6 @@
 # Issue #75 — 完整数值括号平方：focused production 交接
 
-当前状态：FOCUSED_GREEN_P2_DELTA_REVIEW_PENDING。独立审查指出首次候选的嵌套资格缺口后，新增回归先 RED、三行资格修正后 source15/current50/new7 一次执行 72/72 PASS；详见文末 P2 续交。以下首次65候选与原审查记录保留为历史，不能替代新代码结果。当前等待同一 reviewer 增量审查，尚未执行 affected/full/build/golden、建立 PR 或运行新 CI，不声明 #75、完整 FRB 或 Issue #10 完成。
+当前状态：FOCUSED_GREEN_CLOSED_PREFIX_DELTA_REVIEW_PENDING。第二次审查指出同一 P2 的已闭合前置 group 缺口；仅新增一条回归先 RED，原 text 括号深度资格修正后 source15/current50/nesting8 实际一次 73/73 PASS。文末记录当前代码及闭合证据；原65、72和两份CHANGES_REQUIRED审查均保留。尚无 IMPLEMENTATION_CLEAR，affected/full/build/golden/PR/CI等待root释放，不声明 #75、完整 FRB 或 Issue #10 完成。
 
 ## 契约、基线与提交
 
@@ -104,3 +104,28 @@ PID53468，2026-10-09T01:50:59.555Z → 01:51:00.670Z，exit0，72/72PASS，1065
 | p2-focused-green/nesting-results.json | 2653 | 613895ad32f1c995bd2da46945a10ff9295b5ce987b44e2f57eb3230113179fc |
 
 Sourcefixture/provenance/diagnosis 与 shared3256-byte oracle保持；current runtime inputs在各次run内pre/post精确相同。DOC_ONLY仅更新这两生产交接文件。下一步交同一 reviewer 对 exact新publication做P2增量审查；还未有 IMPLEMENTATION_CLEAR，broader/full/build/golden/PR仍锁定等待root释放。没有 spec change，没有 #75/Issue10 completion声明。
+
+## 同一 P2 尾修：识别包含先前闭合 group 的数值外围
+
+Different-owner 对 exact 5d3c353fc9a4aac29a92571d0794291c9cffc513 / tree 3b28129f09bafb073a7276614a6468d16523b0d6 的增量审查仍 CHANGES_REQUIRED，唯一 P2-75-nested-inner-qualification。新增唯一 synthetic 形状为 `((3/12)+(5/60)<sup>2</sup>)`：前缀包含闭合 `)`，旧数值 suffix guard漏掉仍开放的外层。Reviewer已做的一次probe和原报告复用，没有新增probe/来源审查。报告human5218 / SHA 7d22456bd7eb3f4c562e85411208926915e9cb5f8891d20e2ec7bd8ea09f8be7，machine35697 / SHA 048241a1ce37bbc357d184dffd979ffcfc462fe6d1ee5ed6474e709af92c3842，原probe837 / SHA 4e7e40f007963db213f575d7c92701fc45dda33d8020eb19a8e38149569fcdf3。
+
+永久nesting suite仅增加这一个完整registry negative。在production未改变的5d3c353上，唯一命令 `node --test --test-reporter=tap --test-name-pattern=numeric-outer-with-closed-inner-group test/nature-parenthesized-power-nesting.test.mjs`，PID39452，2026-10-09T01:58:05.620Z→01:58:06.273Z，exit1：1test/0PASS/1true CONTRACT_RED，596.8056ms，0skip/cancel/todo。1parse/1DOMclose，11bindings attempts=[]、exactbindings/10DOM复原，clips/source/raw/A=0。原7与72没有在修正前重复执行。
+
+Code commit dc05eaeb794cd8a65cb86912d47a63a6c10ac959 / tree b8b154bbdaca9b044193ecf88b3a935674c31c48，仅 nature.mjs资格判断与一条synthetic case。Bounded backward scan只检查原直接text prefix括号深度，识别先前已闭合group之后仍开放的numeric enclosure；普通含文字的prose parenthesis继续保留，未知结构不作一般表达式推断。最终production相对accepted dependency总计46新增行，没有一般数学parser/求值、fixture/oracle/helper/validator/security改变。
+
+一次必要changed-code batch：`node --test --test-reporter=tap test/nature-parenthesized-power.test.mjs test/nature-parenthesized-power-preproduction.test.mjs test/nature-parenthesized-power-nesting.test.mjs`。PID41104，2026-10-09T01:58:57.645Z→01:58:58.849Z，exit0，source15+current50+nesting8=73/73PASS，1155.0823ms，0skip/cancel/todo。Closed process receipt的implementationHead为当时尚未提交delta的5d3c353；actual productionBlob583fa29b9242fd676336edc59f4daf0b32cf206e及全部physical pre/post inputs准确匹配dc05代码，不将priorHEAD误作旧production运行、不改写原回执。55项pre/post精确相同，当前physical bytes/hash同样逐一匹配。
+
+3真实clipwindows在wholebatch后close3，sourceDOM2close2，11bindings/10DOM复原、attempts=[]；old50的49parse全部close49、既有3bindings范围；nesting8close8、11bindings/10DOM复原。八条完整ordered registries全部PASS，六negatives保留原innerHTML（由test原断言检查，不把receipt的textContent当innerHTML），两个prose positives保留唯一marker owner。真实source两whole squares、原S/10⁻⁶、measurements/35creators/rights/zeroresources/exactwarnings与四validators全部GREEN。原mixed8及citation/body-caption ownership均通过。三个完整resultJSON与三个Markdown共六文件，与首次65及此前72 outputs bytes完全一致；此比较仅读savedoutputs，没有重复clip。
+
+恢复packaging仅复用闭合回执，runtime/tests/install/source/raw/A/probes/pure80/full/build/golden/CI调用均0。原5d3c353两文档先复制外部original-5d3c353-production.md/receipt.json；JSON的secondCandidate保留72，firstCandidate保留65，原p2Revision保留7RED及首次finding，closedPrefixRevision明确新1RED→73GREEN、第二CHANGES_REQUIRED、所有identities和未完成gates。当前receipt 231883 bytes / SHA b8f884c91b5841b072c920b90b3e286c764595b348ae154c2b55e7c755462370。
+
+| Closed-prefix artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| closed-prefix-red/process-receipt.json | 19132 | 7b59de7fb60ec172a6edca9fcda5b97ef9b67be98f278a18669081a10fff86ff |
+| closed-prefix-red/tests.log | 1391 | 94a7e6c37f6074dd2c916481a95f28668cfb8457547c74ccad379c9b62f5bdcb |
+| closed-prefix-red/nesting-results.json | 1048 | 1066f5135bba7bfee9ae1bc3b78d932b1c87131b7fce1ffffaa400045efc6296 |
+| p2-closed-prefix-green/process-receipt.json | 20196 | f124cb40ae976d7364b71b78fb4370c3af61697cd3b1fc2fb9c8281a3ff641d7 |
+| p2-closed-prefix-green/tests.log | 14668 | d2f1410cea8eb21af4b40ec811ddfc35b4edaab58091a8e707027c1a427e031b |
+| p2-closed-prefix-green/nesting-results.json | 2956 | 51905bc889066320fd47ce80200f3e8693be0bdfffe803ac93be5ec4ec2b61ab |
+
+DOC_ONLY仅这两production交接文件；code dc05保持。下一步同一reviewer只对有限资格尾修/一条case/闭合73回执增量复审；clear之前不执行broader或建立PR。其后required affected/full/build/golden、single Refs #75 PR、fresh三平台CI/Secrets、immutablehead审查、root十gates及successfulmergedMain仍必需。C的完整FRB与最终Issue10联合验收仍待对应accepted-main，不以本packet声明完成。没有spec change。
