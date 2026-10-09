@@ -801,6 +801,9 @@ function collectParenthesizedNumericSquareRun(parent, startIndex) {
   const match = base.textContent.match(/\(\d+(?:\.\d+)?\/[1-9]\d*(?:\/[1-9]\d*)?\)$/u);
   if (!match) return null;
   const prefix = base.textContent.slice(0, match.index).replace(/π$/u, '');
+  // An open numeric enclosing group does not prove an independent base.
+  // Ordinary prose parentheses, such as "(see ...", remain outside this role.
+  if (/\([\d.π+−\-*/=×\s]*$/u.test(prefix)) return null;
   // Pi is an outside multiplier, never a way to bypass a token boundary.
   if (!prefix ? base.previousSibling
     : /[\p{L}\p{N}\p{M}_]$/u.test(prefix)) return null;
