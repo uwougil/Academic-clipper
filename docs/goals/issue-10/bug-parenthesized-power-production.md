@@ -1,6 +1,6 @@
 # Issue #75 — 完整数值括号平方：focused production 交接
 
-状态：FOCUSED_GREEN_REVIEW_PENDING。真实原段落的两处平方在三方言中均附着于完整数值括号，所有四个生产 validators 通过；最小修复与必要测试生命周期修改已经提交。本阶段等待不同作者 implementation review，尚未执行 affected/full/build/golden、建立 PR 或运行新 CI，不声明 #75、完整 FRB 或 Issue #10 完成。
+当前状态：FOCUSED_GREEN_P2_DELTA_REVIEW_PENDING。独立审查指出首次候选的嵌套资格缺口后，新增回归先 RED、三行资格修正后 source15/current50/new7 一次执行 72/72 PASS；详见文末 P2 续交。以下首次65候选与原审查记录保留为历史，不能替代新代码结果。当前等待同一 reviewer 增量审查，尚未执行 affected/full/build/golden、建立 PR 或运行新 CI，不声明 #75、完整 FRB 或 Issue #10 完成。
 
 ## 契约、基线与提交
 
@@ -53,7 +53,7 @@ Output positions（零起算 UTF8/UTF16 offset，一起算 line/UTF16 column）�
 
 ## 外部回执与后续 gate
 
-外部唯一根 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue75-production-5c5556`；所有 full results/Markdown、原 scripts/logs 仅留外部。本生产 receipt 54890 bytes / SHA `87ef9b1e2e10bfcbc0470e5d523b85eadc0c5a68fe1702acd33beb26c3498875`，只承载身份、结构化结果及限界证据，不提交 Markdown snapshot 或 full live capture。
+外部唯一根 `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue75-production-5c5556`；所有 full results/Markdown、原 scripts/logs 仅留外部。首次65候选的原 production receipt 54890 bytes / SHA `87ef9b1e2e10bfcbc0470e5d523b85eadc0c5a68fe1702acd33beb26c3498875` 已独立保存；当前续交 receipt 见文末，只承载身份、结构化结果及限界证据，不提交 Markdown snapshot 或 full live capture。
 
 | Artifact | Bytes | SHA256 |
 | --- | ---: | --- |
@@ -67,3 +67,40 @@ Output positions（零起算 UTF8/UTF16 offset，一起算 line/UTF16 column）�
 Git diff --check exit0；production commit scope只有上述两文件，DOC_ONLY仅两份交接；source fixtures、canonical/PRD/EDD、golden、dependencies contract、security、writer、CI 保持。一次读取不存在的 `src/dom.mjs` 随后定位为实际 `src/dom-runtime.mjs`；仅定位读取错误，没有 runtime重启/重复执行。
 
 下一步不同 owner 审查精确 stable implementation head；clear 后 root 再释放一次 meaningful affected/full/build/read-onlygolden。之后窄 prerequisite PR 使用独立 `Refs #75`，fresh 三平台 CI/Secrets、immutable finalhead审查、root十项 merge gate 必需。Successful merged Main CI 后由 automation完成 #75，届时 C 才解除 FRB 对应 role；完整FRB与最终 Issue10联合验收另行执行。没有提出 spec change 或 human-only blocker。当前不建立 PR、不执行 broader，也不合并/手动关闭 Issue。
+
+## P2 续交：内层数值平方的资格修正
+
+Different-owner `/root/issue75_implementation_independent` 审查 exact `d2096ddc7a9cd3a33ac6886e0e857aff9ad6750c` / tree `db8b48aba8557a1f753444f325f04208f195c7fb`，结论 CHANGES_REQUIRED，唯一 P2 `P2-75-nested-inner-qualification`。原 text-suffix qualification 会把 `((5/60)<sup>2</sup>)`、`x((5/60)<sup>2</sup>)`、`(5/(5/60)<sup>2</sup>)` 的内层视为独立 finite role；`(see (5/60)<sup>2</sup>)` 是应保留的普通 prose positive。报告 human5921 / SHA `06889750466154fb6498ebffd3694c2e77f4c8d20d7876ce967844906a7aba04`，machine53419 / `f9e1abcc0f41d9e41ccf2916540efce3db53a60fe88365445a16826cc8d6285a`，在外部 `academic-clipper-issue75-implementation-review-d2096dd`。Reviewer 原四次 probe 已记录并复用，没有重复 probe 或声称它们是真实学术来源。
+
+新增永久 `test/nature-parenthesized-power-nesting.test.mjs` 仅七条明确 synthetic 回归：原三 negatives、enclosing numerator 与内层之间空白、外层 numeric 中的 π factor；普通 prose positive 与带原 π/divisor 的 decimal prose positive。每条断言完整 ordered scientific registry、零 inlineMath/citations；negatives 的原 innerHTML 不变，positives 只有一个原 paragraph marker owner。Guards 在 lazy production import 之前覆盖11bindings，七 DOM 在finally逐一close，exactbindings/10DOM descriptors复原，attempts=[]，零 clips/source/raw/A。
+
+在 production 仍为 exact d2096dd 时，仅一次新7 RED：
+
+```text
+node --test --test-reporter=tap test/nature-parenthesized-power-nesting.test.mjs
+```
+
+PID26112，2026-10-09T01:50:38.878Z → 01:50:39.579Z，exit1；7tests /2PASS /5true CONTRACT_RED /0harness，649.0815ms，0skip/cancel/todo。两个 prose positives PASS，五个 unsupported enclosing cases 仍产生内层 marker，证明新回归失败于本 P2。未重跑原65/source48/pure80。
+
+随后仅新增三行 qualification（两行注释、一行 guard）：text prefix 中尚未闭合的 opening parenthesis 若后面只有数值/decimal dot/π/算术 punctuation/空白，就不能证明独立 base；未知 numeric enclosing group 保持原 DOM。普通含词语、已分隔的 prose parenthesis 不被该 guard 禁用。没有一般数学 parser、blanket parenthesis ban、fixture/oracle/helper/validator 变更。Code commit `39bf7bd2663616302bca466b482db52133d00877` / tree `935a1fe04a7f6900deb41ada074f665989fffa9d`，仅 production三行与新synthetic test；总生产 delta35行。
+
+代码改变后一次必要 fresh batch：
+
+```text
+node --test --test-reporter=tap test/nature-parenthesized-power.test.mjs test/nature-parenthesized-power-preproduction.test.mjs test/nature-parenthesized-power-nesting.test.mjs
+```
+
+PID53468，2026-10-09T01:50:59.555Z → 01:51:00.670Z，exit0，72/72PASS，1065.4939ms，0skip/cancel/todo。Source15/current50/new7全部实际执行，不搬用原65。3真实clip windows在wholebatch后close3、sourceDOM2close2、11bindings/10DOM复原、attempts=[]；两个完整原source squares、其余原S/10⁻⁶/measurements/35creators/rights/zeroresources/exactwarnings、四validators全部保持。三个完整savedresults与三个Markdown共六文件与首次65 **bytes完全一致**，该比较仅读同次既有输出，没有新的 clip/DOM。Current50完整mixed8-run/所有markers/body-captionownership/原有typedcitations仍PASS，49parses/49close；new7均PASS、7close7。
+
+本次没有新的 dependency setup/install、source48/raw/A/recipe audit、pure80重跑、full/build/golden/CI。原first candidate documents完整拷贝到外部 `original-d2096dd-production.md` / `original-d2096dd-production-receipt.json`，原65与独立CHANGES_REQUIRED证据不覆盖。当前 production receipt146795 bytes / SHA `cf5d66c00f1ae2216c4c68f0ed6846b660adfaf24f5840a7821f19ed895be213`；root fields指向新代码/72执行，firstCandidate明确保留首次65，p2Revision保留原finding、RED→GREEN、outputs equality与当前未完成gates。
+
+| P2 artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| nesting-red/process-receipt.json | 19050 | 71c5382c1beeff3be396fd3a1267726adc7e211abbccd1db2883fa660a90fd6b |
+| nesting-red/tests.log | 7314 | 2be7155aaaf5cd9126970a0dc6edfa6d6cd10c8133d8961c2f3dc7b23af07f8f |
+| nesting-red/nesting-results.json | 4818 | b2758b031462df344162d18832930a813982f3925b37a8fb9dcdfd3d317cb611 |
+| p2-focused-green/process-receipt.json | 20166 | 4acb43429e30b9911f1bc7b96a35407f29d15376d72838386333d1a2921139e9 |
+| p2-focused-green/tests.log | 14437 | cc63d2e9816c9ad65b401e625333eb4dbbb083bd5e2159af5594031caf09b8d1 |
+| p2-focused-green/nesting-results.json | 2653 | 613895ad32f1c995bd2da46945a10ff9295b5ce987b44e2f57eb3230113179fc |
+
+Sourcefixture/provenance/diagnosis 与 shared3256-byte oracle保持；current runtime inputs在各次run内pre/post精确相同。DOC_ONLY仅更新这两生产交接文件。下一步交同一 reviewer 对 exact新publication做P2增量审查；还未有 IMPLEMENTATION_CLEAR，broader/full/build/golden/PR仍锁定等待root释放。没有 spec change，没有 #75/Issue10 completion声明。
