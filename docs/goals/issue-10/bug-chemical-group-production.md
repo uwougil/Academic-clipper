@@ -1,6 +1,6 @@
 # Issue #74 — 括号化学分组 focused implementation handoff
 
-当前为 **FOCUSED_CLEAR_NESTED_P2_REREVIEW_PENDING**。P2修复后的真实18项、原37项synthetic与新增7项，在一次fresh candidate执行中 **62/62 PASS**。原55PASS仅为已发现P2的历史candidate；初次46PASS/9FAIL及新增7项的3PASS/4RED均保留。affected/full/build/只读golden、不同作者P2增量复审、fresh CI/Secrets、PR/merge/merged-main尚未完成，不宣称#74或#10完成。
+当前为 **BROADER_CLEAR_PUBLICATION_READY**。真实18项与全部synthetic44项在当前实现62/62 PASS，不同作者exact-head IMPLEMENTATION_CLEAR、blocking0；本轮唯一affected/full/build/只读golden全部通过。历史首轮46PASS/9FAIL、pre-P2 55PASS和新增7项3PASS/4RED均保留。最终publication-head独审、fresh CI/Secrets、root十gate、merge与merged-main仍pending，不宣称#74或#10完成。
 
 ## 当前增量 — 独立P2嵌套范围修复
 
@@ -14,9 +14,9 @@ Different-owner原实现审核对 `13c6341b30094e935254f0d8ccf17635881c9bc0` 给
 
 External root：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-nested-revision`；执行方式 `node <root>/run.cjs red` → 最小fix → `node <root>/run.cjs green`。Nodev24.14.1，实际argv/env/physical54inputs/pre-post/runnerhash在receipt，均unchangedDuringRun/current。Green source3clipwindows3/3关闭、sourceDOM2/2、11HTTP/DNSguardattempts[]/bindings及10DOMdescriptors复原；synthetic44parsewindows44/44、0clip/0sourceaudit、ledger[]且恢复。Writer仅staticcallgraph proof。既有ignoreddependencyjunction只读复用，无install/write-through。
 
-Raw/A/source65/plan/sourceoracle/42pure/old26/tail53不重做。此次因productioncode改变而fresh source3clips与44boundaries是必要candidate验证；历史first46/9、pre-P2corrected55以及本次red7均未改写。当前报告等待不同作者增量P2复审；停止在focused gate，affected/full/build/golden/PR/CI仍NOT_RUN。
+Raw/A/source65/plan/sourceoracle/42pure/old26/tail53不重做。此次因productioncode改变而fresh source3clips与44boundaries是必要candidate验证；历史first46/9、pre-P2corrected55以及本次red7均未改写。本段记录focused交付时状态；后续P2复审与broader gate现已通过，见下方当前publication段。PR/CI仍交给root。
 
-当前green外部artifacts：
+当前focused green外部artifacts：
 
 | 文件 | Bytes | SHA-256 |
 | --- | ---: | --- |
@@ -99,6 +99,23 @@ Corrected外部文件身份（first全部文件同样在machine保留；不提�
 
 ## 尚未完成的gate与消费者
 
-Root应先对稳定clean/pushed head安排不同作者implementation review：finitegrammar、restartIndex/owner/order、typedcitation/opaque/unknown边界、完整sourceoracle与已封存lifecycle。此后明确释放一次affected suite、一次canonical `npm test`、`npm run build`、只读 `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto`；full-suite仍必须真实执行，不能被历史42controls或本focused代替。随后DOC_ONLYpublication、一份 `Refs #74` PR、最终exact-head独审、fresh三平台CI/Secrets、root十gate与match-head squash merge、merged-main成功接纳。当前全部这些为NOT_RUN/PENDING，无PR/CIwatch/merge/manualIssueclose。
+不同作者对clean `5c307ccb4424b7b8feab5bba6fc2f25cacf7d464` / tree `3886a8dc5942d4c1fea38aa55d1df7b5651ef279` 完成P2增量复审：IMPLEMENTATION_CLEAR，blockingFindings=0、P0–P3均0。Root完整读取后释放broader；本轮affected/full/build/golden已经全部完成。随后仅两个production handoff/receipt DOC路径publication与一个精确独立 `Refs #74` PR；最终publication-head独审、fresh三平台CI/Secrets、root十gate、match-head squash merge及merged-main成功接纳仍必需。Author不CIwatch、不merge、不manualIssueclose。
 
 Agent C必须等#74 merged-main接纳后消费原B whole Chemistry，#73独立Δ修复已在accepted main；本minimal excerpt的55PASS不证明current wholeChemistry/255corpus通过。范围不扩展为nested/wrapped/fractionalcounts/charge/hydrate/generalchemicalparser。B/C/D、validators/security/writer、dependencies/golden、canonical/PRD/EDD都未改变，无specchange proposal。Merge仅接纳代码，成功merged commit Main CI与既有automation才完成Work Contract；Issue #10保持未完成。
+
+## 当前broader与publication证据
+
+外部根：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c`；Node `v24.14.1`，wrapper PID52808，唯一exec session31857。Affected 36个现有Nature/网络边界/output-quality/stability文件，明确排除本Issue两个Nature focus文件与纯字符串helper测试；随后canonical `npm test`真实执行全部测试。复用ignored own junction已安装依赖只读，不install或write-through。每tier完整argv/env/PID/UTC/日志hash、289个tracked src/test/fixture/extension/scripts/package/golden pre/post bytes/SHA在machine receipt，全部一致；9个tracked golden文件不变。
+
+| tier | 结果 | UTC start → finish / PID |
+| --- | --- | --- |
+| `node --test <36 existing files>` | 967/967 PASS，11034.4801ms；0fail/skip/cancel/todo | 2026-10-09T01:22:47.917Z → 2026-10-09T01:22:59.027Z / 21960 |
+| `npm test` | 1285/1285 PASS，80628.2398ms；0fail/skip/cancel/todo | 2026-10-09T01:22:59.049Z → 2026-10-09T01:24:19.937Z / 11304 |
+| `npm run build` | exit0 | 2026-10-09T01:24:19.958Z → 2026-10-09T01:24:20.213Z / 44680 |
+| `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto` | exit0 | 2026-10-09T01:24:20.233Z → 2026-10-09T01:24:20.490Z / 4900 |
+
+只有full设置 `CHEMICAL_GROUP_RECEIPT_ROOT=<根>/full-source`、`CHEMICAL_GROUP_SYNTHETIC_SCOPE=all`、`CHEMICAL_GROUP_SYNTHETIC_RECEIPT=<根>/full-boundary/synthetic-observations.json`；所有继承CHEMICAL_GROUP变量清除，未使用cache/snapshot override。Full自然执行source18、synthetic44和pure42，没有额外standalone重做。Source实际3clips/windows opened3/closed3、sourceDOM2/2、11HTTP/DNS methods ledger[]，bindings与10DOM descriptors复原；synthetic44 parses/windows44/44、0clips/sourceReads/audits、ledger[]且bindings/DOM descriptors复原。直接网络观测仅覆盖这两个#74 consumers；其他测试沿用既有mock或loopback契约，不声称全进程network capture。Writer仅static callgraph proof。
+
+只读golden通过strict math/raw HTML/Markdown structure/crossrefs，issues[]；build仅生成ignored dist，没有live clip或paper writer。来源65/A/raw、旧baseline/tail/focused/独审probes均未重复。当前生产src/test字节与exact reviewed5c一致；本次只改两个DOC路径，因此不因文档更新重复测试。源fixture/provenance/helper与golden/dependencies/validators/security/spec/PRD/EDD无delta。一个prerequisite PR创建并立即attach后冻结head；最终URL与head由GitHub PR/root handoff持久记录。
+
+Implementation review identities：human4960 bytes/SHA `6cbd5a60c1bbc62dad3e608e54292a388dcbfb27e5971472a79ab3917bc028cb`；machine12936/SHA `886658751d29e40e3b8f06cf878c88711c597e602e74a2fc68dcddaa0993de28`。本次ordered DOC_ONLY commit可由 `git log -1 --format=%H -- docs/goals/issue-10/bug-chemical-group-production.md` 重建；没有自引用SHA。Agent C仍等待#74 merged-main接纳，再以原B whole Chemistry验证；本minimal fixture不证明wholeCorpus255已通过。

@@ -1,6 +1,6 @@
 {
   "version": "chemical-group-production-handoff/1.1",
-  "status": "FOCUSED_CLEAR_NESTED_P2_REREVIEW_PENDING",
+  "status": "BROADER_CLEAR_PUBLICATION_READY",
   "acceptedMain": "497b303250d6918d58575f9b8df3fddaa43b7f2d",
   "adoptionHead": "8b10643e562b71697eaa4dba51dd955798254890",
   "codeHead": "101bd4cf40111433b92852913e364cb3bceb7807",
@@ -16,7 +16,8 @@
     "964f6436127b8d53d8e2ae7b9911552e37e465c1",
     "754c4d2889a0c6b46072cbccffbbe44e1b1381ef",
     "13c6341b30094e935254f0d8ccf17635881c9bc0",
-    "101bd4cf40111433b92852913e364cb3bceb7807"
+    "101bd4cf40111433b92852913e364cb3bceb7807",
+    "5c307ccb4424b7b8feab5bba6fc2f25cacf7d464"
   ],
   "authoredFiles": [
     {
@@ -3302,7 +3303,7 @@
     "planTail": "53 PASS: 42 pure string + 11 new parse-only negatives, 736.9922 ms"
   },
   "recovery": {
-    "scope": "closed-evidence verification and durable packaging only",
+    "scope": "Historical first DOC_ONLY closed-evidence recovery before P2 and broader; zero counters apply only to that stage",
     "newTests": 0,
     "newParses": 0,
     "newClips": 0,
@@ -3312,15 +3313,16 @@
     "newNetworkResearch": 0
   },
   "nextGates": {
-    "independentImplementation": "PENDING exact clean-head incremental P2 re-review; original review has one blocking P2",
-    "affected": "NOT_RUN; await root release",
-    "full": "NOT_RUN; await root release",
-    "build": "NOT_RUN; await root release",
-    "golden": "NOT_RUN; await root release",
-    "PR": "NOT_CREATED",
-    "freshCI": "NOT_RUN",
-    "secretScan": "NOT_RUN",
-    "merge": "NOT_PERFORMED",
+    "independentImplementation": "IMPLEMENTATION_CLEAR exact5c307cc/tree3886; blocking0",
+    "affected": "PASS 967/967",
+    "full": "PASS 1285/1285",
+    "build": "PASS exit0",
+    "golden": "PASS exit0; all tracked golden identities unchanged",
+    "PR": "One standalone Refs #74 prerequisite delivery PR to be created after this DOC_ONLY commit; exact URL/head via PR and root handoff",
+    "freshCI": "PENDING root exact publication head",
+    "secretScan": "PENDING root exact publication head",
+    "finalPublicationReview": "PENDING root different-owner review",
+    "merge": "NOT_PERFORMED; root ten gates and match-head only",
     "mergedMain": "NOT_RUN"
   },
   "boundaries": {
@@ -5621,5 +5623,2107 @@
       "sha256": "11d212449c290c65aae2ee6396e1731337203e30195ed8b9f37280ed9ab13c1e"
     },
     "sourceAndOracleUnchanged": true
+  },
+  "reviewedHead": "5c307ccb4424b7b8feab5bba6fc2f25cacf7d464",
+  "implementationReview": {
+    "status": "IMPLEMENTATION_CLEAR",
+    "reviewHead": "5c307ccb4424b7b8feab5bba6fc2f25cacf7d464",
+    "reviewTree": "3886a8dc5942d4c1fea38aa55d1df7b5651ef279",
+    "blockingFindings": 0,
+    "human": {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-implementation-review-5c307cc-CLEAR/implementation-review.md",
+      "bytes": 4960,
+      "sha256": "6cbd5a60c1bbc62dad3e608e54292a388dcbfb27e5971472a79ab3917bc028cb"
+    },
+    "machine": {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-implementation-review-5c307cc-CLEAR/implementation-review.json",
+      "bytes": 12936,
+      "sha256": "886658751d29e40e3b8f06cf878c88711c597e602e74a2fc68dcddaa0993de28"
+    }
+  },
+  "broader": {
+    "status": "BROADER_PASS",
+    "head": "5c307ccb4424b7b8feab5bba6fc2f25cacf7d464",
+    "tree": "3886a8dc5942d4c1fea38aa55d1df7b5651ef279",
+    "wrapperPid": 52808,
+    "node": "v24.14.1",
+    "finishedAt": "2026-10-09T01:24:20.534Z",
+    "inputCount": 289,
+    "inputUnchanged": true,
+    "goldenUnchanged": true,
+    "sourceLifecycle": {
+      "attempts": [],
+      "realClipCalls": 3,
+      "clipWindowsOpened": 3,
+      "clipWindowsClosed": 3,
+      "sourceDomsOpened": 2,
+      "sourceDomsClosed": 2,
+      "guardedMethods": 11,
+      "restoredBindings": true,
+      "restoredDomGlobals": true,
+      "writerProof": "Static clipNature returns data without invoking writePaper; no writer spy claimed."
+    },
+    "boundaryLifecycle": {
+      "attempts": [],
+      "parsedWindows": 44,
+      "closedWindows": 44,
+      "clips": 0,
+      "sourceReads": 0,
+      "sourceAudits": 0,
+      "synthetic": true,
+      "scope": "all",
+      "restoredNetworkBindings": true,
+      "restoredDomDescriptors": true
+    },
+    "results": [
+      {
+        "name": "affected",
+        "command": "node --test test/nature-adapter.test.mjs test/nature-alpha-qualifier-boundaries.test.mjs test/nature-alpha-qualifier-oracle.test.mjs test/nature-alpha-qualifier.test.mjs test/nature-caption-citations.test.mjs test/nature-chemistry-delta-boundary.test.mjs test/nature-chemistry-delta.test.mjs test/nature-compound-unit-boundaries.test.mjs test/nature-compound-unit.test.mjs test/nature-frb-fractional-preflight.test.mjs test/nature-frb-fractional-units.test.mjs test/nature-greek-subscript-boundaries.test.mjs test/nature-greek-subscript-context-boundaries.test.mjs test/nature-greek-subscript.test.mjs test/nature-isotope-mass-boundaries.test.mjs test/nature-isotope-mass-coverage.test.mjs test/nature-isotope-mass.test.mjs test/nature-literal-brackets.test.mjs test/nature-materials-identifier-boundaries.test.mjs test/nature-materials-identifier.test.mjs test/nature-reference-literal.test.mjs test/nature-scientific-citation-boundaries.test.mjs test/nature-scientific-citations.test.mjs test/nature-scientific-units.test.mjs test/nature-sparse-figure-alt.test.mjs test/nature-split-power-boundaries.test.mjs test/nature-split-power.test.mjs test/nature-styled-adjacency-boundaries.test.mjs test/nature-styled-adjacency.test.mjs test/nature-table-caption-clip.test.mjs test/nature-table-caption.test.mjs test/nature-table-mathjax.test.mjs test/nature-table-notes.test.mjs test/network-boundaries.test.mjs test/output-quality.test.mjs test/stability-regressions.test.mjs",
+        "executable": "C:\\nvm4w\\nodejs\\node.exe",
+        "argv": [
+          "--test",
+          "test/nature-adapter.test.mjs",
+          "test/nature-alpha-qualifier-boundaries.test.mjs",
+          "test/nature-alpha-qualifier-oracle.test.mjs",
+          "test/nature-alpha-qualifier.test.mjs",
+          "test/nature-caption-citations.test.mjs",
+          "test/nature-chemistry-delta-boundary.test.mjs",
+          "test/nature-chemistry-delta.test.mjs",
+          "test/nature-compound-unit-boundaries.test.mjs",
+          "test/nature-compound-unit.test.mjs",
+          "test/nature-frb-fractional-preflight.test.mjs",
+          "test/nature-frb-fractional-units.test.mjs",
+          "test/nature-greek-subscript-boundaries.test.mjs",
+          "test/nature-greek-subscript-context-boundaries.test.mjs",
+          "test/nature-greek-subscript.test.mjs",
+          "test/nature-isotope-mass-boundaries.test.mjs",
+          "test/nature-isotope-mass-coverage.test.mjs",
+          "test/nature-isotope-mass.test.mjs",
+          "test/nature-literal-brackets.test.mjs",
+          "test/nature-materials-identifier-boundaries.test.mjs",
+          "test/nature-materials-identifier.test.mjs",
+          "test/nature-reference-literal.test.mjs",
+          "test/nature-scientific-citation-boundaries.test.mjs",
+          "test/nature-scientific-citations.test.mjs",
+          "test/nature-scientific-units.test.mjs",
+          "test/nature-sparse-figure-alt.test.mjs",
+          "test/nature-split-power-boundaries.test.mjs",
+          "test/nature-split-power.test.mjs",
+          "test/nature-styled-adjacency-boundaries.test.mjs",
+          "test/nature-styled-adjacency.test.mjs",
+          "test/nature-table-caption-clip.test.mjs",
+          "test/nature-table-caption.test.mjs",
+          "test/nature-table-mathjax.test.mjs",
+          "test/nature-table-notes.test.mjs",
+          "test/network-boundaries.test.mjs",
+          "test/output-quality.test.mjs",
+          "test/stability-regressions.test.mjs"
+        ],
+        "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemical-group-index/academic-clipper",
+        "envOverrides": {},
+        "node": "v24.14.1",
+        "pid": 21960,
+        "startedAt": "2026-10-09T01:22:47.917Z",
+        "finishedAt": "2026-10-09T01:22:59.027Z",
+        "exitCode": 0,
+        "signal": null,
+        "summary": {
+          "tests": 967,
+          "suites": 0,
+          "pass": 967,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0,
+          "duration_ms": 11034.4801
+        },
+        "inputUnchanged": true,
+        "log": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue74-broader-101bd4c\\affected.log",
+          "bytes": 103475,
+          "sha256": "a74e751d8a0b168b618736cd9561ca1e08b8df77a040cf32a28235b05a18847a"
+        }
+      },
+      {
+        "name": "full",
+        "command": "npm test",
+        "executable": "C:\\nvm4w\\nodejs\\node.exe",
+        "argv": [
+          "C:/nvm4w/nodejs/node_modules/npm/bin/npm-cli.js",
+          "test"
+        ],
+        "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemical-group-index/academic-clipper",
+        "envOverrides": {
+          "CHEMICAL_GROUP_RECEIPT_ROOT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue74-broader-101bd4c\\full-source",
+          "CHEMICAL_GROUP_SYNTHETIC_SCOPE": "all",
+          "CHEMICAL_GROUP_SYNTHETIC_RECEIPT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue74-broader-101bd4c\\full-boundary\\synthetic-observations.json"
+        },
+        "node": "v24.14.1",
+        "pid": 11304,
+        "startedAt": "2026-10-09T01:22:59.049Z",
+        "finishedAt": "2026-10-09T01:24:19.937Z",
+        "exitCode": 0,
+        "signal": null,
+        "summary": {
+          "tests": 1285,
+          "suites": 0,
+          "pass": 1285,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0,
+          "duration_ms": 80628.2398
+        },
+        "inputUnchanged": true,
+        "log": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue74-broader-101bd4c\\full.log",
+          "bytes": 129695,
+          "sha256": "5dc0409360389517710b70b14b284ba71ccbc659e60ae893da8346c79808e3e2"
+        }
+      },
+      {
+        "name": "build",
+        "command": "npm run build",
+        "executable": "C:\\nvm4w\\nodejs\\node.exe",
+        "argv": [
+          "C:/nvm4w/nodejs/node_modules/npm/bin/npm-cli.js",
+          "run",
+          "build"
+        ],
+        "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemical-group-index/academic-clipper",
+        "envOverrides": {},
+        "node": "v24.14.1",
+        "pid": 44680,
+        "startedAt": "2026-10-09T01:24:19.958Z",
+        "finishedAt": "2026-10-09T01:24:20.213Z",
+        "exitCode": 0,
+        "signal": null,
+        "summary": {},
+        "inputUnchanged": true,
+        "log": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue74-broader-101bd4c\\build.log",
+          "bytes": 172,
+          "sha256": "05412c69709c97b5610a3ded62f9a6071cb72a488aed4a549ade97543df61c12"
+        }
+      },
+      {
+        "name": "golden",
+        "command": "npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto",
+        "executable": "C:\\nvm4w\\nodejs\\node.exe",
+        "argv": [
+          "C:/nvm4w/nodejs/node_modules/npm/bin/npm-cli.js",
+          "run",
+          "validate:paper",
+          "--",
+          "--file",
+          "./papers/s41586-026-10401-1/index.md",
+          "--citation-style",
+          "auto"
+        ],
+        "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemical-group-index/academic-clipper",
+        "envOverrides": {},
+        "node": "v24.14.1",
+        "pid": 4900,
+        "startedAt": "2026-10-09T01:24:20.233Z",
+        "finishedAt": "2026-10-09T01:24:20.490Z",
+        "exitCode": 0,
+        "signal": null,
+        "summary": {},
+        "inputUnchanged": true,
+        "log": {
+          "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue74-broader-101bd4c\\golden.log",
+          "bytes": 2893,
+          "sha256": "a5117f116c1d285880129194d874ffe7812eaa6bd8634838524e53bfa131dbfe"
+        }
+      }
+    ],
+    "externalRoot": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c",
+    "runnerStart": {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/runner-start.json",
+      "bytes": 103316,
+      "sha256": "b49dd1104c86ca8920cced14ca5db44cea5aa9566972a66320571ff6b42e0fe0"
+    },
+    "inputBefore": [
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\extension\\endpoint.mjs",
+        "bytes": 1009,
+        "sha256": "2c9a4355faed979814683b4ed5221df1b7b2687caffd9b855c58baf87ac9433c",
+        "relative": "extension/endpoint.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\extension\\lifecycle.mjs",
+        "bytes": 2359,
+        "sha256": "bee09bbc8c649da97bf655b757f1e29cadfd70a945e7223e2fa0ede560c18d94",
+        "relative": "extension/lifecycle.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\extension\\manifest.json",
+        "bytes": 449,
+        "sha256": "754723c2f8b4acbdca06df71abad50c263d92890ed61eb59d8228e5ebd1153cc",
+        "relative": "extension/manifest.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\extension\\popup.css",
+        "bytes": 1080,
+        "sha256": "3d3c1532d38ba6c96d298f791bf950669194e95dbcb5d939e319f90d6483d9af",
+        "relative": "extension/popup.css"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\extension\\popup.html",
+        "bytes": 1046,
+        "sha256": "15d506c15ad8313f906a0c4af9648e96bd3ea6c0ef31cda80fb0149719dea097",
+        "relative": "extension/popup.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\extension\\popup.js",
+        "bytes": 4554,
+        "sha256": "767f8bd0fbff6a9fd2f4acf69d0bc12bd8700ea8ad458c78f15bfcb6fd9f8b85",
+        "relative": "extension/popup.js"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\package-lock.json",
+        "bytes": 32599,
+        "sha256": "5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef42a7a1",
+        "relative": "package-lock.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\package.json",
+        "bytes": 811,
+        "sha256": "70730641b447be2c08db2b7ecd9354c1ba426f10195b2e2e8528de54fcc41d9a",
+        "relative": "package.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\papers\\s41586-026-10401-1\\debug.json",
+        "bytes": 10955,
+        "sha256": "85f6478e8bfc7b395ec310f2897617fa1e209c8614486c60beafeb622db0a8c5",
+        "relative": "papers/s41586-026-10401-1/debug.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig1.webp",
+        "bytes": 49630,
+        "sha256": "81e587ee56dc9eca4dc088c513fd7668ee189c42dcae2ffe722c865347069fc8",
+        "relative": "papers/s41586-026-10401-1/figures/fig1.webp"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig2.webp",
+        "bytes": 29826,
+        "sha256": "320f625b06577492a61e094f810c576cf013c3a1b39251f10b5fabf9d25d4713",
+        "relative": "papers/s41586-026-10401-1/figures/fig2.webp"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig3.webp",
+        "bytes": 38546,
+        "sha256": "28033ea3a0a8da6c1b98c39dbcf92ca304f65cfa52e0d06df70b74736af8841d",
+        "relative": "papers/s41586-026-10401-1/figures/fig3.webp"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig4.jpg",
+        "bytes": 49049,
+        "sha256": "c0cf5cd9efb083280b026b22f5a426643b8211e03f5fe57e28bcc1b306ce5e38",
+        "relative": "papers/s41586-026-10401-1/figures/fig4.jpg"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig5.jpg",
+        "bytes": 49427,
+        "sha256": "4f29f68cadc51e31651a2504fcd479162de15fcb0a1a5bdfa01f80cacb7ab25a",
+        "relative": "papers/s41586-026-10401-1/figures/fig5.jpg"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig6.jpg",
+        "bytes": 44566,
+        "sha256": "7006478d43ec6f9fbf2109c17a8671e48566c0aec99d3183fbeee69bedb25ef4",
+        "relative": "papers/s41586-026-10401-1/figures/fig6.jpg"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\papers\\s41586-026-10401-1\\figures\\fig7.jpg",
+        "bytes": 47151,
+        "sha256": "4b3b34928752fdd70b116908b7db82071f11013211b6327f2e0c4844ee047ac3",
+        "relative": "papers/s41586-026-10401-1/figures/fig7.jpg"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\papers\\s41586-026-10401-1\\index.md",
+        "bytes": 65059,
+        "sha256": "33caa4997c92c8cd7d40581db3e589c260ee5d70c4bded9b2e8c981b43cffaf5",
+        "relative": "papers/s41586-026-10401-1/index.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\scripts\\aip-fixture-excerpts.mjs",
+        "bytes": 4060,
+        "sha256": "e948cf1c2b25715557fdbebea75fb047f3f423f17a125b18eb78bfab9da7d0b9",
+        "relative": "scripts/aip-fixture-excerpts.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\scripts\\install-windows.mjs",
+        "bytes": 5544,
+        "sha256": "8d9062fba2d059d549e959429195c69003325968c4fed1776128f248d2f4e550",
+        "relative": "scripts/install-windows.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\scripts\\package-release.mjs",
+        "bytes": 5213,
+        "sha256": "4fc60f23264d68adf00fef9969f0d2dff682d909ff4258d764d1dffa7a2f4359",
+        "relative": "scripts/package-release.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\scripts\\prepare-pnas-fixtures.mjs",
+        "bytes": 4450,
+        "sha256": "e8dd8f6339ee7f314799c1c5cf22decbe75ef670200f113191bea6baccd4e14c",
+        "relative": "scripts/prepare-pnas-fixtures.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\scripts\\rsc-excerpts.mjs",
+        "bytes": 7248,
+        "sha256": "704c530e57cda7f29c45735e51cb84ec0eddae060869971025fca54d8c5b696e",
+        "relative": "scripts/rsc-excerpts.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\scripts\\rsc-lifecycle-check.mjs",
+        "bytes": 5431,
+        "sha256": "fa58f87ef2d3f7cbcc2347b38ba3fa90d66b46d5165b0860810060d04a96fe07",
+        "relative": "scripts/rsc-lifecycle-check.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\scripts\\sanitize-sciopen-experiment.mjs",
+        "bytes": 5177,
+        "sha256": "38ee6903f00a7b3041a6cc4db7fcb8912d8970d7b82e823d1520a87fa0f92250",
+        "relative": "scripts/sanitize-sciopen-experiment.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\scripts\\sciopen-lifecycle-check.mjs",
+        "bytes": 7123,
+        "sha256": "0750e3e10497dcc2c028d3e22d231c787cb12d411f6869ed12124212d25ff78b",
+        "relative": "scripts/sciopen-lifecycle-check.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\scripts\\sciopen-reference-repro.mjs",
+        "bytes": 3012,
+        "sha256": "d8120cdf95fe437b8e86c8ec011465ee15ae895c5792bc2af21f3310b18a72ba",
+        "relative": "scripts/sciopen-reference-repro.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\scripts\\sciopen-source-audit.mjs",
+        "bytes": 1334,
+        "sha256": "5da6afaf636291233c3b5a981371f3e9b0727635c394f55ccf6eff4016a9aa70",
+        "relative": "scripts/sciopen-source-audit.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\scripts\\uninstall-windows.mjs",
+        "bytes": 1856,
+        "sha256": "1fd8c962d6ecf0597f84818410073d4af6c68b37442a680b56d4b23dda3304ce",
+        "relative": "scripts/uninstall-windows.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\scripts\\wiley-fixture-from-blocks.mjs",
+        "bytes": 3374,
+        "sha256": "dce54abf44264a273e2189557664337f99683784142816fd19a38cc66025dce4",
+        "relative": "scripts/wiley-fixture-from-blocks.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\adapters\\aaas.mjs",
+        "bytes": 21207,
+        "sha256": "c52678918e22c126d9a0ff128a044fab9cd4f1995ad023f588f00fa66f50946c",
+        "relative": "src/adapters/aaas.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\adapters\\aip.mjs",
+        "bytes": 15429,
+        "sha256": "1593d3b34850c5a282829aff393ac0ac4695f257adff62860fd3f8cced3d9298",
+        "relative": "src/adapters/aip.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\adapters\\iop.mjs",
+        "bytes": 20595,
+        "sha256": "0e633803180532090015014db7eaf98534a2e021ce155f6a4de881ba6bd26611",
+        "relative": "src/adapters/iop.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\adapters\\nature.mjs",
+        "bytes": 64258,
+        "sha256": "c14ba891e42e60c4375f12797cbbc747d55b76856c179c5ab86f61572523b1da",
+        "relative": "src/adapters/nature.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\adapters\\pnas.mjs",
+        "bytes": 13186,
+        "sha256": "e7bd7b1409cdf31bb50844d016bf1953e18e82883fc03980877a601e57845bae",
+        "relative": "src/adapters/pnas.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\adapters\\rsc.mjs",
+        "bytes": 16616,
+        "sha256": "1a54fe1c2b4280c44d4b33a1f86597dd19a6f1172ec2b887c3cf64bde8e2c1cd",
+        "relative": "src/adapters/rsc.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\adapters\\sciopen.mjs",
+        "bytes": 16747,
+        "sha256": "75820995ce0c3e6856f2b3c2e6a541e0a9634fa4db2db1345c870265693a01ea",
+        "relative": "src/adapters/sciopen.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\adapters\\wiley-clip.mjs",
+        "bytes": 3903,
+        "sha256": "1069a037f4c69492c85f9878fbafc6c4c852578098a371275728c0dbccda8f2c",
+        "relative": "src/adapters/wiley-clip.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\adapters\\wiley.mjs",
+        "bytes": 16387,
+        "sha256": "afcc9e70bd505395d8d15561d452fc94430f190b93632335e8ffb1a45b43eaca",
+        "relative": "src/adapters/wiley.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\article-fetch.mjs",
+        "bytes": 3263,
+        "sha256": "e779fcfe477909c86a3260154190bb19dc57d677787d85028b41f42b8e32cf66",
+        "relative": "src/article-fetch.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\bridge.mjs",
+        "bytes": 8468,
+        "sha256": "be81cb8de7240731c6ee470d43c1e055ba430b0ab8bb03c30ed34be7a33830ec",
+        "relative": "src/bridge.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\build.mjs",
+        "bytes": 792,
+        "sha256": "4bcc8c82a594d230bff2ff2dbbda4ee5cb07c00013a59502854e6b92b86bd6ef",
+        "relative": "src/build.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\cli.mjs",
+        "bytes": 2304,
+        "sha256": "74f72ccc7aaebf52dc1c8a8c94924abc7abe9a26909e63d6b3ac2ab01b1f66b0",
+        "relative": "src/cli.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\clip.mjs",
+        "bytes": 41240,
+        "sha256": "7f10fdd09c52528b5228433f3c84aa8bcef12d3bc63cc7c03005f233a325b134",
+        "relative": "src/clip.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\dom-runtime.mjs",
+        "bytes": 1489,
+        "sha256": "45778aff5794d548af5a467d1eab17e62eda61796cf18254ccacd32d1158c198",
+        "relative": "src/dom-runtime.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\experimental\\rsc-clip.mjs",
+        "bytes": 4579,
+        "sha256": "f65b936498cd67a9a2d912dcebca5effd72f965877cce87801ad1e71d868418a",
+        "relative": "src/experimental/rsc-clip.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\launcher.cs",
+        "bytes": 3222,
+        "sha256": "16b93e04ef388cbcfe3f44cfbb04108d83476a20390ef04763feffe3b571afe7",
+        "relative": "src/launcher.cs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\launcher.mjs",
+        "bytes": 13550,
+        "sha256": "c28e501ca37f7b6fcc59ec2ee9153d737891220d387d611a5c69f10ba291fea3",
+        "relative": "src/launcher.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\markdown.mjs",
+        "bytes": 1097,
+        "sha256": "ef4859276c23e1442de315d418347f5881164c47d1eebb58e5d6322d7a918416",
+        "relative": "src/markdown.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\normalizers\\academic-inline.mjs",
+        "bytes": 13414,
+        "sha256": "1a7e380ee2d0836533e8d7621a9d7ef4dfdfe1c43583d64abb11d4d2c3e77ce0",
+        "relative": "src/normalizers/academic-inline.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\normalizers\\citations.mjs",
+        "bytes": 4463,
+        "sha256": "d46831bac833d3f7fc70ec03aaf3c16323814aabae34a48cd1d3c1598caed201",
+        "relative": "src/normalizers/citations.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\normalizers\\figures.mjs",
+        "bytes": 16260,
+        "sha256": "e3cb06038756a38649633cd3612edcbeca515c370dc238836cf472b6530bb8d2",
+        "relative": "src/normalizers/figures.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\normalizers\\markers.mjs",
+        "bytes": 131,
+        "sha256": "f94d063d5a0849f117b6633bf12db01588a5d6d9104ebe933eedc01c87605afc",
+        "relative": "src/normalizers/markers.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\normalizers\\math.mjs",
+        "bytes": 3771,
+        "sha256": "e646de6497838580b47d31f65ee5b50ae2f03ec3137cace1fe8225af528d1089",
+        "relative": "src/normalizers/math.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\pnas-clip.mjs",
+        "bytes": 5571,
+        "sha256": "7d4c52feec43db6ae9643f5d23690094767cc85036971ce42dd49d204acf89bf",
+        "relative": "src/pnas-clip.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\renderers\\output-policy.mjs",
+        "bytes": 1027,
+        "sha256": "92d7239d5613cd8e812f7ebffb8066e19a15d180b3950d6b68130ac77233c30a",
+        "relative": "src/renderers/output-policy.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\security.mjs",
+        "bytes": 7094,
+        "sha256": "d0b8f1278532db6251e50640d2503cca1772e09c5889fb981798cb753934b0db",
+        "relative": "src/security.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\validate-paper.mjs",
+        "bytes": 2166,
+        "sha256": "5fa1736ef4c72aed4bb6350b780cd0a8ada6b3ec472902681d95da589872d5d1",
+        "relative": "src/validate-paper.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\validators\\citation-style.mjs",
+        "bytes": 1267,
+        "sha256": "c2d511dc22296d1f56eb138c5ad7d8d4b3b43c587f51461972fe397769a099a7",
+        "relative": "src/validators/citation-style.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\validators\\cross-references.mjs",
+        "bytes": 3933,
+        "sha256": "ed0a5f751a018fe7859a880949376c7fa8390aacdf85b2565a804a395753bf5e",
+        "relative": "src/validators/cross-references.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\validators\\html-audit.mjs",
+        "bytes": 4005,
+        "sha256": "c3eb1d382f4742aaf825d186fc793bb1f4c1aa7ce6e7fdcd56bbaa320b8202fa",
+        "relative": "src/validators/html-audit.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\validators\\markdown-structure.mjs",
+        "bytes": 6179,
+        "sha256": "302303cf9fc724c9c5677ae84f3dd840ebe7a62aeee7e5eed00950d135b177a2",
+        "relative": "src/validators/markdown-structure.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\validators\\math-delimiters.mjs",
+        "bytes": 9885,
+        "sha256": "87d19d2bf51c4f5da87cd7d6aaf352595be537f9d1e6c28620e13701f5279284",
+        "relative": "src/validators/math-delimiters.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\src\\version.mjs",
+        "bytes": 163,
+        "sha256": "377d26da1e0336fa86ee757012a50fdd37b8868530929b59ec1a41d1be300e3b",
+        "relative": "src/version.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\aaas-adapter.test.mjs",
+        "bytes": 14637,
+        "sha256": "2227caa2e2e27379feed4645c55b81c91480a365949e29edc7c962522c444ad1",
+        "relative": "test/aaas-adapter.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\aip-adapter.test.mjs",
+        "bytes": 8910,
+        "sha256": "2afdbf5a3531caa93f2894a72516ca841d421b25b46300df60122c757e92948c",
+        "relative": "test/aip-adapter.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\bridge-security.test.mjs",
+        "bytes": 2573,
+        "sha256": "d37f5b92905fc450ac3b1c9c9a0b6c33c56bb97587297dc19d2fd1475c5700ae",
+        "relative": "test/bridge-security.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\chemical-group-output-oracle.test.mjs",
+        "bytes": 3761,
+        "sha256": "d71716ff7c2984a9fa05af2996d39c105f5ec1b013912a1a8a3aab560653bf8a",
+        "relative": "test/chemical-group-output-oracle.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\aaas\\.gitattributes",
+        "bytes": 40,
+        "sha256": "85f71109a17056ca61ec1941eec0df3bf91382fba9d9b831496637f6120b5326",
+        "relative": "test/fixtures/aaas/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\aaas\\provenance.json",
+        "bytes": 12545,
+        "sha256": "6beb137fefa4f0f04cdef131b3c93387b5bffd67a2ef231c3d13438bd8476ce3",
+        "relative": "test/fixtures/aaas/provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\aaas\\sciadv.1602536.excerpt.html",
+        "bytes": 77807,
+        "sha256": "b4ad581e223206ff8a68002e916972204d3b14146ad431b30565f9137f67a22b",
+        "relative": "test/fixtures/aaas/sciadv.1602536.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\aaas\\sciadv.1700434.excerpt.html",
+        "bytes": 75826,
+        "sha256": "b9f22ee772aec5d77a4f65e7e58f20b7fe4937845e2f02042a3df54c3636034a",
+        "relative": "test/fixtures/aaas/sciadv.1700434.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\aaas\\science.aaa9297.excerpt.html",
+        "bytes": 72687,
+        "sha256": "0418ac49ef35f71da7a8a48e43a5d190b56d7c587d5f3ba16aad8669137d837e",
+        "relative": "test/fixtures/aaas/science.aaa9297.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\aaas\\science.abj6987.excerpt.html",
+        "bytes": 194118,
+        "sha256": "fad8ea1d1c692e70c38670cdcc96349168ab38610bce61f04c6fbff36bafcfb9",
+        "relative": "test/fixtures/aaas/science.abj6987.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\aaas\\science.adv0235.excerpt.html",
+        "bytes": 50500,
+        "sha256": "e76524cba58c1b9f24627d89ff49096c0dc539817e3ef883fa9831e5d3503118",
+        "relative": "test/fixtures/aaas/science.adv0235.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\aip\\3297874.excerpt.html",
+        "bytes": 117398,
+        "sha256": "96e73c70757962149cb4d7b7f39e93c5645422f18ddfa32d9d1b5c9126ee57b2",
+        "relative": "test/fixtures/aip/3297874.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\aip\\3371786.excerpt.html",
+        "bytes": 98600,
+        "sha256": "8f6b518dee60b86d04cfe026f937f9b43e87862dc431064e86fb563f610e281d",
+        "relative": "test/fixtures/aip/3371786.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\aip\\3404114.excerpt.html",
+        "bytes": 97923,
+        "sha256": "01960180ea29b287841cbcf722195f632fac06d173e41ea810ff03f10a21b8b2",
+        "relative": "test/fixtures/aip/3404114.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\aip\\provenance.json",
+        "bytes": 5324,
+        "sha256": "7a9c1283c401cc6567e0657923eb1c9c606439e983e57aee2927b799c6032371",
+        "relative": "test/fixtures/aip/provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\025001-preview.excerpt.html",
+        "bytes": 688,
+        "sha256": "512ce0ff92a70480f7804f9883911b31e7c93a215b3377807a8513db3e86a0d3",
+        "relative": "test/fixtures/iop/025001-preview.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\025001-preview.provenance.json",
+        "bytes": 553,
+        "sha256": "30890746cf72ad8453c741cf6c162403814d40fa0fdfa2654992a49ff1a183da",
+        "relative": "test/fixtures/iop/025001-preview.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa68-citations.excerpt.html",
+        "bytes": 1746,
+        "sha256": "7951ad00849fdaaf482e43e51604a1f7a044e807553b1d62f05c71c843f52c78",
+        "relative": "test/fixtures/iop/aeaa68-citations.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa68-citations.provenance.json",
+        "bytes": 700,
+        "sha256": "7c9cdc3d011d58675504ea4e8d4a0d1af4030143f0ded805f022ac798f524ca1",
+        "relative": "test/fixtures/iop/aeaa68-citations.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa68-crossrefs.excerpt.html",
+        "bytes": 912,
+        "sha256": "b725d85113ea4f7ee2daeff907097b64dd166a9e7f3ea9d4516b10452d1bf08b",
+        "relative": "test/fixtures/iop/aeaa68-crossrefs.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa68-crossrefs.provenance.json",
+        "bytes": 719,
+        "sha256": "7bedb7fbf30fea9d913c629d91b169abaf7d4b8a101b2b42ee3e9597143f1a82",
+        "relative": "test/fixtures/iop/aeaa68-crossrefs.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa68-figure.excerpt.html",
+        "bytes": 1310,
+        "sha256": "11f3744003ce7e9d66bd265f9828e1e6ab517dfaa7ff2708d5cf606b3df50240",
+        "relative": "test/fixtures/iop/aeaa68-figure.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa68-figure.provenance.json",
+        "bytes": 735,
+        "sha256": "bbf51d931d2e90a2dbf836bc3db5ca1374d43cbb31c0c836e54f82e7c06db56d",
+        "relative": "test/fixtures/iop/aeaa68-figure.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa68-math.excerpt.html",
+        "bytes": 2780,
+        "sha256": "b59fb0ba38af31be35806bfc2195af23e4700d249de96dd369e315616567db49",
+        "relative": "test/fixtures/iop/aeaa68-math.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa68-server-observation.json",
+        "bytes": 1284,
+        "sha256": "e2472e800df7ca4669535dccba2c15f679b9200d7b47feff2482b25b1b670529",
+        "relative": "test/fixtures/iop/aeaa68-server-observation.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa68-units.excerpt.html",
+        "bytes": 1409,
+        "sha256": "35abfad8d46acc26bebe7a09127b54f7f2aef89616a254dffefe8dca1493f02b",
+        "relative": "test/fixtures/iop/aeaa68-units.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa68-units.provenance.json",
+        "bytes": 591,
+        "sha256": "06c0af650471741396e6c93fbccbafadf3a2164cf5170c9e56b943efb31936a9",
+        "relative": "test/fixtures/iop/aeaa68-units.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa68.provenance.json",
+        "bytes": 1605,
+        "sha256": "c4922b7b3ffebec3db24bf00e7e93c866d94dd90b7eedfcb02bd4d140e6d999c",
+        "relative": "test/fixtures/iop/aeaa68.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa6b-references.excerpt.html",
+        "bytes": 1002,
+        "sha256": "0c741aa425dcb336b2ea5f5f9269c8872e9f5a87a31016e086d32115b588e345",
+        "relative": "test/fixtures/iop/aeaa6b-references.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa6b-references.provenance.json",
+        "bytes": 625,
+        "sha256": "6e70dac47ad898212de4bdc1473c0a1ca1ac50b87947a799e38b951f68ee9a1a",
+        "relative": "test/fixtures/iop/aeaa6b-references.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa6b-table.excerpt.html",
+        "bytes": 1855,
+        "sha256": "05a08d19f18c7e0718802fc1ce6b07d3adf25b1404d66fa933fa460e89d01179",
+        "relative": "test/fixtures/iop/aeaa6b-table.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\aeaa6b-table.provenance.json",
+        "bytes": 725,
+        "sha256": "0de3f78f1fcdb14b71e7fd7784394396a7425fafb475315fd1a8c27ce8ebf543",
+        "relative": "test/fixtures/iop/aeaa6b-table.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\excerpt-integrity.json",
+        "bytes": 996,
+        "sha256": "7d3d52e6e192a2db016ed3dea2a1900ee724f18143626aaa95f9e3ea2dc66923",
+        "relative": "test/fixtures/iop/excerpt-integrity.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\iop\\synthetic-head.html",
+        "bytes": 724,
+        "sha256": "e7fb3ad01d2202a49a1f753f3d599e8b8b8f7d6642931ffdc36e4c5646776c9d",
+        "relative": "test/fixtures/iop/synthetic-head.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-alpha-qualifier\\.gitattributes",
+        "bytes": 52,
+        "sha256": "f7b7c7f293a046c14b2ff7a2a2a3b66e7cf82678fc953e4b6641fbf4de47641a",
+        "relative": "test/fixtures/nature-alpha-qualifier/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-alpha-qualifier\\README.md",
+        "bytes": 1330,
+        "sha256": "f19bb9f0f8aa1fc745367e09f2043ea55d854eb207df525f6c1a907b6da35001",
+        "relative": "test/fixtures/nature-alpha-qualifier/README.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-alpha-qualifier\\accepted-a5b6-diagnosis.json",
+        "bytes": 27530,
+        "sha256": "b28211322f8f6a0585167a119b13c2359d89dc592d498eed2d85cb0fea61c15b",
+        "relative": "test/fixtures/nature-alpha-qualifier/accepted-a5b6-diagnosis.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-alpha-qualifier\\s41586-021-03819-2.excerpt.html",
+        "bytes": 24257,
+        "sha256": "696660069bd881a163722fc020b22d0f6af5cc3387decacfd8c78789574ef634",
+        "relative": "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-alpha-qualifier\\s41586-021-03819-2.provenance.json",
+        "bytes": 21819,
+        "sha256": "f2e4fda7018aa124407ae63fe78abe534dd277a5f0327a3a75b984589a46dcf0",
+        "relative": "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-alpha-qualifier\\s41586-021-03819-2.recipe.json",
+        "bytes": 8922,
+        "sha256": "eadaf88466d38ca428b6157baa91f8756a6ed6366fed7ab1042fc8b6c7d35b88",
+        "relative": "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.recipe.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-alpha-qualifier\\s41586-021-03819-2.source-oracle.json",
+        "bytes": 17908,
+        "sha256": "713e657713555bb686618b4f10e086654263287dbbb824922eebfc2d0bd7d4b4",
+        "relative": "test/fixtures/nature-alpha-qualifier/s41586-021-03819-2.source-oracle.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-caption-citations\\.gitattributes",
+        "bytes": 45,
+        "sha256": "5eecacafa98deaac73ed55914d3ac09480732409559630c9f7242c26fe32b08a",
+        "relative": "test/fixtures/nature-caption-citations/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-caption-citations\\internal-links.excerpt.html",
+        "bytes": 98550,
+        "sha256": "20a130d3d6118a3ed230ff68bbccd19b8aa56606b2e24834062883d26b6abb74",
+        "relative": "test/fixtures/nature-caption-citations/internal-links.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-caption-citations\\internal-links.provenance.json",
+        "bytes": 70623,
+        "sha256": "26116b2b86d07a1247627a5c40156951b650be774f9bb55e6057505fbc394743",
+        "relative": "test/fixtures/nature-caption-citations/internal-links.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-caption-citations\\scientific-reports.excerpt.html",
+        "bytes": 107925,
+        "sha256": "23de0c22dcfd8673890a7053978ec86535a0b0ac60b14fb8ad27c0df5df54102",
+        "relative": "test/fixtures/nature-caption-citations/scientific-reports.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-caption-citations\\scientific-reports.provenance.json",
+        "bytes": 63295,
+        "sha256": "bea0001dbd2e023b24b595c7e97d3284ded5e0b091591cc38929171028dd904a",
+        "relative": "test/fixtures/nature-caption-citations/scientific-reports.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-caption-citations\\section-links.excerpt.html",
+        "bytes": 44445,
+        "sha256": "e560ec9341b7408ead9c3765df1052c3d3116763fcf2873fce766562b15a8232",
+        "relative": "test/fixtures/nature-caption-citations/section-links.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-caption-citations\\section-links.provenance.json",
+        "bytes": 41292,
+        "sha256": "a418578c56087a1a0d83fc2c4ba3922787700659b3f998cf24111f900b160b96",
+        "relative": "test/fixtures/nature-caption-citations/section-links.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-chemical-group-index\\.gitattributes",
+        "bytes": 54,
+        "sha256": "5d79bb2a081b2fef3aaf02a5a35109a2b2425039aa9415ab11b747762a61eb74",
+        "relative": "test/fixtures/nature-chemical-group-index/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-chemical-group-index\\README.md",
+        "bytes": 3563,
+        "sha256": "383e1998bea93ffa68cf86dc79025f6215f5752008ec61ed92351907e28662f2",
+        "relative": "test/fixtures/nature-chemical-group-index/README.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-chemical-group-index\\diagnosis.json",
+        "bytes": 32460,
+        "sha256": "4b178707f39e5dac50bd270f5fc18721856a328b3feccdec3e5b92a664c92360",
+        "relative": "test/fixtures/nature-chemical-group-index/diagnosis.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-chemical-group-index\\s41467-023-44030-3.excerpt.html",
+        "bytes": 72722,
+        "sha256": "a8c10a9e583c640a3adb41cf7a55f3c1a4d1a7f7b8f88b7d370afaa969c8079b",
+        "relative": "test/fixtures/nature-chemical-group-index/s41467-023-44030-3.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-chemical-group-index\\s41467-023-44030-3.provenance.json",
+        "bytes": 59160,
+        "sha256": "428ffafc1558ba0b07dadd0f48f44f29bfebe9b603f1e87ec8af4a564b949887",
+        "relative": "test/fixtures/nature-chemical-group-index/s41467-023-44030-3.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-chemistry-delta\\.gitattributes",
+        "bytes": 83,
+        "sha256": "f5cafa174fc046e1359547da402523e7b5509a5f5a4c5653ea52856f85b51156",
+        "relative": "test/fixtures/nature-chemistry-delta/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-chemistry-delta\\README.md",
+        "bytes": 2587,
+        "sha256": "6dc786e686336ba73991d5086a992ecec2047c268913ca6648053c0c2441af93",
+        "relative": "test/fixtures/nature-chemistry-delta/README.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-chemistry-delta\\diagnosis.json",
+        "bytes": 8382,
+        "sha256": "e0e5a40532347e8cb72a5957231d5cce2610643c61df2a8a1989252e2eabed02",
+        "relative": "test/fixtures/nature-chemistry-delta/diagnosis.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-chemistry-delta\\s41467-023-44030-3.excerpt.html",
+        "bytes": 57405,
+        "sha256": "50e7bd3c941c8b448e49357109c38d1842821ce4ef2d270580a3663c1ae27030",
+        "relative": "test/fixtures/nature-chemistry-delta/s41467-023-44030-3.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-chemistry-delta\\s41467-023-44030-3.provenance.json",
+        "bytes": 34944,
+        "sha256": "0fb4c17500d9d2d5d878196d7f9788a6005d90e4dfa5c8cbfafca001d85e91d4",
+        "relative": "test/fixtures/nature-chemistry-delta/s41467-023-44030-3.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-compound-unit\\.gitattributes",
+        "bytes": 45,
+        "sha256": "5eecacafa98deaac73ed55914d3ac09480732409559630c9f7242c26fe32b08a",
+        "relative": "test/fixtures/nature-compound-unit/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-compound-unit\\README.md",
+        "bytes": 2570,
+        "sha256": "e473c12469d74038953ca756bc8396983714b27de5429db5c4afda3bcf0dd2d8",
+        "relative": "test/fixtures/nature-compound-unit/README.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-compound-unit\\accepted-3889-diagnosis.json",
+        "bytes": 26563,
+        "sha256": "330f6bec4ae3915b308b1cb154c81eb656d376b8de769de0a248a1df8216042b",
+        "relative": "test/fixtures/nature-compound-unit/accepted-3889-diagnosis.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-compound-unit\\s41586-023-06735-9.excerpt.html",
+        "bytes": 86732,
+        "sha256": "fbe6ad5fe6d53056277655422baf7e3c9fec5cac42c82473553df5cb6e9c3790",
+        "relative": "test/fixtures/nature-compound-unit/s41586-023-06735-9.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-compound-unit\\s41586-023-06735-9.provenance.json",
+        "bytes": 53455,
+        "sha256": "bb343fb0b2ded1e642ebcafc72f3ea7fbf334be715f59d6b69e34e4c758c2602",
+        "relative": "test/fixtures/nature-compound-unit/s41586-023-06735-9.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\.gitattributes",
+        "bytes": 83,
+        "sha256": "f5cafa174fc046e1359547da402523e7b5509a5f5a4c5653ea52856f85b51156",
+        "relative": "test/fixtures/nature-frb-fractional-units/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\README.md",
+        "bytes": 2967,
+        "sha256": "a2ec5a30be7724b314f27167e30aeedd975b2a792ad95ad5e6b441b98b2e9d06",
+        "relative": "test/fixtures/nature-frb-fractional-units/README.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\diagnosis.json",
+        "bytes": 15276,
+        "sha256": "aa3a66dbb9e3ae5ec714ef8f0be5d28372061e16f13bfebc4f59f531d3e7a487",
+        "relative": "test/fixtures/nature-frb-fractional-units/diagnosis.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\s41586-022-04755-5.excerpt.html",
+        "bytes": 80065,
+        "sha256": "9196756aa9c59254f6b310a59f6218853a6eece7025c4eac926aed21df7b16be",
+        "relative": "test/fixtures/nature-frb-fractional-units/s41586-022-04755-5.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-frb-fractional-units\\s41586-022-04755-5.provenance.json",
+        "bytes": 65081,
+        "sha256": "0271c2b543d016d35c573cb047e28435a81b07cb8eb323114a1b23d0f7d6970d",
+        "relative": "test/fixtures/nature-frb-fractional-units/s41586-022-04755-5.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-greek-subscript\\.gitattributes",
+        "bytes": 45,
+        "sha256": "5eecacafa98deaac73ed55914d3ac09480732409559630c9f7242c26fe32b08a",
+        "relative": "test/fixtures/nature-greek-subscript/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-greek-subscript\\diagnosis.json",
+        "bytes": 23388,
+        "sha256": "4989623c5f1c52713563526822f6a80ef5a527869881607e03905f3c30184b9d",
+        "relative": "test/fixtures/nature-greek-subscript/diagnosis.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-greek-subscript\\s41534-023-00746-0.excerpt.html",
+        "bytes": 90784,
+        "sha256": "227a626f70825f2484e94754cdda3a1a6a6608f4b94f6bbe4c6ff206be9f08b7",
+        "relative": "test/fixtures/nature-greek-subscript/s41534-023-00746-0.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-greek-subscript\\s41534-023-00746-0.provenance.json",
+        "bytes": 98965,
+        "sha256": "af928f57706e136795e504f443b856c2b40da0d13126d11e1e4bc27093178bcf",
+        "relative": "test/fixtures/nature-greek-subscript/s41534-023-00746-0.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-idless-equation.html",
+        "bytes": 1127,
+        "sha256": "90da1fa823679042453d5b4ea1d7d7297bfdd50aa5075fe79e5472ef3dd62e92",
+        "relative": "test/fixtures/nature-idless-equation.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-isotope-mass\\.gitattributes",
+        "bytes": 128,
+        "sha256": "fbfcece745e44bb7e73df3ad0cb624ed621f843e5f02ea9642651b735c892f72",
+        "relative": "test/fixtures/nature-isotope-mass/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-isotope-mass\\README.md",
+        "bytes": 3145,
+        "sha256": "88acfa67d113d6cd4c467dac18d7140ca7167255d4c19ce19a4f77c2745d9e66",
+        "relative": "test/fixtures/nature-isotope-mass/README.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-isotope-mass\\accepted-b886-diagnosis.json",
+        "bytes": 10664,
+        "sha256": "196ef97ccaede106e975de6d16b6e6739197d0af774e7aab3e5bc1721b76007c",
+        "relative": "test/fixtures/nature-isotope-mass/accepted-b886-diagnosis.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-isotope-mass\\all-leading-masses-coverage.json",
+        "bytes": 43527,
+        "sha256": "8319aab7abe2709306bd9432a18139a3c6053e020fab12903ccadfa2a9a6833a",
+        "relative": "test/fixtures/nature-isotope-mass/all-leading-masses-coverage.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-isotope-mass\\s41467-023-44030-3.all-leading-masses.excerpt.html",
+        "bytes": 83245,
+        "sha256": "ca8665672f96c5590bb0767cab0448f60305f3b916b8e743e478766975a3ea81",
+        "relative": "test/fixtures/nature-isotope-mass/s41467-023-44030-3.all-leading-masses.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-isotope-mass\\s41467-023-44030-3.all-leading-masses.provenance.json",
+        "bytes": 134333,
+        "sha256": "00f5d03d1979e0dac1f02ec18194a8777c6c0443e787e7cd0d7e51709a401d3e",
+        "relative": "test/fixtures/nature-isotope-mass/s41467-023-44030-3.all-leading-masses.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-isotope-mass\\s41467-023-44030-3.excerpt.html",
+        "bytes": 53436,
+        "sha256": "3c68fff1660b3b861da7432e9d96ce9957649adca7105646e4ee206e531365f0",
+        "relative": "test/fixtures/nature-isotope-mass/s41467-023-44030-3.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-isotope-mass\\s41467-023-44030-3.provenance.json",
+        "bytes": 62524,
+        "sha256": "9e7f2fe819202bfca508beb879c2874dd05f566ecca5145badb53c5b7fa26e9c",
+        "relative": "test/fixtures/nature-isotope-mass/s41467-023-44030-3.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-literal-brackets\\.gitattributes",
+        "bytes": 129,
+        "sha256": "5b879fa00c071a4fd8cd0a6c002cdeae12662bcc8864c34f0e9cca8cad57c029",
+        "relative": "test/fixtures/nature-literal-brackets/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-literal-brackets\\s41467-023-44030-3.article.excerpt.html",
+        "bytes": 50263,
+        "sha256": "f655fd7f928149ee683f0e4781cde3c5ef1dbe515a30461358db88aa40a6d500",
+        "relative": "test/fixtures/nature-literal-brackets/s41467-023-44030-3.article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-literal-brackets\\s41467-023-44030-3.provenance.json",
+        "bytes": 74068,
+        "sha256": "20fa21be39203054dd04b7531a22572a758a268ce6c3ef9422426f7f40c55187",
+        "relative": "test/fixtures/nature-literal-brackets/s41467-023-44030-3.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-literal-brackets\\s41586-022-04755-5.article.excerpt.html",
+        "bytes": 50135,
+        "sha256": "7182c8625529cbba2e04fc9fda540aed5a33bfde74a6621ddc8a2ae4e88b6469",
+        "relative": "test/fixtures/nature-literal-brackets/s41586-022-04755-5.article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-literal-brackets\\s41586-022-04755-5.provenance.json",
+        "bytes": 95859,
+        "sha256": "77fa7768bca039b5decb84161a9f203d50bdaaa888e78d45fdcddc930527e917",
+        "relative": "test/fixtures/nature-literal-brackets/s41586-022-04755-5.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-materials-identifier\\.gitattributes",
+        "bytes": 65,
+        "sha256": "1575a537bd268ab649423e9c5ea625da8301f929a40364ad5e4f451435170906",
+        "relative": "test/fixtures/nature-materials-identifier/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-materials-identifier\\README.md",
+        "bytes": 3764,
+        "sha256": "482eed7c94f99778bf34d30d7dbb6dc6dcfe9ae80206b8902a81fbccdfdb2ab2",
+        "relative": "test/fixtures/nature-materials-identifier/README.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-materials-identifier\\materials-identifier.excerpt.html",
+        "bytes": 68630,
+        "sha256": "443e7defac512d8f1ce87a50c0d353ff3930c85f321a859fea25dff7a66fbe69",
+        "relative": "test/fixtures/nature-materials-identifier/materials-identifier.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-materials-identifier\\source-provenance.json",
+        "bytes": 62194,
+        "sha256": "c98a11b0c3d3877ace18a88fd24ba9d7079acbca279f08fcfd0b0850000c28d6",
+        "relative": "test/fixtures/nature-materials-identifier/source-provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-minimal.html",
+        "bytes": 7193,
+        "sha256": "3779ee60162cd6740fa8c754590971358d28c79c9e6fbf0b20ca3dabb7b4960a",
+        "relative": "test/fixtures/nature-minimal.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-no-id-figures.html",
+        "bytes": 1256,
+        "sha256": "b9e062aed2b287040dcaf88da7867c228fad340cc169d54afd2312017ad3130c",
+        "relative": "test/fixtures/nature-no-id-figures.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-reference-literal\\.gitattributes",
+        "bytes": 45,
+        "sha256": "5eecacafa98deaac73ed55914d3ac09480732409559630c9f7242c26fe32b08a",
+        "relative": "test/fixtures/nature-reference-literal/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-reference-literal\\README.md",
+        "bytes": 5735,
+        "sha256": "90f90456025adb2ec862038c996d48bef7746979523c1a4c2af66165fc82acac",
+        "relative": "test/fixtures/nature-reference-literal/README.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-reference-literal\\materials-reference-literal.excerpt.html",
+        "bytes": 13671,
+        "sha256": "89001940e39557ec3d170e70979ce3477757ef107b616d2e77ff83b3ce2b249e",
+        "relative": "test/fixtures/nature-reference-literal/materials-reference-literal.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-reference-literal\\source-provenance.json",
+        "bytes": 22267,
+        "sha256": "21ecb74e7de07248587e70bb24bc808775c4008ee046743a6cee13449cb1afea",
+        "relative": "test/fixtures/nature-reference-literal/source-provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-citations\\.gitattributes",
+        "bytes": 45,
+        "sha256": "5eecacafa98deaac73ed55914d3ac09480732409559630c9f7242c26fe32b08a",
+        "relative": "test/fixtures/nature-scientific-citations/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-citations\\README.md",
+        "bytes": 3530,
+        "sha256": "acd344c387ad71086e281d98a568a4d62db904054153d55552255dd2963656c0",
+        "relative": "test/fixtures/nature-scientific-citations/README.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-citations\\checkpoint-evidence.json",
+        "bytes": 12931,
+        "sha256": "06ae67b9db3fa206f3c302447a9057d38dbcdf6c64368678488419bb28594565",
+        "relative": "test/fixtures/nature-scientific-citations/checkpoint-evidence.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-citations\\chemistry.excerpt.html",
+        "bytes": 59993,
+        "sha256": "a98b1bc64cb0b86e90225ea4d3a0d1071da3fe195d53ad54c1fdf86ad9693b98",
+        "relative": "test/fixtures/nature-scientific-citations/chemistry.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-citations\\chemistry.provenance.json",
+        "bytes": 31790,
+        "sha256": "e8452442bb731cb43e764419818ce8c1fb54a0fca093376fef6cf19c1c871d39",
+        "relative": "test/fixtures/nature-scientific-citations/chemistry.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-citations\\independent-chemical-base-packet.json",
+        "bytes": 2805,
+        "sha256": "a4ba05b739fa5eab0b1c04594594d909caea089978145532e4b4bdce1bdac2aa",
+        "relative": "test/fixtures/nature-scientific-citations/independent-chemical-base-packet.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-citations\\quantum.excerpt.html",
+        "bytes": 65179,
+        "sha256": "3fdd325ba36f107ecdcdbc4643e3bda22350091565de75bf9b169ea36df6f277",
+        "relative": "test/fixtures/nature-scientific-citations/quantum.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-citations\\quantum.provenance.json",
+        "bytes": 43922,
+        "sha256": "1e59e1226ea6e6b4d342e9c4c74b30973bc387b4dca39ce31dc5259d44aeeb17",
+        "relative": "test/fixtures/nature-scientific-citations/quantum.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-units\\.gitattributes",
+        "bytes": 45,
+        "sha256": "5eecacafa98deaac73ed55914d3ac09480732409559630c9f7242c26fe32b08a",
+        "relative": "test/fixtures/nature-scientific-units/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-units\\README.md",
+        "bytes": 2563,
+        "sha256": "d3c8b7f9fcfafa46f2fa82bbdcb49cec8428935cf7597b385e0f1995d3332b8a",
+        "relative": "test/fixtures/nature-scientific-units/README.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-units\\s41586-022-04755-5.article.excerpt.html",
+        "bytes": 24203,
+        "sha256": "b1f984f18a3b2286938b5ed13bee21586bf2ab39df810451dfed9be1d4b43516",
+        "relative": "test/fixtures/nature-scientific-units/s41586-022-04755-5.article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-units\\s41586-022-04755-5.provenance.json",
+        "bytes": 50654,
+        "sha256": "d834e87325070890b4f38555eb210c20f90967a744721225730676cda6b7c167",
+        "relative": "test/fixtures/nature-scientific-units/s41586-022-04755-5.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-units\\s41586-022-04755-5.table-1.excerpt.html",
+        "bytes": 5434,
+        "sha256": "d5c167a5e0e2bbe016a1728985a5f96788492a9397060cee4292bcb37ec81fd0",
+        "relative": "test/fixtures/nature-scientific-units/s41586-022-04755-5.table-1.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-units\\s41598-018-38309-5.article.excerpt.html",
+        "bytes": 95395,
+        "sha256": "807d7374ec6c1add4a26b5a7860e7ca6ae5053a740d7dcde6544ce27899e988a",
+        "relative": "test/fixtures/nature-scientific-units/s41598-018-38309-5.article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-scientific-units\\s41598-018-38309-5.provenance.json",
+        "bytes": 80188,
+        "sha256": "83b95a358040cd7e4261d602db4a45ee6f448af67c758af5a1ed057b5fab8523",
+        "relative": "test/fixtures/nature-scientific-units/s41598-018-38309-5.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-sparse-figure-alt\\.gitattributes",
+        "bytes": 65,
+        "sha256": "1575a537bd268ab649423e9c5ea625da8301f929a40364ad5e4f451435170906",
+        "relative": "test/fixtures/nature-sparse-figure-alt/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-sparse-figure-alt\\README.md",
+        "bytes": 7292,
+        "sha256": "040928c73ce7c0cdc8beb032c02c40b2e8cdadaf9dab7b5287885e8eab983223",
+        "relative": "test/fixtures/nature-sparse-figure-alt/README.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-sparse-figure-alt\\s41586-023-05896-x.excerpt.html",
+        "bytes": 143109,
+        "sha256": "468df531667836eb8484b522482b915bad8de9f375a06489423b34e8bb43a537",
+        "relative": "test/fixtures/nature-sparse-figure-alt/s41586-023-05896-x.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-sparse-figure-alt\\s41586-023-05896-x.provenance.json",
+        "bytes": 211523,
+        "sha256": "cd485e65cdf8c37625e3188b4e076c95f0cdb3be01779b4a1a1dfb04f3d26d79",
+        "relative": "test/fixtures/nature-sparse-figure-alt/s41586-023-05896-x.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-split-power\\.gitattributes",
+        "bytes": 65,
+        "sha256": "1575a537bd268ab649423e9c5ea625da8301f929a40364ad5e4f451435170906",
+        "relative": "test/fixtures/nature-split-power/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-split-power\\diagnosis.json",
+        "bytes": 20374,
+        "sha256": "a895e03dfe9b99d83ffb575ae1883eb79d5ef4ecec7f11640920d5f70ded2944",
+        "relative": "test/fixtures/nature-split-power/diagnosis.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-split-power\\s41534-023-00746-0.excerpt.html",
+        "bytes": 62731,
+        "sha256": "dc1136a1c70a66e63cce9bbe696b9cd790eb8eefbad3b499cce04dc140b16ad0",
+        "relative": "test/fixtures/nature-split-power/s41534-023-00746-0.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-split-power\\s41534-023-00746-0.provenance.json",
+        "bytes": 53459,
+        "sha256": "a0390f1f98c6b8781dc5b4c8abdd486d011cac7e1c1b53c627255a64073fd742",
+        "relative": "test/fixtures/nature-split-power/s41534-023-00746-0.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-styled-adjacency\\.gitattributes",
+        "bytes": 45,
+        "sha256": "5eecacafa98deaac73ed55914d3ac09480732409559630c9f7242c26fe32b08a",
+        "relative": "test/fixtures/nature-styled-adjacency/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-styled-adjacency\\README.md",
+        "bytes": 3043,
+        "sha256": "191681a625709a47475ec45c0040bfb3aa4eb3c423eba7546a2f4d6aaf46ce2c",
+        "relative": "test/fixtures/nature-styled-adjacency/README.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-styled-adjacency\\boundary-evidence.json",
+        "bytes": 19378,
+        "sha256": "a4031d2f32b13235002dafb82c2c2b1795739a5f8b365e082ceb288ffa629993",
+        "relative": "test/fixtures/nature-styled-adjacency/boundary-evidence.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-styled-adjacency\\failure-evidence.json",
+        "bytes": 9923,
+        "sha256": "942bbb721633d069eb9a35c3b532e41c4c3533820f71463c20acbe9dffd20471",
+        "relative": "test/fixtures/nature-styled-adjacency/failure-evidence.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-styled-adjacency\\s41586-023-06735-9.article.excerpt.html",
+        "bytes": 84689,
+        "sha256": "2a0e006ed9a5f0e55c2b18bf8ae4ed71ff8a689d45dcdf20a507173b481697d7",
+        "relative": "test/fixtures/nature-styled-adjacency/s41586-023-06735-9.article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-styled-adjacency\\s41586-023-06735-9.provenance.json",
+        "bytes": 53844,
+        "sha256": "2f8b63aba66b76437762b43e22e57458e114758dbb241a76ac83904b1904ce9e",
+        "relative": "test/fixtures/nature-styled-adjacency/s41586-023-06735-9.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-caption\\.gitattributes",
+        "bytes": 45,
+        "sha256": "5eecacafa98deaac73ed55914d3ac09480732409559630c9f7242c26fe32b08a",
+        "relative": "test/fixtures/nature-table-caption/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-caption\\s41534-023-00746-0.article.excerpt.html",
+        "bytes": 76331,
+        "sha256": "0f45652f6fb88406a34bbe244236d0ad61b24d90bdcff8165f2ec3591ca0e52d",
+        "relative": "test/fixtures/nature-table-caption/s41534-023-00746-0.article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-caption\\s41534-023-00746-0.provenance.json",
+        "bytes": 78445,
+        "sha256": "4c502f46e28db5343e655a230bacb50fac4c7cf4a0511f759df5064fddb585db",
+        "relative": "test/fixtures/nature-table-caption/s41534-023-00746-0.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-caption\\s41534-023-00746-0.table-1.excerpt.html",
+        "bytes": 4299,
+        "sha256": "90670968407415e1f7e7c624b3244330015a4e52bc9790e811d2992205851c2d",
+        "relative": "test/fixtures/nature-table-caption/s41534-023-00746-0.table-1.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-mathjax\\.gitattributes",
+        "bytes": 123,
+        "sha256": "ff5bcc0bb2489ff1cf173763728628a136cec371ba6034d7332c575e5f2edf39",
+        "relative": "test/fixtures/nature-table-mathjax/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-mathjax\\s41586-022-04755-5.provenance.json",
+        "bytes": 20917,
+        "sha256": "c3967bbccc8dca6e6c6d42f292ad279e3e383e1530ac9269f6e61f8567e92e0f",
+        "relative": "test/fixtures/nature-table-mathjax/s41586-022-04755-5.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-mathjax\\s41586-022-04755-5.table.excerpt.html",
+        "bytes": 4892,
+        "sha256": "f274cb827e7d6d10db5e63edc92ef16dac2b52bb34a469c4551479dc36df61eb",
+        "relative": "test/fixtures/nature-table-mathjax/s41586-022-04755-5.table.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-notes\\.gitattributes",
+        "bytes": 122,
+        "sha256": "54922784873247b74dff44595bf27d1ddbd6b9101f248df8c2aa9fe8e3aafb2c",
+        "relative": "test/fixtures/nature-table-notes/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-notes\\s41586-020-2012-7.article.excerpt.html",
+        "bytes": 3715,
+        "sha256": "561079f84fa79b9a00c82e2c3a96f07fe924a0eac05a1ef1aeb3efd6b9d85620",
+        "relative": "test/fixtures/nature-table-notes/s41586-020-2012-7.article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-notes\\s41586-020-2012-7.provenance.json",
+        "bytes": 12157,
+        "sha256": "e2f6b4d271c09aa424aae1c1f19c94b5726b3f4277df6ab2e3f3913d447eaba2",
+        "relative": "test/fixtures/nature-table-notes/s41586-020-2012-7.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-notes\\s41586-020-2012-7.table.excerpt.html",
+        "bytes": 2500,
+        "sha256": "6d67417849218c151fc8a1b27c1cbe56634d3774005b911cdc7c763462e42794",
+        "relative": "test/fixtures/nature-table-notes/s41586-020-2012-7.table.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-notes\\s41586-022-04755-5.article.excerpt.html",
+        "bytes": 3816,
+        "sha256": "e3aaf1a76de8ca132f6cbc08ec5f25e72afc884ec7b7a8e8a5167e5f9b0bf018",
+        "relative": "test/fixtures/nature-table-notes/s41586-022-04755-5.article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-notes\\s41586-022-04755-5.provenance.json",
+        "bytes": 13618,
+        "sha256": "0fef9f0211fd2ed0084672c3d13084cb52420d67745f49707749d2369742e88a",
+        "relative": "test/fixtures/nature-table-notes/s41586-022-04755-5.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-notes\\s41586-022-04755-5.table.excerpt.html",
+        "bytes": 5434,
+        "sha256": "d5c167a5e0e2bbe016a1728985a5f96788492a9397060cee4292bcb37ec81fd0",
+        "relative": "test/fixtures/nature-table-notes/s41586-022-04755-5.table.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-notes\\s41586-026-10401-1.article.excerpt.html",
+        "bytes": 3345,
+        "sha256": "8a9cdf624343872bba5873ccda96697737b597724f627bcac39d894fd0e085eb",
+        "relative": "test/fixtures/nature-table-notes/s41586-026-10401-1.article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-notes\\s41586-026-10401-1.provenance.json",
+        "bytes": 9740,
+        "sha256": "3ffb95529789a2a6b03b41b40f80196480263d28909c7bb12a8529f6b25a1f74",
+        "relative": "test/fixtures/nature-table-notes/s41586-026-10401-1.provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\nature-table-notes\\s41586-026-10401-1.table.excerpt.html",
+        "bytes": 2968,
+        "sha256": "0f140482b5ed5873629f22df427fffe01aa5374c6253e465a4678f1ea1749677",
+        "relative": "test/fixtures/nature-table-notes/s41586-026-10401-1.table.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\pnas\\1319030111.html",
+        "bytes": 87030,
+        "sha256": "698702e6dfee29e2205badf9ff8417dd6b276178ed76044657ad16c228d418bc",
+        "relative": "test/fixtures/pnas/1319030111.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\pnas\\2318124121.html",
+        "bytes": 154793,
+        "sha256": "ce129c28783920430eafd6c47e3cce93c670137c3e9431e3edf71969f656519e",
+        "relative": "test/fixtures/pnas/2318124121.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\pnas\\2400689121.html",
+        "bytes": 133599,
+        "sha256": "baf311d3a8ced13cba279da803fb04c1f69ccd50cef396e9129a83b09438b5c4",
+        "relative": "test/fixtures/pnas/2400689121.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\pnas\\README.md",
+        "bytes": 1293,
+        "sha256": "262f0f5019feb66c25667f29372187dbc62c8b39f66751896b25b7057ed2b158",
+        "relative": "test/fixtures/pnas/README.md"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\pnas\\manifest.json",
+        "bytes": 7080,
+        "sha256": "ded1db32d7515554c00de9e1312501944445a370e3195a31e28cdcbacb622eda",
+        "relative": "test/fixtures/pnas/manifest.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\rsc\\d3mh00787a.html",
+        "bytes": 140902,
+        "sha256": "4c1ecf91d3eb9c550d97ba0a47bf85cff67fbc8f340c46ff1d0be1852d1c84a5",
+        "relative": "test/fixtures/rsc/d3mh00787a.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\rsc\\d3mh00787a.json",
+        "bytes": 21603,
+        "sha256": "c89a1ab4ad93ab6aaed8c6b743249c64b78a697ea715150cc11f08aef7958e24",
+        "relative": "test/fixtures/rsc/d3mh00787a.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\rsc\\d3tc03672c.html",
+        "bytes": 83641,
+        "sha256": "e8a10432c0c08d995df555a790cb671daa581e2955b9111ceaa71136abce6137",
+        "relative": "test/fixtures/rsc/d3tc03672c.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\rsc\\d3tc03672c.json",
+        "bytes": 16544,
+        "sha256": "e9c78bfdedf775119f8b54c847adfa511a1b0e678555ad85f3f2cd3ef43e3675",
+        "relative": "test/fixtures/rsc/d3tc03672c.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\rsc\\d4cp00012a.html",
+        "bytes": 112244,
+        "sha256": "7ea664dec9333100209d76d12dce1d5619cacc3bedb3190c4b2bf7b44ac84bf6",
+        "relative": "test/fixtures/rsc/d4cp00012a.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\rsc\\d4cp00012a.json",
+        "bytes": 21181,
+        "sha256": "805e5febbd4ebe8270f8017da453c61635206055198204a64d9c5e1ee8780ee1",
+        "relative": "test/fixtures/rsc/d4cp00012a.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\rsc\\d4cp00788c.html",
+        "bytes": 67272,
+        "sha256": "04c878cd80e6b4eede65abd25f41a423643cb89f568242a650d327af7bb512ed",
+        "relative": "test/fixtures/rsc/d4cp00788c.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\rsc\\d4cp00788c.json",
+        "bytes": 13476,
+        "sha256": "4f3f8b388ac9fefa9ade72001f31420eb6953eb64ed11eef7fe8129edab74db5",
+        "relative": "test/fixtures/rsc/d4cp00788c.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\rsc\\d4tc01199f.html",
+        "bytes": 131055,
+        "sha256": "3b954a6cfa32397e726687c6acb035ea04b949c24b8aa0f2864cd80e82d71c99",
+        "relative": "test/fixtures/rsc/d4tc01199f.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\rsc\\d4tc01199f.json",
+        "bytes": 21310,
+        "sha256": "afe4cad160c89fd786c7f868e96fadb98774a3ca9a50c0d592df737a12b53dc0",
+        "relative": "test/fixtures/rsc/d4tc01199f.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\rsc\\d5mh00096c.html",
+        "bytes": 230769,
+        "sha256": "2a2137dd20109ee7b693f369cb39f65fd3a57f5d80ec77c899ded9f6619f5c73",
+        "relative": "test/fixtures/rsc/d5mh00096c.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\rsc\\d5mh00096c.json",
+        "bytes": 33603,
+        "sha256": "47b406332c5b2b091e8059c57ddbc5ebaadec8bd4cb85d3e3672087fe99b05a1",
+        "relative": "test/fixtures/rsc/d5mh00096c.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\sciopen\\nr-94907575\\article.excerpt.html",
+        "bytes": 32795,
+        "sha256": "5d540f731773e392776ec5fcea9f2602465d6854a919b066af9b59698c2eb210",
+        "relative": "test/fixtures/sciopen/nr-94907575/article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\sciopen\\nr-94907575\\provenance.json",
+        "bytes": 2605,
+        "sha256": "8486415d09e8468c4804d230c649fc3c8f1c204e1fcb23aa86cdefef1328ab9f",
+        "relative": "test/fixtures/sciopen/nr-94907575/provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\sciopen\\nre-9120184\\article.excerpt.html",
+        "bytes": 4621,
+        "sha256": "bdbb10e11542e6c84bf90e0074166d4c7c75d7b18ebccbad21e15b116f33b94a",
+        "relative": "test/fixtures/sciopen/nre-9120184/article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\sciopen\\nre-9120184\\provenance.json",
+        "bytes": 1766,
+        "sha256": "bc3d637d82c9521c9e5206911cd777b8eb9e63c5d73dbffbf724f8f5820f7023",
+        "relative": "test/fixtures/sciopen/nre-9120184/provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\sciopen\\nre-truncated\\article.excerpt.html",
+        "bytes": 10906,
+        "sha256": "6af0ac66a146c2d3c4cefb983b76b6e9fd0d5f3de98c117c8d851d7629db816e",
+        "relative": "test/fixtures/sciopen/nre-truncated/article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\sciopen\\nre-truncated\\provenance.json",
+        "bytes": 1222,
+        "sha256": "25ef66e5dfc12c8ec7124a1bcb78259a6153e8a4ebef2c0f6c9df550402e8c42",
+        "relative": "test/fixtures/sciopen/nre-truncated/provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\wiley\\.gitattributes",
+        "bytes": 40,
+        "sha256": "85f71109a17056ca61ec1941eec0df3bf91382fba9d9b831496637f6120b5326",
+        "relative": "test/fixtures/wiley/.gitattributes"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\wiley\\adfm\\article.excerpt.html",
+        "bytes": 8751,
+        "sha256": "979d9e4ddb7caea7b5d9b26f83d1ece5ab92b8d6f3bf8fe07230db39fe69b58d",
+        "relative": "test/fixtures/wiley/adfm/article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\wiley\\adfm\\provenance.json",
+        "bytes": 2010,
+        "sha256": "4bb622f518c07d4fd0c1d8458f19bbbb9c4d69dc15f982fc95fabfb9e25a596e",
+        "relative": "test/fixtures/wiley/adfm/provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\wiley\\advs\\article.excerpt.html",
+        "bytes": 20482,
+        "sha256": "a7d99533c6be8903e73b7fa752ab566fbfb95ef32f30de513629a567ca17daed",
+        "relative": "test/fixtures/wiley/advs/article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\wiley\\advs\\provenance.json",
+        "bytes": 4337,
+        "sha256": "a031bf07dcab73163c13f4f691cd5f79811132618efc31fb8ae0e2fe609d8bea",
+        "relative": "test/fixtures/wiley/advs/provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\wiley\\aelm\\article.excerpt.html",
+        "bytes": 27049,
+        "sha256": "c16c1664db0c2ac5cf4e4570ff8f193fbccb643b1a1a406a93323f3ce93bafd2",
+        "relative": "test/fixtures/wiley/aelm/article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\wiley\\aelm\\provenance.json",
+        "bytes": 7910,
+        "sha256": "e08072ca3779514cfbb4f4440586b8314cb6f3e7397a9ca7dd9dccaae12ca35e",
+        "relative": "test/fixtures/wiley/aelm/provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\wiley\\smll-expanded\\article.excerpt.html",
+        "bytes": 57097,
+        "sha256": "e982be9919e0b726c67d8a6b5f8b4b54dad82d2b2d36b39ead3c2f2e78415c4c",
+        "relative": "test/fixtures/wiley/smll-expanded/article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\wiley\\smll-expanded\\provenance.json",
+        "bytes": 5754,
+        "sha256": "918c9bc25bb0600f347763fcf04a20c0e193a57e7bbac6394ffc1d73aecae391",
+        "relative": "test/fixtures/wiley/smll-expanded/provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\wiley\\smll\\article.excerpt.html",
+        "bytes": 26101,
+        "sha256": "f68fb92d593a4b965de1d9eea4d7cf4e1d1043112135cce5f39f0a530b90a858",
+        "relative": "test/fixtures/wiley/smll/article.excerpt.html"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\fixtures\\wiley\\smll\\provenance.json",
+        "bytes": 5342,
+        "sha256": "ff35acb171a5a030bf7acb23971d1a632a78852f7af45f22724aaf7262683749",
+        "relative": "test/fixtures/wiley/smll/provenance.json"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\helpers\\chemical-group-output-oracle.mjs",
+        "bytes": 1934,
+        "sha256": "ec7cd2e84643b796ce1c72d39e7c49d976008a517b5caf445204ed0b67489b95",
+        "relative": "test/helpers/chemical-group-output-oracle.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\helpers\\nature-alpha-qualifier-oracle.mjs",
+        "bytes": 1107,
+        "sha256": "ee7106ce6bb618ca996a184201c14432e6ad861ae0ecb9da736b8b34fd7419f1",
+        "relative": "test/helpers/nature-alpha-qualifier-oracle.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\infrastructure-hardening.test.mjs",
+        "bytes": 23124,
+        "sha256": "c36f1f52ac2704f2a73862d493367408b11968a0ae332b7744455cacbb6aa6d6",
+        "relative": "test/infrastructure-hardening.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\iop-adapter.test.mjs",
+        "bytes": 16864,
+        "sha256": "ae36cfe1e8393942b0264cb96f1fcca638002789d97c233801909bd37b5906ba",
+        "relative": "test/iop-adapter.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\issue-finalize.test.mjs",
+        "bytes": 11395,
+        "sha256": "b192e80a185e98c6fede66d48c6bf805fc33f10a93390418939fb97900637051",
+        "relative": "test/issue-finalize.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\launcher.test.mjs",
+        "bytes": 32714,
+        "sha256": "88a740c9a60b5503e16e29635e6b629a1eb8f6240f468a7c17261f969019eb1e",
+        "relative": "test/launcher.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-adapter.test.mjs",
+        "bytes": 9189,
+        "sha256": "549c1ed19d1878c9a92ece757169d698d5ddbee790350f3bdf4373bceaa33260",
+        "relative": "test/nature-adapter.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-alpha-qualifier-boundaries.test.mjs",
+        "bytes": 7777,
+        "sha256": "e5b3cb928088904200eb9f7ea0d229a408275e514c4c31b4f414588c0da2c4ed",
+        "relative": "test/nature-alpha-qualifier-boundaries.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-alpha-qualifier-oracle.test.mjs",
+        "bytes": 1827,
+        "sha256": "303835a8af409aa5f2ccf02185c14c78a1fabb1492b9cbbe2d0fd1cfffda4b04",
+        "relative": "test/nature-alpha-qualifier-oracle.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-alpha-qualifier.test.mjs",
+        "bytes": 10953,
+        "sha256": "3d1bbd2a84f50986ef9e2cbb6dc5400d190c30d9de36964767cff710685fab3d",
+        "relative": "test/nature-alpha-qualifier.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-caption-citations.test.mjs",
+        "bytes": 12309,
+        "sha256": "68d034fe2458bf4d3aadae0e37114ad543674aab00028007ac3b7c3fe1de5fae",
+        "relative": "test/nature-caption-citations.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-chemical-group-index-preproduction.test.mjs",
+        "bytes": 12115,
+        "sha256": "25d9bb62afd4d280188de85327a5b8f4ce1d222749b4d06ed0155d09651553a3",
+        "relative": "test/nature-chemical-group-index-preproduction.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-chemical-group-index.test.mjs",
+        "bytes": 11028,
+        "sha256": "bda27aed61b1d1522b26e92f4654ef865e41e7d657d9b8f95a33f59f383a9f49",
+        "relative": "test/nature-chemical-group-index.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-chemistry-delta-boundary.test.mjs",
+        "bytes": 11306,
+        "sha256": "542316d1a1e09139c1c60849b2828e2e5349e096e91062237fe7d88bb2847378",
+        "relative": "test/nature-chemistry-delta-boundary.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-chemistry-delta.test.mjs",
+        "bytes": 12412,
+        "sha256": "ae1cf37236da7f455ee1e4f138ee74edf8dbd149f4a3bd850f024bedbfbcd4c1",
+        "relative": "test/nature-chemistry-delta.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-compound-unit-boundaries.test.mjs",
+        "bytes": 10169,
+        "sha256": "d902f239834e418629e0a43159b28f6168fe4631a51fba47d01f81305c00bf6b",
+        "relative": "test/nature-compound-unit-boundaries.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-compound-unit.test.mjs",
+        "bytes": 9665,
+        "sha256": "224bb13ec73f23afb6f724cd48e17433f5d5d8587d85d8462bd8b0dcef043203",
+        "relative": "test/nature-compound-unit.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-frb-fractional-preflight.test.mjs",
+        "bytes": 21464,
+        "sha256": "4e254d712c95348a547fa0485c910c69fb6d462041989138ded2eda204fc1075",
+        "relative": "test/nature-frb-fractional-preflight.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-frb-fractional-units.test.mjs",
+        "bytes": 13703,
+        "sha256": "9a7c3e15cd34089a6e1254c524cf014780dc64799826d18587237bcea066075b",
+        "relative": "test/nature-frb-fractional-units.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-greek-subscript-boundaries.test.mjs",
+        "bytes": 8894,
+        "sha256": "b2a4bd38b42c4cb2672f2f4053532b2b301a03fab39b417b856ae0803729312c",
+        "relative": "test/nature-greek-subscript-boundaries.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-greek-subscript-context-boundaries.test.mjs",
+        "bytes": 8383,
+        "sha256": "4dc923ec8f97e8402422a63cb6b3767882bcd693b67fe8ec89d3912c2053ff01",
+        "relative": "test/nature-greek-subscript-context-boundaries.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-greek-subscript.test.mjs",
+        "bytes": 10615,
+        "sha256": "9896aba01b50ccdc948f7b230e2fe0d647c8068efa1e35109f9b0d02129e581c",
+        "relative": "test/nature-greek-subscript.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-isotope-mass-boundaries.test.mjs",
+        "bytes": 4505,
+        "sha256": "74435a9c94737c0b4a3a13639aba085330aa90d85137a3502dc2beec5229159a",
+        "relative": "test/nature-isotope-mass-boundaries.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-isotope-mass-coverage.test.mjs",
+        "bytes": 9167,
+        "sha256": "dbc3985a312e60db339d5c29678e3e5a86233cc5a467bb0d94c6e487dac43a67",
+        "relative": "test/nature-isotope-mass-coverage.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-isotope-mass.test.mjs",
+        "bytes": 11637,
+        "sha256": "40b6b7d1d0edb671a6f7678bf72bee5ae432c8e51bf17cb75ec9c2ee74110554",
+        "relative": "test/nature-isotope-mass.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-literal-brackets.test.mjs",
+        "bytes": 14045,
+        "sha256": "e8f2b452aa16e9542219a6c6bc1501e56da31da97e2c0c1704a089861bddc3cf",
+        "relative": "test/nature-literal-brackets.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-materials-identifier-boundaries.test.mjs",
+        "bytes": 9799,
+        "sha256": "40133d774e936507482e632e818995811988c8b82dd6b2291e17eeca813c4536",
+        "relative": "test/nature-materials-identifier-boundaries.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-materials-identifier.test.mjs",
+        "bytes": 15381,
+        "sha256": "f568b3cb2c265498162e4d8958ba8c09d65c393a5cd1628f06aa0368e7144021",
+        "relative": "test/nature-materials-identifier.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-reference-literal.test.mjs",
+        "bytes": 21973,
+        "sha256": "fd5dd524b1640483db3b57441d2780b91bb5605a1ec3c0e809a38a76fb951909",
+        "relative": "test/nature-reference-literal.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-scientific-citation-boundaries.test.mjs",
+        "bytes": 8364,
+        "sha256": "edbad7b8c5b7aed80384666756ff112383458c98f82144d5064e3f4c8cfd43e7",
+        "relative": "test/nature-scientific-citation-boundaries.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-scientific-citations.test.mjs",
+        "bytes": 10743,
+        "sha256": "8d9b6071409e6619a164e73305b78ae8ab19579431904474a1fa5817f50bfc90",
+        "relative": "test/nature-scientific-citations.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-scientific-units.test.mjs",
+        "bytes": 17480,
+        "sha256": "47250a1fcc1892163e441d26b6c4254e665b170907c26a201887e370672efc41",
+        "relative": "test/nature-scientific-units.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-sparse-figure-alt.test.mjs",
+        "bytes": 14548,
+        "sha256": "c68237a03e7400aba8569507bd415ee43a44769abf2354ab9ce8ea53ce707e9a",
+        "relative": "test/nature-sparse-figure-alt.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-split-power-boundaries.test.mjs",
+        "bytes": 6282,
+        "sha256": "c505c327e1bfaa71f109ffee00cc54d77eb0ae3dfeccd6b6ab9645912ceae5d2",
+        "relative": "test/nature-split-power-boundaries.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-split-power.test.mjs",
+        "bytes": 11052,
+        "sha256": "4075f1540fbb617c48dbf4b085419265268b4a9cf5fed4eb3a8cdfe66a4a65ba",
+        "relative": "test/nature-split-power.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-styled-adjacency-boundaries.test.mjs",
+        "bytes": 14897,
+        "sha256": "cc0ad1ca456e91bf7b9c0125d2861a18fb0abcd15cb177ab1c1fee2d843b8386",
+        "relative": "test/nature-styled-adjacency-boundaries.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-styled-adjacency.test.mjs",
+        "bytes": 8359,
+        "sha256": "eec579bbd33f9128fd1dda7f502bfa1b2e6a785a03317d210be258b164191f88",
+        "relative": "test/nature-styled-adjacency.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-table-caption-clip.test.mjs",
+        "bytes": 16876,
+        "sha256": "215cf5929fef7fb8c3d0c14f4de84a9385310918669b7223f8a1571fa02f424f",
+        "relative": "test/nature-table-caption-clip.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-table-caption.test.mjs",
+        "bytes": 9509,
+        "sha256": "63e1c58c96dafb14fa5a8d8e5a3fa899889d6acb365db2c9ba0affbe14a4af7f",
+        "relative": "test/nature-table-caption.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-table-mathjax.test.mjs",
+        "bytes": 12746,
+        "sha256": "d2903851405c0c3bf154e5f9d8c1b65c73b175858ad0bfe4934054baaf9a1f66",
+        "relative": "test/nature-table-mathjax.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\nature-table-notes.test.mjs",
+        "bytes": 15257,
+        "sha256": "aa67110ed0c07023e6bf94fd28f7d40d49f4167ba62cd72d7d3e978a4d843e67",
+        "relative": "test/nature-table-notes.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\network-boundaries.test.mjs",
+        "bytes": 5952,
+        "sha256": "e94f7d46f8590f5b542d4c53bd9cca38c7149f55bcff7be674cc227da959b44c",
+        "relative": "test/network-boundaries.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\output-quality.test.mjs",
+        "bytes": 23554,
+        "sha256": "262ed7515eefeb6ced2aac82e3faa95dad4ce1eb7bb34cce6baba29ac1b46ff8",
+        "relative": "test/output-quality.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\pnas.test.mjs",
+        "bytes": 11136,
+        "sha256": "d63813cf44653694726c7266cf2234320c70f2c509d3585ef7b0fb1102f484d4",
+        "relative": "test/pnas.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\release-packaging.test.mjs",
+        "bytes": 7585,
+        "sha256": "14d3ce8268fe7317390fbc7993b529c73048de4ec786ac6d8109f20bd1a9d4f4",
+        "relative": "test/release-packaging.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\rsc.test.mjs",
+        "bytes": 8048,
+        "sha256": "1a65d79a7f69a8053ad1a31f244665dbfccd87b5da757ac52692ab92b78aeb32",
+        "relative": "test/rsc.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\sciopen-experimental.test.mjs",
+        "bytes": 12775,
+        "sha256": "1edd7811b0e66c49887a265574aaa174af6223a3a37ea22825692b6d9574d05e",
+        "relative": "test/sciopen-experimental.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\stability-regressions.test.mjs",
+        "bytes": 9781,
+        "sha256": "ea4d9eebaeca1264fe8d3744428abeab1a57272af7772a91af3fa5a7163ea77a",
+        "relative": "test/stability-regressions.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\version.test.mjs",
+        "bytes": 748,
+        "sha256": "7dbb324701bac37fbd155b51fd3c163da36a52cc9c557c6297bcf91c94bcc461",
+        "relative": "test/version.test.mjs"
+      },
+      {
+        "path": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-chemical-group-index\\academic-clipper\\test\\wiley.test.mjs",
+        "bytes": 10901,
+        "sha256": "152702eda72361b783fe185ac1d8049871e60b998fc11bf189fe9cb9abf6cc65",
+        "relative": "test/wiley.test.mjs"
+      }
+    ],
+    "affectedFileCount": 36,
+    "artifacts": [
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/affected-receipt.json",
+        "bytes": 200736,
+        "sha256": "3337e95e7be4b5398283c403dd22de80e387d85102506cf28a6566df47251d2e"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/affected.log",
+        "bytes": 103475,
+        "sha256": "a74e751d8a0b168b618736cd9561ca1e08b8df77a040cf32a28235b05a18847a"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/build-receipt.json",
+        "bytes": 197469,
+        "sha256": "1e3f80c7c873e2c3df7989c1acbb9fe16652e3220d72bb7ca6ea4220a6a283d2"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/build.log",
+        "bytes": 172,
+        "sha256": "05412c69709c97b5610a3ded62f9a6071cb72a488aed4a549ade97543df61c12"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/full-receipt.json",
+        "bytes": 197955,
+        "sha256": "ad3ea3c6d8f0d656c7e6b98e0b1a5fc1819fff0eea2be21cca20a7c1b59bf432"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/full.log",
+        "bytes": 129695,
+        "sha256": "5dc0409360389517710b70b14b284ba71ccbc659e60ae893da8346c79808e3e2"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/golden-receipt.json",
+        "bytes": 197662,
+        "sha256": "983f910faccd8a1bb5e0f9deed912be390a9523ed6ce1891358badaf0d9b28e4"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/golden.log",
+        "bytes": 2893,
+        "sha256": "a5117f116c1d285880129194d874ffe7812eaa6bd8634838524e53bfa131dbfe"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/live-process.json",
+        "bytes": 504,
+        "sha256": "6727c145faceec6938da7709102996d3f0dbf08cee6a439391467b3034221833"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/prepare-publication.cjs",
+        "bytes": 9044,
+        "sha256": "1219153c270dbe20a54c975e26a9168d677a8b59988ddee43cf4afd726927c35"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/run-broader.cjs",
+        "bytes": 5680,
+        "sha256": "e472f69b499fa2c20a3124ea27a49f3429b3ff3422d8ecc7355033d6b09dbd1b"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/runner-start.json",
+        "bytes": 103316,
+        "sha256": "b49dd1104c86ca8920cced14ca5db44cea5aa9566972a66320571ff6b42e0fe0"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/terminal.json",
+        "bytes": 8505,
+        "sha256": "65a9bd32a704ed574f709564fddf3b3422a11d706eb4c23613be7ec8ac792ba3"
+      }
+    ],
+    "sourceArtifacts": [
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/full-source/links.md",
+        "bytes": 18454,
+        "sha256": "cfb7833a7d2e9d29da38100b7bdfb9bc4e3ee794bc1a5fb693085bcb9af7d955"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/full-source/links.result.json",
+        "bytes": 156400,
+        "sha256": "1a669060094a52a90675d43c9b4b583bba306e1c866e523e4b641e1d98367b47"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/full-source/markdown.md",
+        "bytes": 17665,
+        "sha256": "1378d9758092f396944bb2bd62fa9b29665cef57966312a9597e7e47dc542586"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/full-source/markdown.result.json",
+        "bytes": 152414,
+        "sha256": "3f207b5780695bd5fc82889fee655261d8ce833bfdb7b80e2dcb7ff8ddda9cb8"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/full-source/network-ledger.json",
+        "bytes": 330,
+        "sha256": "912eac19fcde4785e4c90992f9b60e1919fffcdf83402fd285b32e201382ee13"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/full-source/quarto.md",
+        "bytes": 9502,
+        "sha256": "8fcc36bcf53fdf2a262b424fb436c45615c05be9e28aedeaa71265a5172216e7"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/full-source/quarto.result.json",
+        "bytes": 136249,
+        "sha256": "bb8ad6daf71b6fa9970cd5c9b433e69cc68390d27a42b3a26059fd091793ece6"
+      }
+    ],
+    "boundaryArtifacts": [
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-broader-101bd4c/full-boundary/synthetic-observations.json",
+        "bytes": 21542,
+        "sha256": "1eb94849cff9c9ab693d396827b0c6bdb8cf34c171dbcf39f96556dc8362432e"
+      }
+    ],
+    "observation": "Single exec session31857, wrapper PID52808; observed same live session through terminal close, no restart.",
+    "dependencyPolicy": "Usable ignored own junction to issue-10-bug-reference-literal/node_modules reused read-only. No npm ci/install/dependency write-through.",
+    "networkEvidenceScope": "Direct recorded guards observe Issue74 source and synthetic consumers. Other full tests use existing mocks or loopback contracts; no process-wide syscall monitor is claimed.",
+    "omittedDuplicateRuns": [
+      "raw acquisition",
+      "A projection/sanitizer",
+      "source65 audit",
+      "old26 baseline",
+      "tail53",
+      "pure42 standalone",
+      "first55",
+      "pre-P2 corrected55",
+      "RED7",
+      "focused62 standalone",
+      "independent probes"
+    ],
+    "publicationPackaging": {
+      "scope": "This broader/publication recovery",
+      "additionalStandaloneFocusedRuns": 0,
+      "sourceAuditRuns": 0,
+      "AInvocations": 0,
+      "rawAcquisition": 0,
+      "dependencyInstalls": 0,
+      "requiredRuntime": [
+        "one affected 36-file batch",
+        "one canonical npm test including fresh source3clips and synthetic44",
+        "one build",
+        "one read-only golden"
+      ],
+      "docPaths": [
+        "docs/goals/issue-10/bug-chemical-group-production.md",
+        "docs/goals/issue-10/bug-chemical-group-production-receipt.json"
+      ]
+    }
   }
 }
