@@ -1,0 +1,298 @@
+{
+  "version": "nature-parenthesized-power-diagnosis/1.0.0",
+  "base": "f4a5f2ad74546ea54b990c6080e480871ee98e09",
+  "source": {
+    "articleId": "s41586-022-04755-5",
+    "url": "https://www.nature.com/articles/s41586-022-04755-5",
+    "title": "A repeating fast radio burst associated with a persistent radio source",
+    "doi": "10.1038/s41586-022-04755-5",
+    "journal": "Nature",
+    "observedAt": "2026-10-03T16:48:03.040Z",
+    "captureMode": "guarded-http",
+    "rawBytes": 545450,
+    "sha256": "190a270027c69a816b2647d2fdc6f1777cdf669695506fa40f2fe3cab8801ace",
+    "sourceContractSha": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330"
+  },
+  "fixture": {
+    "path": "s41586-022-04755-5.excerpt.html",
+    "bytes": 25549,
+    "sha256": "f672ec55261b61376bb1b0a82889e05b45deec9123442dccabab9829ebcd45de",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "recipeSha256": "f6b3803cd12ed3ed30705b39a91f22eeda1d07d340d14c11a9f7bb3e780adf1c",
+  "actualClipCount": 3,
+  "cachedPostchecksNewClips": 0,
+  "scope": "Only original Methods p22 whole-parenthesized numeric fractions square. π and /8 lie outside power; Issue72 unit fractions and all other families remain separate.",
+  "test": {
+    "command": "node --test test/nature-parenthesized-power.test.mjs",
+    "exit": 1,
+    "tests": 15,
+    "pass": 6,
+    "fail": 9,
+    "trueParserFailures": 9,
+    "harnessFailures": 0,
+    "durationMs": 1046.1507,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0
+  },
+  "producerSourceBlobs": {
+    "src/clip.mjs": "daeed3c9eff8bc12e011e0a5274fb1f4b5701b66",
+    "src/adapters/nature.mjs": "c6f819beb9747e83d322644c1f2a232769828afa",
+    "src/normalizers/academic-inline.mjs": "a63eba2cacf0bc0a43552d1c16ec41e91b2cf0bc"
+  },
+  "rootCause": {
+    "source": "Original complete plain numeric parentheses followed by one SUP2, twice; parentheses own exponent, π outside and /8 outside",
+    "nature": "Original source parentheses/SUP remain in cleanedHtml",
+    "defuddle": "Body conversion retains original SUP2 and inserts presentation whitespace",
+    "normalization": "Existing academic normalizer emits separate exponent; literal-base collector matches simple numeric/unit bases, not complete parenthesized fractions",
+    "futureBoundary": "Retain whole exact original numeric parenthesized base through existing boundaries; do not bind π/8, generic unknown parentheses or unrelated scripts; no new parser/validator relaxation"
+  },
+  "dialects": [
+    {
+      "dialect": "markdown",
+      "cache": {
+        "bytes": 65667,
+        "sha256": "8305cdd36e33b4df08e390def6fe40f6ae4ca061f08637501a5cc3972aad302a"
+      },
+      "markdown": {
+        "bytes": 2208,
+        "sha256": "725ce4101edec2a267e13fc18fbccf015db22b8864e08c338803f725eef0db37"
+      },
+      "roles": [
+        {
+          "id": "methods-p22-parenthesized-power-1",
+          "base": "(5/60)",
+          "exponent": "2",
+          "originalOutput": "(5/60)$^{2}$",
+          "byteOffset": 1395,
+          "line": 57,
+          "column": 381,
+          "positionDomain": "Final Markdown UTF8 byte offset and UTF16 1-based line/column at opening parenthesis; validator dollar column adds original base.length",
+          "validatorColumn": 387,
+          "originalPiPosition": "Original preceding π remains literal and outside parentheses",
+          "sourceSelector": "#Sec2-content > p:has(> i:nth-of-type(4) + sub:nth-of-type(4) + sup:nth-of-type(3)):not(:has(> sup:nth-of-type(4))):not(:has(a))",
+          "sourceSupIndex": 0
+        },
+        {
+          "id": "methods-p22-parenthesized-power-2",
+          "base": "(0.19/60/60)",
+          "exponent": "2",
+          "originalOutput": "(0.19/60/60)$^{2}$",
+          "byteOffset": 2004,
+          "line": 57,
+          "column": 975,
+          "positionDomain": "Final Markdown UTF8 byte offset and UTF16 1-based line/column at opening parenthesis; validator dollar column adds original base.length",
+          "validatorColumn": 987,
+          "originalPiPosition": "Original preceding π remains literal and outside parentheses",
+          "sourceSelector": "#Sec2-content > p:has(> i:nth-of-type(4) + sub:nth-of-type(4) + sup:nth-of-type(3)):not(:has(> sup:nth-of-type(4))):not(:has(a))",
+          "sourceSupIndex": 1
+        }
+      ],
+      "stageEvidence": {
+        "natureCleaned": [
+          "(5/60)<sup>2</sup>/8",
+          "(0.19/60/60)<sup>2</sup>/8"
+        ],
+        "defuddleBody": [
+          "(5/60) <sup>2</sup> /8",
+          "(0.19/60/60) <sup>2</sup> /8"
+        ],
+        "finalOrphans": [
+          "(5/60)$^{2}$",
+          "(0.19/60/60)$^{2}$"
+        ]
+      },
+      "validators": {
+        "mathValidation": false,
+        "rawHtmlValidation": true,
+        "markdownStructure": true,
+        "crossReferenceValidation": true
+      },
+      "scientificFragmentCounts": {
+        "isolatedSubscript": 0,
+        "isolatedSuperscript": 2,
+        "boldThenSubscript": 0,
+        "italicThenSuperscript": 0
+      },
+      "warnings": [
+        "No Nature figures were detected.",
+        "No equation nodes were detected.",
+        "No Nature reference list was detected."
+      ],
+      "references": 0,
+      "citations": [],
+      "resources": []
+    },
+    {
+      "dialect": "links",
+      "cache": {
+        "bytes": 65625,
+        "sha256": "77e57b07640d639884db17c0cfc49634ff1a4c07858014bde4233a3e6c4997d5"
+      },
+      "markdown": {
+        "bytes": 2208,
+        "sha256": "725ce4101edec2a267e13fc18fbccf015db22b8864e08c338803f725eef0db37"
+      },
+      "roles": [
+        {
+          "id": "methods-p22-parenthesized-power-1",
+          "base": "(5/60)",
+          "exponent": "2",
+          "originalOutput": "(5/60)$^{2}$",
+          "byteOffset": 1395,
+          "line": 57,
+          "column": 381,
+          "positionDomain": "Final Markdown UTF8 byte offset and UTF16 1-based line/column at opening parenthesis; validator dollar column adds original base.length",
+          "validatorColumn": 387,
+          "originalPiPosition": "Original preceding π remains literal and outside parentheses",
+          "sourceSelector": "#Sec2-content > p:has(> i:nth-of-type(4) + sub:nth-of-type(4) + sup:nth-of-type(3)):not(:has(> sup:nth-of-type(4))):not(:has(a))",
+          "sourceSupIndex": 0
+        },
+        {
+          "id": "methods-p22-parenthesized-power-2",
+          "base": "(0.19/60/60)",
+          "exponent": "2",
+          "originalOutput": "(0.19/60/60)$^{2}$",
+          "byteOffset": 2004,
+          "line": 57,
+          "column": 975,
+          "positionDomain": "Final Markdown UTF8 byte offset and UTF16 1-based line/column at opening parenthesis; validator dollar column adds original base.length",
+          "validatorColumn": 987,
+          "originalPiPosition": "Original preceding π remains literal and outside parentheses",
+          "sourceSelector": "#Sec2-content > p:has(> i:nth-of-type(4) + sub:nth-of-type(4) + sup:nth-of-type(3)):not(:has(> sup:nth-of-type(4))):not(:has(a))",
+          "sourceSupIndex": 1
+        }
+      ],
+      "stageEvidence": {
+        "natureCleaned": [
+          "(5/60)<sup>2</sup>/8",
+          "(0.19/60/60)<sup>2</sup>/8"
+        ],
+        "defuddleBody": [
+          "(5/60) <sup>2</sup> /8",
+          "(0.19/60/60) <sup>2</sup> /8"
+        ],
+        "finalOrphans": [
+          "(5/60)$^{2}$",
+          "(0.19/60/60)$^{2}$"
+        ]
+      },
+      "validators": {
+        "mathValidation": false,
+        "rawHtmlValidation": true,
+        "markdownStructure": true,
+        "crossReferenceValidation": true
+      },
+      "scientificFragmentCounts": {
+        "isolatedSubscript": 0,
+        "isolatedSuperscript": 2,
+        "boldThenSubscript": 0,
+        "italicThenSuperscript": 0
+      },
+      "warnings": [
+        "No Nature figures were detected.",
+        "No equation nodes were detected.",
+        "No Nature reference list was detected."
+      ],
+      "references": 0,
+      "citations": [],
+      "resources": []
+    },
+    {
+      "dialect": "quarto",
+      "cache": {
+        "bytes": 65854,
+        "sha256": "6ffad973abfbda74b4b6eb3028923a019bce29703b40686cd24e46f4d4503361"
+      },
+      "markdown": {
+        "bytes": 2315,
+        "sha256": "0b8204e86d1e4943ea6339a7e07bb0718c26a8ee4e13f639e1da69803c9773ac"
+      },
+      "roles": [
+        {
+          "id": "methods-p22-parenthesized-power-1",
+          "base": "(5/60)",
+          "exponent": "2",
+          "originalOutput": "(5/60)$^{2}$",
+          "byteOffset": 1502,
+          "line": 54,
+          "column": 381,
+          "positionDomain": "Final Markdown UTF8 byte offset and UTF16 1-based line/column at opening parenthesis; validator dollar column adds original base.length",
+          "validatorColumn": 387,
+          "originalPiPosition": "Original preceding π remains literal and outside parentheses",
+          "sourceSelector": "#Sec2-content > p:has(> i:nth-of-type(4) + sub:nth-of-type(4) + sup:nth-of-type(3)):not(:has(> sup:nth-of-type(4))):not(:has(a))",
+          "sourceSupIndex": 0
+        },
+        {
+          "id": "methods-p22-parenthesized-power-2",
+          "base": "(0.19/60/60)",
+          "exponent": "2",
+          "originalOutput": "(0.19/60/60)$^{2}$",
+          "byteOffset": 2111,
+          "line": 54,
+          "column": 975,
+          "positionDomain": "Final Markdown UTF8 byte offset and UTF16 1-based line/column at opening parenthesis; validator dollar column adds original base.length",
+          "validatorColumn": 987,
+          "originalPiPosition": "Original preceding π remains literal and outside parentheses",
+          "sourceSelector": "#Sec2-content > p:has(> i:nth-of-type(4) + sub:nth-of-type(4) + sup:nth-of-type(3)):not(:has(> sup:nth-of-type(4))):not(:has(a))",
+          "sourceSupIndex": 1
+        }
+      ],
+      "stageEvidence": {
+        "natureCleaned": [
+          "(5/60)<sup>2</sup>/8",
+          "(0.19/60/60)<sup>2</sup>/8"
+        ],
+        "defuddleBody": [
+          "(5/60) <sup>2</sup> /8",
+          "(0.19/60/60) <sup>2</sup> /8"
+        ],
+        "finalOrphans": [
+          "(5/60)$^{2}$",
+          "(0.19/60/60)$^{2}$"
+        ]
+      },
+      "validators": {
+        "mathValidation": false,
+        "rawHtmlValidation": true,
+        "markdownStructure": true,
+        "crossReferenceValidation": true
+      },
+      "scientificFragmentCounts": {
+        "isolatedSubscript": 0,
+        "isolatedSuperscript": 2,
+        "boldThenSubscript": 0,
+        "italicThenSuperscript": 0
+      },
+      "warnings": [
+        "No Nature figures were detected.",
+        "No equation nodes were detected.",
+        "No Nature reference list was detected."
+      ],
+      "references": 0,
+      "citations": [],
+      "resources": []
+    }
+  ],
+  "networkLedger": {
+    "attempts": [],
+    "writerProof": "Static: clipNature returns data and does not call writePaper; no writer spy claimed."
+  },
+  "writerProof": "Static: clipNature returns data and does not call writePaper; no writer spy claimed.",
+  "logs": [
+    {
+      "path": "red-f4a5.log",
+      "bytes": 15358,
+      "sha256": "7a3559f34a1ccf41deebd5cd6df07b3ad6d46e151ccc7119de7b4366a82860b3"
+    },
+    {
+      "path": "red-f4a5/network-ledger.json",
+      "bytes": 126,
+      "sha256": "544c4994b879b82ac0fb627a191e5de34c97b90c9311fcdb740365a4d6f8cf51"
+    }
+  ],
+  "sourceReview": "PENDING_DIFFERENT_OWNER_NEW48_BLOCK_PROJECTION",
+  "issue": 75
+}
