@@ -1,6 +1,6 @@
 # Agent C — 来源核验与离线回归检查点
 
-状态：`DEPENDENCY_PENDING`，2026-10-08 UTC。当前accepted生产main为 `3dba1bbccddb43e0ba22fa7b7717dc559b7f3494`（PR #80 / Issue #71），dependency-only `56307f2962df83ae033d7e2f006bd48698c0d27d` 接入。唯一Alpha全B affected batch实际37 tests/36PASS/1partial-afterhook FAIL、13678.8802ms：27来源consumer、三方言全部4validators和3repeat PASS，六实际clips/15实际DOM关闭一次/zero unexpected DNSHTTP。完整原四r.m.s.d.SUB95与0.96、2.8、1.5、3.5Å和95%coverage原段落保持，完整34authors/5figures/84references/45citationclusters和Fig1 Nseq/Nres source contracts通过。85registry现在27Alpha `A3dba_RUNTIME_56307f` current；另228historical，包含原4e8 Materials24runtime+3cached-heading composite，不是当前全255/27。Materials C consumer918/helper8897已由root独立审查CLEAR（如下），helper/test/API1.0本轮完全未改。FRB/Chemistry四required窄bug及最终combined验收仍待。
+状态：`DEPENDENCY_PENDING`，2026-10-09 UTC。当前accepted生产main为 `5c5556499e4ce2755d61e4608a87c72da6677da4`（PR #83 / Issue #74，包含 #72/#73 accepted prerequisites），dependency-only `84896be071618d8a9b136246cf24d89ee75c00e9` 接入。唯一Chemistry fullB affected batch实际37 tests/36PASS/1partial-afterhook FAIL、38470.5205ms：27来源consumer、三方言全部4validators与3repeat PASS，六实际clips/15观察DOM关闭一次/zero unexpected DNSHTTP。两native Δ12,13和三whole grouped formulas、原四完整段落/compound序列/citations、9creators/7figures/52references/69clusters全部核验。85registry现在27Chemistry current5c555、另228historical；不是当前全255/27。Helper8897/API1.0未改且已独审CLEAR。FRB #75 prerequisite与最终combined仍待。
 
 历史 e2c1 轮仅复验 Quantum `s41534-023-00746-0` × 三方言：30 条来源记录 27 PASS / 3 FAIL；3 个 Markdown / Bib / semantics / replay repeat 全部 PASS。实际 session22332：40 tests = 30 PASS / 10 FAIL，0 skip / todo / cancel，43,193.7263ms。10 FAIL 包含 3 个 citation 子测试、3 个 validator 子测试、3 个 parents 及 receipt 缺 24 个组合的硬 FAIL。每方言完整 source-crossrefs 已恢复；原 12 个 table-caption MathJax 产生的 24 legacy delimiter issues 消失。其余 math 仍 19 issues（17 Greek isolatedSubscript、2 split isolatedSuperscript），整篇不通过。
 
@@ -1030,3 +1030,72 @@ Same-return captures `accepted-qualified-alpha-delta.<dialect>.run<N>.json`：
 | quarto | 281683 / `8a23e3bc639536316ed721040a4441942920bf21d3408787b6971dd89a369dbe` | 281683 / `9711137d9a53a375c52efff749e78af52e4b65b5ab9112d9217ce4b54a7b8c46` |
 
 C source acceptance此次Alpha role解除，仍DEPENDENCY_PENDING。#72 FRB fractional factors、#73 ChemistryGreek、#74 Chemistrygroup indices、#75 FRBnumericbase powers仍required；finalacceptedcombined仍需完整255source records/27combination guards、repeat/ABA/resources/golden/canonicalchecks/三平台CI。No newparser defect/specproposal/sourcechange/helperchange/ordinaryIssue10PR/manualclose/completionclaim。本doc-only appendedcheckpoint integrator应在原Cauthored序列（包括918/edd8）后选择，不选择563 dependencymerge/wholeC branch。
+
+## Accepted5c555 Chemistry — Δ 与 chemical group indices 实际 affected 六 clips
+
+Root formal release 采用accepted main `5c5556499e4ce2755d61e4608a87c72da6677da4`（PR #83 / Issue #74）。Root已核验 Main `37870243865`、Secret scan `37870244073` 同5c555全部SUCCESS；Issue74 automation于2026-10-09 01:38:16Z COMPLETED，见 [接受证据](https://github.com/uwougil/Academic-clipper/issues/74#issuecomment-6072487114)。C复用root闭合CI证据，没有重复watch。Own `codex/issue-10-agent-c` / `C:/Users/guoli/.codex/worktrees/issue-10-offline/academic-clipper` 从clean38f6884接入non-FF dependency-only `84896be071618d8a9b136246cf24d89ee75c00e9`，带入accepted #72/#73/#74；不接入pending75，不重写原authored SHAs，integrator不选这个dependency merge。
+
+### Immutable source 与实际执行范围
+
+完整admitted Chemistry fixture为155114 LF bytes / SHA256 `b3b10a0f1b4cdb2fb9980ebc44142d778689a18b396e51af93ebeb95f84b605e`。34protected B/A/helper/test/package identities与38f6884相同，执行前后全部当前runtime inputs unchanged。C helper blob `8897a61e3ac044442c5e7bcc1a59b2c292ff5d3d` / 57879bytes / SHA256 `660c8f04c317c55afd1ab4082999e4a162e02aa24f3b7050d8b7d5461a7b07c6`，API/schema1.0不变；Materialsidentifier独审CLEAR复用，没有本轮consumer实现修改。Node v24.14.1与ownphysical node_modules保留，没有npm install/ci。
+
+唯一真实batch为session81361，terminal chunk6448e7 / exit1：**37tests/36PASS/1FAIL/38470.5205ms/0skip/cancel/todo**。27原source consumers全部PASS，三方言全部四validators及strict warnings PASS，3repeat PASS。唯一FAIL是原optionalreceipt afterhook缺24未选择组合：records3、missing24、errors[]、unexpected[]、completefalse。原log、afterhook、test和cache不修改，不把该partial说成exit0/fullsuiteGREEN。
+
+Root明确允许现有execute()入口的 `preflight ||= verifyManifestFixtures(...)`：初始化一次，检查全部13excerpt并各执行一次既有sanitizer idempotence。这是本真实test的默认初始化合同，不是额外85 source audit或raw/projection审查；**不能声称本batch sanitizer调用为零**。没有新增cache/bypass机制，也没有另跑A focused、13raw/85source audit、旧framework、其它article、FRB known-RED、standalone73/74 tests、fullsuite、build或golden。
+
+外部observer沿用受审Alpha observer，仅替换receipt prefix及article assertion；不改断言/cache/生产行为。20实际网络bindings在lazy imports前安装，覆盖globalfetch/DNS callback及promises/HTTP(S)/net/tls，attempts[]，原bindings/builtinexports和十DOMglobals恢复true。六实际production conversion windows开放到三baseline+三repeat全部结束后关闭一次；另6comparison DOM与3source-consumer DOM按finally关闭，**15观察DOM均关闭一次、document不可用**。此15不包含基础设施sanitizer内部的13初始化DOM；该helper维持自身finally关闭。Requests/resolutions/unexpected全[]；没有writer import/invocation新增，不冒称writer spy计数。
+
+### 同六份返回值的 source-backed 对账
+
+复用已独审且accepted的 #73/#74 sealed source provenance；没有raw读取、JSDOM/parser/clip重复或source oracle改写：
+
+| Source role | 原 block / paragraph index | 原 source subtree SHA256 |
+| --- | --- | --- |
+| 两native Δ + SUP12,13 + `-alkene` | a-section-2 / Results p4；`#ref-link-section-d76734419e1024` | 5637b1cf3f747317aae12698db23ae4ff5fa708a47236179d7d2444e93c6bc99 |
+| Pb(OAc)4 | a-section-2 / Results p2；`#ref-link-section-d76734419e852` | 40052f20434e9ebfb090e55429d3a20e47553d31afe92b047c485808ba6e64a3 |
+| Fe2(ox)3 | a-section-2 / Results p5；`#ref-link-section-d76734419e1091` | b128b77e64328225608d6694938fccf1aed9a9f58a0f7beb1c842d0511999947 |
+| (CD3)2CO | a-section-3 / Methods p0；`#Sec8-content > p:nth-of-type(1)` | e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a |
+
+Typed scientificRuns依原source顺序含完整 `\mathrm{Pb}(\mathrm{OAc})_{4}`、两 `Δ^{12,13}`、`\mathrm{Fe}_{2}(\mathrm{ox})_{3}`、`(\mathrm{CD}_{3})_{2}\mathrm{CO}`；五roles完整且无split/duplicate。两Δ each紧邻原`-alkene`，使用原comma bond positions，未当citation/exponent decimal。三groups消费已独审的test-only `assertChemicalGroupFormula()` whole-atom predicate，不删除计量脚本braces来判whole formula；outer/internal counts、元素前缀、末尾CO完整，25/8/0 group段落bold compound序列及Delta原9compound序列全部精确。
+
+四完整原段落全prose/numeric citations/punctuation在同一次缓存中逐字规范空白比较相同。只把声明font/script/Markdown presentation投影为可读文本，citation由完整真实emitted cluster映回immutable B同orderednumbers的唯一source cluster text，link取原label；不删普通数字/逗号/标点。完整28实际scientificRuns及unique markers保存在每份返回值，baseline/repeat全数组相同；五新roles有上面显式whole oracle，其余按原source consumers与四validators保护，不把parser输出发明为新source期待。最终zero markers，math/scientificFragments issues[]/四orphan counts0。
+
+完整fullB oracle为9orderedcreators、7orderedmainfigures、52reference prefix、69orderedcitationclusters、display0、tables/resources[]；不同于reduced73的0figures/36refs或reduced74的2figures/37refs。FullB唯一declaredwarning `No equation nodes were detected.`；不允许NoFigures warning，也无warningwildcard。Markdown/quarto zero rawHTML、linksstrictanchors和全部四guards PASS。Bib orderedkeys准确覆盖52references且三方言/重复同bytes。每style六返回值中MD/Bib/summary/comparison/ledger/metadata/figures/references/debug/semantic/body/referenceMarkdown全fieldwise重复相同；ordinal仅采集次序。
+
+Cache reconciliation初次错误对全部Markdown段落（包括reference definitions）执行citation projection，导致无source cluster对应的definition号assertion失败；原脚本保存为 `.initial-candidate-selection`。仅修receipt candidate selection先匹配四sealed完整段落，原完整比较/whole predicates/真实六输出不动；最终exit0。另首次脚本构造的template literal syntax错误在任何receipt/module执行前失败，没有clip/DOM。以上不计parser/test修复，没有重新启动81361。
+
+### Current registry、exact commands 与 artifacts
+
+85行registry仅9Chemistry rows ×三style更新为 `C5c555_RUNTIME_84896be` / CURRENT_5c555_ACTUAL，共27records。另228HISTORICAL：F0DE117、Q134_NEW30、A3dba_RUNTIME_56307f27、AC86_NEW27、M4e8_RUNTIME_5a420d24、M4e8_CACHED_918901c3。没有把旧Alpha/Materials/Quantum等记录改成5c555 current PASS；最终current255/27验收仍待。
+
+| Exact command / environment | Actual result |
+| --- | --- |
+| `git fetch origin main`；`git merge --no-ff 5c5556499e4ce2755d61e4608a87c72da6677da4 -m 'chore(corpus): adopt accepted Chemistry scientific prerequisites'` | dependency-only84896be，clean，34immutable identities preserved |
+| `node --import file:///C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c/accepted-group-chemistry-observer.mjs --test --test-name-pattern $cPlan.pattern test/nature-corpus.test.mjs`；env `ACADEMIC_CLIPPER_CORPUS_RECEIPT_PREFIX=<TEMP>/accepted-group-chemistry-delta` | 唯一session81361；37/36/1partial，38470.5205ms，6clips |
+| `node <TEMP>/accepted-group-chemistry-reconciliation.mjs` | 最终exit0，四完整段落/whole5roles/strict4guards/allreturnedrepeat/85scopes；postprocess clips/DOM0 |
+| `git diff --check`；stageddiffcheck、trackedfilenames/status、commit/push | 本轮authored只本handoff；docs不触发runtime重跑；SHA用git log与交接消息确定 |
+
+`$cPlan.pattern`：`^(?:s41467-023-44030-3)/(?:markdown|links|quarto): (?:every source expectation through the complete production chain|repeat Markdown, bibliography, semantics and replay operations)$`。
+
+External root `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-agent-c`；generated outputs保持外部，不提交普通papers或full captures。
+
+| Artifact | Bytes / SHA256 |
+| --- | --- |
+| accepted-group-chemistry-delta.log | 5218 / 336bebbb96025bd125c57bd87a916ac93833a924dc7b37256898e429acc73f54 |
+| accepted-group-chemistry-delta-observer.json | 7303 / a97edc546eb7f305c5622c7b824b8a1d7d3eae93a209fac23210243d1067431a |
+| accepted-group-chemistry-delta.comparisons.json | 156214 / 4a1432ce9d59f073ac76afc4f6eeae21484524efc0c5abe4c215ccbd3fe94280 |
+| accepted-group-chemistry-delta-receipt-status.json | 1812 / a2ef8b702c5c6bb9b6ec644322095042ab24e5b2dec9fee4843e07f431baefa4 |
+| accepted-group-chemistry-delta-receipt.json | 121982 / 8b269668ef53813c42bc036a70ecd4c7553fe8b0e5b2baf992304997ae26eeb2 |
+| group-chemistry-readiness.json | 16235 / 5942c1e84a591bf5e37c8295690b0a3bf646d0dd1c3b13fcd8093f3e8111df84 |
+| accepted-group-chemistry-reconciliation.mjs | 9253 / 569cf85db7100f40036bc028b3d5996ff23fdfd8ba70c74fd2284a26c6c24837 |
+| accepted-group-chemistry-reconciliation.mjs.initial-candidate-selection | 9164 / 6c338079f966cfd58bbb4beea569b3c661fd87e3350ba4cbc212e78f041d488b |
+
+| Dialect | Actual MD bytes / SHA256 |
+| --- | --- |
+| markdown | 51121 / 5351aaa1b97d61e3b4879cf28a354414f6441d34e9c8699174c786b40e8dad39 |
+| links | 53319 / 14bd47d7d358cbc8ceac529958ac90d24e3343aea5420d808f31ed18621f6c7e |
+| quarto | 40909 / 83d7d72f744c25ba15608b5b41407b3f18c207c5881ed3afc0dcc4225ff09cd5 |
+
+All Bib SHA256 `9061b84adcf000bfaaf0045c247307e52f8d1c361144ef658a14b874a6214d76`。六完整captures `accepted-group-chemistry-delta.<style>.run1/2.json` 的individual bytes/hashes已在receipt observer.captures，不另造outputs。
+
+C继续DEPENDENCY_PENDING；#73/#74 Chemistry required科学roles已在完整admitted article三方言解除。FRB waits accepted #75，再做affected FRB及最终current255/27、repeat/ABA/resources/golden/canonicalchecks；不能因未来75 GREEN再次重跑同一Chemistry scoped6clips。D可继续消费已独审helper8897/API1.0；没有newconsumer/parser/sourcechange或specproposal。Integrator应选本次doc-only authored commit顺接38f6884，在latest accepted main上显式选择完整A/B/C/D originals，不whole-C dependencybranch merge覆盖B b718rights。不建立普通Issue10 PR、不手动关闭Issue、不宣称C/Issue10 complete。
