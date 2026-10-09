@@ -4,27 +4,63 @@ import dns from 'node:dns';
 import dnsPromises from 'node:dns/promises';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {syncBuiltinESMExports} from 'node:module';
-import {after,test} from 'node:test';
+import {after,before,test} from 'node:test';
 import {JSDOM} from 'jsdom';
-import {clipNature} from '../src/clip.mjs';
-import {parseNaturePage} from '../src/adapters/nature.mjs';
-import {normalizeAcademicInline} from '../src/normalizers/academic-inline.mjs';
-import {validateMathDelimiters} from '../src/validators/math-delimiters.mjs';
 import {completeOrderedParenthesizedSquares} from './support/parenthesized-power-oracle.mjs';
 
 const directory=new URL('./fixtures/nature-parenthesized-power/',import.meta.url);
 const provenance=JSON.parse(await readFile(new URL('s41586-022-04755-5.provenance.json',directory),'utf8'));
 const bytes=await readFile(new URL(provenance.fixture.path,directory)),html=new TextDecoder('utf8',{fatal:true}).decode(bytes);
-const dom=new JSDOM(html),source=dom.window.document,page=parseNaturePage(html,provenance.source.url);
-const attempts=[],original={fetch:globalThis.fetch,lookup:dns.lookup,promiseLookup:dnsPromises.lookup};
-globalThis.fetch=async(...args)=>{attempts.push({kind:'HTTP',url:String(args[0])});throw new Error('Unexpected parenthesized-power HTTP');};
-dns.lookup=(...args)=>{attempts.push({kind:'DNS',host:String(args[0])});throw new Error('Unexpected parenthesized-power DNS');};
-dnsPromises.lookup=async(...args)=>{attempts.push({kind:'DNS-promise',host:String(args[0])});throw new Error('Unexpected parenthesized-power DNS');};
-syncBuiltinESMExports();
-after(async()=>{globalThis.fetch=original.fetch;dns.lookup=original.lookup;dnsPromises.lookup=original.promiseLookup;syncBuiltinESMExports();dom.window.close();page.dom.window.close();if(process.env.PARENTHESIZED_POWER_RECEIPT_ROOT)await writeFile(`${process.env.PARENTHESIZED_POWER_RECEIPT_ROOT}/network-ledger.json`,JSON.stringify({attempts,writerProof:'Static: clipNature returns data and does not call writePaper; no writer spy claimed.'},null,2)+'\n');assert.deepEqual(attempts,[],'Record before throw detects requests even if fallback swallows the error');});
-assert.deepEqual(page.figures,[]);assert.deepEqual(page.tables,[]);assert.deepEqual(page.references,[]);
+const attempts=[],originals=[],results=new Map(),clipWindows=new Set(),closedWindows=new Set();
+const domKeys=['window','document','DOMParser','XMLSerializer','Node','NodeFilter','HTMLElement','Element','SVGElement','Document'];
+const descriptors=new Map(domKeys.map(key=>[key,Object.getOwnPropertyDescriptor(globalThis,key)]));
+let parseNaturePage,normalizeAcademicInline,validateMathDelimiters,sourceDomsOpened=0,sourceDomsClosed=0;
+before(async()=>{
+ for(const [owner,kind,methods]of [[globalThis,'HTTP',['fetch']],
+  [dns,'DNS-callback',['lookup','resolve','resolve4','resolve6','reverse']],
+  [dnsPromises,'DNS-promise',['lookup','resolve','resolve4','resolve6','reverse']]])for(const method of methods){
+   originals.push({owner,method,value:owner[method]});
+   owner[method]=(...args)=>{attempts.push({kind,method,value:String(args[0])});throw new Error(`Unexpected parenthesized-power ${kind}`);};
+ }
+ syncBuiltinESMExports();
+ let currentWindow=globalThis.window;
+ Object.defineProperty(globalThis,'window',{configurable:true,get:()=>currentWindow,set:value=>{
+  currentWindow=value;if(value?.document&&typeof value.close==='function')clipWindows.add(value);
+ }});
+ const {clipNature}=await import('../src/clip.mjs');
+ ({parseNaturePage}=await import('../src/adapters/nature.mjs'));
+ ({normalizeAcademicInline}=await import('../src/normalizers/academic-inline.mjs'));
+ ({validateMathDelimiters}=await import('../src/validators/math-delimiters.mjs'));
+ try{for(const citationStyle of ['markdown','links','quarto']){
+  const r=await clipNature({html,url:provenance.source.url,citationStyle});
+  assert.equal(r.rawHtml,html);assert.equal(r.citationStyle,citationStyle);results.set(citationStyle,r);
+  if(process.env.PARENTHESIZED_POWER_RECEIPT_ROOT){const root=process.env.PARENTHESIZED_POWER_RECEIPT_ROOT;await mkdir(root,{recursive:true});await writeFile(`${root}/${citationStyle}.result.json`,JSON.stringify(r,null,2)+'\n');await writeFile(`${root}/${citationStyle}.md`,r.markdown);}
+ }}finally{
+  // Defuddle retains its first DOMParser: keep the whole batch alive until
+  // all three real clips finish, then close every article window.
+  for(const window of clipWindows){window.close();closedWindows.add(window);}
+ }
+});
+after(async()=>{
+ try{
+  assert.deepEqual(attempts,[],'Record before throw detects requests even if fallback swallows the error');
+  assert.equal(results.size,3);assert.equal(clipWindows.size,3);assert.equal(closedWindows.size,3);
+  assert.equal(sourceDomsOpened,sourceDomsClosed);
+ }finally{
+  for(const window of clipWindows)if(!closedWindows.has(window)){window.close();closedWindows.add(window);}
+  for(const {owner,method,value}of originals)owner[method]=value;syncBuiltinESMExports();
+  for(const [key,descriptor]of descriptors){if(descriptor)Object.defineProperty(globalThis,key,descriptor);else delete globalThis[key];}
+  const restoredBindings=originals.every(({owner,method,value})=>owner[method]===value);
+  const restoredDomGlobals=[...descriptors].every(([key,descriptor])=>assert.deepEqual(Object.getOwnPropertyDescriptor(globalThis,key),descriptor)===undefined);
+  assert.ok(restoredBindings&&restoredDomGlobals);
+  if(process.env.PARENTHESIZED_POWER_RECEIPT_ROOT)await writeFile(`${process.env.PARENTHESIZED_POWER_RECEIPT_ROOT}/network-ledger.json`,JSON.stringify({attempts,realClipCalls:results.size,clipWindowsOpened:clipWindows.size,clipWindowsClosed:closedWindows.size,sourceDomsOpened,sourceDomsClosed,guardedMethods:originals.length,restoredBindings,restoredDomGlobals,writerProof:'Static: clipNature returns data and does not call writePaper; no writer spy claimed.'},null,2)+'\n');
+ }
+});
 
 test('source parenthesized-power projection preserves complete paragraph, original roles, all creators and rights',()=>{
+ const dom=new JSDOM(html),source=dom.window.document,page=parseNaturePage(html,provenance.source.url);sourceDomsOpened+=2;
+ try{
+ assert.deepEqual(page.figures,[]);assert.deepEqual(page.tables,[]);assert.deepEqual(page.references,[]);
  assert.equal(bytes.length,provenance.fixture.bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),provenance.fixture.sha256);assert.equal(bytes.includes(13),false);
  assert.equal(source.querySelector('link[rel="canonical"]').href,provenance.source.url);assert.equal(source.querySelector('meta[name="citation_doi"]').content,provenance.source.doi);
  assert.deepEqual([...source.querySelectorAll('meta[name="citation_author"]')].map(n=>n.content),provenance.sourceRights.orderedSourceCreators);assert.equal(provenance.sourceRights.orderedSourceCreators.length,35);
@@ -34,6 +70,7 @@ test('source parenthesized-power projection preserves complete paragraph, origin
  for(const role of provenance.paragraph.roles){const n=p.querySelectorAll('sup')[role.supIndex];assert.equal(n.textContent,'2');assert.equal(n.querySelector('a'),null);assert.equal(n.previousSibling.textContent,role.previousText);assert.equal(n.nextSibling.textContent,role.nextText);assert.ok(n.previousSibling.textContent.endsWith('π'+role.base));assert.ok(n.nextSibling.textContent.startsWith('/8'));}
  for(const notice of provenance.sourceRights.notices)assert.equal(source.querySelectorAll(notice.sourceSelector)[notice.sourceParagraphIndex].textContent,notice.sourceRawNoticeText);
  assert.equal(source.querySelector('p.c-footer__legal').textContent,provenance.sourceRights.siteFooterNotice.text);assert.equal(provenance.fixture.repeatBytesEqual,true);assert.equal(provenance.fixture.idempotentBytesEqual,true);
+ }finally{dom.window.close();page.dom.window.close();sourceDomsClosed+=2;}
 });
 
 function paragraphContext(markdown){const start=markdown.indexOf('To estimate the chance coincidence probability'),end=markdown.indexOf('10',markdown.indexOf('gives the chance of coincident association',start));assert.ok(start>=0&&end>start);return markdown.slice(start,markdown.indexOf('.',end)+1);}
@@ -43,7 +80,7 @@ function attachedRole(context,role){
  assert.ok(atoms,'Both original complete whole-base squares exactly once and in source order; π and divisor8 stay outside the squared base, with no extra terms or malformed duplicate');return atoms[provenance.paragraph.roles.indexOf(role)];
 }
 for(const dialect of ['markdown','links','quarto']){
- let promise;const result=()=>promise??=(async()=>{const r=process.env.PARENTHESIZED_POWER_CACHE_ROOT?JSON.parse(await readFile(`${process.env.PARENTHESIZED_POWER_CACHE_ROOT}/${dialect}.result.json`,'utf8')):await clipNature({html,url:provenance.source.url,citationStyle:dialect});assert.equal(r.rawHtml,html);assert.equal(r.citationStyle,dialect);if(process.env.PARENTHESIZED_POWER_RECEIPT_ROOT){const root=process.env.PARENTHESIZED_POWER_RECEIPT_ROOT;await mkdir(root,{recursive:true});await writeFile(`${root}/${dialect}.result.json`,JSON.stringify(r,null,2)+'\n');await writeFile(`${root}/${dialect}.md`,r.markdown);}return r;})();
+ const result=async()=>results.get(dialect);
  for(const role of provenance.paragraph.roles)test(`real ${role.id} attaches square to whole source numeric parentheses (${dialect})`,async()=>{const r=await result(),context=paragraphContext(r.markdown);attachedRole(context,role);assert.doesNotMatch(context,new RegExp(role.base.replace(/[.*+?^${}()|[\]\\]/gu,'\\$&')+'\\$\\^\\{2\\}\\$','u'),'No detached exponent after plain parentheses');});
  test(`parenthesized-power paragraph passes unchanged strict math validator (${dialect})`,async()=>{const r=await result();assert.equal(r.debug.mathValidation.valid,true,JSON.stringify(r.debug.mathValidation));});
  test(`source variables, existing integer power, measurements and zero resources stay truthful (${dialect})`,async()=>{const r=await result(),context=paragraphContext(r.markdown),atoms=mathAtoms(context);
