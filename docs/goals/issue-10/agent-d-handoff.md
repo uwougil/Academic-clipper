@@ -1,6 +1,6 @@
 # Agent D — transport / live verifier handoff
 
-状态：`DEPENDENCY_PENDING`，D 修复新头尚待独立复审。Latest consumed accepted main 为 `ac86b2f`，reviewed C helper `ec53d65` 实际 blob 仍为 `e3ff087`。独立 reviewer 在旧 D controller 找到两项 P2；本轮先冻结 source-free RED matrix，再以 authored `4287b05` 修正完整 comparison 消费和 captured access 优先级，一次新头必要验收 139/139 PASS。真实 source 最后一次检查仍是修复前 ac86 的 markdown 九篇：83/85 source PASS、2 FAIL、5 篇 parser/validator 阻断、4 篇 mocked comparison（2 PASS / 2 EXPECTED_WARNING）；没有把这份旧 source receipt 当新 controller 验收或完整 C cache。未重复九篇/27 styles/全 repo suite，不宣称 D 最终验收或 Issue #10 完成。
+状态：`AUTHOR_SOURCE_CONTROLLER_PASS_PENDING_INDEPENDENT_FINAL_DELTA_REVIEW`。Latest consumed accepted main 为 `8c1c31480f938a1a470752e7335845e1df3ac25c`；实际 C helper 为 reviewed `8897a61e3ac044442c5e7bcc1a59b2c292ff5d3d` / API `1.0.0`，B 为 final `b718fa8`。现有 D controller/tests 与 independently cleared `4649a2e` 完全相同。本次只执行一次现有九篇 markdown frozen-source controller integration：85/85 offline source records 与85/85 retained-projection records 全 PASS，九篇5 PASS /4 EXPECTED_WARNING，controller exit0，四种 validators 全有效、无 unexpected/missing warning 或 signature change。27次实际 clip 是九篇各 offline/full-page mock/retained projection 一次，**不是九篇×三方言 acceptance**。精确过程、170 execution records、guards/ledger/lifecycle/input identities 在 [final source receipt](agent-d-final-source-receipt.json)。最终 D delta 独立复审、C 完整三方言验收与 integrator checks 仍须完成；不宣称 Issue #10 完成。下文原 checkpoints 保留为历史，最新证据见本文末节。
 
 ## 基线与 transport 审计
 
@@ -304,3 +304,50 @@ Accepted ac86 的追加 exact checks：上述单个 `--test-name-pattern` 命令
 Live Nature acquisition 未运行；没有使用 Nature cookie/private session/account access，没有 tracked full captures、credentials、generated output、golden 或 corpus fixture changes。D tests 使用 BOTH injected fetch/resolver 与 A declaration/ledger，不发生 ordinary DNS/HTTP；writer import/call audit、fixture/golden bytes 和 output directory unchanged checks 通过。现有 writer tests 仅在自己的临时目录检查原 behavior。
 
 C/integrator unblocking：先完成独立 parser prerequisites，并在 accepted main 获得成功 Main CI；再消费 exact final A/B/C interfaces、resume SAME D 审查/复验。全部 85 source expectations × 三 dialect 必须执行/通过，required consumers/coverage 无 blocked；D 再验证完整真实 source-backed clip/projection 的所有 article results 为 PASS/EXPECTED_WARNING，guard/replay ledgers clean。SAME reviewer 须在 exact 新 code/test/doc head 重审完整 D 与两项 P2 修正/实际 C 消费，不能用旧 69/旧 source receipt 给新头 clearance；之后独立审查最终 integration，执行 repository required commands、CI matrix 与 Secret scan。Opt-in live availability 单列，不替代 gates。D 没有 ordinary Issue #10 PR 或 merge。
+
+## 最终九篇 source controller 验收（accepted8c1 / reviewed C8897）
+
+D 接到 root formal release 后才采用 merged PR #84 / Issue #75 main `8c1c31480f938a1a470752e7335845e1df3ac25c`。D 独立 `gh run view 37875377467 --repo uwougil/Academic-clipper --json headSha,status,conclusion,jobs` 与同字段的 `gh run view 37875377498`，实际返回同8c1 SHA、completed/success：[Main CI](https://github.com/uwougil/Academic-clipper/actions/runs/37875377467) 的 Win24 `113642646427` / U24 `113642646570` / U20 `113642646670` completed 分别 `2026-10-09T02:41:51Z` / `02:40:48Z` / `02:42:14Z`；[Secret scan](https://github.com/uwougil/Academic-clipper/actions/runs/37875377498) 的 Gitleaks `113642646653` completed `02:36:40Z`。root 已核对 Issue #75 automation completed，D 没有手动关闭 Issue。
+
+Own branch/worktree 不变。依赖准备为 main5c555 merge `a95cfa60fde516d4bc15ef0f55e745cb1898ef84` → C/B bytes-only copy `cc4aaa9ef79f088671168240360a2e4d3ed9ccab` → accepted8c1 dependency-only merge **`1c520b12b1d74f271f7184e179c2dfd68eb901f7`**，executed tree **`fa15289f2334eebf9fc7bc102cbae85e95cfc01c`**。Integrator 不选择这三个 dependency copies/merges；从 accepted main 选择原始 A/B/C/D authored commits。C authored implementation `918901c0957b5021f1712594e6c83f33d7384490` 的实际 helper blob8897、57879 Git/physical LF bytes、SHA-256 `660c8f04c317c55afd1ab4082999e4a162e02aa24f3b7050d8b7d5461a7b07c6`，API仍1.0.0；先前独立 C identifier review已清除该有限consumer delta。B全部 corpus Git objects 与 original `b718fa8b826c2abeb45c2dd30cd5414b3d6d8330` 一致，包含九份 final rights evidence；A schema/sanitizer/serializer/projection 版本仍分别1.0.0 /1.1.0 /1.0.0 /1.0.0。没有改 source、oracle、C/A implementation 或 D controller/tests。
+
+D 新 authored delivery **仅本次 handoff 与 `docs/goals/issue-10/agent-d-final-source-receipt.json`**；精确 commit 用 `git log -1 --format=%H -- docs/goals/issue-10/agent-d-final-source-receipt.json` 获取，并直接交 root/reviewer。此前 D authored originals 顺序保持上文十项；特别 seam `85862de`、provider matrix `dd75938`、controller correction `4287b05`、historical handoff `4649a2e` 均原样保留。Independent original exact4649 packet `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-review/d-4649a2e-review.md`（14846 bytes / SHA-256 `0f0fff110327b6ed97e32bcb8f5a6ca72a96147ce578497f9ce3f28a2eefa007`）零 blocker；其中71/71 PASS4340.9607ms与作者139/139 PASS13708.3251ms按 unchanged controller/tests identity复用，**本轮未重复**。
+
+唯一实际 source test 的 exact structured argv：
+
+```text
+node --import file:///C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-D-final-source/final-nine-observer.mjs --test --test-reporter=tap "--test-name-pattern=^frozen-source integration consumes actual C API and records all9 entries without live network fallback$" test/nature-corpus-live.test.mjs
+```
+
+外部 launcher `C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-D-final-source/final-nine-launch.mjs` 3969 bytes / SHA-256 `b0b2c6d3382c0639127c7da2b80ac13b08c122ff5e8abc521e876a733b2faae4`；须设置 `ACADEMIC_CLIPPER_D_ACCEPTED_MAIN=8c1c31480f938a1a470752e7335845e1df3ac25c`，验证该SHA是自身HEAD ancestor、own branch、C8897与unchanged4649 controller/test，再以 `node <launcher path>` 启动上述一次命令。存在同名前轮 artifacts 时直接拒绝，须检查既存闭合 receipt，不能覆盖或盲目重复。Observer 9430 bytes / SHA-256 `c9358dde1841111f7e234a51ac8aac3026285ddf538b40092eb56dbcbc4b41fc`，在测试 child 导入 modules 前设置20个 global/builtin网络守卫并 `syncBuiltinESMExports()`；只观察构造/关闭、转换窗口、现有 test 同轮 comparisons/report并增加严格通过核对，原 assertions/code/inputs不改。代码级 instrumentation 的 original/observed SHA 与每项转换在 receipt 保存。
+
+First pre-import 启动 wrapper41084/coordinator53272 于 `02:44:18.369Z–02:44:18.463Z` exit1，Node `--import` 的Windows绝对 `C:\...` 被当URL scheme，`ERR_UNSUPPORTED_ESM_URL_SCHEME`；observer/test modules均未导入、source clips0、78 inputs unchanged。这是外部 loader failure，不是 Nature/source case RED。完整 started/process/TAP原件保持于 external `preimport-loader-failure/`。仅将 launcher import 参数改为 `pathToFileURL(...).href` 后执行第一次实际 source test，未重做已运行的文章。
+
+真正执行：Node `v24.14.1` / `C:/nvm4w/nodejs/node.exe`，wrapperPID33196、test coordinatorPID52876、test childPID44520；`2026-10-09T02:44:50.030Z–02:46:25.975Z`，session17386终结exit0，**1/1 PASS、0 FAIL/skip/cancel/todo、95894.841ms**。它是一个实际消费全部九篇的 test，不把1个TAP case冒称255-case suite。现有 `verifyManifestFixtures()` initializer自然检查13 excerpts/idempotence一次；没有额外85source audit、raw capture读取、A复测、standalone projection、139mock重跑、C framework/full suite或`npm ci`。Own Node/jsdom/Defuddle实体依赖可用，无install或dependency/lock改动。
+
+| Article | Offline / retained source records | Controller cause | Exact expected warnings |
+| --- | --- | --- | --- |
+| s41586-026-10401-1 | 10/10 +10/10 PASS | PASS | 无 |
+| s41534-023-00746-0 | 10/10 +10/10 PASS | PASS | 无 |
+| s41586-021-03819-2 | 9/9 +9/9 PASS | EXPECTED_WARNING | `No equation nodes were detected.` |
+| s41586-020-2012-7 | 10/10 +10/10 PASS | EXPECTED_WARNING | `No equation nodes were detected.`；`Extended Data Table 1: The full-size Nature page did not expose HTML table cells; retained the absolute URL.` |
+| s41586-023-05896-x | 9/9 +9/9 PASS | EXPECTED_WARNING | `No equation nodes were detected.` |
+| s41586-023-06735-9 | 9/9 +9/9 PASS | PASS | 无 |
+| s41467-023-44030-3 | 9/9 +9/9 PASS | EXPECTED_WARNING | `No equation nodes were detected.` |
+| s41586-022-04755-5 | 10/10 +10/10 PASS | PASS | 无 |
+| s41598-018-38309-5 | 9/9 +9/9 PASS | PASS | 无 |
+
+全部18 comparisons ordered expectation IDs/consumer IDs均精确消费manifest85条；each status/pass/failures、四validators、exact warnings、实际MD/semantic-summary SHA完整保存。每篇 full-page mock 与 retained projection validators 全有效（含 scientificFragments）；结构/payload signatures逐资源完全相同，four tables projection comparison真实执行，不以全页counts/hash代替retained比较。Controller九结果均 `live-comparison`，5PASS/4EXPECTED_WARNING、exit0；没有必需failure被改成warning。这里的live phase是注入 frozen source responses 的controller流程，**未运行 live Nature acquisition**。
+
+13 HTTP与13 DNS为明确mockledgers：按manifest article顺序每篇GET article，再按该篇declared resources顺序GET tables（golden/quantum/COVID/FRB各1）。全部`redirect:'manual'`，resolver exact`www.nature.com/all:true/verbatim:true`，unexpected[]，scope/resource/四种validators/同retained signatures均通过。20 global/builtin守卫attempts[]、native bindings与10DOMglobals全部复原；27个actual conversion windows持有至完整batch结束后再关。111个observedDOM均关闭恰好一次/document不可访问：A infrastructure39 native close；verifier27 native close；Nature adapter39 batch close（其中27 conversion windows与12 table-source DOM）；C helper6 native close。Observer没有冒称所有DOM都是clip或凭缓存代替实际关闭。
+
+78 tracked input文件pre/post bytes/hash相同、executed HEAD/tree/status不变，包含完整golden tracked artifact。Writer proof沿用unchanged independently reviewed verifier仅import/call clipNature、无writer/data-download/output调用的审计，加本轮tracked golden/papers目录input inventory不变；不编造未观察的writer runtime counter。Full returnedMD、C comparison、metadata/figures/tables/references/debug/scientific registries保存在18份external captureJSON，不提交full Markdown snapshots或full live captures；durable receipt仅保存execution/validation/warning/ledger/lifecycle/signature事实和artifact identities。
+
+| External actual closed artifact（上述 external root 内） | bytes | SHA-256 |
+| --- | --- | --- |
+| accepted-final-nine-process.json | 28693 | `c36eb36a195fc805eef164c26dade81fe3b6bb223c858c34d1cadcfa33ed3109` |
+| accepted-final-nine-controller.json | 1242132 | `0910ae07fbc494e9452e6932e24eeac989f844e5af3318475baf68970c628cd9` |
+| accepted-final-nine-observer.json | 34048 | `2bcf49ed38992e6189b9a346a8454ed3ee7eb662732350af7926e76e674228c3` |
+| accepted-final-nine.log | 6066 | `0119e2402e362de00f110faad21094da50c5422990d8040c63d3afef497c2fb3` |
+
+Commit前检查`git diff --check`、`git status --short`、tracked filename/diff审计；禁止边界相对accepted8c1保持，production差异只有已reviewed clip两行seam。D新文件只属文档/receipt；不重复source测试来验证文档。Spec proposals / new defects为空。Required C full255/27、ABA/resource/golden/ordinary network proof、Integrator full checks与fresh CI仍独立要求；root安排 final D read-only delta review 后才将D节点标完成，不由作者PASS自发给reviewclearance。没有D ordinary Issue #10 PR、merge或completion声明。
