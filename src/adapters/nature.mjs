@@ -228,6 +228,7 @@ function captionFor(figure, { includeFigureDescription = false } = {}) {
     : null;
   const html = [element?.innerHTML, description?.innerHTML].filter(Boolean).join(' ');
   return {
+    element,
     text: cleanText([element?.textContent, description?.textContent].filter(Boolean).join(' ')),
     html,
   };
@@ -312,19 +313,24 @@ function tableNotes(root) {
 function extractTables(body, url) {
   let number = 0;
   return Array.from(body.querySelectorAll('figure')).flatMap((figure) => {
-    const caption = captionFor(figure).text;
+    const captionData = captionFor(figure);
+    const caption = captionData.text;
     if (!/^Table\b|^Extended Data Table\b/i.test(caption)) return [];
     number += 1;
+    const identity = `inline-table-${number}`;
+    figure.setAttribute(FIGURE_IDENTITY_ATTR, identity);
     const link = figure.querySelector('[data-test="table-link"]')?.getAttribute('href')
       || figure.querySelector('a[href]')?.getAttribute('href');
     const id = figure.id || figure.querySelector('[id^="Tab"]')?.id || '';
     const tableElement = figure.querySelector('table');
     return [{
+      identity,
       id,
       natureId: id,
       anchor: `table-${number}`,
       label: tableLabel(caption, `Table ${number}`),
       caption,
+      captionHtml: captionData.html,
       url: normalizeUrl(link, url),
       tableHtml: tableElement?.outerHTML || '',
       notes: tableNotes(figure),
@@ -442,9 +448,19 @@ function extractMathSource(value) {
   return text;
 }
 
-function replaceDisplayMath(body) {
+function replaceDisplayMath(body, tables) {
   const values = [];
-  for (const element of Array.from(body.querySelectorAll('.c-article-equation .mathjax-tex'))) {
+  const tableDisplayMath = [];
+  for (const table of tables) {
+    const figure = body.querySelector(`[${FIGURE_IDENTITY_ATTR}="${table.identity}"]`);
+    if (!figure) continue;
+    for (const element of captionFor(figure).element?.querySelectorAll('.mathjax-tex') || []) {
+      const source = element.textContent.trim();
+      if (!element.closest('pre, code') && (source.startsWith('\\[') && source.endsWith('\\]')
+        || source.startsWith('$$') && source.endsWith('$$'))) tableDisplayMath.push(element);
+    }
+  }
+  for (const element of new Set([...body.querySelectorAll('.c-article-equation .mathjax-tex'), ...tableDisplayMath])) {
     const tex = extractMathSource(element.textContent);
     if (!tex) continue;
     const marker = semanticMarker('DISPLAYMATH', values.length);
@@ -581,19 +597,19 @@ function setRangeEnd(range, end) {
   else range.setEnd(end.node, end.offset);
 }
 
-function replaceRangeWithScientificMarker(parent, start, end, values, inlineMathByMarker, provenance) {
+function replaceRangeWithScientificMarker(parent, start, end, values, inlineMathByMarker, provenance, sourceTex, sourceText) {
   const range = parent.ownerDocument.createRange();
   range.setStart(start.node, start.offset);
   setRangeEnd(range, end);
   const fragment = range.extractContents();
-  let tex = Array.from(fragment.childNodes)
+  let tex = sourceTex ?? Array.from(fragment.childNodes)
     .map((node) => scientificTex(node, inlineMathByMarker))
     .join('')
     .replace(/[ \t\r\n\u00a0\u2009]+/gu, '');
   if (tex.includes('||')) tex = canonicalScientificTex(tex);
   if (!tex) return false;
   const marker = semanticMarker('SCIENTIFICRUN', values.length);
-  values.push({ marker, tex, provenance });
+  values.push({ marker, tex, provenance, ...(sourceText === undefined ? {} : { sourceText }) });
   range.insertNode(parent.ownerDocument.createTextNode(marker));
   return true;
 }
@@ -744,7 +760,288 @@ function collectNumericSuperscriptRun(parent, startIndex) {
   };
 }
 
-function collectTextAndStyledSymbolRun(parent, startIndex) {
+function collectPlainFractionalUnitRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
+  const exponent = parent.childNodes[startIndex];
+  if (!isElement(exponent, new Set(['SUP'])) || exponent.childNodes.length !== 1
+    || exponent.firstChild.nodeType !== 3) return null;
+  const base = exponent.previousSibling;
+  const unit = base?.nodeType === 3 ? base.textContent.match(/(?:pc|km)$/u)?.[0] : null;
+  // Only these source-backed factor/exponent pairs are proved here. Neither
+  // a measurement prefix nor an adjacent unit belongs to this exponent.
+  if (!unit || exponent.textContent !== (unit === 'pc' ? '−2/3' : '−1/3')) return null;
+  const offset = base.textContent.length - unit.length;
+  if (offset === 0 ? base.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(base.textContent.slice(0, offset))) return null;
+  const next = exponent.nextSibling;
+  // Unknown topology and lexical continuations cannot prove a factor edge.
+  // A typed citation SUP keeps its original independent ownership.
+  if (next && !(next.nodeType === 3 && /^[\s\p{P}]/u.test(next.textContent)
+      && !next.textContent.startsWith('_'))
+    && !(next.nodeType === 1 && next.tagName === 'SUP'
+      && next.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]'))) return null;
+  return {
+    start: { node: base, offset },
+    end: { node: exponent, after: true },
+    tex: `\\mathrm{${unit}}^{${exponent.textContent}}`,
+  };
+}
+
+function collectParenthesizedChemicalGroupRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}|\\[([]/u.test(parent.textContent)) return null;
+  const plainCount = (node) => node?.nodeType === 1 && node.tagName === 'SUB'
+    && node.childNodes.length === 1 && node.firstChild.nodeType === 3
+    && /^[1-9]\d*$/u.test(node.textContent);
+  const count = parent.childNodes[startIndex];
+  if (!plainCount(count) || count.previousSibling?.nodeType !== 3
+    || !count.previousSibling.textContent.endsWith(')')) return null;
+  // Only original direct text and native count nodes belong to this finite
+  // non-nested group family. Unknown wrappers are never flattened or skipped.
+  const parts = [];
+  for (let node = count.previousSibling; node; node = node.previousSibling) {
+    if (node.nodeType === 3 && !node.textContent.includes('\0')) parts.unshift({node, value: node.textContent});
+    else if (plainCount(node)) parts.unshift({node, value: `\0${node.textContent}\0`});
+    else break;
+  }
+  const atom = '(?:[A-Z][a-z]?(?:\u0000[1-9]\\d*\u0000)?)+';
+  const text = parts.map(part => part.value).join('');
+  const match = text.match(new RegExp(`(${atom})?\\((${atom}|[a-z]{1,2})\\)$`, 'u'));
+  if (!match) return null;
+  // A punctuation edge is not an independent group when it is inside an
+  // element/count-led enclosing parenthesis. Ordinary prose "(Pb..." still
+  // qualifies; only the original adjacent text/native counts prove nesting.
+  if (/[\p{L}\p{N}\p{M}_\0]\(+$/u.test(text.slice(0, match.index))) return null;
+  const following = count.nextSibling;
+  if (following?.nodeType === 3 && /^(?:[A-Z][a-z]?)*\)+$/u.test(following.textContent)
+    && plainCount(following.nextSibling)) return null;
+  // A short lowercase ligand requires an element-led native atom count in
+  // the same prefix; plain words and an unqualified ligand have no such role.
+  if (/^[a-z]+$/u.test(match[2]) && !/\0[1-9]\d*\0$/u.test(match[1] || '')) return null;
+  let offset = match.index;
+  let start;
+  for (const part of parts) {
+    if (offset < part.value.length) {start = {node: part.node, offset}; break;}
+    offset -= part.value.length;
+  }
+  const boundary = (value) => /^[\s\p{P}]/u.test(value) && !value.startsWith('_');
+  if (!start || start.node.nodeType !== 3
+    || (start.offset === 0 ? start.node.previousSibling
+      : !boundary([...start.node.textContent.slice(0, start.offset)].at(-1)))) return null;
+  const typedCitation = (node) => {
+    if (node?.nodeType !== 1) return false;
+    const anchor = node.matches('a[data-test="citation-ref"], a[href*="#ref-CR"]') ? node
+      : node.tagName === 'SUP' && node.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]');
+    return anchor && citationNumbers(anchor);
+  };
+  let end = {node: count, after: true};
+  let suffix = '';
+  let next = count.nextSibling;
+  if (next?.nodeType === 3 && !boundary(next.textContent)) {
+    suffix = next.textContent.match(/^[\p{L}\p{N}\p{M}_()]+/u)?.[0] || '';
+    if (!/^(?:[A-Z][a-z]?)+$/u.test(suffix)) return null;
+    end = {node: next, offset: suffix.length};
+    if (suffix.length < next.textContent.length) {
+      if (!boundary(next.textContent.slice(suffix.length))) return null;
+      next = null;
+    } else next = next.nextSibling;
+  }
+  if (next && !(next.nodeType === 3 && boundary(next.textContent)) && !typedCitation(next)) return null;
+  const roman = (value) => value.replace(/[A-Za-z]+/gu, token => `\\mathrm{${token}}`)
+    .replace(/\0([1-9]\d*)\0/gu, '_{$1}');
+  return {start, end, restartIndex: Array.from(parent.childNodes).indexOf(start.node),
+    tex: `${roman(match[1] || '')}(${roman(match[2])})_{${count.textContent}}${roman(suffix)}`};
+}
+
+function collectDeltaPositionRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  // Literal math/code may span siblings; keep the whole opaque context with
+  // its existing collector rather than interpreting its delimiters here.
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}|\\[([]/u.test(parent.textContent)) return null;
+  const position = parent.childNodes[startIndex];
+  if (!isElement(position, new Set(['SUP'])) || position.childNodes.length !== 1
+    || position.firstChild.nodeType !== 3
+    || !new Set(['12,13', '12', '13']).has(position.textContent)) return null;
+  const base = position.previousSibling;
+  if (base?.nodeType !== 3 || !base.textContent.endsWith('Δ')) return null;
+  const offset = base.textContent.length - 1;
+  if (offset === 0 ? base.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(base.textContent.slice(0, offset))) return null;
+  const next = position.nextSibling;
+  // A complete label ends at a known lexical boundary. Its alkene suffix and
+  // a proven citation stay outside the attachment; unknown nodes are opaque.
+  if (next && !(next.nodeType === 3 && /^[\s\p{P}]/u.test(next.textContent)
+      && !next.textContent.startsWith('_'))
+    && !(next.nodeType === 1 && next.tagName === 'SUP'
+      && next.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]'))) return null;
+  return {
+    start: { node: base, offset },
+    end: { node: position, after: true },
+    tex: `Δ^{${position.textContent}}`,
+  };
+}
+
+function collectQualifiedMetricRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
+  const qualifier = parent.childNodes[startIndex];
+  if (!isElement(qualifier, new Set(['SUB'])) || qualifier.childNodes.length !== 1
+    || qualifier.firstChild.nodeType !== 3 || qualifier.textContent !== '95') return null;
+  const base = qualifier.previousSibling;
+  if (base?.nodeType !== 3 || !/r\.m\.s\.d\.$/u.test(base.textContent)) return null;
+  const offset = base.textContent.length - 'r.m.s.d.'.length;
+  if (offset === 0 ? base.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(base.textContent.slice(0, offset))) return null;
+  const next = qualifier.nextSibling;
+  // Preserve a complete literal metric, never a prefix of an unknown token or
+  // an extra attachment. A proven citation SUP retains its independent role.
+  if (next && !(next.nodeType === 3 && /^[\s\p{P}]/u.test(next.textContent)
+      && !next.textContent.startsWith('_'))
+    && !(next.nodeType === 1 && next.tagName === 'SUP'
+      && next.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]'))) return null;
+  return {
+    start: { node: base, offset },
+    end: { node: qualifier, after: true },
+    tex: '\\mathrm{r.m.s.d.}_{95}',
+  };
+}
+
+function collectPlainScriptedIdentifierRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
+  const exponent = parent.childNodes[startIndex];
+  if (!isElement(exponent, new Set(['SUP'])) || exponent.childNodes.length !== 1
+    || exponent.firstChild.nodeType !== 3 || exponent.textContent !== '2') return null;
+  const base = exponent.previousSibling;
+  const suffix = exponent.nextSibling;
+  if (base?.nodeType !== 3 || suffix?.nodeType !== 3 || !/[a-z]$/u.test(base.textContent)) return null;
+  const offset = base.textContent.length - 1;
+  // Node edges cannot prove a whole lexical boundary across unknown siblings.
+  if (offset === 0 ? base.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(base.textContent.slice(0, offset))) return null;
+  const acronym = suffix.textContent.match(/^[A-Z]{2,}(?![\p{L}\p{N}\p{M}_])/u)?.[0];
+  if (!acronym) return null;
+  if (acronym.length === suffix.textContent.length && suffix.nextSibling
+    && !(suffix.nextSibling.nodeType === 1 && suffix.nextSibling.tagName === 'SUP'
+      && suffix.nextSibling.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]'))) return null;
+  // Preserve the complete original base, exponent and acronym in one typed
+  // range before Defuddle can flatten heading scripts or detach body scripts.
+  return {
+    start: { node: base, offset },
+    end: { node: suffix, offset: acronym.length },
+    tex: `${base.textContent.slice(offset)}^{${exponent.textContent}}${acronym}`,
+    sourceText: `${base.textContent.slice(offset)}${exponent.textContent}${acronym}`,
+  };
+}
+
+function collectCompoundConductivityRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
+  const exponent = parent.childNodes[startIndex];
+  // This source-backed conductivity role has two factors: mS stays a
+  // multiplier, and only cm has the inverse exponent. Never invert mScm.
+  if (!isElement(exponent, new Set(['SUP'])) || exponent.childNodes.length !== 1
+    || exponent.firstChild.nodeType !== 3 || !/^[−-]1$/u.test(exponent.textContent)) return null;
+  const previous = exponent.previousSibling;
+  if (previous?.nodeType !== 3 || !/mScm$/u.test(previous.textContent)) return null;
+  const offset = previous.textContent.length - 4;
+  if (offset === 0 ? previous.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(previous.textContent.slice(0, offset))) return null;
+  const next = exponent.nextSibling;
+  // A following typed citation owns its SUP. Other nodes can continue an
+  // unknown token or attachment; do not flatten those into a guessed unit.
+  if (next && !(next.nodeType === 3 && /^[\s.,;:!?()[\]{}+−\-*/=×]/u.test(next.textContent))
+    && !(next.nodeType === 1 && next.tagName === 'SUP'
+      && next.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]'))) return null;
+  return {
+    start: { node: previous, offset },
+    end: { node: exponent, after: true },
+    tex: '\\mathrm{mS}\\,\\mathrm{cm}^{-1}',
+  };
+}
+
+function collectPlainGreekSubscriptRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  // Literal math/code can span siblings. This narrow DOM role leaves that
+  // opaque context to existing paths rather than interpreting its delimiters.
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
+  const subscript = parent.childNodes[startIndex];
+  if (!isElement(subscript, new Set(['SUB'])) || subscript.childNodes.length !== 1) return null;
+  const child = subscript.firstChild;
+  const atom = child.nodeType === 3 ? child
+    : child.nodeType === 1 && child.tagName === 'I' && child.childNodes.length === 1
+      && child.firstChild.nodeType === 3 ? child.firstChild : null;
+  // Preserve the source-backed atoms without flattening nested, mixed, linked
+  // or typed-math children into a guessed index.
+  if (!atom || !/^[abi0]$/u.test(atom.textContent)) return null;
+  const previous = subscript.previousSibling;
+  if (previous?.nodeType !== 3 || !/[ΓΩ]$/u.test(previous.textContent)) return null;
+  const offset = previous.textContent.length - 1;
+  if (offset === 0 ? previous.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(previous.textContent.slice(0, offset))) return null;
+  // Additional mathematical attachments are ambiguous here. A following
+  // citation SUP remains independent, as defined by isElement's typed guard.
+  if (isElement(subscript.nextSibling, SCIENTIFIC_ATTACHMENT_TAGS)) return null;
+  return {
+    start: { node: previous, offset },
+    end: { node: subscript, after: true },
+  };
+}
+
+function collectSplitNumericSuperscriptRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  // Literal math/code cues can span inline siblings. This DOM role does not
+  // parse those opaque syntaxes: leave the whole candidate to existing paths.
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}/u.test(parent.textContent)) return null;
+  const sign = parent.childNodes[startIndex];
+  const digits = sign?.nextSibling;
+  const plainSup = (node) => isElement(node, new Set(['SUP']))
+    && node.childNodes.length === 1 && node.firstChild.nodeType === 3;
+  // These are two original, contiguous plain SUP nodes forming one signed
+  // integer exponent. Whitespace, comments and styled/citation children are
+  // boundaries; scientificTex must not serialize this as two exponent groups.
+  if (!plainSup(sign) || !/^[−+\-]$/u.test(sign.textContent)
+    || !plainSup(digits) || !/^\d+$/u.test(digits.textContent)) return null;
+  const previous = sign.previousSibling;
+  if (previous?.nodeType !== 3) return null;
+  const text = previous.textContent;
+  if (!/(?:^|[\s~=(,:;+\-*/×])10$/u.test(text)) return null;
+  const offset = text.length - 2;
+  // A text-node edge is not a lexical edge. An unknown sibling/comment can
+  // continue a word, decimal or identifier; require a boundary in this text.
+  if (offset === 0 && previous.previousSibling) return null;
+  // A subsequent citation keeps its own typed role. A third scientific SUP
+  // instead makes this an ambiguous chain, which this narrow role cannot infer.
+  if (isElement(digits.nextSibling, new Set(['SUP']))) return null;
+  return {
+    start: { node: previous, offset },
+    end: { node: digits, after: true },
+    tex: `10^{${sign.textContent}${digits.textContent}}`,
+  };
+}
+
+function collectLeadingIsotopeRun(parent, startIndex) {
+  const mass = parent.childNodes[startIndex];
+  if (!isElement(mass, new Set(['SUP'])) || mass.firstElementChild
+    || !/^[1-9]\d*$/u.test(mass.textContent)
+    || mass.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  const element = mass.nextSibling;
+  // These are the source-backed element roles. A whole word, another element,
+  // or presentation whitespace after SUP is not evidence of this prefix role.
+  if (element?.nodeType !== 3 || !/^[HCF](?![\p{L}\p{N}_])/u.test(element.textContent)) return null;
+  const previous = mass.previousSibling;
+  // Contiguous numeric/styled bases belong to the existing exponent collectors.
+  // A measurement's original separating whitespace stays outside this range.
+  if (previous && (previous.nodeType !== 3
+    || !/[\s\u2009\[(]$/u.test(previous.textContent))) return null;
+  return {
+    start: { node: parent, offset: startIndex },
+    end: { node: element, offset: 1 },
+  };
+}
+
+function collectTextAndStyledSymbolRun(parent, startIndex, inlineMathByMarker, displayMath) {
   const node = parent.childNodes[startIndex];
   if (!isElement(node, new Set(['I', 'B']))) return null;
   const previous = parent.childNodes[startIndex - 1];
@@ -753,13 +1050,40 @@ function collectTextAndStyledSymbolRun(parent, startIndex) {
   if (!match || match.index === undefined) return null;
   const token = previous.textContent.slice(match.index);
   if (!/^(?:∞|[−+\-]?\d+)(?:\/)?$/u.test(token)) return null;
+  const canExtend = (styled) => {
+    if (styled.firstElementChild) return false;
+    // MathJax children have already become text markers. Keep their typed role
+    // at this boundary, including markers embedded in other styled text.
+    const text = styled.textContent;
+    for (const marker of inlineMathByMarker.keys()) if (text.includes(marker)) return false;
+    return !displayMath.some(({ marker }) => text.includes(marker));
+  };
+  let endNode = node;
+  if (canExtend(node)) {
+    let index = startIndex + 1;
+    while (index + 1 < parent.childNodes.length) {
+      const digits = parent.childNodes[index];
+      const styled = parent.childNodes[index + 1];
+      // Keep contiguous source digit/style pairs in one range. A whitespace,
+      // operator, wrapper or typed marker is a boundary, not a missing exponent.
+      if (digits.nodeType !== 3 || !/^\d+$/u.test(digits.textContent)
+        || !isElement(styled, SCIENTIFIC_BASE_TAGS) || !canExtend(styled)) break;
+      let next = styled.nextSibling;
+      while (next?.nodeType === 3 && /^[ \t\r\n\u00a0\u2009]*$/u.test(next.textContent)) next = next.nextSibling;
+      // A genuine attachment belongs to this styled base and must remain for
+      // collectStyledRun; reference superscripts are excluded by isElement.
+      if (isElement(next, SCIENTIFIC_ATTACHMENT_TAGS)) break;
+      endNode = styled;
+      index += 2;
+    }
+  }
   return {
     start: { node: previous, offset: match.index },
-    end: { node, after: true },
+    end: { node: endNode, after: true },
   };
 }
 
-function replaceScientificRuns(body, inlineMath) {
+function replaceScientificRuns(body, inlineMath, displayMath) {
   const values = [];
   const inlineMathByMarker = new Map(inlineMath.map((item) => [item.marker, item]));
   const parents = Array.from(body.querySelectorAll('p, li, h1, h2, h3, h4, h5, h6, figcaption'));
@@ -771,9 +1095,18 @@ function replaceScientificRuns(body, inlineMath) {
         ? collectDelimitedScientificRun(parent, index)
           || collectMathMarkerRun(parent, index, inlineMathByMarker)
         : collectStyledRun(parent, index)
-          || collectTextAndStyledSymbolRun(parent, index)
+          || collectTextAndStyledSymbolRun(parent, index, inlineMathByMarker, displayMath)
           || collectNumericAttachmentRun(parent, index)
+          || collectPlainFractionalUnitRun(parent, index)
+          || collectQualifiedMetricRun(parent, index)
+          || collectParenthesizedChemicalGroupRun(parent, index)
+          || collectDeltaPositionRun(parent, index)
+          || collectPlainScriptedIdentifierRun(parent, index)
+          || collectCompoundConductivityRun(parent, index)
+          || collectPlainGreekSubscriptRun(parent, index)
+          || collectSplitNumericSuperscriptRun(parent, index)
           || collectNumericSuperscriptRun(parent, index)
+          || collectLeadingIsotopeRun(parent, index)
           || collectDetachedSuperscriptRun(parent, index);
       if (!range) {
         index += 1;
@@ -788,12 +1121,16 @@ function replaceScientificRuns(body, inlineMath) {
         node.nodeType === 3
           ? 'Nature MathJax plus adjacent inline scientific nodes'
           : 'Nature inline style nodes (<i>/<b>/<sub>/<sup>)',
+        range.tex,
+        range.sourceText,
       );
       if (!replaced) {
         index += 1;
         continue;
       }
-      index += 1;
+      // A group may consume native atom counts preceding its outer count.
+      // Resume at its start so later ranges retain source order and ownership.
+      index = (range.restartIndex ?? index) + 1;
     }
   }
   return values;
@@ -874,7 +1211,7 @@ function replaceCitations(body) {
   return values;
 }
 
-function buildCrossReferences(body, figures, tables) {
+function buildCrossReferences(body, figures, tables, scientificRuns) {
   const references = new Map();
   const usedAnchors = new Set();
   for (const figure of figures) {
@@ -905,14 +1242,18 @@ function buildCrossReferences(body, figures, tables) {
       || section?.querySelector(':scope > .c-article-section > h2, :scope > h2')?.textContent,
     ).toLowerCase();
     if (EXCLUDED_SECTIONS.has(sectionTitle) || heading.closest(JUNK_SELECTORS.join(','))) continue;
-    const baseAnchor = slugify(heading.textContent);
+    // The identifier range retains its original source text for section
+    // identity. A temporary scientific marker is never a scholarly label.
+    const headingText = scientificRuns.reduce((text, run) => run.sourceText === undefined
+      ? text : text.replaceAll(run.marker, run.sourceText), heading.textContent);
+    const baseAnchor = slugify(headingText);
     let anchor = baseAnchor;
     let suffix = 2;
     while (usedAnchors.has(anchor)) anchor = `${baseAnchor}-${suffix++}`;
     usedAnchors.add(anchor);
     references.set(heading.id, {
       type: 'section',
-      label: cleanText(heading.textContent),
+      label: cleanText(headingText),
       // Use the heading's natural Markdown slug. The renderer may add a
       // Quarto `sec-` identifier, but the semantic target stays dialect-free.
       anchor,
@@ -928,12 +1269,12 @@ function insertAnchorMarker(parent, marker) {
 }
 
 function prepareSemanticNodes(body, url, figures, tables) {
-  const displayMath = replaceDisplayMath(body);
+  const displayMath = replaceDisplayMath(body, tables);
   const inlineMath = replaceInlineMath(body);
-  const scientificRuns = replaceScientificRuns(body, inlineMath);
+  const scientificRuns = replaceScientificRuns(body, inlineMath, displayMath);
   const literalText = replaceScientificBracketText(body);
   const citations = replaceCitations(body);
-  const crossReferences = buildCrossReferences(body, figures, tables);
+  const crossReferences = buildCrossReferences(body, figures, tables, scientificRuns);
 
   for (const anchor of Array.from(body.querySelectorAll('a[href]'))) {
     const href = anchor.getAttribute('href') || '';
@@ -959,6 +1300,11 @@ function prepareSemanticNodes(body, url, figures, tables) {
   // Capture the protected caption DOM, including citations and typed math,
   // before main figures become placeholders or supplementary sections vanish.
   for (const element of body.querySelectorAll(`[${FIGURE_IDENTITY_ATTR}]`)) {
+    const table = tables.find((candidate) => candidate.identity === element.getAttribute(FIGURE_IDENTITY_ATTR));
+    if (table) {
+      table.captionHtml = captionFor(element).html;
+      continue;
+    }
     const data = figures.find((candidate) => candidate.identity === element.getAttribute(FIGURE_IDENTITY_ATTR));
     if (!data) continue;
     data.captionHtml = data.source === 'inline figure'
