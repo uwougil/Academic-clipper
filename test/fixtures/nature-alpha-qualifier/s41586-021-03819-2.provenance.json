@@ -1,0 +1,510 @@
+{
+  "version": "nature-alpha-qualifier-provenance/1.0.0",
+  "purpose": "Independent source-only prerequisite regression for Issue #10; not another admitted corpus entry",
+  "acceptedProductionBase": "a5b6acc2984af5cb8b82106291e963f4f413f5ac",
+  "source": {
+    "articleId": "s41586-021-03819-2",
+    "url": "https://www.nature.com/articles/s41586-021-03819-2",
+    "doi": "10.1038/s41586-021-03819-2",
+    "title": "Highly accurate protein structure prediction with AlphaFold",
+    "journal": "Nature",
+    "observedAt": "2026-10-03T16:44:11.820Z",
+    "captureMode": "guarded-http",
+    "bytes": 616249,
+    "sha256": "7a9843e69996c1a64a9a5ecc8b96015cfd45262e636e33e505a011d315c4310b",
+    "hashDomain": "Actual decompressed response bytes before decoding/DOM/sanitization; headers/cookies excluded"
+  },
+  "fixture": {
+    "path": "s41586-021-03819-2.excerpt.html",
+    "bytes": 24257,
+    "sha256": "696660069bd881a163722fc020b22d0f6af5cc3387decacfd8c78789574ef634",
+    "hashDomain": "Sanitized UTF-8 LF bytes including final LF"
+  },
+  "interface": {
+    "aHelperBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+    "aHelperGitBytes": 34946,
+    "aHelperGitSha256": "a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c",
+    "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "recipeVersion": "1.0.0",
+    "projectionVersion": "nature-corpus-projection/1.0.0",
+    "schemaVersion": "1.0.0"
+  },
+  "recipeSha256": "428035a20d817a4fedf3351e207a7e97c44eed30500e794c87b9bfeb5130b126",
+  "retainedBlocks": [
+    {
+      "id": "a-meta-11",
+      "selector": "head > meta[name=\"dc.title\"][content=\"Highly accurate protein structure prediction with AlphaFold\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "bc63d6665c27cca4b40a4457c7715218bf4eb2e66580ecf8e0c156ea15c5785e"
+    },
+    {
+      "id": "a-meta-36",
+      "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d624cd945018592d96ac7b5f06c775fab966979552e03ab8f4185895ea0af853"
+    },
+    {
+      "id": "a-meta-40",
+      "selector": "head > meta[name=\"citation_title\"][content=\"Highly accurate protein structure prediction with AlphaFold\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "65a6687aec507645f6a50548269d0e3390af0249efb560d995edcc9328896163"
+    },
+    {
+      "id": "a-meta-41",
+      "selector": "head > meta[name=\"citation_volume\"][content=\"596\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "f818c1407d96d50c9b65a70931d35d52b7ff8f69e6cc87474de327f4e3e14a84"
+    },
+    {
+      "id": "a-meta-42",
+      "selector": "head > meta[name=\"citation_issue\"][content=\"7873\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "f6ab7051fd328491ffc216121737e78c5696d9b1a570630ea6e74ddf5962278f"
+    },
+    {
+      "id": "a-meta-43",
+      "selector": "head > meta[name=\"citation_publication_date\"][content=\"2021/08\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e29b17fa7b996b8c90469f09d198b07e597d9ecac6bae3530d6e4ce8241f9ecc"
+    },
+    {
+      "id": "a-meta-44",
+      "selector": "head > meta[name=\"citation_online_date\"][content=\"2021/07/15\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a996e320dc7ef7d5c3f5896add268fa98b32ff86237df84087fbc89294f718b5"
+    },
+    {
+      "id": "a-meta-45",
+      "selector": "head > meta[name=\"citation_firstpage\"][content=\"583\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "96bbc3f673a8db2dcef8fceb2f88ef83f25f6ebc5a33d793c0b71150ae0860cc"
+    },
+    {
+      "id": "a-meta-46",
+      "selector": "head > meta[name=\"citation_lastpage\"][content=\"589\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "381fba6004d14b90f571467205cd0ecf8a4b55e9b86836727697a57eb3d23d07"
+    },
+    {
+      "id": "a-meta-50",
+      "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41586-021-03819-2\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "833788ff8e2182e29d16f011e4100af46e50d503e9208c4ca8632167e4cdd204"
+    },
+    {
+      "id": "a-meta-53",
+      "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41586-021-03819-2\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "1e43921ca1e6c46c6c535e48d99864465fc7163556694a6a4eccbb18e8cbed46"
+    },
+    {
+      "id": "a-meta-178",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Jumper, John\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "52e2a49fc4ce5c931d7eebf0bf283903a4cd35fcf2c4d153c1c4974b9d3a5d4a"
+    },
+    {
+      "id": "a-meta-180",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Evans, Richard\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "90f883060787dd70e8b6a2e33243a295fb0236c9089e0804be459de991bdf27f"
+    },
+    {
+      "id": "a-meta-182",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Pritzel, Alexander\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c6b25d7f9ccb0ded747e6e9d50b4a39ed3eefd290e68a1442cd2c6ac3ece1424"
+    },
+    {
+      "id": "a-meta-184",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Green, Tim\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a12673ebf41406c1912c604b3ee12a4c1e4a4dc85dc741c74947ca4c9617ac98"
+    },
+    {
+      "id": "a-meta-186",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Figurnov, Michael\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "3d79b65d5910264f7191c788fec0ca2029e459f18dbb229d42efe3992a1e05fa"
+    },
+    {
+      "id": "a-meta-188",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Ronneberger, Olaf\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ae4694d83485fc8967bdf8e9dfa8566181fd972772f0350b4324bea7fa7f59b8"
+    },
+    {
+      "id": "a-meta-190",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Tunyasuvunakool, Kathryn\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "8a29e69c76dd5a69dc9ac33e51969090af530b2ef35253e7526a077cd3159ac9"
+    },
+    {
+      "id": "a-meta-192",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Bates, Russ\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "19b4ee7ff85321da90d5be933967b25a65b072b0edf80f76770707a6d4c090ec"
+    },
+    {
+      "id": "a-meta-194",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Žídek, Augustin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "bc8354f6b36dbe72a97e40bdbe6c9fc88aba7e19991687c502a3ab5fb8319ca7"
+    },
+    {
+      "id": "a-meta-196",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Potapenko, Anna\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "7f60e8a68f372a229d58b037a1ab8d92c43f88fc5f0ce7247bc37b7c852521c5"
+    },
+    {
+      "id": "a-meta-198",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Bridgland, Alex\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e241ca850c2b2d911ea80fbd338b937aa9d38e65091b18a8204941a4d8a2da49"
+    },
+    {
+      "id": "a-meta-200",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Meyer, Clemens\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "0862ac2b0b46c734b1a66d20141e289b8b831fcca96fb611cac79cf85b8668a2"
+    },
+    {
+      "id": "a-meta-202",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Kohl, Simon A. A.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "268f6ff72ddf373173f94e0af2fcb8a81cddd458e7a092629f0a201185201971"
+    },
+    {
+      "id": "a-meta-204",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Ballard, Andrew J.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "2cfb6507ac45e57d5532a48540eb373aab6be83ccc484b7af57059d5a5f015c4"
+    },
+    {
+      "id": "a-meta-206",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Cowie, Andrew\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "75923ec93be1dd76961c1a0904591a1918a237245f6c682361008425adecd2df"
+    },
+    {
+      "id": "a-meta-208",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Romera-Paredes, Bernardino\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c5151d1294e4b6cea337c8d1cb9bf74b50f122848018c34e5b0d097f9304632e"
+    },
+    {
+      "id": "a-meta-210",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Nikolov, Stanislav\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a2280620dc298c047f3db90fbbd5a089260890e5ba71223c9258fea578051394"
+    },
+    {
+      "id": "a-meta-212",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Jain, Rishub\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "041d927a1f8b8388ad89f2d3ba42baca94b425145b72c277c83468a9f3676c74"
+    },
+    {
+      "id": "a-meta-214",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Adler, Jonas\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "62170dce9b5d3ac02dbc9ca0bef8574530fa2b3ee0b8a08db334c8f083838beb"
+    },
+    {
+      "id": "a-meta-216",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Back, Trevor\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "8a1b120cf3e1f9d1735d4e557aa1d25a0f98cf3954f515b64a603a56194d0752"
+    },
+    {
+      "id": "a-meta-218",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Petersen, Stig\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "4692591b726b5e50c6179981125acab9c8ca65f2635a10e7a8193d47c0dd592c"
+    },
+    {
+      "id": "a-meta-220",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Reiman, David\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "879e586f6d59fd9b1b73efb8897cb1cd2975d5526f1ff5306c6fa4ce4505d885"
+    },
+    {
+      "id": "a-meta-222",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Clancy, Ellen\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d83e79ca7afabd26508dcc57e7937e853d492059abf7f0e8f2c389ce3d4cc7b6"
+    },
+    {
+      "id": "a-meta-224",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Zielinski, Michal\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d012f5abf1f6aa615e32214cdcce797e798ea4d20a2d9907679d9d75a6e3ee7c"
+    },
+    {
+      "id": "a-meta-226",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Steinegger, Martin\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "bde5fd0d23954b991d7a64e6821b0f624dd21bcdafcb5bf619f77e87f126c5c4"
+    },
+    {
+      "id": "a-meta-229",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Pacholska, Michalina\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "4395f079ec39e1b9315acbabb7d3f0d9c6e7cabc5ac03893db849818957ad400"
+    },
+    {
+      "id": "a-meta-231",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Berghammer, Tamas\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "728e0b05e28e33c614888fe90e4effeadfde2b39673bb1372c95557ef47f3c23"
+    },
+    {
+      "id": "a-meta-233",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Bodenstein, Sebastian\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c24711e5debcd1340c2ea3cf557ed0cde3cb7805b8f44c7a624d2e2aad3cc4f3"
+    },
+    {
+      "id": "a-meta-235",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Silver, David\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "4105815e5fa75d47c4abc04f9d95b5864a255b8928c28c25bd9c5738fc144d8a"
+    },
+    {
+      "id": "a-meta-237",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Vinyals, Oriol\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e27eab16a2f6fce01087652a123127472f939df438b363218fe116763ab02013"
+    },
+    {
+      "id": "a-meta-239",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Senior, Andrew W.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "efd921dbdc15bf3029e7abc70e752d878e62d8a76299f42fa3480b5b8b955849"
+    },
+    {
+      "id": "a-meta-241",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Kavukcuoglu, Koray\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a5df7f156053794ae0aff05003f30c5cb94f7aa0a4d5550a915bb1b5fcb5c45a"
+    },
+    {
+      "id": "a-meta-243",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Kohli, Pushmeet\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "562f9839680ba1379efa839c8d42d8c7abb54dec9f2333ab13d8f5d8ad085669"
+    },
+    {
+      "id": "a-meta-245",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Hassabis, Demis\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a5d6814c32f53a8091839c97d8b97f03286c7ceec7c6448981ed55853ad1f62f"
+    },
+    {
+      "id": "a-meta-254",
+      "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41586-021-03819-2\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c694e6847f5233d1406d7f8faad776fc7e2f09ea38e5335df22358d5204def07"
+    },
+    {
+      "id": "a-meta-255",
+      "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e2a47d03efa7114d4bc8e65c0fba2e84722b49e6e718eb787898c3c61ac5bcc9"
+    },
+    {
+      "id": "a-meta-257",
+      "selector": "head > meta[property=\"og:title\"][content=\"Highly accurate protein structure prediction with AlphaFold - Nature\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "6b6b17f726372b4d83ae7dfeec7004904c8fedeee89c11a6bcd05cd98b37d345"
+    },
+    {
+      "id": "a-canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "a5e21c556385f8a103f12402a7adfd604aa0b3a41e7deaf3ae375a172a283949"
+    },
+    {
+      "id": "a-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d206707ffad2deeb053eecb08d75b903aaa43c62ce163aa32e86a2e2fc5940ae"
+    },
+    {
+      "id": "a-title",
+      "selector": "h1.c-article-title",
+      "role": "title",
+      "sourceSubtreeSha256": "ef34140bd43aec2035c7a0f2049580416fad08ad29191f44e1f047e0b08240cd"
+    },
+    {
+      "id": "alpha-main-heading",
+      "selector": "h2[id=\"Sec1\"]",
+      "role": "source-heading",
+      "sourceSubtreeSha256": "09f8778f43dc62a0f59cf52aa9b5d47329480bff79dd9e53c7c544aeb548aac7"
+    },
+    {
+      "id": "alpha-main-qualifier-paragraph",
+      "selector": "section[data-title=\"Main\"] p:has(a[href$=\"#MOESM1\"]):has(>sub)",
+      "role": "complete-scientific-paragraph",
+      "sourceSubtreeSha256": "0722e1e1f1fb785c0add4e0a85c04e9dca2616ec0b3a6bde07ec29710b08088d"
+    },
+    {
+      "id": "alpha-figure-1",
+      "selector": ".js-c-reading-companion-figures-item:has(#Fig1)",
+      "role": "complete-figure-context",
+      "sourceSubtreeSha256": "b95f3e3f66252fc7c2a77822f4244f2bead7e3d66ce4a983307e632b8148dd1e"
+    },
+    {
+      "id": "alpha-supplementary-heading",
+      "selector": "h2[id=\"Sec20\"]",
+      "role": "source-heading",
+      "sourceSubtreeSha256": "bbb5411500dac1acdd0f00bd58632892454c3284877c204943adc0a8ab5e742f"
+    },
+    {
+      "id": "alpha-supplementary-1",
+      "selector": "#MOESM1",
+      "role": "complete-supplementary-link-item",
+      "sourceSubtreeSha256": "456586d5b9548e27b871c407662a83c115dce8c07cb276b42935fa9e8892c980"
+    },
+    {
+      "id": "alpha-rights",
+      "selector": "section[data-title=\"Rights and permissions\"]",
+      "role": "source-rights",
+      "sourceSubtreeSha256": "bb738f0e875436ff6a40836569eee1199a5b339cde384d96ce1fe766dba60489"
+    },
+    {
+      "id": "alpha-footer",
+      "selector": "p.c-footer__legal",
+      "role": "source-site-footer",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3"
+    }
+  ],
+  "transformations": [
+    {
+      "operation": "select-complete-source-blocks-with-ancestors",
+      "count": 58
+    },
+    {
+      "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+      "count": 1
+    },
+    {
+      "operation": "trim-json-ld-to-article-object",
+      "count": 1
+    },
+    {
+      "operation": "remove-attributes",
+      "count": 43
+    },
+    {
+      "operation": "sanitize-resource-urls",
+      "count": 1
+    }
+  ],
+  "projectionSignatures": {
+    "projectionVersion": "nature-corpus-projection/1.0.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "recipeSha256": "428035a20d817a4fedf3351e207a7e97c44eed30500e794c87b9bfeb5130b126",
+    "structureSha256": "ea6e7ad4335cb2f9de598d541c90769a8e01a0632af2efa51422b89cdea8f2e4",
+    "payloadSha256": "86ccc822d5e7eeab01696344dda747e2b7a0cc90b40f80473c4b40594ed016d6"
+  },
+  "omittedContent": [
+    "All unselected article paragraphs and sections, abstract, other figures/Extended Data, bibliography/reference list (retained scholarly citations zero; lawful prefix zero), other supplementary items, author information body; complete ordered creators preserved in metadata/JSON-LD.",
+    "Advertising, analytics, navigation, account/session/consent state and executable scripts except selected sanitized article JSON-LD.",
+    "Image/PDF binaries and full raw captures."
+  ],
+  "resources": [],
+  "referencePrefixPolicy": "No source citation in complete paragraph, complete Fig1 caption or MOESM1 item; highest cited reference is zero. No manufactured citation or unrelated reference prefix.",
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41586-021-03819-2",
+    "sourceObservedAt": "2026-10-03T16:44:11.820Z",
+    "sourceSha256": "7a9843e69996c1a64a9a5ecc8b96015cfd45262e636e33e505a011d315c4310b",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Jumper, John",
+      "Evans, Richard",
+      "Pritzel, Alexander",
+      "Green, Tim",
+      "Figurnov, Michael",
+      "Ronneberger, Olaf",
+      "Tunyasuvunakool, Kathryn",
+      "Bates, Russ",
+      "Žídek, Augustin",
+      "Potapenko, Anna",
+      "Bridgland, Alex",
+      "Meyer, Clemens",
+      "Kohl, Simon A. A.",
+      "Ballard, Andrew J.",
+      "Cowie, Andrew",
+      "Romera-Paredes, Bernardino",
+      "Nikolov, Stanislav",
+      "Jain, Rishub",
+      "Adler, Jonas",
+      "Back, Trevor",
+      "Petersen, Stig",
+      "Reiman, David",
+      "Clancy, Ellen",
+      "Zielinski, Michal",
+      "Steinegger, Martin",
+      "Pacholska, Michalina",
+      "Berghammer, Tamas",
+      "Bodenstein, Sebastian",
+      "Silver, David",
+      "Vinyals, Oriol",
+      "Senior, Andrew W.",
+      "Kavukcuoglu, Koray",
+      "Kohli, Pushmeet",
+      "Hassabis, Demis"
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [],
+    "technicalTransformations": "Recipe-selected excerpts and original ancestors, A sanitizer 1.1.0, deterministic serialization and LF normalization. Advertising, navigation, executable content and unselected source blocks are omitted as recorded in the manifest/handoff. Retained scholarly prose, TeX, captions, authors, citation data and table cells are preserved; image binaries and full live captures are not included.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "byteChecks": {
+    "repeatSameInput": true,
+    "idempotent": true
+  },
+  "uniqueProjectionExecution": {
+    "rawReads": 1,
+    "rawSemanticDomParses": 1,
+    "sanitizerRawRuns": 2,
+    "sanitizerIdempotenceRuns": 1,
+    "frozenSemanticDomParses": 1,
+    "productionClips": 0
+  },
+  "reusedPreflight": [
+    {
+      "name": "academic-clipper-issue10-alpha-qualifier-readonly-preflight.json",
+      "bytes": 73716,
+      "sha256": "6a7166b6657c1ea8ae53385b8d1134e8948878528e3e23ae99f33ce494ad7561"
+    },
+    {
+      "name": "academic-clipper-issue10-alpha-qualifier-target-preflight.json",
+      "bytes": 2424,
+      "sha256": "86229901c6013d42a8a1715d65c8b9ca8f62b0a1ba6c9253f91e6d627e52b198"
+    }
+  ]
+}

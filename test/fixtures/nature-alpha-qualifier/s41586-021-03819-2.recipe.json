@@ -1,0 +1,298 @@
+{
+  "version": "1.0.0",
+  "id": "nature-alpha-qualified-rmsd95-source-v1",
+  "articleUrl": "https://www.nature.com/articles/s41586-021-03819-2",
+  "blocks": [
+    {
+      "id": "a-meta-11",
+      "selector": "head > meta[name=\"dc.title\"][content=\"Highly accurate protein structure prediction with AlphaFold\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-36",
+      "selector": "head > meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-40",
+      "selector": "head > meta[name=\"citation_title\"][content=\"Highly accurate protein structure prediction with AlphaFold\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-41",
+      "selector": "head > meta[name=\"citation_volume\"][content=\"596\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-42",
+      "selector": "head > meta[name=\"citation_issue\"][content=\"7873\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-43",
+      "selector": "head > meta[name=\"citation_publication_date\"][content=\"2021/08\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-44",
+      "selector": "head > meta[name=\"citation_online_date\"][content=\"2021/07/15\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-45",
+      "selector": "head > meta[name=\"citation_firstpage\"][content=\"583\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-46",
+      "selector": "head > meta[name=\"citation_lastpage\"][content=\"589\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-50",
+      "selector": "head > meta[name=\"dc.identifier\"][content=\"doi:10.1038/s41586-021-03819-2\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-53",
+      "selector": "head > meta[name=\"citation_doi\"][content=\"10.1038/s41586-021-03819-2\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-178",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Jumper, John\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-180",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Evans, Richard\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-182",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Pritzel, Alexander\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-184",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Green, Tim\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-186",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Figurnov, Michael\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-188",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Ronneberger, Olaf\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-190",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Tunyasuvunakool, Kathryn\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-192",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Bates, Russ\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-194",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Žídek, Augustin\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-196",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Potapenko, Anna\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-198",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Bridgland, Alex\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-200",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Meyer, Clemens\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-202",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Kohl, Simon A. A.\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-204",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Ballard, Andrew J.\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-206",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Cowie, Andrew\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-208",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Romera-Paredes, Bernardino\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-210",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Nikolov, Stanislav\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-212",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Jain, Rishub\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-214",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Adler, Jonas\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-216",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Back, Trevor\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-218",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Petersen, Stig\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-220",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Reiman, David\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-222",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Clancy, Ellen\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-224",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Zielinski, Michal\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-226",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Steinegger, Martin\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-229",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Pacholska, Michalina\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-231",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Berghammer, Tamas\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-233",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Bodenstein, Sebastian\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-235",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Silver, David\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-237",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Vinyals, Oriol\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-239",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Senior, Andrew W.\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-241",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Kavukcuoglu, Koray\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-243",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Kohli, Pushmeet\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-245",
+      "selector": "head > meta[name=\"citation_author\"][content=\"Hassabis, Demis\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-254",
+      "selector": "head > meta[property=\"og:url\"][content=\"https://www.nature.com/articles/s41586-021-03819-2\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-255",
+      "selector": "head > meta[property=\"og:type\"][content=\"article\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-meta-257",
+      "selector": "head > meta[property=\"og:title\"][content=\"Highly accurate protein structure prediction with AlphaFold - Nature\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata"
+    },
+    {
+      "id": "a-title",
+      "selector": "h1.c-article-title",
+      "role": "title"
+    },
+    {
+      "id": "alpha-main-heading",
+      "selector": "h2[id=\"Sec1\"]",
+      "role": "source-heading"
+    },
+    {
+      "id": "alpha-main-qualifier-paragraph",
+      "selector": "section[data-title=\"Main\"] p:has(a[href$=\"#MOESM1\"]):has(>sub)",
+      "role": "complete-scientific-paragraph"
+    },
+    {
+      "id": "alpha-figure-1",
+      "selector": ".js-c-reading-companion-figures-item:has(#Fig1)",
+      "role": "complete-figure-context"
+    },
+    {
+      "id": "alpha-supplementary-heading",
+      "selector": "h2[id=\"Sec20\"]",
+      "role": "source-heading"
+    },
+    {
+      "id": "alpha-supplementary-1",
+      "selector": "#MOESM1",
+      "role": "complete-supplementary-link-item"
+    },
+    {
+      "id": "alpha-rights",
+      "selector": "section[data-title=\"Rights and permissions\"]",
+      "role": "source-rights"
+    },
+    {
+      "id": "alpha-footer",
+      "selector": "p.c-footer__legal",
+      "role": "source-site-footer"
+    }
+  ],
+  "removeSelectors": []
+}

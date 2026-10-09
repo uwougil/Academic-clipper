@@ -1,0 +1,1771 @@
+{
+  "version": "nature-frb-fractional-units-provenance/1.0.0",
+  "base": "a5b6acc2984af5cb8b82106291e963f4f413f5ac",
+  "source": {
+    "articleId": "s41586-022-04755-5",
+    "url": "https://www.nature.com/articles/s41586-022-04755-5",
+    "title": "A repeating fast radio burst associated with a persistent radio source",
+    "doi": "10.1038/s41586-022-04755-5",
+    "journal": "Nature",
+    "observedAt": "2026-10-03T16:48:03.040Z",
+    "captureMode": "guarded-http",
+    "rawBytes": 545450,
+    "sha256": "190a270027c69a816b2647d2fdc6f1777cdf669695506fa40f2fe3cab8801ace",
+    "sourceContractSha": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330"
+  },
+  "dependencies": {
+    "helper": {
+      "gitBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+      "bytes": 34946,
+      "sha256": "a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c"
+    }
+  },
+  "fixture": {
+    "path": "s41586-022-04755-5.excerpt.html",
+    "bytes": 80065,
+    "sha256": "9196756aa9c59254f6b310a59f6218853a6eece7025c4eac926aed21df7b16be",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+  "serializerVersion": "nature-corpus-subtree/1.0.0",
+  "projectionVersion": "nature-corpus-projection/1.0.0",
+  "recipe": {
+    "version": "1.0.0",
+    "id": "s41586-022-04755-5-fractional-unit-powers-v1",
+    "articleUrl": "https://www.nature.com/articles/s41586-022-04755-5",
+    "blocks": [
+      {
+        "id": "metadata-0",
+        "selector": "meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-1",
+        "selector": "meta[name=\"citation_title\"][content=\"A repeating fast radio burst associated with a persistent radio source\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-2",
+        "selector": "meta[name=\"citation_publication_date\"][content=\"2022/06\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-3",
+        "selector": "meta[name=\"citation_online_date\"][content=\"2022/06/08\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-4",
+        "selector": "meta[name=\"citation_doi\"][content=\"10.1038/s41586-022-04755-5\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-5",
+        "selector": "meta[name=\"citation_author\"][content=\"Niu, C.-H.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-6",
+        "selector": "meta[name=\"citation_author\"][content=\"Aggarwal, K.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-7",
+        "selector": "meta[name=\"citation_author\"][content=\"Li, D.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-8",
+        "selector": "meta[name=\"citation_author\"][content=\"Zhang, X.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-9",
+        "selector": "meta[name=\"citation_author\"][content=\"Chatterjee, S.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-10",
+        "selector": "meta[name=\"citation_author\"][content=\"Tsai, C.-W.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-11",
+        "selector": "meta[name=\"citation_author\"][content=\"Yu, W.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-12",
+        "selector": "meta[name=\"citation_author\"][content=\"Law, C. J.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-13",
+        "selector": "meta[name=\"citation_author\"][content=\"Burke-Spolaor, S.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-14",
+        "selector": "meta[name=\"citation_author\"][content=\"Cordes, J. M.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-15",
+        "selector": "meta[name=\"citation_author\"][content=\"Zhang, Y.-K.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-16",
+        "selector": "meta[name=\"citation_author\"][content=\"Ocker, S. K.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-17",
+        "selector": "meta[name=\"citation_author\"][content=\"Yao, J.-M.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-18",
+        "selector": "meta[name=\"citation_author\"][content=\"Wang, P.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-19",
+        "selector": "meta[name=\"citation_author\"][content=\"Feng, Y.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-20",
+        "selector": "meta[name=\"citation_author\"][content=\"Niino, Y.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-21",
+        "selector": "meta[name=\"citation_author\"][content=\"Bochenek, C.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-22",
+        "selector": "meta[name=\"citation_author\"][content=\"Cruces, M.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-23",
+        "selector": "meta[name=\"citation_author\"][content=\"Connor, L.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-24",
+        "selector": "meta[name=\"citation_author\"][content=\"Jiang, J.-A.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-25",
+        "selector": "meta[name=\"citation_author\"][content=\"Dai, S.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-26",
+        "selector": "meta[name=\"citation_author\"][content=\"Luo, R.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-27",
+        "selector": "meta[name=\"citation_author\"][content=\"Li, G.-D.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-28",
+        "selector": "meta[name=\"citation_author\"][content=\"Miao, C.-C.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-29",
+        "selector": "meta[name=\"citation_author\"][content=\"Niu, J.-R.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-30",
+        "selector": "meta[name=\"citation_author\"][content=\"Anna-Thomas, R.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-31",
+        "selector": "meta[name=\"citation_author\"][content=\"Sydnor, J.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-32",
+        "selector": "meta[name=\"citation_author\"][content=\"Stern, D.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-33",
+        "selector": "meta[name=\"citation_author\"][content=\"Wang, W.-Y.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-34",
+        "selector": "meta[name=\"citation_author\"][content=\"Yuan, M.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-35",
+        "selector": "meta[name=\"citation_author\"][content=\"Yue, Y.-L.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-36",
+        "selector": "meta[name=\"citation_author\"][content=\"Zhou, D.-J.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-37",
+        "selector": "meta[name=\"citation_author\"][content=\"Yan, Z.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-38",
+        "selector": "meta[name=\"citation_author\"][content=\"Zhu, W.-W.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-39",
+        "selector": "meta[name=\"citation_author\"][content=\"Zhang, B.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "identity"
+      },
+      {
+        "id": "article-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "article-title",
+        "selector": "h1.c-article-title",
+        "role": "title"
+      },
+      {
+        "id": "heading-Sec2",
+        "selector": "#Sec2",
+        "role": "original-heading-hierarchy"
+      },
+      {
+        "id": "heading-Sec17",
+        "selector": "#Sec17",
+        "role": "original-heading-hierarchy"
+      },
+      {
+        "id": "heading-Sec23",
+        "selector": "#Sec23",
+        "role": "original-heading-hierarchy"
+      },
+      {
+        "id": "equation-8",
+        "selector": "#Equ8",
+        "role": "original-referenced-equation"
+      },
+      {
+        "id": "fractional-paragraph-0",
+        "selector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d99382980e7724)",
+        "role": "fractional-unit-power-complete-paragraph"
+      },
+      {
+        "id": "fractional-paragraph-1",
+        "selector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d99382980e7724) + p",
+        "role": "fractional-unit-power-complete-paragraph"
+      },
+      {
+        "id": "reference-1",
+        "selector": "ol.c-article-references li:has(#ref-CR1)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-2",
+        "selector": "ol.c-article-references li:has(#ref-CR2)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-3",
+        "selector": "ol.c-article-references li:has(#ref-CR3)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-4",
+        "selector": "ol.c-article-references li:has(#ref-CR4)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-5",
+        "selector": "ol.c-article-references li:has(#ref-CR5)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-6",
+        "selector": "ol.c-article-references li:has(#ref-CR6)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-7",
+        "selector": "ol.c-article-references li:has(#ref-CR7)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-8",
+        "selector": "ol.c-article-references li:has(#ref-CR8)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-9",
+        "selector": "ol.c-article-references li:has(#ref-CR9)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-10",
+        "selector": "ol.c-article-references li:has(#ref-CR10)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-11",
+        "selector": "ol.c-article-references li:has(#ref-CR11)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-12",
+        "selector": "ol.c-article-references li:has(#ref-CR12)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-13",
+        "selector": "ol.c-article-references li:has(#ref-CR13)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-14",
+        "selector": "ol.c-article-references li:has(#ref-CR14)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-15",
+        "selector": "ol.c-article-references li:has(#ref-CR15)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-16",
+        "selector": "ol.c-article-references li:has(#ref-CR16)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-17",
+        "selector": "ol.c-article-references li:has(#ref-CR17)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-18",
+        "selector": "ol.c-article-references li:has(#ref-CR18)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-19",
+        "selector": "ol.c-article-references li:has(#ref-CR19)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-20",
+        "selector": "ol.c-article-references li:has(#ref-CR20)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-21",
+        "selector": "ol.c-article-references li:has(#ref-CR21)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-22",
+        "selector": "ol.c-article-references li:has(#ref-CR22)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-23",
+        "selector": "ol.c-article-references li:has(#ref-CR23)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-24",
+        "selector": "ol.c-article-references li:has(#ref-CR24)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-25",
+        "selector": "ol.c-article-references li:has(#ref-CR25)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-26",
+        "selector": "ol.c-article-references li:has(#ref-CR26)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-27",
+        "selector": "ol.c-article-references li:has(#ref-CR27)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-28",
+        "selector": "ol.c-article-references li:has(#ref-CR28)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-29",
+        "selector": "ol.c-article-references li:has(#ref-CR29)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-30",
+        "selector": "ol.c-article-references li:has(#ref-CR30)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-31",
+        "selector": "ol.c-article-references li:has(#ref-CR31)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-32",
+        "selector": "ol.c-article-references li:has(#ref-CR32)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-33",
+        "selector": "ol.c-article-references li:has(#ref-CR33)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-34",
+        "selector": "ol.c-article-references li:has(#ref-CR34)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-35",
+        "selector": "ol.c-article-references li:has(#ref-CR35)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-36",
+        "selector": "ol.c-article-references li:has(#ref-CR36)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-37",
+        "selector": "ol.c-article-references li:has(#ref-CR37)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-38",
+        "selector": "ol.c-article-references li:has(#ref-CR38)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-39",
+        "selector": "ol.c-article-references li:has(#ref-CR39)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-40",
+        "selector": "ol.c-article-references li:has(#ref-CR40)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-41",
+        "selector": "ol.c-article-references li:has(#ref-CR41)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-42",
+        "selector": "ol.c-article-references li:has(#ref-CR42)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-43",
+        "selector": "ol.c-article-references li:has(#ref-CR43)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-44",
+        "selector": "ol.c-article-references li:has(#ref-CR44)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-45",
+        "selector": "ol.c-article-references li:has(#ref-CR45)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-46",
+        "selector": "ol.c-article-references li:has(#ref-CR46)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-47",
+        "selector": "ol.c-article-references li:has(#ref-CR47)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-48",
+        "selector": "ol.c-article-references li:has(#ref-CR48)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-49",
+        "selector": "ol.c-article-references li:has(#ref-CR49)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-50",
+        "selector": "ol.c-article-references li:has(#ref-CR50)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-51",
+        "selector": "ol.c-article-references li:has(#ref-CR51)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "reference-52",
+        "selector": "ol.c-article-references li:has(#ref-CR52)",
+        "role": "ordered-reference-prefix"
+      },
+      {
+        "id": "article-rights",
+        "selector": "section[data-title=\"Rights and permissions\"] p:has(a[rel=\"license\"])",
+        "role": "original-rights-notice"
+      },
+      {
+        "id": "site-footer",
+        "selector": "p.c-footer__legal",
+        "role": "publisher-footer"
+      }
+    ],
+    "removeSelectors": []
+  },
+  "recipeSha256": "9dac4431f9f8ac80b2de65b1540a2fee2c3971103d247aa4f63fc324b46413a3",
+  "retainedBlocks": [
+    {
+      "id": "metadata-0",
+      "selector": "meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d624cd945018592d96ac7b5f06c775fab966979552e03ab8f4185895ea0af853"
+    },
+    {
+      "id": "metadata-1",
+      "selector": "meta[name=\"citation_title\"][content=\"A repeating fast radio burst associated with a persistent radio source\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "23cd0b5004cab7afe85fc07ef4c5572ff2bdd07f88f8ae217a612c8c8d80d4fc"
+    },
+    {
+      "id": "metadata-2",
+      "selector": "meta[name=\"citation_publication_date\"][content=\"2022/06\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "ced8ea3ec4cae52524f19d57feda067bb744f3287ab4b4272fa7ca4b3cc52d21"
+    },
+    {
+      "id": "metadata-3",
+      "selector": "meta[name=\"citation_online_date\"][content=\"2022/06/08\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "6483fb94c39472f4b674d873dd835551d56190fb64ed046bc0287a7cd2f65cc4"
+    },
+    {
+      "id": "metadata-4",
+      "selector": "meta[name=\"citation_doi\"][content=\"10.1038/s41586-022-04755-5\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d8d18c5aa8ae8b2563611fec2bed90c2918a1b68221332ebfd8c98e0400f145b"
+    },
+    {
+      "id": "metadata-5",
+      "selector": "meta[name=\"citation_author\"][content=\"Niu, C.-H.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "87885731efc65495b910d513d829aba0f6a2513564a266ae026bc2f5d9f201b7"
+    },
+    {
+      "id": "metadata-6",
+      "selector": "meta[name=\"citation_author\"][content=\"Aggarwal, K.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b0e5f8b890ad691a231436be71b1fd85921ce5717e0f31fbf04f29db491f749f"
+    },
+    {
+      "id": "metadata-7",
+      "selector": "meta[name=\"citation_author\"][content=\"Li, D.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "1ab74be7197fb0d3ebe01146d17abaa041945f5365aa461e121df3cdb79e5d59"
+    },
+    {
+      "id": "metadata-8",
+      "selector": "meta[name=\"citation_author\"][content=\"Zhang, X.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "785ed4c3e389d1f98ecfa53435ca224ac2433d05008693aca3120abe662e75f9"
+    },
+    {
+      "id": "metadata-9",
+      "selector": "meta[name=\"citation_author\"][content=\"Chatterjee, S.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "3e3d91e1498c325ebb724b01f8889e4f46aae422461107f03d42f43ae300adf9"
+    },
+    {
+      "id": "metadata-10",
+      "selector": "meta[name=\"citation_author\"][content=\"Tsai, C.-W.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c488f5d2d5af34ae225259faf8b95e64925ecbc94c554842e5e90ae75c440542"
+    },
+    {
+      "id": "metadata-11",
+      "selector": "meta[name=\"citation_author\"][content=\"Yu, W.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "2c279e632b3ea39c196ac3896c14ad1ff3dfa983cd0a9569bfb50c40e7a4f94d"
+    },
+    {
+      "id": "metadata-12",
+      "selector": "meta[name=\"citation_author\"][content=\"Law, C. J.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "6905f821b25de5b381174ffa8b3201514488331b9d7593927d3a6d12d45d73a8"
+    },
+    {
+      "id": "metadata-13",
+      "selector": "meta[name=\"citation_author\"][content=\"Burke-Spolaor, S.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "03e993f4fbc8fabe5a058395c783b38181795eec3ecfc1813b76068afa47eeaf"
+    },
+    {
+      "id": "metadata-14",
+      "selector": "meta[name=\"citation_author\"][content=\"Cordes, J. M.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b4b82417f30f1cebf7e0480976d378719777f2027cf9f637899bb4b723fc85ce"
+    },
+    {
+      "id": "metadata-15",
+      "selector": "meta[name=\"citation_author\"][content=\"Zhang, Y.-K.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b10988ae81fbee8cc5f820159768d23d99ffa62db4fbf001f7c02368e7666a35"
+    },
+    {
+      "id": "metadata-16",
+      "selector": "meta[name=\"citation_author\"][content=\"Ocker, S. K.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e5fbae74c8747ac27fb567c22063817dbe5a9c3ffc860eb68bc5e4d5ea1c85ef"
+    },
+    {
+      "id": "metadata-17",
+      "selector": "meta[name=\"citation_author\"][content=\"Yao, J.-M.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "124660cc62fd00c7eff915c3ece5aa404e8ba5fdd7ab7b815898acd7d53bdf82"
+    },
+    {
+      "id": "metadata-18",
+      "selector": "meta[name=\"citation_author\"][content=\"Wang, P.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b2a5044816f27727d1fd4f533167cb589902811560c09a24edb0128d1278acde"
+    },
+    {
+      "id": "metadata-19",
+      "selector": "meta[name=\"citation_author\"][content=\"Feng, Y.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e20a7729fcc054fee0b31dd8e4f359cc5a8a5e6adf29dd0230ab85908b8fdd68"
+    },
+    {
+      "id": "metadata-20",
+      "selector": "meta[name=\"citation_author\"][content=\"Niino, Y.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "7ce516b031ce5d115465f51bb2315f0fca1ed69524ead3afe7354985a63edf16"
+    },
+    {
+      "id": "metadata-21",
+      "selector": "meta[name=\"citation_author\"][content=\"Bochenek, C.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "8048a3fc6d2c8b399e412afa32e587b78a31faf61c65f9184b59e68b35c999cc"
+    },
+    {
+      "id": "metadata-22",
+      "selector": "meta[name=\"citation_author\"][content=\"Cruces, M.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "74c13b3df01781363056407b9d2987765c6718119b8e4273a7a4476e811a95f1"
+    },
+    {
+      "id": "metadata-23",
+      "selector": "meta[name=\"citation_author\"][content=\"Connor, L.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "cfbb37a104be935fa8b0512d47198e4eacc47b62cfd92ea8646981ac9bca2845"
+    },
+    {
+      "id": "metadata-24",
+      "selector": "meta[name=\"citation_author\"][content=\"Jiang, J.-A.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d69afb57de613dac6adff30776029348cb9a4d1deb8e7078048d573d9cd4b3a6"
+    },
+    {
+      "id": "metadata-25",
+      "selector": "meta[name=\"citation_author\"][content=\"Dai, S.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "eb4cad728de52a8eda0e8a305aca97dd211cf52cb2e5c4e730b5aa83641ba299"
+    },
+    {
+      "id": "metadata-26",
+      "selector": "meta[name=\"citation_author\"][content=\"Luo, R.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "1e63f7e2b50b8e6bbe1e1e75cdbd4433a58c2924bf44e8acbeacb9d7c01f8b6c"
+    },
+    {
+      "id": "metadata-27",
+      "selector": "meta[name=\"citation_author\"][content=\"Li, G.-D.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "4103d9d70693c0d19334d0ce8fb04def6646e5d8f808ee973ac48c7430fd06bf"
+    },
+    {
+      "id": "metadata-28",
+      "selector": "meta[name=\"citation_author\"][content=\"Miao, C.-C.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "0bd78d93192dbc5b9bb9b8ab1e43dd85b1cdb81d4adac9e2318ff25231ec4893"
+    },
+    {
+      "id": "metadata-29",
+      "selector": "meta[name=\"citation_author\"][content=\"Niu, J.-R.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c919dbc283e32d4949fb796964581789d745ad57b5b7eea1ea151b816859f358"
+    },
+    {
+      "id": "metadata-30",
+      "selector": "meta[name=\"citation_author\"][content=\"Anna-Thomas, R.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "9c483c4aa0120ec46b2f5840ba072f936d007840246690c9061f103c59561349"
+    },
+    {
+      "id": "metadata-31",
+      "selector": "meta[name=\"citation_author\"][content=\"Sydnor, J.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e113e813b31c6c3c91fcb7bc3e0e93044b9d57300bcaaa9b00114204d4060b4a"
+    },
+    {
+      "id": "metadata-32",
+      "selector": "meta[name=\"citation_author\"][content=\"Stern, D.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e8bccd52e93381ca3919854906546e6ed52b61fecf9b91c3ee92df7c529f3e82"
+    },
+    {
+      "id": "metadata-33",
+      "selector": "meta[name=\"citation_author\"][content=\"Wang, W.-Y.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "33ca71fcd33c6abeb90a0a19929467a686cdc917033ad0634d7d701d449de8ac"
+    },
+    {
+      "id": "metadata-34",
+      "selector": "meta[name=\"citation_author\"][content=\"Yuan, M.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "1526d2ff8f81623591b360a66d9233f38e1ed2f46c9f701d57dbe988656173c6"
+    },
+    {
+      "id": "metadata-35",
+      "selector": "meta[name=\"citation_author\"][content=\"Yue, Y.-L.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "894d37401d6f15f306f0db79fcfac3edc88f6c28ab1c2268e065cad332a41726"
+    },
+    {
+      "id": "metadata-36",
+      "selector": "meta[name=\"citation_author\"][content=\"Zhou, D.-J.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "4fa5b4f9e417cf6ae6c475a0796569394ef2d228d3d076e5328bd33d535632b8"
+    },
+    {
+      "id": "metadata-37",
+      "selector": "meta[name=\"citation_author\"][content=\"Yan, Z.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "10a20657b9092d446b420d0c132455c42a84cde04e48f3f84aa5a168c58394aa"
+    },
+    {
+      "id": "metadata-38",
+      "selector": "meta[name=\"citation_author\"][content=\"Zhu, W.-W.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "957b9c20f259cde98cd88249dda770c9181f0610c3c18d6d3d011553509378c0"
+    },
+    {
+      "id": "metadata-39",
+      "selector": "meta[name=\"citation_author\"][content=\"Zhang, B.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "dcecc290329c30bed8cecb48b33143d39037dd342bb7e676493f535597928645"
+    },
+    {
+      "id": "canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "identity",
+      "sourceSubtreeSha256": "18f01b32880f9f6cffc641d7e98ef957dd7c8cdc1fd2773a9f3fc95da60db5ea"
+    },
+    {
+      "id": "article-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "7ff68b286e0bf0b22f9206306248f5161f904ae606fd1e4b5d09ffaf8b836831"
+    },
+    {
+      "id": "article-title",
+      "selector": "h1.c-article-title",
+      "role": "title",
+      "sourceSubtreeSha256": "96090bc3be6bffd0f8a5e49d5b9fce6162da11a8bb94338d5b2cacb6e30380fd"
+    },
+    {
+      "id": "heading-Sec2",
+      "selector": "#Sec2",
+      "role": "original-heading-hierarchy",
+      "sourceSubtreeSha256": "53446b73dabbfd56cb9dc4b91d44bbdd4a8f16f73a1ee6a206afc0e62ab5733d"
+    },
+    {
+      "id": "heading-Sec17",
+      "selector": "#Sec17",
+      "role": "original-heading-hierarchy",
+      "sourceSubtreeSha256": "f1dd370f048ff799aafac5af6b12d37195ef3e8789a87ef72522dea8b0ad0374"
+    },
+    {
+      "id": "heading-Sec23",
+      "selector": "#Sec23",
+      "role": "original-heading-hierarchy",
+      "sourceSubtreeSha256": "1e060bc3c3223fde32031ac1c5974f298c8a3d975d78edaa69e93d713469e2b8"
+    },
+    {
+      "id": "equation-8",
+      "selector": "#Equ8",
+      "role": "original-referenced-equation",
+      "sourceSubtreeSha256": "905775606db35fc2de613057a41c1f532a3d06e73d5b97536ebe6b98f7247b80"
+    },
+    {
+      "id": "fractional-paragraph-0",
+      "selector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d99382980e7724)",
+      "role": "fractional-unit-power-complete-paragraph",
+      "sourceSubtreeSha256": "e7cb41b94a30d276ec37144e4dd2a279ed04bf3025bea80d85a73c9b2bbae07b"
+    },
+    {
+      "id": "fractional-paragraph-1",
+      "selector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d99382980e7724) + p",
+      "role": "fractional-unit-power-complete-paragraph",
+      "sourceSubtreeSha256": "216ca0dac23172ffbfbddae293636aea1352805b92347a6bbe7dcea5e88431d0"
+    },
+    {
+      "id": "reference-1",
+      "selector": "ol.c-article-references li:has(#ref-CR1)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "7427aa55fa250a9acc830f2301d4f8e41784055687ce1032a32a1d2894fcfeb1"
+    },
+    {
+      "id": "reference-2",
+      "selector": "ol.c-article-references li:has(#ref-CR2)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "811b6ed2ec7d456aa0d69fd62cd05c9d70c82987a58ac42e771e3c534da46b76"
+    },
+    {
+      "id": "reference-3",
+      "selector": "ol.c-article-references li:has(#ref-CR3)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "e0145fdfe6627c20094ce1830a147c2ff0ec2e114b34f94379adfe98672e043c"
+    },
+    {
+      "id": "reference-4",
+      "selector": "ol.c-article-references li:has(#ref-CR4)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "284888eb9c4e3268447872994e092277f26edfeebbec275187d048159aac080f"
+    },
+    {
+      "id": "reference-5",
+      "selector": "ol.c-article-references li:has(#ref-CR5)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "d5a8d4c888af9319d8fda0c4f3afdb414794701e0050a2d57ee15b813d5e2821"
+    },
+    {
+      "id": "reference-6",
+      "selector": "ol.c-article-references li:has(#ref-CR6)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "91891b95f3f8cf412fb3f9ff4454206c1a6e35c64215ef134a3f5d20c1e76b21"
+    },
+    {
+      "id": "reference-7",
+      "selector": "ol.c-article-references li:has(#ref-CR7)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "17b72117c5291a2203fb4d1876bc52c740aa8b580b4fbcc8f057d4f944bc12f2"
+    },
+    {
+      "id": "reference-8",
+      "selector": "ol.c-article-references li:has(#ref-CR8)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "2353373f26cae78404700adbac0fd4920e7555cb14dbe3974ca0750b570a8268"
+    },
+    {
+      "id": "reference-9",
+      "selector": "ol.c-article-references li:has(#ref-CR9)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "581205c673511ea685441c5a80d068ef6868a70887878ff99eb2c5d8db758318"
+    },
+    {
+      "id": "reference-10",
+      "selector": "ol.c-article-references li:has(#ref-CR10)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "5079154c97224398d58fa15663d10ac9954f0310863309493a461d6e66ece0a5"
+    },
+    {
+      "id": "reference-11",
+      "selector": "ol.c-article-references li:has(#ref-CR11)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "1455652e6af9e28d8b58e57c59cb65beff873ac8adc40799314785660e465336"
+    },
+    {
+      "id": "reference-12",
+      "selector": "ol.c-article-references li:has(#ref-CR12)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "07bc464424815aed6819bc98615f6b7ca4bed6c405b9cabd3a4a2eb506a2bed6"
+    },
+    {
+      "id": "reference-13",
+      "selector": "ol.c-article-references li:has(#ref-CR13)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "b626585760e0ba1c70f3de7db4d7ebade6bda791096c801ad78c6d7647df52bc"
+    },
+    {
+      "id": "reference-14",
+      "selector": "ol.c-article-references li:has(#ref-CR14)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "7dab8e5e960d399a19ee77d9f9de6fe749d7e6865c49f4e4be3c2637d3f0b62c"
+    },
+    {
+      "id": "reference-15",
+      "selector": "ol.c-article-references li:has(#ref-CR15)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "051f8b45e9b57d74e577e6410df535d15671ac608c9cdf2156ba8c32c0e94283"
+    },
+    {
+      "id": "reference-16",
+      "selector": "ol.c-article-references li:has(#ref-CR16)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "24c3e61fcafa95d9fe18ede7a3acdf02d7afa296343c092b6b1728867b1573df"
+    },
+    {
+      "id": "reference-17",
+      "selector": "ol.c-article-references li:has(#ref-CR17)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "97dcf56a2df895ddea3e9b2055f068f1bea89aef1601790b87f96c4fd4fb2480"
+    },
+    {
+      "id": "reference-18",
+      "selector": "ol.c-article-references li:has(#ref-CR18)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "e8a498889e55aebc0de67773f81f94b6bf5348dbdb872030dd28a85aaf26cb40"
+    },
+    {
+      "id": "reference-19",
+      "selector": "ol.c-article-references li:has(#ref-CR19)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "af6de7eb43bda9c6405cdbadc0884dc0fd7b5d92af4b1b853b23e02347067840"
+    },
+    {
+      "id": "reference-20",
+      "selector": "ol.c-article-references li:has(#ref-CR20)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "9c196529644505a0ac314801f968cadc5f246ce553a484faca5eaaae729481b0"
+    },
+    {
+      "id": "reference-21",
+      "selector": "ol.c-article-references li:has(#ref-CR21)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "5c8f5958823f701db8619335f62f28cf553e63c8b8b349427cba5a7806b9969f"
+    },
+    {
+      "id": "reference-22",
+      "selector": "ol.c-article-references li:has(#ref-CR22)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "eaaed4a3bd3cb787a3c070ad2485266a03955af5a7b5f636baa54923f61836c3"
+    },
+    {
+      "id": "reference-23",
+      "selector": "ol.c-article-references li:has(#ref-CR23)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "a4cf9d37316b96edb3ff141a7776c7d23ddc341c91548bb5a204e2f2453ee20f"
+    },
+    {
+      "id": "reference-24",
+      "selector": "ol.c-article-references li:has(#ref-CR24)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "3225c5bde37819a3f6484b6d323991f070722215b89e557e829a76b116cb6406"
+    },
+    {
+      "id": "reference-25",
+      "selector": "ol.c-article-references li:has(#ref-CR25)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "176eab21e68c59bc164381298cb188884d2ee34473330ccdaba8759defec43b8"
+    },
+    {
+      "id": "reference-26",
+      "selector": "ol.c-article-references li:has(#ref-CR26)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "bc13f05520b937ffbcb6a60dcec0a336ebaaaa194e6fc26f6270dd2a313811b5"
+    },
+    {
+      "id": "reference-27",
+      "selector": "ol.c-article-references li:has(#ref-CR27)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "adf95c098c16979f3eddee085c96da178b81983b880051eede7e677738943719"
+    },
+    {
+      "id": "reference-28",
+      "selector": "ol.c-article-references li:has(#ref-CR28)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "729110f63c9a7edc01c85565cf9441bace3a57bf65ff7f5dbb7f6f4ad29ad8f9"
+    },
+    {
+      "id": "reference-29",
+      "selector": "ol.c-article-references li:has(#ref-CR29)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "7c0ef44a2f6104101bbeb0911aca146dfe622dff02071ba1c5b167f441487ef9"
+    },
+    {
+      "id": "reference-30",
+      "selector": "ol.c-article-references li:has(#ref-CR30)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "a035e200d63cd3438ecb2995c80c141bf5783690ea21892f3741dbcdac6bf3d9"
+    },
+    {
+      "id": "reference-31",
+      "selector": "ol.c-article-references li:has(#ref-CR31)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "62e44af52e3b7f423bbaf30cf17d9d01c7fab0a57a2fdd19cabcb849b8030964"
+    },
+    {
+      "id": "reference-32",
+      "selector": "ol.c-article-references li:has(#ref-CR32)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "fad0fb08ec54e72560f1f657376481489b7fe8c6016015bf7c64b1fe494439d4"
+    },
+    {
+      "id": "reference-33",
+      "selector": "ol.c-article-references li:has(#ref-CR33)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "0b65e895587add060428daf9de9b4b8e7d6d45ca3789fee7ace70805e565c4d2"
+    },
+    {
+      "id": "reference-34",
+      "selector": "ol.c-article-references li:has(#ref-CR34)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "e9604e201ea800676420ad6999b6adf7d41ceea30fee057326b1ea905f53b3e9"
+    },
+    {
+      "id": "reference-35",
+      "selector": "ol.c-article-references li:has(#ref-CR35)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "dd4e3f876910a882263b30bd7a67cd618b57f964945a1c4f283bb5f09e92ee73"
+    },
+    {
+      "id": "reference-36",
+      "selector": "ol.c-article-references li:has(#ref-CR36)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "9572677f436ea4155e6646b8975b1bb68517c13b863b0c3faecfad9c3c0da07e"
+    },
+    {
+      "id": "reference-37",
+      "selector": "ol.c-article-references li:has(#ref-CR37)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "7d2efb1da70204910a9d64081996c16d67953784780f09b0c3eff1acb6da084f"
+    },
+    {
+      "id": "reference-38",
+      "selector": "ol.c-article-references li:has(#ref-CR38)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "0de68228de0016e6af7e092c61b311375146fd80958df73deee3adfb7a66470e"
+    },
+    {
+      "id": "reference-39",
+      "selector": "ol.c-article-references li:has(#ref-CR39)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "cde6ca3d8a2931141f160795c3c51d6518d47bd33bf0360daddbdc481a4c35ab"
+    },
+    {
+      "id": "reference-40",
+      "selector": "ol.c-article-references li:has(#ref-CR40)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "a4c1ff13e4751ffc58af1b04ca9f24b5a00776748108b1a70a5593a31a38f47f"
+    },
+    {
+      "id": "reference-41",
+      "selector": "ol.c-article-references li:has(#ref-CR41)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "44a107404a520daca74e5d5d3e14ffae40427f33bc04cc9ff48dd9132fe10955"
+    },
+    {
+      "id": "reference-42",
+      "selector": "ol.c-article-references li:has(#ref-CR42)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "01178a55c503833e87690cad8e7bc1beca6ee60d4802f4294c3cd4258c292e1f"
+    },
+    {
+      "id": "reference-43",
+      "selector": "ol.c-article-references li:has(#ref-CR43)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "1c2ba0d3feb7920dd42606ed4ab02336252038668f7877e2540c05e633aab448"
+    },
+    {
+      "id": "reference-44",
+      "selector": "ol.c-article-references li:has(#ref-CR44)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "251ae4934b4e53a66ba6f4434b629b547c71e4109aec16e1776bb4c8b4aa9168"
+    },
+    {
+      "id": "reference-45",
+      "selector": "ol.c-article-references li:has(#ref-CR45)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "088acfdee4b11d1a8f4ef53f380a5ad4fe033fca9865dcfa4ac2fd3cdf871be8"
+    },
+    {
+      "id": "reference-46",
+      "selector": "ol.c-article-references li:has(#ref-CR46)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "6367c0b59bedd132540eb397ec85d05c1799dda4b0155419919f5062beea82dc"
+    },
+    {
+      "id": "reference-47",
+      "selector": "ol.c-article-references li:has(#ref-CR47)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "48a1bbac3c3cec348989ef7e3932278f7c621b205eda004c772c19f0278dfc83"
+    },
+    {
+      "id": "reference-48",
+      "selector": "ol.c-article-references li:has(#ref-CR48)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "5dec714d901be0f8a58557d6392e5ee7c0b21d7d55b991bf0a03aeba32fa87f3"
+    },
+    {
+      "id": "reference-49",
+      "selector": "ol.c-article-references li:has(#ref-CR49)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "90cc92e2526b86eda7539e3e27d56806dd6ee4e0bb1bc06de765702bb9a5e17f"
+    },
+    {
+      "id": "reference-50",
+      "selector": "ol.c-article-references li:has(#ref-CR50)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "3b8497fc9d23db78791f83f9165473bc83ee68b256b6d0b71b15ebf8334c3e9d"
+    },
+    {
+      "id": "reference-51",
+      "selector": "ol.c-article-references li:has(#ref-CR51)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "4274894fa64fee671edd3dc17c95afd160db63741550c4b5e3b44d54b9b7870f"
+    },
+    {
+      "id": "reference-52",
+      "selector": "ol.c-article-references li:has(#ref-CR52)",
+      "role": "ordered-reference-prefix",
+      "sourceSubtreeSha256": "0770258c0b5eccccceb82b9d287703e48d60ef1e958fe91de4109b91460bfa81"
+    },
+    {
+      "id": "article-rights",
+      "selector": "section[data-title=\"Rights and permissions\"] p:has(a[rel=\"license\"])",
+      "role": "original-rights-notice",
+      "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69"
+    },
+    {
+      "id": "site-footer",
+      "selector": "p.c-footer__legal",
+      "role": "publisher-footer",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3"
+    }
+  ],
+  "transformations": [
+    {
+      "operation": "select-complete-source-blocks-with-ancestors",
+      "count": 103
+    },
+    {
+      "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+      "count": 1
+    },
+    {
+      "operation": "trim-json-ld-to-article-object",
+      "count": 1
+    },
+    {
+      "operation": "remove-attributes",
+      "count": 808
+    },
+    {
+      "operation": "sanitize-resource-urls",
+      "count": 39
+    }
+  ],
+  "retainedProjection": {
+    "projectionVersion": "nature-corpus-projection/1.0.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "recipeSha256": "9dac4431f9f8ac80b2de65b1540a2fee2c3971103d247aa4f63fc324b46413a3",
+    "structureSha256": "2ee0ad41c20a0b4ee6656583dd825c295d82d5fe7403e1b36ef2060f3590590d",
+    "payloadSha256": "0ada6cd3413732522dc929a862dbbd1d86876c938e3434b06663e2f62f2f4efc"
+  },
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41586-022-04755-5",
+    "sourceObservedAt": "2026-10-03T16:48:03.040Z",
+    "sourceSha256": "190a270027c69a816b2647d2fdc6f1777cdf669695506fa40f2fe3cab8801ace",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Niu, C.-H.",
+      "Aggarwal, K.",
+      "Li, D.",
+      "Zhang, X.",
+      "Chatterjee, S.",
+      "Tsai, C.-W.",
+      "Yu, W.",
+      "Law, C. J.",
+      "Burke-Spolaor, S.",
+      "Cordes, J. M.",
+      "Zhang, Y.-K.",
+      "Ocker, S. K.",
+      "Yao, J.-M.",
+      "Wang, P.",
+      "Feng, Y.",
+      "Niino, Y.",
+      "Bochenek, C.",
+      "Cruces, M.",
+      "Connor, L.",
+      "Jiang, J.-A.",
+      "Dai, S.",
+      "Luo, R.",
+      "Li, G.-D.",
+      "Miao, C.-C.",
+      "Niu, J.-R.",
+      "Anna-Thomas, R.",
+      "Sydnor, J.",
+      "Stern, D.",
+      "Wang, W.-Y.",
+      "Yuan, M.",
+      "Yue, Y.-L.",
+      "Zhou, D.-J.",
+      "Yan, Z.",
+      "Zhu, W.-W.",
+      "Zhang, B."
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "sourceRawNoticeText": "Open Access  This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "technicalTransformations": "Recipe-selected excerpts and original ancestors, A sanitizer 1.1.0, deterministic serialization and LF normalization. Advertising, navigation, executable content and unselected source blocks are omitted as recorded in the manifest/handoff. Retained scholarly prose, TeX, captions, authors, citation data and table cells are preserved; image binaries and full live captures are not included.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  },
+  "paragraphs": [
+    {
+      "sourceParagraphIndex": 50,
+      "sourceSelector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d99382980e7724)",
+      "fixtureSelector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d99382980e7724)",
+      "sourceSubtreeSha256": "e7cb41b94a30d276ec37144e4dd2a279ed04bf3025bea80d85a73c9b2bbae07b",
+      "frozenSubtreeSha256": "4feefaba91c53aa355d409c9e2bfdd66106a825776d5e3d715fed2bcf6147969",
+      "sourceText": "where DMl is the contribution of the intervening galaxy in pc cm−3 in its rest frame, v is the observing frequency in GHz, zl is the intervening galaxy redshift, and \\(\\tilde{F}=\\zeta {{\\epsilon }}^{2}/f{({l}_{{\\rm{o}}}^{2}{l}_{{\\rm{i}}})}^{1/3}\\) quantifies the electron density fluctuations in the scattering layer for \\(\\tilde{F}\\) in units of pc−2/3 km−1/3, where \\(\\zeta \\), ϵ2 and f describe the density fluctuation statistics and filling factor, l0 is the outer scale of turbulence and li is the inner scale. The fluctuation parameter \\(\\tilde{F}\\) in the Milky Way varies from ~10−3 pc−2/3 km−1/3 in the thick disk to \\(\\gtrsim \\)102 pc−2/3 km−1/3 near the inner Galaxy, and is typically about 0.1–1 pc−2/3 km−1/3 in the thin disk, but it is not generally known for other galaxies52. The geometric factor Gscatt is unity for scattering in a host galaxy but it can be very large for an intervening galaxy, in which case \\({G}_{{\\rm{scatt}}}\\approx 2{d}_{{\\rm{sl}}}{d}_{{\\rm{lo}}}/{d}_{{\\rm{so}}}\\,L\\), where dsl, dso and dso are the angular diameter distances between the source and lens, lens and observer, and source and observer, respectively, and L is the path length through the lens. The numerical pre-factor in equation (8) is for all angular diameter distances in Gpc and L in Mpc.",
+      "orderedScientificNodes": [
+        {
+          "tag": "SUB",
+          "text": "l",
+          "html": "<sub>l</sub>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−3",
+          "html": "<sup>−3</sup>"
+        },
+        {
+          "tag": "I",
+          "text": "v",
+          "html": "<i>v</i>"
+        },
+        {
+          "tag": "I",
+          "text": "z",
+          "html": "<i>z</i>"
+        },
+        {
+          "tag": "SUB",
+          "text": "l",
+          "html": "<sub>l</sub>"
+        },
+        {
+          "tag": "SPAN",
+          "text": "\\(\\tilde{F}=\\zeta {{\\epsilon }}^{2}/f{({l}_{{\\rm{o}}}^{2}{l}_{{\\rm{i}}})}^{1/3}\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\tilde{F}=\\zeta {{\\epsilon }}^{2}/f{({l}_{{\\rm{o}}}^{2}{l}_{{\\rm{i}}})}^{1/3}\\)</span>"
+        },
+        {
+          "tag": "SPAN",
+          "text": "\\(\\tilde{F}\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\tilde{F}\\)</span>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−2/3",
+          "html": "<sup>−2/3</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−1/3",
+          "html": "<sup>−1/3</sup>"
+        },
+        {
+          "tag": "SPAN",
+          "text": "\\(\\zeta \\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\zeta \\)</span>"
+        },
+        {
+          "tag": "I",
+          "text": "ϵ",
+          "html": "<i>ϵ</i>"
+        },
+        {
+          "tag": "SUP",
+          "text": "2",
+          "html": "<sup>2</sup>"
+        },
+        {
+          "tag": "I",
+          "text": "f",
+          "html": "<i>f</i>"
+        },
+        {
+          "tag": "I",
+          "text": "l",
+          "html": "<i>l</i>"
+        },
+        {
+          "tag": "SUB",
+          "text": "0",
+          "html": "<sub>0</sub>"
+        },
+        {
+          "tag": "I",
+          "text": "l",
+          "html": "<i>l</i>"
+        },
+        {
+          "tag": "SUB",
+          "text": "i",
+          "html": "<sub>i</sub>"
+        },
+        {
+          "tag": "SPAN",
+          "text": "\\(\\tilde{F}\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\tilde{F}\\)</span>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−3",
+          "html": "<sup>−3</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−2/3",
+          "html": "<sup>−2/3</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−1/3",
+          "html": "<sup>−1/3</sup>"
+        },
+        {
+          "tag": "SPAN",
+          "text": "\\(\\gtrsim \\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\gtrsim \\)</span>"
+        },
+        {
+          "tag": "SUP",
+          "text": "2",
+          "html": "<sup>2</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−2/3",
+          "html": "<sup>−2/3</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−1/3",
+          "html": "<sup>−1/3</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−2/3",
+          "html": "<sup>−2/3</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−1/3",
+          "html": "<sup>−1/3</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "52",
+          "html": "<sup><a aria-label=\"Reference 52\" data-test=\"citation-ref\" data-track=\"click\" data-track-action=\"reference anchor\" data-track-label=\"link\" href=\"/articles/s41586-022-04755-5#ref-CR52\" id=\"ref-link-section-d99382980e7724\" title=\"Ocker, S. K., Cordes, J. M. &amp; Chatterjee, S. Constraining galaxy haloes from the dispersion and scattering of fast radio bursts and pulsars. Astrophys. J. 911, 102 (2021).\">52</a></sup>"
+        },
+        {
+          "tag": "I",
+          "text": "G",
+          "html": "<i>G</i>"
+        },
+        {
+          "tag": "SUB",
+          "text": "scatt",
+          "html": "<sub>scatt</sub>"
+        },
+        {
+          "tag": "SPAN",
+          "text": "\\({G}_{{\\rm{scatt}}}\\approx 2{d}_{{\\rm{sl}}}{d}_{{\\rm{lo}}}/{d}_{{\\rm{so}}}\\,L\\)",
+          "html": "<span class=\"mathjax-tex\">\\({G}_{{\\rm{scatt}}}\\approx 2{d}_{{\\rm{sl}}}{d}_{{\\rm{lo}}}/{d}_{{\\rm{so}}}\\,L\\)</span>"
+        },
+        {
+          "tag": "I",
+          "text": "d",
+          "html": "<i>d</i>"
+        },
+        {
+          "tag": "SUB",
+          "text": "sl",
+          "html": "<sub>sl</sub>"
+        },
+        {
+          "tag": "I",
+          "text": "d",
+          "html": "<i>d</i>"
+        },
+        {
+          "tag": "SUB",
+          "text": "so",
+          "html": "<sub>so</sub>"
+        },
+        {
+          "tag": "I",
+          "text": "d",
+          "html": "<i>d</i>"
+        },
+        {
+          "tag": "SUB",
+          "text": "so",
+          "html": "<sub>so</sub>"
+        },
+        {
+          "tag": "I",
+          "text": "L",
+          "html": "<i>L</i>"
+        },
+        {
+          "tag": "I",
+          "text": "L",
+          "html": "<i>L</i>"
+        }
+      ],
+      "fractionalUnits": [
+        {
+          "id": "methods-p50-fraction-1",
+          "supIndex": 1,
+          "base": "pc",
+          "exponent": "−2/3",
+          "supHtml": "<sup>−2/3</sup>",
+          "previousText": " in units of pc",
+          "nextText": " km",
+          "scriptRole": "superscript of preceding unit factor only; coefficient/neighboring factor excluded"
+        },
+        {
+          "id": "methods-p50-fraction-2",
+          "supIndex": 2,
+          "base": "km",
+          "exponent": "−1/3",
+          "supHtml": "<sup>−1/3</sup>",
+          "previousText": " km",
+          "nextText": ", where ",
+          "scriptRole": "superscript of preceding unit factor only; coefficient/neighboring factor excluded"
+        },
+        {
+          "id": "methods-p50-fraction-3",
+          "supIndex": 5,
+          "base": "pc",
+          "exponent": "−2/3",
+          "supHtml": "<sup>−2/3</sup>",
+          "previousText": " pc",
+          "nextText": " km",
+          "scriptRole": "superscript of preceding unit factor only; coefficient/neighboring factor excluded"
+        },
+        {
+          "id": "methods-p50-fraction-4",
+          "supIndex": 6,
+          "base": "km",
+          "exponent": "−1/3",
+          "supHtml": "<sup>−1/3</sup>",
+          "previousText": " km",
+          "nextText": " in the thick disk to ",
+          "scriptRole": "superscript of preceding unit factor only; coefficient/neighboring factor excluded"
+        },
+        {
+          "id": "methods-p50-fraction-5",
+          "supIndex": 8,
+          "base": "pc",
+          "exponent": "−2/3",
+          "supHtml": "<sup>−2/3</sup>",
+          "previousText": " pc",
+          "nextText": " km",
+          "scriptRole": "superscript of preceding unit factor only; coefficient/neighboring factor excluded"
+        },
+        {
+          "id": "methods-p50-fraction-6",
+          "supIndex": 9,
+          "base": "km",
+          "exponent": "−1/3",
+          "supHtml": "<sup>−1/3</sup>",
+          "previousText": " km",
+          "nextText": " near the inner Galaxy, and is typically about 0.1–1 pc",
+          "scriptRole": "superscript of preceding unit factor only; coefficient/neighboring factor excluded"
+        },
+        {
+          "id": "methods-p50-fraction-7",
+          "supIndex": 10,
+          "base": "pc",
+          "exponent": "−2/3",
+          "supHtml": "<sup>−2/3</sup>",
+          "previousText": " near the inner Galaxy, and is typically about 0.1–1 pc",
+          "nextText": " km",
+          "scriptRole": "superscript of preceding unit factor only; coefficient/neighboring factor excluded"
+        },
+        {
+          "id": "methods-p50-fraction-8",
+          "supIndex": 11,
+          "base": "km",
+          "exponent": "−1/3",
+          "supHtml": "<sup>−1/3</sup>",
+          "previousText": " km",
+          "nextText": " in the thin disk, but it is not generally known for other galaxies",
+          "scriptRole": "superscript of preceding unit factor only; coefficient/neighboring factor excluded"
+        }
+      ]
+    },
+    {
+      "sourceParagraphIndex": 51,
+      "sourceSelector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d99382980e7724) + p",
+      "fixtureSelector": "section[data-title=\"Methods\"] p:has(#ref-link-section-d99382980e7724) + p",
+      "sourceSubtreeSha256": "216ca0dac23172ffbfbddae293636aea1352805b92347a6bbe7dcea5e88431d0",
+      "frozenSubtreeSha256": "216ca0dac23172ffbfbddae293636aea1352805b92347a6bbe7dcea5e88431d0",
+      "sourceText": "For the nominal DM contribution implied by the Hα emission, DMl ≈ 392 pc cm−3, and a path length through the intervening galaxy L ≈ 5 kpc, the implied scattering time is τ ≈ 20 s at 1.25 GHz, orders of magnitude larger than the observed mean scattering time. For a smaller gas temperature T4 ≈ 0.5, yielding a DM contribution DMl ≈ 290 pc cm−3, the implied scattering time is still τ ≈ 18 s at 1.25 GHz, assuming \\(\\tilde{F}\\) 0.1 ≈ pc−2/3 km−1/3 and L ≈ 5 kpc. However, there is significant latitude in this estimate, depending on the assumed gas temperature, path length sampled by the FRB and the value of \\(\\tilde{F}\\). Although we have assumed that the FRB traces the entire DMl implied by the Hα emission, the FRB line of sight probably only traces a fraction of the Hα-emitting gas. If DMl is as small as 50 pc cm−3, then τ could be as small as 0.6 s for \\(\\tilde{F}\\) 0.1 ≈ pc−2/3 km−1/3 and L ≈ 5 kpc. Although the implied scattering time could be two orders of magnitude smaller or larger depending on the combination of \\(\\tilde{F}\\), the path length L and the parameters used to estimate the Hα DM, our fiducial estimates suggest that the observed scattering time is significantly smaller than the scattering expected from an intervening galaxy.",
+      "orderedScientificNodes": [
+        {
+          "tag": "SUB",
+          "text": "l",
+          "html": "<sub>l</sub>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−3",
+          "html": "<sup>−3</sup>"
+        },
+        {
+          "tag": "I",
+          "text": "L",
+          "html": "<i>L</i>"
+        },
+        {
+          "tag": "I",
+          "text": "τ",
+          "html": "<i>τ</i>"
+        },
+        {
+          "tag": "I",
+          "text": "T",
+          "html": "<i>T</i>"
+        },
+        {
+          "tag": "SUB",
+          "text": "4",
+          "html": "<sub>4</sub>"
+        },
+        {
+          "tag": "SUB",
+          "text": "l",
+          "html": "<sub>l</sub>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−3",
+          "html": "<sup>−3</sup>"
+        },
+        {
+          "tag": "I",
+          "text": "τ",
+          "html": "<i>τ</i>"
+        },
+        {
+          "tag": "SPAN",
+          "text": "\\(\\tilde{F}\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\tilde{F}\\)</span>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−2/3",
+          "html": "<sup>−2/3</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−1/3",
+          "html": "<sup>−1/3</sup>"
+        },
+        {
+          "tag": "I",
+          "text": "L",
+          "html": "<i>L</i>"
+        },
+        {
+          "tag": "SPAN",
+          "text": "\\(\\tilde{F}\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\tilde{F}\\)</span>"
+        },
+        {
+          "tag": "SUB",
+          "text": "l",
+          "html": "<sub>l</sub>"
+        },
+        {
+          "tag": "SUB",
+          "text": "l",
+          "html": "<sub>l</sub>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−3",
+          "html": "<sup>−3</sup>"
+        },
+        {
+          "tag": "I",
+          "text": "τ",
+          "html": "<i>τ</i>"
+        },
+        {
+          "tag": "SPAN",
+          "text": "\\(\\tilde{F}\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\tilde{F}\\)</span>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−2/3",
+          "html": "<sup>−2/3</sup>"
+        },
+        {
+          "tag": "SUP",
+          "text": "−1/3",
+          "html": "<sup>−1/3</sup>"
+        },
+        {
+          "tag": "I",
+          "text": "L",
+          "html": "<i>L</i>"
+        },
+        {
+          "tag": "SPAN",
+          "text": "\\(\\tilde{F}\\)",
+          "html": "<span class=\"mathjax-tex\">\\(\\tilde{F}\\)</span>"
+        },
+        {
+          "tag": "I",
+          "text": "L",
+          "html": "<i>L</i>"
+        }
+      ],
+      "fractionalUnits": [
+        {
+          "id": "methods-p51-fraction-1",
+          "supIndex": 2,
+          "base": "pc",
+          "exponent": "−2/3",
+          "supHtml": "<sup>−2/3</sup>",
+          "previousText": " 0.1 ≈ pc",
+          "nextText": " km",
+          "scriptRole": "superscript of preceding unit factor only; coefficient/neighboring factor excluded"
+        },
+        {
+          "id": "methods-p51-fraction-2",
+          "supIndex": 3,
+          "base": "km",
+          "exponent": "−1/3",
+          "supHtml": "<sup>−1/3</sup>",
+          "previousText": " km",
+          "nextText": " and ",
+          "scriptRole": "superscript of preceding unit factor only; coefficient/neighboring factor excluded"
+        },
+        {
+          "id": "methods-p51-fraction-3",
+          "supIndex": 5,
+          "base": "pc",
+          "exponent": "−2/3",
+          "supHtml": "<sup>−2/3</sup>",
+          "previousText": " 0.1 ≈ pc",
+          "nextText": " km",
+          "scriptRole": "superscript of preceding unit factor only; coefficient/neighboring factor excluded"
+        },
+        {
+          "id": "methods-p51-fraction-4",
+          "supIndex": 6,
+          "base": "km",
+          "exponent": "−1/3",
+          "supHtml": "<sup>−1/3</sup>",
+          "previousText": " km",
+          "nextText": " and ",
+          "scriptRole": "superscript of preceding unit factor only; coefficient/neighboring factor excluded"
+        }
+      ]
+    }
+  ],
+  "referencePrefix": 52,
+  "retainedCitationClusters": [
+    [
+      52
+    ]
+  ],
+  "equation": {
+    "id": "Equ8",
+    "sourceSubtreeSha256": "905775606db35fc2de613057a41c1f532a3d06e73d5b97536ebe6b98f7247b80",
+    "sourceText": "$$\\tau ({\\rm{DM}},\\nu ,z)\\approx 48.03\\,{\\rm{\\mu }}{\\rm{s}}\\times \\frac{\\tilde{F}{G}_{{\\rm{scatt}}}{{\\rm{DM}}}_{{\\rm{l}}}^{2}}{{(1+{z}_{{\\rm{l}}})}^{3}{\\nu }^{4}},$$\n                    (8)\n                ",
+    "originalTeX": [
+      "$$\\tau ({\\rm{DM}},\\nu ,z)\\approx 48.03\\,{\\rm{\\mu }}{\\rm{s}}\\times \\frac{\\tilde{F}{G}_{{\\rm{scatt}}}{{\\rm{DM}}}_{{\\rm{l}}}^{2}}{{(1+{z}_{{\\rm{l}}})}^{3}{\\nu }^{4}},$$"
+    ]
+  },
+  "expected": {
+    "fractionalUnitRoles": 12,
+    "integerUnitRoles": 4,
+    "numericPowerRoles": 2,
+    "displayCount": 1,
+    "figures": 0,
+    "tables": 0,
+    "warnings": [
+      "No Nature figures were detected."
+    ]
+  },
+  "omittedContent": [
+    "Other body paragraphs (including Methods p22 parenthesized numeric-base powers, a separate defect), figures, tables, equations other than source-linked Equ8, supplementary items and author affiliation information",
+    "References after52; retained original full prefix without renumbering",
+    "Unselected UI/tracking/session/executable content removed by unchanged sanitizer",
+    "Full raw response and all image/PDF binaries remain outside tracked repository"
+  ],
+  "reproduction": "Apply this recipe with original A helper to the SHA-verified raw buffer; hash before decoding. Compare repeat and idempotence bytes. No source acquisition or parser-cleaned input.",
+  "contract": {
+    "issue": 72,
+    "type": "bug",
+    "scope": "Source-only RED; production gate remains owned by orchestrator. Different-owner source review of these 103 blocks pending."
+  }
+}
