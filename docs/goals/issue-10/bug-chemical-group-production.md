@@ -1,6 +1,39 @@
 # Issue #74 — 括号化学分组 focused implementation handoff
 
-当前为 **FOCUSED_CLEAR_IMPLEMENTATION_REVIEW_PENDING**。真实18项与完整37项 synthetic 在同一次实际执行中 **55/55 PASS**；初次 candidate 的46PASS/9FAIL原日志保留。此交接只完成focused层，affected/full/build/只读golden、不同作者实现审查、fresh CI/Secrets、PR/merge/merged-main接纳仍未完成，不宣称#74或#10完成。
+当前为 **FOCUSED_CLEAR_NESTED_P2_REREVIEW_PENDING**。P2修复后的真实18项、原37项synthetic与新增7项，在一次fresh candidate执行中 **62/62 PASS**。原55PASS仅为已发现P2的历史candidate；初次46PASS/9FAIL及新增7项的3PASS/4RED均保留。affected/full/build/只读golden、不同作者P2增量复审、fresh CI/Secrets、PR/merge/merged-main尚未完成，不宣称#74或#10完成。
+
+## 当前增量 — 独立P2嵌套范围修复
+
+Different-owner原实现审核对 `13c6341b30094e935254f0d8ccf17635881c9bc0` 给出 `IMPLEMENTATION_CHANGES_REQUIRED`，P0/P1/P3=0、P2=1。外部报告与原guarded probe在machine记录exacthash。Synthetic `Ca(Pb(OAc)<sub>4</sub>)<sub>2</sub>`被内部suffix regex误接纳成单独Pb group，违反已审finite非嵌套family；原55绿色不覆盖该缺口。
+
+生产增量 `101bd4cf40111433b92852913e364cb3bceb7807`（tree `d1d655976855871edea450bc32dc857ca1a32602`），仅 `src/adapters/nature.mjs` 新增7行与原synthetic测试新增7个永久controls。候选左侧同一direct-text/nativeSUB序列中，紧邻opening parentheses之前若是Unicode lexical token或原native count，拒绝内部suffix；右侧原element suffix/closing parentheses紧邻native outerSUB同样拒绝。没有跳过unknownsibling、flatten wrapper、元素查表或通用化学parser。普通正文 `(Pb(OAc)4, …)`、`(Fe2(ox)3, …)`的标点边界继续接纳，并有exact完整math/orderedmarker positives。所有7controls明确synthetic，不作为source admission或新增scholarly prose。
+
+先在unchanged13c production、仅修改regression registration后执行 `CHEMICAL_GROUP_SYNTHETIC_SCOPE=nested-review`，只注册7new cases，不注册旧37/真实18。实际 `node --test --test-reporter=tap test/nature-chemical-group-index-preproduction.test.mjs`：PID42548、2026-10-09T00:30:14.140Z → 2026-10-09T00:30:14.829Z，exit1，7tests/3PASS/4真实RED，640.6915ms。2prose positives和CD suffix negative已PASS；4Pb nested cases错误whole-group interpretation。各negative比较ALL ordered scientificRuns；观察确认这些输入无既有atomic roles，不猜测或过滤。7actualwindows全部关闭，attempts[]且bindings/DOM descriptors复原。
+
+最小fix后唯一fresh candidate：`node --test --test-reporter=tap test/nature-chemical-group-index.test.mjs test/nature-chemical-group-index-preproduction.test.mjs`，PID43956、2026-10-09T00:30:31.119Z → 2026-10-09T00:30:32.725Z，exit0，**62tests/62PASS/0FAIL**、1557.1207ms，0skip/cancel/todo。真实18包括3source whole-formula角色×3方言、4strictvalidators、完整measurement/isotope/compoundbold/citations/37refs/Fig2+3/MOESM1和精确warning；synthetic44包括原37与新7、全部orderedregistry/marker multiplicity、mixed nonzero body/caption indices、typedcitations、Unicode/unknown/opaque边界。
+
+External root：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-nested-revision`；执行方式 `node <root>/run.cjs red` → 最小fix → `node <root>/run.cjs green`。Nodev24.14.1，实际argv/env/physical54inputs/pre-post/runnerhash在receipt，均unchangedDuringRun/current。Green source3clipwindows3/3关闭、sourceDOM2/2、11HTTP/DNSguardattempts[]/bindings及10DOMdescriptors复原；synthetic44parsewindows44/44、0clip/0sourceaudit、ledger[]且恢复。Writer仅staticcallgraph proof。既有ignoreddependencyjunction只读复用，无install/write-through。
+
+Raw/A/source65/plan/sourceoracle/42pure/old26/tail53不重做。此次因productioncode改变而fresh source3clips与44boundaries是必要candidate验证；历史first46/9、pre-P2corrected55以及本次red7均未改写。当前报告等待不同作者增量P2复审；停止在focused gate，affected/full/build/golden/PR/CI仍NOT_RUN。
+
+当前green外部artifacts：
+
+| 文件 | Bytes | SHA-256 |
+| --- | ---: | --- |
+| command-inputs.json | 10029 | `c2d09f20ee8d6b2f2637f1eb212bc6cbe98ab5bc96dc597717fc00119d370f66` |
+| exit.json | 9532 | `006449ebae6759450612bce1475d91e261241891bb2e8e02d517d3fe120acf01` |
+| focus.log | 12961 | `533c37fea04b87be9e59ce70609b9c6175e0eb4c41f5e81921b9e4395369f1a6` |
+| links.md | 18454 | `cfb7833a7d2e9d29da38100b7bdfb9bc4e3ee794bc1a5fb693085bcb9af7d955` |
+| links.result.json | 156400 | `1a669060094a52a90675d43c9b4b583bba306e1c866e523e4b641e1d98367b47` |
+| markdown.md | 17665 | `1378d9758092f396944bb2bd62fa9b29665cef57966312a9597e7e47dc542586` |
+| markdown.result.json | 152414 | `3f207b5780695bd5fc82889fee655261d8ce833bfdb7b80e2dcb7ff8ddda9cb8` |
+| network-ledger.json | 330 | `912eac19fcde4785e4c90992f9b60e1919fffcdf83402fd285b32e201382ee13` |
+| process.json | 231 | `14b407f75979e1a90d0b980df1b40108f8544ca86b51c05cf99e8234c758f81e` |
+| quarto.md | 9502 | `8fcc36bcf53fdf2a262b424fb436c45615c05be9e28aedeaa71265a5172216e7` |
+| quarto.result.json | 136249 | `bb8ad6daf71b6fa9970cd5c9b433e69cc68390d27a42b3a26059fd091793ece6` |
+| synthetic-observations.json | 21542 | `1eb94849cff9c9ab693d396827b0c6bdb8cf34c171dbcf39f96556dc8362432e` |
+
+以下原阶段说明及55PASS artifact列表作为明确历史证据保留，不能代替本次62candidate或后续canonical full。
 
 ## 分支、基线与提交
 
