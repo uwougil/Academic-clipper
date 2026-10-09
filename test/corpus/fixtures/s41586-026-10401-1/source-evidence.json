@@ -805,5 +805,53 @@
         }
       ]
     }
-  ]
+  ],
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41586-026-10401-1",
+    "sourceObservedAt": "2026-10-03T16:44:03.154Z",
+    "sourceSha256": "ea2508302b4c3af4efe421f02c3de93379b50940dd1a8762166efb38033cc91c",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Liu, Yuntian",
+      "Chen, Xiaobing",
+      "Yu, Yutong",
+      "Etxebarria, Jesús",
+      "Perez-Mato, J. Manuel",
+      "Liu, Qihang"
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "1a7d5bde85d5d3f50248c225a3cb16d11e8c16c3dc4bbe59a08c9368e07c0eff",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+            "text": "http://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not attributed as an article-specific copyright notice."
+    },
+    "tableResources": [
+      {
+        "resourceId": "table-1",
+        "sourceUrl": "https://www.nature.com/articles/s41586-026-10401-1/tables/1",
+        "sourceSha256": "36a52d93aca60fb50cb7452b2990f955f399d1b8a59e5278dff0764a9042d568",
+        "observedTableLicenseLinks": [],
+        "attributionSource": "https://www.nature.com/articles/s41586-026-10401-1",
+        "licenseEvidenceLocation": "sourceRights.notices in this article source-evidence.json",
+        "basis": "The table is an excerpt of this article. The article rights notice is recorded separately; an absent table-page license link is not claimed as an observed link."
+      }
+    ],
+    "technicalTransformations": "Recipe-selected excerpts and original ancestors, A sanitizer 1.1.0, deterministic serialization and LF normalization. Advertising, navigation, executable content and unselected source blocks are omitted as recorded in the manifest/handoff. Retained scholarly prose, TeX, captions, authors, citation data and table cells are preserved; image binaries and full live captures are not included.",
+    "retainedMaterialLicense": "Use the original article rights notice and linked license for the source material. This evidence record does not relicense article excerpts under the repository code license."
+  }
 }
