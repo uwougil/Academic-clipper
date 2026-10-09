@@ -788,6 +788,51 @@ function collectPlainFractionalUnitRun(parent, startIndex) {
   };
 }
 
+function collectParenthesizedNumericSquareRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}|\\[([]/u.test(parent.textContent)) return null;
+  const exponent = parent.childNodes[startIndex];
+  if (!isElement(exponent, new Set(['SUP'])) || exponent.childNodes.length !== 1
+    || exponent.firstChild.nodeType !== 3 || exponent.textContent !== '2') return null;
+  const base = exponent.previousSibling;
+  if (base?.nodeType !== 3) return null;
+  // Preserve only a complete, single-level native numeric fraction. This
+  // finite role does not evaluate arithmetic or infer unknown parentheses.
+  const match = base.textContent.match(/\(\d+(?:\.\d+)?\/[1-9]\d*(?:\/[1-9]\d*)?\)$/u);
+  if (!match) return null;
+  const prefix = base.textContent.slice(0, match.index).replace(/π$/u, '');
+  // Find an open enclosing edge in the original text, including earlier
+  // closed numeric groups. This qualifies topology, not arithmetic values.
+  let depth = 0;
+  for (let index = prefix.length - 1; index >= 0; index -= 1) {
+    if (prefix[index] === ')') depth += 1;
+    else if (prefix[index] === '(') {
+      if (depth) depth -= 1;
+      else {
+        // Ordinary prose parentheses, such as "(see ...", remain separate.
+        if (/^[\d.π()+−\-*/=×\s]*$/u.test(prefix.slice(index + 1))) return null;
+        break;
+      }
+    }
+  }
+  // Pi is an outside multiplier, never a way to bypass a token boundary.
+  if (!prefix ? base.previousSibling
+    : /[\p{L}\p{N}\p{M}_]$/u.test(prefix)) return null;
+  const next = exponent.nextSibling;
+  const typedCitation = next?.nodeType === 1
+    ? next.matches('a[data-test="citation-ref"], a[href*="#ref-CR"]') ? next
+      : next.tagName === 'SUP' && next.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]')
+    : null;
+  if (next && !(next.nodeType === 3 && /^[\s\p{P}]/u.test(next.textContent)
+      && !next.textContent.startsWith('_'))
+    && !(typedCitation && citationNumbers(typedCitation))) return null;
+  return {
+    start: { node: base, offset: match.index },
+    end: { node: exponent, after: true },
+    tex: `${match[0]}^{2}`,
+  };
+}
+
 function collectParenthesizedChemicalGroupRun(parent, startIndex) {
   if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
   if (/[$`]|(?:^|\n)[ \t]*~{3,}|\\[([]/u.test(parent.textContent)) return null;
@@ -1099,6 +1144,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
           || collectNumericAttachmentRun(parent, index)
           || collectPlainFractionalUnitRun(parent, index)
           || collectQualifiedMetricRun(parent, index)
+          || collectParenthesizedNumericSquareRun(parent, index)
           || collectParenthesizedChemicalGroupRun(parent, index)
           || collectDeltaPositionRun(parent, index)
           || collectPlainScriptedIdentifierRun(parent, index)

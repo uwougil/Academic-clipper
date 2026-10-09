@@ -1,0 +1,851 @@
+{
+  "version": "nature-parenthesized-power-provenance/1.0.0",
+  "base": "f4a5f2ad74546ea54b990c6080e480871ee98e09",
+  "source": {
+    "articleId": "s41586-022-04755-5",
+    "url": "https://www.nature.com/articles/s41586-022-04755-5",
+    "title": "A repeating fast radio burst associated with a persistent radio source",
+    "doi": "10.1038/s41586-022-04755-5",
+    "journal": "Nature",
+    "observedAt": "2026-10-03T16:48:03.040Z",
+    "captureMode": "guarded-http",
+    "rawBytes": 545450,
+    "sha256": "190a270027c69a816b2647d2fdc6f1777cdf669695506fa40f2fe3cab8801ace",
+    "sourceContractSha": "b718fa8b826c2abeb45c2dd30cd5414b3d6d8330"
+  },
+  "dependencies": {
+    "helper": {
+      "gitBlob": "e56f140d9756bb83013b9df0716dc650e04d7917",
+      "bytes": 34946,
+      "sha256": "a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c"
+    }
+  },
+  "fixture": {
+    "path": "s41586-022-04755-5.excerpt.html",
+    "bytes": 25549,
+    "sha256": "f672ec55261b61376bb1b0a82889e05b45deec9123442dccabab9829ebcd45de",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "sanitizerVersion": "nature-corpus-sanitizer/1.1.0",
+  "serializerVersion": "nature-corpus-subtree/1.0.0",
+  "projectionVersion": "nature-corpus-projection/1.0.0",
+  "recipe": {
+    "version": "1.0.0",
+    "id": "s41586-022-04755-5-parenthesized-numeric-powers-v1",
+    "articleUrl": "https://www.nature.com/articles/s41586-022-04755-5",
+    "blocks": [
+      {
+        "id": "metadata-0",
+        "selector": "meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-1",
+        "selector": "meta[name=\"citation_title\"][content=\"A repeating fast radio burst associated with a persistent radio source\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-2",
+        "selector": "meta[name=\"citation_online_date\"][content=\"2022/06/08\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-3",
+        "selector": "meta[name=\"citation_doi\"][content=\"10.1038/s41586-022-04755-5\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-4",
+        "selector": "meta[name=\"citation_author\"][content=\"Niu, C.-H.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-5",
+        "selector": "meta[name=\"citation_author\"][content=\"Aggarwal, K.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-6",
+        "selector": "meta[name=\"citation_author\"][content=\"Li, D.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-7",
+        "selector": "meta[name=\"citation_author\"][content=\"Zhang, X.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-8",
+        "selector": "meta[name=\"citation_author\"][content=\"Chatterjee, S.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-9",
+        "selector": "meta[name=\"citation_author\"][content=\"Tsai, C.-W.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-10",
+        "selector": "meta[name=\"citation_author\"][content=\"Yu, W.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-11",
+        "selector": "meta[name=\"citation_author\"][content=\"Law, C. J.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-12",
+        "selector": "meta[name=\"citation_author\"][content=\"Burke-Spolaor, S.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-13",
+        "selector": "meta[name=\"citation_author\"][content=\"Cordes, J. M.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-14",
+        "selector": "meta[name=\"citation_author\"][content=\"Zhang, Y.-K.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-15",
+        "selector": "meta[name=\"citation_author\"][content=\"Ocker, S. K.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-16",
+        "selector": "meta[name=\"citation_author\"][content=\"Yao, J.-M.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-17",
+        "selector": "meta[name=\"citation_author\"][content=\"Wang, P.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-18",
+        "selector": "meta[name=\"citation_author\"][content=\"Feng, Y.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-19",
+        "selector": "meta[name=\"citation_author\"][content=\"Niino, Y.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-20",
+        "selector": "meta[name=\"citation_author\"][content=\"Bochenek, C.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-21",
+        "selector": "meta[name=\"citation_author\"][content=\"Cruces, M.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-22",
+        "selector": "meta[name=\"citation_author\"][content=\"Connor, L.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-23",
+        "selector": "meta[name=\"citation_author\"][content=\"Jiang, J.-A.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-24",
+        "selector": "meta[name=\"citation_author\"][content=\"Dai, S.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-25",
+        "selector": "meta[name=\"citation_author\"][content=\"Luo, R.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-26",
+        "selector": "meta[name=\"citation_author\"][content=\"Li, G.-D.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-27",
+        "selector": "meta[name=\"citation_author\"][content=\"Miao, C.-C.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-28",
+        "selector": "meta[name=\"citation_author\"][content=\"Niu, J.-R.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-29",
+        "selector": "meta[name=\"citation_author\"][content=\"Anna-Thomas, R.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-30",
+        "selector": "meta[name=\"citation_author\"][content=\"Sydnor, J.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-31",
+        "selector": "meta[name=\"citation_author\"][content=\"Stern, D.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-32",
+        "selector": "meta[name=\"citation_author\"][content=\"Wang, W.-Y.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-33",
+        "selector": "meta[name=\"citation_author\"][content=\"Yuan, M.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-34",
+        "selector": "meta[name=\"citation_author\"][content=\"Yue, Y.-L.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-35",
+        "selector": "meta[name=\"citation_author\"][content=\"Zhou, D.-J.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-36",
+        "selector": "meta[name=\"citation_author\"][content=\"Yan, Z.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-37",
+        "selector": "meta[name=\"citation_author\"][content=\"Zhu, W.-W.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "metadata-38",
+        "selector": "meta[name=\"citation_author\"][content=\"Zhang, B.\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "canonical",
+        "selector": "link[rel=\"canonical\"]",
+        "role": "identity"
+      },
+      {
+        "id": "article-jsonld",
+        "selector": "script[type=\"application/ld+json\"]",
+        "role": "metadata"
+      },
+      {
+        "id": "article-title",
+        "selector": "h1.c-article-title",
+        "role": "title"
+      },
+      {
+        "id": "heading-Sec2",
+        "selector": "#Sec2",
+        "role": "original-heading-hierarchy"
+      },
+      {
+        "id": "heading-Sec9",
+        "selector": "#Sec9",
+        "role": "original-heading-hierarchy"
+      },
+      {
+        "id": "heading-Sec14",
+        "selector": "#Sec14",
+        "role": "original-heading-hierarchy"
+      },
+      {
+        "id": "parenthesized-power-paragraph",
+        "selector": "#Sec2-content > p:has(> i:nth-of-type(4) + sub:nth-of-type(4) + sup:nth-of-type(3)):not(:has(> sup:nth-of-type(4))):not(:has(a))",
+        "role": "complete-original-numeric-parenthesized-power-paragraph"
+      },
+      {
+        "id": "article-rights",
+        "selector": "section[data-title=\"Rights and permissions\"] p:has(a[rel=\"license\"])",
+        "role": "original-rights-notice"
+      },
+      {
+        "id": "site-footer",
+        "selector": "p.c-footer__legal",
+        "role": "publisher-footer"
+      }
+    ],
+    "removeSelectors": []
+  },
+  "recipeSha256": "f6b3803cd12ed3ed30705b39a91f22eeda1d07d340d14c11a9f7bb3e780adf1c",
+  "retainedBlocks": [
+    {
+      "id": "metadata-0",
+      "selector": "meta[name=\"citation_journal_title\"][content=\"Nature\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d624cd945018592d96ac7b5f06c775fab966979552e03ab8f4185895ea0af853"
+    },
+    {
+      "id": "metadata-1",
+      "selector": "meta[name=\"citation_title\"][content=\"A repeating fast radio burst associated with a persistent radio source\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "23cd0b5004cab7afe85fc07ef4c5572ff2bdd07f88f8ae217a612c8c8d80d4fc"
+    },
+    {
+      "id": "metadata-2",
+      "selector": "meta[name=\"citation_online_date\"][content=\"2022/06/08\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "6483fb94c39472f4b674d873dd835551d56190fb64ed046bc0287a7cd2f65cc4"
+    },
+    {
+      "id": "metadata-3",
+      "selector": "meta[name=\"citation_doi\"][content=\"10.1038/s41586-022-04755-5\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d8d18c5aa8ae8b2563611fec2bed90c2918a1b68221332ebfd8c98e0400f145b"
+    },
+    {
+      "id": "metadata-4",
+      "selector": "meta[name=\"citation_author\"][content=\"Niu, C.-H.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "87885731efc65495b910d513d829aba0f6a2513564a266ae026bc2f5d9f201b7"
+    },
+    {
+      "id": "metadata-5",
+      "selector": "meta[name=\"citation_author\"][content=\"Aggarwal, K.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b0e5f8b890ad691a231436be71b1fd85921ce5717e0f31fbf04f29db491f749f"
+    },
+    {
+      "id": "metadata-6",
+      "selector": "meta[name=\"citation_author\"][content=\"Li, D.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "1ab74be7197fb0d3ebe01146d17abaa041945f5365aa461e121df3cdb79e5d59"
+    },
+    {
+      "id": "metadata-7",
+      "selector": "meta[name=\"citation_author\"][content=\"Zhang, X.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "785ed4c3e389d1f98ecfa53435ca224ac2433d05008693aca3120abe662e75f9"
+    },
+    {
+      "id": "metadata-8",
+      "selector": "meta[name=\"citation_author\"][content=\"Chatterjee, S.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "3e3d91e1498c325ebb724b01f8889e4f46aae422461107f03d42f43ae300adf9"
+    },
+    {
+      "id": "metadata-9",
+      "selector": "meta[name=\"citation_author\"][content=\"Tsai, C.-W.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c488f5d2d5af34ae225259faf8b95e64925ecbc94c554842e5e90ae75c440542"
+    },
+    {
+      "id": "metadata-10",
+      "selector": "meta[name=\"citation_author\"][content=\"Yu, W.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "2c279e632b3ea39c196ac3896c14ad1ff3dfa983cd0a9569bfb50c40e7a4f94d"
+    },
+    {
+      "id": "metadata-11",
+      "selector": "meta[name=\"citation_author\"][content=\"Law, C. J.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "6905f821b25de5b381174ffa8b3201514488331b9d7593927d3a6d12d45d73a8"
+    },
+    {
+      "id": "metadata-12",
+      "selector": "meta[name=\"citation_author\"][content=\"Burke-Spolaor, S.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "03e993f4fbc8fabe5a058395c783b38181795eec3ecfc1813b76068afa47eeaf"
+    },
+    {
+      "id": "metadata-13",
+      "selector": "meta[name=\"citation_author\"][content=\"Cordes, J. M.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b4b82417f30f1cebf7e0480976d378719777f2027cf9f637899bb4b723fc85ce"
+    },
+    {
+      "id": "metadata-14",
+      "selector": "meta[name=\"citation_author\"][content=\"Zhang, Y.-K.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b10988ae81fbee8cc5f820159768d23d99ffa62db4fbf001f7c02368e7666a35"
+    },
+    {
+      "id": "metadata-15",
+      "selector": "meta[name=\"citation_author\"][content=\"Ocker, S. K.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e5fbae74c8747ac27fb567c22063817dbe5a9c3ffc860eb68bc5e4d5ea1c85ef"
+    },
+    {
+      "id": "metadata-16",
+      "selector": "meta[name=\"citation_author\"][content=\"Yao, J.-M.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "124660cc62fd00c7eff915c3ece5aa404e8ba5fdd7ab7b815898acd7d53bdf82"
+    },
+    {
+      "id": "metadata-17",
+      "selector": "meta[name=\"citation_author\"][content=\"Wang, P.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "b2a5044816f27727d1fd4f533167cb589902811560c09a24edb0128d1278acde"
+    },
+    {
+      "id": "metadata-18",
+      "selector": "meta[name=\"citation_author\"][content=\"Feng, Y.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e20a7729fcc054fee0b31dd8e4f359cc5a8a5e6adf29dd0230ab85908b8fdd68"
+    },
+    {
+      "id": "metadata-19",
+      "selector": "meta[name=\"citation_author\"][content=\"Niino, Y.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "7ce516b031ce5d115465f51bb2315f0fca1ed69524ead3afe7354985a63edf16"
+    },
+    {
+      "id": "metadata-20",
+      "selector": "meta[name=\"citation_author\"][content=\"Bochenek, C.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "8048a3fc6d2c8b399e412afa32e587b78a31faf61c65f9184b59e68b35c999cc"
+    },
+    {
+      "id": "metadata-21",
+      "selector": "meta[name=\"citation_author\"][content=\"Cruces, M.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "74c13b3df01781363056407b9d2987765c6718119b8e4273a7a4476e811a95f1"
+    },
+    {
+      "id": "metadata-22",
+      "selector": "meta[name=\"citation_author\"][content=\"Connor, L.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "cfbb37a104be935fa8b0512d47198e4eacc47b62cfd92ea8646981ac9bca2845"
+    },
+    {
+      "id": "metadata-23",
+      "selector": "meta[name=\"citation_author\"][content=\"Jiang, J.-A.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "d69afb57de613dac6adff30776029348cb9a4d1deb8e7078048d573d9cd4b3a6"
+    },
+    {
+      "id": "metadata-24",
+      "selector": "meta[name=\"citation_author\"][content=\"Dai, S.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "eb4cad728de52a8eda0e8a305aca97dd211cf52cb2e5c4e730b5aa83641ba299"
+    },
+    {
+      "id": "metadata-25",
+      "selector": "meta[name=\"citation_author\"][content=\"Luo, R.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "1e63f7e2b50b8e6bbe1e1e75cdbd4433a58c2924bf44e8acbeacb9d7c01f8b6c"
+    },
+    {
+      "id": "metadata-26",
+      "selector": "meta[name=\"citation_author\"][content=\"Li, G.-D.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "4103d9d70693c0d19334d0ce8fb04def6646e5d8f808ee973ac48c7430fd06bf"
+    },
+    {
+      "id": "metadata-27",
+      "selector": "meta[name=\"citation_author\"][content=\"Miao, C.-C.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "0bd78d93192dbc5b9bb9b8ab1e43dd85b1cdb81d4adac9e2318ff25231ec4893"
+    },
+    {
+      "id": "metadata-28",
+      "selector": "meta[name=\"citation_author\"][content=\"Niu, J.-R.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "c919dbc283e32d4949fb796964581789d745ad57b5b7eea1ea151b816859f358"
+    },
+    {
+      "id": "metadata-29",
+      "selector": "meta[name=\"citation_author\"][content=\"Anna-Thomas, R.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "9c483c4aa0120ec46b2f5840ba072f936d007840246690c9061f103c59561349"
+    },
+    {
+      "id": "metadata-30",
+      "selector": "meta[name=\"citation_author\"][content=\"Sydnor, J.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e113e813b31c6c3c91fcb7bc3e0e93044b9d57300bcaaa9b00114204d4060b4a"
+    },
+    {
+      "id": "metadata-31",
+      "selector": "meta[name=\"citation_author\"][content=\"Stern, D.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "e8bccd52e93381ca3919854906546e6ed52b61fecf9b91c3ee92df7c529f3e82"
+    },
+    {
+      "id": "metadata-32",
+      "selector": "meta[name=\"citation_author\"][content=\"Wang, W.-Y.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "33ca71fcd33c6abeb90a0a19929467a686cdc917033ad0634d7d701d449de8ac"
+    },
+    {
+      "id": "metadata-33",
+      "selector": "meta[name=\"citation_author\"][content=\"Yuan, M.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "1526d2ff8f81623591b360a66d9233f38e1ed2f46c9f701d57dbe988656173c6"
+    },
+    {
+      "id": "metadata-34",
+      "selector": "meta[name=\"citation_author\"][content=\"Yue, Y.-L.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "894d37401d6f15f306f0db79fcfac3edc88f6c28ab1c2268e065cad332a41726"
+    },
+    {
+      "id": "metadata-35",
+      "selector": "meta[name=\"citation_author\"][content=\"Zhou, D.-J.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "4fa5b4f9e417cf6ae6c475a0796569394ef2d228d3d076e5328bd33d535632b8"
+    },
+    {
+      "id": "metadata-36",
+      "selector": "meta[name=\"citation_author\"][content=\"Yan, Z.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "10a20657b9092d446b420d0c132455c42a84cde04e48f3f84aa5a168c58394aa"
+    },
+    {
+      "id": "metadata-37",
+      "selector": "meta[name=\"citation_author\"][content=\"Zhu, W.-W.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "957b9c20f259cde98cd88249dda770c9181f0610c3c18d6d3d011553509378c0"
+    },
+    {
+      "id": "metadata-38",
+      "selector": "meta[name=\"citation_author\"][content=\"Zhang, B.\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "dcecc290329c30bed8cecb48b33143d39037dd342bb7e676493f535597928645"
+    },
+    {
+      "id": "canonical",
+      "selector": "link[rel=\"canonical\"]",
+      "role": "identity",
+      "sourceSubtreeSha256": "18f01b32880f9f6cffc641d7e98ef957dd7c8cdc1fd2773a9f3fc95da60db5ea"
+    },
+    {
+      "id": "article-jsonld",
+      "selector": "script[type=\"application/ld+json\"]",
+      "role": "metadata",
+      "sourceSubtreeSha256": "7ff68b286e0bf0b22f9206306248f5161f904ae606fd1e4b5d09ffaf8b836831"
+    },
+    {
+      "id": "article-title",
+      "selector": "h1.c-article-title",
+      "role": "title",
+      "sourceSubtreeSha256": "96090bc3be6bffd0f8a5e49d5b9fce6162da11a8bb94338d5b2cacb6e30380fd"
+    },
+    {
+      "id": "heading-Sec2",
+      "selector": "#Sec2",
+      "role": "original-heading-hierarchy",
+      "sourceSubtreeSha256": "53446b73dabbfd56cb9dc4b91d44bbdd4a8f16f73a1ee6a206afc0e62ab5733d"
+    },
+    {
+      "id": "heading-Sec9",
+      "selector": "#Sec9",
+      "role": "original-heading-hierarchy",
+      "sourceSubtreeSha256": "f8ced07967731edc73e315873c87df46829edafe94d033d4a412d7e0a4287e75"
+    },
+    {
+      "id": "heading-Sec14",
+      "selector": "#Sec14",
+      "role": "original-heading-hierarchy",
+      "sourceSubtreeSha256": "191581189ecde44061da24aaacfe22d12f6b9ea7928b829b345d70ec896baec6"
+    },
+    {
+      "id": "parenthesized-power-paragraph",
+      "selector": "#Sec2-content > p:has(> i:nth-of-type(4) + sub:nth-of-type(4) + sup:nth-of-type(3)):not(:has(> sup:nth-of-type(4))):not(:has(a))",
+      "role": "complete-original-numeric-parenthesized-power-paragraph",
+      "sourceSubtreeSha256": "4fe682650c4c464c1d6341c364241d29e154f18ecf7c8565de908b840c9a6fe5"
+    },
+    {
+      "id": "article-rights",
+      "selector": "section[data-title=\"Rights and permissions\"] p:has(a[rel=\"license\"])",
+      "role": "original-rights-notice",
+      "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69"
+    },
+    {
+      "id": "site-footer",
+      "selector": "p.c-footer__legal",
+      "role": "publisher-footer",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3"
+    }
+  ],
+  "transformations": [
+    {
+      "operation": "select-complete-source-blocks-with-ancestors",
+      "count": 48
+    },
+    {
+      "operation": "fixed-html-scaffold-sorted-attributes-utf8-lf",
+      "count": 1
+    },
+    {
+      "operation": "trim-json-ld-to-article-object",
+      "count": 1
+    },
+    {
+      "operation": "remove-attributes",
+      "count": 6
+    }
+  ],
+  "retainedProjection": {
+    "projectionVersion": "nature-corpus-projection/1.0.0",
+    "serializerVersion": "nature-corpus-subtree/1.0.0",
+    "recipeSha256": "f6b3803cd12ed3ed30705b39a91f22eeda1d07d340d14c11a9f7bb3e780adf1c",
+    "structureSha256": "150273c2785e9ef85f16f2fa2fecb570c64d45eb08918c6fe5238ff92a98fb72",
+    "payloadSha256": "cbe31bfe2773d621a6ea5a0c28ae882b25a2824541d29070dc7707b778e2a0b2"
+  },
+  "sourceRights": {
+    "version": "nature-source-rights/1.0.0",
+    "sourceUrl": "https://www.nature.com/articles/s41586-022-04755-5",
+    "sourceObservedAt": "2026-10-03T16:48:03.040Z",
+    "sourceSha256": "190a270027c69a816b2647d2fdc6f1777cdf669695506fa40f2fe3cab8801ace",
+    "creatorSourceSelector": "meta[name=\"citation_author\"]",
+    "orderedSourceCreators": [
+      "Niu, C.-H.",
+      "Aggarwal, K.",
+      "Li, D.",
+      "Zhang, X.",
+      "Chatterjee, S.",
+      "Tsai, C.-W.",
+      "Yu, W.",
+      "Law, C. J.",
+      "Burke-Spolaor, S.",
+      "Cordes, J. M.",
+      "Zhang, Y.-K.",
+      "Ocker, S. K.",
+      "Yao, J.-M.",
+      "Wang, P.",
+      "Feng, Y.",
+      "Niino, Y.",
+      "Bochenek, C.",
+      "Cruces, M.",
+      "Connor, L.",
+      "Jiang, J.-A.",
+      "Dai, S.",
+      "Luo, R.",
+      "Li, G.-D.",
+      "Miao, C.-C.",
+      "Niu, J.-R.",
+      "Anna-Thomas, R.",
+      "Sydnor, J.",
+      "Stern, D.",
+      "Wang, W.-Y.",
+      "Yuan, M.",
+      "Yue, Y.-L.",
+      "Zhou, D.-J.",
+      "Yan, Z.",
+      "Zhu, W.-W.",
+      "Zhang, B."
+    ],
+    "notices": [
+      {
+        "sourceSelector": "section[data-title=\"Rights and permissions\"] p",
+        "sourceParagraphIndex": 0,
+        "sourceSubtreeSha256": "5594df3c02d6a2f11229ebd9246cd74c555ddbb94b2ef563a5db9dac893a4e69",
+        "sourceNoticeText": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceRawNoticeText": "Open Access  This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+        "sourceLicenseLinks": [
+          {
+            "href": "http://creativecommons.org/licenses/by/4.0/",
+            "text": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      }
+    ],
+    "siteFooterNotice": {
+      "sourceSelector": "p.c-footer__legal",
+      "sourceSubtreeSha256": "09e85accdf125e9c6cb8eae79fe5bae782628f830c5d6ab5515974bd8d45dfd3",
+      "text": "© 2026 Springer Nature Limited",
+      "scope": "Publisher site footer; not an article-specific copyright notice."
+    },
+    "technicalTransformations": "Complete source paragraph and required original ancestors/headings, original identity/35 creators/rights; original A sanitizer deterministic selection and LF serialization. No scientific rewrite or manuscript correction.",
+    "retainedMaterialLicense": "Retained source material uses its original CC BY4.0 rights notice and license. It is not relicensed under repository code license."
+  },
+  "paragraph": {
+    "sourceSelector": "#Sec2-content > p:has(> i:nth-of-type(4) + sub:nth-of-type(4) + sup:nth-of-type(3)):not(:has(> sup:nth-of-type(4))):not(:has(a))",
+    "sourceParagraphIndex": 22,
+    "sourceSectionSelector": "section[data-title=\"Methods\"] p",
+    "sourceSubtreeSha256": "4fe682650c4c464c1d6341c364241d29e154f18ecf7c8565de908b840c9a6fe5",
+    "frozenSubtreeSha256": "4fe682650c4c464c1d6341c364241d29e154f18ecf7c8565de908b840c9a6fe5",
+    "sourcePosition": {
+      "utf16": [
+        226978,
+        228185
+      ],
+      "utf8": [
+        228124,
+        229368
+      ],
+      "rawFragmentSha256": "4fe682650c4c464c1d6341c364241d29e154f18ecf7c8565de908b840c9a6fe5"
+    },
+    "sourceText": "To estimate the chance coincidence probability of the PRS with the bursts, we compared the solid angle corresponding to the uncertainty of burst localization and the average solid angle occupied by each of the eight ‘point like’ sources in the FRB field of view. The solid angle corresponding to each of the 8 ‘point like’ sources is roughly estimated as Ssource = π(5/60)2/8 steradians (Sr). The offset between the average position of the nine bursts and the position of the PRS at 5.5 GHz, which is best constrained when taking both statistical and systematic errors into account, is about 0.06 arcsec. This, along with a statistical error of 0.01 arcsec and a conservative estimate of the systematic error of 0.12 arcsec, can be used to estimate the offset between the PRS and the FRB position. We conservatively estimate this offset to be 0.19 arcsec. The solid angle corresponding to the offset therefore can be estimated as Soffset= π(0.19/60/60)2/8 Sr. The ratio between Soffset and Ssource gives the chance of coincident association of the PRS with the FRB position to be about 3 × 10−6.",
+    "orderedScientificNodes": [
+      {
+        "tag": "I",
+        "text": "S",
+        "html": "<i>S</i>"
+      },
+      {
+        "tag": "SUB",
+        "text": "source",
+        "html": "<sub>source</sub>"
+      },
+      {
+        "tag": "SUP",
+        "text": "2",
+        "html": "<sup>2</sup>"
+      },
+      {
+        "tag": "I",
+        "text": "S",
+        "html": "<i>S</i>"
+      },
+      {
+        "tag": "SUB",
+        "text": "offset",
+        "html": "<sub>offset</sub>"
+      },
+      {
+        "tag": "SUP",
+        "text": "2",
+        "html": "<sup>2</sup>"
+      },
+      {
+        "tag": "I",
+        "text": "S",
+        "html": "<i>S</i>"
+      },
+      {
+        "tag": "SUB",
+        "text": "offset",
+        "html": "<sub>offset</sub>"
+      },
+      {
+        "tag": "I",
+        "text": "S",
+        "html": "<i>S</i>"
+      },
+      {
+        "tag": "SUB",
+        "text": "source",
+        "html": "<sub>source</sub>"
+      },
+      {
+        "tag": "SUP",
+        "text": "−6",
+        "html": "<sup>−6</sup>"
+      }
+    ],
+    "roles": [
+      {
+        "id": "methods-p22-parenthesized-power-1",
+        "supIndex": 0,
+        "base": "(5/60)",
+        "exponent": "2",
+        "supHtml": "<sup>2</sup>",
+        "previousText": " = π(5/60)",
+        "nextText": "/8 steradians (Sr). The offset between the average position of the nine bursts and the position of the PRS at 5.5 GHz, which is best constrained when taking both statistical and systematic errors into account, is about 0.06 arcsec. This, along with a statistical error of 0.01 arcsec and a conservative estimate of the systematic error of 0.12 arcsec, can be used to estimate the offset between the PRS and the FRB position. We conservatively estimate this offset to be 0.19 arcsec. The solid angle corresponding to the offset therefore can be estimated as ",
+        "sourceSupSubtreeSha256": "4c26c9b7846d9f3fe6adde2d80dde7c3a5a2e28f995054923c9aa1301c16ad66",
+        "sourcePosition": {
+          "utf16": [
+            227371,
+            227383
+          ],
+          "utf8": [
+            228530,
+            228542
+          ],
+          "rawFragmentSha256": "4c26c9b7846d9f3fe6adde2d80dde7c3a5a2e28f995054923c9aa1301c16ad66"
+        },
+        "scientificMeaning": "Exponent2 belongs to the whole original numeric parenthesized fraction only. The preceding π multiplicative factor and following /8 divisor remain outside this power."
+      },
+      {
+        "id": "methods-p22-parenthesized-power-2",
+        "supIndex": 1,
+        "base": "(0.19/60/60)",
+        "exponent": "2",
+        "supHtml": "<sup>2</sup>",
+        "previousText": "= π(0.19/60/60)",
+        "nextText": "/8 Sr. The ratio between ",
+        "sourceSupSubtreeSha256": "4c26c9b7846d9f3fe6adde2d80dde7c3a5a2e28f995054923c9aa1301c16ad66",
+        "sourcePosition": {
+          "utf16": [
+            227980,
+            227992
+          ],
+          "utf8": [
+            229154,
+            229166
+          ],
+          "rawFragmentSha256": "4c26c9b7846d9f3fe6adde2d80dde7c3a5a2e28f995054923c9aa1301c16ad66"
+        },
+        "scientificMeaning": "Exponent2 belongs to the whole original numeric parenthesized fraction only. The preceding π multiplicative factor and following /8 divisor remain outside this power."
+      }
+    ]
+  },
+  "headingTuples": [
+    [
+      "H2",
+      "Sec2",
+      "Methods"
+    ],
+    [
+      "H3",
+      "Sec9",
+      "Persistent radio source"
+    ],
+    [
+      "H4",
+      "Sec14",
+      "Chance coincidence association of the PRS"
+    ]
+  ],
+  "referencePrefix": 0,
+  "retainedCitationClusters": [],
+  "resources": [],
+  "expected": {
+    "parenthesizedRoles": 2,
+    "existingNumericPower": {
+      "base": "10",
+      "exponent": "−6"
+    },
+    "sourceStyledScripts": [
+      {
+        "base": "S",
+        "sub": "source"
+      },
+      {
+        "base": "S",
+        "sub": "offset"
+      },
+      {
+        "base": "S",
+        "sub": "offset"
+      },
+      {
+        "base": "S",
+        "sub": "source"
+      }
+    ],
+    "figures": 0,
+    "tables": 0,
+    "displayCount": 0,
+    "warnings": [
+      "No Nature figures were detected.",
+      "No equation nodes were detected.",
+      "No Nature reference list was detected."
+    ]
+  },
+  "omittedContent": [
+    "Other body paragraphs, including fractional unit powers from separate Issue72",
+    "References entirely omitted: selected source paragraph has zero citation/href, so truthful required prefix0",
+    "Unreferenced figure/equation/table/supplementary resources and binaries; no resource target invented",
+    "Unselected account/tracking/executable/UI source content",
+    "Raw complete HTTP capture remains outside Git"
+  ],
+  "contract": {
+    "type": "bug",
+    "scope": "SOURCE_ONLY_RED; independent new projection review pending; no production changes",
+    "issue": 75
+  }
+}
