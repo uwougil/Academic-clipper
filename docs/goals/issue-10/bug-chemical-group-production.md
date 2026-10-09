@@ -1,0 +1,71 @@
+# Issue #74 — 括号化学分组 focused implementation handoff
+
+当前为 **FOCUSED_CLEAR_IMPLEMENTATION_REVIEW_PENDING**。真实18项与完整37项 synthetic 在同一次实际执行中 **55/55 PASS**；初次 candidate 的46PASS/9FAIL原日志保留。此交接只完成focused层，affected/full/build/只读golden、不同作者实现审查、fresh CI/Secrets、PR/merge/merged-main接纳仍未完成，不宣称#74或#10完成。
+
+## 分支、基线与提交
+
+- Work Contract：[Issue #74](https://github.com/uwougil/Academic-clipper/issues/74)；PRD §3上下标/语义保留、EDD §2.3–§2.5现有Nature/Defuddle/normalizer/strict validators边界。分类为已证明的implementation bug，不声称历史regression引入点。
+- Branch：`codex/issue-10-bug-chemical-group-index`；worktree：`C:/Users/guoli/.codex/worktrees/issue-10-bug-chemical-group-index/academic-clipper`。
+- Root接纳的最新main：`497b303250d6918d58575f9b8df3fddaa43b7f2d`（#73 prerequisite合并后成功Main/Secrets，由root释放本owner）；dependency-only adoption：`8b10643e562b71697eaa4dba51dd955798254890`。
+- 原source commits：`4871f9779ceddcad05afd724e7cede3433b245d5` → `dfd32f5b54b0f34f0de9571b492dadaff8692b3a` → `5d4347a532d8f349e354a220de36914d7716e084` → `8ddd4f1b806b9a72e3552d75070f30b5c919ac29`；preproduction `56f45db6962d512fd9ac82bc7aadef7a9cb696df` → reviewed tail `964f6436127b8d53d8e2ae7b9911552e37e465c1` → dependency-only adoption → production/harness `754c4d2889a0c6b46072cbccffbbe44e1b1381ef`（tree `10b4d334d2d05bd2741665e2d16a81822f145acd`）→ 本DOC_ONLY提交。最终DOC提交用 `git log -1 --format=%H -- docs/goals/issue-10/bug-chemical-group-production.md` 重建，避免自引用SHA。
+- Production提交仅拥有 `src/adapters/nature.mjs` 和 `test/nature-chemical-group-index.test.mjs`。本次DOC_ONLY只新增本文件与[机器receipt](bug-chemical-group-production-receipt.json)。当前无PR；之后一个prerequisite delivery PR使用精确独立 `Refs #74`。
+
+## 来源与复用边界
+
+真实[article](https://www.nature.com/articles/s41467-023-44030-3)，DOI `10.1038/s41467-023-44030-3`。原Results p2的 `Pb(OAc)<sub>4</sub>`、Results p5的 `Fe<sub>2</sub>(ox)<sub>3</sub>`、Methods p0的 `(CD<sub>3</sub>)<sub>2</sub>CO` 是三个完整source paragraph内原native attachment；完整source positions/subtree hashes/rights/omissions/A版本见[原handoff](bug-chemical-group-index-handoff.md)。仍是9 ordered creators、37 references、Fig2/Fig3及MOESM1依赖；不下载image/PDF。
+
+Excerpt 72722 bytes/SHA `a8c10a9e583c640a3adb41cf7a55f3c1a4d1a7f7b8f88b7d370afaa969c8079b`；provenance59160/SHA `428ffafc1558ba0b07dadd0f48f44f29bfebe9b603f1e87ec8af4a564b949887`。65-block原独立SOURCE_CLEAR_ONLY与最终964f的PLAN_ONLY_CLEAR均沿用未变输入，其报告hash在receipt。A helper34946 Gitbytes/SHA `a8fb615105fe538b05e200d83c2c9895c80550c16f07c3abf8b3cfaaf45f4f7c`、sanitizer1.1.0/serializer1.0.0维持；不重新source65审核/raw获取/A投影/旧26/tail53或42纯字符串controls执行。
+
+原source corrected RED为18tests、6PASS/12trueFAIL、776.1531ms；原26 synthetic baseline18PASS/8RED、844.8042ms；review-tail53PASS为42纯字符串+11新增parse-onlynegatives、736.9922ms。历史结果保持原性质，不能当本candidate运行。Source oracle未改，test-only whole-formula helper1934 bytes/SHA `ec7cd2e84643b796ce1c72d39e7c49d976008a517b5caf445204ed0b67489b95`未变。
+
+## 根因与最小实现
+
+原adapter没有typed保护plain whole-parenthesized native chemical group，Defuddle后的outer SUB变成孤立math fragment，原strict validator正确拒绝。本次新增私有 `collectParenthesizedChemicalGroupRun`，复用existing range.tex、scientific marker、Defuddle与renderers；只消费完整合格direct text/native positive-integer SUB range。单个非嵌套group保留roman atom/ligand字体、完整prefix/suffix、inner/outer不同owner与源顺序。短lowercase ligand只在已有element-led prefix及原native prefix atomSUB时接纳；没有article/prose/formula allowlist或化学意义推断。
+
+Unicode whitespace/punctuation边界（排除underscore）及parent起止、真正typed citation是允许的边缘；Unicode L/N/M/_和astral邻接、未知span/comment/wrapper、额外script、untyped anchor保守拒绝。code/pre/MathML/MathJax/equation与跨siblings的literal math/code保持opaque。一个完整range可能跨此前inner SUB，故既有loop在成功替换后以range.restartIndex返回range起点后的实际位置，保持之后registry的source order和非零shared indices，不另建marker列表。
+
+初次candidate boundary漏接正文原标点 `(`，因此Pb/Fe真实roles各三方言以及三个math validators仍失败；CD role和全部37 synthetic已通过。修正仅恢复已独立审过的Unicode punctuation边界，源fixture/oracle/harness不改。原失败保存为 `focus-first`，不改写为GREEN。
+
+原source harness改为guards先于动态生产导入、默认始终fresh三方言，无cache读取。Defuddle持有第一DOMParser时整个batch维持全部真实窗口存活，batch结束统一关闭，after检查ledger并finally恢复所有network bindings及10个DOMglobal descriptors。原18注册与全部科学/普通compatibility断言保留；sharedwhole-formula oracle比较exact完整math atom/Unicode token，不以readable flattening证明group。
+
+## 实际focused命令与封存结果
+
+外部根：`C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b`。Node `v24.14.1`，executable `C:/nvm4w/nodejs/node.exe`。实际argv：
+
+`node --test --test-reporter=tap test/nature-chemical-group-index.test.mjs test/nature-chemical-group-index-preproduction.test.mjs`
+
+Child-only env为 `CHEMICAL_GROUP_RECEIPT_ROOT=<root>/focus-corrected`、`CHEMICAL_GROUP_SYNTHETIC_SCOPE=all`、`CHEMICAL_GROUP_SYNTHETIC_RECEIPT=<root>/focus-corrected/synthetic-observations.json`；移除 `CHEMICAL_GROUP_CACHE_ROOT` 与 `CHEMICAL_GROUP_SNAPSHOT_ROOT`。精确参数/env/current physical input hashes及pre/post身份全在receipt。
+
+| 实际执行 | PID | UTC start → finish | Exit / tests | TAP duration |
+| --- | ---: | --- | --- | ---: |
+| focus-first | 52188 | 2026-10-08T23:46:02.021Z → 2026-10-08T23:46:12.088Z | 1 / 55：46PASS、9FAIL | 10021.3853 ms |
+| focus-corrected | 51632 | 2026-10-08T23:46:43.543Z → 2026-10-08T23:46:45.260Z | 0 / 55：55PASS、0FAIL | 1671.3758 ms |
+
+两次均0skip/cancel/todo。Corrected真实18项覆盖3source roles×3方言、4unchanged validators、bold sequence、ordinary counts/6NMR isotope atoms/原measurement、typed citations与37references/bibliography、Fig2/3/MOESM1与exact warning `No equation nodes were detected.`。没有table/display equation。Synthetic37比较全部ordered scientificRuns+完整TeX/marker唯一性，包括mixed body/caption全部8roles的shared indices0–7、existing inlineMath与2typed citations。
+
+Corrected real3clip windows打开3/关闭3，source DOM2/2；11HTTP/DNS guarded methods，attempts `[]`、restoredBindings/restoredDomGlobals均true。Synthetic37actual parse windows37/37，0clips/sourceReads/sourceAudits，独立HTTP/DNS ledger `[]`且bindings/descriptors恢复true。Writer proof是 `clipNature` 返回模型而未调用writer的static callgraph，不声称writer spy。
+
+复用own ignored junction只读dependencies，实际resolved `C:/Users/guoli/.codex/worktrees/issue-10-bug-reference-literal/academic-clipper/node_modules`，没有install/write-through/升级；lock/package/golden/source与54项实际run pre/post及当前physical身份相等。Git LF与physical CRLF身份分别记录，不混淆。此恢复仅读闭合证据并写两docs/提交，0新增test/parse/clip/sourceaudit/A/install。
+
+Corrected外部文件身份（first全部文件同样在machine保留；不提交生成Markdown/full result）：
+
+| 文件 | Bytes | SHA-256 |
+| --- | ---: | --- |
+| command-inputs.json | 10086 | `6f04e8d21d61f263e65751da9e2b055c36bc6176cc92eb3369ac9b3860ae0af5` |
+| exit.json | 9584 | `8fa4e4cd6f38d2bbf15a7a85b4a5420b639991a703f21e92dadb3b4fe8e5b231` |
+| focus.log | 11481 | `87d2d609b804b545da1ffc9a3c8f7f61388d9ddab4942336035048fd6fc2b606` |
+| links.md | 18454 | `cfb7833a7d2e9d29da38100b7bdfb9bc4e3ee794bc1a5fb693085bcb9af7d955` |
+| links.result.json | 156400 | `1a669060094a52a90675d43c9b4b583bba306e1c866e523e4b641e1d98367b47` |
+| markdown.md | 17665 | `1378d9758092f396944bb2bd62fa9b29665cef57966312a9597e7e47dc542586` |
+| markdown.result.json | 152414 | `3f207b5780695bd5fc82889fee655261d8ce833bfdb7b80e2dcb7ff8ddda9cb8` |
+| network-ledger.json | 330 | `912eac19fcde4785e4c90992f9b60e1919fffcdf83402fd285b32e201382ee13` |
+| process.json | 326 | `24f9661b551d5aaae01794b581a6e552e5facacf13600c6ec913a3e472ab1149` |
+| quarto.md | 9502 | `8fcc36bcf53fdf2a262b424fb436c45615c05be9e28aedeaa71265a5172216e7` |
+| quarto.result.json | 136249 | `bb8ad6daf71b6fa9970cd5c9b433e69cc68390d27a42b3a26059fd091793ece6` |
+| synthetic-observations.json | 18304 | `ff1e3d2a24b162e647651c88852c4daee7a43ae6fce7f7c45cbe97c4fd33b94d` |
+
+## 尚未完成的gate与消费者
+
+Root应先对稳定clean/pushed head安排不同作者implementation review：finitegrammar、restartIndex/owner/order、typedcitation/opaque/unknown边界、完整sourceoracle与已封存lifecycle。此后明确释放一次affected suite、一次canonical `npm test`、`npm run build`、只读 `npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto`；full-suite仍必须真实执行，不能被历史42controls或本focused代替。随后DOC_ONLYpublication、一份 `Refs #74` PR、最终exact-head独审、fresh三平台CI/Secrets、root十gate与match-head squash merge、merged-main成功接纳。当前全部这些为NOT_RUN/PENDING，无PR/CIwatch/merge/manualIssueclose。
+
+Agent C必须等#74 merged-main接纳后消费原B whole Chemistry，#73独立Δ修复已在accepted main；本minimal excerpt的55PASS不证明current wholeChemistry/255corpus通过。范围不扩展为nested/wrapped/fractionalcounts/charge/hydrate/generalchemicalparser。B/C/D、validators/security/writer、dependencies/golden、canonical/PRD/EDD都未改变，无specchange proposal。Merge仅接纳代码，成功merged commit Main CI与既有automation才完成Work Contract；Issue #10保持未完成。

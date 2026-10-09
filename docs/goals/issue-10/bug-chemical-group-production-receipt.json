@@ -1,0 +1,3332 @@
+{
+  "version": "chemical-group-production-handoff/1.0",
+  "status": "FOCUSED_CLEAR_IMPLEMENTATION_REVIEW_PENDING",
+  "acceptedMain": "497b303250d6918d58575f9b8df3fddaa43b7f2d",
+  "adoptionHead": "8b10643e562b71697eaa4dba51dd955798254890",
+  "codeHead": "754c4d2889a0c6b46072cbccffbbe44e1b1381ef",
+  "codeTree": "10b4d334d2d05bd2741665e2d16a81822f145acd",
+  "branch": "codex/issue-10-bug-chemical-group-index",
+  "worktree": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemical-group-index/academic-clipper",
+  "orderedAuthoredCommits": [
+    "4871f9779ceddcad05afd724e7cede3433b245d5",
+    "dfd32f5b54b0f34f0de9571b492dadaff8692b3a",
+    "5d4347a532d8f349e354a220de36914d7716e084",
+    "8ddd4f1b806b9a72e3552d75070f30b5c919ac29",
+    "56f45db6962d512fd9ac82bc7aadef7a9cb696df",
+    "964f6436127b8d53d8e2ae7b9911552e37e465c1",
+    "754c4d2889a0c6b46072cbccffbbe44e1b1381ef"
+  ],
+  "authoredFiles": [
+    {
+      "path": "src/adapters/nature.mjs",
+      "gitBlob": "de4fc34e1c10d62b46b9dcd88da98cc110d21a9a",
+      "gitBytes": 62318,
+      "gitSha256": "e88cc6b1afa136dec9dc13dc44e3321de9d5f94e86a51f578518808487e09b4c",
+      "physical": {
+        "path": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemical-group-index/academic-clipper/src/adapters/nature.mjs",
+        "bytes": 63771,
+        "sha256": "ded67b34d20060a862b93ef49cefca82df3b88b0875a6e74464e9dcaa21256a5"
+      }
+    },
+    {
+      "path": "test/nature-chemical-group-index.test.mjs",
+      "gitBlob": "36059601e1fcdc3a5dfa5d5ba20f3452d157a490",
+      "gitBytes": 11028,
+      "gitSha256": "bda27aed61b1d1522b26e92f4654ef865e41e7d657d9b8f95a33f59f383a9f49",
+      "physical": {
+        "path": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemical-group-index/academic-clipper/test/nature-chemical-group-index.test.mjs",
+        "bytes": 11028,
+        "sha256": "bda27aed61b1d1522b26e92f4654ef865e41e7d657d9b8f95a33f59f383a9f49"
+      }
+    }
+  ],
+  "currentInputs": [
+    {
+      "path": "package-lock.json",
+      "bytes": 32599,
+      "sha256": "5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef42a7a1"
+    },
+    {
+      "path": "package.json",
+      "bytes": 811,
+      "sha256": "70730641b447be2c08db2b7ecd9354c1ba426f10195b2e2e8528de54fcc41d9a"
+    },
+    {
+      "path": "papers/s41586-026-10401-1/debug.json",
+      "bytes": 10955,
+      "sha256": "85f6478e8bfc7b395ec310f2897617fa1e209c8614486c60beafeb622db0a8c5"
+    },
+    {
+      "path": "papers/s41586-026-10401-1/figures/fig1.webp",
+      "bytes": 49630,
+      "sha256": "81e587ee56dc9eca4dc088c513fd7668ee189c42dcae2ffe722c865347069fc8"
+    },
+    {
+      "path": "papers/s41586-026-10401-1/figures/fig2.webp",
+      "bytes": 29826,
+      "sha256": "320f625b06577492a61e094f810c576cf013c3a1b39251f10b5fabf9d25d4713"
+    },
+    {
+      "path": "papers/s41586-026-10401-1/figures/fig3.webp",
+      "bytes": 38546,
+      "sha256": "28033ea3a0a8da6c1b98c39dbcf92ca304f65cfa52e0d06df70b74736af8841d"
+    },
+    {
+      "path": "papers/s41586-026-10401-1/figures/fig4.jpg",
+      "bytes": 49049,
+      "sha256": "c0cf5cd9efb083280b026b22f5a426643b8211e03f5fe57e28bcc1b306ce5e38"
+    },
+    {
+      "path": "papers/s41586-026-10401-1/figures/fig5.jpg",
+      "bytes": 49427,
+      "sha256": "4f29f68cadc51e31651a2504fcd479162de15fcb0a1a5bdfa01f80cacb7ab25a"
+    },
+    {
+      "path": "papers/s41586-026-10401-1/figures/fig6.jpg",
+      "bytes": 44566,
+      "sha256": "7006478d43ec6f9fbf2109c17a8671e48566c0aec99d3183fbeee69bedb25ef4"
+    },
+    {
+      "path": "papers/s41586-026-10401-1/figures/fig7.jpg",
+      "bytes": 47151,
+      "sha256": "4b3b34928752fdd70b116908b7db82071f11013211b6327f2e0c4844ee047ac3"
+    },
+    {
+      "path": "papers/s41586-026-10401-1/index.md",
+      "bytes": 65059,
+      "sha256": "33caa4997c92c8cd7d40581db3e589c260ee5d70c4bded9b2e8c981b43cffaf5"
+    },
+    {
+      "path": "src/adapters/aaas.mjs",
+      "bytes": 21207,
+      "sha256": "c52678918e22c126d9a0ff128a044fab9cd4f1995ad023f588f00fa66f50946c"
+    },
+    {
+      "path": "src/adapters/aip.mjs",
+      "bytes": 15429,
+      "sha256": "1593d3b34850c5a282829aff393ac0ac4695f257adff62860fd3f8cced3d9298"
+    },
+    {
+      "path": "src/adapters/iop.mjs",
+      "bytes": 20595,
+      "sha256": "0e633803180532090015014db7eaf98534a2e021ce155f6a4de881ba6bd26611"
+    },
+    {
+      "path": "src/adapters/nature.mjs",
+      "bytes": 63771,
+      "sha256": "ded67b34d20060a862b93ef49cefca82df3b88b0875a6e74464e9dcaa21256a5"
+    },
+    {
+      "path": "src/adapters/pnas.mjs",
+      "bytes": 13186,
+      "sha256": "e7bd7b1409cdf31bb50844d016bf1953e18e82883fc03980877a601e57845bae"
+    },
+    {
+      "path": "src/adapters/rsc.mjs",
+      "bytes": 16616,
+      "sha256": "1a54fe1c2b4280c44d4b33a1f86597dd19a6f1172ec2b887c3cf64bde8e2c1cd"
+    },
+    {
+      "path": "src/adapters/sciopen.mjs",
+      "bytes": 16747,
+      "sha256": "75820995ce0c3e6856f2b3c2e6a541e0a9634fa4db2db1345c870265693a01ea"
+    },
+    {
+      "path": "src/adapters/wiley-clip.mjs",
+      "bytes": 3903,
+      "sha256": "1069a037f4c69492c85f9878fbafc6c4c852578098a371275728c0dbccda8f2c"
+    },
+    {
+      "path": "src/adapters/wiley.mjs",
+      "bytes": 16387,
+      "sha256": "afcc9e70bd505395d8d15561d452fc94430f190b93632335e8ffb1a45b43eaca"
+    },
+    {
+      "path": "src/article-fetch.mjs",
+      "bytes": 3263,
+      "sha256": "e779fcfe477909c86a3260154190bb19dc57d677787d85028b41f42b8e32cf66"
+    },
+    {
+      "path": "src/bridge.mjs",
+      "bytes": 8468,
+      "sha256": "be81cb8de7240731c6ee470d43c1e055ba430b0ab8bb03c30ed34be7a33830ec"
+    },
+    {
+      "path": "src/build.mjs",
+      "bytes": 792,
+      "sha256": "4bcc8c82a594d230bff2ff2dbbda4ee5cb07c00013a59502854e6b92b86bd6ef"
+    },
+    {
+      "path": "src/cli.mjs",
+      "bytes": 2304,
+      "sha256": "74f72ccc7aaebf52dc1c8a8c94924abc7abe9a26909e63d6b3ac2ab01b1f66b0"
+    },
+    {
+      "path": "src/clip.mjs",
+      "bytes": 41240,
+      "sha256": "7f10fdd09c52528b5228433f3c84aa8bcef12d3bc63cc7c03005f233a325b134"
+    },
+    {
+      "path": "src/dom-runtime.mjs",
+      "bytes": 1489,
+      "sha256": "45778aff5794d548af5a467d1eab17e62eda61796cf18254ccacd32d1158c198"
+    },
+    {
+      "path": "src/experimental/rsc-clip.mjs",
+      "bytes": 4579,
+      "sha256": "f65b936498cd67a9a2d912dcebca5effd72f965877cce87801ad1e71d868418a"
+    },
+    {
+      "path": "src/launcher.cs",
+      "bytes": 3222,
+      "sha256": "16b93e04ef388cbcfe3f44cfbb04108d83476a20390ef04763feffe3b571afe7"
+    },
+    {
+      "path": "src/launcher.mjs",
+      "bytes": 13550,
+      "sha256": "c28e501ca37f7b6fcc59ec2ee9153d737891220d387d611a5c69f10ba291fea3"
+    },
+    {
+      "path": "src/markdown.mjs",
+      "bytes": 1097,
+      "sha256": "ef4859276c23e1442de315d418347f5881164c47d1eebb58e5d6322d7a918416"
+    },
+    {
+      "path": "src/normalizers/academic-inline.mjs",
+      "bytes": 13414,
+      "sha256": "1a7e380ee2d0836533e8d7621a9d7ef4dfdfe1c43583d64abb11d4d2c3e77ce0"
+    },
+    {
+      "path": "src/normalizers/citations.mjs",
+      "bytes": 4463,
+      "sha256": "d46831bac833d3f7fc70ec03aaf3c16323814aabae34a48cd1d3c1598caed201"
+    },
+    {
+      "path": "src/normalizers/figures.mjs",
+      "bytes": 16260,
+      "sha256": "e3cb06038756a38649633cd3612edcbeca515c370dc238836cf472b6530bb8d2"
+    },
+    {
+      "path": "src/normalizers/markers.mjs",
+      "bytes": 131,
+      "sha256": "f94d063d5a0849f117b6633bf12db01588a5d6d9104ebe933eedc01c87605afc"
+    },
+    {
+      "path": "src/normalizers/math.mjs",
+      "bytes": 3771,
+      "sha256": "e646de6497838580b47d31f65ee5b50ae2f03ec3137cace1fe8225af528d1089"
+    },
+    {
+      "path": "src/pnas-clip.mjs",
+      "bytes": 5571,
+      "sha256": "7d4c52feec43db6ae9643f5d23690094767cc85036971ce42dd49d204acf89bf"
+    },
+    {
+      "path": "src/renderers/output-policy.mjs",
+      "bytes": 1027,
+      "sha256": "92d7239d5613cd8e812f7ebffb8066e19a15d180b3950d6b68130ac77233c30a"
+    },
+    {
+      "path": "src/security.mjs",
+      "bytes": 7094,
+      "sha256": "d0b8f1278532db6251e50640d2503cca1772e09c5889fb981798cb753934b0db"
+    },
+    {
+      "path": "src/validate-paper.mjs",
+      "bytes": 2166,
+      "sha256": "5fa1736ef4c72aed4bb6350b780cd0a8ada6b3ec472902681d95da589872d5d1"
+    },
+    {
+      "path": "src/validators/citation-style.mjs",
+      "bytes": 1267,
+      "sha256": "c2d511dc22296d1f56eb138c5ad7d8d4b3b43c587f51461972fe397769a099a7"
+    },
+    {
+      "path": "src/validators/cross-references.mjs",
+      "bytes": 3933,
+      "sha256": "ed0a5f751a018fe7859a880949376c7fa8390aacdf85b2565a804a395753bf5e"
+    },
+    {
+      "path": "src/validators/html-audit.mjs",
+      "bytes": 4005,
+      "sha256": "c3eb1d382f4742aaf825d186fc793bb1f4c1aa7ce6e7fdcd56bbaa320b8202fa"
+    },
+    {
+      "path": "src/validators/markdown-structure.mjs",
+      "bytes": 6179,
+      "sha256": "302303cf9fc724c9c5677ae84f3dd840ebe7a62aeee7e5eed00950d135b177a2"
+    },
+    {
+      "path": "src/validators/math-delimiters.mjs",
+      "bytes": 9885,
+      "sha256": "87d19d2bf51c4f5da87cd7d6aaf352595be537f9d1e6c28620e13701f5279284"
+    },
+    {
+      "path": "src/version.mjs",
+      "bytes": 163,
+      "sha256": "377d26da1e0336fa86ee757012a50fdd37b8868530929b59ec1a41d1be300e3b"
+    },
+    {
+      "path": "test/chemical-group-output-oracle.test.mjs",
+      "bytes": 3761,
+      "sha256": "d71716ff7c2984a9fa05af2996d39c105f5ec1b013912a1a8a3aab560653bf8a"
+    },
+    {
+      "path": "test/fixtures/nature-chemical-group-index/.gitattributes",
+      "bytes": 54,
+      "sha256": "5d79bb2a081b2fef3aaf02a5a35109a2b2425039aa9415ab11b747762a61eb74"
+    },
+    {
+      "path": "test/fixtures/nature-chemical-group-index/README.md",
+      "bytes": 3563,
+      "sha256": "383e1998bea93ffa68cf86dc79025f6215f5752008ec61ed92351907e28662f2"
+    },
+    {
+      "path": "test/fixtures/nature-chemical-group-index/diagnosis.json",
+      "bytes": 32460,
+      "sha256": "4b178707f39e5dac50bd270f5fc18721856a328b3feccdec3e5b92a664c92360"
+    },
+    {
+      "path": "test/fixtures/nature-chemical-group-index/s41467-023-44030-3.excerpt.html",
+      "bytes": 72722,
+      "sha256": "a8c10a9e583c640a3adb41cf7a55f3c1a4d1a7f7b8f88b7d370afaa969c8079b"
+    },
+    {
+      "path": "test/fixtures/nature-chemical-group-index/s41467-023-44030-3.provenance.json",
+      "bytes": 59160,
+      "sha256": "428ffafc1558ba0b07dadd0f48f44f29bfebe9b603f1e87ec8af4a564b949887"
+    },
+    {
+      "path": "test/helpers/chemical-group-output-oracle.mjs",
+      "bytes": 1934,
+      "sha256": "ec7cd2e84643b796ce1c72d39e7c49d976008a517b5caf445204ed0b67489b95"
+    },
+    {
+      "path": "test/nature-chemical-group-index-preproduction.test.mjs",
+      "bytes": 11137,
+      "sha256": "ca74888a2871c12fc6355d46f89ff9be3af89e7e9dc7f5459a18e2204bd42748"
+    },
+    {
+      "path": "test/nature-chemical-group-index.test.mjs",
+      "bytes": 11028,
+      "sha256": "bda27aed61b1d1522b26e92f4654ef865e41e7d657d9b8f95a33f59f383a9f49"
+    }
+  ],
+  "currentInputCount": 54,
+  "firstCandidate": {
+    "command": {
+      "version": "chemical-group-candidate/1.0",
+      "acceptedMain": "497b303250d6918d58575f9b8df3fddaa43b7f2d",
+      "adoptionHead": "8b10643e562b71697eaa4dba51dd955798254890",
+      "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemical-group-index/academic-clipper",
+      "node": "v24.14.1",
+      "executable": "C:\\nvm4w\\nodejs\\node.exe",
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "test/nature-chemical-group-index.test.mjs",
+        "test/nature-chemical-group-index-preproduction.test.mjs"
+      ],
+      "childOnlyEnv": {
+        "CHEMICAL_GROUP_RECEIPT_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-first",
+        "CHEMICAL_GROUP_SYNTHETIC_SCOPE": "all",
+        "CHEMICAL_GROUP_SYNTHETIC_RECEIPT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue74-production-497b\\focus-first\\synthetic-observations.json"
+      },
+      "removedEnv": [
+        "CHEMICAL_GROUP_CACHE_ROOT",
+        "CHEMICAL_GROUP_SNAPSHOT_ROOT"
+      ],
+      "dependencyRealpath": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-reference-literal\\academic-clipper\\node_modules",
+      "before": [
+        {
+          "path": "package-lock.json",
+          "bytes": 32599,
+          "sha256": "5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef42a7a1"
+        },
+        {
+          "path": "package.json",
+          "bytes": 811,
+          "sha256": "70730641b447be2c08db2b7ecd9354c1ba426f10195b2e2e8528de54fcc41d9a"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/debug.json",
+          "bytes": 10955,
+          "sha256": "85f6478e8bfc7b395ec310f2897617fa1e209c8614486c60beafeb622db0a8c5"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig1.webp",
+          "bytes": 49630,
+          "sha256": "81e587ee56dc9eca4dc088c513fd7668ee189c42dcae2ffe722c865347069fc8"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig2.webp",
+          "bytes": 29826,
+          "sha256": "320f625b06577492a61e094f810c576cf013c3a1b39251f10b5fabf9d25d4713"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig3.webp",
+          "bytes": 38546,
+          "sha256": "28033ea3a0a8da6c1b98c39dbcf92ca304f65cfa52e0d06df70b74736af8841d"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig4.jpg",
+          "bytes": 49049,
+          "sha256": "c0cf5cd9efb083280b026b22f5a426643b8211e03f5fe57e28bcc1b306ce5e38"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig5.jpg",
+          "bytes": 49427,
+          "sha256": "4f29f68cadc51e31651a2504fcd479162de15fcb0a1a5bdfa01f80cacb7ab25a"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig6.jpg",
+          "bytes": 44566,
+          "sha256": "7006478d43ec6f9fbf2109c17a8671e48566c0aec99d3183fbeee69bedb25ef4"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig7.jpg",
+          "bytes": 47151,
+          "sha256": "4b3b34928752fdd70b116908b7db82071f11013211b6327f2e0c4844ee047ac3"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/index.md",
+          "bytes": 65059,
+          "sha256": "33caa4997c92c8cd7d40581db3e589c260ee5d70c4bded9b2e8c981b43cffaf5"
+        },
+        {
+          "path": "src/adapters/aaas.mjs",
+          "bytes": 21207,
+          "sha256": "c52678918e22c126d9a0ff128a044fab9cd4f1995ad023f588f00fa66f50946c"
+        },
+        {
+          "path": "src/adapters/aip.mjs",
+          "bytes": 15429,
+          "sha256": "1593d3b34850c5a282829aff393ac0ac4695f257adff62860fd3f8cced3d9298"
+        },
+        {
+          "path": "src/adapters/iop.mjs",
+          "bytes": 20595,
+          "sha256": "0e633803180532090015014db7eaf98534a2e021ce155f6a4de881ba6bd26611"
+        },
+        {
+          "path": "src/adapters/nature.mjs",
+          "bytes": 63771,
+          "sha256": "958d8b0269650f72ee9ff63056cbbb9acebbed7207f280480fe892ed8976444b"
+        },
+        {
+          "path": "src/adapters/pnas.mjs",
+          "bytes": 13186,
+          "sha256": "e7bd7b1409cdf31bb50844d016bf1953e18e82883fc03980877a601e57845bae"
+        },
+        {
+          "path": "src/adapters/rsc.mjs",
+          "bytes": 16616,
+          "sha256": "1a54fe1c2b4280c44d4b33a1f86597dd19a6f1172ec2b887c3cf64bde8e2c1cd"
+        },
+        {
+          "path": "src/adapters/sciopen.mjs",
+          "bytes": 16747,
+          "sha256": "75820995ce0c3e6856f2b3c2e6a541e0a9634fa4db2db1345c870265693a01ea"
+        },
+        {
+          "path": "src/adapters/wiley-clip.mjs",
+          "bytes": 3903,
+          "sha256": "1069a037f4c69492c85f9878fbafc6c4c852578098a371275728c0dbccda8f2c"
+        },
+        {
+          "path": "src/adapters/wiley.mjs",
+          "bytes": 16387,
+          "sha256": "afcc9e70bd505395d8d15561d452fc94430f190b93632335e8ffb1a45b43eaca"
+        },
+        {
+          "path": "src/article-fetch.mjs",
+          "bytes": 3263,
+          "sha256": "e779fcfe477909c86a3260154190bb19dc57d677787d85028b41f42b8e32cf66"
+        },
+        {
+          "path": "src/bridge.mjs",
+          "bytes": 8468,
+          "sha256": "be81cb8de7240731c6ee470d43c1e055ba430b0ab8bb03c30ed34be7a33830ec"
+        },
+        {
+          "path": "src/build.mjs",
+          "bytes": 792,
+          "sha256": "4bcc8c82a594d230bff2ff2dbbda4ee5cb07c00013a59502854e6b92b86bd6ef"
+        },
+        {
+          "path": "src/cli.mjs",
+          "bytes": 2304,
+          "sha256": "74f72ccc7aaebf52dc1c8a8c94924abc7abe9a26909e63d6b3ac2ab01b1f66b0"
+        },
+        {
+          "path": "src/clip.mjs",
+          "bytes": 41240,
+          "sha256": "7f10fdd09c52528b5228433f3c84aa8bcef12d3bc63cc7c03005f233a325b134"
+        },
+        {
+          "path": "src/dom-runtime.mjs",
+          "bytes": 1489,
+          "sha256": "45778aff5794d548af5a467d1eab17e62eda61796cf18254ccacd32d1158c198"
+        },
+        {
+          "path": "src/experimental/rsc-clip.mjs",
+          "bytes": 4579,
+          "sha256": "f65b936498cd67a9a2d912dcebca5effd72f965877cce87801ad1e71d868418a"
+        },
+        {
+          "path": "src/launcher.cs",
+          "bytes": 3222,
+          "sha256": "16b93e04ef388cbcfe3f44cfbb04108d83476a20390ef04763feffe3b571afe7"
+        },
+        {
+          "path": "src/launcher.mjs",
+          "bytes": 13550,
+          "sha256": "c28e501ca37f7b6fcc59ec2ee9153d737891220d387d611a5c69f10ba291fea3"
+        },
+        {
+          "path": "src/markdown.mjs",
+          "bytes": 1097,
+          "sha256": "ef4859276c23e1442de315d418347f5881164c47d1eebb58e5d6322d7a918416"
+        },
+        {
+          "path": "src/normalizers/academic-inline.mjs",
+          "bytes": 13414,
+          "sha256": "1a7e380ee2d0836533e8d7621a9d7ef4dfdfe1c43583d64abb11d4d2c3e77ce0"
+        },
+        {
+          "path": "src/normalizers/citations.mjs",
+          "bytes": 4463,
+          "sha256": "d46831bac833d3f7fc70ec03aaf3c16323814aabae34a48cd1d3c1598caed201"
+        },
+        {
+          "path": "src/normalizers/figures.mjs",
+          "bytes": 16260,
+          "sha256": "e3cb06038756a38649633cd3612edcbeca515c370dc238836cf472b6530bb8d2"
+        },
+        {
+          "path": "src/normalizers/markers.mjs",
+          "bytes": 131,
+          "sha256": "f94d063d5a0849f117b6633bf12db01588a5d6d9104ebe933eedc01c87605afc"
+        },
+        {
+          "path": "src/normalizers/math.mjs",
+          "bytes": 3771,
+          "sha256": "e646de6497838580b47d31f65ee5b50ae2f03ec3137cace1fe8225af528d1089"
+        },
+        {
+          "path": "src/pnas-clip.mjs",
+          "bytes": 5571,
+          "sha256": "7d4c52feec43db6ae9643f5d23690094767cc85036971ce42dd49d204acf89bf"
+        },
+        {
+          "path": "src/renderers/output-policy.mjs",
+          "bytes": 1027,
+          "sha256": "92d7239d5613cd8e812f7ebffb8066e19a15d180b3950d6b68130ac77233c30a"
+        },
+        {
+          "path": "src/security.mjs",
+          "bytes": 7094,
+          "sha256": "d0b8f1278532db6251e50640d2503cca1772e09c5889fb981798cb753934b0db"
+        },
+        {
+          "path": "src/validate-paper.mjs",
+          "bytes": 2166,
+          "sha256": "5fa1736ef4c72aed4bb6350b780cd0a8ada6b3ec472902681d95da589872d5d1"
+        },
+        {
+          "path": "src/validators/citation-style.mjs",
+          "bytes": 1267,
+          "sha256": "c2d511dc22296d1f56eb138c5ad7d8d4b3b43c587f51461972fe397769a099a7"
+        },
+        {
+          "path": "src/validators/cross-references.mjs",
+          "bytes": 3933,
+          "sha256": "ed0a5f751a018fe7859a880949376c7fa8390aacdf85b2565a804a395753bf5e"
+        },
+        {
+          "path": "src/validators/html-audit.mjs",
+          "bytes": 4005,
+          "sha256": "c3eb1d382f4742aaf825d186fc793bb1f4c1aa7ce6e7fdcd56bbaa320b8202fa"
+        },
+        {
+          "path": "src/validators/markdown-structure.mjs",
+          "bytes": 6179,
+          "sha256": "302303cf9fc724c9c5677ae84f3dd840ebe7a62aeee7e5eed00950d135b177a2"
+        },
+        {
+          "path": "src/validators/math-delimiters.mjs",
+          "bytes": 9885,
+          "sha256": "87d19d2bf51c4f5da87cd7d6aaf352595be537f9d1e6c28620e13701f5279284"
+        },
+        {
+          "path": "src/version.mjs",
+          "bytes": 163,
+          "sha256": "377d26da1e0336fa86ee757012a50fdd37b8868530929b59ec1a41d1be300e3b"
+        },
+        {
+          "path": "test/chemical-group-output-oracle.test.mjs",
+          "bytes": 3761,
+          "sha256": "d71716ff7c2984a9fa05af2996d39c105f5ec1b013912a1a8a3aab560653bf8a"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/.gitattributes",
+          "bytes": 54,
+          "sha256": "5d79bb2a081b2fef3aaf02a5a35109a2b2425039aa9415ab11b747762a61eb74"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/README.md",
+          "bytes": 3563,
+          "sha256": "383e1998bea93ffa68cf86dc79025f6215f5752008ec61ed92351907e28662f2"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/diagnosis.json",
+          "bytes": 32460,
+          "sha256": "4b178707f39e5dac50bd270f5fc18721856a328b3feccdec3e5b92a664c92360"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/s41467-023-44030-3.excerpt.html",
+          "bytes": 72722,
+          "sha256": "a8c10a9e583c640a3adb41cf7a55f3c1a4d1a7f7b8f88b7d370afaa969c8079b"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/s41467-023-44030-3.provenance.json",
+          "bytes": 59160,
+          "sha256": "428ffafc1558ba0b07dadd0f48f44f29bfebe9b603f1e87ec8af4a564b949887"
+        },
+        {
+          "path": "test/helpers/chemical-group-output-oracle.mjs",
+          "bytes": 1934,
+          "sha256": "ec7cd2e84643b796ce1c72d39e7c49d976008a517b5caf445204ed0b67489b95"
+        },
+        {
+          "path": "test/nature-chemical-group-index-preproduction.test.mjs",
+          "bytes": 11137,
+          "sha256": "ca74888a2871c12fc6355d46f89ff9be3af89e7e9dc7f5459a18e2204bd42748"
+        },
+        {
+          "path": "test/nature-chemical-group-index.test.mjs",
+          "bytes": 11028,
+          "sha256": "bda27aed61b1d1522b26e92f4654ef865e41e7d657d9b8f95a33f59f383a9f49"
+        }
+      ]
+    },
+    "exit": {
+      "status": 1,
+      "signal": null,
+      "pid": 52188,
+      "startedAt": "2026-10-08T23:46:02.021Z",
+      "finishedAt": "2026-10-08T23:46:12.088Z",
+      "processDurationMs": 10066.02,
+      "counts": {
+        "tests": 55,
+        "pass": 46,
+        "fail": 9,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 10021.3853
+      },
+      "log": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue74-production-497b\\focus-first\\focus.log",
+        "bytes": 24886,
+        "sha256": "6aeb319dd905118af2667933149921af96efb425551d4845b62bdf850a773080"
+      },
+      "unchangedInputs": true,
+      "after": [
+        {
+          "path": "package-lock.json",
+          "bytes": 32599,
+          "sha256": "5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef42a7a1"
+        },
+        {
+          "path": "package.json",
+          "bytes": 811,
+          "sha256": "70730641b447be2c08db2b7ecd9354c1ba426f10195b2e2e8528de54fcc41d9a"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/debug.json",
+          "bytes": 10955,
+          "sha256": "85f6478e8bfc7b395ec310f2897617fa1e209c8614486c60beafeb622db0a8c5"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig1.webp",
+          "bytes": 49630,
+          "sha256": "81e587ee56dc9eca4dc088c513fd7668ee189c42dcae2ffe722c865347069fc8"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig2.webp",
+          "bytes": 29826,
+          "sha256": "320f625b06577492a61e094f810c576cf013c3a1b39251f10b5fabf9d25d4713"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig3.webp",
+          "bytes": 38546,
+          "sha256": "28033ea3a0a8da6c1b98c39dbcf92ca304f65cfa52e0d06df70b74736af8841d"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig4.jpg",
+          "bytes": 49049,
+          "sha256": "c0cf5cd9efb083280b026b22f5a426643b8211e03f5fe57e28bcc1b306ce5e38"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig5.jpg",
+          "bytes": 49427,
+          "sha256": "4f29f68cadc51e31651a2504fcd479162de15fcb0a1a5bdfa01f80cacb7ab25a"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig6.jpg",
+          "bytes": 44566,
+          "sha256": "7006478d43ec6f9fbf2109c17a8671e48566c0aec99d3183fbeee69bedb25ef4"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig7.jpg",
+          "bytes": 47151,
+          "sha256": "4b3b34928752fdd70b116908b7db82071f11013211b6327f2e0c4844ee047ac3"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/index.md",
+          "bytes": 65059,
+          "sha256": "33caa4997c92c8cd7d40581db3e589c260ee5d70c4bded9b2e8c981b43cffaf5"
+        },
+        {
+          "path": "src/adapters/aaas.mjs",
+          "bytes": 21207,
+          "sha256": "c52678918e22c126d9a0ff128a044fab9cd4f1995ad023f588f00fa66f50946c"
+        },
+        {
+          "path": "src/adapters/aip.mjs",
+          "bytes": 15429,
+          "sha256": "1593d3b34850c5a282829aff393ac0ac4695f257adff62860fd3f8cced3d9298"
+        },
+        {
+          "path": "src/adapters/iop.mjs",
+          "bytes": 20595,
+          "sha256": "0e633803180532090015014db7eaf98534a2e021ce155f6a4de881ba6bd26611"
+        },
+        {
+          "path": "src/adapters/nature.mjs",
+          "bytes": 63771,
+          "sha256": "958d8b0269650f72ee9ff63056cbbb9acebbed7207f280480fe892ed8976444b"
+        },
+        {
+          "path": "src/adapters/pnas.mjs",
+          "bytes": 13186,
+          "sha256": "e7bd7b1409cdf31bb50844d016bf1953e18e82883fc03980877a601e57845bae"
+        },
+        {
+          "path": "src/adapters/rsc.mjs",
+          "bytes": 16616,
+          "sha256": "1a54fe1c2b4280c44d4b33a1f86597dd19a6f1172ec2b887c3cf64bde8e2c1cd"
+        },
+        {
+          "path": "src/adapters/sciopen.mjs",
+          "bytes": 16747,
+          "sha256": "75820995ce0c3e6856f2b3c2e6a541e0a9634fa4db2db1345c870265693a01ea"
+        },
+        {
+          "path": "src/adapters/wiley-clip.mjs",
+          "bytes": 3903,
+          "sha256": "1069a037f4c69492c85f9878fbafc6c4c852578098a371275728c0dbccda8f2c"
+        },
+        {
+          "path": "src/adapters/wiley.mjs",
+          "bytes": 16387,
+          "sha256": "afcc9e70bd505395d8d15561d452fc94430f190b93632335e8ffb1a45b43eaca"
+        },
+        {
+          "path": "src/article-fetch.mjs",
+          "bytes": 3263,
+          "sha256": "e779fcfe477909c86a3260154190bb19dc57d677787d85028b41f42b8e32cf66"
+        },
+        {
+          "path": "src/bridge.mjs",
+          "bytes": 8468,
+          "sha256": "be81cb8de7240731c6ee470d43c1e055ba430b0ab8bb03c30ed34be7a33830ec"
+        },
+        {
+          "path": "src/build.mjs",
+          "bytes": 792,
+          "sha256": "4bcc8c82a594d230bff2ff2dbbda4ee5cb07c00013a59502854e6b92b86bd6ef"
+        },
+        {
+          "path": "src/cli.mjs",
+          "bytes": 2304,
+          "sha256": "74f72ccc7aaebf52dc1c8a8c94924abc7abe9a26909e63d6b3ac2ab01b1f66b0"
+        },
+        {
+          "path": "src/clip.mjs",
+          "bytes": 41240,
+          "sha256": "7f10fdd09c52528b5228433f3c84aa8bcef12d3bc63cc7c03005f233a325b134"
+        },
+        {
+          "path": "src/dom-runtime.mjs",
+          "bytes": 1489,
+          "sha256": "45778aff5794d548af5a467d1eab17e62eda61796cf18254ccacd32d1158c198"
+        },
+        {
+          "path": "src/experimental/rsc-clip.mjs",
+          "bytes": 4579,
+          "sha256": "f65b936498cd67a9a2d912dcebca5effd72f965877cce87801ad1e71d868418a"
+        },
+        {
+          "path": "src/launcher.cs",
+          "bytes": 3222,
+          "sha256": "16b93e04ef388cbcfe3f44cfbb04108d83476a20390ef04763feffe3b571afe7"
+        },
+        {
+          "path": "src/launcher.mjs",
+          "bytes": 13550,
+          "sha256": "c28e501ca37f7b6fcc59ec2ee9153d737891220d387d611a5c69f10ba291fea3"
+        },
+        {
+          "path": "src/markdown.mjs",
+          "bytes": 1097,
+          "sha256": "ef4859276c23e1442de315d418347f5881164c47d1eebb58e5d6322d7a918416"
+        },
+        {
+          "path": "src/normalizers/academic-inline.mjs",
+          "bytes": 13414,
+          "sha256": "1a7e380ee2d0836533e8d7621a9d7ef4dfdfe1c43583d64abb11d4d2c3e77ce0"
+        },
+        {
+          "path": "src/normalizers/citations.mjs",
+          "bytes": 4463,
+          "sha256": "d46831bac833d3f7fc70ec03aaf3c16323814aabae34a48cd1d3c1598caed201"
+        },
+        {
+          "path": "src/normalizers/figures.mjs",
+          "bytes": 16260,
+          "sha256": "e3cb06038756a38649633cd3612edcbeca515c370dc238836cf472b6530bb8d2"
+        },
+        {
+          "path": "src/normalizers/markers.mjs",
+          "bytes": 131,
+          "sha256": "f94d063d5a0849f117b6633bf12db01588a5d6d9104ebe933eedc01c87605afc"
+        },
+        {
+          "path": "src/normalizers/math.mjs",
+          "bytes": 3771,
+          "sha256": "e646de6497838580b47d31f65ee5b50ae2f03ec3137cace1fe8225af528d1089"
+        },
+        {
+          "path": "src/pnas-clip.mjs",
+          "bytes": 5571,
+          "sha256": "7d4c52feec43db6ae9643f5d23690094767cc85036971ce42dd49d204acf89bf"
+        },
+        {
+          "path": "src/renderers/output-policy.mjs",
+          "bytes": 1027,
+          "sha256": "92d7239d5613cd8e812f7ebffb8066e19a15d180b3950d6b68130ac77233c30a"
+        },
+        {
+          "path": "src/security.mjs",
+          "bytes": 7094,
+          "sha256": "d0b8f1278532db6251e50640d2503cca1772e09c5889fb981798cb753934b0db"
+        },
+        {
+          "path": "src/validate-paper.mjs",
+          "bytes": 2166,
+          "sha256": "5fa1736ef4c72aed4bb6350b780cd0a8ada6b3ec472902681d95da589872d5d1"
+        },
+        {
+          "path": "src/validators/citation-style.mjs",
+          "bytes": 1267,
+          "sha256": "c2d511dc22296d1f56eb138c5ad7d8d4b3b43c587f51461972fe397769a099a7"
+        },
+        {
+          "path": "src/validators/cross-references.mjs",
+          "bytes": 3933,
+          "sha256": "ed0a5f751a018fe7859a880949376c7fa8390aacdf85b2565a804a395753bf5e"
+        },
+        {
+          "path": "src/validators/html-audit.mjs",
+          "bytes": 4005,
+          "sha256": "c3eb1d382f4742aaf825d186fc793bb1f4c1aa7ce6e7fdcd56bbaa320b8202fa"
+        },
+        {
+          "path": "src/validators/markdown-structure.mjs",
+          "bytes": 6179,
+          "sha256": "302303cf9fc724c9c5677ae84f3dd840ebe7a62aeee7e5eed00950d135b177a2"
+        },
+        {
+          "path": "src/validators/math-delimiters.mjs",
+          "bytes": 9885,
+          "sha256": "87d19d2bf51c4f5da87cd7d6aaf352595be537f9d1e6c28620e13701f5279284"
+        },
+        {
+          "path": "src/version.mjs",
+          "bytes": 163,
+          "sha256": "377d26da1e0336fa86ee757012a50fdd37b8868530929b59ec1a41d1be300e3b"
+        },
+        {
+          "path": "test/chemical-group-output-oracle.test.mjs",
+          "bytes": 3761,
+          "sha256": "d71716ff7c2984a9fa05af2996d39c105f5ec1b013912a1a8a3aab560653bf8a"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/.gitattributes",
+          "bytes": 54,
+          "sha256": "5d79bb2a081b2fef3aaf02a5a35109a2b2425039aa9415ab11b747762a61eb74"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/README.md",
+          "bytes": 3563,
+          "sha256": "383e1998bea93ffa68cf86dc79025f6215f5752008ec61ed92351907e28662f2"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/diagnosis.json",
+          "bytes": 32460,
+          "sha256": "4b178707f39e5dac50bd270f5fc18721856a328b3feccdec3e5b92a664c92360"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/s41467-023-44030-3.excerpt.html",
+          "bytes": 72722,
+          "sha256": "a8c10a9e583c640a3adb41cf7a55f3c1a4d1a7f7b8f88b7d370afaa969c8079b"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/s41467-023-44030-3.provenance.json",
+          "bytes": 59160,
+          "sha256": "428ffafc1558ba0b07dadd0f48f44f29bfebe9b603f1e87ec8af4a564b949887"
+        },
+        {
+          "path": "test/helpers/chemical-group-output-oracle.mjs",
+          "bytes": 1934,
+          "sha256": "ec7cd2e84643b796ce1c72d39e7c49d976008a517b5caf445204ed0b67489b95"
+        },
+        {
+          "path": "test/nature-chemical-group-index-preproduction.test.mjs",
+          "bytes": 11137,
+          "sha256": "ca74888a2871c12fc6355d46f89ff9be3af89e7e9dc7f5459a18e2204bd42748"
+        },
+        {
+          "path": "test/nature-chemical-group-index.test.mjs",
+          "bytes": 11028,
+          "sha256": "bda27aed61b1d1522b26e92f4654ef865e41e7d657d9b8f95a33f59f383a9f49"
+        }
+      ]
+    },
+    "process": {
+      "pid": 52188,
+      "startedAt": "2026-10-08T23:46:02.021Z",
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "test/nature-chemical-group-index.test.mjs",
+        "test/nature-chemical-group-index-preproduction.test.mjs"
+      ],
+      "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemical-group-index/academic-clipper"
+    },
+    "network": {
+      "attempts": [],
+      "realClipCalls": 3,
+      "clipWindowsOpened": 3,
+      "clipWindowsClosed": 3,
+      "sourceDomsOpened": 2,
+      "sourceDomsClosed": 2,
+      "guardedMethods": 11,
+      "restoredBindings": true,
+      "restoredDomGlobals": true,
+      "writerProof": "Static clipNature returns data without invoking writePaper; no writer spy claimed."
+    },
+    "synthetic": {
+      "version": "chemical-group-synthetic/1.0",
+      "observationCount": 37,
+      "statusCounts": {
+        "PASS": 37
+      },
+      "lifecycle": {
+        "attempts": [],
+        "parsedWindows": 37,
+        "closedWindows": 37,
+        "clips": 0,
+        "sourceReads": 0,
+        "sourceAudits": 0,
+        "synthetic": true,
+        "scope": "all",
+        "restoredNetworkBindings": true,
+        "restoredDomDescriptors": true
+      }
+    },
+    "results": [
+      {
+        "dialect": "markdown",
+        "metadata": {
+          "title": "C5 methylation confers accessibility, stability and selectivity to picrotoxinin",
+          "authors": [
+            "Tong, Guanghu",
+            "Griffin, Samantha",
+            "Sader, Avery",
+            "Crowell, Anna B.",
+            "Beavers, Ken",
+            "Watson, Jerry",
+            "Buchan, Zachary",
+            "Chen, Shuming",
+            "Shenvi, Ryan A."
+          ],
+          "journal": "Nature Communications",
+          "date": "2023-12-14",
+          "doi": "10.1038/s41467-023-44030-3",
+          "url": "https://www.nature.com/articles/s41467-023-44030-3",
+          "volume": "",
+          "issue": "",
+          "pages": "",
+          "metadataSource": "Nature citation_* meta tags, with JSON-LD fallback",
+          "authorInformation": {
+            "notes": [],
+            "affiliations": [],
+            "contributions": "",
+            "correspondence": null
+          },
+          "publisherNotes": []
+        },
+        "referenceCount": 37,
+        "figures": [
+          "Fig2",
+          "Fig3"
+        ],
+        "tables": [],
+        "displayMath": [],
+        "citations": [
+          [
+            21,
+            28,
+            29
+          ],
+          [
+            30
+          ],
+          [
+            31
+          ],
+          [
+            32
+          ],
+          [
+            33,
+            34
+          ],
+          [
+            35
+          ],
+          [
+            37
+          ]
+        ],
+        "warnings": [
+          "No equation nodes were detected."
+        ],
+        "validators": {
+          "mathValidation": {
+            "valid": false,
+            "inlineMathCount": 45,
+            "displayMathCount": 0,
+            "issues": [
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 27,
+                "column": 405,
+                "delimiter": "$",
+                "context": "…ation of the *gem* -dimethyl motif to the bridging lactone could be carried out in one step (Pb(OAc)$_{4}$, I$_{2}$, 31%) or two steps (AgOAc, I$_{2}$, 51%; RuCl$_{3}$, NaIO$_{4}$, 79%). The formation…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 35,
+                "column": 67,
+                "delimiter": "$",
+                "context": "6F12FPXN (**28**) arose via Boger hydrofluorination (Fe$_{2}$ (ox)$_{3}$, Selectfluor, NaBH$_{4}$) in 40% yield (accompanying alkene reduction byproduct **26**) but confounded assignment due to an une…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ],
+            "scientificFragments": {
+              "valid": false,
+              "counts": {
+                "isolatedSubscript": 2,
+                "isolatedSuperscript": 0,
+                "boldThenSubscript": 0,
+                "italicThenSuperscript": 0
+              },
+              "issues": [
+                {
+                  "type": "scientific-isolatedSubscript",
+                  "line": 27,
+                  "column": 405,
+                  "delimiter": "$",
+                  "context": "…ation of the *gem* -dimethyl motif to the bridging lactone could be carried out in one step (Pb(OAc)$_{4}$, I$_{2}$, 31%) or two steps (AgOAc, I$_{2}$, 51%; RuCl$_{3}$, NaIO$_{4}$, 79%). The formation…",
+                  "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSubscript",
+                  "line": 35,
+                  "column": 67,
+                  "delimiter": "$",
+                  "context": "6F12FPXN (**28**) arose via Boger hydrofluorination (Fe$_{2}$ (ox)$_{3}$, Selectfluor, NaBH$_{4}$) in 40% yield (accompanying alkene reduction byproduct **26**) but confounded assignment due to an une…",
+                  "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+                }
+              ]
+            },
+            "states": {
+              "TEXT": 17202,
+              "INLINE_MATH": 270,
+              "DISPLAY_MATH": 0,
+              "INLINE_CODE": 0,
+              "FENCED_CODE": 0
+            }
+          },
+          "rawHtmlValidation": {
+            "valid": true,
+            "violations": []
+          },
+          "markdownStructure": {
+            "valid": true,
+            "citationStyle": "markdown",
+            "sections": {
+              "references": {
+                "headingCount": 1,
+                "itemCount": 37,
+                "definitionCount": 37,
+                "anchorCount": 0,
+                "issues": []
+              },
+              "tables": {
+                "headingCount": 0,
+                "itemCount": 0,
+                "tableCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              }
+            },
+            "issues": []
+          },
+          "crossReferenceValidation": {
+            "valid": true,
+            "issues": [],
+            "targets": [
+              "c5-methylation-confers-accessibility-stability-and-selectivity-to-picrotoxinin",
+              "results",
+              "the-design-and-synthesis-of-picrotoxinin-analogs",
+              "methods",
+              "references"
+            ],
+            "links": []
+          }
+        },
+        "scientificRuns": [
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+            "tex": "^{19}F",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+            "tex": "J_{F,F}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+            "tex": "^{19}F",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN6X",
+            "tex": "(\\mathrm{CD}_{3})_{2}\\mathrm{CO}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN7X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN8X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN9X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN10X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          }
+        ]
+      },
+      {
+        "dialect": "links",
+        "metadata": {
+          "title": "C5 methylation confers accessibility, stability and selectivity to picrotoxinin",
+          "authors": [
+            "Tong, Guanghu",
+            "Griffin, Samantha",
+            "Sader, Avery",
+            "Crowell, Anna B.",
+            "Beavers, Ken",
+            "Watson, Jerry",
+            "Buchan, Zachary",
+            "Chen, Shuming",
+            "Shenvi, Ryan A."
+          ],
+          "journal": "Nature Communications",
+          "date": "2023-12-14",
+          "doi": "10.1038/s41467-023-44030-3",
+          "url": "https://www.nature.com/articles/s41467-023-44030-3",
+          "volume": "",
+          "issue": "",
+          "pages": "",
+          "metadataSource": "Nature citation_* meta tags, with JSON-LD fallback",
+          "authorInformation": {
+            "notes": [],
+            "affiliations": [],
+            "contributions": "",
+            "correspondence": null
+          },
+          "publisherNotes": []
+        },
+        "referenceCount": 37,
+        "figures": [
+          "Fig2",
+          "Fig3"
+        ],
+        "tables": [],
+        "displayMath": [],
+        "citations": [
+          [
+            21,
+            28,
+            29
+          ],
+          [
+            30
+          ],
+          [
+            31
+          ],
+          [
+            32
+          ],
+          [
+            33,
+            34
+          ],
+          [
+            35
+          ],
+          [
+            37
+          ]
+        ],
+        "warnings": [
+          "No equation nodes were detected."
+        ],
+        "validators": {
+          "mathValidation": {
+            "valid": false,
+            "inlineMathCount": 45,
+            "displayMathCount": 0,
+            "issues": [
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 27,
+                "column": 418,
+                "delimiter": "$",
+                "context": "…ation of the *gem* -dimethyl motif to the bridging lactone could be carried out in one step (Pb(OAc)$_{4}$, I$_{2}$, 31%) or two steps (AgOAc, I$_{2}$, 51%; RuCl$_{3}$, NaIO$_{4}$, 79%). The formation…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 36,
+                "column": 67,
+                "delimiter": "$",
+                "context": "6F12FPXN (**28**) arose via Boger hydrofluorination (Fe$_{2}$ (ox)$_{3}$, Selectfluor, NaBH$_{4}$) in 40% yield (accompanying alkene reduction byproduct **26**) but confounded assignment due to an une…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ],
+            "scientificFragments": {
+              "valid": false,
+              "counts": {
+                "isolatedSubscript": 2,
+                "isolatedSuperscript": 0,
+                "boldThenSubscript": 0,
+                "italicThenSuperscript": 0
+              },
+              "issues": [
+                {
+                  "type": "scientific-isolatedSubscript",
+                  "line": 27,
+                  "column": 418,
+                  "delimiter": "$",
+                  "context": "…ation of the *gem* -dimethyl motif to the bridging lactone could be carried out in one step (Pb(OAc)$_{4}$, I$_{2}$, 31%) or two steps (AgOAc, I$_{2}$, 51%; RuCl$_{3}$, NaIO$_{4}$, 79%). The formation…",
+                  "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSubscript",
+                  "line": 36,
+                  "column": 67,
+                  "delimiter": "$",
+                  "context": "6F12FPXN (**28**) arose via Boger hydrofluorination (Fe$_{2}$ (ox)$_{3}$, Selectfluor, NaBH$_{4}$) in 40% yield (accompanying alkene reduction byproduct **26**) but confounded assignment due to an une…",
+                  "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+                }
+              ]
+            },
+            "states": {
+              "TEXT": 17991,
+              "INLINE_MATH": 270,
+              "DISPLAY_MATH": 0,
+              "INLINE_CODE": 0,
+              "FENCED_CODE": 0
+            }
+          },
+          "rawHtmlValidation": {
+            "valid": true,
+            "violations": []
+          },
+          "markdownStructure": {
+            "valid": true,
+            "citationStyle": "links",
+            "sections": {
+              "references": {
+                "headingCount": 1,
+                "itemCount": 37,
+                "anchorCount": 37,
+                "issues": []
+              },
+              "tables": {
+                "headingCount": 0,
+                "itemCount": 0,
+                "tableCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              }
+            },
+            "issues": []
+          },
+          "crossReferenceValidation": {
+            "valid": true,
+            "issues": [],
+            "targets": [
+              "figure-1",
+              "figure-2",
+              "ref-1",
+              "ref-2",
+              "ref-3",
+              "ref-4",
+              "ref-5",
+              "ref-6",
+              "ref-7",
+              "ref-8",
+              "ref-9",
+              "ref-10",
+              "ref-11",
+              "ref-12",
+              "ref-13",
+              "ref-14",
+              "ref-15",
+              "ref-16",
+              "ref-17",
+              "ref-18",
+              "ref-19",
+              "ref-20",
+              "ref-21",
+              "ref-22",
+              "ref-23",
+              "ref-24",
+              "ref-25",
+              "ref-26",
+              "ref-27",
+              "ref-28",
+              "ref-29",
+              "ref-30",
+              "ref-31",
+              "ref-32",
+              "ref-33",
+              "ref-34",
+              "ref-35",
+              "ref-36",
+              "ref-37",
+              "c5-methylation-confers-accessibility-stability-and-selectivity-to-picrotoxinin",
+              "results",
+              "the-design-and-synthesis-of-picrotoxinin-analogs",
+              "methods",
+              "references"
+            ],
+            "links": [
+              {
+                "label": "2",
+                "target": "figure-1",
+                "category": "figure",
+                "index": 676
+              },
+              {
+                "label": "21",
+                "target": "ref-21",
+                "category": "reference",
+                "index": 1249
+              },
+              {
+                "label": "28",
+                "target": "ref-28",
+                "category": "reference",
+                "index": 1264
+              },
+              {
+                "label": "29",
+                "target": "ref-29",
+                "category": "reference",
+                "index": 1279
+              },
+              {
+                "label": "30",
+                "target": "ref-30",
+                "category": "reference",
+                "index": 1436
+              },
+              {
+                "label": "31",
+                "target": "ref-31",
+                "category": "reference",
+                "index": 1785
+              },
+              {
+                "label": "32",
+                "target": "ref-32",
+                "category": "reference",
+                "index": 2401
+              },
+              {
+                "label": "33",
+                "target": "ref-33",
+                "category": "reference",
+                "index": 2618
+              },
+              {
+                "label": "34",
+                "target": "ref-34",
+                "category": "reference",
+                "index": 2633
+              },
+              {
+                "label": "35",
+                "target": "ref-35",
+                "category": "reference",
+                "index": 2959
+              },
+              {
+                "label": "3",
+                "target": "figure-2",
+                "category": "figure",
+                "index": 4053
+              },
+              {
+                "label": "37",
+                "target": "ref-37",
+                "category": "reference",
+                "index": 4351
+              },
+              {
+                "label": "2b",
+                "target": "figure-1",
+                "category": "figure",
+                "index": 4577
+              }
+            ]
+          }
+        },
+        "scientificRuns": [
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+            "tex": "^{19}F",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+            "tex": "J_{F,F}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+            "tex": "^{19}F",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN6X",
+            "tex": "(\\mathrm{CD}_{3})_{2}\\mathrm{CO}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN7X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN8X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN9X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN10X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          }
+        ]
+      },
+      {
+        "dialect": "quarto",
+        "metadata": {
+          "title": "C5 methylation confers accessibility, stability and selectivity to picrotoxinin",
+          "authors": [
+            "Tong, Guanghu",
+            "Griffin, Samantha",
+            "Sader, Avery",
+            "Crowell, Anna B.",
+            "Beavers, Ken",
+            "Watson, Jerry",
+            "Buchan, Zachary",
+            "Chen, Shuming",
+            "Shenvi, Ryan A."
+          ],
+          "journal": "Nature Communications",
+          "date": "2023-12-14",
+          "doi": "10.1038/s41467-023-44030-3",
+          "url": "https://www.nature.com/articles/s41467-023-44030-3",
+          "volume": "",
+          "issue": "",
+          "pages": "",
+          "metadataSource": "Nature citation_* meta tags, with JSON-LD fallback",
+          "authorInformation": {
+            "notes": [],
+            "affiliations": [],
+            "contributions": "",
+            "correspondence": null
+          },
+          "publisherNotes": []
+        },
+        "referenceCount": 37,
+        "figures": [
+          "Fig2",
+          "Fig3"
+        ],
+        "tables": [],
+        "displayMath": [],
+        "citations": [
+          [
+            21,
+            28,
+            29
+          ],
+          [
+            30
+          ],
+          [
+            31
+          ],
+          [
+            32
+          ],
+          [
+            33,
+            34
+          ],
+          [
+            35
+          ],
+          [
+            37
+          ]
+        ],
+        "warnings": [
+          "No equation nodes were detected."
+        ],
+        "validators": {
+          "mathValidation": {
+            "valid": false,
+            "inlineMathCount": 45,
+            "displayMathCount": 0,
+            "issues": [
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 26,
+                "column": 422,
+                "delimiter": "$",
+                "context": "…ation of the *gem* -dimethyl motif to the bridging lactone could be carried out in one step (Pb(OAc)$_{4}$, I$_{2}$, 31%) or two steps (AgOAc, I$_{2}$, 51%; RuCl$_{3}$, NaIO$_{4}$, 79%). The formation…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 34,
+                "column": 67,
+                "delimiter": "$",
+                "context": "6F12FPXN (**28**) arose via Boger hydrofluorination (Fe$_{2}$ (ox)$_{3}$, Selectfluor, NaBH$_{4}$) in 40% yield (accompanying alkene reduction byproduct **26**) but confounded assignment due to an une…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ],
+            "scientificFragments": {
+              "valid": false,
+              "counts": {
+                "isolatedSubscript": 2,
+                "isolatedSuperscript": 0,
+                "boldThenSubscript": 0,
+                "italicThenSuperscript": 0
+              },
+              "issues": [
+                {
+                  "type": "scientific-isolatedSubscript",
+                  "line": 26,
+                  "column": 422,
+                  "delimiter": "$",
+                  "context": "…ation of the *gem* -dimethyl motif to the bridging lactone could be carried out in one step (Pb(OAc)$_{4}$, I$_{2}$, 31%) or two steps (AgOAc, I$_{2}$, 51%; RuCl$_{3}$, NaIO$_{4}$, 79%). The formation…",
+                  "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+                },
+                {
+                  "type": "scientific-isolatedSubscript",
+                  "line": 34,
+                  "column": 67,
+                  "delimiter": "$",
+                  "context": "6F12FPXN (**28**) arose via Boger hydrofluorination (Fe$_{2}$ (ox)$_{3}$, Selectfluor, NaBH$_{4}$) in 40% yield (accompanying alkene reduction byproduct **26**) but confounded assignment due to an une…",
+                  "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+                }
+              ]
+            },
+            "states": {
+              "TEXT": 9132,
+              "INLINE_MATH": 270,
+              "DISPLAY_MATH": 0,
+              "INLINE_CODE": 0,
+              "FENCED_CODE": 0
+            }
+          },
+          "rawHtmlValidation": {
+            "valid": true,
+            "violations": []
+          },
+          "markdownStructure": {
+            "valid": true,
+            "citationStyle": "quarto",
+            "sections": {
+              "references": {
+                "headingCount": 1,
+                "itemCount": 0,
+                "definitionCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              },
+              "tables": {
+                "headingCount": 0,
+                "itemCount": 0,
+                "tableCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              }
+            },
+            "issues": []
+          },
+          "crossReferenceValidation": {
+            "valid": true,
+            "issues": [],
+            "targets": [
+              "sec-the-design-and-synthesis-of-picrotoxinin-analogs",
+              "fig-figure-1",
+              "fig-figure-2",
+              "sec-methods",
+              "refs",
+              "c5-methylation-confers-accessibility-stability-and-selectivity-to-picrotoxinin",
+              "results",
+              "the-design-and-synthesis-of-picrotoxinin-analogs",
+              "methods",
+              "references"
+            ],
+            "links": [
+              {
+                "label": "2",
+                "target": "fig-figure-1",
+                "category": "figure",
+                "index": 761
+              },
+              {
+                "label": "3",
+                "target": "fig-figure-2",
+                "category": "figure",
+                "index": 4129
+              },
+              {
+                "label": "2b",
+                "target": "fig-figure-1",
+                "category": "figure",
+                "index": 4658
+              }
+            ]
+          }
+        },
+        "scientificRuns": [
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+            "tex": "^{19}F",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+            "tex": "J_{F,F}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+            "tex": "^{19}F",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN6X",
+            "tex": "(\\mathrm{CD}_{3})_{2}\\mathrm{CO}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN7X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN8X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN9X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN10X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          }
+        ]
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-first/command-inputs.json",
+        "bytes": 10078,
+        "sha256": "43127ee209500a9c33f7bee89260bd1dc3b4f9bbf1e624ffa9c50ae779f4e753"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-first/exit.json",
+        "bytes": 9580,
+        "sha256": "ef5a835d2fb25638dc20db2b00ccacce1824cf02a230fb8dd5df089865dff896"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-first/focus.log",
+        "bytes": 24886,
+        "sha256": "6aeb319dd905118af2667933149921af96efb425551d4845b62bdf850a773080"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-first/links.md",
+        "bytes": 18421,
+        "sha256": "c7938b8318235f6c529af4577f1edd2edb88b787f2fb1d4a2dc5f62117e68982"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-first/links.result.json",
+        "bytes": 157962,
+        "sha256": "79b828716891a6090ee967c4bdbf79fef0adc2ac2778afa37c6be74888ffdf69"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-first/markdown.md",
+        "bytes": 17632,
+        "sha256": "9ca62ac22292230719e31760a46d1fbfb8314e1ae30039bf8bbd19a7b4d633ed"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-first/markdown.result.json",
+        "bytes": 153976,
+        "sha256": "23aae7bfdcf5e56b6ece8aed7e5b0106873156b9da90f00b9e59336bb0bc4909"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-first/network-ledger.json",
+        "bytes": 330,
+        "sha256": "912eac19fcde4785e4c90992f9b60e1919fffcdf83402fd285b32e201382ee13"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-first/process.json",
+        "bytes": 326,
+        "sha256": "a196eb6e419b215bdf0f37d7a32054225317f3a68a93451727048c83dbf1538a"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-first/quarto.md",
+        "bytes": 9469,
+        "sha256": "2976d72297dc16bf26f74c4e38a9e5fcd7fe7cd73637f5d2e8d05d810cbe846e"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-first/quarto.result.json",
+        "bytes": 137811,
+        "sha256": "27d732ca57f7e3dd17d050ecd3cc487a09164fbdf009d98e1494e12000ea68df"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-first/synthetic-observations.json",
+        "bytes": 18304,
+        "sha256": "ff1e3d2a24b162e647651c88852c4daee7a43ae6fce7f7c45cbe97c4fd33b94d"
+      }
+    ]
+  },
+  "correctedCandidate": {
+    "command": {
+      "version": "chemical-group-candidate/1.0",
+      "acceptedMain": "497b303250d6918d58575f9b8df3fddaa43b7f2d",
+      "adoptionHead": "8b10643e562b71697eaa4dba51dd955798254890",
+      "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemical-group-index/academic-clipper",
+      "node": "v24.14.1",
+      "executable": "C:\\nvm4w\\nodejs\\node.exe",
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "test/nature-chemical-group-index.test.mjs",
+        "test/nature-chemical-group-index-preproduction.test.mjs"
+      ],
+      "childOnlyEnv": {
+        "CHEMICAL_GROUP_RECEIPT_ROOT": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-corrected",
+        "CHEMICAL_GROUP_SYNTHETIC_SCOPE": "all",
+        "CHEMICAL_GROUP_SYNTHETIC_RECEIPT": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue74-production-497b\\focus-corrected\\synthetic-observations.json"
+      },
+      "removedEnv": [
+        "CHEMICAL_GROUP_CACHE_ROOT",
+        "CHEMICAL_GROUP_SNAPSHOT_ROOT"
+      ],
+      "dependencyRealpath": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-reference-literal\\academic-clipper\\node_modules",
+      "before": [
+        {
+          "path": "package-lock.json",
+          "bytes": 32599,
+          "sha256": "5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef42a7a1"
+        },
+        {
+          "path": "package.json",
+          "bytes": 811,
+          "sha256": "70730641b447be2c08db2b7ecd9354c1ba426f10195b2e2e8528de54fcc41d9a"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/debug.json",
+          "bytes": 10955,
+          "sha256": "85f6478e8bfc7b395ec310f2897617fa1e209c8614486c60beafeb622db0a8c5"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig1.webp",
+          "bytes": 49630,
+          "sha256": "81e587ee56dc9eca4dc088c513fd7668ee189c42dcae2ffe722c865347069fc8"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig2.webp",
+          "bytes": 29826,
+          "sha256": "320f625b06577492a61e094f810c576cf013c3a1b39251f10b5fabf9d25d4713"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig3.webp",
+          "bytes": 38546,
+          "sha256": "28033ea3a0a8da6c1b98c39dbcf92ca304f65cfa52e0d06df70b74736af8841d"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig4.jpg",
+          "bytes": 49049,
+          "sha256": "c0cf5cd9efb083280b026b22f5a426643b8211e03f5fe57e28bcc1b306ce5e38"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig5.jpg",
+          "bytes": 49427,
+          "sha256": "4f29f68cadc51e31651a2504fcd479162de15fcb0a1a5bdfa01f80cacb7ab25a"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig6.jpg",
+          "bytes": 44566,
+          "sha256": "7006478d43ec6f9fbf2109c17a8671e48566c0aec99d3183fbeee69bedb25ef4"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig7.jpg",
+          "bytes": 47151,
+          "sha256": "4b3b34928752fdd70b116908b7db82071f11013211b6327f2e0c4844ee047ac3"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/index.md",
+          "bytes": 65059,
+          "sha256": "33caa4997c92c8cd7d40581db3e589c260ee5d70c4bded9b2e8c981b43cffaf5"
+        },
+        {
+          "path": "src/adapters/aaas.mjs",
+          "bytes": 21207,
+          "sha256": "c52678918e22c126d9a0ff128a044fab9cd4f1995ad023f588f00fa66f50946c"
+        },
+        {
+          "path": "src/adapters/aip.mjs",
+          "bytes": 15429,
+          "sha256": "1593d3b34850c5a282829aff393ac0ac4695f257adff62860fd3f8cced3d9298"
+        },
+        {
+          "path": "src/adapters/iop.mjs",
+          "bytes": 20595,
+          "sha256": "0e633803180532090015014db7eaf98534a2e021ce155f6a4de881ba6bd26611"
+        },
+        {
+          "path": "src/adapters/nature.mjs",
+          "bytes": 63771,
+          "sha256": "ded67b34d20060a862b93ef49cefca82df3b88b0875a6e74464e9dcaa21256a5"
+        },
+        {
+          "path": "src/adapters/pnas.mjs",
+          "bytes": 13186,
+          "sha256": "e7bd7b1409cdf31bb50844d016bf1953e18e82883fc03980877a601e57845bae"
+        },
+        {
+          "path": "src/adapters/rsc.mjs",
+          "bytes": 16616,
+          "sha256": "1a54fe1c2b4280c44d4b33a1f86597dd19a6f1172ec2b887c3cf64bde8e2c1cd"
+        },
+        {
+          "path": "src/adapters/sciopen.mjs",
+          "bytes": 16747,
+          "sha256": "75820995ce0c3e6856f2b3c2e6a541e0a9634fa4db2db1345c870265693a01ea"
+        },
+        {
+          "path": "src/adapters/wiley-clip.mjs",
+          "bytes": 3903,
+          "sha256": "1069a037f4c69492c85f9878fbafc6c4c852578098a371275728c0dbccda8f2c"
+        },
+        {
+          "path": "src/adapters/wiley.mjs",
+          "bytes": 16387,
+          "sha256": "afcc9e70bd505395d8d15561d452fc94430f190b93632335e8ffb1a45b43eaca"
+        },
+        {
+          "path": "src/article-fetch.mjs",
+          "bytes": 3263,
+          "sha256": "e779fcfe477909c86a3260154190bb19dc57d677787d85028b41f42b8e32cf66"
+        },
+        {
+          "path": "src/bridge.mjs",
+          "bytes": 8468,
+          "sha256": "be81cb8de7240731c6ee470d43c1e055ba430b0ab8bb03c30ed34be7a33830ec"
+        },
+        {
+          "path": "src/build.mjs",
+          "bytes": 792,
+          "sha256": "4bcc8c82a594d230bff2ff2dbbda4ee5cb07c00013a59502854e6b92b86bd6ef"
+        },
+        {
+          "path": "src/cli.mjs",
+          "bytes": 2304,
+          "sha256": "74f72ccc7aaebf52dc1c8a8c94924abc7abe9a26909e63d6b3ac2ab01b1f66b0"
+        },
+        {
+          "path": "src/clip.mjs",
+          "bytes": 41240,
+          "sha256": "7f10fdd09c52528b5228433f3c84aa8bcef12d3bc63cc7c03005f233a325b134"
+        },
+        {
+          "path": "src/dom-runtime.mjs",
+          "bytes": 1489,
+          "sha256": "45778aff5794d548af5a467d1eab17e62eda61796cf18254ccacd32d1158c198"
+        },
+        {
+          "path": "src/experimental/rsc-clip.mjs",
+          "bytes": 4579,
+          "sha256": "f65b936498cd67a9a2d912dcebca5effd72f965877cce87801ad1e71d868418a"
+        },
+        {
+          "path": "src/launcher.cs",
+          "bytes": 3222,
+          "sha256": "16b93e04ef388cbcfe3f44cfbb04108d83476a20390ef04763feffe3b571afe7"
+        },
+        {
+          "path": "src/launcher.mjs",
+          "bytes": 13550,
+          "sha256": "c28e501ca37f7b6fcc59ec2ee9153d737891220d387d611a5c69f10ba291fea3"
+        },
+        {
+          "path": "src/markdown.mjs",
+          "bytes": 1097,
+          "sha256": "ef4859276c23e1442de315d418347f5881164c47d1eebb58e5d6322d7a918416"
+        },
+        {
+          "path": "src/normalizers/academic-inline.mjs",
+          "bytes": 13414,
+          "sha256": "1a7e380ee2d0836533e8d7621a9d7ef4dfdfe1c43583d64abb11d4d2c3e77ce0"
+        },
+        {
+          "path": "src/normalizers/citations.mjs",
+          "bytes": 4463,
+          "sha256": "d46831bac833d3f7fc70ec03aaf3c16323814aabae34a48cd1d3c1598caed201"
+        },
+        {
+          "path": "src/normalizers/figures.mjs",
+          "bytes": 16260,
+          "sha256": "e3cb06038756a38649633cd3612edcbeca515c370dc238836cf472b6530bb8d2"
+        },
+        {
+          "path": "src/normalizers/markers.mjs",
+          "bytes": 131,
+          "sha256": "f94d063d5a0849f117b6633bf12db01588a5d6d9104ebe933eedc01c87605afc"
+        },
+        {
+          "path": "src/normalizers/math.mjs",
+          "bytes": 3771,
+          "sha256": "e646de6497838580b47d31f65ee5b50ae2f03ec3137cace1fe8225af528d1089"
+        },
+        {
+          "path": "src/pnas-clip.mjs",
+          "bytes": 5571,
+          "sha256": "7d4c52feec43db6ae9643f5d23690094767cc85036971ce42dd49d204acf89bf"
+        },
+        {
+          "path": "src/renderers/output-policy.mjs",
+          "bytes": 1027,
+          "sha256": "92d7239d5613cd8e812f7ebffb8066e19a15d180b3950d6b68130ac77233c30a"
+        },
+        {
+          "path": "src/security.mjs",
+          "bytes": 7094,
+          "sha256": "d0b8f1278532db6251e50640d2503cca1772e09c5889fb981798cb753934b0db"
+        },
+        {
+          "path": "src/validate-paper.mjs",
+          "bytes": 2166,
+          "sha256": "5fa1736ef4c72aed4bb6350b780cd0a8ada6b3ec472902681d95da589872d5d1"
+        },
+        {
+          "path": "src/validators/citation-style.mjs",
+          "bytes": 1267,
+          "sha256": "c2d511dc22296d1f56eb138c5ad7d8d4b3b43c587f51461972fe397769a099a7"
+        },
+        {
+          "path": "src/validators/cross-references.mjs",
+          "bytes": 3933,
+          "sha256": "ed0a5f751a018fe7859a880949376c7fa8390aacdf85b2565a804a395753bf5e"
+        },
+        {
+          "path": "src/validators/html-audit.mjs",
+          "bytes": 4005,
+          "sha256": "c3eb1d382f4742aaf825d186fc793bb1f4c1aa7ce6e7fdcd56bbaa320b8202fa"
+        },
+        {
+          "path": "src/validators/markdown-structure.mjs",
+          "bytes": 6179,
+          "sha256": "302303cf9fc724c9c5677ae84f3dd840ebe7a62aeee7e5eed00950d135b177a2"
+        },
+        {
+          "path": "src/validators/math-delimiters.mjs",
+          "bytes": 9885,
+          "sha256": "87d19d2bf51c4f5da87cd7d6aaf352595be537f9d1e6c28620e13701f5279284"
+        },
+        {
+          "path": "src/version.mjs",
+          "bytes": 163,
+          "sha256": "377d26da1e0336fa86ee757012a50fdd37b8868530929b59ec1a41d1be300e3b"
+        },
+        {
+          "path": "test/chemical-group-output-oracle.test.mjs",
+          "bytes": 3761,
+          "sha256": "d71716ff7c2984a9fa05af2996d39c105f5ec1b013912a1a8a3aab560653bf8a"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/.gitattributes",
+          "bytes": 54,
+          "sha256": "5d79bb2a081b2fef3aaf02a5a35109a2b2425039aa9415ab11b747762a61eb74"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/README.md",
+          "bytes": 3563,
+          "sha256": "383e1998bea93ffa68cf86dc79025f6215f5752008ec61ed92351907e28662f2"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/diagnosis.json",
+          "bytes": 32460,
+          "sha256": "4b178707f39e5dac50bd270f5fc18721856a328b3feccdec3e5b92a664c92360"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/s41467-023-44030-3.excerpt.html",
+          "bytes": 72722,
+          "sha256": "a8c10a9e583c640a3adb41cf7a55f3c1a4d1a7f7b8f88b7d370afaa969c8079b"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/s41467-023-44030-3.provenance.json",
+          "bytes": 59160,
+          "sha256": "428ffafc1558ba0b07dadd0f48f44f29bfebe9b603f1e87ec8af4a564b949887"
+        },
+        {
+          "path": "test/helpers/chemical-group-output-oracle.mjs",
+          "bytes": 1934,
+          "sha256": "ec7cd2e84643b796ce1c72d39e7c49d976008a517b5caf445204ed0b67489b95"
+        },
+        {
+          "path": "test/nature-chemical-group-index-preproduction.test.mjs",
+          "bytes": 11137,
+          "sha256": "ca74888a2871c12fc6355d46f89ff9be3af89e7e9dc7f5459a18e2204bd42748"
+        },
+        {
+          "path": "test/nature-chemical-group-index.test.mjs",
+          "bytes": 11028,
+          "sha256": "bda27aed61b1d1522b26e92f4654ef865e41e7d657d9b8f95a33f59f383a9f49"
+        }
+      ]
+    },
+    "exit": {
+      "status": 0,
+      "signal": null,
+      "pid": 51632,
+      "startedAt": "2026-10-08T23:46:43.543Z",
+      "finishedAt": "2026-10-08T23:46:45.260Z",
+      "processDurationMs": 1715.5928,
+      "counts": {
+        "tests": 55,
+        "pass": 55,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 1671.3758
+      },
+      "log": {
+        "path": "C:\\Users\\guoli\\AppData\\Local\\Temp\\academic-clipper-issue74-production-497b\\focus-corrected\\focus.log",
+        "bytes": 11481,
+        "sha256": "87d2d609b804b545da1ffc9a3c8f7f61388d9ddab4942336035048fd6fc2b606"
+      },
+      "unchangedInputs": true,
+      "after": [
+        {
+          "path": "package-lock.json",
+          "bytes": 32599,
+          "sha256": "5563c3ec2ac88844ce89f6034b69b31d4dba84bef84df80ce9ebbed8ef42a7a1"
+        },
+        {
+          "path": "package.json",
+          "bytes": 811,
+          "sha256": "70730641b447be2c08db2b7ecd9354c1ba426f10195b2e2e8528de54fcc41d9a"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/debug.json",
+          "bytes": 10955,
+          "sha256": "85f6478e8bfc7b395ec310f2897617fa1e209c8614486c60beafeb622db0a8c5"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig1.webp",
+          "bytes": 49630,
+          "sha256": "81e587ee56dc9eca4dc088c513fd7668ee189c42dcae2ffe722c865347069fc8"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig2.webp",
+          "bytes": 29826,
+          "sha256": "320f625b06577492a61e094f810c576cf013c3a1b39251f10b5fabf9d25d4713"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig3.webp",
+          "bytes": 38546,
+          "sha256": "28033ea3a0a8da6c1b98c39dbcf92ca304f65cfa52e0d06df70b74736af8841d"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig4.jpg",
+          "bytes": 49049,
+          "sha256": "c0cf5cd9efb083280b026b22f5a426643b8211e03f5fe57e28bcc1b306ce5e38"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig5.jpg",
+          "bytes": 49427,
+          "sha256": "4f29f68cadc51e31651a2504fcd479162de15fcb0a1a5bdfa01f80cacb7ab25a"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig6.jpg",
+          "bytes": 44566,
+          "sha256": "7006478d43ec6f9fbf2109c17a8671e48566c0aec99d3183fbeee69bedb25ef4"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/figures/fig7.jpg",
+          "bytes": 47151,
+          "sha256": "4b3b34928752fdd70b116908b7db82071f11013211b6327f2e0c4844ee047ac3"
+        },
+        {
+          "path": "papers/s41586-026-10401-1/index.md",
+          "bytes": 65059,
+          "sha256": "33caa4997c92c8cd7d40581db3e589c260ee5d70c4bded9b2e8c981b43cffaf5"
+        },
+        {
+          "path": "src/adapters/aaas.mjs",
+          "bytes": 21207,
+          "sha256": "c52678918e22c126d9a0ff128a044fab9cd4f1995ad023f588f00fa66f50946c"
+        },
+        {
+          "path": "src/adapters/aip.mjs",
+          "bytes": 15429,
+          "sha256": "1593d3b34850c5a282829aff393ac0ac4695f257adff62860fd3f8cced3d9298"
+        },
+        {
+          "path": "src/adapters/iop.mjs",
+          "bytes": 20595,
+          "sha256": "0e633803180532090015014db7eaf98534a2e021ce155f6a4de881ba6bd26611"
+        },
+        {
+          "path": "src/adapters/nature.mjs",
+          "bytes": 63771,
+          "sha256": "ded67b34d20060a862b93ef49cefca82df3b88b0875a6e74464e9dcaa21256a5"
+        },
+        {
+          "path": "src/adapters/pnas.mjs",
+          "bytes": 13186,
+          "sha256": "e7bd7b1409cdf31bb50844d016bf1953e18e82883fc03980877a601e57845bae"
+        },
+        {
+          "path": "src/adapters/rsc.mjs",
+          "bytes": 16616,
+          "sha256": "1a54fe1c2b4280c44d4b33a1f86597dd19a6f1172ec2b887c3cf64bde8e2c1cd"
+        },
+        {
+          "path": "src/adapters/sciopen.mjs",
+          "bytes": 16747,
+          "sha256": "75820995ce0c3e6856f2b3c2e6a541e0a9634fa4db2db1345c870265693a01ea"
+        },
+        {
+          "path": "src/adapters/wiley-clip.mjs",
+          "bytes": 3903,
+          "sha256": "1069a037f4c69492c85f9878fbafc6c4c852578098a371275728c0dbccda8f2c"
+        },
+        {
+          "path": "src/adapters/wiley.mjs",
+          "bytes": 16387,
+          "sha256": "afcc9e70bd505395d8d15561d452fc94430f190b93632335e8ffb1a45b43eaca"
+        },
+        {
+          "path": "src/article-fetch.mjs",
+          "bytes": 3263,
+          "sha256": "e779fcfe477909c86a3260154190bb19dc57d677787d85028b41f42b8e32cf66"
+        },
+        {
+          "path": "src/bridge.mjs",
+          "bytes": 8468,
+          "sha256": "be81cb8de7240731c6ee470d43c1e055ba430b0ab8bb03c30ed34be7a33830ec"
+        },
+        {
+          "path": "src/build.mjs",
+          "bytes": 792,
+          "sha256": "4bcc8c82a594d230bff2ff2dbbda4ee5cb07c00013a59502854e6b92b86bd6ef"
+        },
+        {
+          "path": "src/cli.mjs",
+          "bytes": 2304,
+          "sha256": "74f72ccc7aaebf52dc1c8a8c94924abc7abe9a26909e63d6b3ac2ab01b1f66b0"
+        },
+        {
+          "path": "src/clip.mjs",
+          "bytes": 41240,
+          "sha256": "7f10fdd09c52528b5228433f3c84aa8bcef12d3bc63cc7c03005f233a325b134"
+        },
+        {
+          "path": "src/dom-runtime.mjs",
+          "bytes": 1489,
+          "sha256": "45778aff5794d548af5a467d1eab17e62eda61796cf18254ccacd32d1158c198"
+        },
+        {
+          "path": "src/experimental/rsc-clip.mjs",
+          "bytes": 4579,
+          "sha256": "f65b936498cd67a9a2d912dcebca5effd72f965877cce87801ad1e71d868418a"
+        },
+        {
+          "path": "src/launcher.cs",
+          "bytes": 3222,
+          "sha256": "16b93e04ef388cbcfe3f44cfbb04108d83476a20390ef04763feffe3b571afe7"
+        },
+        {
+          "path": "src/launcher.mjs",
+          "bytes": 13550,
+          "sha256": "c28e501ca37f7b6fcc59ec2ee9153d737891220d387d611a5c69f10ba291fea3"
+        },
+        {
+          "path": "src/markdown.mjs",
+          "bytes": 1097,
+          "sha256": "ef4859276c23e1442de315d418347f5881164c47d1eebb58e5d6322d7a918416"
+        },
+        {
+          "path": "src/normalizers/academic-inline.mjs",
+          "bytes": 13414,
+          "sha256": "1a7e380ee2d0836533e8d7621a9d7ef4dfdfe1c43583d64abb11d4d2c3e77ce0"
+        },
+        {
+          "path": "src/normalizers/citations.mjs",
+          "bytes": 4463,
+          "sha256": "d46831bac833d3f7fc70ec03aaf3c16323814aabae34a48cd1d3c1598caed201"
+        },
+        {
+          "path": "src/normalizers/figures.mjs",
+          "bytes": 16260,
+          "sha256": "e3cb06038756a38649633cd3612edcbeca515c370dc238836cf472b6530bb8d2"
+        },
+        {
+          "path": "src/normalizers/markers.mjs",
+          "bytes": 131,
+          "sha256": "f94d063d5a0849f117b6633bf12db01588a5d6d9104ebe933eedc01c87605afc"
+        },
+        {
+          "path": "src/normalizers/math.mjs",
+          "bytes": 3771,
+          "sha256": "e646de6497838580b47d31f65ee5b50ae2f03ec3137cace1fe8225af528d1089"
+        },
+        {
+          "path": "src/pnas-clip.mjs",
+          "bytes": 5571,
+          "sha256": "7d4c52feec43db6ae9643f5d23690094767cc85036971ce42dd49d204acf89bf"
+        },
+        {
+          "path": "src/renderers/output-policy.mjs",
+          "bytes": 1027,
+          "sha256": "92d7239d5613cd8e812f7ebffb8066e19a15d180b3950d6b68130ac77233c30a"
+        },
+        {
+          "path": "src/security.mjs",
+          "bytes": 7094,
+          "sha256": "d0b8f1278532db6251e50640d2503cca1772e09c5889fb981798cb753934b0db"
+        },
+        {
+          "path": "src/validate-paper.mjs",
+          "bytes": 2166,
+          "sha256": "5fa1736ef4c72aed4bb6350b780cd0a8ada6b3ec472902681d95da589872d5d1"
+        },
+        {
+          "path": "src/validators/citation-style.mjs",
+          "bytes": 1267,
+          "sha256": "c2d511dc22296d1f56eb138c5ad7d8d4b3b43c587f51461972fe397769a099a7"
+        },
+        {
+          "path": "src/validators/cross-references.mjs",
+          "bytes": 3933,
+          "sha256": "ed0a5f751a018fe7859a880949376c7fa8390aacdf85b2565a804a395753bf5e"
+        },
+        {
+          "path": "src/validators/html-audit.mjs",
+          "bytes": 4005,
+          "sha256": "c3eb1d382f4742aaf825d186fc793bb1f4c1aa7ce6e7fdcd56bbaa320b8202fa"
+        },
+        {
+          "path": "src/validators/markdown-structure.mjs",
+          "bytes": 6179,
+          "sha256": "302303cf9fc724c9c5677ae84f3dd840ebe7a62aeee7e5eed00950d135b177a2"
+        },
+        {
+          "path": "src/validators/math-delimiters.mjs",
+          "bytes": 9885,
+          "sha256": "87d19d2bf51c4f5da87cd7d6aaf352595be537f9d1e6c28620e13701f5279284"
+        },
+        {
+          "path": "src/version.mjs",
+          "bytes": 163,
+          "sha256": "377d26da1e0336fa86ee757012a50fdd37b8868530929b59ec1a41d1be300e3b"
+        },
+        {
+          "path": "test/chemical-group-output-oracle.test.mjs",
+          "bytes": 3761,
+          "sha256": "d71716ff7c2984a9fa05af2996d39c105f5ec1b013912a1a8a3aab560653bf8a"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/.gitattributes",
+          "bytes": 54,
+          "sha256": "5d79bb2a081b2fef3aaf02a5a35109a2b2425039aa9415ab11b747762a61eb74"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/README.md",
+          "bytes": 3563,
+          "sha256": "383e1998bea93ffa68cf86dc79025f6215f5752008ec61ed92351907e28662f2"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/diagnosis.json",
+          "bytes": 32460,
+          "sha256": "4b178707f39e5dac50bd270f5fc18721856a328b3feccdec3e5b92a664c92360"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/s41467-023-44030-3.excerpt.html",
+          "bytes": 72722,
+          "sha256": "a8c10a9e583c640a3adb41cf7a55f3c1a4d1a7f7b8f88b7d370afaa969c8079b"
+        },
+        {
+          "path": "test/fixtures/nature-chemical-group-index/s41467-023-44030-3.provenance.json",
+          "bytes": 59160,
+          "sha256": "428ffafc1558ba0b07dadd0f48f44f29bfebe9b603f1e87ec8af4a564b949887"
+        },
+        {
+          "path": "test/helpers/chemical-group-output-oracle.mjs",
+          "bytes": 1934,
+          "sha256": "ec7cd2e84643b796ce1c72d39e7c49d976008a517b5caf445204ed0b67489b95"
+        },
+        {
+          "path": "test/nature-chemical-group-index-preproduction.test.mjs",
+          "bytes": 11137,
+          "sha256": "ca74888a2871c12fc6355d46f89ff9be3af89e7e9dc7f5459a18e2204bd42748"
+        },
+        {
+          "path": "test/nature-chemical-group-index.test.mjs",
+          "bytes": 11028,
+          "sha256": "bda27aed61b1d1522b26e92f4654ef865e41e7d657d9b8f95a33f59f383a9f49"
+        }
+      ]
+    },
+    "process": {
+      "pid": 51632,
+      "startedAt": "2026-10-08T23:46:43.543Z",
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "test/nature-chemical-group-index.test.mjs",
+        "test/nature-chemical-group-index-preproduction.test.mjs"
+      ],
+      "cwd": "C:/Users/guoli/.codex/worktrees/issue-10-bug-chemical-group-index/academic-clipper"
+    },
+    "network": {
+      "attempts": [],
+      "realClipCalls": 3,
+      "clipWindowsOpened": 3,
+      "clipWindowsClosed": 3,
+      "sourceDomsOpened": 2,
+      "sourceDomsClosed": 2,
+      "guardedMethods": 11,
+      "restoredBindings": true,
+      "restoredDomGlobals": true,
+      "writerProof": "Static clipNature returns data without invoking writePaper; no writer spy claimed."
+    },
+    "synthetic": {
+      "version": "chemical-group-synthetic/1.0",
+      "observationCount": 37,
+      "statusCounts": {
+        "PASS": 37
+      },
+      "lifecycle": {
+        "attempts": [],
+        "parsedWindows": 37,
+        "closedWindows": 37,
+        "clips": 0,
+        "sourceReads": 0,
+        "sourceAudits": 0,
+        "synthetic": true,
+        "scope": "all",
+        "restoredNetworkBindings": true,
+        "restoredDomDescriptors": true
+      }
+    },
+    "results": [
+      {
+        "dialect": "markdown",
+        "metadata": {
+          "title": "C5 methylation confers accessibility, stability and selectivity to picrotoxinin",
+          "authors": [
+            "Tong, Guanghu",
+            "Griffin, Samantha",
+            "Sader, Avery",
+            "Crowell, Anna B.",
+            "Beavers, Ken",
+            "Watson, Jerry",
+            "Buchan, Zachary",
+            "Chen, Shuming",
+            "Shenvi, Ryan A."
+          ],
+          "journal": "Nature Communications",
+          "date": "2023-12-14",
+          "doi": "10.1038/s41467-023-44030-3",
+          "url": "https://www.nature.com/articles/s41467-023-44030-3",
+          "volume": "",
+          "issue": "",
+          "pages": "",
+          "metadataSource": "Nature citation_* meta tags, with JSON-LD fallback",
+          "authorInformation": {
+            "notes": [],
+            "affiliations": [],
+            "contributions": "",
+            "correspondence": null
+          },
+          "publisherNotes": []
+        },
+        "referenceCount": 37,
+        "figures": [
+          "Fig2",
+          "Fig3"
+        ],
+        "tables": [],
+        "displayMath": [],
+        "citations": [
+          [
+            21,
+            28,
+            29
+          ],
+          [
+            30
+          ],
+          [
+            31
+          ],
+          [
+            32
+          ],
+          [
+            33,
+            34
+          ],
+          [
+            35
+          ],
+          [
+            37
+          ]
+        ],
+        "warnings": [
+          "No equation nodes were detected."
+        ],
+        "validators": {
+          "mathValidation": {
+            "valid": true,
+            "inlineMathCount": 44,
+            "displayMathCount": 0,
+            "issues": [],
+            "scientificFragments": {
+              "valid": true,
+              "counts": {
+                "isolatedSubscript": 0,
+                "isolatedSuperscript": 0,
+                "boldThenSubscript": 0,
+                "italicThenSuperscript": 0
+              },
+              "issues": []
+            },
+            "states": {
+              "TEXT": 17187,
+              "INLINE_MATH": 318,
+              "DISPLAY_MATH": 0,
+              "INLINE_CODE": 0,
+              "FENCED_CODE": 0
+            }
+          },
+          "rawHtmlValidation": {
+            "valid": true,
+            "violations": []
+          },
+          "markdownStructure": {
+            "valid": true,
+            "citationStyle": "markdown",
+            "sections": {
+              "references": {
+                "headingCount": 1,
+                "itemCount": 37,
+                "definitionCount": 37,
+                "anchorCount": 0,
+                "issues": []
+              },
+              "tables": {
+                "headingCount": 0,
+                "itemCount": 0,
+                "tableCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              }
+            },
+            "issues": []
+          },
+          "crossReferenceValidation": {
+            "valid": true,
+            "issues": [],
+            "targets": [
+              "c5-methylation-confers-accessibility-stability-and-selectivity-to-picrotoxinin",
+              "results",
+              "the-design-and-synthesis-of-picrotoxinin-analogs",
+              "methods",
+              "references"
+            ],
+            "links": []
+          }
+        },
+        "scientificRuns": [
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+            "tex": "\\mathrm{Pb}(\\mathrm{OAc})_{4}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+            "tex": "\\mathrm{Fe}_{2}(\\mathrm{ox})_{3}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+            "tex": "^{19}F",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+            "tex": "J_{F,F}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+            "tex": "^{19}F",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN6X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN7X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN8X",
+            "tex": "(\\mathrm{CD}_{3})_{2}\\mathrm{CO}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN9X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN10X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN11X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN12X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          }
+        ]
+      },
+      {
+        "dialect": "links",
+        "metadata": {
+          "title": "C5 methylation confers accessibility, stability and selectivity to picrotoxinin",
+          "authors": [
+            "Tong, Guanghu",
+            "Griffin, Samantha",
+            "Sader, Avery",
+            "Crowell, Anna B.",
+            "Beavers, Ken",
+            "Watson, Jerry",
+            "Buchan, Zachary",
+            "Chen, Shuming",
+            "Shenvi, Ryan A."
+          ],
+          "journal": "Nature Communications",
+          "date": "2023-12-14",
+          "doi": "10.1038/s41467-023-44030-3",
+          "url": "https://www.nature.com/articles/s41467-023-44030-3",
+          "volume": "",
+          "issue": "",
+          "pages": "",
+          "metadataSource": "Nature citation_* meta tags, with JSON-LD fallback",
+          "authorInformation": {
+            "notes": [],
+            "affiliations": [],
+            "contributions": "",
+            "correspondence": null
+          },
+          "publisherNotes": []
+        },
+        "referenceCount": 37,
+        "figures": [
+          "Fig2",
+          "Fig3"
+        ],
+        "tables": [],
+        "displayMath": [],
+        "citations": [
+          [
+            21,
+            28,
+            29
+          ],
+          [
+            30
+          ],
+          [
+            31
+          ],
+          [
+            32
+          ],
+          [
+            33,
+            34
+          ],
+          [
+            35
+          ],
+          [
+            37
+          ]
+        ],
+        "warnings": [
+          "No equation nodes were detected."
+        ],
+        "validators": {
+          "mathValidation": {
+            "valid": true,
+            "inlineMathCount": 44,
+            "displayMathCount": 0,
+            "issues": [],
+            "scientificFragments": {
+              "valid": true,
+              "counts": {
+                "isolatedSubscript": 0,
+                "isolatedSuperscript": 0,
+                "boldThenSubscript": 0,
+                "italicThenSuperscript": 0
+              },
+              "issues": []
+            },
+            "states": {
+              "TEXT": 17976,
+              "INLINE_MATH": 318,
+              "DISPLAY_MATH": 0,
+              "INLINE_CODE": 0,
+              "FENCED_CODE": 0
+            }
+          },
+          "rawHtmlValidation": {
+            "valid": true,
+            "violations": []
+          },
+          "markdownStructure": {
+            "valid": true,
+            "citationStyle": "links",
+            "sections": {
+              "references": {
+                "headingCount": 1,
+                "itemCount": 37,
+                "anchorCount": 37,
+                "issues": []
+              },
+              "tables": {
+                "headingCount": 0,
+                "itemCount": 0,
+                "tableCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              }
+            },
+            "issues": []
+          },
+          "crossReferenceValidation": {
+            "valid": true,
+            "issues": [],
+            "targets": [
+              "figure-1",
+              "figure-2",
+              "ref-1",
+              "ref-2",
+              "ref-3",
+              "ref-4",
+              "ref-5",
+              "ref-6",
+              "ref-7",
+              "ref-8",
+              "ref-9",
+              "ref-10",
+              "ref-11",
+              "ref-12",
+              "ref-13",
+              "ref-14",
+              "ref-15",
+              "ref-16",
+              "ref-17",
+              "ref-18",
+              "ref-19",
+              "ref-20",
+              "ref-21",
+              "ref-22",
+              "ref-23",
+              "ref-24",
+              "ref-25",
+              "ref-26",
+              "ref-27",
+              "ref-28",
+              "ref-29",
+              "ref-30",
+              "ref-31",
+              "ref-32",
+              "ref-33",
+              "ref-34",
+              "ref-35",
+              "ref-36",
+              "ref-37",
+              "c5-methylation-confers-accessibility-stability-and-selectivity-to-picrotoxinin",
+              "results",
+              "the-design-and-synthesis-of-picrotoxinin-analogs",
+              "methods",
+              "references"
+            ],
+            "links": [
+              {
+                "label": "2",
+                "target": "figure-1",
+                "category": "figure",
+                "index": 676
+              },
+              {
+                "label": "21",
+                "target": "ref-21",
+                "category": "reference",
+                "index": 1267
+              },
+              {
+                "label": "28",
+                "target": "ref-28",
+                "category": "reference",
+                "index": 1282
+              },
+              {
+                "label": "29",
+                "target": "ref-29",
+                "category": "reference",
+                "index": 1297
+              },
+              {
+                "label": "30",
+                "target": "ref-30",
+                "category": "reference",
+                "index": 1454
+              },
+              {
+                "label": "31",
+                "target": "ref-31",
+                "category": "reference",
+                "index": 1803
+              },
+              {
+                "label": "32",
+                "target": "ref-32",
+                "category": "reference",
+                "index": 2419
+              },
+              {
+                "label": "33",
+                "target": "ref-33",
+                "category": "reference",
+                "index": 2636
+              },
+              {
+                "label": "34",
+                "target": "ref-34",
+                "category": "reference",
+                "index": 2651
+              },
+              {
+                "label": "35",
+                "target": "ref-35",
+                "category": "reference",
+                "index": 2977
+              },
+              {
+                "label": "3",
+                "target": "figure-2",
+                "category": "figure",
+                "index": 4071
+              },
+              {
+                "label": "37",
+                "target": "ref-37",
+                "category": "reference",
+                "index": 4384
+              },
+              {
+                "label": "2b",
+                "target": "figure-1",
+                "category": "figure",
+                "index": 4610
+              }
+            ]
+          }
+        },
+        "scientificRuns": [
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+            "tex": "\\mathrm{Pb}(\\mathrm{OAc})_{4}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+            "tex": "\\mathrm{Fe}_{2}(\\mathrm{ox})_{3}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+            "tex": "^{19}F",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+            "tex": "J_{F,F}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+            "tex": "^{19}F",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN6X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN7X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN8X",
+            "tex": "(\\mathrm{CD}_{3})_{2}\\mathrm{CO}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN9X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN10X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN11X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN12X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          }
+        ]
+      },
+      {
+        "dialect": "quarto",
+        "metadata": {
+          "title": "C5 methylation confers accessibility, stability and selectivity to picrotoxinin",
+          "authors": [
+            "Tong, Guanghu",
+            "Griffin, Samantha",
+            "Sader, Avery",
+            "Crowell, Anna B.",
+            "Beavers, Ken",
+            "Watson, Jerry",
+            "Buchan, Zachary",
+            "Chen, Shuming",
+            "Shenvi, Ryan A."
+          ],
+          "journal": "Nature Communications",
+          "date": "2023-12-14",
+          "doi": "10.1038/s41467-023-44030-3",
+          "url": "https://www.nature.com/articles/s41467-023-44030-3",
+          "volume": "",
+          "issue": "",
+          "pages": "",
+          "metadataSource": "Nature citation_* meta tags, with JSON-LD fallback",
+          "authorInformation": {
+            "notes": [],
+            "affiliations": [],
+            "contributions": "",
+            "correspondence": null
+          },
+          "publisherNotes": []
+        },
+        "referenceCount": 37,
+        "figures": [
+          "Fig2",
+          "Fig3"
+        ],
+        "tables": [],
+        "displayMath": [],
+        "citations": [
+          [
+            21,
+            28,
+            29
+          ],
+          [
+            30
+          ],
+          [
+            31
+          ],
+          [
+            32
+          ],
+          [
+            33,
+            34
+          ],
+          [
+            35
+          ],
+          [
+            37
+          ]
+        ],
+        "warnings": [
+          "No equation nodes were detected."
+        ],
+        "validators": {
+          "mathValidation": {
+            "valid": true,
+            "inlineMathCount": 44,
+            "displayMathCount": 0,
+            "issues": [],
+            "scientificFragments": {
+              "valid": true,
+              "counts": {
+                "isolatedSubscript": 0,
+                "isolatedSuperscript": 0,
+                "boldThenSubscript": 0,
+                "italicThenSuperscript": 0
+              },
+              "issues": []
+            },
+            "states": {
+              "TEXT": 9117,
+              "INLINE_MATH": 318,
+              "DISPLAY_MATH": 0,
+              "INLINE_CODE": 0,
+              "FENCED_CODE": 0
+            }
+          },
+          "rawHtmlValidation": {
+            "valid": true,
+            "violations": []
+          },
+          "markdownStructure": {
+            "valid": true,
+            "citationStyle": "quarto",
+            "sections": {
+              "references": {
+                "headingCount": 1,
+                "itemCount": 0,
+                "definitionCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              },
+              "tables": {
+                "headingCount": 0,
+                "itemCount": 0,
+                "tableCount": 0,
+                "anchorCount": 0,
+                "issues": []
+              }
+            },
+            "issues": []
+          },
+          "crossReferenceValidation": {
+            "valid": true,
+            "issues": [],
+            "targets": [
+              "sec-the-design-and-synthesis-of-picrotoxinin-analogs",
+              "fig-figure-1",
+              "fig-figure-2",
+              "sec-methods",
+              "refs",
+              "c5-methylation-confers-accessibility-stability-and-selectivity-to-picrotoxinin",
+              "results",
+              "the-design-and-synthesis-of-picrotoxinin-analogs",
+              "methods",
+              "references"
+            ],
+            "links": [
+              {
+                "label": "2",
+                "target": "fig-figure-1",
+                "category": "figure",
+                "index": 761
+              },
+              {
+                "label": "3",
+                "target": "fig-figure-2",
+                "category": "figure",
+                "index": 4147
+              },
+              {
+                "label": "2b",
+                "target": "fig-figure-1",
+                "category": "figure",
+                "index": 4691
+              }
+            ]
+          }
+        },
+        "scientificRuns": [
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN0X",
+            "tex": "\\mathrm{Pb}(\\mathrm{OAc})_{4}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN1X",
+            "tex": "\\mathrm{Fe}_{2}(\\mathrm{ox})_{3}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN2X",
+            "tex": "^{19}F",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN3X",
+            "tex": "J_{F,F}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN4X",
+            "tex": "^{19}F",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN5X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN6X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN7X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN8X",
+            "tex": "(\\mathrm{CD}_{3})_{2}\\mathrm{CO}",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN9X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN10X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN11X",
+            "tex": "^{1}H",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          },
+          {
+            "marker": "ACADEMICCLIPPERSCIENTIFICRUN12X",
+            "tex": "^{13}C",
+            "provenance": "Nature inline style nodes (<i>/<b>/<sub>/<sup>)"
+          }
+        ]
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-corrected/command-inputs.json",
+        "bytes": 10086,
+        "sha256": "6f04e8d21d61f263e65751da9e2b055c36bc6176cc92eb3369ac9b3860ae0af5"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-corrected/exit.json",
+        "bytes": 9584,
+        "sha256": "8fa4e4cd6f38d2bbf15a7a85b4a5420b639991a703f21e92dadb3b4fe8e5b231"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-corrected/focus.log",
+        "bytes": 11481,
+        "sha256": "87d2d609b804b545da1ffc9a3c8f7f61388d9ddab4942336035048fd6fc2b606"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-corrected/links.md",
+        "bytes": 18454,
+        "sha256": "cfb7833a7d2e9d29da38100b7bdfb9bc4e3ee794bc1a5fb693085bcb9af7d955"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-corrected/links.result.json",
+        "bytes": 156400,
+        "sha256": "1a669060094a52a90675d43c9b4b583bba306e1c866e523e4b641e1d98367b47"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-corrected/markdown.md",
+        "bytes": 17665,
+        "sha256": "1378d9758092f396944bb2bd62fa9b29665cef57966312a9597e7e47dc542586"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-corrected/markdown.result.json",
+        "bytes": 152414,
+        "sha256": "3f207b5780695bd5fc82889fee655261d8ce833bfdb7b80e2dcb7ff8ddda9cb8"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-corrected/network-ledger.json",
+        "bytes": 330,
+        "sha256": "912eac19fcde4785e4c90992f9b60e1919fffcdf83402fd285b32e201382ee13"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-corrected/process.json",
+        "bytes": 326,
+        "sha256": "24f9661b551d5aaae01794b581a6e552e5facacf13600c6ec913a3e472ab1149"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-corrected/quarto.md",
+        "bytes": 9502,
+        "sha256": "8fcc36bcf53fdf2a262b424fb436c45615c05be9e28aedeaa71265a5172216e7"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-corrected/quarto.result.json",
+        "bytes": 136249,
+        "sha256": "bb8ad6daf71b6fa9970cd5c9b433e69cc68390d27a42b3a26059fd091793ece6"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-production-497b/focus-corrected/synthetic-observations.json",
+        "bytes": 18304,
+        "sha256": "ff1e3d2a24b162e647651c88852c4daee7a43ae6fce7f7c45cbe97c4fd33b94d"
+      }
+    ]
+  },
+  "reusedReviews": {
+    "source": [
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-independent-source74/source-review.json",
+        "bytes": 92041,
+        "sha256": "4a39df68e52d7464c73d22a3109f069117757b443056f08352dfbf298cd2fee4"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-independent-source74/source-review.md",
+        "bytes": 10841,
+        "sha256": "200dcc3fe61f117cb8e4a1165e425cc8a89216349ff1790d0d1192ac22070686"
+      }
+    ],
+    "plan": [
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-plan-independent-review/plan-review-964f643-CLEAR.md",
+        "bytes": 5400,
+        "sha256": "bfcb1940c5d49a7ea5c13be96612bc01324ed2b98613fe14307a07405cdc6ba6"
+      },
+      {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue74-plan-independent-review/plan-review-964f643-CLEAR.json",
+        "bytes": 9404,
+        "sha256": "d57ee826df9ce84ca51a483122416da58c860de39c95e6e77ed1a9f946cfd3c2"
+      }
+    ]
+  },
+  "dependencyPolicy": {
+    "mode": "existing ignored junction read-only use",
+    "realpath": "C:\\Users\\guoli\\.codex\\worktrees\\issue-10-bug-reference-literal\\academic-clipper\\node_modules",
+    "installationThisRecovery": false,
+    "lockfileUnchanged": true
+  },
+  "baseline": {
+    "classification": "implementation bug; not claimed historical regression",
+    "sourceAuditBlocks": 65,
+    "sourceReview": "SOURCE_CLEAR_ONLY",
+    "planReview": "PLAN_ONLY_CLEAR",
+    "originalCorrectedSourceTests": "18 tests: 6 PASS / 12 true FAIL, 776.1531 ms",
+    "originalSynthetic": "26 tests: 18 PASS / 8 true FAIL, 844.8042 ms",
+    "planTail": "53 PASS: 42 pure string + 11 new parse-only negatives, 736.9922 ms"
+  },
+  "recovery": {
+    "scope": "closed-evidence verification and durable packaging only",
+    "newTests": 0,
+    "newParses": 0,
+    "newClips": 0,
+    "newSourceAudits": 0,
+    "newAInvocations": 0,
+    "newDependencyInstalls": 0,
+    "newNetworkResearch": 0
+  },
+  "nextGates": {
+    "independentImplementation": "PENDING; root must review exact clean publication head",
+    "affected": "NOT_RUN; await root release",
+    "full": "NOT_RUN; await root release",
+    "build": "NOT_RUN; await root release",
+    "golden": "NOT_RUN; await root release",
+    "PR": "NOT_CREATED",
+    "freshCI": "NOT_RUN",
+    "secretScan": "NOT_RUN",
+    "merge": "NOT_PERFORMED",
+    "mergedMain": "NOT_RUN"
+  },
+  "boundaries": {
+    "sourceUnchanged": true,
+    "oracleUnchanged": true,
+    "validatorsUnchanged": true,
+    "securityUnchanged": true,
+    "writerUnchanged": true,
+    "dependenciesUnchanged": true,
+    "goldenUnchanged": true,
+    "canonicalUnchanged": true,
+    "PRDEDDUnchanged": true,
+    "noFullCaptureCommitted": true,
+    "noSpecChangesProposed": true
+  },
+  "limitations": [
+    "Finite single nonnested direct native chemical-group family only; no chemical identity/valence inference, nested/wrapped/fractional/charge/hydrate support.",
+    "Focused minimal-source result is not current whole Chemistry C acceptance or Issue #10 completion.",
+    "Writer proof is static clipNature callgraph, not an executed writer spy.",
+    "Source65/A/raw/old26/tail53/42 pure evidence reused only for unchanged identities; canonical full tests still mandatory after independent review."
+  ]
+}
