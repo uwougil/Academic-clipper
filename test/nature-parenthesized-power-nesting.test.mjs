@@ -35,6 +35,7 @@ const cases=[
  ['numeric-outer-denominator','(5/(5/60)<sup>2</sup>)',[],null],
  ['numeric-outer-with-separating-space','(5/ (5/60)<sup>2</sup>)',[],null],
  ['numeric-outer-with-pi-factor','(5/π(5/60)<sup>2</sup>/8)',[],null],
+ ['numeric-outer-with-closed-inner-group','((3/12)+(5/60)<sup>2</sup>)',[],null],
  ['prose-parenthetical-control','(see (5/60)<sup>2</sup>)',['(5/60)^{2}'],'(see ACADEMICCLIPPERSCIENTIFICRUN0X)'],
  ['prose-parenthetical-pi-and-divisor','(see π(0.19/60/60)<sup>2</sup>/8)',['(0.19/60/60)^{2}'],'(see πACADEMICCLIPPERSCIENTIFICRUN0X/8)'],
 ];
