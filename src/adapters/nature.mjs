@@ -788,6 +788,72 @@ function collectPlainFractionalUnitRun(parent, startIndex) {
   };
 }
 
+function collectParenthesizedChemicalGroupRun(parent, startIndex) {
+  if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
+  if (/[$`]|(?:^|\n)[ \t]*~{3,}|\\[([]/u.test(parent.textContent)) return null;
+  const plainCount = (node) => node?.nodeType === 1 && node.tagName === 'SUB'
+    && node.childNodes.length === 1 && node.firstChild.nodeType === 3
+    && /^[1-9]\d*$/u.test(node.textContent);
+  const count = parent.childNodes[startIndex];
+  if (!plainCount(count) || count.previousSibling?.nodeType !== 3
+    || !count.previousSibling.textContent.endsWith(')')) return null;
+  // Only original direct text and native count nodes belong to this finite
+  // non-nested group family. Unknown wrappers are never flattened or skipped.
+  const parts = [];
+  for (let node = count.previousSibling; node; node = node.previousSibling) {
+    if (node.nodeType === 3 && !node.textContent.includes('\0')) parts.unshift({node, value: node.textContent});
+    else if (plainCount(node)) parts.unshift({node, value: `\0${node.textContent}\0`});
+    else break;
+  }
+  const atom = '(?:[A-Z][a-z]?(?:\u0000[1-9]\\d*\u0000)?)+';
+  const text = parts.map(part => part.value).join('');
+  const match = text.match(new RegExp(`(${atom})?\\((${atom}|[a-z]{1,2})\\)$`, 'u'));
+  if (!match) return null;
+  // A punctuation edge is not an independent group when it is inside an
+  // element/count-led enclosing parenthesis. Ordinary prose "(Pb..." still
+  // qualifies; only the original adjacent text/native counts prove nesting.
+  if (/[\p{L}\p{N}\p{M}_\0]\(+$/u.test(text.slice(0, match.index))) return null;
+  const following = count.nextSibling;
+  if (following?.nodeType === 3 && /^(?:[A-Z][a-z]?)*\)+$/u.test(following.textContent)
+    && plainCount(following.nextSibling)) return null;
+  // A short lowercase ligand requires an element-led native atom count in
+  // the same prefix; plain words and an unqualified ligand have no such role.
+  if (/^[a-z]+$/u.test(match[2]) && !/\0[1-9]\d*\0$/u.test(match[1] || '')) return null;
+  let offset = match.index;
+  let start;
+  for (const part of parts) {
+    if (offset < part.value.length) {start = {node: part.node, offset}; break;}
+    offset -= part.value.length;
+  }
+  const boundary = (value) => /^[\s\p{P}]/u.test(value) && !value.startsWith('_');
+  if (!start || start.node.nodeType !== 3
+    || (start.offset === 0 ? start.node.previousSibling
+      : !boundary([...start.node.textContent.slice(0, start.offset)].at(-1)))) return null;
+  const typedCitation = (node) => {
+    if (node?.nodeType !== 1) return false;
+    const anchor = node.matches('a[data-test="citation-ref"], a[href*="#ref-CR"]') ? node
+      : node.tagName === 'SUP' && node.querySelector('a[data-test="citation-ref"], a[href*="#ref-CR"]');
+    return anchor && citationNumbers(anchor);
+  };
+  let end = {node: count, after: true};
+  let suffix = '';
+  let next = count.nextSibling;
+  if (next?.nodeType === 3 && !boundary(next.textContent)) {
+    suffix = next.textContent.match(/^[\p{L}\p{N}\p{M}_()]+/u)?.[0] || '';
+    if (!/^(?:[A-Z][a-z]?)+$/u.test(suffix)) return null;
+    end = {node: next, offset: suffix.length};
+    if (suffix.length < next.textContent.length) {
+      if (!boundary(next.textContent.slice(suffix.length))) return null;
+      next = null;
+    } else next = next.nextSibling;
+  }
+  if (next && !(next.nodeType === 3 && boundary(next.textContent)) && !typedCitation(next)) return null;
+  const roman = (value) => value.replace(/[A-Za-z]+/gu, token => `\\mathrm{${token}}`)
+    .replace(/\0([1-9]\d*)\0/gu, '_{$1}');
+  return {start, end, restartIndex: Array.from(parent.childNodes).indexOf(start.node),
+    tex: `${roman(match[1] || '')}(${roman(match[2])})_{${count.textContent}}${roman(suffix)}`};
+}
+
 function collectDeltaPositionRun(parent, startIndex) {
   if (parent.closest('pre, code, math, .mathjax-tex, .c-article-equation')) return null;
   // Literal math/code may span siblings; keep the whole opaque context with
@@ -1033,6 +1099,7 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
           || collectNumericAttachmentRun(parent, index)
           || collectPlainFractionalUnitRun(parent, index)
           || collectQualifiedMetricRun(parent, index)
+          || collectParenthesizedChemicalGroupRun(parent, index)
           || collectDeltaPositionRun(parent, index)
           || collectPlainScriptedIdentifierRun(parent, index)
           || collectCompoundConductivityRun(parent, index)
@@ -1061,7 +1128,9 @@ function replaceScientificRuns(body, inlineMath, displayMath) {
         index += 1;
         continue;
       }
-      index += 1;
+      // A group may consume native atom counts preceding its outer count.
+      // Resume at its start so later ranges retain source order and ownership.
+      index = (range.restartIndex ?? index) + 1;
     }
   }
   return values;

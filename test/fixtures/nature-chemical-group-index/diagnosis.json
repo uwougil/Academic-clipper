@@ -1,0 +1,889 @@
+{
+  "version": "nature-chemical-group-index-diagnosis/1.0.0",
+  "classification": "implementation bug under PRD3 and EDD2.4–2.5; no prior correct historical version claimed",
+  "status": "SOURCE_ONLY_RED, production unchanged",
+  "base": "a5b6acc2984af5cb8b82106291e963f4f413f5ac",
+  "sourceSha256": "a02d82acb4cdbde085e07ca0c276383894e7a7832c6830ad7a212f450926d88d",
+  "fixture": {
+    "path": "s41467-023-44030-3.excerpt.html",
+    "bytes": 72722,
+    "sha256": "a8c10a9e583c640a3adb41cf7a55f3c1a4d1a7f7b8f88b7d370afaa969c8079b",
+    "repeatBytesEqual": true,
+    "idempotentBytesEqual": true
+  },
+  "productionBlobs": {
+    "src/clip.mjs": {
+      "baseBlob": "8eec6a856ffbd1b9283c43269d38079b3ac940d2",
+      "currentBlob": "8eec6a856ffbd1b9283c43269d38079b3ac940d2"
+    },
+    "src/adapters/nature.mjs": {
+      "baseBlob": "c6f819beb9747e83d322644c1f2a232769828afa",
+      "currentBlob": "c6f819beb9747e83d322644c1f2a232769828afa"
+    },
+    "src/normalizers/academic-inline.mjs": {
+      "baseBlob": "a63eba2cacf0bc0a43552d1c16ec41e91b2cf0bc",
+      "currentBlob": "a63eba2cacf0bc0a43552d1c16ec41e91b2cf0bc"
+    },
+    "test/nature-chemical-group-index.test.mjs": {
+      "baseBlob": null,
+      "currentBlob": "473ac8ee770dccb7079f005608ab2f806799740e"
+    }
+  },
+  "sourceRoles": [
+    {
+      "id": "results-p2-Pb-OAc4",
+      "sourceBlockId": "a-section-2",
+      "section": "Results",
+      "paragraphIndex": 2,
+      "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d76734419e852)",
+      "subIndex": 0,
+      "base": "Pb(OAc)",
+      "indexValue": "4",
+      "rawHash": "40052f20434e9ebfb090e55429d3a20e47553d31afe92b047c485808ba6e64a3",
+      "frozenHash": "74e0d28852386fd8165404fa8a38afcb94b49979f2c5dd9f9f3cb457bb3df00e",
+      "scientificRole": "trailing group stoichiometric count applies to complete preceding parenthesized chemical group, preserving internal element counts and case-sensitive original abbreviation; not exponent, citation or previous measurement"
+    },
+    {
+      "id": "results-p5-Fe2-ox3",
+      "sourceBlockId": "a-section-2",
+      "section": "Results",
+      "paragraphIndex": 5,
+      "selector": "section[data-title=\"Results\"] p:has(#ref-link-section-d76734419e1091)",
+      "subIndex": 1,
+      "base": "Fe2(ox)",
+      "indexValue": "3",
+      "rawHash": "b128b77e64328225608d6694938fccf1aed9a9f58a0f7beb1c842d0511999947",
+      "frozenHash": "896c0856d4585fd2b2b6df5ba7dd70bdbb466d8b1eb216d7be2d809d411fc605",
+      "scientificRole": "trailing group stoichiometric count applies to complete preceding parenthesized chemical group, preserving internal element counts and case-sensitive original abbreviation; not exponent, citation or previous measurement"
+    },
+    {
+      "id": "methods-p0-CD3-2CO",
+      "sourceBlockId": "a-section-3",
+      "section": "Methods",
+      "paragraphIndex": 0,
+      "selector": "#Sec8-content > p:nth-of-type(1)",
+      "subIndex": 5,
+      "base": "(CD3)",
+      "indexValue": "2",
+      "rawHash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "frozenHash": "e46e69f8e120aae7909d1f531f54052334313b78481bbce0b641e3ee72e6373a",
+      "scientificRole": "trailing group stoichiometric count applies to complete preceding parenthesized chemical group, preserving internal element counts and case-sensitive original abbreviation; not exponent, citation or previous measurement"
+    }
+  ],
+  "diagnosis": "Untouched source and adapter cleanedHtml retain each complete group with trailing numeric SUB. Current Nature scientific-run collectors do not recognize these unstyled parenthesized chemical groups; Defuddle presents SUB independently and normalizeAcademicInline renderRange yields isolated $_{n}$, while combineLiteralPowers handles only numeric SUP of units and combineScientificRuns reattaches only styled bases. Strict scientificFragments correctly reports exactly three isolatedSubscript fragments; validator is evidence, not the scientific oracle.",
+  "actual": [
+    {
+      "dialect": "markdown",
+      "result": {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/red-a5b6/markdown.result.json",
+        "bytes": 154599,
+        "sha256": "5f644096cefd25eddfbadcf674f3cda45dd2bcfbb6f43849dfe161dbd109390b"
+      },
+      "markdown": {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/red-a5b6/markdown.md",
+        "bytes": 17533,
+        "sha256": "b7a8235f366c81d9d34a3ce1edcea351a7fba9550951217b116220edd2db8287"
+      },
+      "positions": [
+        {
+          "role": "results-p2-Pb-OAc4",
+          "actual": "Pb(OAc)$_{4}$",
+          "utf8ByteOffset": 996,
+          "utf16Offset": 996,
+          "line": 27,
+          "column": 398,
+          "adapterRetainedRawSub": true,
+          "defuddleEvidence": "Pb(OAc) <sub>4</sub>"
+        },
+        {
+          "role": "results-p5-Fe2-ox3",
+          "actual": "Fe$_{2}$ (ox)$_{3}$",
+          "utf8ByteOffset": 4010,
+          "utf16Offset": 3998,
+          "line": 35,
+          "column": 54,
+          "adapterRetainedRawSub": true,
+          "defuddleEvidence": "Fe <sub>2</sub> (ox) <sub>3</sub>"
+        },
+        {
+          "role": "methods-p0-CD3-2CO",
+          "actual": "(CD$_{3}$)$_{2}$ CO",
+          "utf8ByteOffset": 7890,
+          "utf16Offset": 7845,
+          "line": 47,
+          "column": 1553,
+          "adapterRetainedRawSub": true,
+          "defuddleEvidence": "(CD <sub>3</sub>) <sub>2</sub> CO"
+        }
+      ],
+      "validators": {
+        "math": {
+          "valid": false,
+          "inlineMathCount": 46,
+          "displayMathCount": 0,
+          "issues": [
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 27,
+              "column": 405,
+              "delimiter": "$",
+              "context": "…ation of the *gem* -dimethyl motif to the bridging lactone could be carried out in one step (Pb(OAc)$_{4}$, I$_{2}$, 31%) or two steps (AgOAc, I$_{2}$, 51%; RuCl$_{3}$, NaIO$_{4}$, 79%). The formation…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 35,
+              "column": 67,
+              "delimiter": "$",
+              "context": "6F12FPXN (**28**) arose via Boger hydrofluorination (Fe$_{2}$ (ox)$_{3}$, Selectfluor, NaBH$_{4}$) in 40% yield (accompanying alkene reduction byproduct **26**) but confounded assignment due to an une…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 47,
+              "column": 1563,
+              "delimiter": "$",
+              "context": "…vent as an internal reference (CHCl$_{3}$ @ 7.26 ppm $^{1}H$ NMR, 77.16 ppm $^{13}C$ NMR; (CD$_{3}$)$_{2}$ CO @ 2.05 $^{1}H$ NMR, 206.26 $^{13}C$ NMR; CD$_{3}$OD @ 3.31 $^{1}H$ NMR, 49.00 $^{13}C$ NMR…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ],
+          "scientificFragments": {
+            "valid": false,
+            "counts": {
+              "isolatedSubscript": 3,
+              "isolatedSuperscript": 0,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": [
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 27,
+                "column": 405,
+                "delimiter": "$",
+                "context": "…ation of the *gem* -dimethyl motif to the bridging lactone could be carried out in one step (Pb(OAc)$_{4}$, I$_{2}$, 31%) or two steps (AgOAc, I$_{2}$, 51%; RuCl$_{3}$, NaIO$_{4}$, 79%). The formation…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 35,
+                "column": 67,
+                "delimiter": "$",
+                "context": "6F12FPXN (**28**) arose via Boger hydrofluorination (Fe$_{2}$ (ox)$_{3}$, Selectfluor, NaBH$_{4}$) in 40% yield (accompanying alkene reduction byproduct **26**) but confounded assignment due to an une…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 47,
+                "column": 1563,
+                "delimiter": "$",
+                "context": "…vent as an internal reference (CHCl$_{3}$ @ 7.26 ppm $^{1}H$ NMR, 77.16 ppm $^{13}C$ NMR; (CD$_{3}$)$_{2}$ CO @ 2.05 $^{1}H$ NMR, 206.26 $^{13}C$ NMR; CD$_{3}$OD @ 3.31 $^{1}H$ NMR, 49.00 $^{13}C$ NMR…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ]
+          },
+          "states": {
+            "TEXT": 17126,
+            "INLINE_MATH": 247,
+            "DISPLAY_MATH": 0,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "rawHtml": {
+          "valid": true,
+          "violations": []
+        },
+        "structure": {
+          "valid": true,
+          "citationStyle": "markdown",
+          "sections": {
+            "references": {
+              "headingCount": 1,
+              "itemCount": 37,
+              "definitionCount": 37,
+              "anchorCount": 0,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "crossReferences": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "c5-methylation-confers-accessibility-stability-and-selectivity-to-picrotoxinin",
+            "results",
+            "the-design-and-synthesis-of-picrotoxinin-analogs",
+            "methods",
+            "references"
+          ],
+          "links": []
+        }
+      },
+      "warnings": [
+        "No equation nodes were detected."
+      ],
+      "figures": [
+        {
+          "id": "Fig2",
+          "label": "Figure 2",
+          "anchor": "figure-1"
+        },
+        {
+          "id": "Fig3",
+          "label": "Figure 3",
+          "anchor": "figure-2"
+        }
+      ],
+      "references": 37,
+      "citationClusters": [
+        [
+          21,
+          28,
+          29
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33,
+          34
+        ],
+        [
+          35
+        ],
+        [
+          37
+        ]
+      ]
+    },
+    {
+      "dialect": "links",
+      "result": {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/red-a5b6/links.result.json",
+        "bytes": 158585,
+        "sha256": "4ac8cf1d159ed2cd9b80ad7cd2785dd85b10befa0dd5f493992c3e443a234ea5"
+      },
+      "markdown": {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/red-a5b6/links.md",
+        "bytes": 18322,
+        "sha256": "baa23b9fbca98c48a5533337699720b578938e869c78aec308154a18b7f3a9ad"
+      },
+      "positions": [
+        {
+          "role": "results-p2-Pb-OAc4",
+          "actual": "Pb(OAc)$_{4}$",
+          "utf8ByteOffset": 1009,
+          "utf16Offset": 1009,
+          "line": 27,
+          "column": 411,
+          "adapterRetainedRawSub": true,
+          "defuddleEvidence": "Pb(OAc) <sub>4</sub>"
+        },
+        {
+          "role": "results-p5-Fe2-ox3",
+          "actual": "Fe$_{2}$ (ox)$_{3}$",
+          "utf8ByteOffset": 4136,
+          "utf16Offset": 4124,
+          "line": 36,
+          "column": 54,
+          "adapterRetainedRawSub": true,
+          "defuddleEvidence": "Fe <sub>2</sub> (ox) <sub>3</sub>"
+        },
+        {
+          "role": "methods-p0-CD3-2CO",
+          "actual": "(CD$_{3}$)$_{2}$ CO",
+          "utf8ByteOffset": 8059,
+          "utf16Offset": 8014,
+          "line": 49,
+          "column": 1553,
+          "adapterRetainedRawSub": true,
+          "defuddleEvidence": "(CD <sub>3</sub>) <sub>2</sub> CO"
+        }
+      ],
+      "validators": {
+        "math": {
+          "valid": false,
+          "inlineMathCount": 46,
+          "displayMathCount": 0,
+          "issues": [
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 27,
+              "column": 418,
+              "delimiter": "$",
+              "context": "…ation of the *gem* -dimethyl motif to the bridging lactone could be carried out in one step (Pb(OAc)$_{4}$, I$_{2}$, 31%) or two steps (AgOAc, I$_{2}$, 51%; RuCl$_{3}$, NaIO$_{4}$, 79%). The formation…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 36,
+              "column": 67,
+              "delimiter": "$",
+              "context": "6F12FPXN (**28**) arose via Boger hydrofluorination (Fe$_{2}$ (ox)$_{3}$, Selectfluor, NaBH$_{4}$) in 40% yield (accompanying alkene reduction byproduct **26**) but confounded assignment due to an une…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 49,
+              "column": 1563,
+              "delimiter": "$",
+              "context": "…vent as an internal reference (CHCl$_{3}$ @ 7.26 ppm $^{1}H$ NMR, 77.16 ppm $^{13}C$ NMR; (CD$_{3}$)$_{2}$ CO @ 2.05 $^{1}H$ NMR, 206.26 $^{13}C$ NMR; CD$_{3}$OD @ 3.31 $^{1}H$ NMR, 49.00 $^{13}C$ NMR…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ],
+          "scientificFragments": {
+            "valid": false,
+            "counts": {
+              "isolatedSubscript": 3,
+              "isolatedSuperscript": 0,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": [
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 27,
+                "column": 418,
+                "delimiter": "$",
+                "context": "…ation of the *gem* -dimethyl motif to the bridging lactone could be carried out in one step (Pb(OAc)$_{4}$, I$_{2}$, 31%) or two steps (AgOAc, I$_{2}$, 51%; RuCl$_{3}$, NaIO$_{4}$, 79%). The formation…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 36,
+                "column": 67,
+                "delimiter": "$",
+                "context": "6F12FPXN (**28**) arose via Boger hydrofluorination (Fe$_{2}$ (ox)$_{3}$, Selectfluor, NaBH$_{4}$) in 40% yield (accompanying alkene reduction byproduct **26**) but confounded assignment due to an une…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 49,
+                "column": 1563,
+                "delimiter": "$",
+                "context": "…vent as an internal reference (CHCl$_{3}$ @ 7.26 ppm $^{1}H$ NMR, 77.16 ppm $^{13}C$ NMR; (CD$_{3}$)$_{2}$ CO @ 2.05 $^{1}H$ NMR, 206.26 $^{13}C$ NMR; CD$_{3}$OD @ 3.31 $^{1}H$ NMR, 49.00 $^{13}C$ NMR…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ]
+          },
+          "states": {
+            "TEXT": 17915,
+            "INLINE_MATH": 247,
+            "DISPLAY_MATH": 0,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "rawHtml": {
+          "valid": true,
+          "violations": []
+        },
+        "structure": {
+          "valid": true,
+          "citationStyle": "links",
+          "sections": {
+            "references": {
+              "headingCount": 1,
+              "itemCount": 37,
+              "anchorCount": 37,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "crossReferences": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "figure-1",
+            "figure-2",
+            "ref-1",
+            "ref-2",
+            "ref-3",
+            "ref-4",
+            "ref-5",
+            "ref-6",
+            "ref-7",
+            "ref-8",
+            "ref-9",
+            "ref-10",
+            "ref-11",
+            "ref-12",
+            "ref-13",
+            "ref-14",
+            "ref-15",
+            "ref-16",
+            "ref-17",
+            "ref-18",
+            "ref-19",
+            "ref-20",
+            "ref-21",
+            "ref-22",
+            "ref-23",
+            "ref-24",
+            "ref-25",
+            "ref-26",
+            "ref-27",
+            "ref-28",
+            "ref-29",
+            "ref-30",
+            "ref-31",
+            "ref-32",
+            "ref-33",
+            "ref-34",
+            "ref-35",
+            "ref-36",
+            "ref-37",
+            "c5-methylation-confers-accessibility-stability-and-selectivity-to-picrotoxinin",
+            "results",
+            "the-design-and-synthesis-of-picrotoxinin-analogs",
+            "methods",
+            "references"
+          ],
+          "links": [
+            {
+              "label": "2",
+              "target": "figure-1",
+              "category": "figure",
+              "index": 676
+            },
+            {
+              "label": "21",
+              "target": "ref-21",
+              "category": "reference",
+              "index": 1249
+            },
+            {
+              "label": "28",
+              "target": "ref-28",
+              "category": "reference",
+              "index": 1264
+            },
+            {
+              "label": "29",
+              "target": "ref-29",
+              "category": "reference",
+              "index": 1279
+            },
+            {
+              "label": "30",
+              "target": "ref-30",
+              "category": "reference",
+              "index": 1436
+            },
+            {
+              "label": "31",
+              "target": "ref-31",
+              "category": "reference",
+              "index": 1785
+            },
+            {
+              "label": "32",
+              "target": "ref-32",
+              "category": "reference",
+              "index": 2401
+            },
+            {
+              "label": "33",
+              "target": "ref-33",
+              "category": "reference",
+              "index": 2618
+            },
+            {
+              "label": "34",
+              "target": "ref-34",
+              "category": "reference",
+              "index": 2633
+            },
+            {
+              "label": "35",
+              "target": "ref-35",
+              "category": "reference",
+              "index": 2959
+            },
+            {
+              "label": "3",
+              "target": "figure-2",
+              "category": "figure",
+              "index": 4053
+            },
+            {
+              "label": "37",
+              "target": "ref-37",
+              "category": "reference",
+              "index": 4351
+            },
+            {
+              "label": "2b",
+              "target": "figure-1",
+              "category": "figure",
+              "index": 4577
+            }
+          ]
+        }
+      },
+      "warnings": [
+        "No equation nodes were detected."
+      ],
+      "figures": [
+        {
+          "id": "Fig2",
+          "label": "Figure 2",
+          "anchor": "figure-1"
+        },
+        {
+          "id": "Fig3",
+          "label": "Figure 3",
+          "anchor": "figure-2"
+        }
+      ],
+      "references": 37,
+      "citationClusters": [
+        [
+          21,
+          28,
+          29
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33,
+          34
+        ],
+        [
+          35
+        ],
+        [
+          37
+        ]
+      ]
+    },
+    {
+      "dialect": "quarto",
+      "result": {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/red-a5b6/quarto.result.json",
+        "bytes": 138602,
+        "sha256": "172e2373e3d36b658f87edfb037074406274dd66e4b7daf93850b6ae5c3386bd"
+      },
+      "markdown": {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/red-a5b6/quarto.md",
+        "bytes": 9454,
+        "sha256": "611804a19e0dd4690e19e56be6a19a74077ca82ec400d284004550224d257e37"
+      },
+      "positions": [
+        {
+          "role": "results-p2-Pb-OAc4",
+          "actual": "Pb(OAc)$_{4}$",
+          "utf8ByteOffset": 1098,
+          "utf16Offset": 1098,
+          "line": 26,
+          "column": 415,
+          "adapterRetainedRawSub": true,
+          "defuddleEvidence": "Pb(OAc) <sub>4</sub>"
+        },
+        {
+          "role": "results-p5-Fe2-ox3",
+          "actual": "Fe$_{2}$ (ox)$_{3}$",
+          "utf8ByteOffset": 4216,
+          "utf16Offset": 4204,
+          "line": 34,
+          "column": 54,
+          "adapterRetainedRawSub": true,
+          "defuddleEvidence": "Fe <sub>2</sub> (ox) <sub>3</sub>"
+        },
+        {
+          "role": "methods-p0-CD3-2CO",
+          "actual": "(CD$_{3}$)$_{2}$ CO",
+          "utf8ByteOffset": 8150,
+          "utf16Offset": 8105,
+          "line": 44,
+          "column": 1553,
+          "adapterRetainedRawSub": true,
+          "defuddleEvidence": "(CD <sub>3</sub>) <sub>2</sub> CO"
+        }
+      ],
+      "validators": {
+        "math": {
+          "valid": false,
+          "inlineMathCount": 46,
+          "displayMathCount": 0,
+          "issues": [
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 26,
+              "column": 422,
+              "delimiter": "$",
+              "context": "…ation of the *gem* -dimethyl motif to the bridging lactone could be carried out in one step (Pb(OAc)$_{4}$, I$_{2}$, 31%) or two steps (AgOAc, I$_{2}$, 51%; RuCl$_{3}$, NaIO$_{4}$, 79%). The formation…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 34,
+              "column": 67,
+              "delimiter": "$",
+              "context": "6F12FPXN (**28**) arose via Boger hydrofluorination (Fe$_{2}$ (ox)$_{3}$, Selectfluor, NaBH$_{4}$) in 40% yield (accompanying alkene reduction byproduct **26**) but confounded assignment due to an une…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            },
+            {
+              "type": "scientific-isolatedSubscript",
+              "line": 44,
+              "column": 1563,
+              "delimiter": "$",
+              "context": "…vent as an internal reference (CHCl$_{3}$ @ 7.26 ppm $^{1}H$ NMR, 77.16 ppm $^{13}C$ NMR; (CD$_{3}$)$_{2}$ CO @ 2.05 $^{1}H$ NMR, 206.26 $^{13}C$ NMR; CD$_{3}$OD @ 3.31 $^{1}H$ NMR, 49.00 $^{13}C$ NMR…",
+              "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+            }
+          ],
+          "scientificFragments": {
+            "valid": false,
+            "counts": {
+              "isolatedSubscript": 3,
+              "isolatedSuperscript": 0,
+              "boldThenSubscript": 0,
+              "italicThenSuperscript": 0
+            },
+            "issues": [
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 26,
+                "column": 422,
+                "delimiter": "$",
+                "context": "…ation of the *gem* -dimethyl motif to the bridging lactone could be carried out in one step (Pb(OAc)$_{4}$, I$_{2}$, 31%) or two steps (AgOAc, I$_{2}$, 51%; RuCl$_{3}$, NaIO$_{4}$, 79%). The formation…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 34,
+                "column": 67,
+                "delimiter": "$",
+                "context": "6F12FPXN (**28**) arose via Boger hydrofluorination (Fe$_{2}$ (ox)$_{3}$, Selectfluor, NaBH$_{4}$) in 40% yield (accompanying alkene reduction byproduct **26**) but confounded assignment due to an une…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              },
+              {
+                "type": "scientific-isolatedSubscript",
+                "line": 44,
+                "column": 1563,
+                "delimiter": "$",
+                "context": "…vent as an internal reference (CHCl$_{3}$ @ 7.26 ppm $^{1}H$ NMR, 77.16 ppm $^{13}C$ NMR; (CD$_{3}$)$_{2}$ CO @ 2.05 $^{1}H$ NMR, 206.26 $^{13}C$ NMR; CD$_{3}$OD @ 3.31 $^{1}H$ NMR, 49.00 $^{13}C$ NMR…",
+                "message": "An isolated subscript fragment survived instead of being reconstructed as a scientific run."
+              }
+            ]
+          },
+          "states": {
+            "TEXT": 9140,
+            "INLINE_MATH": 247,
+            "DISPLAY_MATH": 0,
+            "INLINE_CODE": 0,
+            "FENCED_CODE": 0
+          }
+        },
+        "rawHtml": {
+          "valid": true,
+          "violations": []
+        },
+        "structure": {
+          "valid": true,
+          "citationStyle": "quarto",
+          "sections": {
+            "references": {
+              "headingCount": 1,
+              "itemCount": 0,
+              "definitionCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            },
+            "tables": {
+              "headingCount": 0,
+              "itemCount": 0,
+              "tableCount": 0,
+              "anchorCount": 0,
+              "issues": []
+            }
+          },
+          "issues": []
+        },
+        "crossReferences": {
+          "valid": true,
+          "issues": [],
+          "targets": [
+            "sec-the-design-and-synthesis-of-picrotoxinin-analogs",
+            "fig-figure-1",
+            "fig-figure-2",
+            "sec-methods",
+            "refs",
+            "c5-methylation-confers-accessibility-stability-and-selectivity-to-picrotoxinin",
+            "results",
+            "the-design-and-synthesis-of-picrotoxinin-analogs",
+            "methods",
+            "references"
+          ],
+          "links": [
+            {
+              "label": "2",
+              "target": "fig-figure-1",
+              "category": "figure",
+              "index": 761
+            },
+            {
+              "label": "3",
+              "target": "fig-figure-2",
+              "category": "figure",
+              "index": 4129
+            },
+            {
+              "label": "2b",
+              "target": "fig-figure-1",
+              "category": "figure",
+              "index": 4658
+            }
+          ]
+        }
+      },
+      "warnings": [
+        "No equation nodes were detected."
+      ],
+      "figures": [
+        {
+          "id": "Fig2",
+          "label": "Figure 2",
+          "anchor": "figure-1"
+        },
+        {
+          "id": "Fig3",
+          "label": "Figure 3",
+          "anchor": "figure-2"
+        }
+      ],
+      "references": 37,
+      "citationClusters": [
+        [
+          21,
+          28,
+          29
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33,
+          34
+        ],
+        [
+          35
+        ],
+        [
+          37
+        ]
+      ]
+    }
+  ],
+  "networkLedger": {
+    "attempts": [],
+    "writerProof": "Static clipNature returns data without invoking writePaper; no writer spy claimed.",
+    "evidence": {
+      "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/red-a5b6/network-ledger.json",
+      "bytes": 124,
+      "sha256": "38f726f4b3895d4c6d8bc4ae526aae1052a4f15ba568e58829f92db971cfb868"
+    }
+  },
+  "reproduction": {
+    "command": "node --test test/nature-chemical-group-index.test.mjs",
+    "environment": "Windows, Node v24.14.1; original actual run used CHEMICAL_GROUP_RECEIPT_ROOT to save three results, one clip per dialect",
+    "original": {
+      "exit": 1,
+      "tests": 18,
+      "pass": 2,
+      "fail": 16,
+      "durationMs": 1543.39,
+      "log": {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/red-a5b6.log",
+        "bytes": 24872,
+        "sha256": "8bf70c77650bf6df76c2200dd5c192a3706096df69b87558a41fd2d9bf42b300"
+      }
+    },
+    "harnessCorrection": {
+      "command": "CHEMICAL_GROUP_CACHE_ROOT=<red-a5b6> node --test test/nature-chemical-group-index.test.mjs",
+      "exit": 1,
+      "tests": 18,
+      "pass": 6,
+      "fail": 12,
+      "durationMs": 768.2255,
+      "log": {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/red-cached-harness-corrected.log",
+        "bytes": 20881,
+        "sha256": "c660c9f2ea2b6ed3c02c7a2778cbbbcd56a6905d848a86f650f3a79a2e3e025a"
+      },
+      "sourceInputChanged": false,
+      "newClips": 0,
+      "explanation": "Initial source test omitted retained Supplementary h2/h3; restrict original identified heading audit and separately retain/check full supplement item. Initial Fe paragraph locator included source bold compound28 flattened in source text, replaced by stable literal original opening6F12FPXN. Three ordinary-output tests consequently stopped early; corrected cached run proves them PASS. All three Fe role failures are now genuine missing attachment instead of original context-location harness errors. Preserve original failure record."
+    },
+    "trueFailures": "9 source attachment cases (three roles x three dialects) and3 strict math validators",
+    "passed": "Source provenance/topology once, ordinary chemistry/isotope values/citation/resource checks in allthree dialects, two explicitly synthetic compatibility tests",
+    "finalCached": {
+      "command": "CHEMICAL_GROUP_CACHE_ROOT=<red-a5b6> node --test test/nature-chemical-group-index.test.mjs",
+      "exit": 1,
+      "tests": 18,
+      "pass": 6,
+      "fail": 12,
+      "durationMs": 776.1531,
+      "newClips": 0,
+      "log": {
+        "path": "C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue10-chemical-group-index/red-cached-final.log",
+        "bytes": 20880,
+        "sha256": "9cca741268a9149942ab2f20cbd604f76e00af761fce5849742dc44aee650d26"
+      },
+      "reason": "Final oracle additionally constrains outside element/prefix and CO suffix once the group attachment itself is valid; original baseline still fails at missing attachment. No source modification."
+    }
+  },
+  "scope": {
+    "productionClips": 3,
+    "newFullCorpusRuns": 0,
+    "newNetwork": 0,
+    "newRawAcquisitions": 0,
+    "postDiagnosisClips": 0,
+    "sourceProjection": "65 blocks via unchanged A1.1; repeat and idempotence producer assertions passed",
+    "sourceIndependentAudit": "PENDING: different owner must audit exact65-block newprojection; prior B audit is reused but does not replace this",
+    "notRun": [
+      "Production fix",
+      "affected/full tests",
+      "build",
+      "golden",
+      "deliveryPR/CI"
+    ]
+  },
+  "workContract": 74
+}
