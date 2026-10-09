@@ -809,6 +809,13 @@ function collectParenthesizedChemicalGroupRun(parent, startIndex) {
   const text = parts.map(part => part.value).join('');
   const match = text.match(new RegExp(`(${atom})?\\((${atom}|[a-z]{1,2})\\)$`, 'u'));
   if (!match) return null;
+  // A punctuation edge is not an independent group when it is inside an
+  // element/count-led enclosing parenthesis. Ordinary prose "(Pb..." still
+  // qualifies; only the original adjacent text/native counts prove nesting.
+  if (/[\p{L}\p{N}\p{M}_\0]\(+$/u.test(text.slice(0, match.index))) return null;
+  const following = count.nextSibling;
+  if (following?.nodeType === 3 && /^(?:[A-Z][a-z]?)*\)+$/u.test(following.textContent)
+    && plainCount(following.nextSibling)) return null;
   // A short lowercase ligand requires an element-led native atom count in
   // the same prefix; plain words and an unqualified ligand have no such role.
   if (/^[a-z]+$/u.test(match[2]) && !/\0[1-9]\d*\0$/u.test(match[1] || '')) return null;

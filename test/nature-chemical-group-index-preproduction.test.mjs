@@ -8,8 +8,9 @@ import {after, test} from 'node:test';
 import {pathToFileURL} from 'node:url';
 
 const scope = process.env.CHEMICAL_GROUP_SYNTHETIC_SCOPE || 'all';
-assert.ok(['all', 'review-tail'].includes(scope), 'Explicit synthetic scope');
+assert.ok(['all', 'review-tail', 'nested-review'].includes(scope), 'Explicit synthetic scope');
 const tailOnly = scope === 'review-tail';
+const nestedOnly = scope === 'nested-review';
 
 const attempts = [];
 const original = {fetch: globalThis.fetch, lookup: dns.lookup, promiseLookup: dnsPromises.lookup};
@@ -60,7 +61,18 @@ const formula = {
   cd2: '(\\mathrm{CD}_{3})_{2}\\mathrm{CO}', ch4: '(\\mathrm{CH}_{3})_{4}\\mathrm{CO}',
   oh2: '\\mathrm{Ca}(\\mathrm{OH})_{2}',
 };
-const positive = tailOnly ? [] : [
+const nestedPositive = [
+  ['ordinary prose parenthesis before Pb is a boundary', '(Pb(OAc)<sub>4</sub>, 1.2 equivalents)', formula.pb4],
+  ['ordinary prose parenthesis before Fe is a boundary', '(Fe<sub>2</sub>(ox)<sub>3</sub>, 1.2 equivalents)', formula.fe3],
+];
+const nestedNegative = [
+  ['element-led enclosing group with native outer count', 'Ca(Pb(OAc)<sub>4</sub>)<sub>2</sub>'],
+  ['element-led enclosing group without outer count', 'Ca(Pb(OAc)<sub>4</sub>)'],
+  ['native prefix atom count cannot authorize nested inner group', 'Ca<sub>2</sub>(Pb(OAc)<sub>4</sub>)<sub>2</sub>'],
+  ['counted enclosing group without an element prefix', '(Pb(OAc)<sub>4</sub>)<sub>2</sub>'],
+  ['whole suffix before enclosing group count', '((CD<sub>3</sub>)<sub>2</sub>CO)<sub>4</sub>'],
+];
+const positive = tailOnly ? [] : nestedOnly ? nestedPositive : [
   ['source-shaped Pb whole group', 'Pb(OAc)<sub>4</sub>', formula.pb4],
   ['source-shaped Fe inner and outer counts', 'Fe<sub>2</sub>(ox)<sub>3</sub>', formula.fe3],
   ['source-shaped CD inner count and outside CO', '(CD<sub>3</sub>)<sub>2</sub>CO', formula.cd2],
@@ -68,6 +80,7 @@ const positive = tailOnly ? [] : [
   ['same inner and outer 2 remain two owners', 'Fe<sub>2</sub>(ox)<sub>2</sub>', formula.fe2],
   ['native inner 3 and outer 4 remain two owners', '(CH<sub>3</sub>)<sub>4</sub>CO', formula.ch4],
   ['element token family without article identity', 'Ca(OH)<sub>2</sub>', formula.oh2],
+  ...nestedPositive,
 ];
 const reviewTailNegative = [
   ['short ligand needs original prefix atom SUB', 'Fe(ox)<sub>3</sub>'],
@@ -82,7 +95,7 @@ const reviewTailNegative = [
   ['extra native SUP has no authorized owner', 'Pb(OAc)<sub>4</sub><sup>2</sup>'],
   ['untyped right anchor is not an independent citation', 'Pb(OAc)<sub>4</sub><a href="#unknown">x</a>'],
 ];
-const negative = tailOnly ? reviewTailNegative : [
+const negative = tailOnly ? reviewTailNegative : nestedOnly ? nestedNegative : [
   ['unknown word', 'unknown(word)<sub>4</sub>'],
   ['element prefix cannot authorize a long unknown word', 'Ca(word)<sub>4</sub>'],
   ['numeric parentheses belong to a separate contract', '(2)<sub>4</sub>'],
@@ -95,8 +108,9 @@ const negative = tailOnly ? reviewTailNegative : [
   ['literal code across siblings', '`Pb(OAc)<sub>4</sub>`'],
   ['typed reference child cannot become a numeric SUB', 'Pb(OAc)<sub><a data-test="citation-ref" href="#ref-CR1">1</a></sub>'],
   ...reviewTailNegative,
+  ...nestedNegative,
 ];
-if (!tailOnly) for (const [kind, value] of [['letter','x'], ['number','9'], ['mark','\u0301'], ['underscore','_'], ['astral letter','\u{10400}']]) {
+if (!tailOnly && !nestedOnly) for (const [kind, value] of [['letter','x'], ['number','9'], ['mark','\u0301'], ['underscore','_'], ['astral letter','\u{10400}']]) {
   negative.push([`${kind} prefix and suffix boundaries`, `${value}Pb(OAc)<sub>4</sub>; Pb(OAc)<sub>4</sub>${value}`]);
 }
 
@@ -127,7 +141,7 @@ for (const [name, html, tex] of positive) test(`synthetic positive: ${name}`, ()
 for (const [name, html, expected = []] of negative) test(`synthetic exclusion: ${name}`, () => observe(name, `<p>${html}</p>`, expected, page => {
   if (name.startsWith('typed reference')) assert.deepEqual(page.semantic.citations.map(c => c.numbers), [[1]]);
 }));
-if (!tailOnly) {
+if (!tailOnly && !nestedOnly) {
 test('synthetic native MathML integration point keeps its math ancestor', () => observe('native MathML ancestor',
   '<math><mtext><p id="math-integration">Pb(OAc)<sub>4</sub></p></mtext></math>', [], page => {
     const paragraph = page.document.querySelector('#math-integration');
