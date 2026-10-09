@@ -1,6 +1,6 @@
 # Issue #75 — 完整数值括号平方：focused production 交接
 
-当前状态：FOCUSED_GREEN_CLOSED_PREFIX_DELTA_REVIEW_PENDING。第二次审查指出同一 P2 的已闭合前置 group 缺口；仅新增一条回归先 RED，原 text 括号深度资格修正后 source15/current50/nesting8 实际一次 73/73 PASS。文末记录当前代码及闭合证据；原65、72和两份CHANGES_REQUIRED审查均保留。尚无 IMPLEMENTATION_CLEAR，affected/full/build/golden/PR/CI等待root释放，不声明 #75、完整 FRB 或 Issue #10 完成。
+当前状态：BROADER_GREEN_FINAL_PUBLICATION_REVIEW_AND_CI_PENDING。独立 implementation/DOC_ONLY 审查零finding后，root释放一次 affected/full/build/read-onlygolden，全部通过。最后两DOC提交不会改变已验生产/tests/fixtures。原65、72、73与RED及CHANGES_REQUIRED记录保留；fresh PR CI/Secrets、不同作者finalhead审查、root十gates及merged Main acceptance待执行，不声明 #75、完整 FRB 或 Issue #10 完成。
 
 ## 契约、基线与提交
 
@@ -129,3 +129,24 @@ Code commit dc05eaeb794cd8a65cb86912d47a63a6c10ac959 / tree b8b154bbdaca9b044193
 | p2-closed-prefix-green/nesting-results.json | 2956 | 51905bc889066320fd47ce80200f3e8693be0bdfffe803ac93be5ec4ec2b61ab |
 
 DOC_ONLY仅这两production交接文件；code dc05保持。下一步同一reviewer只对有限资格尾修/一条case/闭合73回执增量复审；clear之前不执行broader或建立PR。其后required affected/full/build/golden、single Refs #75 PR、fresh三平台CI/Secrets、immutablehead审查、root十gates及successfulmergedMain仍必需。C的完整FRB与最终Issue10联合验收仍待对应accepted-main，不以本packet声明完成。没有spec change。
+
+## 正式 broader 一次执行与最终发布交接
+
+Different-owner code dc05 IMPLEMENTATION_CLEAR与exact31382912101d8f41258994bbb25ca9f1a6ca7cd3 / tree d8d1f547b33ac854ba321521968146951e774043 的 IMPLEMENTATION_CLEAR_DOC_DELTA_CLEAR均 blockingFindings0。Human implementation5900 / SHA 4017a65fc30a8055cef21f5d7cc72e3df8237c28b2a05f496875e7aa605063bb；machine39980 / SHA e5562e176667e52c1be16fd80ed8efb80109f3a9259d66affb3f4fe57dd07c6d；DOC delta身份见JSON broader.reviewArtifacts。Root全文回读后正式释放下面一次序列。
+
+外部根 C:/Users/guoli/AppData/Local/Temp/academic-clipper-issue75-broader-dc05eae。WrapperPID46672，execsession38357，Windows/Nodev24.14.1。精确clean313829为全部检查head，production仍dc05；299项tracked src/tests/extension/scripts/golden/package-lock输入每tier前后以及finalpackaging时bytes/SHA完全相同。Golden9文件没有改动，dist构建保持ignored。
+
+| Check | Actual result | Native PID | UTC start → finish |
+| --- | --- | --- | --- |
+| affected | 1029/1029 PASS, 15108.3441ms | 23372 | 2026-10-09T02:19:57.693Z → 2026-10-09T02:20:12.897Z |
+| full | 1439/1439 PASS, 96078.1574ms | 12164 | 2026-10-09T02:20:12.927Z → 2026-10-09T02:21:49.297Z |
+| build | exit0 | 52352 | 2026-10-09T02:21:49.326Z → 2026-10-09T02:21:49.598Z |
+| golden | exit0 | 39748 | 2026-10-09T02:21:49.626Z → 2026-10-09T02:21:49.911Z |
+
+Affected命令为node --test加38个有限相关文件，完整argv在receipt；排除own parenthesized suites，避免额外重跑73与pure80。Canonical full命令严格npm test，自然执行全部own source/current50/nesting8与pure80，不能把required全量中的这些执行虚称零。随后npm run build、npm run validate:paper -- --file ./papers/s41586-026-10401-1/index.md --citation-style auto全部exit0。两测试tier均0fail/skip/cancel/todo；没有npm ci或dependency升级、额外focused/probe/source48/raw/A/recipeaudit。
+
+Full运行保存原source3真实clips，wholebatch后close3articlewindows、sourceDOM2close2，11bindings/10DOM复原，attempts=[]；old50有49parse49close，原3binding范围；nesting8有8parse8close、11bindings/10DOM复原。原科学/三方言/fourvalidators/mixed/citations保护实际执行全部GREEN，六savedsourceoutputs与73focused逐字节相同。Writer无调用仍为静态clipNature路径证据，不宣称fullsuite全局network/writer spy。
+
+每个native process都onclose保存exit/signal/logbytes/hash及inputpre/post，one sequential runner成功terminal为BROADER_PASS；没有超时重启/重试。Machine production receipt追加broader与当前未运行门槛，不覆盖firstCandidate/p2Revision/closedPrefixRevision；原313829两DOC外部保留。当前receipt376104 bytes / SHA 7235bd461d47f3dcf462c44c8fd2d940c8318d3934717796d53130daac3fbaae。所有日志、完整outputs、runner仅外部，DOC_ONLY只改变这两个production交接文件。
+
+发布一份独立 prerequisite PR，仅精确 standalone Refs #75，base为最新accepted5c5556499e4ce2755d61e4608a87c72da6677da4。Final DOCcommit SHA/tree由root/PR真实Git回读，不制造自引用；PR head在push后固定。当前不授权merge：fresh三平台PR CI与Secrets成功、不同作者final immutablehead审查、root十项matchheadgates仍必需。Merge仅接纳代码，successfulmergedMain与automation完成#75；C随后对fullB FRB及最终Issue10做独立accepted-main增量验收。本PR不完成Issue10，最终Issue10 PR仍保留humanreview/unmerged。无spec/PRD/EDD变化或human-only blocker。
